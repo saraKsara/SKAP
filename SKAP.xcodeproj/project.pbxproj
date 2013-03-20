@@ -17,7 +17,13 @@
 		CE5944A716F90DC800D9D33A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5944A616F90DC800D9D33A /* Default@2x.png */; };
 		CE5944A916F90DC800D9D33A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5944A816F90DC800D9D33A /* Default-568h@2x.png */; };
 		CE5944AC16F90DC800D9D33A /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE5944AA16F90DC800D9D33A /* MainStoryboard.storyboard */; };
-		CE5944AF16F90DC800D9D33A /* SLKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5944AE16F90DC800D9D33A /* SLKViewController.m */; };
+		CE5944B716F90DDF00D9D33A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE5944B516F90DDF00D9D33A /* Model.xcdatamodeld */; };
+		CE5944BA16F90EAC00D9D33A /* Baby.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5944B916F90EAC00D9D33A /* Baby.m */; };
+		CE5944BE16F90EFA00D9D33A /* SLKBabyStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5944BD16F90EFA00D9D33A /* SLKBabyStorage.m */; };
+		CE5944C216F90F4600D9D33A /* SLKCoreDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5944C116F90F4600D9D33A /* SLKCoreDataService.m */; };
+		CE5944D016F9A67200D9D33A /* SLKMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5944CF16F9A67200D9D33A /* SLKMainViewController.m */; };
+		CE5944D416F9A79800D9D33A /* SLKFoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5944D316F9A79800D9D33A /* SLKFoodViewController.m */; };
+		CE5944D716F9A7B700D9D33A /* SLKPiiPooViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5944D616F9A7B700D9D33A /* SLKPiiPooViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +41,19 @@
 		CE5944A616F90DC800D9D33A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		CE5944A816F90DC800D9D33A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		CE5944AB16F90DC800D9D33A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		CE5944AD16F90DC800D9D33A /* SLKViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLKViewController.h; sourceTree = "<group>"; };
-		CE5944AE16F90DC800D9D33A /* SLKViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLKViewController.m; sourceTree = "<group>"; };
+		CE5944B616F90DDF00D9D33A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		CE5944B816F90EAC00D9D33A /* Baby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baby.h; sourceTree = "<group>"; };
+		CE5944B916F90EAC00D9D33A /* Baby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Baby.m; sourceTree = "<group>"; };
+		CE5944BC16F90EFA00D9D33A /* SLKBabyStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKBabyStorage.h; sourceTree = "<group>"; };
+		CE5944BD16F90EFA00D9D33A /* SLKBabyStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKBabyStorage.m; sourceTree = "<group>"; };
+		CE5944C016F90F4600D9D33A /* SLKCoreDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKCoreDataService.h; sourceTree = "<group>"; };
+		CE5944C116F90F4600D9D33A /* SLKCoreDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKCoreDataService.m; sourceTree = "<group>"; };
+		CE5944CE16F9A67200D9D33A /* SLKMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKMainViewController.h; sourceTree = "<group>"; };
+		CE5944CF16F9A67200D9D33A /* SLKMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKMainViewController.m; sourceTree = "<group>"; };
+		CE5944D216F9A79800D9D33A /* SLKFoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKFoodViewController.h; sourceTree = "<group>"; };
+		CE5944D316F9A79800D9D33A /* SLKFoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKFoodViewController.m; sourceTree = "<group>"; };
+		CE5944D516F9A7B700D9D33A /* SLKPiiPooViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKPiiPooViewController.h; sourceTree = "<group>"; };
+		CE5944D616F9A7B700D9D33A /* SLKPiiPooViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPiiPooViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +73,9 @@
 		CE59448316F90DC800D9D33A = {
 			isa = PBXGroup;
 			children = (
+				CE5944D116F9A6B900D9D33A /* ViewController */,
+				CE5944B516F90DDF00D9D33A /* Model.xcdatamodeld */,
+				CE5944BB16F90EB800D9D33A /* Model */,
 				CE59449816F90DC800D9D33A /* SKAP */,
 				CE59449116F90DC800D9D33A /* Frameworks */,
 				CE59448F16F90DC800D9D33A /* Products */,
@@ -86,8 +106,6 @@
 				CE5944A116F90DC800D9D33A /* SLKAppDelegate.h */,
 				CE5944A216F90DC800D9D33A /* SLKAppDelegate.m */,
 				CE5944AA16F90DC800D9D33A /* MainStoryboard.storyboard */,
-				CE5944AD16F90DC800D9D33A /* SLKViewController.h */,
-				CE5944AE16F90DC800D9D33A /* SLKViewController.m */,
 				CE59449916F90DC800D9D33A /* Supporting Files */,
 			);
 			path = SKAP;
@@ -105,6 +123,40 @@
 				CE5944A816F90DC800D9D33A /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CE5944BB16F90EB800D9D33A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE5944B816F90EAC00D9D33A /* Baby.h */,
+				CE5944B916F90EAC00D9D33A /* Baby.m */,
+				CE5944BF16F90F0200D9D33A /* Storage */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		CE5944BF16F90F0200D9D33A /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				CE5944BC16F90EFA00D9D33A /* SLKBabyStorage.h */,
+				CE5944BD16F90EFA00D9D33A /* SLKBabyStorage.m */,
+				CE5944C016F90F4600D9D33A /* SLKCoreDataService.h */,
+				CE5944C116F90F4600D9D33A /* SLKCoreDataService.m */,
+			);
+			name = Storage;
+			sourceTree = "<group>";
+		};
+		CE5944D116F9A6B900D9D33A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CE5944CE16F9A67200D9D33A /* SLKMainViewController.h */,
+				CE5944CF16F9A67200D9D33A /* SLKMainViewController.m */,
+				CE5944D216F9A79800D9D33A /* SLKFoodViewController.h */,
+				CE5944D316F9A79800D9D33A /* SLKFoodViewController.m */,
+				CE5944D516F9A7B700D9D33A /* SLKPiiPooViewController.h */,
+				CE5944D616F9A7B700D9D33A /* SLKPiiPooViewController.m */,
+			);
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,7 +228,13 @@
 			files = (
 				CE59449F16F90DC800D9D33A /* main.m in Sources */,
 				CE5944A316F90DC800D9D33A /* SLKAppDelegate.m in Sources */,
-				CE5944AF16F90DC800D9D33A /* SLKViewController.m in Sources */,
+				CE5944B716F90DDF00D9D33A /* Model.xcdatamodeld in Sources */,
+				CE5944BA16F90EAC00D9D33A /* Baby.m in Sources */,
+				CE5944BE16F90EFA00D9D33A /* SLKBabyStorage.m in Sources */,
+				CE5944C216F90F4600D9D33A /* SLKCoreDataService.m in Sources */,
+				CE5944D016F9A67200D9D33A /* SLKMainViewController.m in Sources */,
+				CE5944D416F9A79800D9D33A /* SLKFoodViewController.m in Sources */,
+				CE5944D716F9A7B700D9D33A /* SLKPiiPooViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +352,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CE5944B516F90DDF00D9D33A /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CE5944B616F90DDF00D9D33A /* Model.xcdatamodel */,
+			);
+			currentVersion = CE5944B616F90DDF00D9D33A /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CE59448516F90DC800D9D33A /* Project object */;
 }

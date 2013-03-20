@@ -1,0 +1,26 @@
+//
+//  SLKBabyStorage.h
+//  SKAP
+//
+//  Created by Student vid Yrkeshögskola C3L on 3/19/13.
+//  Copyright (c) 2013 Student vid Yrkeshögskola C3L. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+@class Baby;
+@interface SLKBabyStorage : NSObject
+
++(SLKBabyStorage*) sharedStorage;
+
+-(Baby*)createBabyWithName:(NSNumber*)pii poo:(NSNumber*)poo feedTimespan:(NSNumber*)feedTimespan bottle:(NSNumber*)bottle breast:(NSNumber*)breast date:(NSDate*)date;
+
+
+-(void)removeBaby:(Baby*)baby;
+
+-(NSArray*)babyArray;
+
+
+
+
+
+@end
