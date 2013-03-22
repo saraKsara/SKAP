@@ -10,12 +10,16 @@
 #import "SLKBabyStorage.h"
 #import "Baby.h"
 #import "SLKJSONService.h"
+#import "SLKBabyCell.h"
+#import "SLKPopOverViewController.h"
 @interface SLKBabyListTableViewController ()
 
 @end
 
 @implementation SLKBabyListTableViewController
-
+{
+    UIView *aNewBabyPopover;
+}
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -28,7 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+ 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -90,18 +94,59 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
-    return [[[SLKBabyStorage sharedStorage] babyArray] count];
+    if (section == 0)   return [[[SLKBabyStorage sharedStorage] babyArray] count];
+    
+     else  return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"babyListCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    SLKBabyCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+
     
-    // Configure the cell...
+    if (indexPath.section == 0)
+    {
+       cell.babyNameLabel.text =@"bäbis som finns";
+        
+                   return cell;
+    } else if (indexPath.section == 1)
+    {
+        [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
+        [cell.babyNameLabel setTextColor:[UIColor blackColor]];
+        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+         cell.babyNameLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:23.0f];
+        cell.babyNameLabel.text =@"Add a new baby";
+        
+        return cell;
+    }
+   
+}
+
+#pragma mark - Table view delegate
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 1)
+    {
+        
+        CGRect arect = [tableView rectForRowAtIndexPath:indexPath];
+        
     
-    return cell;
+        // Create a new ImageViewController and set its image
+//        ImageViewController *ivc = [[ImageViewController alloc] init];
+//        [ivc setImage:img];
+        SLKPopOverViewController *popOverView = [[SLKPopOverViewController alloc] init];
+        
+        _popover = [[UIPopoverController alloc] initWithContentViewController:popOverView];
+        [_popover setDelegate:self];
+        [_popover setPopoverContentSize:CGSizeMake(300, 200)];
+        
+        [_popover presentPopoverFromRect:arect
+                                      inView:[self view]
+                    permittedArrowDirections:UIPopoverArrowDirectionAny
+                                    animated:YES];
+        
+    }
 }
 
 /*
@@ -125,7 +170,7 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -143,17 +188,8 @@
 }
 */
 
-#pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-}
+
+
 
 @end

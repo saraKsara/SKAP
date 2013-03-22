@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SLKBabyListTableViewController : UITableViewController
-
+@interface SLKBabyListTableViewController : UITableViewController <UIPopoverControllerDelegate>
+@property (retain, nonatomic) UIPopoverController* popover;
 @end

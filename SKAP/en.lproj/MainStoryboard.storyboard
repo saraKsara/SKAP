@@ -87,7 +87,7 @@
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlc-is-8iw">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="82" id="9R5-pT-cID"/>
+                                                <constraint firstAttribute="width" constant="258" id="eGh-Ku-JPd"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -193,36 +193,6 @@
             <point key="canvasLocation" x="-174" y="1127"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SLKBabyCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKBabyCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="babyNameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="SLKBabyListTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKBabyListTableViewController.h"/>
-        </class>
-        <class className="SLKFoodViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKFoodViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="sliderOneValueChanged:"/>
-                <relationship kind="outlet" name="anotherFoodLable" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="foodLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="foodSliderOne" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="foodSliderTwo" candidateClass="UISlider"/>
-            </relationships>
-        </class>
-        <class className="SLKMainViewController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKMainViewController.h"/>
-        </class>
-        <class className="SLKPiiPooViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKPiiPooViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
