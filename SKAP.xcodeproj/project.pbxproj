@@ -13,6 +13,8 @@
 		1C5BFC8316FCD81300D1B238 /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC7F16FCD81300D1B238 /* FPPopoverController.m */; };
 		1C5BFC8416FCD81300D1B238 /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC8116FCD81300D1B238 /* FPPopoverView.m */; };
 		1C5BFC8516FCD81300D1B238 /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC8116FCD81300D1B238 /* FPPopoverView.m */; };
+		1C5BFC8816FCDBF200D1B238 /* SLKBabyPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC8716FCDBF200D1B238 /* SLKBabyPopViewController.m */; };
+		1C5BFC8916FCDBF200D1B238 /* SLKBabyPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC8716FCDBF200D1B238 /* SLKBabyPopViewController.m */; };
 		1C5C550016FC6F09009E3646 /* Baby.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C54FF16FC6F09009E3646 /* Baby.m */; };
 		1C91DD5916FC4EBB00921C59 /* SLKJSONService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DD5816FC4EBB00921C59 /* SLKJSONService.m */; };
 		1C91DDD816FC4F3F00921C59 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DDC616FC4F3F00921C59 /* AFHTTPClient.m */; };
@@ -33,8 +35,6 @@
 		1CA7F8E116FC8B74008BB1BF /* SKAPUnitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7F8E016FC8B74008BB1BF /* SKAPUnitTest.m */; };
 		1CA7F8F016FCA2FC008BB1BF /* SLKBabyListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7F8EF16FCA2FC008BB1BF /* SLKBabyListTableViewController.m */; };
 		1CA7F8F316FCA47E008BB1BF /* SLKBabyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7F8F216FCA47E008BB1BF /* SLKBabyCell.m */; };
-		1CA7F8F716FCB2ED008BB1BF /* SLKPopOverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7F8F516FCB2ED008BB1BF /* SLKPopOverViewController.m */; };
-		1CA7F8F816FCB2ED008BB1BF /* SLKPopOverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CA7F8F616FCB2ED008BB1BF /* SLKPopOverViewController.xib */; };
 		1CA7F90516FCBBF3008BB1BF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA7F90416FCBBF3008BB1BF /* QuartzCore.framework */; };
 		1CA7F90616FCBC04008BB1BF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449616F90DC800D9D33A /* CoreGraphics.framework */; };
 		CE59449316F90DC800D9D33A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449216F90DC800D9D33A /* UIKit.framework */; };
@@ -73,6 +73,8 @@
 		1C5BFC7F16FCD81300D1B238 /* FPPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverController.m; sourceTree = "<group>"; };
 		1C5BFC8016FCD81300D1B238 /* FPPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverView.h; sourceTree = "<group>"; };
 		1C5BFC8116FCD81300D1B238 /* FPPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverView.m; sourceTree = "<group>"; };
+		1C5BFC8616FCDBF200D1B238 /* SLKBabyPopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKBabyPopViewController.h; sourceTree = "<group>"; };
+		1C5BFC8716FCDBF200D1B238 /* SLKBabyPopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKBabyPopViewController.m; sourceTree = "<group>"; };
 		1C5C54FE16FC6F09009E3646 /* Baby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baby.h; sourceTree = "<group>"; };
 		1C5C54FF16FC6F09009E3646 /* Baby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Baby.m; sourceTree = "<group>"; };
 		1C91DD5716FC4EBB00921C59 /* SLKJSONService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKJSONService.h; sourceTree = "<group>"; };
@@ -110,9 +112,6 @@
 		1CA7F8EF16FCA2FC008BB1BF /* SLKBabyListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKBabyListTableViewController.m; sourceTree = "<group>"; };
 		1CA7F8F116FCA47E008BB1BF /* SLKBabyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKBabyCell.h; sourceTree = "<group>"; };
 		1CA7F8F216FCA47E008BB1BF /* SLKBabyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKBabyCell.m; sourceTree = "<group>"; };
-		1CA7F8F416FCB2ED008BB1BF /* SLKPopOverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKPopOverViewController.h; sourceTree = "<group>"; };
-		1CA7F8F516FCB2ED008BB1BF /* SLKPopOverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPopOverViewController.m; sourceTree = "<group>"; };
-		1CA7F8F616FCB2ED008BB1BF /* SLKPopOverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLKPopOverViewController.xib; sourceTree = "<group>"; };
 		1CA7F90416FCBBF3008BB1BF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CE59448E16F90DC800D9D33A /* SKAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE59449216F90DC800D9D33A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -345,9 +344,8 @@
 				1CA7F8EF16FCA2FC008BB1BF /* SLKBabyListTableViewController.m */,
 				1CA7F8F116FCA47E008BB1BF /* SLKBabyCell.h */,
 				1CA7F8F216FCA47E008BB1BF /* SLKBabyCell.m */,
-				1CA7F8F416FCB2ED008BB1BF /* SLKPopOverViewController.h */,
-				1CA7F8F516FCB2ED008BB1BF /* SLKPopOverViewController.m */,
-				1CA7F8F616FCB2ED008BB1BF /* SLKPopOverViewController.xib */,
+				1C5BFC8616FCDBF200D1B238 /* SLKBabyPopViewController.h */,
+				1C5BFC8716FCDBF200D1B238 /* SLKBabyPopViewController.m */,
 			);
 			name = ViewController;
 			path = ..;
@@ -438,7 +436,6 @@
 				CE5944A716F90DC800D9D33A /* Default@2x.png in Resources */,
 				CE5944A916F90DC800D9D33A /* Default-568h@2x.png in Resources */,
 				CE5944AC16F90DC800D9D33A /* MainStoryboard.storyboard in Resources */,
-				1CA7F8F816FCB2ED008BB1BF /* SLKPopOverViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +466,7 @@
 				1C5BFC7C16FCD75300D1B238 /* FPTouchView.m in Sources */,
 				1C5BFC8316FCD81300D1B238 /* FPPopoverController.m in Sources */,
 				1C5BFC8516FCD81300D1B238 /* FPPopoverView.m in Sources */,
+				1C5BFC8916FCDBF200D1B238 /* SLKBabyPopViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,10 +496,10 @@
 				1C5C550016FC6F09009E3646 /* Baby.m in Sources */,
 				1CA7F8F016FCA2FC008BB1BF /* SLKBabyListTableViewController.m in Sources */,
 				1CA7F8F316FCA47E008BB1BF /* SLKBabyCell.m in Sources */,
-				1CA7F8F716FCB2ED008BB1BF /* SLKPopOverViewController.m in Sources */,
 				1C5BFC7B16FCD75300D1B238 /* FPTouchView.m in Sources */,
 				1C5BFC8216FCD81300D1B238 /* FPPopoverController.m in Sources */,
 				1C5BFC8416FCD81300D1B238 /* FPPopoverView.m in Sources */,
+				1C5BFC8816FCDBF200D1B238 /* SLKBabyPopViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,11 +11,11 @@
 #import "Baby.h"
 #import "SLKJSONService.h"
 #import "SLKBabyCell.h"
-#import "SLKPopOverViewController.h"
 #import "FPPopoverController.h"
 #import "FPTouchView.h"
 #import "FPPopoverView.h"
 #import "ARCMacros.h"
+#import "SLKBabyPopViewController.h"
 
 @interface SLKBabyListTableViewController ()
 
@@ -158,7 +158,7 @@
     if (indexPath.section == 1)
     {
         //the controller we want to present as a popover
-        SLKPopOverViewController *controller = [[SLKPopOverViewController alloc] init];
+        SLKBabyPopViewController *controller = [[SLKBabyPopViewController alloc] init];
         
         //our popover
         FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:controller];

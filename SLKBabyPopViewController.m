@@ -1,18 +1,18 @@
 //
-//  SLKPopOverViewController.m
+//  SLKBabyPopViewController.m
 //  SKAP
 //
 //  Created by Åsa Persson on 2013-03-22.
 //  Copyright (c) 2013 Student vid Yrkeshögskola C3L. All rights reserved.
 //
 
-#import "SLKPopOverViewController.h"
+#import "SLKBabyPopViewController.h"
 
-@interface SLKPopOverViewController ()
+@interface SLKBabyPopViewController ()
 
 @end
 
-@implementation SLKPopOverViewController
+@implementation SLKBabyPopViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,7 +26,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+	UILabel *anewBabuLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 50, 20)];
+    anewBabuLabel.text = @"EN NY";
+    [self.view addSubview:anewBabuLabel];
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,6 +38,4 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)addBaby:(id)sender {
-}
 @end
