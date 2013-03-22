@@ -17,6 +17,7 @@
 		1C91DDDE16FC4F3F00921C59 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DDD316FC4F3F00921C59 /* AFURLConnectionOperation.m */; };
 		1C91DDDF16FC4F3F00921C59 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DDD516FC4F3F00921C59 /* AFXMLRequestOperation.m */; };
 		1C91DDE016FC4F3F00921C59 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DDD716FC4F3F00921C59 /* UIImageView+AFNetworking.m */; };
+		1C91DDE416FC4FFB00921C59 /* SLKHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DDE316FC4FFB00921C59 /* SLKHTTPClient.m */; };
 		CE59449316F90DC800D9D33A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449216F90DC800D9D33A /* UIKit.framework */; };
 		CE59449516F90DC800D9D33A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449416F90DC800D9D33A /* Foundation.framework */; };
 		CE59449716F90DC800D9D33A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449616F90DC800D9D33A /* CoreGraphics.framework */; };
@@ -58,6 +59,8 @@
 		1C91DDD516FC4F3F00921C59 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		1C91DDD616FC4F3F00921C59 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		1C91DDD716FC4F3F00921C59 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		1C91DDE216FC4FFB00921C59 /* SLKHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKHTTPClient.h; sourceTree = "<group>"; };
+		1C91DDE316FC4FFB00921C59 /* SLKHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKHTTPClient.m; sourceTree = "<group>"; };
 		CE59448E16F90DC800D9D33A /* SKAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE59449216F90DC800D9D33A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE59449416F90DC800D9D33A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -127,6 +130,17 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		1C91DDE116FC4FC700921C59 /* HTTPS */ = {
+			isa = PBXGroup;
+			children = (
+				1C91DD5716FC4EBB00921C59 /* SLKJSONService.h */,
+				1C91DD5816FC4EBB00921C59 /* SLKJSONService.m */,
+				1C91DDE216FC4FFB00921C59 /* SLKHTTPClient.h */,
+				1C91DDE316FC4FFB00921C59 /* SLKHTTPClient.m */,
+			);
+			name = HTTPS;
+			sourceTree = "<group>";
+		};
 		CE59448316F90DC800D9D33A = {
 			isa = PBXGroup;
 			children = (
@@ -165,8 +179,7 @@
 				CE5944A216F90DC800D9D33A /* SLKAppDelegate.m */,
 				CE5944AA16F90DC800D9D33A /* MainStoryboard.storyboard */,
 				CE59449916F90DC800D9D33A /* Supporting Files */,
-				1C91DD5716FC4EBB00921C59 /* SLKJSONService.h */,
-				1C91DD5816FC4EBB00921C59 /* SLKJSONService.m */,
+				1C91DDE116FC4FC700921C59 /* HTTPS */,
 			);
 			path = SKAP;
 			sourceTree = "<group>";
@@ -305,6 +318,7 @@
 				1C91DDDE16FC4F3F00921C59 /* AFURLConnectionOperation.m in Sources */,
 				1C91DDDF16FC4F3F00921C59 /* AFXMLRequestOperation.m in Sources */,
 				1C91DDE016FC4F3F00921C59 /* UIImageView+AFNetworking.m in Sources */,
+				1C91DDE416FC4FFB00921C59 /* SLKHTTPClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

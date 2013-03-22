@@ -9,5 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface SLKJSONService : NSObject
++(void)getAllPizzas;
 
+//+(NSDictionary*)postOrder:(NSDictionary*)order;
++(void)postOrder:(NSDictionary*)order onSuccess:(void (^)(NSDictionary *))success onFailure:(void (^)(NSDictionary *, NSHTTPURLResponse*))failure;
 @end
