@@ -16,38 +16,40 @@
 
 +(void)getAllBabies
 {
-//    NSString *listAllPizzas =@"pizzas";
+    //    NSString *listAllPizzas =@"pizzas";
     SLKHTTPClient *client = [SLKHTTPClient sharedClient];
     
-//    NSString* path =listAllPizzas;
-    NSURLRequest* request = [client requestWithMethod:@"GET" path:@"skap" parameters:nil];
+    //    NSString* path =listAllPizzas;
+    NSURLRequest* request = [client requestWithMethod:@"GET" path:@"?skap" parameters:nil];
     
     AFJSONRequestOperation* operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         
+         NSLog(@"JSON  %@", JSON);
+        // if ([[[SLKBabyStorage sharedStorage] babyArray] count] == 0) {
         
-       // if ([[[SLKBabyStorage sharedStorage] babyArray] count] == 0) {
+        for (NSDictionary *dict in JSON)
+        {
             
-            for (NSDictionary *dict in JSON)
-            {
-                               
-                NSLog(@"JSON response %@", JSON);
-//                
-//                [[SLKBabyStorage sharedStorage] createBabyWithName:[dict objectForKey:@"pee"]
-//                                                                            poo:[dict valueForKey:@"poo"]
-//                                                                   feedTimespan:[dict valueForKey:@"feedSpan"]
-//                                                                         bottle:[dict valueForKey:@"bottle"]
-//                                                                         breast:[dict valueForKey:@"breast"]
-//                                                                           date:[NSDate date]];
-                
-      
-            }
+            NSLog(@"JSON dich %@", dict);
+            //
+            //                [[SLKBabyStorage sharedStorage] createBabyWithName:[dict objectForKey:@"pee"]
+            //                                                                            poo:[dict valueForKey:@"poo"]
+            //                                                                   feedTimespan:[dict valueForKey:@"feedSpan"]
+            //                                                                         bottle:[dict valueForKey:@"bottle"]
+            //                                                                         breast:[dict valueForKey:@"breast"]
+            //                                                                           date:[NSDate date]];
             
-       // }
+            
+        }
+        
+        // }
         
         
         
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        NSLog(@"Fail");
+        NSLog(@"Fail, error: %@", error);
+        NSLog(@"Fail, response: %d", response.statusCode);
+        NSLog(@"Fail, JSON: %@", JSON);
     }];
     [operation start];
 }
@@ -72,5 +74,8 @@
     [operation start];
     
 }
+
+
+
 
 @end

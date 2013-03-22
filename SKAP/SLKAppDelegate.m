@@ -7,12 +7,15 @@
 //
 
 #import "SLKAppDelegate.h"
-
+#import "AFNetworking.h"
+#import "SLKJSONService.h"
 @implementation SLKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    [SLKJSONService getAllBabies]; //TODO: add "callback"
     return YES;
 }
 							
