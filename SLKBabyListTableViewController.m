@@ -12,9 +12,7 @@
 #import "SLKJSONService.h"
 #import "SLKBabyCell.h"
 #import "SLKPopOverViewController.h"
-#import "FPPopoverController.h"
-#import "FPPopoverView.h"
-#import "ARCMacros.h"
+
 @interface SLKBabyListTableViewController ()
 
 @end
@@ -138,9 +136,8 @@
 -(void)popover:(id)sender
 {
     
-      //the controller we want to present as a popover
+//      //the controller we want to present as a popover
 //    SLKPopOverViewController *controller = [[SLKPopOverViewController alloc] init];
-//    
 //    
 //    //our popover
 //    FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:controller];
@@ -148,16 +145,17 @@
 //    //popover.arrowDirection = FPPopoverArrowDirectionAny;
 //    popover.tint = FPPopoverDefaultTint;
 //    
-//    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-//    {
-//        popover.contentSize = CGSizeMake(300, 500);
-//    }
+////    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+////    {
+////        popover.contentSize = CGSizeMake(300, 500);
+////    }
 //    popover.arrowDirection = FPPopoverArrowDirectionRight;
 //    
 //    //sender is the UIButton view
 //    [popover presentPopoverFromView:sender];
-//        [popover presentPopoverFromPoint:CGPointMake(0, 50)];
+//      //  [popover presentPopoverFromPoint:CGPointMake(0, 50)];
 }
+
 #pragma mark - Table view delegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -168,47 +166,6 @@
         
     }
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
 
 
 

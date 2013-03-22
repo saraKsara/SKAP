@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C5BFC7516FCD5A800D1B238 /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC7416FCD5A800D1B238 /* FPPopoverController.m */; };
+		1C5BFC7816FCD5CB00D1B238 /* FPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC7716FCD5CB00D1B238 /* FPViewController.m */; };
 		1C5C550016FC6F09009E3646 /* Baby.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C54FF16FC6F09009E3646 /* Baby.m */; };
 		1C91DD5916FC4EBB00921C59 /* SLKJSONService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DD5816FC4EBB00921C59 /* SLKJSONService.m */; };
 		1C91DDD816FC4F3F00921C59 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DDC616FC4F3F00921C59 /* AFHTTPClient.m */; };
@@ -29,9 +31,6 @@
 		1CA7F8F316FCA47E008BB1BF /* SLKBabyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7F8F216FCA47E008BB1BF /* SLKBabyCell.m */; };
 		1CA7F8F716FCB2ED008BB1BF /* SLKPopOverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7F8F516FCB2ED008BB1BF /* SLKPopOverViewController.m */; };
 		1CA7F8F816FCB2ED008BB1BF /* SLKPopOverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CA7F8F616FCB2ED008BB1BF /* SLKPopOverViewController.xib */; };
-		1CA7F8FB16FCB4E7008BB1BF /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7F8FA16FCB4E7008BB1BF /* FPPopoverController.m */; };
-		1CA7F90116FCB50E008BB1BF /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7F8FE16FCB50E008BB1BF /* FPPopoverView.m */; };
-		1CA7F90216FCB50E008BB1BF /* FPTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7F90016FCB50E008BB1BF /* FPTouchView.m */; };
 		1CA7F90516FCBBF3008BB1BF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA7F90416FCBBF3008BB1BF /* QuartzCore.framework */; };
 		1CA7F90616FCBC04008BB1BF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449616F90DC800D9D33A /* CoreGraphics.framework */; };
 		CE59449316F90DC800D9D33A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449216F90DC800D9D33A /* UIKit.framework */; };
@@ -63,6 +62,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C5BFC7216FCD59600D1B238 /* ARCMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ARCMacros.h; path = "../../../Downloads/FPPopover-master/ARCMacros.h"; sourceTree = "<group>"; };
+		1C5BFC7316FCD5A800D1B238 /* FPPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FPPopoverController.h; path = "../../../Downloads/FPPopover-master/FPPopoverController.h"; sourceTree = "<group>"; };
+		1C5BFC7416FCD5A800D1B238 /* FPPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FPPopoverController.m; path = "../../../Downloads/FPPopover-master/FPPopoverController.m"; sourceTree = "<group>"; };
+		1C5BFC7616FCD5CB00D1B238 /* FPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FPViewController.h; path = "../../../Downloads/FPPopover-master/FPPopoverDemo/FPViewController.h"; sourceTree = "<group>"; };
+		1C5BFC7716FCD5CB00D1B238 /* FPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FPViewController.m; path = "../../../Downloads/FPPopover-master/FPPopoverDemo/FPViewController.m"; sourceTree = "<group>"; };
 		1C5C54FE16FC6F09009E3646 /* Baby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baby.h; sourceTree = "<group>"; };
 		1C5C54FF16FC6F09009E3646 /* Baby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Baby.m; sourceTree = "<group>"; };
 		1C91DD5716FC4EBB00921C59 /* SLKJSONService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKJSONService.h; sourceTree = "<group>"; };
@@ -103,13 +107,6 @@
 		1CA7F8F416FCB2ED008BB1BF /* SLKPopOverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKPopOverViewController.h; sourceTree = "<group>"; };
 		1CA7F8F516FCB2ED008BB1BF /* SLKPopOverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPopOverViewController.m; sourceTree = "<group>"; };
 		1CA7F8F616FCB2ED008BB1BF /* SLKPopOverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLKPopOverViewController.xib; sourceTree = "<group>"; };
-		1CA7F8F916FCB4E6008BB1BF /* FPPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverController.h; sourceTree = "<group>"; };
-		1CA7F8FA16FCB4E7008BB1BF /* FPPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverController.m; sourceTree = "<group>"; };
-		1CA7F8FD16FCB50E008BB1BF /* FPPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverView.h; sourceTree = "<group>"; };
-		1CA7F8FE16FCB50E008BB1BF /* FPPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverView.m; sourceTree = "<group>"; };
-		1CA7F8FF16FCB50E008BB1BF /* FPTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPTouchView.h; sourceTree = "<group>"; };
-		1CA7F90016FCB50E008BB1BF /* FPTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTouchView.m; sourceTree = "<group>"; };
-		1CA7F90316FCB522008BB1BF /* ARCMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCMacros.h; sourceTree = "<group>"; };
 		1CA7F90416FCBBF3008BB1BF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CE59448E16F90DC800D9D33A /* SKAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE59449216F90DC800D9D33A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -235,13 +232,11 @@
 		1CA7F8FC16FCB4EF008BB1BF /* popover */ = {
 			isa = PBXGroup;
 			children = (
-				1CA7F90316FCB522008BB1BF /* ARCMacros.h */,
-				1CA7F8FD16FCB50E008BB1BF /* FPPopoverView.h */,
-				1CA7F8FE16FCB50E008BB1BF /* FPPopoverView.m */,
-				1CA7F8FF16FCB50E008BB1BF /* FPTouchView.h */,
-				1CA7F90016FCB50E008BB1BF /* FPTouchView.m */,
-				1CA7F8F916FCB4E6008BB1BF /* FPPopoverController.h */,
-				1CA7F8FA16FCB4E7008BB1BF /* FPPopoverController.m */,
+				1C5BFC7616FCD5CB00D1B238 /* FPViewController.h */,
+				1C5BFC7716FCD5CB00D1B238 /* FPViewController.m */,
+				1C5BFC7316FCD5A800D1B238 /* FPPopoverController.h */,
+				1C5BFC7416FCD5A800D1B238 /* FPPopoverController.m */,
+				1C5BFC7216FCD59600D1B238 /* ARCMacros.h */,
 			);
 			name = popover;
 			sourceTree = "<group>";
@@ -463,9 +458,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CA7F8E116FC8B74008BB1BF /* SKAPUnitTest.m in Sources */,
-				1CA7F8FB16FCB4E7008BB1BF /* FPPopoverController.m in Sources */,
-				1CA7F90116FCB50E008BB1BF /* FPPopoverView.m in Sources */,
-				1CA7F90216FCB50E008BB1BF /* FPTouchView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +488,8 @@
 				1CA7F8F016FCA2FC008BB1BF /* SLKBabyListTableViewController.m in Sources */,
 				1CA7F8F316FCA47E008BB1BF /* SLKBabyCell.m in Sources */,
 				1CA7F8F716FCB2ED008BB1BF /* SLKPopOverViewController.m in Sources */,
+				1C5BFC7516FCD5A800D1B238 /* FPPopoverController.m in Sources */,
+				1C5BFC7816FCD5CB00D1B238 /* FPViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,6 +651,7 @@
 				1CA7F8E416FC8B74008BB1BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CE59448816F90DC800D9D33A /* Build configuration list for PBXProject "SKAP" */ = {
 			isa = XCConfigurationList;
