@@ -16,8 +16,10 @@
 @property (nonatomic, retain) NSNumber * breast;
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSNumber * feedTimespan;
+@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * pii;
 @property (nonatomic, retain) NSNumber * poo;
-@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * babyId;
+@property (nonatomic, retain) NSString * type;
 
 @end

@@ -9,9 +9,17 @@
 #import <Foundation/Foundation.h>
 
 @interface SLKCoreDataService : NSObject
++(SLKCoreDataService*) sharedService;
+
 - (NSString *)path;
-+(SLKCoreDataService*)sharedService;
--(NSManagedObjectContext *)getContext;
--(NSManagedObjectModel *)getModel;
--(NSArray *)fetchDataWithEntity:(NSString *)entity;
+
+- (BOOL)saveChanges;
+
+-(NSManagedObjectContext*)getContext;
+
+-(NSManagedObjectModel*)getModel;
+
+-(NSArray*)fetchDataWithEntity:(NSString*)entity;
+
+-(NSArray *)fetchDataWithEntity:(NSString *)entity andPredicate:(NSPredicate *)predicate andSortDescriptors:(NSArray *)sortDescriptors;
 @end

@@ -10,7 +10,7 @@
 #import "AFJSONRequestOperation.h"
 //#import "AFHTTPClient.h"
 
-NSString * const kBaseURLString = @"https://asamaripersson.iriscouch.com:6984/_utils/database.html";
+NSString * const kBaseURLString = @"http://asamaripersson.iriscouch.com/";
 
 @implementation SLKHTTPClient
 

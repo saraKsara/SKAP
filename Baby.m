@@ -15,8 +15,10 @@
 @dynamic breast;
 @dynamic date;
 @dynamic feedTimespan;
+@dynamic name;
 @dynamic pii;
 @dynamic poo;
-@dynamic name;
+@dynamic babyId;
+@dynamic type;
 
 @end

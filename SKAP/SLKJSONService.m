@@ -16,34 +16,35 @@
 
 +(void)getAllBabies
 {
-    //    NSString *listAllPizzas =@"pizzas";
+     
     SLKHTTPClient *client = [SLKHTTPClient sharedClient];
     
-    //    NSString* path =listAllPizzas;
-    NSURLRequest* request = [client requestWithMethod:@"GET" path:@"?skap" parameters:nil];
+    NSString *allDocs =@"skap/_all_docs?include_docs=true";
+//    NSString* idTEST =@"skap/7cc6607def14d920e0dbaddf01000c38";//ONLY FOR TEST
+//    NSString *skap = @"skap/";
+    
+    NSURLRequest* request = [client requestWithMethod:@"GET" path:allDocs parameters:nil];
     
     AFJSONRequestOperation* operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         
-         NSLog(@"JSON  %@", JSON);
         // if ([[[SLKBabyStorage sharedStorage] babyArray] count] == 0) {
         
-        for (NSDictionary *dict in JSON)
+        for (NSDictionary *dictionary in [JSON objectForKey:@"rows"])
         {
+
+           NSDictionary *theBabyData = [dictionary valueForKey:@"doc"];
             
-            NSLog(@"JSON dich %@", dict);
-            //
-            //                [[SLKBabyStorage sharedStorage] createBabyWithName:[dict objectForKey:@"pee"]
-            //                                                                            poo:[dict valueForKey:@"poo"]
-            //                                                                   feedTimespan:[dict valueForKey:@"feedSpan"]
-            //                                                                         bottle:[dict valueForKey:@"bottle"]
-            //                                                                         breast:[dict valueForKey:@"breast"]
-            //                                                                           date:[NSDate date]];
-            
+            [[SLKBabyStorage sharedStorage] createBabyWithName:[theBabyData objectForKey:@"name"]
+                                                        babyId:[theBabyData objectForKey:@"_id"]
+                                                           pii:[theBabyData objectForKey:@"pii"]
+                                                           poo:[theBabyData objectForKey:@"poo"]
+                                                  feedTimespan:[theBabyData objectForKey:@"feedTimespan"]
+                                                        bottle:[theBabyData objectForKey:@"bottle"]
+                                                        breast:[theBabyData objectForKey:@"breast"]
+                                                          date:[NSDate date]];
             
         }
-        
-        // }
-        
+
         
         
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
