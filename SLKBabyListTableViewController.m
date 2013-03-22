@@ -101,11 +101,10 @@
 
 -(void) addBaby:(NSNotification *) notification
 {
-
+    NSString *newBabyName = [notification.userInfo objectForKey:@"babyName"];
     
     NSDictionary *toCouchdb = [NSDictionary dictionaryWithObjectsAndKeys:
-                            //   babyNameTextField.text, @"name",
-                               @"ny bäbis", @"name",
+                               newBabyName, @"name",
                                nil, @"pii",
                                nil, @"poo",
                                nil, @"feedTimespan",
@@ -119,7 +118,7 @@
         NSLog(@"Baby IS JSON valid");
         [SLKJSONService postBaby:toCouchdb onSuccess:^(NSDictionary *successDict) {
             NSLog(@"SUCCESS %@", [successDict valueForKey:@"id"]);
-            [[SLKBabyStorage sharedStorage] createBabyWithName: @"nyyy"//babyNameTextField.text
+            [[SLKBabyStorage sharedStorage] createBabyWithName:newBabyName
                                                         babyId:[successDict valueForKey:@"id"]
                                                            pii:nil
                                                            poo:nil

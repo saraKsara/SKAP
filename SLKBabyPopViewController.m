@@ -52,7 +52,9 @@
 }
 -(void)addBabyNotification
 {
-     [[NSNotificationCenter defaultCenter] postNotificationName: @"addBaby" object:nil userInfo:nil];
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: babyNameTextField.text, @"babyName", nil];
+
+     [[NSNotificationCenter defaultCenter] postNotificationName: @"addBaby" object:nil userInfo:userInfo];
 }
 - (void)didReceiveMemoryWarning
 {
