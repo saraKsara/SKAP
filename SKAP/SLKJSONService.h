@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Baby.h"
 @interface SLKJSONService : NSObject
-+(void)getAllPizzas;
+
++(void)getAllBabies;
 
 //+(NSDictionary*)postOrder:(NSDictionary*)order;
-+(void)postOrder:(NSDictionary*)order onSuccess:(void (^)(NSDictionary *))success onFailure:(void (^)(NSDictionary *, NSHTTPURLResponse*))failure;
++(void)postBaby:(NSDictionary*)baby onSuccess:(void (^)(NSDictionary *))success onFailure:(void (^)(NSDictionary *, NSHTTPURLResponse*))failure;
+
 @end

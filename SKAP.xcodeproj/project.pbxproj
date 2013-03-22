@@ -18,6 +18,8 @@
 		1C91DDDF16FC4F3F00921C59 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DDD516FC4F3F00921C59 /* AFXMLRequestOperation.m */; };
 		1C91DDE016FC4F3F00921C59 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DDD716FC4F3F00921C59 /* UIImageView+AFNetworking.m */; };
 		1C91DDE416FC4FFB00921C59 /* SLKHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DDE316FC4FFB00921C59 /* SLKHTTPClient.m */; };
+		1C91DDEA16FC565600921C59 /* Baby.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DDE916FC565600921C59 /* Baby.m */; };
+		1C91DDEC16FC567F00921C59 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C91DDEB16FC567F00921C59 /* CoreData.framework */; };
 		CE59449316F90DC800D9D33A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449216F90DC800D9D33A /* UIKit.framework */; };
 		CE59449516F90DC800D9D33A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449416F90DC800D9D33A /* Foundation.framework */; };
 		CE59449716F90DC800D9D33A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449616F90DC800D9D33A /* CoreGraphics.framework */; };
@@ -29,7 +31,6 @@
 		CE5944A916F90DC800D9D33A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE5944A816F90DC800D9D33A /* Default-568h@2x.png */; };
 		CE5944AC16F90DC800D9D33A /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE5944AA16F90DC800D9D33A /* MainStoryboard.storyboard */; };
 		CE5944B716F90DDF00D9D33A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE5944B516F90DDF00D9D33A /* Model.xcdatamodeld */; };
-		CE5944BA16F90EAC00D9D33A /* Baby.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5944B916F90EAC00D9D33A /* Baby.m */; };
 		CE5944BE16F90EFA00D9D33A /* SLKBabyStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5944BD16F90EFA00D9D33A /* SLKBabyStorage.m */; };
 		CE5944C216F90F4600D9D33A /* SLKCoreDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5944C116F90F4600D9D33A /* SLKCoreDataService.m */; };
 		CE5944D016F9A67200D9D33A /* SLKMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5944CF16F9A67200D9D33A /* SLKMainViewController.m */; };
@@ -61,6 +62,9 @@
 		1C91DDD716FC4F3F00921C59 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		1C91DDE216FC4FFB00921C59 /* SLKHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKHTTPClient.h; sourceTree = "<group>"; };
 		1C91DDE316FC4FFB00921C59 /* SLKHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKHTTPClient.m; sourceTree = "<group>"; };
+		1C91DDE816FC565600921C59 /* Baby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baby.h; sourceTree = "<group>"; };
+		1C91DDE916FC565600921C59 /* Baby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Baby.m; sourceTree = "<group>"; };
+		1C91DDEB16FC567F00921C59 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		CE59448E16F90DC800D9D33A /* SKAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE59449216F90DC800D9D33A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE59449416F90DC800D9D33A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -76,8 +80,6 @@
 		CE5944A816F90DC800D9D33A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		CE5944AB16F90DC800D9D33A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		CE5944B616F90DDF00D9D33A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		CE5944B816F90EAC00D9D33A /* Baby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baby.h; sourceTree = "<group>"; };
-		CE5944B916F90EAC00D9D33A /* Baby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Baby.m; sourceTree = "<group>"; };
 		CE5944BC16F90EFA00D9D33A /* SLKBabyStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKBabyStorage.h; sourceTree = "<group>"; };
 		CE5944BD16F90EFA00D9D33A /* SLKBabyStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKBabyStorage.m; sourceTree = "<group>"; };
 		CE5944C016F90F4600D9D33A /* SLKCoreDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKCoreDataService.h; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C91DDEC16FC567F00921C59 /* CoreData.framework in Frameworks */,
 				CE59449316F90DC800D9D33A /* UIKit.framework in Frameworks */,
 				CE59449516F90DC800D9D33A /* Foundation.framework in Frameworks */,
 				CE59449716F90DC800D9D33A /* CoreGraphics.framework in Frameworks */,
@@ -144,6 +147,9 @@
 		CE59448316F90DC800D9D33A = {
 			isa = PBXGroup;
 			children = (
+				1C91DDEB16FC567F00921C59 /* CoreData.framework */,
+				1C91DDE816FC565600921C59 /* Baby.h */,
+				1C91DDE916FC565600921C59 /* Baby.m */,
 				CE5944D116F9A6B900D9D33A /* ViewController */,
 				CE5944B516F90DDF00D9D33A /* Model.xcdatamodeld */,
 				CE5944BB16F90EB800D9D33A /* Model */,
@@ -201,8 +207,6 @@
 		CE5944BB16F90EB800D9D33A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CE5944B816F90EAC00D9D33A /* Baby.h */,
-				CE5944B916F90EAC00D9D33A /* Baby.m */,
 				CE5944BF16F90F0200D9D33A /* Storage */,
 			);
 			name = Model;
@@ -302,7 +306,6 @@
 				CE59449F16F90DC800D9D33A /* main.m in Sources */,
 				CE5944A316F90DC800D9D33A /* SLKAppDelegate.m in Sources */,
 				CE5944B716F90DDF00D9D33A /* Model.xcdatamodeld in Sources */,
-				CE5944BA16F90EAC00D9D33A /* Baby.m in Sources */,
 				CE5944BE16F90EFA00D9D33A /* SLKBabyStorage.m in Sources */,
 				CE5944C216F90F4600D9D33A /* SLKCoreDataService.m in Sources */,
 				CE5944D016F9A67200D9D33A /* SLKMainViewController.m in Sources */,
@@ -319,6 +322,7 @@
 				1C91DDDF16FC4F3F00921C59 /* AFXMLRequestOperation.m in Sources */,
 				1C91DDE016FC4F3F00921C59 /* UIImageView+AFNetworking.m in Sources */,
 				1C91DDE416FC4FFB00921C59 /* SLKHTTPClient.m in Sources */,
+				1C91DDEA16FC565600921C59 /* Baby.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

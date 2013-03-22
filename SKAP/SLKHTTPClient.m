@@ -10,7 +10,7 @@
 #import "AFJSONRequestOperation.h"
 //#import "AFHTTPClient.h"
 
-NSString * const kTraktBaseURLString = @"http://ape-pizzeria.cloudfoundry.com/";
+NSString * const kBaseURLString = @"https://asamaripersson.iriscouch.com:6984/_utils/database.html?";
 
 @implementation SLKHTTPClient
 
@@ -18,7 +18,7 @@ NSString * const kTraktBaseURLString = @"http://ape-pizzeria.cloudfoundry.com/";
     static SLKHTTPClient *_sharedClient = nil;
     static dispatch_once_t oncePredicate;
     dispatch_once(&oncePredicate, ^{
-        _sharedClient = [[self alloc] initWithBaseURL:[NSURL URLWithString:kTraktBaseURLString]];
+        _sharedClient = [[self alloc] initWithBaseURL:[NSURL URLWithString:kBaseURLString]];
     });
     return _sharedClient;
 }

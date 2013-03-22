@@ -7,43 +7,42 @@
 //
 
 #import "SLKJSONService.h"
+#import "SLKHTTPClient.h"
+#import "AFJSONRequestOperation.h"
+#import "SLKBabyStorage.h"
+#import "Baby.h"
 
 @implementation SLKJSONService
-+(void)getAllPizzas
+
++(void)getAllBabies
 {
-    NSString *listAllPizzas =@"pizzas";
-    ANSHTTPAPIClient *client = [ANSHTTPAPIClient sharedClient];
-    NSString* path =listAllPizzas;
-    NSURLRequest* request = [client requestWithMethod:@"GET" path:path parameters:nil];
+//    NSString *listAllPizzas =@"pizzas";
+    SLKHTTPClient *client = [SLKHTTPClient sharedClient];
+    
+//    NSString* path =listAllPizzas;
+    NSURLRequest* request = [client requestWithMethod:@"GET" path:@"skap" parameters:nil];
     
     AFJSONRequestOperation* operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         
         
-        if ([[[ANSPizzaStorage sharedStorage] getPizzas] count] == 0) {
+       // if ([[[SLKBabyStorage sharedStorage] babyArray] count] == 0) {
             
             for (NSDictionary *dict in JSON)
             {
-                NSMutableSet *toppingSet = [[NSMutableSet alloc] init];
+                               
+                NSLog(@"JSON response %@", JSON);
+//                
+//                [[SLKBabyStorage sharedStorage] createBabyWithName:[dict objectForKey:@"pee"]
+//                                                                            poo:[dict valueForKey:@"poo"]
+//                                                                   feedTimespan:[dict valueForKey:@"feedSpan"]
+//                                                                         bottle:[dict valueForKey:@"bottle"]
+//                                                                         breast:[dict valueForKey:@"breast"]
+//                                                                           date:[NSDate date]];
                 
-                for(NSDictionary *topping in [dict objectForKey:@"toppings"] )
-                {
-                    Topping *aTopping = [[ANSToppingstorage sharedStorage]createToppingWithDetails:[[topping objectForKey:@"id"] stringValue]
-                                                                                              name:[topping objectForKey:@"name"]];
-                    
-                    [toppingSet addObject:aTopping];
-                }
-                
-                Pizza *p = [[ANSPizzaStorage sharedStorage] createPizzaWithDetails:[dict objectForKey:@"name"]
-                                                                                id:[[dict objectForKey:@"id"] stringValue]
-                                                                             price:[[dict objectForKey:@"price"] intValue]
-                                                                              base:nil
-                                                                           topping:nil
-                                                                             order:nil];
-                
-                [p addToppings:toppingSet];
+      
             }
             
-        }
+       // }
         
         
         
@@ -56,7 +55,7 @@
 +(void)postOrder:(NSDictionary*)order onSuccess:(void (^)(NSDictionary *))success onFailure:(void (^)(NSDictionary *, NSHTTPURLResponse*))failure
 {
     
-    ANSHTTPAPIClient *client = [ANSHTTPAPIClient sharedClient];
+    SLKHTTPClient *client = [SLKHTTPClient sharedClient];
     
     NSString* path =@"pizzaorders?param=val";
     
@@ -73,4 +72,5 @@
     [operation start];
     
 }
+
 @end

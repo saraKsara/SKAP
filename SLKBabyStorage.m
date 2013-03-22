@@ -32,10 +32,9 @@
     self = [super init];
     if(self)
     {
-        model = [[SLKCoreDataService  sharedService] getModel];
-        context = [[SLKCoreDataService sharedService] getContext];
+//        model = [[SLKCoreDataService  sharedService] getModel];
+//        context = [[SLKCoreDataService sharedService] getContext];
         
-        //        [self loadAllFriends];
     }
     return self;
 }
@@ -62,7 +61,8 @@
 
 -(NSArray*)babyArray
 {
-    return [[SLKCoreDataService sharedService]fetchDataWithEntity:@"Baby"];
+    return nil;
+  //  return [[SLKCoreDataService sharedService]fetchDataWithEntity:@"Baby"];
 }
 
 

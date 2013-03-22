@@ -9,8 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "AFHTTPClient.h"
 
-extern NSString * const kTraktAPIKey;
-extern NSString * const kTraktBaseURLString;
+extern NSString * const kBaseURLString;
 
 @interface SLKHTTPClient: AFHTTPClient
 
