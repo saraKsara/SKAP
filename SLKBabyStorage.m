@@ -35,15 +35,17 @@
         model = [[SLKCoreDataService  sharedService] getModel];
         context = [[SLKCoreDataService sharedService] getContext];
         
-        //        [self loadAllFriends];
     }
     return self;
 }
 
--(Baby*)createBabyWithName:(NSNumber*)pii poo:(NSNumber*)poo feedTimespan:(NSNumber*)feedTimespan bottle:(NSNumber*)bottle breast:(NSNumber*)breast date:(NSDate*)date
+-(Baby *)createBabyWithName:(NSString *)name babyId:(NSString *)babyId pii:(NSNumber *)pii poo:(NSNumber *)poo feedTimespan:(NSNumber *)feedTimespan bottle:(NSNumber *)bottle breast:(NSNumber *)breast date:(NSDate *)date
 {
+    
     Baby *b = [NSEntityDescription insertNewObjectForEntityForName:@"Baby"
-                                             inManagedObjectContext:context];
+                                                      inManagedObjectContext:context];
+    b.name = name;
+    b.babyId = babyId;
     b.pii = pii;
     b.poo = poo;
     b.feedTimespan = feedTimespan;
@@ -51,7 +53,8 @@
     b.breast = breast;
     b.date = date;
     
-    
+    NSLog(@"There's a new baby in town! pee: %@", b.pii);
+        NSLog(@"There's a new baby in town! poo: %@", b.poo);
     return b;
 }
 
@@ -62,7 +65,8 @@
 
 -(NSArray*)babyArray
 {
-    return [[SLKCoreDataService sharedService]fetchDataWithEntity:@"Baby"];
+    return nil;
+  //  return [[SLKCoreDataService sharedService]fetchDataWithEntity:@"Baby"];
 }
 
 

@@ -14,8 +14,12 @@
     NSManagedObjectContext *context;
     NSManagedObjectModel *model;
 }
++(void)addObject:(NSManagedObjectModel *)object dictionary:(NSMutableDictionary *)dictionary objectID:(NSString *)objectID
+{
+    [dictionary setObject:object forKey:objectID];
+}
 
-+(SLKCoreDataService*)sharedService
++(SLKCoreDataService*) sharedService
 {
     static SLKCoreDataService *sharedService = nil;
     static dispatch_once_t once;
@@ -49,7 +53,6 @@
             [NSException raise:@"Open failed"
                         format:@"Reason: %@", [error localizedDescription]];
         }
-        
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(contextChanged:)
                                                      name:NSManagedObjectContextObjectsDidChangeNotification
@@ -60,17 +63,6 @@
     }
     return self;
 }
-
-- (NSString *)path
-{
-    NSArray *documentDirectories =
-    NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                        NSUserDomainMask, YES);
-    NSString *documentDirectory = [documentDirectories objectAtIndex:0];
-    
-    return [documentDirectory stringByAppendingPathComponent:@"store.data"];
-}
-
 
 -(void) contextChanged:(NSNotification*) notification
 {
@@ -90,15 +82,15 @@
     
     
 }
-- (BOOL)saveChanges
+
+-(NSManagedObjectContext *)getContext
 {
-    NSError *err = nil;
-    BOOL successful = [context save:&err];
-    if (!successful)
-    {
-        NSLog(@"Error saving: %@", [err localizedDescription]);
-    }
-    return successful;
+    return context;
+}
+
+-(NSManagedObjectModel *)getModel
+{
+    return model;
 }
 
 -(NSArray *)fetchDataWithEntity:(NSString *)entity
@@ -118,13 +110,48 @@
     return result;
 }
 
-
--(NSManagedObjectModel*)getModel
+-(NSArray *)fetchDataWithEntity:(NSString *)entity andPredicate:(NSPredicate *)predicate andSortDescriptors:(NSArray *)sortDescriptors
 {
-    return model;
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *e = [[[self getModel] entitiesByName] objectForKey:entity];
+    [request setEntity:e];
+    
+    if(predicate != nil) {
+        [request setPredicate:predicate];
+    }
+    if (sortDescriptors != nil) {
+        [request setSortDescriptors:sortDescriptors];
+    }
+    
+    NSError *error;
+    NSArray *result = [[self getContext] executeFetchRequest:request error:&error];
+    if (!result)
+    {
+        [NSException raise:@"Fetch failed"
+                    format:@"Reason: %@", [error localizedDescription]];
+    }
+    return result;
 }
--(NSManagedObjectContext*)getContext
+
+- (NSString *)path
 {
-    return context;
+    NSArray *documentDirectories =
+    NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                        NSUserDomainMask, YES);
+    NSString *documentDirectory = [documentDirectories objectAtIndex:0];
+    
+    return [documentDirectory stringByAppendingPathComponent:@"store.data"];
+}
+
+- (BOOL)saveChanges
+{
+    NSError *err = nil;
+    BOOL successful = [context save:&err];
+    if (!successful)
+    {
+        NSLog(@"Error saving: %@", [err localizedDescription]);
+    }
+    return successful;
 }
 @end

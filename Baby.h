@@ -2,7 +2,7 @@
 //  Baby.h
 //  SKAP
 //
-//  Created by Student vid Yrkeshögskola C3L on 3/19/13.
+//  Created by Åsa Persson on 2013-03-22.
 //  Copyright (c) 2013 Student vid Yrkeshögskola C3L. All rights reserved.
 //
 
@@ -12,11 +12,14 @@
 
 @interface Baby : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * pii;
-@property (nonatomic, retain) NSNumber * poo;
-@property (nonatomic, retain) NSNumber * feedTimespan;
 @property (nonatomic, retain) NSNumber * bottle;
 @property (nonatomic, retain) NSNumber * breast;
 @property (nonatomic, retain) NSDate * date;
+@property (nonatomic, retain) NSNumber * feedTimespan;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * pii;
+@property (nonatomic, retain) NSNumber * poo;
+@property (nonatomic, retain) NSString * babyId;
+@property (nonatomic, retain) NSString * type;
 
 @end

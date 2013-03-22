@@ -9,5 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface SLKFoodViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *foodLabel;
+@property (weak, nonatomic) IBOutlet UILabel *anotherFoodLable;
+
+@property (weak, nonatomic) IBOutlet UISlider *foodSliderOne;
+
+@property (weak, nonatomic) IBOutlet UISlider *foodSliderTwo;
+- (IBAction)sliderOneValueChanged:(id)sender;
+
 
 @end
