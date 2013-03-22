@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class FPViewController;
 @interface SLKPopOverViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *babyNameTextField;
 - (IBAction)addBaby:(id)sender;
 
+@property(nonatomic,assign) FPViewController *delegate;
 @end

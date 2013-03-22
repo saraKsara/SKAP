@@ -12,6 +12,9 @@
 #import "SLKJSONService.h"
 #import "SLKBabyCell.h"
 #import "SLKPopOverViewController.h"
+#import "FPPopoverController.h"
+#import "FPPopoverView.h"
+#import "ARCMacros.h"
 @interface SLKBabyListTableViewController ()
 
 @end
@@ -112,39 +115,56 @@
                    return cell;
     } else if (indexPath.section == 1)
     {
-        [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
-        [cell.babyNameLabel setTextColor:[UIColor blackColor]];
-        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-         cell.babyNameLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:23.0f];
+//        [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
+//        [cell.babyNameLabel setTextColor:[UIColor blackColor]];
+//        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+//         cell.babyNameLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:23.0f];
         cell.babyNameLabel.text =@"Add a new baby";
+        
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeContactAdd];
+        [button addTarget:self action:@selector(popover:) forControlEvents:UIControlEventTouchUpInside];
+        cell.accessoryView = button;
+        cell.textLabel.text = [NSString stringWithFormat:@"Row %d",indexPath.row];
+        return cell;
+
+        
         
         return cell;
     }
    
 }
 
+-(void)popover:(id)sender
+{
+    
+      //the controller we want to present as a popover
+//    SLKPopOverViewController *controller = [[SLKPopOverViewController alloc] init];
+//    
+//    
+//    //our popover
+//    FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:controller];
+//    
+//    //popover.arrowDirection = FPPopoverArrowDirectionAny;
+//    popover.tint = FPPopoverDefaultTint;
+//    
+//    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+//    {
+//        popover.contentSize = CGSizeMake(300, 500);
+//    }
+//    popover.arrowDirection = FPPopoverArrowDirectionRight;
+//    
+//    //sender is the UIButton view
+//    [popover presentPopoverFromView:sender];
+//        [popover presentPopoverFromPoint:CGPointMake(0, 50)];
+}
 #pragma mark - Table view delegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 1)
     {
         
-        CGRect arect = [tableView rectForRowAtIndexPath:indexPath];
-        
     
-        // Create a new ImageViewController and set its image
-//        ImageViewController *ivc = [[ImageViewController alloc] init];
-//        [ivc setImage:img];
-        SLKPopOverViewController *popOverView = [[SLKPopOverViewController alloc] init];
-        
-        _popover = [[UIPopoverController alloc] initWithContentViewController:popOverView];
-        [_popover setDelegate:self];
-        [_popover setPopoverContentSize:CGSizeMake(300, 200)];
-        
-        [_popover presentPopoverFromRect:arect
-                                      inView:[self view]
-                    permittedArrowDirections:UIPopoverArrowDirectionAny
-                                    animated:YES];
         
     }
 }

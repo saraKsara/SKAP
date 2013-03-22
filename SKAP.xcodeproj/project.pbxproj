@@ -32,6 +32,8 @@
 		1CA7F8FB16FCB4E7008BB1BF /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7F8FA16FCB4E7008BB1BF /* FPPopoverController.m */; };
 		1CA7F90116FCB50E008BB1BF /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7F8FE16FCB50E008BB1BF /* FPPopoverView.m */; };
 		1CA7F90216FCB50E008BB1BF /* FPTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7F90016FCB50E008BB1BF /* FPTouchView.m */; };
+		1CA7F90516FCBBF3008BB1BF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA7F90416FCBBF3008BB1BF /* QuartzCore.framework */; };
+		1CA7F90616FCBC04008BB1BF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449616F90DC800D9D33A /* CoreGraphics.framework */; };
 		CE59449316F90DC800D9D33A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449216F90DC800D9D33A /* UIKit.framework */; };
 		CE59449516F90DC800D9D33A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449416F90DC800D9D33A /* Foundation.framework */; };
 		CE59449716F90DC800D9D33A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449616F90DC800D9D33A /* CoreGraphics.framework */; };
@@ -108,6 +110,7 @@
 		1CA7F8FF16FCB50E008BB1BF /* FPTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPTouchView.h; sourceTree = "<group>"; };
 		1CA7F90016FCB50E008BB1BF /* FPTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTouchView.m; sourceTree = "<group>"; };
 		1CA7F90316FCB522008BB1BF /* ARCMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCMacros.h; sourceTree = "<group>"; };
+		1CA7F90416FCBBF3008BB1BF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CE59448E16F90DC800D9D33A /* SKAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE59449216F90DC800D9D33A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE59449416F90DC800D9D33A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -140,8 +143,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CA7F8D616FC8B72008BB1BF /* SenTestingKit.framework in Frameworks */,
 				1CA7F8D716FC8B72008BB1BF /* UIKit.framework in Frameworks */,
+				1CA7F90616FCBC04008BB1BF /* CoreGraphics.framework in Frameworks */,
+				1CA7F90516FCBBF3008BB1BF /* QuartzCore.framework in Frameworks */,
+				1CA7F8D616FC8B72008BB1BF /* SenTestingKit.framework in Frameworks */,
 				1CA7F8D816FC8B72008BB1BF /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,6 +249,7 @@
 		CE59448316F90DC800D9D33A = {
 			isa = PBXGroup;
 			children = (
+				1CA7F90416FCBBF3008BB1BF /* QuartzCore.framework */,
 				1C91DDEB16FC567F00921C59 /* CoreData.framework */,
 				CE59449816F90DC800D9D33A /* SKAP */,
 				1CA7F8D916FC8B72008BB1BF /* SKAPUnitTest */,
