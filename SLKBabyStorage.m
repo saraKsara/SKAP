@@ -63,13 +63,20 @@
     [context deleteObject:baby];
 }
 
--(NSArray*)babyArray
+-(Baby *)getBabyWithiD:(NSString *)babyId
 {
-    return nil;
-  //  return [[SLKCoreDataService sharedService]fetchDataWithEntity:@"Baby"];
+    NSArray *arr = [[SLKCoreDataService sharedService] fetchDataWithEntity:@"Baby"
+                                                             andPredicate:[NSPredicate predicateWithFormat:@"babyId == %@", babyId]
+                                                       andSortDescriptors:nil];
+    
+    return [arr count] > 0 ? [arr lastObject] : nil;
+  
 }
 
-
+-(NSArray*)babyArray
+{
+  return [[SLKCoreDataService sharedService]fetchDataWithEntity:@"Baby"];
+}
 
 
 

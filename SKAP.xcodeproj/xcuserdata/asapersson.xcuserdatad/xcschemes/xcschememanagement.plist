@@ -9,9 +9,19 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>SKAPUnitTest.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>1CA7F8D316FC8B71008BB1BF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>CE59448D16F90DC800D9D33A</key>
 		<dict>
 			<key>primary</key>
