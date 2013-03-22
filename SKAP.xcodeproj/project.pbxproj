@@ -15,6 +15,8 @@
 		1C5BFC8516FCD81300D1B238 /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC8116FCD81300D1B238 /* FPPopoverView.m */; };
 		1C5BFC8816FCDBF200D1B238 /* SLKBabyPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC8716FCDBF200D1B238 /* SLKBabyPopViewController.m */; };
 		1C5BFC8916FCDBF200D1B238 /* SLKBabyPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC8716FCDBF200D1B238 /* SLKBabyPopViewController.m */; };
+		1C5BFC8C16FCF18B00D1B238 /* SLKAddBabyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC8B16FCF18B00D1B238 /* SLKAddBabyCell.m */; };
+		1C5BFC8D16FCF18B00D1B238 /* SLKAddBabyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC8B16FCF18B00D1B238 /* SLKAddBabyCell.m */; };
 		1C5C550016FC6F09009E3646 /* Baby.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C54FF16FC6F09009E3646 /* Baby.m */; };
 		1C91DD5916FC4EBB00921C59 /* SLKJSONService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DD5816FC4EBB00921C59 /* SLKJSONService.m */; };
 		1C91DDD816FC4F3F00921C59 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DDC616FC4F3F00921C59 /* AFHTTPClient.m */; };
@@ -75,6 +77,8 @@
 		1C5BFC8116FCD81300D1B238 /* FPPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverView.m; sourceTree = "<group>"; };
 		1C5BFC8616FCDBF200D1B238 /* SLKBabyPopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKBabyPopViewController.h; sourceTree = "<group>"; };
 		1C5BFC8716FCDBF200D1B238 /* SLKBabyPopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKBabyPopViewController.m; sourceTree = "<group>"; };
+		1C5BFC8A16FCF18B00D1B238 /* SLKAddBabyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKAddBabyCell.h; sourceTree = "<group>"; };
+		1C5BFC8B16FCF18B00D1B238 /* SLKAddBabyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKAddBabyCell.m; sourceTree = "<group>"; };
 		1C5C54FE16FC6F09009E3646 /* Baby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baby.h; sourceTree = "<group>"; };
 		1C5C54FF16FC6F09009E3646 /* Baby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Baby.m; sourceTree = "<group>"; };
 		1C91DD5716FC4EBB00921C59 /* SLKJSONService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKJSONService.h; sourceTree = "<group>"; };
@@ -167,6 +171,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C5BFC8E16FCF1FB00D1B238 /* Baby Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1CA7F8F116FCA47E008BB1BF /* SLKBabyCell.h */,
+				1CA7F8F216FCA47E008BB1BF /* SLKBabyCell.m */,
+				1C5BFC8A16FCF18B00D1B238 /* SLKAddBabyCell.h */,
+				1C5BFC8B16FCF18B00D1B238 /* SLKAddBabyCell.m */,
+			);
+			name = "Baby Cells";
+			sourceTree = "<group>";
+		};
 		1C5C54FD16FC6DD3009E3646 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,8 +357,7 @@
 				CE5944D616F9A7B700D9D33A /* SLKPiiPooViewController.m */,
 				1CA7F8EE16FCA2FC008BB1BF /* SLKBabyListTableViewController.h */,
 				1CA7F8EF16FCA2FC008BB1BF /* SLKBabyListTableViewController.m */,
-				1CA7F8F116FCA47E008BB1BF /* SLKBabyCell.h */,
-				1CA7F8F216FCA47E008BB1BF /* SLKBabyCell.m */,
+				1C5BFC8E16FCF1FB00D1B238 /* Baby Cells */,
 				1C5BFC8616FCDBF200D1B238 /* SLKBabyPopViewController.h */,
 				1C5BFC8716FCDBF200D1B238 /* SLKBabyPopViewController.m */,
 			);
@@ -467,6 +481,7 @@
 				1C5BFC8316FCD81300D1B238 /* FPPopoverController.m in Sources */,
 				1C5BFC8516FCD81300D1B238 /* FPPopoverView.m in Sources */,
 				1C5BFC8916FCDBF200D1B238 /* SLKBabyPopViewController.m in Sources */,
+				1C5BFC8D16FCF18B00D1B238 /* SLKAddBabyCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +515,7 @@
 				1C5BFC8216FCD81300D1B238 /* FPPopoverController.m in Sources */,
 				1C5BFC8416FCD81300D1B238 /* FPPopoverView.m in Sources */,
 				1C5BFC8816FCDBF200D1B238 /* SLKBabyPopViewController.m in Sources */,
+				1C5BFC8C16FCF18B00D1B238 /* SLKAddBabyCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

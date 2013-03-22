@@ -16,6 +16,7 @@
 #import "FPPopoverView.h"
 #import "ARCMacros.h"
 #import "SLKBabyPopViewController.h"
+#import "SLKAddBabyCell.h"
 
 @interface SLKBabyListTableViewController ()
 
@@ -24,6 +25,7 @@
 @implementation SLKBabyListTableViewController
 {
     UIView *aNewBabyPopover;
+    FPPopoverController *popover;
 }
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -37,7 +39,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
- 
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(addBaby:)
+                                                 name:@"addBaby"
+                                               object:nil];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -51,44 +56,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-//- (IBAction)addBaby:(id)sender {
-//    
-//    NSDictionary *toCouchdb = [NSDictionary dictionaryWithObjectsAndKeys:
-//                               _babyNameTextField.text, @"name",
-//                               nil, @"pii",
-//                               nil, @"poo",
-//                               nil, @"feedTimespan",
-//                               nil, @"bottle",
-//                               nil, @"breast",
-//                               nil, @"date",nil];
-//    
-//    if ([NSJSONSerialization isValidJSONObject: toCouchdb])
-//    {
-//        //TODO: CHECK FOR INTERNET CONNECTION (REACHABILITY?) AND DECIDE WHAT TO DO WHEN THERE'S NO CONNECTION
-//        NSLog(@"Baby IS JSON valid");
-//        [SLKJSONService postBaby:toCouchdb onSuccess:^(NSDictionary *successDict) {
-//            NSLog(@"SUCCESS %@", [successDict valueForKey:@"id"]);
-//            [[SLKBabyStorage sharedStorage] createBabyWithName: _babyNameTextField.text
-//                                                        babyId:[successDict valueForKey:@"id"]
-//                                                           pii:nil
-//                                                           poo:nil
-//                                                  feedTimespan:nil
-//                                                        bottle:nil
-//                                                        breast:nil
-//                                                          date:nil];
-//            
-//        } onFailure:^(NSDictionary *failDict, NSHTTPURLResponse *resp) {
-//            
-//            NSLog(@"FAIL %@", failDict);
-//            
-//        }];
-//        
-//    } else {
-//        NSLog(@"Baby is not valid JSON");
-//    }
-//    
-//    
-//}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -106,22 +73,23 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"babyListCell";
-    SLKBabyCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-
-    
     if (indexPath.section == 0)
     {
-       cell.babyNameLabel.text =@"bäbis som finns";
+        
+        static NSString *CellIdentifier = @"babyListCell";
+        SLKBabyCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        Baby *babe = [[[SLKBabyStorage sharedStorage] babyArray] objectAtIndex:indexPath.row];
+        cell.babyNameLabel.text = babe.name;
         
                    return cell;
     } else
     {
-        [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
-        [cell.babyNameLabel setTextColor:[UIColor blackColor]];
-        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-         cell.babyNameLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:23.0f];
-        cell.babyNameLabel.text =@"Add a new baby";
+        static NSString *CellIdentifier = @"addBabyCell";
+        SLKAddBabyCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        [cell.addBabuLabel setTextColor:[UIColor blackColor]];
+         cell.addBabuLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:20.0f];
+        cell.addBabuLabel.text =@"Add a new baby";
     
         return cell;
 
@@ -129,54 +97,81 @@
    
 }
 
--(void)popover:(id)sender
+#pragma mark notification method
+
+-(void) addBaby:(NSNotification *) notification
 {
+
     
-//      //the controller we want to present as a popover
-//    SLKPopOverViewController *controller = [[SLKPopOverViewController alloc] init];
-//    
-//    //our popover
-//    FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:controller];
-//    
-//    //popover.arrowDirection = FPPopoverArrowDirectionAny;
-//    popover.tint = FPPopoverDefaultTint;
-//    
-////    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-////    {
-////        popover.contentSize = CGSizeMake(300, 500);
-////    }
-//    popover.arrowDirection = FPPopoverArrowDirectionRight;
-//    
-//    //sender is the UIButton view
-//    [popover presentPopoverFromView:sender];
-//      //  [popover presentPopoverFromPoint:CGPointMake(0, 50)];
+    NSDictionary *toCouchdb = [NSDictionary dictionaryWithObjectsAndKeys:
+                            //   babyNameTextField.text, @"name",
+                               @"ny bäbis", @"name",
+                               nil, @"pii",
+                               nil, @"poo",
+                               nil, @"feedTimespan",
+                               nil, @"bottle",
+                               nil, @"breast",
+                               nil, @"date",nil];
+    
+    if ([NSJSONSerialization isValidJSONObject: toCouchdb])
+    {
+        //TODO: CHECK FOR INTERNET CONNECTION (REACHABILITY?) AND DECIDE WHAT TO DO WHEN THERE'S NO CONNECTION
+        NSLog(@"Baby IS JSON valid");
+        [SLKJSONService postBaby:toCouchdb onSuccess:^(NSDictionary *successDict) {
+            NSLog(@"SUCCESS %@", [successDict valueForKey:@"id"]);
+            [[SLKBabyStorage sharedStorage] createBabyWithName: @"nyyy"//babyNameTextField.text
+                                                        babyId:[successDict valueForKey:@"id"]
+                                                           pii:nil
+                                                           poo:nil
+                                                  feedTimespan:nil
+                                                        bottle:nil
+                                                        breast:nil
+                                                          date:nil];
+            [popover dismissPopoverAnimated:YES completion:^{
+                [self.tableView reloadData];
+            }];
+            
+        } onFailure:^(NSDictionary *failDict, NSHTTPURLResponse *resp) {
+            
+            NSLog(@"FAIL %@", failDict);
+            [popover dismissPopoverAnimated:YES completion:^{
+                [self.tableView reloadData];
+            }];
+            
+        }];
+        
+      //  [[NSNotificationCenter defaultCenter] postNotificationName: @"dismissThePopover" object:nil userInfo:nil];
+        
+    } else {
+        NSLog(@"Baby is not valid JSON");
+    }
+    
+    
 }
+
 
 #pragma mark - Table view delegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 1)
     {
-        //the controller we want to present as a popover
         SLKBabyPopViewController *controller = [[SLKBabyPopViewController alloc] init];
         
-        //our popover
-        FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:controller];
+        popover = [[FPPopoverController alloc] initWithViewController:controller];
         
-        //popover.arrowDirection = FPPopoverArrowDirectionAny;
         popover.tint = FPPopoverDefaultTint;
+        [popover setAlpha:0.8];
+        popover.arrowDirection = FPPopoverNoArrow;
+        popover.border = NO;
+        popover.contentSize = CGSizeMake(310, 320);
         
             if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
             {
                 popover.contentSize = CGSizeMake(300, 500);
             }
-        popover.arrowDirection = FPPopoverArrowDirectionRight;
         
-        //sender is the UIButton view
-        //[popover presentPopoverFromView:sender];
-        [popover presentPopoverFromPoint:CGPointMake(0, 50)];
+        [popover presentPopoverFromPoint:CGPointMake(70, 70)];
     
-        
     }
 }
 
