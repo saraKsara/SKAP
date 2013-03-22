@@ -53,8 +53,7 @@
     b.breast = breast;
     b.date = date;
     
-    NSLog(@"There's a new baby in town! pee: %@", b.pii);
-        NSLog(@"There's a new baby in town! poo: %@", b.poo);
+    NSLog(@"There's a new baby in town! name: %@", b.name);
     return b;
 }
 
