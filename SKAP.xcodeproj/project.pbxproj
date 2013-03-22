@@ -175,7 +175,7 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
-		1C91DDE116FC4FC700921C59 /* HTTPS */ = {
+		1C91DDE116FC4FC700921C59 /* HTTP */ = {
 			isa = PBXGroup;
 			children = (
 				1C91DD5716FC4EBB00921C59 /* SLKJSONService.h */,
@@ -183,7 +183,7 @@
 				1C91DDE216FC4FFB00921C59 /* SLKHTTPClient.h */,
 				1C91DDE316FC4FFB00921C59 /* SLKHTTPClient.m */,
 			);
-			name = HTTPS;
+			name = HTTP;
 			sourceTree = "<group>";
 		};
 		1CA7F8D916FC8B72008BB1BF /* SKAPUnitTest */ = {
@@ -243,7 +243,7 @@
 				CE5944BB16F90EB800D9D33A /* Model */,
 				CE5944D116F9A6B900D9D33A /* ViewController */,
 				1C91DDC416FC4F3F00921C59 /* AFNetworking */,
-				1C91DDE116FC4FC700921C59 /* HTTPS */,
+				1C91DDE116FC4FC700921C59 /* HTTP */,
 				CE5944A116F90DC800D9D33A /* SLKAppDelegate.h */,
 				CE5944A216F90DC800D9D33A /* SLKAppDelegate.m */,
 				CE5944AA16F90DC800D9D33A /* MainStoryboard.storyboard */,

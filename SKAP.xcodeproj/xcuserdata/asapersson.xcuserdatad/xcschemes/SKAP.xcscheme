@@ -28,6 +28,16 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1CA7F8D316FC8B71008BB1BF"
+               BuildableName = "SKAPUnitTest.octest"
+               BlueprintName = "SKAPUnitTest"
+               ReferencedContainer = "container:SKAP.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

@@ -55,14 +55,38 @@
     [operation start];
 }
 
-+(void)postOrder:(NSDictionary*)order onSuccess:(void (^)(NSDictionary *))success onFailure:(void (^)(NSDictionary *, NSHTTPURLResponse*))failure
++(void)postBaby:(NSDictionary *)baby onSuccess:(void (^)(NSDictionary *))success onFailure:(void (^)(NSDictionary *, NSHTTPURLResponse *))failure
 {
-    
+//    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"http://admin:wandas66@asamaripersson.iriscouch.com/skap"]];
+//                                       
+//    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:URL];
+//    [theRequest addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//    [theRequest setHTTPMethod:@"POST"];
+//    
+//    
+//    NSData *toCouchAsJSON = [NSJSONSerialization dataWithJSONObject:baby options:NSJSONWritingPrettyPrinted error:nil];
+//
+//    [theRequest setHTTPBody:toCouchAsJSON];
+//    
+//    [NSURLConnection sendAsynchronousRequest:theRequest
+//                                       queue:[[NSOperationQueue alloc] init]
+//                           completionHandler: ^(NSURLResponse *resp, NSData *data, NSError *error)
+//     {
+//         if (error)
+//         {
+//             NSLog(@"%@", [error localizedDescription]);
+//         }
+//         NSMutableDictionary *idAndRevFromLastAddedDoc = [NSJSONSerialization JSONObjectWithData:data
+//                                                                                         options:NSJSONReadingMutableContainers
+//                                                                                           error:nil];
+//         
+//         success(idAndRevFromLastAddedDoc );
+ //    }];
     SLKHTTPClient *client = [SLKHTTPClient sharedClient];
     
-    NSString* path =@"pizzaorders?param=val";
+    NSString* path =@"/skap";
     
-    NSURLRequest* request = [client requestWithMethod:@"POST" path:path parameters:order];
+    NSURLRequest* request = [client requestWithMethod:@"POST" path:path parameters:baby];
     
     AFJSONRequestOperation* operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
                                                                                         success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
@@ -73,7 +97,7 @@
                                                                                             NSLog(@"FAILURE, JSON RESP %@", response);
                                                                                         }];
     [operation start];
-    
+
 }
 
 

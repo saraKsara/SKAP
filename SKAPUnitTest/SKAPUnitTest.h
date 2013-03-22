@@ -7,7 +7,6 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-
 @interface SKAPUnitTest : SenTestCase
 
 

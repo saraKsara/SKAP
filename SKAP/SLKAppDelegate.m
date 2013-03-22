@@ -9,16 +9,58 @@
 #import "SLKAppDelegate.h"
 #import "AFNetworking.h"
 #import "SLKJSONService.h"
+#import "SLKBabyStorage.h"
+#import "Baby.h"
 @implementation SLKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 
-    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
-  //  [SLKJSONService getAllBabies]; //TODO: add "callback"
+        [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
+ 
+   
+        NSDictionary *toCouchdb = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   @"Felix", @"name",
+                                   nil, @"pii",
+                                   nil, @"poo",
+                                   nil, @"feedTimespan",
+                                   nil, @"bottle",
+                                   nil, @"breast",
+                                   nil, @"date",nil];
+        
+        if ([NSJSONSerialization isValidJSONObject: toCouchdb])
+        {
+
+              NSLog(@"Baby IS JSON valid :P ");
+            [SLKJSONService postBaby:toCouchdb onSuccess:^(NSDictionary *successDict) {
+                NSLog(@"SUCCESS ");
+                NSLog(@"SUCCESS %@", [successDict valueForKey:@"id"]);
+                [[SLKBabyStorage sharedStorage] createBabyWithName:@"FILLE"
+                                                                         babyId:[successDict valueForKey:@"id"]
+                                                                            pii:nil
+                                                                            poo:nil
+                                                                   feedTimespan:nil
+                                                                         bottle:nil
+                                                                         breast:nil
+                                                                           date:nil];
+                
+            } onFailure:^(NSDictionary *failDict, NSHTTPURLResponse *resp) {
+                
+                NSLog(@"FAIL %@", failDict);
+                
+            }];
+            
+        } else {
+            NSLog(@"Baby is not valid JSON");
+        }
+
+
+
+  //  [SLKJSONService getAllBabies]; //TODO: add "callback block"
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
