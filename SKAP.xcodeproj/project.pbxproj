@@ -158,8 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				1C91DDEB16FC567F00921C59 /* CoreData.framework */,
-				CE5944D116F9A6B900D9D33A /* ViewController */,
-				CE5944BB16F90EB800D9D33A /* Model */,
 				CE59449816F90DC800D9D33A /* SKAP */,
 				CE59449116F90DC800D9D33A /* Frameworks */,
 				CE59448F16F90DC800D9D33A /* Products */,
@@ -187,12 +185,14 @@
 		CE59449816F90DC800D9D33A /* SKAP */ = {
 			isa = PBXGroup;
 			children = (
+				CE5944BB16F90EB800D9D33A /* Model */,
+				CE5944D116F9A6B900D9D33A /* ViewController */,
 				1C91DDC416FC4F3F00921C59 /* AFNetworking */,
+				1C91DDE116FC4FC700921C59 /* HTTPS */,
 				CE5944A116F90DC800D9D33A /* SLKAppDelegate.h */,
 				CE5944A216F90DC800D9D33A /* SLKAppDelegate.m */,
 				CE5944AA16F90DC800D9D33A /* MainStoryboard.storyboard */,
 				CE59449916F90DC800D9D33A /* Supporting Files */,
-				1C91DDE116FC4FC700921C59 /* HTTPS */,
 			);
 			path = SKAP;
 			sourceTree = "<group>";
@@ -218,6 +218,7 @@
 				CE5944BF16F90F0200D9D33A /* Storage */,
 			);
 			name = Model;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		CE5944BF16F90F0200D9D33A /* Storage */ = {
@@ -242,6 +243,7 @@
 				CE5944D616F9A7B700D9D33A /* SLKPiiPooViewController.m */,
 			);
 			name = ViewController;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

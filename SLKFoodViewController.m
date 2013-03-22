@@ -13,7 +13,9 @@
 @end
 
 @implementation SLKFoodViewController
-
+{
+    float bottledFood;
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,7 +28,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    _anotherFoodLable.text = @"This is what your baby ate!";
+    bottledFood = _foodSliderOne.value *10;
+    _foodLabel.text = [NSString stringWithFormat:@"%.f",bottledFood];
+   NSLog(@"slider ONE: %f ", [_foodSliderOne value]);
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,4 +41,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)sliderOneValueChanged:(id)sender {
+    
+     NSLog(@"slider ONE changed::: %.f ", [_foodSliderOne value]* 10);
+     bottledFood = _foodSliderOne.value *10;
+      _foodLabel.text = [NSString stringWithFormat:@"%.f",bottledFood];
+    
+}
 @end
