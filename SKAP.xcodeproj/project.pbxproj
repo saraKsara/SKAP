@@ -25,7 +25,8 @@
 		1CA7F8D816FC8B72008BB1BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449416F90DC800D9D33A /* Foundation.framework */; };
 		1CA7F8DE16FC8B73008BB1BF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1CA7F8DC16FC8B73008BB1BF /* InfoPlist.strings */; };
 		1CA7F8E116FC8B74008BB1BF /* SKAPUnitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7F8E016FC8B74008BB1BF /* SKAPUnitTest.m */; };
-		1CA7F8EA16FCA062008BB1BF /* SLKAddBabyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7F8E916FCA062008BB1BF /* SLKAddBabyViewController.m */; };
+		1CA7F8F016FCA2FC008BB1BF /* SLKBabyListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7F8EF16FCA2FC008BB1BF /* SLKBabyListTableViewController.m */; };
+		1CA7F8F316FCA47E008BB1BF /* SLKBabyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7F8F216FCA47E008BB1BF /* SLKBabyCell.m */; };
 		CE59449316F90DC800D9D33A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449216F90DC800D9D33A /* UIKit.framework */; };
 		CE59449516F90DC800D9D33A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449416F90DC800D9D33A /* Foundation.framework */; };
 		CE59449716F90DC800D9D33A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449616F90DC800D9D33A /* CoreGraphics.framework */; };
@@ -88,8 +89,10 @@
 		1CA7F8DF16FC8B74008BB1BF /* SKAPUnitTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKAPUnitTest.h; sourceTree = "<group>"; };
 		1CA7F8E016FC8B74008BB1BF /* SKAPUnitTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKAPUnitTest.m; sourceTree = "<group>"; };
 		1CA7F8E216FC8B74008BB1BF /* SKAPUnitTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SKAPUnitTest-Prefix.pch"; sourceTree = "<group>"; };
-		1CA7F8E816FCA062008BB1BF /* SLKAddBabyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKAddBabyViewController.h; sourceTree = "<group>"; };
-		1CA7F8E916FCA062008BB1BF /* SLKAddBabyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKAddBabyViewController.m; sourceTree = "<group>"; };
+		1CA7F8EE16FCA2FC008BB1BF /* SLKBabyListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKBabyListTableViewController.h; sourceTree = "<group>"; };
+		1CA7F8EF16FCA2FC008BB1BF /* SLKBabyListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKBabyListTableViewController.m; sourceTree = "<group>"; };
+		1CA7F8F116FCA47E008BB1BF /* SLKBabyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKBabyCell.h; sourceTree = "<group>"; };
+		1CA7F8F216FCA47E008BB1BF /* SLKBabyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKBabyCell.m; sourceTree = "<group>"; };
 		CE59448E16F90DC800D9D33A /* SKAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE59449216F90DC800D9D33A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE59449416F90DC800D9D33A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -299,8 +302,10 @@
 				CE5944D316F9A79800D9D33A /* SLKFoodViewController.m */,
 				CE5944D516F9A7B700D9D33A /* SLKPiiPooViewController.h */,
 				CE5944D616F9A7B700D9D33A /* SLKPiiPooViewController.m */,
-				1CA7F8E816FCA062008BB1BF /* SLKAddBabyViewController.h */,
-				1CA7F8E916FCA062008BB1BF /* SLKAddBabyViewController.m */,
+				1CA7F8EE16FCA2FC008BB1BF /* SLKBabyListTableViewController.h */,
+				1CA7F8EF16FCA2FC008BB1BF /* SLKBabyListTableViewController.m */,
+				1CA7F8F116FCA47E008BB1BF /* SLKBabyCell.h */,
+				1CA7F8F216FCA47E008BB1BF /* SLKBabyCell.m */,
 			);
 			name = ViewController;
 			path = ..;
@@ -445,7 +450,8 @@
 				1C91DDE016FC4F3F00921C59 /* UIImageView+AFNetworking.m in Sources */,
 				1C91DDE416FC4FFB00921C59 /* SLKHTTPClient.m in Sources */,
 				1C5C550016FC6F09009E3646 /* Baby.m in Sources */,
-				1CA7F8EA16FCA062008BB1BF /* SLKAddBabyViewController.m in Sources */,
+				1CA7F8F016FCA2FC008BB1BF /* SLKBabyListTableViewController.m in Sources */,
+				1CA7F8F316FCA47E008BB1BF /* SLKBabyCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

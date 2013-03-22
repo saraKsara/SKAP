@@ -1,5 +1,5 @@
 //
-//  SLKAddBabyViewController.h
+//  SLKBabyListTableViewController.h
 //  SKAP
 //
 //  Created by Åsa Persson on 2013-03-22.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SLKAddBabyViewController : UIViewController
+@interface SLKBabyListTableViewController : UITableViewController
 
 @end

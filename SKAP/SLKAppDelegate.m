@@ -20,42 +20,6 @@
     
  
    
-        NSDictionary *toCouchdb = [NSDictionary dictionaryWithObjectsAndKeys:
-                                   @"Felix", @"name",
-                                   nil, @"pii",
-                                   nil, @"poo",
-                                   nil, @"feedTimespan",
-                                   nil, @"bottle",
-                                   nil, @"breast",
-                                   nil, @"date",nil];
-        
-        if ([NSJSONSerialization isValidJSONObject: toCouchdb])
-        {
-
-              NSLog(@"Baby IS JSON valid :P ");
-            [SLKJSONService postBaby:toCouchdb onSuccess:^(NSDictionary *successDict) {
-                NSLog(@"SUCCESS ");
-                NSLog(@"SUCCESS %@", [successDict valueForKey:@"id"]);
-                [[SLKBabyStorage sharedStorage] createBabyWithName:@"FILLE"
-                                                                         babyId:[successDict valueForKey:@"id"]
-                                                                            pii:nil
-                                                                            poo:nil
-                                                                   feedTimespan:nil
-                                                                         bottle:nil
-                                                                         breast:nil
-                                                                           date:nil];
-                
-            } onFailure:^(NSDictionary *failDict, NSHTTPURLResponse *resp) {
-                
-                NSLog(@"FAIL %@", failDict);
-                
-            }];
-            
-        } else {
-            NSLog(@"Baby is not valid JSON");
-        }
-
-
 
   //  [SLKJSONService getAllBabies]; //TODO: add "callback block"
     return YES;
