@@ -1,18 +1,17 @@
 //
-//  SLKPiiPooViewController.m
+//  SLKPopOverViewController.m
 //  SKAP
 //
-//  Created by Student vid Yrkeshögskola C3L on 3/20/13.
+//  Created by Åsa Persson on 2013-03-22.
 //  Copyright (c) 2013 Student vid Yrkeshögskola C3L. All rights reserved.
 //
 
-#import "SLKPiiPooViewController.h"
-
-@interface SLKPiiPooViewController ()
+#import "SLKPopOverViewController.h"
+@interface SLKPopOverViewController ()
 
 @end
 
-@implementation SLKPiiPooViewController
+@implementation SLKPopOverViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,7 +25,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.title =@"a poppy?";
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,4 +34,6 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)addBaby:(id)sender {
+}
 @end

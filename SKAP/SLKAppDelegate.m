@@ -9,16 +9,22 @@
 #import "SLKAppDelegate.h"
 #import "AFNetworking.h"
 #import "SLKJSONService.h"
+#import "SLKBabyStorage.h"
+#import "Baby.h"
 @implementation SLKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 
-    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
-  //  [SLKJSONService getAllBabies]; //TODO: add "callback"
+        [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
+ 
+   
+
+  //  [SLKJSONService getAllBabies]; //TODO: add "callback block"
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

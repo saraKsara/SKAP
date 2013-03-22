@@ -20,6 +20,20 @@
 		1C91DDE016FC4F3F00921C59 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DDD716FC4F3F00921C59 /* UIImageView+AFNetworking.m */; };
 		1C91DDE416FC4FFB00921C59 /* SLKHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DDE316FC4FFB00921C59 /* SLKHTTPClient.m */; };
 		1C91DDEC16FC567F00921C59 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C91DDEB16FC567F00921C59 /* CoreData.framework */; };
+		1CA7F8D616FC8B72008BB1BF /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA7F8D516FC8B72008BB1BF /* SenTestingKit.framework */; };
+		1CA7F8D716FC8B72008BB1BF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449216F90DC800D9D33A /* UIKit.framework */; };
+		1CA7F8D816FC8B72008BB1BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449416F90DC800D9D33A /* Foundation.framework */; };
+		1CA7F8DE16FC8B73008BB1BF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1CA7F8DC16FC8B73008BB1BF /* InfoPlist.strings */; };
+		1CA7F8E116FC8B74008BB1BF /* SKAPUnitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7F8E016FC8B74008BB1BF /* SKAPUnitTest.m */; };
+		1CA7F8F016FCA2FC008BB1BF /* SLKBabyListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7F8EF16FCA2FC008BB1BF /* SLKBabyListTableViewController.m */; };
+		1CA7F8F316FCA47E008BB1BF /* SLKBabyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7F8F216FCA47E008BB1BF /* SLKBabyCell.m */; };
+		1CA7F8F716FCB2ED008BB1BF /* SLKPopOverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7F8F516FCB2ED008BB1BF /* SLKPopOverViewController.m */; };
+		1CA7F8F816FCB2ED008BB1BF /* SLKPopOverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CA7F8F616FCB2ED008BB1BF /* SLKPopOverViewController.xib */; };
+		1CA7F8FB16FCB4E7008BB1BF /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7F8FA16FCB4E7008BB1BF /* FPPopoverController.m */; };
+		1CA7F90116FCB50E008BB1BF /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7F8FE16FCB50E008BB1BF /* FPPopoverView.m */; };
+		1CA7F90216FCB50E008BB1BF /* FPTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7F90016FCB50E008BB1BF /* FPTouchView.m */; };
+		1CA7F90516FCBBF3008BB1BF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA7F90416FCBBF3008BB1BF /* QuartzCore.framework */; };
+		1CA7F90616FCBC04008BB1BF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449616F90DC800D9D33A /* CoreGraphics.framework */; };
 		CE59449316F90DC800D9D33A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449216F90DC800D9D33A /* UIKit.framework */; };
 		CE59449516F90DC800D9D33A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449416F90DC800D9D33A /* Foundation.framework */; };
 		CE59449716F90DC800D9D33A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449616F90DC800D9D33A /* CoreGraphics.framework */; };
@@ -37,6 +51,16 @@
 		CE5944D416F9A79800D9D33A /* SLKFoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5944D316F9A79800D9D33A /* SLKFoodViewController.m */; };
 		CE5944D716F9A7B700D9D33A /* SLKPiiPooViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5944D616F9A7B700D9D33A /* SLKPiiPooViewController.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1CA7F8E616FC8BB3008BB1BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE59448516F90DC800D9D33A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE59448D16F90DC800D9D33A;
+			remoteInfo = SKAP;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1C5C54FE16FC6F09009E3646 /* Baby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baby.h; sourceTree = "<group>"; };
@@ -65,6 +89,28 @@
 		1C91DDE216FC4FFB00921C59 /* SLKHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKHTTPClient.h; sourceTree = "<group>"; };
 		1C91DDE316FC4FFB00921C59 /* SLKHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKHTTPClient.m; sourceTree = "<group>"; };
 		1C91DDEB16FC567F00921C59 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1CA7F8D416FC8B71008BB1BF /* SKAPUnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SKAPUnitTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CA7F8D516FC8B72008BB1BF /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		1CA7F8DB16FC8B73008BB1BF /* SKAPUnitTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SKAPUnitTest-Info.plist"; sourceTree = "<group>"; };
+		1CA7F8DD16FC8B73008BB1BF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1CA7F8DF16FC8B74008BB1BF /* SKAPUnitTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKAPUnitTest.h; sourceTree = "<group>"; };
+		1CA7F8E016FC8B74008BB1BF /* SKAPUnitTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKAPUnitTest.m; sourceTree = "<group>"; };
+		1CA7F8E216FC8B74008BB1BF /* SKAPUnitTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SKAPUnitTest-Prefix.pch"; sourceTree = "<group>"; };
+		1CA7F8EE16FCA2FC008BB1BF /* SLKBabyListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKBabyListTableViewController.h; sourceTree = "<group>"; };
+		1CA7F8EF16FCA2FC008BB1BF /* SLKBabyListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKBabyListTableViewController.m; sourceTree = "<group>"; };
+		1CA7F8F116FCA47E008BB1BF /* SLKBabyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKBabyCell.h; sourceTree = "<group>"; };
+		1CA7F8F216FCA47E008BB1BF /* SLKBabyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKBabyCell.m; sourceTree = "<group>"; };
+		1CA7F8F416FCB2ED008BB1BF /* SLKPopOverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKPopOverViewController.h; sourceTree = "<group>"; };
+		1CA7F8F516FCB2ED008BB1BF /* SLKPopOverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPopOverViewController.m; sourceTree = "<group>"; };
+		1CA7F8F616FCB2ED008BB1BF /* SLKPopOverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLKPopOverViewController.xib; sourceTree = "<group>"; };
+		1CA7F8F916FCB4E6008BB1BF /* FPPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverController.h; sourceTree = "<group>"; };
+		1CA7F8FA16FCB4E7008BB1BF /* FPPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverController.m; sourceTree = "<group>"; };
+		1CA7F8FD16FCB50E008BB1BF /* FPPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverView.h; sourceTree = "<group>"; };
+		1CA7F8FE16FCB50E008BB1BF /* FPPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverView.m; sourceTree = "<group>"; };
+		1CA7F8FF16FCB50E008BB1BF /* FPTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPTouchView.h; sourceTree = "<group>"; };
+		1CA7F90016FCB50E008BB1BF /* FPTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTouchView.m; sourceTree = "<group>"; };
+		1CA7F90316FCB522008BB1BF /* ARCMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCMacros.h; sourceTree = "<group>"; };
+		1CA7F90416FCBBF3008BB1BF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CE59448E16F90DC800D9D33A /* SKAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE59449216F90DC800D9D33A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE59449416F90DC800D9D33A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -93,6 +139,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1CA7F8D016FC8B71008BB1BF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CA7F8D716FC8B72008BB1BF /* UIKit.framework in Frameworks */,
+				1CA7F90616FCBC04008BB1BF /* CoreGraphics.framework in Frameworks */,
+				1CA7F90516FCBBF3008BB1BF /* QuartzCore.framework in Frameworks */,
+				1CA7F8D616FC8B72008BB1BF /* SenTestingKit.framework in Frameworks */,
+				1CA7F8D816FC8B72008BB1BF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE59448B16F90DC800D9D33A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -143,7 +201,7 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
-		1C91DDE116FC4FC700921C59 /* HTTPS */ = {
+		1C91DDE116FC4FC700921C59 /* HTTP */ = {
 			isa = PBXGroup;
 			children = (
 				1C91DD5716FC4EBB00921C59 /* SLKJSONService.h */,
@@ -151,14 +209,50 @@
 				1C91DDE216FC4FFB00921C59 /* SLKHTTPClient.h */,
 				1C91DDE316FC4FFB00921C59 /* SLKHTTPClient.m */,
 			);
-			name = HTTPS;
+			name = HTTP;
+			sourceTree = "<group>";
+		};
+		1CA7F8D916FC8B72008BB1BF /* SKAPUnitTest */ = {
+			isa = PBXGroup;
+			children = (
+				1CA7F8DF16FC8B74008BB1BF /* SKAPUnitTest.h */,
+				1CA7F8E016FC8B74008BB1BF /* SKAPUnitTest.m */,
+				1CA7F8DA16FC8B73008BB1BF /* Supporting Files */,
+			);
+			path = SKAPUnitTest;
+			sourceTree = "<group>";
+		};
+		1CA7F8DA16FC8B73008BB1BF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1CA7F8DB16FC8B73008BB1BF /* SKAPUnitTest-Info.plist */,
+				1CA7F8DC16FC8B73008BB1BF /* InfoPlist.strings */,
+				1CA7F8E216FC8B74008BB1BF /* SKAPUnitTest-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1CA7F8FC16FCB4EF008BB1BF /* popover */ = {
+			isa = PBXGroup;
+			children = (
+				1CA7F90316FCB522008BB1BF /* ARCMacros.h */,
+				1CA7F8FD16FCB50E008BB1BF /* FPPopoverView.h */,
+				1CA7F8FE16FCB50E008BB1BF /* FPPopoverView.m */,
+				1CA7F8FF16FCB50E008BB1BF /* FPTouchView.h */,
+				1CA7F90016FCB50E008BB1BF /* FPTouchView.m */,
+				1CA7F8F916FCB4E6008BB1BF /* FPPopoverController.h */,
+				1CA7F8FA16FCB4E7008BB1BF /* FPPopoverController.m */,
+			);
+			name = popover;
 			sourceTree = "<group>";
 		};
 		CE59448316F90DC800D9D33A = {
 			isa = PBXGroup;
 			children = (
+				1CA7F90416FCBBF3008BB1BF /* QuartzCore.framework */,
 				1C91DDEB16FC567F00921C59 /* CoreData.framework */,
 				CE59449816F90DC800D9D33A /* SKAP */,
+				1CA7F8D916FC8B72008BB1BF /* SKAPUnitTest */,
 				CE59449116F90DC800D9D33A /* Frameworks */,
 				CE59448F16F90DC800D9D33A /* Products */,
 			);
@@ -168,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				CE59448E16F90DC800D9D33A /* SKAP.app */,
+				1CA7F8D416FC8B71008BB1BF /* SKAPUnitTest.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -178,6 +273,7 @@
 				CE59449216F90DC800D9D33A /* UIKit.framework */,
 				CE59449416F90DC800D9D33A /* Foundation.framework */,
 				CE59449616F90DC800D9D33A /* CoreGraphics.framework */,
+				1CA7F8D516FC8B72008BB1BF /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -188,7 +284,7 @@
 				CE5944BB16F90EB800D9D33A /* Model */,
 				CE5944D116F9A6B900D9D33A /* ViewController */,
 				1C91DDC416FC4F3F00921C59 /* AFNetworking */,
-				1C91DDE116FC4FC700921C59 /* HTTPS */,
+				1C91DDE116FC4FC700921C59 /* HTTP */,
 				CE5944A116F90DC800D9D33A /* SLKAppDelegate.h */,
 				CE5944A216F90DC800D9D33A /* SLKAppDelegate.m */,
 				CE5944AA16F90DC800D9D33A /* MainStoryboard.storyboard */,
@@ -235,12 +331,20 @@
 		CE5944D116F9A6B900D9D33A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				1CA7F8FC16FCB4EF008BB1BF /* popover */,
 				CE5944CE16F9A67200D9D33A /* SLKMainViewController.h */,
 				CE5944CF16F9A67200D9D33A /* SLKMainViewController.m */,
 				CE5944D216F9A79800D9D33A /* SLKFoodViewController.h */,
 				CE5944D316F9A79800D9D33A /* SLKFoodViewController.m */,
 				CE5944D516F9A7B700D9D33A /* SLKPiiPooViewController.h */,
 				CE5944D616F9A7B700D9D33A /* SLKPiiPooViewController.m */,
+				1CA7F8EE16FCA2FC008BB1BF /* SLKBabyListTableViewController.h */,
+				1CA7F8EF16FCA2FC008BB1BF /* SLKBabyListTableViewController.m */,
+				1CA7F8F116FCA47E008BB1BF /* SLKBabyCell.h */,
+				1CA7F8F216FCA47E008BB1BF /* SLKBabyCell.m */,
+				1CA7F8F416FCB2ED008BB1BF /* SLKPopOverViewController.h */,
+				1CA7F8F516FCB2ED008BB1BF /* SLKPopOverViewController.m */,
+				1CA7F8F616FCB2ED008BB1BF /* SLKPopOverViewController.xib */,
 			);
 			name = ViewController;
 			path = ..;
@@ -249,6 +353,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1CA7F8D316FC8B71008BB1BF /* SKAPUnitTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CA7F8E516FC8B74008BB1BF /* Build configuration list for PBXNativeTarget "SKAPUnitTest" */;
+			buildPhases = (
+				1CA7F8CF16FC8B71008BB1BF /* Sources */,
+				1CA7F8D016FC8B71008BB1BF /* Frameworks */,
+				1CA7F8D116FC8B71008BB1BF /* Resources */,
+				1CA7F8D216FC8B71008BB1BF /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1CA7F8E716FC8BB3008BB1BF /* PBXTargetDependency */,
+			);
+			name = SKAPUnitTest;
+			productName = SKAPUnitTest;
+			productReference = 1CA7F8D416FC8B71008BB1BF /* SKAPUnitTest.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		CE59448D16F90DC800D9D33A /* SKAP */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE5944B216F90DC800D9D33A /* Build configuration list for PBXNativeTarget "SKAP" */;
@@ -289,11 +412,20 @@
 			projectRoot = "";
 			targets = (
 				CE59448D16F90DC800D9D33A /* SKAP */,
+				1CA7F8D316FC8B71008BB1BF /* SKAPUnitTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1CA7F8D116FC8B71008BB1BF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CA7F8DE16FC8B73008BB1BF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE59448C16F90DC800D9D33A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -303,12 +435,40 @@
 				CE5944A716F90DC800D9D33A /* Default@2x.png in Resources */,
 				CE5944A916F90DC800D9D33A /* Default-568h@2x.png in Resources */,
 				CE5944AC16F90DC800D9D33A /* MainStoryboard.storyboard in Resources */,
+				1CA7F8F816FCB2ED008BB1BF /* SLKPopOverViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1CA7F8D216FC8B71008BB1BF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		1CA7F8CF16FC8B71008BB1BF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CA7F8E116FC8B74008BB1BF /* SKAPUnitTest.m in Sources */,
+				1CA7F8FB16FCB4E7008BB1BF /* FPPopoverController.m in Sources */,
+				1CA7F90116FCB50E008BB1BF /* FPPopoverView.m in Sources */,
+				1CA7F90216FCB50E008BB1BF /* FPTouchView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE59448A16F90DC800D9D33A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -333,12 +493,31 @@
 				1C91DDE016FC4F3F00921C59 /* UIImageView+AFNetworking.m in Sources */,
 				1C91DDE416FC4FFB00921C59 /* SLKHTTPClient.m in Sources */,
 				1C5C550016FC6F09009E3646 /* Baby.m in Sources */,
+				1CA7F8F016FCA2FC008BB1BF /* SLKBabyListTableViewController.m in Sources */,
+				1CA7F8F316FCA47E008BB1BF /* SLKBabyCell.m in Sources */,
+				1CA7F8F716FCB2ED008BB1BF /* SLKPopOverViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		1CA7F8E716FC8BB3008BB1BF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE59448D16F90DC800D9D33A /* SKAP */;
+			targetProxy = 1CA7F8E616FC8BB3008BB1BF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		1CA7F8DC16FC8B73008BB1BF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1CA7F8DD16FC8B73008BB1BF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		CE59449B16F90DC800D9D33A /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -358,6 +537,45 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1CA7F8E316FC8B74008BB1BF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SKAPUnitTest/SKAPUnitTest-Prefix.pch";
+				INFOPLIST_FILE = "SKAPUnitTest/SKAPUnitTest-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		1CA7F8E416FC8B74008BB1BF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SKAPUnitTest/SKAPUnitTest-Prefix.pch";
+				INFOPLIST_FILE = "SKAPUnitTest/SKAPUnitTest-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		CE5944B016F90DC800D9D33A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -432,6 +650,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1CA7F8E516FC8B74008BB1BF /* Build configuration list for PBXNativeTarget "SKAPUnitTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CA7F8E316FC8B74008BB1BF /* Debug */,
+				1CA7F8E416FC8B74008BB1BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		CE59448816F90DC800D9D33A /* Build configuration list for PBXProject "SKAP" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

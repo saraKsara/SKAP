@@ -41,7 +41,7 @@
 
 -(Baby *)createBabyWithName:(NSString *)name babyId:(NSString *)babyId pii:(NSNumber *)pii poo:(NSNumber *)poo feedTimespan:(NSNumber *)feedTimespan bottle:(NSNumber *)bottle breast:(NSNumber *)breast date:(NSDate *)date
 {
-    
+    //TODO: only breate if baby witj id not already exists, otherwise just update them!!
     Baby *b = [NSEntityDescription insertNewObjectForEntityForName:@"Baby"
                                                       inManagedObjectContext:context];
     b.name = name;
@@ -63,13 +63,20 @@
     [context deleteObject:baby];
 }
 
--(NSArray*)babyArray
+-(Baby *)getBabyWithiD:(NSString *)babyId
 {
-    return nil;
-  //  return [[SLKCoreDataService sharedService]fetchDataWithEntity:@"Baby"];
+    NSArray *arr = [[SLKCoreDataService sharedService] fetchDataWithEntity:@"Baby"
+                                                             andPredicate:[NSPredicate predicateWithFormat:@"babyId == %@", babyId]
+                                                       andSortDescriptors:nil];
+    
+    return [arr count] > 0 ? [arr lastObject] : nil;
+  
 }
 
-
+-(NSArray*)babyArray
+{
+  return [[SLKCoreDataService sharedService]fetchDataWithEntity:@"Baby"];
+}
 
 
 

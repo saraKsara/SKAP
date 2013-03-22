@@ -17,8 +17,9 @@
 
 -(void)removeBaby:(Baby*)baby;
 
--(NSArray*)babyArray;
+-(Baby*)getBabyWithiD:(NSString*)babyId;
 
+-(NSArray*)babyArray;
 
 
 
