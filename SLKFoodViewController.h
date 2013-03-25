@@ -16,6 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UISlider *foodSliderTwo;
 - (IBAction)sliderOneValueChanged:(id)sender;
+- (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer;
 
 
 @end
