@@ -7,12 +7,17 @@
 //
 
 #import "SLKPiiPooViewController.h"
+#import "SLKBabyStorage.h"
+#import "Baby.h"
 
 @interface SLKPiiPooViewController ()
 
 @end
 
 @implementation SLKPiiPooViewController
+{
+    Baby *currentBabe;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -23,10 +28,13 @@
     return self;
 }
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
+    [super viewWillAppear:YES];
 	self.title =@"a poppy?";
+    currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
+    _nameOfBabyLabel.text = [NSString stringWithFormat:@"Poo and pee of %@",currentBabe.name];
+    NSLog(@"poooo::: %@", currentBabe.poo);
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,4 +43,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)changePoo:(id)sender
+{
+    
+    [[SLKBabyStorage sharedStorage] createBabyWithName:currentBabe.name
+                                                babyId:currentBabe.babyId
+                                                   pii:currentBabe.pii
+                                                   poo:[NSNumber numberWithInt:88]
+                                          feedTimespan:currentBabe.feedTimespan
+                                                bottle:currentBabe.bottle
+                                                breast:currentBabe.breast
+                                                  date:nil];
+}
 @end
