@@ -7,12 +7,17 @@
 //
 
 #import "SLKDaySummaryViewController.h"
+#import "SLKBabyStorage.h"
+#import "Baby.h"
 
 @interface SLKDaySummaryViewController ()
 
 @end
 
 @implementation SLKDaySummaryViewController
+{
+    Baby *currentBaby;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -21,6 +26,14 @@
         // Custom initialization
     }
     return self;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    self.title =@"a poppy?";
+    currentBaby = [[SLKBabyStorage sharedStorage] getCurrentBaby];
+    _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ today, %@", currentBaby.name, [NSDate date]];
 }
 
 - (void)viewDidLoad
