@@ -13,6 +13,7 @@
 {
     NSManagedObjectContext *context;
     NSManagedObjectModel *model;
+   
 }
 
 +(SLKBabyStorage*) sharedStorage
@@ -55,6 +56,15 @@
     
     NSLog(@"There's a new baby in town! name: %@", b.name);
     return b;
+}
+-(void)setCurrentBaby:(Baby *)baby
+{
+    _currentBaby = baby;
+    NSLog(@"The current babe is: %@", baby.name);
+}
+-(Baby *)getCurrentBaby;
+{
+    return _currentBaby != nil ? _currentBaby: nil;
 }
 
 -(void)removeBaby:(Baby*)baby

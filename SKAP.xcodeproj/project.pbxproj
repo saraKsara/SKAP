@@ -39,6 +39,8 @@
 		1CA7F8F316FCA47E008BB1BF /* SLKBabyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7F8F216FCA47E008BB1BF /* SLKBabyCell.m */; };
 		1CA7F90516FCBBF3008BB1BF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA7F90416FCBBF3008BB1BF /* QuartzCore.framework */; };
 		1CA7F90616FCBC04008BB1BF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449616F90DC800D9D33A /* CoreGraphics.framework */; };
+		1CF828271701A36E00EDC904 /* SLKUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF828261701A36E00EDC904 /* SLKUserDefaults.m */; };
+		1CF8282A1701A9BA00EDC904 /* SLKAlertWithBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF828291701A9BA00EDC904 /* SLKAlertWithBlock.m */; };
 		CE57277F170064A0003A72BF /* bottle.png in Resources */ = {isa = PBXBuildFile; fileRef = CE57277E170064A0003A72BF /* bottle.png */; };
 		CE59449316F90DC800D9D33A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449216F90DC800D9D33A /* UIKit.framework */; };
 		CE59449516F90DC800D9D33A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449416F90DC800D9D33A /* Foundation.framework */; };
@@ -119,6 +121,10 @@
 		1CA7F8F116FCA47E008BB1BF /* SLKBabyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKBabyCell.h; sourceTree = "<group>"; };
 		1CA7F8F216FCA47E008BB1BF /* SLKBabyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKBabyCell.m; sourceTree = "<group>"; };
 		1CA7F90416FCBBF3008BB1BF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		1CF828251701A36E00EDC904 /* SLKUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKUserDefaults.h; sourceTree = "<group>"; };
+		1CF828261701A36E00EDC904 /* SLKUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKUserDefaults.m; sourceTree = "<group>"; };
+		1CF828281701A9BA00EDC904 /* SLKAlertWithBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKAlertWithBlock.h; sourceTree = "<group>"; };
+		1CF828291701A9BA00EDC904 /* SLKAlertWithBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKAlertWithBlock.m; sourceTree = "<group>"; };
 		CE57277E170064A0003A72BF /* bottle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottle.png; sourceTree = "<group>"; };
 		CE59448E16F90DC800D9D33A /* SKAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE59449216F90DC800D9D33A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -267,6 +273,15 @@
 			name = popover;
 			sourceTree = "<group>";
 		};
+		1CF8282B1701A9C100EDC904 /* Custom Alert */ = {
+			isa = PBXGroup;
+			children = (
+				1CF828281701A9BA00EDC904 /* SLKAlertWithBlock.h */,
+				1CF828291701A9BA00EDC904 /* SLKAlertWithBlock.m */,
+			);
+			name = "Custom Alert";
+			sourceTree = "<group>";
+		};
 		CE59448316F90DC800D9D33A = {
 			isa = PBXGroup;
 			children = (
@@ -310,6 +325,8 @@
 				CE5944A216F90DC800D9D33A /* SLKAppDelegate.m */,
 				CE5944AA16F90DC800D9D33A /* MainStoryboard.storyboard */,
 				CE59449916F90DC800D9D33A /* Supporting Files */,
+				1CF828251701A36E00EDC904 /* SLKUserDefaults.h */,
+				1CF828261701A36E00EDC904 /* SLKUserDefaults.m */,
 			);
 			path = SKAP;
 			sourceTree = "<group>";
@@ -366,6 +383,7 @@
 				1C5BFC8E16FCF1FB00D1B238 /* Baby Cells */,
 				1C5BFC8616FCDBF200D1B238 /* SLKBabyPopViewController.h */,
 				1C5BFC8716FCDBF200D1B238 /* SLKBabyPopViewController.m */,
+				1CF8282B1701A9C100EDC904 /* Custom Alert */,
 			);
 			name = ViewController;
 			path = ..;
@@ -524,6 +542,8 @@
 				1C5BFC8416FCD81300D1B238 /* FPPopoverView.m in Sources */,
 				1C5BFC8816FCDBF200D1B238 /* SLKBabyPopViewController.m in Sources */,
 				1C5BFC8C16FCF18B00D1B238 /* SLKAddBabyCell.m in Sources */,
+				1CF828271701A36E00EDC904 /* SLKUserDefaults.m in Sources */,
+				1CF8282A1701A9BA00EDC904 /* SLKAlertWithBlock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

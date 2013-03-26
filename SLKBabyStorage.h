@@ -22,6 +22,9 @@
 -(NSArray*)babyArray;
 
 
+//TODO: make class methods of theese:
+-(Baby*)getCurrentBaby;
+-(void)setCurrentBaby:(Baby*)baby;
 
-
+@property (weak, nonatomic)  Baby *currentBaby;
 @end

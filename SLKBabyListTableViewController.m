@@ -17,6 +17,8 @@
 #import "ARCMacros.h"
 #import "SLKBabyPopViewController.h"
 #import "SLKAddBabyCell.h"
+#import "SLKUserDefaults.h"
+#import "SLKAlertWithBlock.h"
 
 @interface SLKBabyListTableViewController ()
 
@@ -24,8 +26,10 @@
 
 @implementation SLKBabyListTableViewController
 {
-    UIView *aNewBabyPopover;
     FPPopoverController *popover;
+    Baby *currentBaby;
+    NSArray *babyArray;
+    NSIndexPath *checkedIndexPath;
 }
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -43,6 +47,13 @@
                                              selector:@selector(addBaby:)
                                                  name:@"addBaby"
                                                object:nil];
+    
+    currentBaby = [[SLKBabyStorage sharedStorage] getBabyWithiD:[SLKUserDefaults getTheCurrentBabe]];
+    NSLog(@"did user default work? name: %@", currentBaby.name);
+    NSLog(@"did user default work? id: %@", [SLKUserDefaults getTheCurrentBabe]);
+    
+    babyArray = [[SLKBabyStorage sharedStorage] babyArray];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -66,36 +77,102 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0)   return [[[SLKBabyStorage sharedStorage] babyArray] count];
+    if (section == 1)   return [[[SLKBabyStorage sharedStorage] babyArray] count];
     
      else  return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0)
+    if (indexPath.section == 1)
     {
         
         static NSString *CellIdentifier = @"babyListCell";
         SLKBabyCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
         Baby *babe = [[[SLKBabyStorage sharedStorage] babyArray] objectAtIndex:indexPath.row];
-        cell.babyNameLabel.text = babe.name;
+       
         
-                   return cell;
+        if ([babe.babyId isEqualToString:currentBaby.babyId]) {
+            [cell.babyNameLabel setTextColor:[UIColor redColor]];
+            [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+            [cell setSelected:YES];
+             checkedIndexPath = indexPath;
+        }
+         cell.babyNameLabel.text = babe.name;
+        return cell;
     } else
     {
         static NSString *CellIdentifier = @"addBabyCell";
         SLKAddBabyCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         [cell.addBabuLabel setTextColor:[UIColor blackColor]];
-         cell.addBabuLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:20.0f];
+        cell.addBabuLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:20.0f];
         cell.addBabuLabel.text =@"Add a new baby";
     
         return cell;
-
     }
-   
 }
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 1) {
+        return @"Choose what baby to report on:";
+    } else{
+        return @"Choose other things";
+    }
+}
+
+#pragma mark - Table view delegate
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0 && indexPath.row == 0)
+    {
+        SLKBabyPopViewController *controller = [[SLKBabyPopViewController alloc] init];
+        
+        popover = [[FPPopoverController alloc] initWithViewController:controller];
+        
+        popover.tint = FPPopoverDefaultTint;
+        [popover setAlpha:0.8];
+        popover.arrowDirection = FPPopoverNoArrow;
+        popover.border = NO;
+        popover.contentSize = CGSizeMake(310, 320);
+        
+        if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+        {
+            popover.contentSize = CGSizeMake(300, 500);
+        }
+        
+        [popover presentPopoverFromPoint:CGPointMake(70, 70)];
+        
+        } else {
+        SLKAlertWithBlock *alert = [[SLKAlertWithBlock alloc] initWithTitle:@"Switch baby" message:@"Are you sure you wanna switch baby?" completion:^(BOOL cancelled, NSInteger buttonIndex) {
+             if (buttonIndex == 1) {
+                 
+                NSLog(@"button index yes");
+                [SLKUserDefaults setTheCurrentBabe:[[babyArray objectAtIndex:indexPath.row]babyId]];
+                 
+                 
+                 
+                 if(checkedIndexPath)
+                 {
+                     UITableViewCell* uncheckCell = [tableView cellForRowAtIndexPath:checkedIndexPath];
+                     uncheckCell.accessoryType = UITableViewCellAccessoryNone;
+                 
+                 }
+                 UITableViewCell *acell = [tableView cellForRowAtIndexPath:indexPath];
+                 acell.accessoryType = UITableViewCellAccessoryCheckmark;
+                 checkedIndexPath = indexPath;
+   
+                 
+             } else {
+                     NSLog(@"button index cancel");
+             }
+            
+        } cancelButtonTitle:@"Cancel" otherButtonTitles:@"yes", nil];
+            [alert show];
+        }
+}
+
 
 #pragma mark notification method
 
@@ -148,31 +225,6 @@
     
 }
 
-
-#pragma mark - Table view delegate
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.section == 1)
-    {
-        SLKBabyPopViewController *controller = [[SLKBabyPopViewController alloc] init];
-        
-        popover = [[FPPopoverController alloc] initWithViewController:controller];
-        
-        popover.tint = FPPopoverDefaultTint;
-        [popover setAlpha:0.8];
-        popover.arrowDirection = FPPopoverNoArrow;
-        popover.border = NO;
-        popover.contentSize = CGSizeMake(310, 320);
-        
-            if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-            {
-                popover.contentSize = CGSizeMake(300, 500);
-            }
-        
-        [popover presentPopoverFromPoint:CGPointMake(70, 70)];
-    
-    }
-}
 
 
 
