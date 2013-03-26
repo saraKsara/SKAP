@@ -60,11 +60,13 @@
 
 - (IBAction)nextDay:(id)sender
 {
-//   currentDay = [slkda]
+    currentDay = [currentDay dateByAddingDays:1];
+      _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ today, %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
 }
 
 - (IBAction)prevDay:(id)sender
 {
-    
+    currentDay = [currentDay dateBySubtractingDays:1];
+      _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ today, %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
 }
 @end
