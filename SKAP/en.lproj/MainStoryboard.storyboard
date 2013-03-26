@@ -29,7 +29,11 @@
                                     <constraint firstAttribute="width" constant="114" id="GU8-c0-b26"/>
                                 </constraints>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ury-ix-1kw"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ury-ix-1kw">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="114" id="0DH-8U-l3c"/>
+                                </constraints>
+                            </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Pii" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKj-tx-RSw">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -50,7 +54,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yl-m9-jl7">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="change POO">
+                                <state key="normal" title="add poo">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -64,20 +68,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2yl-m9-jl7" firstAttribute="centerX" secondItem="4M0-QM-Oqv" secondAttribute="centerX" type="default" id="9ZF-KC-ttE"/>
+                            <constraint firstItem="kSs-Zv-6hH" firstAttribute="leading" secondItem="ury-ix-1kw" secondAttribute="leading" type="default" id="08P-tg-U75"/>
+                            <constraint firstItem="kSs-Zv-6hH" firstAttribute="leading" secondItem="qbz-Zd-RVs" secondAttribute="leading" constant="38" id="8Jy-mL-Kc1"/>
+                            <constraint firstAttribute="trailing" secondItem="2yl-m9-jl7" secondAttribute="trailing" constant="64" id="9FY-JD-YGe"/>
                             <constraint firstAttribute="bottom" secondItem="ury-ix-1kw" secondAttribute="bottom" constant="100" id="D9K-q9-EYS"/>
-                            <constraint firstItem="KKj-tx-RSw" firstAttribute="leading" secondItem="qbz-Zd-RVs" secondAttribute="leading" constant="86" id="O3g-Wk-z6a"/>
                             <constraint firstItem="4M0-QM-Oqv" firstAttribute="top" secondItem="qbz-Zd-RVs" secondAttribute="top" constant="25" id="OaB-dL-0FL"/>
+                            <constraint firstAttribute="bottom" secondItem="2yl-m9-jl7" secondAttribute="bottom" constant="90" id="OqU-eY-ZnG"/>
                             <constraint firstItem="4M0-QM-Oqv" firstAttribute="trailing" secondItem="qbz-Zd-RVs" secondAttribute="trailing" type="default" id="PnT-Ih-Q38"/>
                             <constraint firstItem="4M0-QM-Oqv" firstAttribute="leading" secondItem="qbz-Zd-RVs" secondAttribute="leading" type="default" id="Pys-Uw-DhG"/>
                             <constraint firstItem="KKj-tx-RSw" firstAttribute="leading" secondItem="Txa-3v-Cy1" secondAttribute="leading" type="default" id="QaS-I2-JYF"/>
-                            <constraint firstItem="ury-ix-1kw" firstAttribute="trailing" secondItem="Txa-3v-Cy1" secondAttribute="trailing" type="default" id="R91-r4-vtm"/>
-                            <constraint firstItem="kSs-Zv-6hH" firstAttribute="leading" secondItem="Txa-3v-Cy1" secondAttribute="leading" type="default" id="SL8-en-ghD"/>
                             <constraint firstItem="Txa-3v-Cy1" firstAttribute="top" secondItem="qbz-Zd-RVs" secondAttribute="top" constant="183" id="V3L-C1-Pm8"/>
-                            <constraint firstItem="kSs-Zv-6hH" firstAttribute="leading" secondItem="ury-ix-1kw" secondAttribute="leading" type="default" id="a67-4d-7xv"/>
-                            <constraint firstAttribute="bottom" secondItem="kSs-Zv-6hH" secondAttribute="bottom" constant="142" id="aYc-jo-bv2"/>
-                            <constraint firstAttribute="bottom" secondItem="2yl-m9-jl7" secondAttribute="bottom" constant="36" id="bjb-3I-9nf"/>
+                            <constraint firstAttribute="bottom" secondItem="kSs-Zv-6hH" secondAttribute="bottom" constant="147" id="me3-8e-MzP"/>
                             <constraint firstItem="KKj-tx-RSw" firstAttribute="top" secondItem="qbz-Zd-RVs" secondAttribute="top" constant="163" id="oOJ-wI-0ww"/>
+                            <constraint firstItem="KKj-tx-RSw" firstAttribute="centerX" secondItem="ury-ix-1kw" secondAttribute="centerX" type="default" id="ren-WV-gzW"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="pee and poo" id="sBQ-dB-f5T"/>
@@ -129,18 +132,56 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vC3-5d-zeq">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="92" id="YUz-Dr-1jc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <state key="normal" title="next day >">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextDay:" destination="MIE-xO-wts" eventType="touchUpInside" id="cAt-WQ-iLE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jH-A2-bs7">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="94" id="4dZ-Oc-k1i"/>
+                                    <constraint firstAttribute="height" constant="32" id="BB4-RP-Hto"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <state key="normal" title="&lt; previous day">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="prevDay:" destination="MIE-xO-wts" eventType="touchUpInside" id="8Tl-pq-Atr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="HHg-tf-baS" firstAttribute="trailing" secondItem="KlS-j6-O7G" secondAttribute="trailing" type="default" id="0lG-tr-Jr4"/>
+                            <constraint firstItem="3jH-A2-bs7" firstAttribute="top" secondItem="vC3-5d-zeq" secondAttribute="top" type="default" id="2AI-cG-VE8"/>
                             <constraint firstItem="HHg-tf-baS" firstAttribute="top" secondItem="zkf-FC-KfM" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="6Q4-Q4-JXX"/>
-                            <constraint firstItem="zkf-FC-KfM" firstAttribute="top" secondItem="KlS-j6-O7G" secondAttribute="top" constant="51" id="Khg-60-Slp"/>
+                            <constraint firstItem="zkf-FC-KfM" firstAttribute="top" secondItem="3jH-A2-bs7" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="8vp-6T-Fvj"/>
                             <constraint firstAttribute="bottom" secondItem="T7p-EL-c4C" secondAttribute="bottom" constant="146" id="M9n-b4-jxA"/>
                             <constraint firstItem="T7p-EL-c4C" firstAttribute="trailing" secondItem="KlS-j6-O7G" secondAttribute="trailing" type="default" id="POn-Sg-LWD"/>
+                            <constraint firstItem="3jH-A2-bs7" firstAttribute="leading" secondItem="KlS-j6-O7G" secondAttribute="leading" constant="15" id="QbP-A4-vFP"/>
                             <constraint firstItem="HHg-tf-baS" firstAttribute="leading" secondItem="KlS-j6-O7G" secondAttribute="leading" type="default" id="S2n-oX-JeA"/>
                             <constraint firstItem="T7p-EL-c4C" firstAttribute="leading" secondItem="KlS-j6-O7G" secondAttribute="leading" type="default" id="VtM-zo-3TR"/>
+                            <constraint firstAttribute="trailing" secondItem="vC3-5d-zeq" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Zeb-Cm-thi"/>
+                            <constraint firstItem="zkf-FC-KfM" firstAttribute="top" secondItem="vC3-5d-zeq" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="dhZ-bD-OcS"/>
                             <constraint firstItem="5Fj-yW-BMe" firstAttribute="leading" secondItem="KlS-j6-O7G" secondAttribute="leading" type="default" id="gAc-JH-NrX"/>
                             <constraint firstItem="zkf-FC-KfM" firstAttribute="trailing" secondItem="KlS-j6-O7G" secondAttribute="trailing" type="default" id="jVn-co-nmH"/>
+                            <constraint firstItem="3jH-A2-bs7" firstAttribute="top" secondItem="KlS-j6-O7G" secondAttribute="top" constant="13" id="oTj-wv-RQR"/>
                             <constraint firstItem="5Fj-yW-BMe" firstAttribute="trailing" secondItem="KlS-j6-O7G" secondAttribute="trailing" type="default" id="thN-Dp-5mJ"/>
                             <constraint firstItem="5Fj-yW-BMe" firstAttribute="top" secondItem="HHg-tf-baS" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="v2s-GU-OdY"/>
                             <constraint firstItem="zkf-FC-KfM" firstAttribute="leading" secondItem="KlS-j6-O7G" secondAttribute="leading" type="default" id="wKD-M5-1kl"/>
@@ -423,47 +464,6 @@
         <image name="bottle.png" width="640" height="1065"/>
         <image name="milk.png" width="206" height="479"/>
     </resources>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SLKAddBabyCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKAddBabyCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="addBabuLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="SLKBabyCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKBabyCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="babyNameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="SLKBabyListTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKBabyListTableViewController.h"/>
-        </class>
-        <class className="SLKFoodViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKFoodViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="handlePan:" candidateClass="UIPanGestureRecognizer"/>
-                <relationship kind="action" name="sliderOneValueChanged:"/>
-                <relationship kind="outlet" name="anotherFoodLable" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="foodLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="foodSliderOne" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="foodSliderTwo" candidateClass="UISlider"/>
-            </relationships>
-        </class>
-        <class className="SLKMainViewController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKMainViewController.h"/>
-        </class>
-        <class className="SLKPiiPooViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKPiiPooViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="changePoo:"/>
-                <relationship kind="outlet" name="nameOfBabyLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -18,4 +18,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *foodLabel;
 
+- (IBAction)nextDay:(id)sender;
+
+- (IBAction)prevDay:(id)sender;
+
 @end

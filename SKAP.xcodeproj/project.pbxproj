@@ -43,6 +43,7 @@
 		1CF8282A1701A9BA00EDC904 /* SLKAlertWithBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF828291701A9BA00EDC904 /* SLKAlertWithBlock.m */; };
 		1CF8282E1701BD6A00EDC904 /* SLKDaySummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF8282D1701BD6A00EDC904 /* SLKDaySummaryViewController.m */; };
 		1CF828311701CB4B00EDC904 /* SLKDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF828301701CB4B00EDC904 /* SLKDateUtil.m */; };
+		1CF828341701D14000EDC904 /* SLKDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF828331701D14000EDC904 /* SLKDates.m */; };
 		CE57277F170064A0003A72BF /* bottle.png in Resources */ = {isa = PBXBuildFile; fileRef = CE57277E170064A0003A72BF /* bottle.png */; };
 		CE59449316F90DC800D9D33A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449216F90DC800D9D33A /* UIKit.framework */; };
 		CE59449516F90DC800D9D33A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449416F90DC800D9D33A /* Foundation.framework */; };
@@ -131,6 +132,8 @@
 		1CF8282D1701BD6A00EDC904 /* SLKDaySummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKDaySummaryViewController.m; sourceTree = "<group>"; };
 		1CF8282F1701CB4B00EDC904 /* SLKDateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKDateUtil.h; sourceTree = "<group>"; };
 		1CF828301701CB4B00EDC904 /* SLKDateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKDateUtil.m; sourceTree = "<group>"; };
+		1CF828321701D13F00EDC904 /* SLKDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKDates.h; sourceTree = "<group>"; };
+		1CF828331701D14000EDC904 /* SLKDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKDates.m; sourceTree = "<group>"; };
 		CE57277E170064A0003A72BF /* bottle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottle.png; sourceTree = "<group>"; };
 		CE59448E16F90DC800D9D33A /* SKAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE59449216F90DC800D9D33A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -335,6 +338,8 @@
 				1CF828261701A36E00EDC904 /* SLKUserDefaults.m */,
 				1CF8282F1701CB4B00EDC904 /* SLKDateUtil.h */,
 				1CF828301701CB4B00EDC904 /* SLKDateUtil.m */,
+				1CF828321701D13F00EDC904 /* SLKDates.h */,
+				1CF828331701D14000EDC904 /* SLKDates.m */,
 			);
 			path = SKAP;
 			sourceTree = "<group>";
@@ -556,6 +561,7 @@
 				1CF8282A1701A9BA00EDC904 /* SLKAlertWithBlock.m in Sources */,
 				1CF8282E1701BD6A00EDC904 /* SLKDaySummaryViewController.m in Sources */,
 				1CF828311701CB4B00EDC904 /* SLKDateUtil.m in Sources */,
+				1CF828341701D14000EDC904 /* SLKDates.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
