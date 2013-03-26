@@ -17,7 +17,6 @@
 #import "ARCMacros.h"
 #import "SLKBabyPopViewController.h"
 #import "SLKAddBabyCell.h"
-#import "SLKUserDefaults.h"
 #import "SLKAlertWithBlock.h"
 
 @interface SLKBabyListTableViewController ()
@@ -48,9 +47,9 @@
                                                  name:@"addBaby"
                                                object:nil];
     
-    currentBaby = [[SLKBabyStorage sharedStorage] getBabyWithiD:[SLKUserDefaults getTheCurrentBabe]];
+    currentBaby = [[SLKBabyStorage sharedStorage]getCurrentBaby];
+    
     NSLog(@"did user default work? name: %@", currentBaby.name);
-    NSLog(@"did user default work? id: %@", [SLKUserDefaults getTheCurrentBabe]);
     
     babyArray = [[SLKBabyStorage sharedStorage] babyArray];
     
@@ -149,10 +148,8 @@
              if (buttonIndex == 1) {
                  
                 NSLog(@"button index yes");
-                [SLKUserDefaults setTheCurrentBabe:[[babyArray objectAtIndex:indexPath.row]babyId]];
-                 
-                 
-                 
+                [[SLKBabyStorage sharedStorage] setCurrentBaby:[babyArray objectAtIndex:indexPath.row]];
+              
                  if(checkedIndexPath)
                  {
                      UITableViewCell* uncheckCell = [tableView cellForRowAtIndexPath:checkedIndexPath];
