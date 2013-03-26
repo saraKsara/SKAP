@@ -8,11 +8,13 @@
 #import "SLKCoreDataService.h"
 #import "SLKBabyStorage.h"
 #import "Baby.h"
+#import "SLKUserDefaults.h"
 
 @implementation SLKBabyStorage
 {
     NSManagedObjectContext *context;
     NSManagedObjectModel *model;
+   
 }
 
 +(SLKBabyStorage*) sharedStorage
@@ -41,9 +43,17 @@
 
 -(Baby *)createBabyWithName:(NSString *)name babyId:(NSString *)babyId pii:(NSNumber *)pii poo:(NSNumber *)poo feedTimespan:(NSNumber *)feedTimespan bottle:(NSNumber *)bottle breast:(NSNumber *)breast date:(NSDate *)date
 {
-    //TODO: only breate if baby witj id not already exists, otherwise just update them!!
-    Baby *b = [NSEntityDescription insertNewObjectForEntityForName:@"Baby"
+    Baby *b;
+    Baby *babeInStorage = [self getBabyWithiD:babyId];
+    if (babeInStorage) {
+        NSLog(@"the baby already exists in core data, skipping creating a new, and updates existing baby instead.");
+        b = babeInStorage;
+        
+    } else {
+    b = [NSEntityDescription insertNewObjectForEntityForName:@"Baby"
                                                       inManagedObjectContext:context];
+    }
+    
     b.name = name;
     b.babyId = babyId;
     b.pii = pii;
@@ -53,8 +63,18 @@
     b.breast = breast;
     b.date = date;
     
-    NSLog(@"There's a new baby in town! name: %@", b.name);
+    NSLog(@"There's a new (or a updated babe) baby in town! name: %@", b.name);
+        NSLog(@"There's a new (or a updated babe) baby in town! breast: %@", b.poo);
     return b;
+}
+-(void)setCurrentBaby:(Baby *)baby
+{
+    [SLKUserDefaults setTheCurrentBabe:baby.babyId];
+    NSLog(@"(baby storage) The current babe is: %@", baby.name);
+}
+-(Baby *)getCurrentBaby;
+{
+    return [self getBabyWithiD:[SLKUserDefaults getTheCurrentBabe]];
 }
 
 -(void)removeBaby:(Baby*)baby

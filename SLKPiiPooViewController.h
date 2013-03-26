@@ -8,4 +8,6 @@
 
 #import <UIKit/UIKit.h>
 @interface SLKPiiPooViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *nameOfBabyLabel;
+- (IBAction)changePoo:(id)sender;
 @end

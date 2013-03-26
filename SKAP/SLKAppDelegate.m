@@ -19,7 +19,7 @@
         [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
  
-   [SLKJSONService getAllBabies];
+  //[SLKJSONService getAllBabies];
 
   //   //TODO: add "callback block"
     return YES;
@@ -33,6 +33,8 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
+    //TODO: think about this:
+    NSLog(@"applicationDidEnterBackground, update data on server here? and when actually updating?");
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }

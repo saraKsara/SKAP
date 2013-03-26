@@ -21,7 +21,8 @@
 
 -(NSArray*)babyArray;
 
+-(Baby*)getCurrentBaby;
 
-
+-(void)setCurrentBaby:(Baby*)baby;
 
 @end
