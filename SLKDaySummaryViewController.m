@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Student vid Yrkeshögskola C3L. All rights reserved.
 //
 
-#import "SLKSubmitDayViewController.h"
+#import "SLKDaySummaryViewController.h"
 
-@interface SLKSubmitDayViewController ()
+@interface SLKDaySummaryViewController ()
 
 @end
 
-@implementation SLKSubmitDayViewController
+@implementation SLKDaySummaryViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

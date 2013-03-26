@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SLKSubmitDayViewController : UIViewController
+@interface SLKDaySummaryViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *headerLabel;
 
