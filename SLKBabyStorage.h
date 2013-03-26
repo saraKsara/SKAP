@@ -12,8 +12,7 @@
 
 +(SLKBabyStorage*) sharedStorage;
 
--(Baby*)createBabyWithName:(NSString*)name babyId:(NSString*)babyId pii:(NSNumber*)pii poo:(NSNumber*)poo feedTimespan:(NSNumber*)feedTimespan bottle:(NSNumber*)bottle breast:(NSNumber*)breast date:(NSDate*)date;
-
+-(Baby*)createBabyWithName:(NSString*)name babyId:(NSString*)babyId date:(NSDate*)date type:(NSString*)type;
 
 -(void)removeBaby:(Baby*)baby;
 

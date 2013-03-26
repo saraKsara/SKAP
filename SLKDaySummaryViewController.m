@@ -38,11 +38,11 @@
     _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ today, %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
     
     //TODO: decide how to represent pee and poo
-    _peeLabel.text = [NSString stringWithFormat:@"Peed: %@ ml/times", currentBaby.pii];
-    _pooLabel.text =  [NSString stringWithFormat:@"Pooped %@ ml/times", currentBaby.poo];
-    
-    //TODO: for each time span, create a string that tell what time and what and how much the baby ate
-     _foodLabel.text =  [NSString stringWithFormat:@"Ate %@ ml/times", currentBaby.feedTimespan];
+//    _peeLabel.text = [NSString stringWithFormat:@"Peed: %@ ml/times", currentBaby.pii];
+//    _pooLabel.text =  [NSString stringWithFormat:@"Pooped %@ ml/times", currentBaby.poo];
+//    
+//    //TODO: for each time span, create a string that tell what time and what and how much the baby ate
+//     _foodLabel.text =  [NSString stringWithFormat:@"Ate %@ ml/times", currentBaby.feedTimespan];
     
 }
 

@@ -5,7 +5,7 @@
 //  Created by Student vid Yrkeshögskola C3L on 3/19/13.
 //  Copyright (c) 2013 Student vid Yrkeshögskola C3L. All rights reserved.
 //
-
+#import <Parse/Parse.h>
 #import "SLKAppDelegate.h"
 #import "AFNetworking.h"
 #import "SLKJSONService.h"
@@ -16,7 +16,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 
-        [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
+    
+    [Parse setApplicationId:@"4EQbwofsLU6tVbseSlCoOVvWBmW7MdlLuM4GCuCl"
+                  clientKey:@"lh5Ib7m3Jab71RhCA1dBC2UrMR68dsTBzIlsFu6h"];
+   
+    //to get statistics from users
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+
+       // [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
  
   //[SLKJSONService getAllBabies];

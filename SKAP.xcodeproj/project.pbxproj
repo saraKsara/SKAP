@@ -17,7 +17,9 @@
 		1C5BFC8916FCDBF200D1B238 /* SLKBabyPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC8716FCDBF200D1B238 /* SLKBabyPopViewController.m */; };
 		1C5BFC8C16FCF18B00D1B238 /* SLKAddBabyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC8B16FCF18B00D1B238 /* SLKAddBabyCell.m */; };
 		1C5BFC8D16FCF18B00D1B238 /* SLKAddBabyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC8B16FCF18B00D1B238 /* SLKAddBabyCell.m */; };
-		1C5C550016FC6F09009E3646 /* Baby.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C54FF16FC6F09009E3646 /* Baby.m */; };
+		1C5C78491701E3A800CB555F /* Baby.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C78481701E3A800CB555F /* Baby.m */; };
+		1C5C784F1701E49D00CB555F /* SLKEventStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C784E1701E49D00CB555F /* SLKEventStorage.m */; };
+		1C5C78551701EB9A00CB555F /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C78541701EB9A00CB555F /* Event.m */; };
 		1C91DD5916FC4EBB00921C59 /* SLKJSONService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DD5816FC4EBB00921C59 /* SLKJSONService.m */; };
 		1C91DDD816FC4F3F00921C59 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DDC616FC4F3F00921C59 /* AFHTTPClient.m */; };
 		1C91DDD916FC4F3F00921C59 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DDC816FC4F3F00921C59 /* AFHTTPRequestOperation.m */; };
@@ -44,6 +46,16 @@
 		1CF8282E1701BD6A00EDC904 /* SLKDaySummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF8282D1701BD6A00EDC904 /* SLKDaySummaryViewController.m */; };
 		1CF828311701CB4B00EDC904 /* SLKDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF828301701CB4B00EDC904 /* SLKDateUtil.m */; };
 		1CF828341701D14000EDC904 /* SLKDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF828331701D14000EDC904 /* SLKDates.m */; };
+		CE11D00217023283001A5AD2 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE11D00117023283001A5AD2 /* Parse.framework */; };
+		CE11D004170232ED001A5AD2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE11D003170232ED001A5AD2 /* AudioToolbox.framework */; };
+		CE11D00617023304001A5AD2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE11D00517023304001A5AD2 /* CFNetwork.framework */; };
+		CE11D00817023329001A5AD2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE11D00717023329001A5AD2 /* CoreLocation.framework */; };
+		CE11D00A17023344001A5AD2 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE11D00917023344001A5AD2 /* libz.1.1.3.dylib */; };
+		CE11D00C1702335D001A5AD2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE11D00B1702335D001A5AD2 /* MobileCoreServices.framework */; };
+		CE11D00D1702336F001A5AD2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA7F90416FCBBF3008BB1BF /* QuartzCore.framework */; };
+		CE11D00F17023381001A5AD2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE11D00E17023381001A5AD2 /* Security.framework */; };
+		CE11D01117023395001A5AD2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE11D01017023395001A5AD2 /* StoreKit.framework */; };
+		CE11D013170233A0001A5AD2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE11D012170233A0001A5AD2 /* SystemConfiguration.framework */; };
 		CE57277F170064A0003A72BF /* bottle.png in Resources */ = {isa = PBXBuildFile; fileRef = CE57277E170064A0003A72BF /* bottle.png */; };
 		CE59449316F90DC800D9D33A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449216F90DC800D9D33A /* UIKit.framework */; };
 		CE59449516F90DC800D9D33A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449416F90DC800D9D33A /* Foundation.framework */; };
@@ -86,8 +98,12 @@
 		1C5BFC8716FCDBF200D1B238 /* SLKBabyPopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKBabyPopViewController.m; sourceTree = "<group>"; };
 		1C5BFC8A16FCF18B00D1B238 /* SLKAddBabyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKAddBabyCell.h; sourceTree = "<group>"; };
 		1C5BFC8B16FCF18B00D1B238 /* SLKAddBabyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKAddBabyCell.m; sourceTree = "<group>"; };
-		1C5C54FE16FC6F09009E3646 /* Baby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baby.h; sourceTree = "<group>"; };
-		1C5C54FF16FC6F09009E3646 /* Baby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Baby.m; sourceTree = "<group>"; };
+		1C5C78471701E3A800CB555F /* Baby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baby.h; sourceTree = "<group>"; };
+		1C5C78481701E3A800CB555F /* Baby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Baby.m; sourceTree = "<group>"; };
+		1C5C784D1701E49D00CB555F /* SLKEventStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKEventStorage.h; sourceTree = "<group>"; };
+		1C5C784E1701E49D00CB555F /* SLKEventStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKEventStorage.m; sourceTree = "<group>"; };
+		1C5C78531701EB9A00CB555F /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		1C5C78541701EB9A00CB555F /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		1C91DD5716FC4EBB00921C59 /* SLKJSONService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKJSONService.h; sourceTree = "<group>"; };
 		1C91DD5816FC4EBB00921C59 /* SLKJSONService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKJSONService.m; sourceTree = "<group>"; };
 		1C91DDC516FC4F3F00921C59 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
@@ -134,6 +150,15 @@
 		1CF828301701CB4B00EDC904 /* SLKDateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKDateUtil.m; sourceTree = "<group>"; };
 		1CF828321701D13F00EDC904 /* SLKDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKDates.h; sourceTree = "<group>"; };
 		1CF828331701D14000EDC904 /* SLKDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKDates.m; sourceTree = "<group>"; };
+		CE11D00117023283001A5AD2 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		CE11D003170232ED001A5AD2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		CE11D00517023304001A5AD2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		CE11D00717023329001A5AD2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		CE11D00917023344001A5AD2 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		CE11D00B1702335D001A5AD2 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		CE11D00E17023381001A5AD2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CE11D01017023395001A5AD2 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		CE11D012170233A0001A5AD2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		CE57277E170064A0003A72BF /* bottle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottle.png; sourceTree = "<group>"; };
 		CE59448E16F90DC800D9D33A /* SKAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE59449216F90DC800D9D33A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -180,10 +205,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE11D013170233A0001A5AD2 /* SystemConfiguration.framework in Frameworks */,
+				CE11D01117023395001A5AD2 /* StoreKit.framework in Frameworks */,
+				CE11D00F17023381001A5AD2 /* Security.framework in Frameworks */,
+				CE11D00D1702336F001A5AD2 /* QuartzCore.framework in Frameworks */,
+				CE11D00C1702335D001A5AD2 /* MobileCoreServices.framework in Frameworks */,
+				CE11D00A17023344001A5AD2 /* libz.1.1.3.dylib in Frameworks */,
+				CE11D00817023329001A5AD2 /* CoreLocation.framework in Frameworks */,
+				CE59449716F90DC800D9D33A /* CoreGraphics.framework in Frameworks */,
+				CE11D00617023304001A5AD2 /* CFNetwork.framework in Frameworks */,
+				CE11D004170232ED001A5AD2 /* AudioToolbox.framework in Frameworks */,
 				1C91DDEC16FC567F00921C59 /* CoreData.framework in Frameworks */,
 				CE59449316F90DC800D9D33A /* UIKit.framework in Frameworks */,
 				CE59449516F90DC800D9D33A /* Foundation.framework in Frameworks */,
-				CE59449716F90DC800D9D33A /* CoreGraphics.framework in Frameworks */,
+				CE11D00217023283001A5AD2 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,9 +239,11 @@
 		1C5C54FD16FC6DD3009E3646 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1C5C78471701E3A800CB555F /* Baby.h */,
+				1C5C78481701E3A800CB555F /* Baby.m */,
+				1C5C78531701EB9A00CB555F /* Event.h */,
+				1C5C78541701EB9A00CB555F /* Event.m */,
 				CE5944B516F90DDF00D9D33A /* Model.xcdatamodeld */,
-				1C5C54FE16FC6F09009E3646 /* Baby.h */,
-				1C5C54FF16FC6F09009E3646 /* Baby.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -294,8 +331,6 @@
 		CE59448316F90DC800D9D33A = {
 			isa = PBXGroup;
 			children = (
-				1CA7F90416FCBBF3008BB1BF /* QuartzCore.framework */,
-				1C91DDEB16FC567F00921C59 /* CoreData.framework */,
 				CE59449816F90DC800D9D33A /* SKAP */,
 				1CA7F8D916FC8B72008BB1BF /* SKAPUnitTest */,
 				CE59449116F90DC800D9D33A /* Frameworks */,
@@ -315,6 +350,17 @@
 		CE59449116F90DC800D9D33A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE11D012170233A0001A5AD2 /* SystemConfiguration.framework */,
+				CE11D01017023395001A5AD2 /* StoreKit.framework */,
+				CE11D00E17023381001A5AD2 /* Security.framework */,
+				CE11D00B1702335D001A5AD2 /* MobileCoreServices.framework */,
+				CE11D00917023344001A5AD2 /* libz.1.1.3.dylib */,
+				CE11D00717023329001A5AD2 /* CoreLocation.framework */,
+				CE11D00517023304001A5AD2 /* CFNetwork.framework */,
+				CE11D003170232ED001A5AD2 /* AudioToolbox.framework */,
+				1CA7F90416FCBBF3008BB1BF /* QuartzCore.framework */,
+				1C91DDEB16FC567F00921C59 /* CoreData.framework */,
+				CE11D00117023283001A5AD2 /* Parse.framework */,
 				CE59449216F90DC800D9D33A /* UIKit.framework */,
 				CE59449416F90DC800D9D33A /* Foundation.framework */,
 				CE59449616F90DC800D9D33A /* CoreGraphics.framework */,
@@ -375,6 +421,8 @@
 			children = (
 				CE5944BC16F90EFA00D9D33A /* SLKBabyStorage.h */,
 				CE5944BD16F90EFA00D9D33A /* SLKBabyStorage.m */,
+				1C5C784D1701E49D00CB555F /* SLKEventStorage.h */,
+				1C5C784E1701E49D00CB555F /* SLKEventStorage.m */,
 				CE5944C016F90F4600D9D33A /* SLKCoreDataService.h */,
 				CE5944C116F90F4600D9D33A /* SLKCoreDataService.m */,
 			);
@@ -549,7 +597,6 @@
 				1C91DDDF16FC4F3F00921C59 /* AFXMLRequestOperation.m in Sources */,
 				1C91DDE016FC4F3F00921C59 /* UIImageView+AFNetworking.m in Sources */,
 				1C91DDE416FC4FFB00921C59 /* SLKHTTPClient.m in Sources */,
-				1C5C550016FC6F09009E3646 /* Baby.m in Sources */,
 				1CA7F8F016FCA2FC008BB1BF /* SLKBabyListTableViewController.m in Sources */,
 				1CA7F8F316FCA47E008BB1BF /* SLKBabyCell.m in Sources */,
 				1C5BFC7B16FCD75300D1B238 /* FPTouchView.m in Sources */,
@@ -562,6 +609,9 @@
 				1CF8282E1701BD6A00EDC904 /* SLKDaySummaryViewController.m in Sources */,
 				1CF828311701CB4B00EDC904 /* SLKDateUtil.m in Sources */,
 				1CF828341701D14000EDC904 /* SLKDates.m in Sources */,
+				1C5C78491701E3A800CB555F /* Baby.m in Sources */,
+				1C5C784F1701E49D00CB555F /* SLKEventStorage.m in Sources */,
+				1C5C78551701EB9A00CB555F /* Event.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -694,6 +744,10 @@
 		CE5944B316F90DC800D9D33A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SKAP/SKAP-Prefix.pch";
 				INFOPLIST_FILE = "SKAP/SKAP-Info.plist";
@@ -705,6 +759,10 @@
 		CE5944B416F90DC800D9D33A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SKAP/SKAP-Prefix.pch";
 				INFOPLIST_FILE = "SKAP/SKAP-Info.plist";

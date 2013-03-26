@@ -135,12 +135,6 @@
         popover.arrowDirection = FPPopoverNoArrow;
         popover.border = NO;
         popover.contentSize = CGSizeMake(310, 320);
-        
-        if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        {
-            popover.contentSize = CGSizeMake(300, 500);
-        }
-        
         [popover presentPopoverFromPoint:CGPointMake(70, 70)];
         
         } else {
@@ -176,6 +170,7 @@
 -(void) addBaby:(NSNotification *) notification
 {
     NSString *newBabyName = [notification.userInfo objectForKey:@"babyName"];
+    NSString *babyBirthday = [notification.userInfo objectForKey:@"date"];
     
     NSDictionary *toCouchdb = [NSDictionary dictionaryWithObjectsAndKeys:
                                newBabyName, @"name",
@@ -184,6 +179,7 @@
                                nil, @"feedTimespan",
                                nil, @"bottle",
                                nil, @"breast",
+//                                 babyBirthday, @"date",nil];
                                nil, @"date",nil];
     
     if ([NSJSONSerialization isValidJSONObject: toCouchdb])
@@ -193,13 +189,12 @@
         [SLKJSONService postBaby:toCouchdb onSuccess:^(NSDictionary *successDict) {
             NSLog(@"SUCCESS %@", [successDict valueForKey:@"id"]);
             [[SLKBabyStorage sharedStorage] createBabyWithName:newBabyName
-                                                        babyId:[successDict valueForKey:@"id"]
-                                                           pii:nil
-                                                           poo:nil
-                                                  feedTimespan:nil
-                                                        bottle:nil
-                                                        breast:nil
-                                                          date:nil];
+                                                        babyId:[successDict
+                                                                valueForKey:@"id"]
+                                                          date:nil
+                                                          type:nil];
+
+    
             [popover dismissPopoverAnimated:YES completion:^{
                 [self.tableView reloadData];
             }];

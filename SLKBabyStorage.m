@@ -41,7 +41,7 @@
     return self;
 }
 
--(Baby *)createBabyWithName:(NSString *)name babyId:(NSString *)babyId pii:(NSNumber *)pii poo:(NSNumber *)poo feedTimespan:(NSNumber *)feedTimespan bottle:(NSNumber *)bottle breast:(NSNumber *)breast date:(NSDate *)date
+-(Baby*)createBabyWithName:(NSString*)name babyId:(NSString*)babyId date:(NSDate*)date type:(NSString*)type
 {
     Baby *b;
     Baby *babeInStorage = [self getBabyWithiD:babyId];
@@ -56,15 +56,11 @@
     
     b.name = name;
     b.babyId = babyId;
-    b.pii = pii;
-    b.poo = poo;
-    b.feedTimespan = feedTimespan;
-    b.bottle = bottle;
-    b.breast = breast;
     b.date = date;
+    b.type = type;
     
     NSLog(@"There's a new (or a updated babe) baby in town! name: %@", b.name);
-        NSLog(@"There's a new (or a updated babe) baby in town! breast: %@", b.poo);
+      
     return b;
 }
 -(void)setCurrentBaby:(Baby *)baby

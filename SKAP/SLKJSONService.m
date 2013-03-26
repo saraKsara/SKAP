@@ -34,15 +34,11 @@
 
            NSDictionary *theBabyData = [dictionary valueForKey:@"doc"];
             
+
             [[SLKBabyStorage sharedStorage] createBabyWithName:[theBabyData objectForKey:@"name"]
                                                         babyId:[theBabyData objectForKey:@"_id"]
-                                                           pii:[theBabyData objectForKey:@"pii"]
-                                                           poo:[theBabyData objectForKey:@"poo"]
-                                                  feedTimespan:[theBabyData objectForKey:@"feedTimespan"]
-                                                        bottle:[theBabyData objectForKey:@"bottle"]
-                                                        breast:[theBabyData objectForKey:@"breast"]
-                                                          date:[NSDate date]];
-            
+                                                          date:nil
+                                                          type:nil];
         }
 
         
