@@ -16,7 +16,7 @@
             </objects>
             <point key="canvasLocation" x="-652" y="1056"/>
         </scene>
-        <!--Pii Poo View Controller - Item 2-->
+        <!--Pii Poo View Controller - pee and poo-->
         <scene sceneID="E4t-rJ-D9H">
             <objects>
                 <viewController id="tdz-Ig-GlY" customClass="SLKPiiPooViewController" sceneMemberID="viewController">
@@ -80,7 +80,7 @@
                             <constraint firstItem="KKj-tx-RSw" firstAttribute="top" secondItem="qbz-Zd-RVs" secondAttribute="top" constant="163" id="oOJ-wI-0ww"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="sBQ-dB-f5T"/>
+                    <tabBarItem key="tabBarItem" title="pee and poo" id="sBQ-dB-f5T"/>
                     <connections>
                         <outlet property="nameOfBabyLabel" destination="4M0-QM-Oqv" id="TSv-5G-9hY"/>
                     </connections>
@@ -89,7 +89,76 @@
             </objects>
             <point key="canvasLocation" x="303" y="1444"/>
         </scene>
-        <!--Baby List Table View Controller - Item-->
+        <!--Submit Day View Controller - day-->
+        <scene sceneID="OOu-sX-ufM">
+            <objects>
+                <viewController id="MIE-xO-wts" customClass="SLKSubmitDayViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KlS-j6-O7G">
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="This is what happened to today" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="zkf-FC-KfM">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="82" id="OJc-Ov-GV7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="POO" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="HHg-tf-baS">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="82" id="4Ku-UE-c9S"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="PEE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="5Fj-yW-BMe">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="82" id="snN-lQ-IIj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="FOOD" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="T7p-EL-c4C">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="82" id="EAl-oO-kRU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HHg-tf-baS" firstAttribute="trailing" secondItem="KlS-j6-O7G" secondAttribute="trailing" type="default" id="0lG-tr-Jr4"/>
+                            <constraint firstItem="HHg-tf-baS" firstAttribute="top" secondItem="zkf-FC-KfM" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="6Q4-Q4-JXX"/>
+                            <constraint firstItem="zkf-FC-KfM" firstAttribute="top" secondItem="KlS-j6-O7G" secondAttribute="top" constant="51" id="Khg-60-Slp"/>
+                            <constraint firstAttribute="bottom" secondItem="T7p-EL-c4C" secondAttribute="bottom" constant="146" id="M9n-b4-jxA"/>
+                            <constraint firstItem="T7p-EL-c4C" firstAttribute="trailing" secondItem="KlS-j6-O7G" secondAttribute="trailing" type="default" id="POn-Sg-LWD"/>
+                            <constraint firstItem="HHg-tf-baS" firstAttribute="leading" secondItem="KlS-j6-O7G" secondAttribute="leading" type="default" id="S2n-oX-JeA"/>
+                            <constraint firstItem="T7p-EL-c4C" firstAttribute="leading" secondItem="KlS-j6-O7G" secondAttribute="leading" type="default" id="VtM-zo-3TR"/>
+                            <constraint firstItem="5Fj-yW-BMe" firstAttribute="leading" secondItem="KlS-j6-O7G" secondAttribute="leading" type="default" id="gAc-JH-NrX"/>
+                            <constraint firstItem="zkf-FC-KfM" firstAttribute="trailing" secondItem="KlS-j6-O7G" secondAttribute="trailing" type="default" id="jVn-co-nmH"/>
+                            <constraint firstItem="5Fj-yW-BMe" firstAttribute="trailing" secondItem="KlS-j6-O7G" secondAttribute="trailing" type="default" id="thN-Dp-5mJ"/>
+                            <constraint firstItem="5Fj-yW-BMe" firstAttribute="top" secondItem="HHg-tf-baS" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="v2s-GU-OdY"/>
+                            <constraint firstItem="zkf-FC-KfM" firstAttribute="leading" secondItem="KlS-j6-O7G" secondAttribute="leading" type="default" id="wKD-M5-1kl"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="day" id="7Ge-os-Aef"/>
+                    <connections>
+                        <outlet property="foodLabel" destination="T7p-EL-c4C" id="Cob-dP-H4i"/>
+                        <outlet property="headerLabel" destination="zkf-FC-KfM" id="AZC-m9-8fJ"/>
+                        <outlet property="peeLabel" destination="5Fj-yW-BMe" id="TO9-Kt-RnO"/>
+                        <outlet property="pooLabel" destination="HHg-tf-baS" id="tDb-GT-sS8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z1S-e5-Jmw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="310" y="2092"/>
+        </scene>
+        <!--Baby List Table View Controller - Settings-->
         <scene sceneID="8YE-Y4-Fof">
             <objects>
                 <tableViewController id="gld-Am-4fa" customClass="SLKBabyListTableViewController" sceneMemberID="viewController">
@@ -165,13 +234,13 @@
                             <outlet property="delegate" destination="gld-Am-4fa" id="rXF-7Z-AeE"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="fds-k2-bUo"/>
+                    <tabBarItem key="tabBarItem" title="Settings" id="fds-k2-bUo"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1nr-cL-gmi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="303" y="2120"/>
+            <point key="canvasLocation" x="303" y="2764"/>
         </scene>
-        <!--Food View Controller - Item 1-->
+        <!--Food View Controller - food-->
         <scene sceneID="cOa-6B-Fj6">
             <objects>
                 <viewController id="ZyT-Br-cqW" customClass="SLKFoodViewController" sceneMemberID="viewController">
@@ -311,7 +380,7 @@
                             <constraint firstAttribute="bottom" secondItem="fFQ-Bd-fcw" secondAttribute="bottom" constant="188" id="w0O-ec-iiF"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="NSO-M8-TsB"/>
+                    <tabBarItem key="tabBarItem" title="food" id="NSO-M8-TsB"/>
                     <connections>
                         <outlet property="anotherFoodLable" destination="AmX-Ob-lRp" id="Efi-pc-rv9"/>
                         <outlet property="foodLabel" destination="UYu-JL-Yec" id="jfw-dC-dzd"/>
@@ -341,18 +410,69 @@
                     <connections>
                         <segue destination="ZyT-Br-cqW" kind="relationship" relationship="viewControllers" id="TC6-44-Hab"/>
                         <segue destination="tdz-Ig-GlY" kind="relationship" relationship="viewControllers" id="a6G-Y9-IeS"/>
-                        <segue destination="gld-Am-4fa" kind="relationship" relationship="viewControllers" id="h8k-M2-LGx"/>
+                        <segue destination="MIE-xO-wts" kind="relationship" relationship="viewControllers" id="kGz-nV-lN9"/>
+                        <segue destination="gld-Am-4fa" kind="relationship" relationship="viewControllers" id="31x-FI-l7n"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c32-O6-FoJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-174" y="1127"/>
+            <point key="canvasLocation" x="-207" y="1655"/>
         </scene>
     </scenes>
     <resources>
         <image name="bottle.png" width="640" height="1065"/>
         <image name="milk.png" width="206" height="479"/>
     </resources>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="SLKAddBabyCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKAddBabyCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addBabuLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SLKBabyCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKBabyCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="babyNameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SLKBabyListTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKBabyListTableViewController.h"/>
+        </class>
+        <class className="SLKFoodViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKFoodViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="handlePan:" candidateClass="UIPanGestureRecognizer"/>
+                <relationship kind="action" name="sliderOneValueChanged:"/>
+                <relationship kind="outlet" name="anotherFoodLable" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="foodLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="foodSliderOne" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="foodSliderTwo" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+        <class className="SLKMainViewController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKMainViewController.h"/>
+        </class>
+        <class className="SLKPiiPooViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKPiiPooViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="changePoo:"/>
+                <relationship kind="outlet" name="nameOfBabyLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SLKSubmitDayViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKSubmitDayViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="foodLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="headerLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="peeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pooLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
