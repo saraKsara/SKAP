@@ -17,6 +17,7 @@
 @implementation SLKBabyPopViewController
 {
     UITextView *babyNameTextField;
+     UITextView *babyBirthTextField;
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,12 +48,21 @@
     
     babyNameTextField = [[UITextView alloc] initWithFrame:CGRectMake(40.0, 110.0, 200.0, 20.0)];
     
-    [self.view addSubview:babyNameTextField];
+    UILabel *birthLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 80, 250, 20)];
+    [birthLabel setBackgroundColor:[UIColor clearColor]];
+    birthLabel.text = @"Type in your baby's date of birth.";
+    [birthLabel setTextColor:[UIColor whiteColor]];
+    [self.view addSubview:birthLabel];
+    
+    babyBirthTextField = [[UITextView alloc] initWithFrame:CGRectMake(40.0, 110.0, 200.0, 20.0)];
+    
+    [self.view addSubview:babyBirthTextField];
     
 }
 -(void)addBabyNotification
 {
-    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: babyNameTextField.text, @"babyName", nil];
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: babyBirthTextField, @"date", babyNameTextField.text, @"babyName", nil];
+    
 
      [[NSNotificationCenter defaultCenter] postNotificationName: @"addBaby" object:nil userInfo:userInfo];
 }

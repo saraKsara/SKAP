@@ -17,7 +17,9 @@
 		1C5BFC8916FCDBF200D1B238 /* SLKBabyPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC8716FCDBF200D1B238 /* SLKBabyPopViewController.m */; };
 		1C5BFC8C16FCF18B00D1B238 /* SLKAddBabyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC8B16FCF18B00D1B238 /* SLKAddBabyCell.m */; };
 		1C5BFC8D16FCF18B00D1B238 /* SLKAddBabyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC8B16FCF18B00D1B238 /* SLKAddBabyCell.m */; };
-		1C5C550016FC6F09009E3646 /* Baby.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C54FF16FC6F09009E3646 /* Baby.m */; };
+		1C5C78491701E3A800CB555F /* Baby.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C78481701E3A800CB555F /* Baby.m */; };
+		1C5C784F1701E49D00CB555F /* SLKEventStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C784E1701E49D00CB555F /* SLKEventStorage.m */; };
+		1C5C78551701EB9A00CB555F /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C78541701EB9A00CB555F /* Event.m */; };
 		1C91DD5916FC4EBB00921C59 /* SLKJSONService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DD5816FC4EBB00921C59 /* SLKJSONService.m */; };
 		1C91DDD816FC4F3F00921C59 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DDC616FC4F3F00921C59 /* AFHTTPClient.m */; };
 		1C91DDD916FC4F3F00921C59 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DDC816FC4F3F00921C59 /* AFHTTPRequestOperation.m */; };
@@ -86,8 +88,12 @@
 		1C5BFC8716FCDBF200D1B238 /* SLKBabyPopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKBabyPopViewController.m; sourceTree = "<group>"; };
 		1C5BFC8A16FCF18B00D1B238 /* SLKAddBabyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKAddBabyCell.h; sourceTree = "<group>"; };
 		1C5BFC8B16FCF18B00D1B238 /* SLKAddBabyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKAddBabyCell.m; sourceTree = "<group>"; };
-		1C5C54FE16FC6F09009E3646 /* Baby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baby.h; sourceTree = "<group>"; };
-		1C5C54FF16FC6F09009E3646 /* Baby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Baby.m; sourceTree = "<group>"; };
+		1C5C78471701E3A800CB555F /* Baby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baby.h; sourceTree = "<group>"; };
+		1C5C78481701E3A800CB555F /* Baby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Baby.m; sourceTree = "<group>"; };
+		1C5C784D1701E49D00CB555F /* SLKEventStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKEventStorage.h; sourceTree = "<group>"; };
+		1C5C784E1701E49D00CB555F /* SLKEventStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKEventStorage.m; sourceTree = "<group>"; };
+		1C5C78531701EB9A00CB555F /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		1C5C78541701EB9A00CB555F /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		1C91DD5716FC4EBB00921C59 /* SLKJSONService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKJSONService.h; sourceTree = "<group>"; };
 		1C91DD5816FC4EBB00921C59 /* SLKJSONService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKJSONService.m; sourceTree = "<group>"; };
 		1C91DDC516FC4F3F00921C59 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
@@ -204,9 +210,11 @@
 		1C5C54FD16FC6DD3009E3646 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1C5C78471701E3A800CB555F /* Baby.h */,
+				1C5C78481701E3A800CB555F /* Baby.m */,
+				1C5C78531701EB9A00CB555F /* Event.h */,
+				1C5C78541701EB9A00CB555F /* Event.m */,
 				CE5944B516F90DDF00D9D33A /* Model.xcdatamodeld */,
-				1C5C54FE16FC6F09009E3646 /* Baby.h */,
-				1C5C54FF16FC6F09009E3646 /* Baby.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -375,6 +383,8 @@
 			children = (
 				CE5944BC16F90EFA00D9D33A /* SLKBabyStorage.h */,
 				CE5944BD16F90EFA00D9D33A /* SLKBabyStorage.m */,
+				1C5C784D1701E49D00CB555F /* SLKEventStorage.h */,
+				1C5C784E1701E49D00CB555F /* SLKEventStorage.m */,
 				CE5944C016F90F4600D9D33A /* SLKCoreDataService.h */,
 				CE5944C116F90F4600D9D33A /* SLKCoreDataService.m */,
 			);
@@ -549,7 +559,6 @@
 				1C91DDDF16FC4F3F00921C59 /* AFXMLRequestOperation.m in Sources */,
 				1C91DDE016FC4F3F00921C59 /* UIImageView+AFNetworking.m in Sources */,
 				1C91DDE416FC4FFB00921C59 /* SLKHTTPClient.m in Sources */,
-				1C5C550016FC6F09009E3646 /* Baby.m in Sources */,
 				1CA7F8F016FCA2FC008BB1BF /* SLKBabyListTableViewController.m in Sources */,
 				1CA7F8F316FCA47E008BB1BF /* SLKBabyCell.m in Sources */,
 				1C5BFC7B16FCD75300D1B238 /* FPTouchView.m in Sources */,
@@ -562,6 +571,9 @@
 				1CF8282E1701BD6A00EDC904 /* SLKDaySummaryViewController.m in Sources */,
 				1CF828311701CB4B00EDC904 /* SLKDateUtil.m in Sources */,
 				1CF828341701D14000EDC904 /* SLKDates.m in Sources */,
+				1C5C78491701E3A800CB555F /* Baby.m in Sources */,
+				1C5C784F1701E49D00CB555F /* SLKEventStorage.m in Sources */,
+				1C5C78551701EB9A00CB555F /* Event.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

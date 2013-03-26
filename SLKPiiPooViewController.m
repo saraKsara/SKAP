@@ -34,7 +34,6 @@
 	self.title =@"a poppy?";
     currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
     _nameOfBabyLabel.text = [NSString stringWithFormat:@"Poo and pee of %@",currentBabe.name];
-    NSLog(@"poooo::: %@", currentBabe.poo);
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,13 +45,13 @@
 - (IBAction)changePoo:(id)sender
 {
     
-    [[SLKBabyStorage sharedStorage] createBabyWithName:currentBabe.name
-                                                babyId:currentBabe.babyId
-                                                   pii:currentBabe.pii
-                                                   poo:[NSNumber numberWithInt:88]
-                                          feedTimespan:currentBabe.feedTimespan
-                                                bottle:currentBabe.bottle
-                                                breast:currentBabe.breast
-                                                  date:nil];
+//    [[SLKBabyStorage sharedStorage] createBabyWithName:currentBabe.name
+//                                                babyId:currentBabe.babyId
+//                                                   pii:currentBabe.pii
+//                                                   poo:[NSNumber numberWithInt:88]
+//                                          feedTimespan:currentBabe.feedTimespan
+//                                                bottle:currentBabe.bottle
+//                                                breast:currentBabe.breast
+//                                                  date:nil];
 }
 @end

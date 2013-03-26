@@ -2,16 +2,27 @@
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="11G63" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Baby" representedClassName="Baby" syncable="YES">
         <attribute name="babyId" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="bottle" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="breast" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="feedTimespan" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="pii" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="poo" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="event" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="baby" inverseEntity="Event" syncable="YES"/>
+    </entity>
+    <entity name="Event" representedClassName="Event" syncable="YES">
+        <attribute name="adDrop" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="bottle" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="eventId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="otherMedz" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pii" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="poo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="temperature" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="timespan" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="tits" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="baby" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Baby" inverseName="event" inverseEntity="Baby" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Baby" positionX="160" positionY="192" width="128" height="180"/>
+        <element name="Baby" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="Event" positionX="160" positionY="192" width="128" height="225"/>
     </elements>
 </model>
