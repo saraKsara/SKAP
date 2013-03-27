@@ -25,8 +25,8 @@
 
 - (void)viewDidLoad
 {
-    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-    [testObject setObject:@"bar" forKey:@"foo"];
+    PFObject *testObject = [PFObject objectWithClassName:@"Event"];
+    [testObject setObject:@"alvedon" forKey:@"otherMedz"];
     [testObject save];
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
