@@ -176,8 +176,10 @@
 
 -(void) addBaby:(NSNotification *) notification
 {
+       NSLog(@"namnet på nya NOTTT: %@", [notification.userInfo allKeys]);
     NSString *newBabyName = [notification.userInfo objectForKey:@"babyName"];
     NSString *babyBirthday = [notification.userInfo objectForKey:@"date"];
+    NSLog(@"namnet på nya bebben: %@", newBabyName);
     
     PFObject *babyObject = [PFObject objectWithClassName:@"Baby"];
      [babyObject setObject:newBabyName forKey:@"name"];
@@ -192,6 +194,10 @@
                                                          date:nil
                                                          type:nil];
           NSLog(@"SUCCEED to create %@",[object objectForKey:@"name"] );
+        [popover dismissPopoverAnimated:YES completion:^{
+            [self.tableView reloadData];
+        }];
+        
        } onFailure:^(PFObject *object)
     {
            NSLog(@"FAILED :((( ");
