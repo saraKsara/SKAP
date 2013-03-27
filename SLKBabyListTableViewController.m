@@ -134,7 +134,8 @@
         [popover setAlpha:0.8];
         popover.arrowDirection = FPPopoverNoArrow;
         popover.border = NO;
-        popover.contentSize = CGSizeMake(310, 320);
+        popover.contentSize = CGSizeMake(320, 115);
+       
         [popover presentPopoverFromPoint:CGPointMake(70, 70)];
         
         } else {
@@ -186,29 +187,30 @@
     {
         //TODO: CHECK FOR INTERNET CONNECTION (REACHABILITY?) AND DECIDE WHAT TO DO WHEN THERE'S NO CONNECTION
         NSLog(@"Baby IS JSON valid");
-        [SLKJSONService postBaby:toCouchdb onSuccess:^(NSDictionary *successDict) {
-            NSLog(@"SUCCESS %@", [successDict valueForKey:@"id"]);
+//        [SLKJSONService postBaby:toCouchdb onSuccess:^(NSDictionary *successDict) {
+//            NSLog(@"SUCCESS %@", [successDict valueForKey:@"id"]);
             [[SLKBabyStorage sharedStorage] createBabyWithName:newBabyName
-                                                        babyId:[successDict
-                                                                valueForKey:@"id"]
+                                                        babyId:@"lekID"
                                                           date:nil
                                                           type:nil];
-
-    
-            [popover dismissPopoverAnimated:YES completion:^{
-                [self.tableView reloadData];
-            }];
-            
-        } onFailure:^(NSDictionary *failDict, NSHTTPURLResponse *resp) {
-            
-            NSLog(@"FAIL %@", failDict);
-            [popover dismissPopoverAnimated:YES completion:^{
-                [self.tableView reloadData];
-            }];
-            
-        }];
-        
-      //  [[NSNotificationCenter defaultCenter] postNotificationName: @"dismissThePopover" object:nil userInfo:nil];
+//
+//    
+//            [popover dismissPopoverAnimated:YES completion:^{
+//                [self.tableView reloadData];
+//            }];
+//            
+//        } onFailure:^(NSDictionary *failDict, NSHTTPURLResponse *resp) {
+//            
+//            NSLog(@"FAIL %@", failDict);
+//            [popover dismissPopoverAnimated:YES completion:^{
+//                [self.tableView reloadData];
+//            }];
+//            
+//        }];
+        [popover dismissPopoverAnimated:YES completion:^{
+                            [self.tableView reloadData];
+                       }];
+     //  [[NSNotificationCenter defaultCenter] postNotificationName: @"dismissThePopover" object:nil userInfo:nil];
         
     } else {
         NSLog(@"Baby is not valid JSON");

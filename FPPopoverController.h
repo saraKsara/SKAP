@@ -16,7 +16,7 @@
 
 
 @class FPPopoverController;
-@protocol FPPopoverControllerDelegate <NSObject>
+@protocol FPPopoverControllerDelegate <NSObject, UITextFieldDelegate>
 
 @optional
 - (void)popoverControllerDidDismissPopover:(FPPopoverController *)popoverController;
