@@ -18,6 +18,8 @@
 #import "SLKBabyPopViewController.h"
 #import "SLKAddBabyCell.h"
 #import "SLKAlertWithBlock.h"
+#import <Parse/Parse.h>
+#import "SLKAppDelegate.h"
 
 @interface SLKBabyListTableViewController ()
 
@@ -39,6 +41,10 @@
     return self;
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+   
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -170,8 +176,17 @@
 
 -(void) addBaby:(NSNotification *) notification
 {
+       NSLog(@"namnet på nya NOTTT: %@", [notification.userInfo allKeys]);
     NSString *newBabyName = [notification.userInfo objectForKey:@"babyName"];
     NSString *babyBirthday = [notification.userInfo objectForKey:@"date"];
+<<<<<<< HEAD
+    NSLog(@"namnet på nya bebben: %@", newBabyName);
+    
+    PFObject *babyObject = [PFObject objectWithClassName:@"Baby"];
+     [babyObject setObject:newBabyName forKey:@"name"];
+//     [babyObject setObject:newBabyName forKey:@"date"];
+
+=======
 
     NSDictionary *toCouchdb = [NSDictionary dictionaryWithObjectsAndKeys:
                                newBabyName, @"name",
@@ -185,37 +200,37 @@
     
     if ([NSJSONSerialization isValidJSONObject: toCouchdb])
     {
+>>>>>>> master
         //TODO: CHECK FOR INTERNET CONNECTION (REACHABILITY?) AND DECIDE WHAT TO DO WHEN THERE'S NO CONNECTION
-        NSLog(@"Baby IS JSON valid");
-//        [SLKJSONService postBaby:toCouchdb onSuccess:^(NSDictionary *successDict) {
-//            NSLog(@"SUCCESS %@", [successDict valueForKey:@"id"]);
-            [[SLKBabyStorage sharedStorage] createBabyWithName:newBabyName
-                                                        babyId:@"lekID"
-                                                          date:nil
-                                                          type:nil];
-//
-//    
-//            [popover dismissPopoverAnimated:YES completion:^{
-//                [self.tableView reloadData];
-//            }];
-//            
-//        } onFailure:^(NSDictionary *failDict, NSHTTPURLResponse *resp) {
-//            
-//            NSLog(@"FAIL %@", failDict);
-//            [popover dismissPopoverAnimated:YES completion:^{
-//                [self.tableView reloadData];
-//            }];
-//            
-//        }];
+        
+       [SLKJSONService postObject:babyObject onSuccess:^(PFObject *object)
+    {
+           [[SLKBabyStorage sharedStorage] createBabyWithName:[object objectForKey:@"name"]
+                                                       babyId:[object objectId]
+                                                         date:nil
+                                                         type:nil];
+          NSLog(@"SUCCEED to create %@",[object objectForKey:@"name"] );
         [popover dismissPopoverAnimated:YES completion:^{
+<<<<<<< HEAD
+            [self.tableView reloadData];
+        }];
+=======
                             [self.tableView reloadData];
                        }];
      //  [[NSNotificationCenter defaultCenter] postNotificationName: @"dismissThePopover" object:nil userInfo:nil];
 
+>>>>>>> master
         
-    } else {
-        NSLog(@"Baby is not valid JSON");
-    }
+       } onFailure:^(PFObject *object)
+    {
+           NSLog(@"FAILED :((( ");
+           
+           [popover dismissPopoverAnimated:YES completion:^{
+               [self.tableView reloadData];
+           }];
+            
+        }];
+            //  [[NSNotificationCenter defaultCenter] postNotificationName: @"dismissThePopover" object:nil userInfo:nil]
     
     
 }

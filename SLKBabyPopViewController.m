@@ -27,6 +27,7 @@
     UIButton *doneBtn;
     UILabel *doneBtnLabel;
     UILabel *anewBabuLabel;
+    NSString *babyName;
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -116,6 +117,7 @@
     anewBabuLabel.text = [NSString stringWithFormat:@"%@ was born on: ", babyNameTextField.text];
     [babyNameTextField removeFromSuperview];
       btnLabel.text = [NSString stringWithFormat:@"Add %@ to babyfeed", babyNameTextField.text];
+    babyName = babyNameTextField.text;
     [btnLabel sizeToFit];
     [UIView animateWithDuration:.3f animations:^{
         CGRect theFrame = self.view.superview.frame;
@@ -153,9 +155,13 @@
 }
 -(void)addBabyNotification
 {
-    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: babyBirthday, @"date", babyNameTextField.text, @"babyName", nil];
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys:babyName, @"babyName", nil];
+    NSLog(@"vavava-------- %@", [userInfo valueForKey:@"babyName"]);
     
     [[NSNotificationCenter defaultCenter] postNotificationName: @"addBaby" object:nil userInfo:userInfo];
+    
+    
+    
 }
 - (void)didReceiveMemoryWarning
 {

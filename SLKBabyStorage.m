@@ -59,7 +59,7 @@
     b.date = date;
     b.type = type;
     
-    NSLog(@"There's a new (or a updated babe) baby in town! name: %@", b.name);
+    NSLog(@"There's a new (or a updated babe) baby in town! name: %@  id: %@", b.name, b.babyId);
       
     return b;
 }

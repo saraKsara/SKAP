@@ -11,89 +11,53 @@
 #import "AFJSONRequestOperation.h"
 #import "SLKBabyStorage.h"
 #import "Baby.h"
-
+#import "SLKAppDelegate.h"
+#import <Parse/Parse.h>
 @implementation SLKJSONService
 
-+(void)getAllBabies
++(void)getAllObjects
 {
-     
-    SLKHTTPClient *client = [SLKHTTPClient sharedClient];
     
-    NSString *allDocs =@"skap/_all_docs?include_docs=true";
-//    NSString* idTEST =@"skap/7cc6607def14d920e0dbaddf01000c38";//ONLY FOR TEST
-//    NSString *skap = @"skap/";
-    
-    NSURLRequest* request = [client requestWithMethod:@"GET" path:allDocs parameters:nil];
-    
-    AFJSONRequestOperation* operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        
-        //if ([[[SLKBabyStorage sharedStorage] babyArray] count] == 0) {
-        
-        for (NSDictionary *dictionary in [JSON objectForKey:@"rows"])
-        {
-
-           NSDictionary *theBabyData = [dictionary valueForKey:@"doc"];
+    PFQuery *babyQuery = [PFQuery queryWithClassName:@"Baby"]; //1
+    //[query whereKey:@"name" equalTo:@"Jack"];//2
+    [babyQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {//4
+        if (!error) {
+            NSLog(@"Successfully retrieved: %@", objects.class);
             
+            for (int i = 0; i < [objects count]; i++)
+            {
+//                 NSLog(@"BABY : %@", [[objects objectAtIndex:i] objectId ]);
+//                            NSLog(@"BABY : %@", [objects objectAtIndex:i]);
+                
+                [[SLKBabyStorage sharedStorage] createBabyWithName:[[objects objectAtIndex:i] objectForKey:@"name"]
+                                                            babyId:[[objects objectAtIndex:i]objectId]
+                                                              date:[[objects objectAtIndex:i] objectForKey:@"date"]
+                                                              type:nil];
+                
+            }
 
-            [[SLKBabyStorage sharedStorage] createBabyWithName:[theBabyData objectForKey:@"name"]
-                                                        babyId:[theBabyData objectForKey:@"_id"]
-                                                          date:nil
-                                                          type:nil];
+        } else {
+            NSString *errorString = [[error userInfo] objectForKey:@"error"];
+            NSLog(@"Error: %@", errorString);
         }
-
-        
-        
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        NSLog(@"Fail, error: %@", error);
-        NSLog(@"Fail, response: %d", response.statusCode);
-        NSLog(@"Fail, JSON: %@", JSON);
     }];
-    [operation start];
 }
 
-+(void)postBaby:(NSDictionary *)baby onSuccess:(void (^)(NSDictionary *))success onFailure:(void (^)(NSDictionary *, NSHTTPURLResponse *))failure
++(void)postObject:(PFObject *)object onSuccess:(void (^)(PFObject *))successObject onFailure:(void (^)(PFObject *))failureObject
 {
-//    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"http://admin:wandas66@asamaripersson.iriscouch.com/skap"]];
-//                                       
-//    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:URL];
-//    [theRequest addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-//    [theRequest setHTTPMethod:@"POST"];
-//    
-//    
-//    NSData *toCouchAsJSON = [NSJSONSerialization dataWithJSONObject:baby options:NSJSONWritingPrettyPrinted error:nil];
-//
-//    [theRequest setHTTPBody:toCouchAsJSON];
-//    
-//    [NSURLConnection sendAsynchronousRequest:theRequest
-//                                       queue:[[NSOperationQueue alloc] init]
-//                           completionHandler: ^(NSURLResponse *resp, NSData *data, NSError *error)
-//     {
-//         if (error)
-//         {
-//             NSLog(@"%@", [error localizedDescription]);
-//         }
-//         NSMutableDictionary *idAndRevFromLastAddedDoc = [NSJSONSerialization JSONObjectWithData:data
-//                                                                                         options:NSJSONReadingMutableContainers
-//                                                                                           error:nil];
-//         
-//         success(idAndRevFromLastAddedDoc );
- //    }];
-    SLKHTTPClient *client = [SLKHTTPClient sharedClient];
-    
-    NSString* path =@"/skap";
-    
-    NSURLRequest* request = [client requestWithMethod:@"POST" path:path parameters:baby];
-    
-    AFJSONRequestOperation* operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
-                                                                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                                                                                            success(JSON);
-                                                                                            
-                                                                                        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-                                                                                            failure(JSON, response);
-                                                                                            NSLog(@"FAILURE, JSON RESP %@", response);
-                                                                                        }];
-    [operation start];
-
+    [object saveEventually:^(BOOL succeeded, NSError *error) {
+        
+        if (succeeded){
+            //TODO: what to do when there is no internet connection?? saveEventually whe no internet, and save wit block if there IS connection
+            NSLog(@"Object Uploaded!");
+            successObject(object);
+        }
+        else{
+            NSString *errorString = [[error userInfo] objectForKey:@"error"];
+            NSLog(@"Error: %@", errorString);
+        }
+        
+    }];
 }
 
 
