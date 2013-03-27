@@ -179,12 +179,28 @@
        NSLog(@"namnet på nya NOTTT: %@", [notification.userInfo allKeys]);
     NSString *newBabyName = [notification.userInfo objectForKey:@"babyName"];
     NSString *babyBirthday = [notification.userInfo objectForKey:@"date"];
+<<<<<<< HEAD
     NSLog(@"namnet på nya bebben: %@", newBabyName);
     
     PFObject *babyObject = [PFObject objectWithClassName:@"Baby"];
      [babyObject setObject:newBabyName forKey:@"name"];
 //     [babyObject setObject:newBabyName forKey:@"date"];
 
+=======
+
+    NSDictionary *toCouchdb = [NSDictionary dictionaryWithObjectsAndKeys:
+                               newBabyName, @"name",
+                               nil, @"pii",
+                               nil, @"poo",
+                               nil, @"feedTimespan",
+                               nil, @"bottle",
+                               nil, @"breast",
+//                                 babyBirthday, @"date",nil];
+                               nil, @"date",nil];
+    
+    if ([NSJSONSerialization isValidJSONObject: toCouchdb])
+    {
+>>>>>>> master
         //TODO: CHECK FOR INTERNET CONNECTION (REACHABILITY?) AND DECIDE WHAT TO DO WHEN THERE'S NO CONNECTION
         
        [SLKJSONService postObject:babyObject onSuccess:^(PFObject *object)
@@ -195,8 +211,15 @@
                                                          type:nil];
           NSLog(@"SUCCEED to create %@",[object objectForKey:@"name"] );
         [popover dismissPopoverAnimated:YES completion:^{
+<<<<<<< HEAD
             [self.tableView reloadData];
         }];
+=======
+                            [self.tableView reloadData];
+                       }];
+     //  [[NSNotificationCenter defaultCenter] postNotificationName: @"dismissThePopover" object:nil userInfo:nil];
+
+>>>>>>> master
         
        } onFailure:^(PFObject *object)
     {
