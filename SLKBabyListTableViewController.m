@@ -134,7 +134,8 @@
         [popover setAlpha:0.8];
         popover.arrowDirection = FPPopoverNoArrow;
         popover.border = NO;
-        popover.contentSize = CGSizeMake(310, 320);
+        popover.contentSize = CGSizeMake(320, 115);
+       
         [popover presentPopoverFromPoint:CGPointMake(70, 70)];
         
         } else {
@@ -171,44 +172,46 @@
 {
     NSString *newBabyName = [notification.userInfo objectForKey:@"babyName"];
     NSString *babyBirthday = [notification.userInfo objectForKey:@"date"];
+
+    NSDictionary *toCouchdb = [NSDictionary dictionaryWithObjectsAndKeys:
+                               newBabyName, @"name",
+                               nil, @"pii",
+                               nil, @"poo",
+                               nil, @"feedTimespan",
+                               nil, @"bottle",
+                               nil, @"breast",
+//                                 babyBirthday, @"date",nil];
+                               nil, @"date",nil];
     
-//    NSDictionary *toCouchdb = [NSDictionary dictionaryWithObjectsAndKeys:
-//                               newBabyName, @"name",
-//                               nil, @"pii",
-//                               nil, @"poo",
-//                               nil, @"feedTimespan",
-//                               nil, @"bottle",
-//                               nil, @"breast",
-////                                 babyBirthday, @"date",nil];
-//                               nil, @"date",nil];
-//    
-//    if ([NSJSONSerialization isValidJSONObject: toCouchdb])
-//    {
-//        //TODO: CHECK FOR INTERNET CONNECTION (REACHABILITY?) AND DECIDE WHAT TO DO WHEN THERE'S NO CONNECTION
-//        NSLog(@"Baby IS JSON valid");
+    if ([NSJSONSerialization isValidJSONObject: toCouchdb])
+    {
+        //TODO: CHECK FOR INTERNET CONNECTION (REACHABILITY?) AND DECIDE WHAT TO DO WHEN THERE'S NO CONNECTION
+        NSLog(@"Baby IS JSON valid");
 //        [SLKJSONService postBaby:toCouchdb onSuccess:^(NSDictionary *successDict) {
 //            NSLog(@"SUCCESS %@", [successDict valueForKey:@"id"]);
-//            [[SLKBabyStorage sharedStorage] createBabyWithName:newBabyName
-//                                                        babyId:[successDict
-//                                                                valueForKey:@"id"]
-//                                                          date:nil
-//                                                          type:nil];
+            [[SLKBabyStorage sharedStorage] createBabyWithName:newBabyName
+                                                        babyId:@"lekID"
+                                                          date:nil
+                                                          type:nil];
+//
+//    
+//            [popover dismissPopoverAnimated:YES completion:^{
+//                [self.tableView reloadData];
+//            }];
+//            
+//        } onFailure:^(NSDictionary *failDict, NSHTTPURLResponse *resp) {
+//            
+//            NSLog(@"FAIL %@", failDict);
+//            [popover dismissPopoverAnimated:YES completion:^{
+//                [self.tableView reloadData];
+//            }];
+//            
+//        }];
+        [popover dismissPopoverAnimated:YES completion:^{
+                            [self.tableView reloadData];
+                       }];
+     //  [[NSNotificationCenter defaultCenter] postNotificationName: @"dismissThePopover" object:nil userInfo:nil];
 
-    
-            [popover dismissPopoverAnimated:YES completion:^{
-                [self.tableView reloadData];
-            }];
-            
-        } onFailure:^(NSDictionary *failDict, NSHTTPURLResponse *resp) {
-            
-            NSLog(@"FAIL %@", failDict);
-            [popover dismissPopoverAnimated:YES completion:^{
-                [self.tableView reloadData];
-            }];
-            
-        }];
-        
-      //  [[NSNotificationCenter defaultCenter] postNotificationName: @"dismissThePopover" object:nil userInfo:nil];
         
     } else {
         NSLog(@"Baby is not valid JSON");

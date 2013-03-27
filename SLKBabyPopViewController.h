@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SLKBabyPopViewController : UIViewController
+@interface SLKBabyPopViewController : UIViewController <UITextFieldDelegate>
 
 @end
