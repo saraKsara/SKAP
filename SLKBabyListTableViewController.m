@@ -18,6 +18,8 @@
 #import "SLKBabyPopViewController.h"
 #import "SLKAddBabyCell.h"
 #import "SLKAlertWithBlock.h"
+#import <Parse/Parse.h>
+#import "SLKAppDelegate.h"
 
 @interface SLKBabyListTableViewController ()
 
@@ -39,6 +41,34 @@
     return self;
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+//    PFObject *babyobject = [PFObject objectWithClassName:@"Baby"];
+//    [babyobject setObject:@"Jack" forKey:@"name"];
+//  //  [anotherPlayer setObject:[NSNumber numberWithInt:840] forKey:@"Score"];
+//    [babyobject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        
+//        if (succeeded){
+//            NSLog(@"Object Uploaded!");
+//        }
+//        else{
+//            NSString *errorString = [[error userInfo] objectForKey:@"error"];
+//            NSLog(@"Error: %@", errorString);
+//        }
+//        
+//    }];
+    PFQuery *query = [PFQuery queryWithClassName:@"Baby"]; //1
+    //[query whereKey:@"name" equalTo:@"Jack"];//2
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {//4
+        if (!error) {
+            NSLog(@"Successfully retrieved: %@", objects);
+        } else {
+            NSString *errorString = [[error userInfo] objectForKey:@"error"];
+            NSLog(@"Error: %@", errorString);
+        }
+    }];
+    
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];

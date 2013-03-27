@@ -20,6 +20,7 @@
 		1C5C78491701E3A800CB555F /* Baby.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C78481701E3A800CB555F /* Baby.m */; };
 		1C5C784F1701E49D00CB555F /* SLKEventStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C784E1701E49D00CB555F /* SLKEventStorage.m */; };
 		1C5C78551701EB9A00CB555F /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C78541701EB9A00CB555F /* Event.m */; };
+		1C897EF8170338EF00DA01B4 /* SLKPFBabyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C897EF7170338EF00DA01B4 /* SLKPFBabyObject.m */; };
 		1C91DD5916FC4EBB00921C59 /* SLKJSONService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DD5816FC4EBB00921C59 /* SLKJSONService.m */; };
 		1C91DDD816FC4F3F00921C59 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DDC616FC4F3F00921C59 /* AFHTTPClient.m */; };
 		1C91DDD916FC4F3F00921C59 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DDC816FC4F3F00921C59 /* AFHTTPRequestOperation.m */; };
@@ -104,6 +105,8 @@
 		1C5C784E1701E49D00CB555F /* SLKEventStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKEventStorage.m; sourceTree = "<group>"; };
 		1C5C78531701EB9A00CB555F /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		1C5C78541701EB9A00CB555F /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		1C897EF6170338EF00DA01B4 /* SLKPFBabyObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKPFBabyObject.h; sourceTree = "<group>"; };
+		1C897EF7170338EF00DA01B4 /* SLKPFBabyObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPFBabyObject.m; sourceTree = "<group>"; };
 		1C91DD5716FC4EBB00921C59 /* SLKJSONService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKJSONService.h; sourceTree = "<group>"; };
 		1C91DD5816FC4EBB00921C59 /* SLKJSONService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKJSONService.m; sourceTree = "<group>"; };
 		1C91DDC516FC4F3F00921C59 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
@@ -447,6 +450,8 @@
 				1C5BFC8616FCDBF200D1B238 /* SLKBabyPopViewController.h */,
 				1C5BFC8716FCDBF200D1B238 /* SLKBabyPopViewController.m */,
 				1CF8282B1701A9C100EDC904 /* Custom Alert */,
+				1C897EF6170338EF00DA01B4 /* SLKPFBabyObject.h */,
+				1C897EF7170338EF00DA01B4 /* SLKPFBabyObject.m */,
 			);
 			name = ViewController;
 			path = ..;
@@ -612,6 +617,7 @@
 				1C5C78491701E3A800CB555F /* Baby.m in Sources */,
 				1C5C784F1701E49D00CB555F /* SLKEventStorage.m in Sources */,
 				1C5C78551701EB9A00CB555F /* Event.m in Sources */,
+				1C897EF8170338EF00DA01B4 /* SLKPFBabyObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
