@@ -43,31 +43,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-//    PFObject *babyobject = [PFObject objectWithClassName:@"Baby"];
-//    [babyobject setObject:@"Jack" forKey:@"name"];
-//  //  [anotherPlayer setObject:[NSNumber numberWithInt:840] forKey:@"Score"];
-//    [babyobject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        
-//        if (succeeded){
-//            NSLog(@"Object Uploaded!");
-//        }
-//        else{
-//            NSString *errorString = [[error userInfo] objectForKey:@"error"];
-//            NSLog(@"Error: %@", errorString);
-//        }
-//        
-//    }];
-    PFQuery *query = [PFQuery queryWithClassName:@"Baby"]; //1
-    //[query whereKey:@"name" equalTo:@"Jack"];//2
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {//4
-        if (!error) {
-            NSLog(@"Successfully retrieved: %@", objects);
-        } else {
-            NSString *errorString = [[error userInfo] objectForKey:@"error"];
-            NSLog(@"Error: %@", errorString);
-        }
-    }];
-    
+   
 }
 - (void)viewDidLoad
 {
@@ -203,48 +179,29 @@
     NSString *newBabyName = [notification.userInfo objectForKey:@"babyName"];
     NSString *babyBirthday = [notification.userInfo objectForKey:@"date"];
     
-    NSDictionary *toCouchdb = [NSDictionary dictionaryWithObjectsAndKeys:
-                               newBabyName, @"name",
-                               nil, @"pii",
-                               nil, @"poo",
-                               nil, @"feedTimespan",
-                               nil, @"bottle",
-                               nil, @"breast",
-//                                 babyBirthday, @"date",nil];
-                               nil, @"date",nil];
-    
-    if ([NSJSONSerialization isValidJSONObject: toCouchdb])
-    {
+    PFObject *babyObject = [PFObject objectWithClassName:@"Baby"];
+     [babyObject setObject:newBabyName forKey:@"name"];
+//     [babyObject setObject:newBabyName forKey:@"date"];
+
         //TODO: CHECK FOR INTERNET CONNECTION (REACHABILITY?) AND DECIDE WHAT TO DO WHEN THERE'S NO CONNECTION
-        NSLog(@"Baby IS JSON valid");
-//        [SLKJSONService postBaby:toCouchdb onSuccess:^(NSDictionary *successDict) {
-//            NSLog(@"SUCCESS %@", [successDict valueForKey:@"id"]);
-            [[SLKBabyStorage sharedStorage] createBabyWithName:newBabyName
-                                                        babyId:@"lekID"
-                                                          date:nil
-                                                          type:nil];
-//
-//    
-//            [popover dismissPopoverAnimated:YES completion:^{
-//                [self.tableView reloadData];
-//            }];
-//            
-//        } onFailure:^(NSDictionary *failDict, NSHTTPURLResponse *resp) {
-//            
-//            NSLog(@"FAIL %@", failDict);
-//            [popover dismissPopoverAnimated:YES completion:^{
-//                [self.tableView reloadData];
-//            }];
-//            
-//        }];
-        [popover dismissPopoverAnimated:YES completion:^{
-                            [self.tableView reloadData];
-                       }];
-     //  [[NSNotificationCenter defaultCenter] postNotificationName: @"dismissThePopover" object:nil userInfo:nil];
         
-    } else {
-        NSLog(@"Baby is not valid JSON");
-    }
+       [SLKJSONService postObject:babyObject onSuccess:^(PFObject *object)
+    {
+           [[SLKBabyStorage sharedStorage] createBabyWithName:[object objectForKey:@"name"]
+                                                       babyId:[object objectId]
+                                                         date:nil
+                                                         type:nil];
+          NSLog(@"SUCCEED to create %@",[object objectForKey:@"name"] );
+       } onFailure:^(PFObject *object)
+    {
+           NSLog(@"FAILED :((( ");
+           
+           [popover dismissPopoverAnimated:YES completion:^{
+               [self.tableView reloadData];
+           }];
+            
+        }];
+            //  [[NSNotificationCenter defaultCenter] postNotificationName: @"dismissThePopover" object:nil userInfo:nil]
     
     
 }

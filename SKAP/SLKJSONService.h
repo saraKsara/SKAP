@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <Parse/Parse.h>
+@class Baby, Event;
 
 @interface SLKJSONService : NSObject
 
-+(void)getAllBabies;
++(void)getAllObjects;
 
 //+(NSDictionary*)postOrder:(NSDictionary*)order;
-+(void)postBaby:(NSDictionary*)baby onSuccess:(void (^)(NSDictionary *))success onFailure:(void (^)(NSDictionary *, NSHTTPURLResponse*))failure;
++(void)postObject:(PFObject*)object onSuccess:(void (^)(PFObject *))successObject onFailure:(void (^)(PFObject*))failureObject;
 
 @end

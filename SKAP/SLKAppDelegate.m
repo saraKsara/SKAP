@@ -28,7 +28,7 @@
        // [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
  
-  //[SLKJSONService getAllBabies];
+  [SLKJSONService getAllObjects];
 
   //   //TODO: add "callback block"
     return YES;
