@@ -14,6 +14,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //[AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     
     
@@ -27,11 +30,51 @@
        // [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
  
-  [SLKPARSEService getAllObjects];
+ // [SLKPARSEService getAllObjects];
+    [self setUpApp];
 
   //   //TODO: add "callback block"
     return YES;
 }
+
+-(NSArray*) createViewControllersForStoryboards:(NSArray *) storyboards
+{
+    NSMutableArray* viewControllers = [NSMutableArray new];
+    
+    for (id storyboard in storyboards)
+    {
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:storyboard bundle:nil];
+        [viewControllers addObject: [sb instantiateInitialViewController]];
+    }
+    
+    return viewControllers;
+}
+-(void)setUpApp
+{
+    
+    
+    self.tabBarController = [[UITabBarController alloc] init];
+//    NSArray *array = [NSArray arrayWithObjects:navController,[self createViewControllersForStoryboards:@[ @"Feed", @"Diaper", @"Medz",@"calendar"]], nil];
+//    self.tabBarController.viewControllers = array;
+    self.tabBarController.viewControllers = [self createViewControllersForStoryboards:@[ @"Feed", @"Diaper", @"Medz",@"calendar"]];
+    
+    // Tab styling :)
+    [[[self tabBarController] tabBar] setBackgroundImage:[UIImage imageNamed:@"tabbar_bg"]];
+    [[[self tabBarController] tabBar] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar_bg_sel"]];
+    
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.tabBarController];
+    
+    UIBarButtonItem *menuBtn = [[UIBarButtonItem alloc] initWithTitle:@"menue"
+                                                                style:UIBarButtonItemStyleBordered
+                                                               target:[[_tabBarController viewControllers]objectAtIndex:0]
+                                                               action:@selector(showMenue)];
+ 
+    
+    [[[self tabBarController]navigationItem] setLeftBarButtonItem:menuBtn];
+    [self.window setRootViewController: navController];
+    [self.window makeKeyAndVisible];
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

@@ -11,5 +11,6 @@
 @interface SLKAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (strong, nonatomic) UITabBarController *tabBarController;
+@property (nonatomic, assign) BOOL online;
 @end

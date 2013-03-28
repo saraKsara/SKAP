@@ -31,7 +31,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-	self.title =@"a poppy?";
     currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
     _nameOfBabyLabel.text = [NSString stringWithFormat:@"Poo and pee of %@",currentBabe.name];
 }

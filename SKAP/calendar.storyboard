@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8RS-AX-VNf">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+    </dependencies>
+    <scenes>
+        <!--Day Summary View Controller - CALENDAR-->
+        <scene sceneID="Tii-WW-DoG">
+            <objects>
+                <viewController id="8RS-AX-VNf" customClass="SLKDaySummaryViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TKU-Ah-btk">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="This is what happened to today" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="el2-38-JBq">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="82" id="ed0-Mw-2wo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="POO" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="xx0-Gv-LMr">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="82" id="7eT-n9-WNo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="PEE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="JBH-Jg-gJL">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="82" id="ixh-ll-jik"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="FOOD" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="vdf-iw-66z">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="82" id="CRZ-rz-xjL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMK-x0-GT4">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="92" id="OZG-f6-gOw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <state key="normal" title="next day >">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextDay:" destination="8RS-AX-VNf" eventType="touchUpInside" id="6bW-cV-8C4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDt-YX-iof">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="94" id="CrO-Uj-nKT"/>
+                                    <constraint firstAttribute="height" constant="32" id="bxJ-7V-C2Q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <state key="normal" title="&lt; previous day">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="prevDay:" destination="8RS-AX-VNf" eventType="touchUpInside" id="Lv0-os-hSx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xx0-Gv-LMr" firstAttribute="trailing" secondItem="TKU-Ah-btk" secondAttribute="trailing" type="default" id="82A-xG-RuK"/>
+                            <constraint firstItem="el2-38-JBq" firstAttribute="top" secondItem="XDt-YX-iof" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="9gm-gN-lus"/>
+                            <constraint firstItem="XDt-YX-iof" firstAttribute="leading" secondItem="TKU-Ah-btk" secondAttribute="leading" constant="15" id="A0A-ck-SEA"/>
+                            <constraint firstItem="xx0-Gv-LMr" firstAttribute="top" secondItem="el2-38-JBq" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Bvy-bP-iFE"/>
+                            <constraint firstItem="el2-38-JBq" firstAttribute="leading" secondItem="TKU-Ah-btk" secondAttribute="leading" type="default" id="F8b-8N-2K9"/>
+                            <constraint firstItem="XDt-YX-iof" firstAttribute="top" secondItem="TKU-Ah-btk" secondAttribute="top" constant="13" id="Nf5-Qu-YcU"/>
+                            <constraint firstItem="JBH-Jg-gJL" firstAttribute="trailing" secondItem="TKU-Ah-btk" secondAttribute="trailing" type="default" id="W6X-Jj-hGd"/>
+                            <constraint firstItem="XDt-YX-iof" firstAttribute="top" secondItem="LMK-x0-GT4" secondAttribute="top" type="default" id="fk0-jm-GgZ"/>
+                            <constraint firstItem="el2-38-JBq" firstAttribute="trailing" secondItem="TKU-Ah-btk" secondAttribute="trailing" type="default" id="hed-WX-A3X"/>
+                            <constraint firstAttribute="bottom" secondItem="vdf-iw-66z" secondAttribute="bottom" constant="146" id="jof-a2-uRn"/>
+                            <constraint firstItem="el2-38-JBq" firstAttribute="top" secondItem="LMK-x0-GT4" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="lKS-Sg-dqX"/>
+                            <constraint firstAttribute="trailing" secondItem="LMK-x0-GT4" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="lOn-yE-Ed0"/>
+                            <constraint firstItem="vdf-iw-66z" firstAttribute="leading" secondItem="TKU-Ah-btk" secondAttribute="leading" type="default" id="opf-Fq-UDU"/>
+                            <constraint firstItem="JBH-Jg-gJL" firstAttribute="top" secondItem="xx0-Gv-LMr" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="p88-CV-dek"/>
+                            <constraint firstItem="JBH-Jg-gJL" firstAttribute="leading" secondItem="TKU-Ah-btk" secondAttribute="leading" type="default" id="pz3-k8-HGC"/>
+                            <constraint firstItem="xx0-Gv-LMr" firstAttribute="leading" secondItem="TKU-Ah-btk" secondAttribute="leading" type="default" id="uGG-jS-Ofa"/>
+                            <constraint firstItem="vdf-iw-66z" firstAttribute="trailing" secondItem="TKU-Ah-btk" secondAttribute="trailing" type="default" id="uju-9s-KY7"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="CALENDAR" id="WZD-Pm-Cmy"/>
+                    <connections>
+                        <outlet property="foodLabel" destination="vdf-iw-66z" id="5fh-mA-CI6"/>
+                        <outlet property="headerLabel" destination="el2-38-JBq" id="Yl0-aQ-tHm"/>
+                        <outlet property="peeLabel" destination="JBH-Jg-gJL" id="qkn-gr-CmG"/>
+                        <outlet property="pooLabel" destination="xx0-Gv-LMr" id="qIP-Zw-IiX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OrQ-P6-6k9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="283" y="756"/>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="SLKDaySummaryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKDaySummaryViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="nextDay:"/>
+                <relationship kind="action" name="prevDay:"/>
+                <relationship kind="outlet" name="foodLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="headerLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="peeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pooLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

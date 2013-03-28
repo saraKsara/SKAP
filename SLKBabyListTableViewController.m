@@ -40,7 +40,10 @@
     }
     return self;
 }
-
+-(void)back{
+    NSLog(@"back");
+    [[self navigationController]popViewControllerAnimated:YES];
+}
 -(void)viewWillAppear:(BOOL)animated
 {
    
