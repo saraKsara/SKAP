@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--Pii Poo View Controller - pee and poo-->
+        <!--Pii Poo View Controller - DIAPER-->
         <scene sceneID="plT-dr-2Ta">
             <objects>
                 <viewController id="lfv-mn-ycL" customClass="SLKPiiPooViewController" sceneMemberID="viewController">
@@ -71,7 +71,7 @@
                             <constraint firstItem="Mn3-rQ-ava" firstAttribute="trailing" secondItem="SNY-kC-qal" secondAttribute="trailing" type="default" id="vJc-Sc-0z6"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="pee and poo" id="Aaa-y4-ndj"/>
+                    <tabBarItem key="tabBarItem" title="DIAPER" id="Aaa-y4-ndj"/>
                     <connections>
                         <outlet property="nameOfBabyLabel" destination="Mn3-rQ-ava" id="IFS-jC-teZ"/>
                     </connections>

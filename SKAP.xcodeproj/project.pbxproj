@@ -401,6 +401,8 @@
 				CE5944D316F9A79800D9D33A /* SLKFoodViewController.m */,
 				CE5944D516F9A7B700D9D33A /* SLKPiiPooViewController.h */,
 				CE5944D616F9A7B700D9D33A /* SLKPiiPooViewController.m */,
+				1C880E891704BBAB0027E528 /* SLKMedzViewController.h */,
+				1C880E8A1704BBAB0027E528 /* SLKMedzViewController.m */,
 				1CF8282C1701BD6A00EDC904 /* SLKDaySummaryViewController.h */,
 				1CF8282D1701BD6A00EDC904 /* SLKDaySummaryViewController.m */,
 				1CA7F8EE16FCA2FC008BB1BF /* SLKBabyListTableViewController.h */,
@@ -410,8 +412,6 @@
 				1C5BFC8716FCDBF200D1B238 /* SLKBabyPopViewController.m */,
 				1CF8282B1701A9C100EDC904 /* Custom Alert */,
 				1CA7F8FC16FCB4EF008BB1BF /* popover */,
-				1C880E891704BBAB0027E528 /* SLKMedzViewController.h */,
-				1C880E8A1704BBAB0027E528 /* SLKMedzViewController.m */,
 			);
 			name = ViewController;
 			path = ..;

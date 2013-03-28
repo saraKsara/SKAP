@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--Day Summary View Controller - day-->
+        <!--Day Summary View Controller - CALENDAR-->
         <scene sceneID="Tii-WW-DoG">
             <objects>
                 <viewController id="8RS-AX-VNf" customClass="SLKDaySummaryViewController" sceneMemberID="viewController">
@@ -99,7 +99,7 @@
                             <constraint firstItem="vdf-iw-66z" firstAttribute="trailing" secondItem="TKU-Ah-btk" secondAttribute="trailing" type="default" id="uju-9s-KY7"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="day" id="WZD-Pm-Cmy"/>
+                    <tabBarItem key="tabBarItem" title="CALENDAR" id="WZD-Pm-Cmy"/>
                     <connections>
                         <outlet property="foodLabel" destination="vdf-iw-66z" id="5fh-mA-CI6"/>
                         <outlet property="headerLabel" destination="el2-38-JBq" id="Yl0-aQ-tHm"/>
@@ -112,6 +112,22 @@
             <point key="canvasLocation" x="283" y="756"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="SLKDaySummaryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKDaySummaryViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="nextDay:"/>
+                <relationship kind="action" name="prevDay:"/>
+                <relationship kind="outlet" name="foodLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="headerLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="peeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pooLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

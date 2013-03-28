@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--Food View Controller - food-->
+        <!--Food View Controller - Food-->
         <scene sceneID="zMt-Ak-OPX">
             <objects>
                 <viewController id="hKR-TG-9xj" customClass="SLKFoodViewController" sceneMemberID="viewController">
@@ -144,7 +144,7 @@
                             <constraint firstItem="YYi-n1-jJm" firstAttribute="centerX" secondItem="16o-62-ire" secondAttribute="centerX" type="default" id="yaa-TK-Uox"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="food" id="SW8-gA-mdn"/>
+                    <tabBarItem key="tabBarItem" title="Food" id="SW8-gA-mdn"/>
                     <connections>
                         <outlet property="anotherFoodLable" destination="QjL-2T-rAj" id="Ktz-q6-cnP"/>
                         <outlet property="foodLabel" destination="y5c-zV-ipT" id="ki2-Rp-BOt"/>
@@ -250,37 +250,6 @@
         <image name="bottle.png" width="640" height="1065"/>
         <image name="milk.png" width="206" height="479"/>
     </resources>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SLKAddBabyCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKAddBabyCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="addBabuLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="SLKBabyCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKBabyCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="babyNameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="SLKBabyListTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKBabyListTableViewController.h"/>
-        </class>
-        <class className="SLKFoodViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKFoodViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="handlePan:" candidateClass="UIPanGestureRecognizer"/>
-                <relationship kind="action" name="sliderOneValueChanged:"/>
-                <relationship kind="outlet" name="anotherFoodLable" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="foodLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="foodSliderOne" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="foodSliderTwo" candidateClass="UISlider"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
