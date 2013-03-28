@@ -178,7 +178,7 @@
 {
        NSLog(@"namnet på nya NOTTT: %@", [notification.userInfo allKeys]);
     NSString *newBabyName = [notification.userInfo objectForKey:@"babyName"];
-    NSString *babyBirthday = [notification.userInfo objectForKey:@"date"];
+  //  NSString *babyBirthday = [notification.userInfo objectForKey:@"date"];
     NSLog(@"namnet på nya bebben: %@", newBabyName);
     
     PFObject *babyObject = [PFObject objectWithClassName:@"Baby"];
@@ -210,8 +210,6 @@
             
         }];
             //  [[NSNotificationCenter defaultCenter] postNotificationName: @"dismissThePopover" object:nil userInfo:nil]
-    
-    
 }
 
 

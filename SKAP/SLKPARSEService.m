@@ -7,8 +7,6 @@
 //
 
 #import "SLKPARSEService.h"
-#import "SLKHTTPClient.h"
-#import "AFJSONRequestOperation.h"
 #import "SLKBabyStorage.h"
 #import "Baby.h"
 #import "SLKAppDelegate.h"

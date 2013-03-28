@@ -7,7 +7,6 @@
 //
 #import <Parse/Parse.h>
 #import "SLKAppDelegate.h"
-#import "AFNetworking.h"
 #import "SLKPARSEService.h"
 #import "SLKBabyStorage.h"
 #import "Baby.h"
