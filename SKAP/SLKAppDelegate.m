@@ -30,7 +30,7 @@
        // [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
  
-  [SLKPARSEService getAllObjects];
+ // [SLKPARSEService getAllObjects];
     [self setUpApp];
 
   //   //TODO: add "callback block"
@@ -51,10 +51,13 @@
 }
 -(void)setUpApp
 {
-    UINavigationBar *navBar = [[UINavigationBar alloc] init];
+    
+  UINavigationController *navController;
     
     self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = [self createViewControllersForStoryboards:@[ @"Feed", @"Diaper", @"Medz",@"calendar"]];
+    NSArray *array = [NSArray arrayWithObjects:navController,[self createViewControllersForStoryboards:@[ @"Feed", @"Diaper", @"Medz",@"calendar"]], nil];
+    self.tabBarController.viewControllers = array;
+//    self.tabBarController.viewControllers = [self createViewControllersForStoryboards:@[ @"Feed", @"Diaper", @"Medz",@"calendar"]];
     
     // Tab styling :)
     [[[self tabBarController] tabBar] setBackgroundImage:[UIImage imageNamed:@"tabbar_bg"]];
