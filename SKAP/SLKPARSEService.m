@@ -6,14 +6,12 @@
 //  Copyright (c) 2013 Student vid Yrkeshögskola C3L. All rights reserved.
 //
 
-#import "SLKJSONService.h"
-#import "SLKHTTPClient.h"
-#import "AFJSONRequestOperation.h"
+#import "SLKPARSEService.h"
 #import "SLKBabyStorage.h"
 #import "Baby.h"
 #import "SLKAppDelegate.h"
 #import <Parse/Parse.h>
-@implementation SLKJSONService
+@implementation SLKPARSEService
 
 +(void)getAllObjects
 {

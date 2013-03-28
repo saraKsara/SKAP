@@ -10,7 +10,7 @@
 #import <Parse/Parse.h>
 @class Baby, Event;
 
-@interface SLKJSONService : NSObject
+@interface SLKPARSEService : NSObject
 
 +(void)getAllObjects;
 

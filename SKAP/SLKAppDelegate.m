@@ -7,8 +7,7 @@
 //
 #import <Parse/Parse.h>
 #import "SLKAppDelegate.h"
-#import "AFNetworking.h"
-#import "SLKJSONService.h"
+#import "SLKPARSEService.h"
 #import "SLKBabyStorage.h"
 #import "Baby.h"
 @implementation SLKAppDelegate
@@ -28,7 +27,7 @@
        // [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
  
-  [SLKJSONService getAllObjects];
+  [SLKPARSEService getAllObjects];
 
   //   //TODO: add "callback block"
     return YES;
