@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C137BD917049EB700A39F3A /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C137BD817049EB700A39F3A /* Feed.storyboard */; };
+		1C137BDB17049EE800A39F3A /* Diaper.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C137BDA17049EE800A39F3A /* Diaper.storyboard */; };
+		1C137BDD17049EFC00A39F3A /* Medz.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C137BDC17049EFC00A39F3A /* Medz.storyboard */; };
+		1C137BDF17049F2F00A39F3A /* calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C137BDE17049F2F00A39F3A /* calendar.storyboard */; };
+		1C137BE117049F4000A39F3A /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C137BE017049F4000A39F3A /* Settings.storyboard */; };
 		1C5BFC7B16FCD75300D1B238 /* FPTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC7A16FCD75300D1B238 /* FPTouchView.m */; };
 		1C5BFC7C16FCD75300D1B238 /* FPTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC7A16FCD75300D1B238 /* FPTouchView.m */; };
 		1C5BFC8216FCD81300D1B238 /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC7F16FCD81300D1B238 /* FPPopoverController.m */; };
@@ -77,6 +82,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C137BD817049EB700A39F3A /* Feed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
+		1C137BDA17049EE800A39F3A /* Diaper.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Diaper.storyboard; sourceTree = "<group>"; };
+		1C137BDC17049EFC00A39F3A /* Medz.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Medz.storyboard; sourceTree = "<group>"; };
+		1C137BDE17049F2F00A39F3A /* calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = calendar.storyboard; sourceTree = "<group>"; };
+		1C137BE017049F4000A39F3A /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		1C5BFC7916FCD75300D1B238 /* FPTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPTouchView.h; sourceTree = "<group>"; };
 		1C5BFC7A16FCD75300D1B238 /* FPTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTouchView.m; sourceTree = "<group>"; };
 		1C5BFC7D16FCD81300D1B238 /* ARCMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCMacros.h; sourceTree = "<group>"; };
@@ -334,6 +344,11 @@
 				1CF828261701A36E00EDC904 /* SLKUserDefaults.m */,
 				1C36055D1704667D007FC517 /* Date utils */,
 				CE59449916F90DC800D9D33A /* Supporting Files */,
+				1C137BD817049EB700A39F3A /* Feed.storyboard */,
+				1C137BDA17049EE800A39F3A /* Diaper.storyboard */,
+				1C137BDC17049EFC00A39F3A /* Medz.storyboard */,
+				1C137BDE17049F2F00A39F3A /* calendar.storyboard */,
+				1C137BE017049F4000A39F3A /* Settings.storyboard */,
 			);
 			path = SKAP;
 			sourceTree = "<group>";
@@ -487,6 +502,11 @@
 				CE5944AC16F90DC800D9D33A /* MainStoryboard.storyboard in Resources */,
 				CEF55A1317004A24008634DB /* milk.png in Resources */,
 				CE57277F170064A0003A72BF /* bottle.png in Resources */,
+				1C137BD917049EB700A39F3A /* Feed.storyboard in Resources */,
+				1C137BDB17049EE800A39F3A /* Diaper.storyboard in Resources */,
+				1C137BDD17049EFC00A39F3A /* Medz.storyboard in Resources */,
+				1C137BDF17049F2F00A39F3A /* calendar.storyboard in Resources */,
+				1C137BE117049F4000A39F3A /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

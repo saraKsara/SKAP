@@ -14,6 +14,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //[AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     
     
@@ -33,6 +36,30 @@
     return YES;
 }
 
+-(NSArray*) createViewControllersForStoryboards:(NSArray *) storyboards
+{
+    NSMutableArray* viewControllers = [NSMutableArray new];
+    
+    for (id storyboard in storyboards)
+    {
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:storyboard bundle:nil];
+        [viewControllers addObject: [sb instantiateInitialViewController]];
+    }
+    
+    return viewControllers;
+}
+-(void)setUpApp
+{
+    self.tabBarController = [[UITabBarController alloc] init];
+    self.tabBarController.viewControllers = [self createViewControllersForStoryboards:@[ @"Feed", @"Diaper", @"Medz",@"calendar"]];
+    
+    // Tab styling :)
+    [[[self tabBarController] tabBar] setBackgroundImage:[UIImage imageNamed:@"tabbar_bg"]];
+    [[[self tabBarController] tabBar] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar_bg_sel"]];
+    
+    [self.window setRootViewController: self.tabBarController];
+    [self.window makeKeyAndVisible];
+}
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
