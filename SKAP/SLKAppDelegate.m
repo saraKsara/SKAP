@@ -31,6 +31,7 @@
     
  
   [SLKPARSEService getAllObjects];
+    [self setUpApp];
 
   //   //TODO: add "callback block"
     return YES;
@@ -50,6 +51,8 @@
 }
 -(void)setUpApp
 {
+    UINavigationBar *navBar = [[UINavigationBar alloc] init];
+    
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.viewControllers = [self createViewControllersForStoryboards:@[ @"Feed", @"Diaper", @"Medz",@"calendar"]];
     

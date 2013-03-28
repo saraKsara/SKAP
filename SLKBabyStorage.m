@@ -46,7 +46,7 @@
     Baby *b;
     Baby *babeInStorage = [self getBabyWithiD:babyId];
     if (babeInStorage) {
-        NSLog(@"the baby already exists in core data, skipping creating a new, and updates existing baby instead.");
+     
         b = babeInStorage;
         
     } else {
@@ -59,7 +59,7 @@
     b.date = date;
     b.type = type;
     
-    NSLog(@"There's a new (or a updated babe) baby in town! name: %@  id: %@", b.name, b.babyId);
+   // NSLog(@"There's a new (or a updated babe) baby in town! name: %@  id: %@", b.name, b.babyId);
       
     return b;
 }
