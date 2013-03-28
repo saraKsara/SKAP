@@ -64,10 +64,11 @@
     
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.tabBarController];
     
-    UIBarButtonItem *menuBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIButtonTypeCustom
-                                                                             target:[[_tabBarController viewControllers]objectAtIndex:0]
-                                                                             action:@selector(showMenue)];
-
+    UIBarButtonItem *menuBtn = [[UIBarButtonItem alloc] initWithTitle:@"menue"
+                                                                style:UIBarButtonItemStyleBordered
+                                                               target:[[_tabBarController viewControllers]objectAtIndex:0]
+                                                               action:@selector(showMenue)];
+ 
     
     [[[self tabBarController]navigationItem] setLeftBarButtonItem:menuBtn];
     [self.window setRootViewController: navController];

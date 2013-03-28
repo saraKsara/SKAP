@@ -7,7 +7,7 @@
 //
 
 #import "SLKFoodViewController.h"
-
+#import "SLKBabyListTableViewController.h"
 @interface SLKFoodViewController ()
 
 @end
@@ -15,6 +15,22 @@
 @implementation SLKFoodViewController
 {
     float bottledFood;
+    
+}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    if ([segue.identifier isEqualToString:@"menueSeg"]) {
+        SLKBabyListTableViewController *settingVc = [segue destinationViewController];
+        
+        UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithTitle:@"->"
+                                                                        style:UIBarButtonItemStyleBordered
+                                        target:settingVc
+                                        action:@selector(back)];
+        
+        [[settingVc navigationItem]setRightBarButtonItem:rightBarBtn];
+       // NOT WORKING: [[settingVc navigationItem]hidesBackButton];
+    }
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -24,9 +40,10 @@
     }
     return self;
 }
--(void)showMenue{
-    NSLog(@"showMenue");
+-(void)showMenue {
+    [self performSegueWithIdentifier:@"menueSeg" sender:self];
 }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
