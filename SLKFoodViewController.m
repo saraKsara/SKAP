@@ -24,7 +24,9 @@
     }
     return self;
 }
-
+-(void)showMenue{
+    NSLog(@"showMenue");
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];

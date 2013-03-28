@@ -52,20 +52,29 @@
 -(void)setUpApp
 {
     
-  UINavigationController *navController;
     
     self.tabBarController = [[UITabBarController alloc] init];
-    NSArray *array = [NSArray arrayWithObjects:navController,[self createViewControllersForStoryboards:@[ @"Feed", @"Diaper", @"Medz",@"calendar"]], nil];
-    self.tabBarController.viewControllers = array;
-//    self.tabBarController.viewControllers = [self createViewControllersForStoryboards:@[ @"Feed", @"Diaper", @"Medz",@"calendar"]];
+//    NSArray *array = [NSArray arrayWithObjects:navController,[self createViewControllersForStoryboards:@[ @"Feed", @"Diaper", @"Medz",@"calendar"]], nil];
+//    self.tabBarController.viewControllers = array;
+    self.tabBarController.viewControllers = [self createViewControllersForStoryboards:@[ @"Feed", @"Diaper", @"Medz",@"calendar"]];
     
     // Tab styling :)
     [[[self tabBarController] tabBar] setBackgroundImage:[UIImage imageNamed:@"tabbar_bg"]];
     [[[self tabBarController] tabBar] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar_bg_sel"]];
     
-    [self.window setRootViewController: self.tabBarController];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.tabBarController];
+    
+    UIBarButtonItem *menuBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIButtonTypeCustom
+                                                                             target:[[_tabBarController viewControllers]objectAtIndex:0]
+                                                                             action:@selector(showMenue)];
+
+    
+    [[[self tabBarController]navigationItem] setLeftBarButtonItem:menuBtn];
+    [self.window setRootViewController: navController];
     [self.window makeKeyAndVisible];
 }
+
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
