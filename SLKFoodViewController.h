@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UISlider *foodSliderTwo;
 - (IBAction)sliderOneValueChanged:(id)sender;
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer;
+@property (weak, nonatomic) IBOutlet UILabel *setTimeLabel;
+- (IBAction)save:(id)sender;
 
 
 @end

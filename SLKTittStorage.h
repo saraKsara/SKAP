@@ -18,6 +18,6 @@
 
 //-(Tits*)getTitThatBelongsToEvent:(Tits*)tit;
 
-//-(NSArray*)babyArray;
+//-(NSArray*)titArray;
 
 @end

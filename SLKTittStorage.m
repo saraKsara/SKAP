@@ -43,7 +43,7 @@
 
 -(Tits*)createTittWithStringValue:(NSString*)stringValue mililitres:(NSNumber*)milliLitres minutes:(NSNumber*)minutes
 {
-   Tits *t = [NSEntityDescription insertNewObjectForEntityForName:@"Baby"
+   Tits *t = [NSEntityDescription insertNewObjectForEntityForName:@"Tits"
                                           inManagedObjectContext:context];
     
     

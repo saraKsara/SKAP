@@ -79,6 +79,30 @@
     return e;
 }
 
+-(Event *)createEventwithTit:(Tits *)tit date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby *)baby
+{
+    Event *e = [NSEntityDescription insertNewObjectForEntityForName:@"Event"
+                                            inManagedObjectContext:context];
+    [e addTitiesObject:tit];
+    e.eventId = eventId;
+    e.baby = baby;
+    
+    NSLog(@"Created event with tit: %@, to baby: %@", tit.milliLitres, baby.name);
+    return e;
+}
+
+-(Event *)createEvenWithdBottle:(Bottle *)bottle date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby *)baby
+{
+    Event *e = [NSEntityDescription insertNewObjectForEntityForName:@"Event"
+                                             inManagedObjectContext:context];
+    [e addBottlesObject:bottle];
+    e.eventId = eventId;
+    e.baby = baby;
+    
+    NSLog(@"Created event with tit: %@, to baby: %@", bottle.milliLitres, baby.name);
+    return e;
+}
+
 -(Event *)getEventWithiD:(NSString *)eventId
 {
     NSArray *arr = [[SLKCoreDataService sharedService] fetchDataWithEntity:@"Event"
