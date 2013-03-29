@@ -1,21 +1,20 @@
 //
-//  Baby.m
+//  Poo.m
 //  SKAP
 //
 //  Created by Åsa Persson on 2013-03-29.
 //  Copyright (c) 2013 Student vid Yrkeshögskola C3L. All rights reserved.
 //
 
-#import "Baby.h"
+#import "Poo.h"
 #import "Event.h"
 
 
-@implementation Baby
+@implementation Poo
 
-@dynamic babyId;
-@dynamic date;
-@dynamic name;
-@dynamic type;
+@dynamic normal;
+@dynamic tooMuch;
+@dynamic toLittle;
 @dynamic event;
 
 @end

@@ -1,21 +1,20 @@
 //
-//  Baby.m
+//  Tits.m
 //  SKAP
 //
 //  Created by Åsa Persson on 2013-03-29.
 //  Copyright (c) 2013 Student vid Yrkeshögskola C3L. All rights reserved.
 //
 
-#import "Baby.h"
+#import "Tits.h"
 #import "Event.h"
 
 
-@implementation Baby
+@implementation Tits
 
-@dynamic babyId;
-@dynamic date;
-@dynamic name;
-@dynamic type;
+@dynamic milliLitres;
+@dynamic minutes;
+@dynamic stringValue;
 @dynamic event;
 
 @end

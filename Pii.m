@@ -1,21 +1,20 @@
 //
-//  Baby.m
+//  Pii.m
 //  SKAP
 //
 //  Created by Åsa Persson on 2013-03-29.
 //  Copyright (c) 2013 Student vid Yrkeshögskola C3L. All rights reserved.
 //
 
-#import "Baby.h"
+#import "Pii.h"
 #import "Event.h"
 
 
-@implementation Baby
+@implementation Pii
 
-@dynamic babyId;
-@dynamic date;
-@dynamic name;
-@dynamic type;
+@dynamic normal;
+@dynamic tooMuch;
+@dynamic tooLittle;
 @dynamic event;
 
 @end
