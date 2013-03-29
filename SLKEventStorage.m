@@ -13,6 +13,10 @@
 #import "SLKUserDefaults.h"
 #import "SLKEventStorage.h"
 #import "Event.h"
+#import "Tits.h"
+#import "Bottle.h"
+#import "Poo.h"
+#import "Pii.h"
 @implementation SLKEventStorage
 {
     NSManagedObjectContext *context;
@@ -44,7 +48,7 @@
     return self;
 }
 
--(Event *)createEventwithDate:(NSDate *)date eventId:(NSString *)eventId tits:(NSString *)tits pii:(NSString *)pii poo:(NSString *)poo bottle:(NSNumber *)bottle adDrop:(BOOL)adDrop otherMedz:(NSString *)medz temperature:(NSNumber *)temp type:(NSString *)type timeSpan:(NSNumber *)timeSpan baby:(Baby *)baby
+-(Event *)createEventwithDate:(NSDate *)date eventId:(NSString *)eventId tits:(NSSet *)tits pii:(NSSet *)pii poo:(NSSet *)poo bottles:(NSSet *)bottle adDrop:(BOOL)adDrop otherMedz:(NSString *)medz temperature:(NSNumber *)temp type:(NSString *)type timeSpan:(NSNumber *)timeSpan baby:(Baby *)baby comments:(NSString *)comments
 {
     Event *e;
     Event *eventInStorage = [self getEventWithiD:eventId];
@@ -59,10 +63,11 @@
     
     e.date = date;
     e.eventId = eventId;
-    e.tits = tits;
-    e.pii = pii;
-    e.poo = poo;
-    e.bottle = bottle;
+    [e addBottles:bottle];
+    [e addPiis:pii];
+    [e addPoos:poo];
+    [e addTities:tits];
+    e.comments = comments; //TODO: make entety of comments????
     e.adDrop = [NSNumber numberWithBool:adDrop];
     e.otherMedz = medz;
     e.temperature = temp;

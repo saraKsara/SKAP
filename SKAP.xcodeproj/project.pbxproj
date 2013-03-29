@@ -17,6 +17,7 @@
 		1C4ABF591705A1AD008468F9 /* Bottle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4ABF581705A1AD008468F9 /* Bottle.m */; };
 		1C4ABF5C1705A1AD008468F9 /* Tits.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4ABF5B1705A1AD008468F9 /* Tits.m */; };
 		1C4ABF5F1705A1AD008468F9 /* Pii.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4ABF5E1705A1AD008468F9 /* Pii.m */; };
+		1C4ABF621705A3BF008468F9 /* SLKTittStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4ABF611705A3BF008468F9 /* SLKTittStorage.m */; };
 		1C5BFC7B16FCD75300D1B238 /* FPTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC7A16FCD75300D1B238 /* FPTouchView.m */; };
 		1C5BFC7C16FCD75300D1B238 /* FPTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC7A16FCD75300D1B238 /* FPTouchView.m */; };
 		1C5BFC8216FCD81300D1B238 /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC7F16FCD81300D1B238 /* FPPopoverController.m */; };
@@ -102,6 +103,8 @@
 		1C4ABF5B1705A1AD008468F9 /* Tits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tits.m; sourceTree = "<group>"; };
 		1C4ABF5D1705A1AD008468F9 /* Pii.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pii.h; sourceTree = "<group>"; };
 		1C4ABF5E1705A1AD008468F9 /* Pii.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pii.m; sourceTree = "<group>"; };
+		1C4ABF601705A3BF008468F9 /* SLKTittStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKTittStorage.h; sourceTree = "<group>"; };
+		1C4ABF611705A3BF008468F9 /* SLKTittStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKTittStorage.m; sourceTree = "<group>"; };
 		1C5BFC7916FCD75300D1B238 /* FPTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPTouchView.h; sourceTree = "<group>"; };
 		1C5BFC7A16FCD75300D1B238 /* FPTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTouchView.m; sourceTree = "<group>"; };
 		1C5BFC7D16FCD81300D1B238 /* ARCMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCMacros.h; sourceTree = "<group>"; };
@@ -408,6 +411,8 @@
 				1C5C784E1701E49D00CB555F /* SLKEventStorage.m */,
 				CE5944C016F90F4600D9D33A /* SLKCoreDataService.h */,
 				CE5944C116F90F4600D9D33A /* SLKCoreDataService.m */,
+				1C4ABF601705A3BF008468F9 /* SLKTittStorage.h */,
+				1C4ABF611705A3BF008468F9 /* SLKTittStorage.m */,
 			);
 			name = Storage;
 			sourceTree = "<group>";
@@ -596,6 +601,7 @@
 				1C4ABF591705A1AD008468F9 /* Bottle.m in Sources */,
 				1C4ABF5C1705A1AD008468F9 /* Tits.m in Sources */,
 				1C4ABF5F1705A1AD008468F9 /* Pii.m in Sources */,
+				1C4ABF621705A3BF008468F9 /* SLKTittStorage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
