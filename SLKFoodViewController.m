@@ -8,6 +8,16 @@
 
 #import "SLKFoodViewController.h"
 #import "SLKBabyListTableViewController.h"
+#import "Tits.h"
+#import "SLKTittStorage.h"
+#import "Event.h"
+#import "SLKEventStorage.h"
+#import "SLKDateUtil.h"
+#import "SLKBabyStorage.h"
+#import "Baby.h"
+#import "Bottle.h"
+#import "SLKBottleStorage.h"
+
 @interface SLKFoodViewController ()
 
 @end
@@ -75,5 +85,15 @@
      NSLog(@"slider ONE changed::: %.f ", [_foodSliderOne value]);
      bottledFood = _foodSliderOne.value ;
       _foodLabel.text = [NSString stringWithFormat:@"%.f",bottledFood];
+}
+- (IBAction)save:(id)sender {
+//    Tits *tit = [[SLKTittStorage sharedStorage]createTittWithStringValue:nil mililitres:[NSNumber numberWithFloat:bottledFood] minutes:nil];
+//    
+//    [[SLKEventStorage sharedStorage] createEventwithTit:tit date:[NSDate date] eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
+    
+    
+  Bottle *bottle = [[SLKBottleStorage sharedStorage] createBottleWithStringValue:nil mililitres:[NSNumber numberWithFloat:bottledFood] minutes:nil];
+    
+    [[SLKEventStorage sharedStorage] createEvenWithdBottle:bottle date:[NSDate date] eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
 }
 @end

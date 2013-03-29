@@ -7,12 +7,27 @@
 //
 
 #import <Foundation/Foundation.h>
-@class Event;
+@class Event, Baby, Tits, Bottle;
 @interface SLKEventStorage : NSObject
 
 +(SLKEventStorage*) sharedStorage;
 
--(Event*)createEventwithDate:(NSDate*)date eventId:(NSString*)eventId tits:(NSString*)tits pii:(NSString*)pii poo:(NSString*)poo bottle:(NSNumber*)bottle adDrop:(BOOL)adDrop otherMedz:(NSString*)medz temperature:(NSNumber*)temp type:(NSString*)type timeSpan:(NSNumber*)timeSpan baby:(Baby*)baby;
+-(Event*)createEventwithDate:(NSDate*)date eventId:(NSString*)eventId
+                        tits:(NSSet*)tits
+                         pii:(NSSet*)pii
+                         poo:(NSSet*)poo
+                     bottles:(NSSet*)bottle
+                      adDrop:(BOOL)adDrop
+                   otherMedz:(NSString*)medz
+                 temperature:(NSNumber*)temp
+                        type:(NSString*)type
+                    timeSpan:(NSNumber*)timeSpan
+                        baby:(Baby*)baby
+                    comments:(NSString*)comments;
+
+-(Event *)createEventwithTit:(Tits*)tit date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby*)baby;
+
+-(Event *)createEvenWithdBottle:(Bottle*)bottle date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby*)baby;
 
 -(Event*)getEventWithiD:(NSString*)eventId;
 

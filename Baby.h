@@ -2,13 +2,14 @@
 //  Baby.h
 //  SKAP
 //
-//  Created by Åsa Persson on 2013-03-26.
+//  Created by Åsa Persson on 2013-03-29.
 //  Copyright (c) 2013 Student vid Yrkeshögskola C3L. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class Event;
 
 @interface Baby : NSManagedObject
 
@@ -21,8 +22,8 @@
 
 @interface Baby (CoreDataGeneratedAccessors)
 
-- (void)addEventObject:(NSManagedObject *)value;
-- (void)removeEventObject:(NSManagedObject *)value;
+- (void)addEventObject:(Event *)value;
+- (void)removeEventObject:(Event *)value;
 - (void)addEvent:(NSSet *)values;
 - (void)removeEvent:(NSSet *)values;
 

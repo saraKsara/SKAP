@@ -30,7 +30,7 @@
        // [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
  
- // [SLKPARSEService getAllObjects];
+ [SLKPARSEService getAllObjects];
     [self setUpApp];
 
   //   //TODO: add "callback block"
