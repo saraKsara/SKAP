@@ -17,6 +17,9 @@
 @implementation SLKPiiPooViewController
 {
     Baby *currentBabe;
+    BOOL checkboxSelected;
+    UIImage *checkedImage;
+    UIImage *unCheckedImage;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -33,6 +36,31 @@
     [super viewWillAppear:YES];
     currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
     _nameOfBabyLabel.text = [NSString stringWithFormat:@"Poo and pee of %@",currentBabe.name];
+    
+    checkedImage = [UIImage imageNamed:@"checkedBox"];
+    unCheckedImage = [UIImage imageNamed:@"uncheckedBox"];
+    
+    [_normalPoo setImage:unCheckedImage forState:UIControlStateNormal];
+    [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];
+    [_tooLittlePoo setImage:unCheckedImage forState:UIControlStateNormal];
+    
+//    _normalPii.image = [UIImage imageNamed:@"uncheckedBox"];
+//    _tooMuchPii.image = [UIImage imageNamed:@"uncheckedBox"];
+//    _tooLittlePii.image = [UIImage imageNamed:@"uncheckedBox"];
+    
+ 
+}
+
+- (void)toggleButton: (id) sender
+{
+//    NSLog(@"toggleButton");
+//    checkboxSelected = !checkboxSelected;
+//    UIImageView* check = (UIImageView*) sender;
+//    if (checkboxSelected == NO)
+//        [check setImage:[UIImage imageNamed:@"uncheckedBox.png"]];
+//    else
+//        [check setImage:[UIImage imageNamed:@"checkedBox.png"]];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,13 +72,16 @@
 - (IBAction)changePoo:(id)sender
 {
     
-//    [[SLKBabyStorage sharedStorage] createBabyWithName:currentBabe.name
-//                                                babyId:currentBabe.babyId
-//                                                   pii:currentBabe.pii
-//                                                   poo:[NSNumber numberWithInt:88]
-//                                          feedTimespan:currentBabe.feedTimespan
-//                                                bottle:currentBabe.bottle
-//                                                breast:currentBabe.breast
-//                                                  date:nil];
+}
+- (IBAction)check:(id)sender {
+    
+    UIButton* check = (UIButton*) sender;
+    if (check.imageView.image == checkedImage)
+    {
+     [check setImage:unCheckedImage forState:UIControlStateNormal];
+    }else
+    {
+        [check setImage:checkedImage forState:UIControlStateNormal];
+    }
 }
 @end
