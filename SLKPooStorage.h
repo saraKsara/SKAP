@@ -15,7 +15,7 @@
 
 -(void)removePoo:(Poo*)poo;
 
-//-(Poo*)getBottleThatBelongsToEvent:(Poo*)poo;
+//-(Poo*)getPooThatBelongsToEvent:(Poo*)poo;
 
 //-(NSArray*)pooArray;
 @end
