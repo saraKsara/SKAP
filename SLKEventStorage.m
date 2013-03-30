@@ -48,6 +48,8 @@
     return self;
 }
 
+#pragma mark CREATE methods
+
 -(Event *)createEventwithDate:(NSDate *)date eventId:(NSString *)eventId tits:(NSSet *)tits pii:(NSSet *)pii poo:(NSSet *)poo bottles:(NSSet *)bottle adDrop:(BOOL)adDrop otherMedz:(NSString *)medz temperature:(NSNumber *)temp type:(NSString *)type timeSpan:(NSNumber *)timeSpan baby:(Baby *)baby comments:(NSString *)comments
 {
     Event *e;
@@ -99,9 +101,34 @@
     e.eventId = eventId;
     e.baby = baby;
     
-    NSLog(@"Created event with tit: %@, to baby: %@", bottle.milliLitres, baby.name);
+    NSLog(@"Created event with tit: %@, to baby: %@", bottle, baby.name);
     return e;
 }
+
+-(Event *)createEventwithPoo:(Poo *)poo date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby *)baby
+{
+    Event *e = [NSEntityDescription insertNewObjectForEntityForName:@"Event"
+                                             inManagedObjectContext:context];
+    [e addPoosObject:poo];
+    e.eventId = eventId;
+    e.baby = baby;
+    
+    NSLog(@"Created event with tit: %@, to baby: %@", poo, baby.name);
+    return e;
+}
+
+-(Event *)createEventwithPii:(Pii *)pii date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby *)baby
+{
+    Event *e = [NSEntityDescription insertNewObjectForEntityForName:@"Event"
+                                             inManagedObjectContext:context];
+    [e addPiisObject:pii];
+    e.eventId = eventId;
+    e.baby = baby;
+    
+    NSLog(@"Created event with tit: %@, to baby: %@", pii, baby.name);
+    return e;
+}
+
 
 -(Event *)getEventWithiD:(NSString *)eventId
 {

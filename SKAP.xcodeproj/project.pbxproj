@@ -13,6 +13,8 @@
 		1C137BDF17049F2F00A39F3A /* calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C137BDE17049F2F00A39F3A /* calendar.storyboard */; };
 		1C34EC781706EC700095F0C2 /* SLKPooStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C34EC771706EC700095F0C2 /* SLKPooStorage.m */; };
 		1C34EC7B1706EED10095F0C2 /* SLKPiiStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C34EC7A1706EED10095F0C2 /* SLKPiiStorage.m */; };
+		1C34EC7D170720730095F0C2 /* uncheckedBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C34EC7C170720730095F0C2 /* uncheckedBox.png */; };
+		1C34EC7F170720830095F0C2 /* checkedBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C34EC7E170720830095F0C2 /* checkedBox.png */; };
 		1C4ABF501705A1AC008468F9 /* Baby.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4ABF4F1705A1AC008468F9 /* Baby.m */; };
 		1C4ABF531705A1AC008468F9 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4ABF521705A1AC008468F9 /* Event.m */; };
 		1C4ABF561705A1AD008468F9 /* Poo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4ABF551705A1AD008468F9 /* Poo.m */; };
@@ -98,6 +100,8 @@
 		1C34EC771706EC700095F0C2 /* SLKPooStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPooStorage.m; sourceTree = "<group>"; };
 		1C34EC791706EED10095F0C2 /* SLKPiiStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKPiiStorage.h; sourceTree = "<group>"; };
 		1C34EC7A1706EED10095F0C2 /* SLKPiiStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPiiStorage.m; sourceTree = "<group>"; };
+		1C34EC7C170720730095F0C2 /* uncheckedBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uncheckedBox.png; sourceTree = "<group>"; };
+		1C34EC7E170720830095F0C2 /* checkedBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkedBox.png; sourceTree = "<group>"; };
 		1C4ABF4E1705A1AC008468F9 /* Baby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baby.h; sourceTree = "<group>"; };
 		1C4ABF4F1705A1AC008468F9 /* Baby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Baby.m; sourceTree = "<group>"; };
 		1C4ABF511705A1AC008468F9 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
@@ -388,6 +392,8 @@
 		CE59449916F90DC800D9D33A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1C34EC7E170720830095F0C2 /* checkedBox.png */,
+				1C34EC7C170720730095F0C2 /* uncheckedBox.png */,
 				CEF55A1117004A24008634DB /* milk.png */,
 				CE57277E170064A0003A72BF /* bottle.png */,
 				CE59449A16F90DC800D9D33A /* SKAP-Info.plist */,
@@ -548,6 +554,8 @@
 				1C137BDB17049EE800A39F3A /* Diaper.storyboard in Resources */,
 				1C137BDD17049EFC00A39F3A /* Medz.storyboard in Resources */,
 				1C137BDF17049F2F00A39F3A /* calendar.storyboard in Resources */,
+				1C34EC7D170720730095F0C2 /* uncheckedBox.png in Resources */,
+				1C34EC7F170720830095F0C2 /* checkedBox.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
