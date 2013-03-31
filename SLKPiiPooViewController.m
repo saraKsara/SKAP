@@ -9,7 +9,12 @@
 #import "SLKPiiPooViewController.h"
 #import "SLKBabyStorage.h"
 #import "Baby.h"
-
+#import "Poo.h"
+#import "Pii.h"
+#import "Event.h"
+#import "SLKPooStorage.h"
+#import "SLKPiiStorage.h"
+#import "SLKEventStorage.h"
 @interface SLKPiiPooViewController ()
 
 @end
@@ -17,7 +22,14 @@
 @implementation SLKPiiPooViewController
 {
     Baby *currentBabe;
-    BOOL checkboxSelected;
+    BOOL piiToAddNormal;
+    BOOL piiToAddTooMuch;
+    BOOL piiToAddTooLittle;
+    
+    BOOL pooToAddNormal;
+    BOOL pooToAddTooMuch;
+    BOOL pooToAddToLittle;
+    
     UIImage *checkedImage;
     UIImage *unCheckedImage;
 }
@@ -34,6 +46,15 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
+    
+    piiToAddNormal = NO;
+    piiToAddTooMuch = NO;
+    piiToAddTooLittle = NO;
+    
+    pooToAddNormal = NO;
+    pooToAddTooMuch = NO;
+    pooToAddToLittle = NO;
+    
     currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
     _nameOfBabyLabel.text = [NSString stringWithFormat:@"Poo and pee of %@",currentBabe.name];
     
@@ -44,23 +65,11 @@
     [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];
     [_tooLittlePoo setImage:unCheckedImage forState:UIControlStateNormal];
     
-//    _normalPii.image = [UIImage imageNamed:@"uncheckedBox"];
-//    _tooMuchPii.image = [UIImage imageNamed:@"uncheckedBox"];
-//    _tooLittlePii.image = [UIImage imageNamed:@"uncheckedBox"];
-    
- 
-}
+    [_normalPii setImage:unCheckedImage forState:UIControlStateNormal];
+    [_tooMuchPii setImage:unCheckedImage forState:UIControlStateNormal];
+    [_tooLittlePii setImage:unCheckedImage forState:UIControlStateNormal];
 
-- (void)toggleButton: (id) sender
-{
-//    NSLog(@"toggleButton");
-//    checkboxSelected = !checkboxSelected;
-//    UIImageView* check = (UIImageView*) sender;
-//    if (checkboxSelected == NO)
-//        [check setImage:[UIImage imageNamed:@"uncheckedBox.png"]];
-//    else
-//        [check setImage:[UIImage imageNamed:@"checkedBox.png"]];
-    
+ 
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,13 +84,83 @@
 }
 - (IBAction)check:(id)sender {
     
-    UIButton* check = (UIButton*) sender;
-    if (check.imageView.image == checkedImage)
+    if (sender == _normalPoo)
     {
-     [check setImage:unCheckedImage forState:UIControlStateNormal];
-    }else
+        pooToAddNormal = !pooToAddNormal;
+        pooToAddTooMuch = NO;
+        pooToAddToLittle = NO;
+        if (pooToAddNormal)     [_normalPoo setImage:checkedImage forState:UIControlStateNormal];
+        else                    [_normalPoo setImage:unCheckedImage forState:UIControlStateNormal];
+        
+        [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];
+        [_tooLittlePoo setImage:unCheckedImage forState:UIControlStateNormal];
+        NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", pooToAddNormal, pooToAddTooMuch,pooToAddToLittle);
+        
+    } else  if (sender == _tooMuchPoo)
     {
-        [check setImage:checkedImage forState:UIControlStateNormal];
+        pooToAddTooMuch = !pooToAddTooMuch;
+        pooToAddNormal = NO;
+        pooToAddToLittle = NO;
+        if (pooToAddTooMuch)    [_tooMuchPoo setImage:checkedImage forState:UIControlStateNormal];
+        else                    [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];
+        
+        
+        [_normalPoo setImage:unCheckedImage forState:UIControlStateNormal];
+        [_tooLittlePoo setImage:unCheckedImage forState:UIControlStateNormal];
+        NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", pooToAddNormal, pooToAddTooMuch,pooToAddToLittle);
+        
+    } else  if (sender == _tooLittlePoo)
+    {
+        pooToAddToLittle =!pooToAddToLittle;
+        pooToAddNormal = NO;
+        pooToAddTooMuch = NO;
+        if (pooToAddToLittle)   [_tooLittlePoo setImage:checkedImage forState:UIControlStateNormal];
+        else                    [_tooLittlePoo setImage:unCheckedImage forState:UIControlStateNormal];
+        
+        
+        [_normalPoo setImage:unCheckedImage forState:UIControlStateNormal];
+        [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];
+        NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", pooToAddNormal, pooToAddTooMuch,pooToAddToLittle);
+    }
+    
+    
+   else if (sender == _normalPii)
+    {
+        piiToAddNormal = !piiToAddNormal;
+        piiToAddTooMuch = NO;
+        piiToAddTooLittle = NO;
+        if (piiToAddNormal)     [_normalPii setImage:checkedImage forState:UIControlStateNormal];
+        else                    [_normalPii setImage:unCheckedImage forState:UIControlStateNormal];
+        
+        [_tooLittlePii setImage:unCheckedImage forState:UIControlStateNormal];
+        [_tooMuchPii setImage:unCheckedImage forState:UIControlStateNormal];
+        NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", piiToAddNormal, piiToAddTooMuch,piiToAddTooLittle);
+        
+    } else  if (sender == _tooMuchPii)
+    {
+        piiToAddTooMuch = !piiToAddTooMuch;
+        piiToAddNormal = NO;
+        piiToAddTooLittle = NO;
+        if (piiToAddTooMuch)    [_tooMuchPii setImage:checkedImage forState:UIControlStateNormal];
+        else                    [_tooMuchPii setImage:unCheckedImage forState:UIControlStateNormal];
+        
+        
+        [_normalPii setImage:unCheckedImage forState:UIControlStateNormal];
+        [_tooLittlePii setImage:unCheckedImage forState:UIControlStateNormal];
+      NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", piiToAddNormal, piiToAddTooMuch,piiToAddTooLittle);
+        
+    } else  if (sender == _tooLittlePii)
+    {
+        piiToAddTooLittle =!piiToAddTooLittle;
+        piiToAddNormal = NO;
+        piiToAddTooMuch = NO;
+        if (piiToAddTooLittle)   [_tooLittlePii setImage:checkedImage forState:UIControlStateNormal];
+        else                    [_tooLittlePii setImage:unCheckedImage forState:UIControlStateNormal];
+        
+        
+        [_normalPii setImage:unCheckedImage forState:UIControlStateNormal];
+        [_tooMuchPii setImage:unCheckedImage forState:UIControlStateNormal];
+     NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", piiToAddNormal, piiToAddTooMuch,piiToAddTooLittle);
     }
 }
 @end

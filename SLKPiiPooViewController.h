@@ -14,7 +14,10 @@
 
 - (IBAction)check:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *normalPii;
+@property (weak, nonatomic) IBOutlet UIButton *tooMuchPii;
 
+@property (weak, nonatomic) IBOutlet UIButton *tooLittlePii;
 
 
 
