@@ -128,14 +128,58 @@
     NSLog(@"Created event with tit: %@, to baby: %@", pii, baby.name);
     return e;
 }
-
--(NSArray *)getEventBelomigTObaby:(Baby *)baby //andDay
+-(NSArray *)getEventBelomigTObaby:(Baby *)baby
 {
     NSArray *arr = [[SLKCoreDataService sharedService] fetchDataWithEntity:@"Event"
+                                                                         andPredicate:[NSPredicate predicateWithFormat:@"baby == %@", baby]
+                                                                   andSortDescriptors:nil];
+    
+    return [arr count] > 0 ? arr : nil;
+}
+-(NSArray *)getEventBelomigTObaby:(Baby *)baby andDay:(NSDate *)day{
+    NSArray *allEventOfBaby = [[SLKCoreDataService sharedService] fetchDataWithEntity:@"Event"
                                                               andPredicate:[NSPredicate predicateWithFormat:@"baby == %@", baby]
                                                         andSortDescriptors:nil];
     
-    return [arr count] > 0 ? arr : nil;
+      
+    
+       NSMutableArray *returnArray = [NSMutableArray array];
+    
+    // TODO: Use core data to query by dates instead of sorting arrays /JS
+    
+    for (Event *event in allEventOfBaby)
+    {
+        NSDate *dateOfEvent = event.date;
+        
+        [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit startDate:&dateOfEvent interval:NULL forDate:dateOfEvent];
+        [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit startDate:&day interval:NULL forDate:day];
+        
+        NSComparisonResult compareParemeterStartDateWithParameterEndDate = [dateOfEvent compare:day];
+        
+        if (compareParemeterStartDateWithParameterEndDate == NSOrderedSame)
+        {
+            [returnArray addObject:event];
+        }
+    }
+    
+    NSArray *sortedArray = [[NSArray alloc] init];
+    sortedArray = [returnArray sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+        NSDate *first = [(Event*)b date];
+        NSDate *second = [(Event*)a date];
+        return [first compare:second];
+    }];
+    
+    if ([sortedArray count] >= 1)
+    {
+        return sortedArray;
+    }
+    
+    return nil;
+    
+    
+    
+    
+    
     
 }
 -(Event *)getEventWithiD:(NSString *)eventId

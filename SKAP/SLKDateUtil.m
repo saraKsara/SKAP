@@ -62,11 +62,9 @@ NSDateFormatter* dateTitleFormatterOtherYear = nil;
 }
 +(NSString*) formatTimeFromDate:(NSDate*) date
 {
-    NSLog(@"DATE:::::: %@", date);
     NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
     [utcTimestampDateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
     [timeFormatter setDateFormat:@"HH:mm"];
-     NSLog(@"date: %@", [timeFormatter stringFromDate:date]);
     return [timeFormatter stringFromDate:date];
 }
 @end

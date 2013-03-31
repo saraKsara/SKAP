@@ -70,16 +70,15 @@
 {
     currentDay = [currentDay dateByAddingDays:1];
       _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ at %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
+    [_tableView reloadData];
 }
 
 - (IBAction)prevDay:(id)sender
 {
     currentDay = [currentDay dateBySubtractingDays:1];
       _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ at %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
+    [_tableView reloadData];
 }
-
-
-
 
 
 #pragma mark - Table view data source
@@ -91,16 +90,24 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[SLKEventStorage sharedStorage] eventArray] count];
+    return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay]count];
 }
-
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    UILabel *headerLabel = [[UILabel alloc] init];
+//    headerLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:11];
+//    headerLabel.textColor = [UIColor blackColor];
+    headerLabel.text =  @"Time\t event\t more";
+    return headerLabel.text;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
      static NSString *CellIdentifier = @"dayViewCell";
         SLKDayViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        Event *event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby] objectAtIndex:indexPath.row];
+        Event *event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay] objectAtIndex:indexPath.row];
+    
         cell.timeLabel.text = [SLKDateUtil formatTimeFromDate: event.date];
-    cell.eventLabel.text = [SLKDateUtil formatTimeFromDate: event.date];
+    cell.eventLabel.text = [SLKDateUtil formatDateWithoutYear: event.date];
     cell.propertyLabel.text = @"how much ex pii";
         return cell;
 

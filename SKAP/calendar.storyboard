@@ -56,8 +56,8 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6SJ-2L-7ei">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="325" id="KiY-iB-YeE"/>
                                     <constraint firstAttribute="width" constant="285" id="Pyg-a0-xgk"/>
-                                    <constraint firstAttribute="height" constant="382" id="kHr-sZ-2v0"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="dayViewCell" id="Cnc-5H-ZiD" customClass="SLKDayViewCell">
@@ -122,6 +122,7 @@
                             <constraint firstItem="el2-38-JBq" firstAttribute="top" secondItem="XDt-YX-iof" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="9gm-gN-lus"/>
                             <constraint firstItem="el2-38-JBq" firstAttribute="leading" secondItem="TKU-Ah-btk" secondAttribute="leading" type="default" id="F8b-8N-2K9"/>
                             <constraint firstItem="XDt-YX-iof" firstAttribute="top" secondItem="TKU-Ah-btk" secondAttribute="top" constant="13" id="Nf5-Qu-YcU"/>
+                            <constraint firstItem="XDt-YX-iof" firstAttribute="baseline" secondItem="LMK-x0-GT4" secondAttribute="baseline" type="default" id="RAI-hc-h1y"/>
                             <constraint firstAttribute="bottom" secondItem="6SJ-2L-7ei" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="Z86-Uf-cob"/>
                             <constraint firstItem="XDt-YX-iof" firstAttribute="top" secondItem="LMK-x0-GT4" secondAttribute="top" type="default" id="fk0-jm-GgZ"/>
                             <constraint firstItem="el2-38-JBq" firstAttribute="trailing" secondItem="TKU-Ah-btk" secondAttribute="trailing" type="default" id="hed-WX-A3X"/>
@@ -142,6 +143,31 @@
             <point key="canvasLocation" x="283" y="756"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="SLKDaySummaryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKDaySummaryViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="nextDay:"/>
+                <relationship kind="action" name="prevDay:"/>
+                <relationship kind="outlet" name="foodLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="headerLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="peeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pooLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="SLKDayViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKDayViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="eventLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="propertyLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
