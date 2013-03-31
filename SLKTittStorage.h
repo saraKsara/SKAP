@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class Tits;
+@class Tits, Event;
 @interface SLKTittStorage : NSObject
 
 +(SLKTittStorage*) sharedStorage;
@@ -16,7 +16,7 @@
 
 -(void)removeTitmilk:(Tits*)tit;
 
-//-(Tits*)getTitThatBelongsToEvent:(Tits*)tit;
+-(Tits*)getTitThatBelongsToEvent:(Event*)event;
 
 //-(NSArray*)titArray;
 

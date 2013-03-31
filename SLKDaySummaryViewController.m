@@ -18,6 +18,8 @@
 #import "Bottle.h"
 #import "SLKEventStorage.h"
 #import "SLKDayViewCell.h"
+#import "SLKConstants.h"
+#import "SLKTittStorage.h"
 
 @interface SLKDaySummaryViewController ()
 
@@ -106,9 +108,24 @@
         SLKDayViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
         Event *event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay] objectAtIndex:indexPath.row];
     
-        cell.timeLabel.text = [SLKDateUtil formatTimeFromDate: event.date];
-    cell.eventLabel.text = [SLKDateUtil formatDateWithoutYear: event.date];
-    cell.propertyLabel.text = @"how much ex pii";
+    cell.timeLabel.text = [SLKDateUtil formatTimeFromDate: event.date];
+    cell.eventLabel.text = event.type;
+    if ([event.type isEqualToString: kEventType_TitFood]) {
+//        Tits *tit = [[SLKTittStorage sharedStorage] getTitThatBelongsToEvent:event];
+//        NSLog(@"tit thet belongs to evebt: %@", tit.milliLitres);
+        NSSet *titset = [event tities];
+        NSString *propertyString;
+        NSLog(@"antalet tittevent: %d", [titset count]);
+        for(Tits *tit in titset)
+        {
+            NSLog(@"tit::: %@",tit);
+
+            propertyString = [tit.minutes stringValue];
+        }
+        cell.propertyLabel.text = propertyString;
+
+    }
+
         return cell;
 
 }

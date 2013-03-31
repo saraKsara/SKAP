@@ -15,6 +15,7 @@
 		1C34EC7B1706EED10095F0C2 /* SLKPiiStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C34EC7A1706EED10095F0C2 /* SLKPiiStorage.m */; };
 		1C34EC7D170720730095F0C2 /* uncheckedBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C34EC7C170720730095F0C2 /* uncheckedBox.png */; };
 		1C34EC7F170720830095F0C2 /* checkedBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C34EC7E170720830095F0C2 /* checkedBox.png */; };
+		1C49EF29170889200073B6D6 /* SLKConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C49EF28170889200073B6D6 /* SLKConstants.m */; };
 		1C4ABF501705A1AC008468F9 /* Baby.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4ABF4F1705A1AC008468F9 /* Baby.m */; };
 		1C4ABF531705A1AC008468F9 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4ABF521705A1AC008468F9 /* Event.m */; };
 		1C4ABF561705A1AD008468F9 /* Poo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4ABF551705A1AD008468F9 /* Poo.m */; };
@@ -103,6 +104,8 @@
 		1C34EC7A1706EED10095F0C2 /* SLKPiiStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPiiStorage.m; sourceTree = "<group>"; };
 		1C34EC7C170720730095F0C2 /* uncheckedBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uncheckedBox.png; sourceTree = "<group>"; };
 		1C34EC7E170720830095F0C2 /* checkedBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkedBox.png; sourceTree = "<group>"; };
+		1C49EF27170889200073B6D6 /* SLKConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKConstants.h; sourceTree = "<group>"; };
+		1C49EF28170889200073B6D6 /* SLKConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKConstants.m; sourceTree = "<group>"; };
 		1C4ABF4E1705A1AC008468F9 /* Baby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baby.h; sourceTree = "<group>"; };
 		1C4ABF4F1705A1AC008468F9 /* Baby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Baby.m; sourceTree = "<group>"; };
 		1C4ABF511705A1AC008468F9 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
@@ -384,6 +387,8 @@
 				CE5944AA16F90DC800D9D33A /* MainStoryboard.storyboard */,
 				1CF828251701A36E00EDC904 /* SLKUserDefaults.h */,
 				1CF828261701A36E00EDC904 /* SLKUserDefaults.m */,
+				1C49EF27170889200073B6D6 /* SLKConstants.h */,
+				1C49EF28170889200073B6D6 /* SLKConstants.m */,
 				1C36055D1704667D007FC517 /* Date utils */,
 				CE59449916F90DC800D9D33A /* Supporting Files */,
 				1C137BD817049EB700A39F3A /* Feed.storyboard */,
@@ -634,6 +639,7 @@
 				1C34EC781706EC700095F0C2 /* SLKPooStorage.m in Sources */,
 				1C34EC7B1706EED10095F0C2 /* SLKPiiStorage.m in Sources */,
 				1C7F474117087A2C00C258F8 /* SLKDayViewCell.m in Sources */,
+				1C49EF29170889200073B6D6 /* SLKConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

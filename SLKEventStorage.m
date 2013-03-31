@@ -17,6 +17,7 @@
 #import "Bottle.h"
 #import "Poo.h"
 #import "Pii.h"
+#import "SLKConstants.h"
 @implementation SLKEventStorage
 {
     NSManagedObjectContext *context;
@@ -89,6 +90,7 @@
     e.eventId = eventId;
     e.baby = baby;
     e.date = date;
+     e.type = kEventType_TitFood;
     NSLog(@"Created event with tit: %@, to baby: %@", tit.milliLitres, baby.name);
     return e;
 }
@@ -101,6 +103,7 @@
     e.eventId = eventId;
     e.baby = baby;
     e.date = date;
+     e.type = kEventType_BottleFood;
     NSLog(@"Created event with tit: %@, to baby: %@", bottle, baby.name);
     return e;
 }
@@ -113,6 +116,7 @@
     e.eventId = eventId;
     e.baby = baby;
     e.date = date;
+     e.type = kEventType_Poo;
     NSLog(@"Created event with tit: %@, to baby: %@", poo, baby.name);
     return e;
 }
@@ -125,9 +129,11 @@
     e.eventId = eventId;
     e.baby = baby;
     e.date = date;
+    e.type = kEventType_Pii;
     NSLog(@"Created event with tit: %@, to baby: %@", pii, baby.name);
     return e;
 }
+
 -(NSArray *)getEventBelomigTObaby:(Baby *)baby
 {
     NSArray *arr = [[SLKCoreDataService sharedService] fetchDataWithEntity:@"Event"
@@ -136,6 +142,7 @@
     
     return [arr count] > 0 ? arr : nil;
 }
+
 -(NSArray *)getEventBelomigTObaby:(Baby *)baby andDay:(NSDate *)day{
     NSArray *allEventOfBaby = [[SLKCoreDataService sharedService] fetchDataWithEntity:@"Event"
                                                               andPredicate:[NSPredicate predicateWithFormat:@"baby == %@", baby]
@@ -175,13 +182,8 @@
     }
     
     return nil;
-    
-    
-    
-    
-    
-    
 }
+
 -(Event *)getEventWithiD:(NSString *)eventId
 {
     NSArray *arr = [[SLKCoreDataService sharedService] fetchDataWithEntity:@"Event"
@@ -203,7 +205,6 @@
                                                         andSortDescriptors:nil];
     
     return [arr count] > 0 ? [arr lastObject] : nil;
-    
 }
 
 -(NSArray *)eventArray
