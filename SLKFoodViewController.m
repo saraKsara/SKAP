@@ -91,13 +91,13 @@
     //if tit milk was messured in mililites
 //    Tits *tit = [[SLKTittStorage sharedStorage]createTittWithStringValue:nil mililitres:[NSNumber numberWithFloat:bottledFood] minutes:nil];
      //if tit milk was messured in minutes
-    Tits *titMin = [[SLKTittStorage sharedStorage]createTittWithStringValue:nil mililitres:nil minutes:[NSNumber numberWithInt:22]];
-    
-    [[SLKEventStorage sharedStorage] createEventwithTit:titMin date:[NSDate date] eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
-    
-    
-  Bottle *bottle = [[SLKBottleStorage sharedStorage] createBottleWithStringValue:nil mililitres:[NSNumber numberWithFloat:bottledFood] minutes:nil];
-    
-    [[SLKEventStorage sharedStorage] createEvenWithdBottle:bottle date:[NSDate date] eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
+//    Tits *titMin = [[SLKTittStorage sharedStorage]createTittWithStringValue:nil mililitres:nil minutes:[NSNumber numberWithInt:22]];
+//    
+//    [[SLKEventStorage sharedStorage] createEventwithTit:titMin date:[NSDate date] eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
+//    
+//    
+//  Bottle *bottle = [[SLKBottleStorage sharedStorage] createBottleWithStringValue:nil mililitres:[NSNumber numberWithFloat:bottledFood] minutes:nil];
+//    
+//    [[SLKEventStorage sharedStorage] createEvenWithdBottle:bottle date:[NSDate date] eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
 }
 @end

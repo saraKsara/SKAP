@@ -16,6 +16,7 @@
 #import "SLKPiiStorage.h"
 #import "SLKEventStorage.h"
 #import "SLKDates.h"
+#import "SLKDateUtil.h"
 @interface SLKPiiPooViewController ()
 
 @end
@@ -30,6 +31,8 @@
     BOOL pooToAddNormal;
     BOOL pooToAddTooMuch;
     BOOL pooToAddToLittle;
+    
+    NSString *time;
     
     UIImage *checkedImage;
     UIImage *unCheckedImage;
@@ -58,6 +61,9 @@
     
     currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
     _nameOfBabyLabel.text = [NSString stringWithFormat:@"Poo and pee of %@",currentBabe.name];
+    
+    time = [SLKDateUtil formatTimeFromDate: [NSDate date]];
+    _timeLabel.text = time;
     
     checkedImage = [UIImage imageNamed:@"checkedBox"];
     unCheckedImage = [UIImage imageNamed:@"uncheckedBox"];
@@ -188,5 +194,10 @@
         NSLog(@"NO new Pii");
     }
     }
+}
+- (IBAction)setTimewithSlider:(id)sender
+{
+    NSLog(@"slider ONE changed::: %f ", [_timeSlider value]);
+    _timeLabel.text = [NSString stringWithFormat:@"%.f",[_timeSlider value]];
 }
 @end
