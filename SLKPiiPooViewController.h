@@ -8,6 +8,21 @@
 
 #import <UIKit/UIKit.h>
 @interface SLKPiiPooViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIButton *normalPoo;
+@property (weak, nonatomic) IBOutlet UIButton *tooMuchPoo;
+@property (weak, nonatomic) IBOutlet UIButton *tooLittlePoo;
+@property (weak, nonatomic) IBOutlet UIButton *save;
+
+- (IBAction)check:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIButton *normalPii;
+@property (weak, nonatomic) IBOutlet UIButton *tooMuchPii;
+
+@property (weak, nonatomic) IBOutlet UIButton *tooLittlePii;
+
+
+
 @property (weak, nonatomic) IBOutlet UILabel *nameOfBabyLabel;
-- (IBAction)changePoo:(id)sender;
+- (IBAction)save:(id)sender;
+
 @end
