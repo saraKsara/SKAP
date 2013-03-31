@@ -175,19 +175,56 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wdM-AD-3tK">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="p2y-CW-Hsq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Later">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="later:" destination="lfv-mn-ycL" eventType="touchUpInside" id="y20-LF-2XN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpf-Rm-Iqd">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="TWi-zx-J6G"/>
+                                    <constraint firstAttribute="height" constant="44" id="sAw-Rx-tUn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Sooner">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sooner:" destination="lfv-mn-ycL" eventType="touchUpInside" id="rr2-cH-GEb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="B7v-3y-5fW" firstAttribute="trailing" secondItem="Sji-NB-3Uj" secondAttribute="trailing" type="default" id="15R-WA-MOp"/>
                             <constraint firstAttribute="trailing" secondItem="Zhs-Ry-Yjo" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="1Yj-Yc-gIA"/>
                             <constraint firstItem="Zas-4N-LYl" firstAttribute="top" secondItem="cKG-mH-hgR" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="2je-CM-HML"/>
+                            <constraint firstItem="wpf-Rm-Iqd" firstAttribute="top" secondItem="wdM-AD-3tK" secondAttribute="top" type="default" id="2n6-02-E1G"/>
                             <constraint firstItem="zF1-1s-uLJ" firstAttribute="leading" secondItem="SNY-kC-qal" secondAttribute="leading" constant="37" id="2uA-GC-GP7"/>
                             <constraint firstItem="Mn3-rQ-ava" firstAttribute="leading" secondItem="SNY-kC-qal" secondAttribute="leading" type="default" id="4H4-h3-hFm"/>
+                            <constraint firstItem="Zhs-Ry-Yjo" firstAttribute="top" secondItem="wdM-AD-3tK" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="6Mm-Ad-6ca"/>
                             <constraint firstItem="cKG-mH-hgR" firstAttribute="leading" secondItem="zF1-1s-uLJ" secondAttribute="leading" type="default" id="6ih-K1-KGF"/>
+                            <constraint firstItem="m3v-ZY-JPL" firstAttribute="top" secondItem="SNY-kC-qal" secondAttribute="top" constant="199" id="9Bo-gX-oSO"/>
                             <constraint firstItem="SZf-7R-sdV" firstAttribute="top" secondItem="SNY-kC-qal" secondAttribute="top" constant="45" id="9Yg-Jl-YWk"/>
                             <constraint firstItem="Mn3-rQ-ava" firstAttribute="top" secondItem="SNY-kC-qal" secondAttribute="top" constant="25" id="AW0-uT-csm"/>
                             <constraint firstItem="m3v-ZY-JPL" firstAttribute="leading" secondItem="SNY-kC-qal" secondAttribute="leading" constant="112" id="BJd-BL-HeX"/>
                             <constraint firstItem="cKG-mH-hgR" firstAttribute="top" secondItem="zF1-1s-uLJ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="GRZ-LC-v3X"/>
+                            <constraint firstItem="wpf-Rm-Iqd" firstAttribute="leading" secondItem="SNY-kC-qal" secondAttribute="leading" constant="46" id="ILh-ud-Zco"/>
                             <constraint firstItem="Urt-No-8s6" firstAttribute="top" secondItem="nRS-zk-KLn" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="IXO-cj-Iz0"/>
                             <constraint firstItem="vlb-cM-JBg" firstAttribute="trailing" secondItem="Fx2-Z3-hnY" secondAttribute="trailing" type="default" id="Kfe-Q9-NHs"/>
                             <constraint firstItem="SZf-7R-sdV" firstAttribute="centerX" secondItem="Mn3-rQ-ava" secondAttribute="centerX" type="default" id="LCI-9r-ZlI"/>
@@ -203,21 +240,22 @@
                             <constraint firstAttribute="bottom" secondItem="qwu-eV-OXr" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="Yat-ba-iwF"/>
                             <constraint firstItem="nRS-zk-KLn" firstAttribute="leading" secondItem="SNY-kC-qal" secondAttribute="leading" constant="149" id="aBx-dg-ysI"/>
                             <constraint firstItem="B7v-3y-5fW" firstAttribute="leading" secondItem="Sji-NB-3Uj" secondAttribute="leading" type="default" id="abg-Hs-Ybl"/>
+                            <constraint firstAttribute="trailing" secondItem="wdM-AD-3tK" secondAttribute="trailing" constant="56" id="cyb-ed-Fdh"/>
                             <constraint firstItem="vlb-cM-JBg" firstAttribute="trailing" secondItem="Urt-No-8s6" secondAttribute="trailing" type="default" id="d7Z-Z1-Koq"/>
                             <constraint firstAttribute="bottom" secondItem="vlb-cM-JBg" secondAttribute="bottom" constant="108" id="eZk-Db-DnQ"/>
                             <constraint firstItem="3wY-rf-KRx" firstAttribute="baseline" secondItem="nRS-zk-KLn" secondAttribute="baseline" type="default" id="fKt-qS-DvN"/>
-                            <constraint firstItem="m3v-ZY-JPL" firstAttribute="top" secondItem="SNY-kC-qal" secondAttribute="top" constant="199" id="gcA-nz-iUv"/>
                             <constraint firstItem="Zhs-Ry-Yjo" firstAttribute="leading" secondItem="SNY-kC-qal" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="hQJ-th-ahc"/>
                             <constraint firstItem="Zuo-Ol-H5P" firstAttribute="top" secondItem="3wY-rf-KRx" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="iuV-so-Jnm"/>
                             <constraint firstItem="Zuo-Ol-H5P" firstAttribute="bottom" secondItem="Urt-No-8s6" secondAttribute="bottom" type="default" id="jHg-3E-mqk"/>
-                            <constraint firstAttribute="trailing" secondItem="3wY-rf-KRx" secondAttribute="trailing" constant="83" id="jgI-fC-8e4"/>
                             <constraint firstAttribute="bottom" secondItem="B7v-3y-5fW" secondAttribute="bottom" constant="79" id="nLI-gL-QJS"/>
                             <constraint firstItem="Zuo-Ol-H5P" firstAttribute="leading" secondItem="Sji-NB-3Uj" secondAttribute="leading" type="default" id="o8m-6X-Egt"/>
+                            <constraint firstItem="wpf-Rm-Iqd" firstAttribute="top" secondItem="SNY-kC-qal" secondAttribute="top" constant="196" id="oQY-jf-xVY"/>
                             <constraint firstItem="Zuo-Ol-H5P" firstAttribute="trailing" secondItem="Sji-NB-3Uj" secondAttribute="trailing" type="default" id="rHo-bV-wNy"/>
                             <constraint firstItem="Urt-No-8s6" firstAttribute="centerY" secondItem="zF1-1s-uLJ" secondAttribute="centerY" type="default" id="rKX-Ok-y2T"/>
                             <constraint firstItem="Zuo-Ol-H5P" firstAttribute="trailing" secondItem="3wY-rf-KRx" secondAttribute="trailing" type="default" id="rNt-nJ-kuz"/>
-                            <constraint firstItem="Zhs-Ry-Yjo" firstAttribute="top" secondItem="SNY-kC-qal" secondAttribute="top" constant="237" id="sQm-Wv-g8Z"/>
+                            <constraint firstItem="wdM-AD-3tK" firstAttribute="centerX" secondItem="3wY-rf-KRx" secondAttribute="centerX" type="default" id="tfF-mF-Trh"/>
                             <constraint firstItem="Mn3-rQ-ava" firstAttribute="trailing" secondItem="SNY-kC-qal" secondAttribute="trailing" type="default" id="vJc-Sc-0z6"/>
+                            <constraint firstItem="Zhs-Ry-Yjo" firstAttribute="top" secondItem="wpf-Rm-Iqd" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ybX-pQ-goe"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="DIAPER" id="Aaa-y4-ndj"/>
@@ -241,29 +279,6 @@
     <resources>
         <image name="bottle.png" width="640" height="1065"/>
     </resources>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SLKPiiPooViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKPiiPooViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="check:"/>
-                <relationship kind="action" name="save:"/>
-                <relationship kind="action" name="setTimewithSlider:"/>
-                <relationship kind="outlet" name="nameOfBabyLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="normalPii" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="normalPoo" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="save" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeSlider" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="tooLittlePii" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tooLittlePoo" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tooMuchPii" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tooMuchPoo" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
