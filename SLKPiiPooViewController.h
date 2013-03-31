@@ -19,6 +19,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *tooMuchPii;
 
 @property (weak, nonatomic) IBOutlet UIButton *tooLittlePii;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UISlider *timeSlider;
+- (IBAction)setTimewithSlider:(id)sender;
 
 
 

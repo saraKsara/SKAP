@@ -56,6 +56,14 @@
     return t;
 }
 
+-(Tits *)getTitThatBelongsToEvent:(Event *)event
+{
+    NSArray *arr = [[SLKCoreDataService sharedService] fetchDataWithEntity:@"Tits"
+                                                              andPredicate:[NSPredicate predicateWithFormat:@"event == %@", event]
+                                                        andSortDescriptors:nil];
+    
+    return [arr count] > 0 ? [arr lastObject] : nil;
+}
 -(void)removeTitmilk:(Tits*)tit
 {
         [context deleteObject:tit];
