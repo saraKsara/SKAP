@@ -12,6 +12,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *tooMuchPoo;
 @property (weak, nonatomic) IBOutlet UIButton *tooLittlePoo;
 @property (weak, nonatomic) IBOutlet UIButton *save;
+- (IBAction)sooner:(id)sender;
+- (IBAction)later:(id)sender;
 
 - (IBAction)check:(id)sender;
 

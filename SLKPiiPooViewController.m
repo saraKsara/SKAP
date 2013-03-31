@@ -33,7 +33,7 @@
     BOOL pooToAddToLittle;
     
     NSString *time;
-    
+    NSDate *date;
     UIImage *checkedImage;
     UIImage *unCheckedImage;
 }
@@ -62,7 +62,8 @@
     currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
     _nameOfBabyLabel.text = [NSString stringWithFormat:@"Poo and pee of %@",currentBabe.name];
     
-    time = [SLKDateUtil formatTimeFromDate: [NSDate date]];
+    date = [NSDate date];
+    time = [SLKDateUtil formatTimeFromDate:date];
     _timeLabel.text = time;
     
     checkedImage = [UIImage imageNamed:@"checkedBox"];
@@ -83,6 +84,19 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)sooner:(id)sender {
+    date = [date dateBySubtractingMinutes:15];
+    time = [SLKDateUtil formatTimeFromDate:date];
+    _timeLabel.text = time;
+}
+
+- (IBAction)later:(id)sender {
+    
+    date = [date dateByAddingMinutes:15];
+    time = [SLKDateUtil formatTimeFromDate:date];
+    _timeLabel.text = time;
 }
 
 - (IBAction)check:(id)sender {
@@ -178,7 +192,7 @@
     if (pooToAddNormal || pooToAddTooMuch || pooToAddToLittle) {
         NSLog(@"create new POO");
         Poo *someNewPoo = [[SLKPooStorage sharedStorage] createNormalPoo:pooToAddNormal tooMuch:pooToAddTooMuch tooLittle:pooToAddToLittle];
-        [[SLKEventStorage sharedStorage] createEventwithPoo:someNewPoo date:[NSDate date] eventId:nil baby:currentBabe];
+        [[SLKEventStorage sharedStorage] createEventwithPoo:someNewPoo date:date eventId:nil baby:currentBabe];
                                                                             //TODO: let user choose date and time!!!!
         
     } else {
@@ -187,7 +201,7 @@
     if (piiToAddNormal || piiToAddTooMuch || piiToAddTooLittle) {
         NSLog(@"Create new PII");
         Pii *someNewPii = [[SLKPiiStorage sharedStorage] createNormalPii:piiToAddNormal tooMuch:piiToAddTooMuch tooLittle:piiToAddTooLittle];
-        [[SLKEventStorage sharedStorage] createEventwithPii:someNewPii date:[NSDate date] eventId:nil baby:currentBabe];
+        [[SLKEventStorage sharedStorage] createEventwithPii:someNewPii date:date eventId:nil baby:currentBabe];
                                                                             //TODO: let user choose date and time!!!!
 
     } else {
@@ -198,6 +212,6 @@
 - (IBAction)setTimewithSlider:(id)sender
 {
     NSLog(@"slider ONE changed::: %f ", [_timeSlider value]);
-    _timeLabel.text = [NSString stringWithFormat:@"%.f",[_timeSlider value]];
+   // _timeLabel.text = [NSString stringWithFormat:@"%.f",[_timeSlider value]];
 }
 @end

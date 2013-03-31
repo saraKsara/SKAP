@@ -135,6 +135,7 @@
 {
     if (indexPath.section == 0 && indexPath.row == 0)
     {
+        NSLog(@"add baby");
         SLKBabyPopViewController *controller = [[SLKBabyPopViewController alloc] init];
         
         popover = [[FPPopoverController alloc] initWithViewController:controller];
