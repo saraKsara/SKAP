@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SLKDaySummaryViewController : UIViewController
+@interface SLKDaySummaryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *headerLabel;
 
@@ -21,5 +21,6 @@
 - (IBAction)nextDay:(id)sender;
 
 - (IBAction)prevDay:(id)sender;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

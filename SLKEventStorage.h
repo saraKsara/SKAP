@@ -33,6 +33,9 @@
 
 -(Event *)createEventwithPii:(Pii*)pii date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby*)baby;
 
+//GETTERS
+
+-(NSArray *)getEventBelomigTObaby:(Baby *)baby;
 
 -(Event*)getEventWithiD:(NSString*)eventId;
 

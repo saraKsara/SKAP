@@ -88,7 +88,7 @@
     [e addTitiesObject:tit];
     e.eventId = eventId;
     e.baby = baby;
-    
+    e.date = date;
     NSLog(@"Created event with tit: %@, to baby: %@", tit.milliLitres, baby.name);
     return e;
 }
@@ -100,7 +100,7 @@
     [e addBottlesObject:bottle];
     e.eventId = eventId;
     e.baby = baby;
-    
+    e.date = date;
     NSLog(@"Created event with tit: %@, to baby: %@", bottle, baby.name);
     return e;
 }
@@ -112,7 +112,7 @@
     [e addPoosObject:poo];
     e.eventId = eventId;
     e.baby = baby;
-    
+    e.date = date;
     NSLog(@"Created event with tit: %@, to baby: %@", poo, baby.name);
     return e;
 }
@@ -124,12 +124,20 @@
     [e addPiisObject:pii];
     e.eventId = eventId;
     e.baby = baby;
-    
+    e.date = date;
     NSLog(@"Created event with tit: %@, to baby: %@", pii, baby.name);
     return e;
 }
 
-
+-(NSArray *)getEventBelomigTObaby:(Baby *)baby //andDay
+{
+    NSArray *arr = [[SLKCoreDataService sharedService] fetchDataWithEntity:@"Event"
+                                                              andPredicate:[NSPredicate predicateWithFormat:@"baby == %@", baby]
+                                                        andSortDescriptors:nil];
+    
+    return [arr count] > 0 ? arr : nil;
+    
+}
 -(Event *)getEventWithiD:(NSString *)eventId
 {
     NSArray *arr = [[SLKCoreDataService sharedService] fetchDataWithEntity:@"Event"

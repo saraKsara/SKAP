@@ -34,6 +34,7 @@
 		1C5BFC8C16FCF18B00D1B238 /* SLKAddBabyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC8B16FCF18B00D1B238 /* SLKAddBabyCell.m */; };
 		1C5BFC8D16FCF18B00D1B238 /* SLKAddBabyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC8B16FCF18B00D1B238 /* SLKAddBabyCell.m */; };
 		1C5C784F1701E49D00CB555F /* SLKEventStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C784E1701E49D00CB555F /* SLKEventStorage.m */; };
+		1C7F474117087A2C00C258F8 /* SLKDayViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F474017087A2C00C258F8 /* SLKDayViewCell.m */; };
 		1C880E8B1704BBAB0027E528 /* SLKMedzViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C880E8A1704BBAB0027E528 /* SLKMedzViewController.m */; };
 		1C91DD5916FC4EBB00921C59 /* SLKPARSEService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DD5816FC4EBB00921C59 /* SLKPARSEService.m */; };
 		1C91DDEC16FC567F00921C59 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C91DDEB16FC567F00921C59 /* CoreData.framework */; };
@@ -131,6 +132,8 @@
 		1C5BFC8B16FCF18B00D1B238 /* SLKAddBabyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKAddBabyCell.m; sourceTree = "<group>"; };
 		1C5C784D1701E49D00CB555F /* SLKEventStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKEventStorage.h; sourceTree = "<group>"; };
 		1C5C784E1701E49D00CB555F /* SLKEventStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKEventStorage.m; sourceTree = "<group>"; };
+		1C7F473F17087A2C00C258F8 /* SLKDayViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKDayViewCell.h; sourceTree = "<group>"; };
+		1C7F474017087A2C00C258F8 /* SLKDayViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKDayViewCell.m; sourceTree = "<group>"; };
 		1C880E891704BBAB0027E528 /* SLKMedzViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKMedzViewController.h; sourceTree = "<group>"; };
 		1C880E8A1704BBAB0027E528 /* SLKMedzViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKMedzViewController.m; sourceTree = "<group>"; };
 		1C91DD5716FC4EBB00921C59 /* SLKPARSEService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKPARSEService.h; sourceTree = "<group>"; };
@@ -251,6 +254,8 @@
 				1CA7F8F216FCA47E008BB1BF /* SLKBabyCell.m */,
 				1C5BFC8A16FCF18B00D1B238 /* SLKAddBabyCell.h */,
 				1C5BFC8B16FCF18B00D1B238 /* SLKAddBabyCell.m */,
+				1C7F473F17087A2C00C258F8 /* SLKDayViewCell.h */,
+				1C7F474017087A2C00C258F8 /* SLKDayViewCell.m */,
 			);
 			name = "Baby Cells";
 			sourceTree = "<group>";
@@ -628,6 +633,7 @@
 				1C4ABF651705AB4F008468F9 /* SLKBottleStorage.m in Sources */,
 				1C34EC781706EC700095F0C2 /* SLKPooStorage.m in Sources */,
 				1C34EC7B1706EED10095F0C2 /* SLKPiiStorage.m in Sources */,
+				1C7F474117087A2C00C258F8 /* SLKDayViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
