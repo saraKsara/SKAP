@@ -78,10 +78,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)changePoo:(id)sender
-{
-    
-}
 - (IBAction)check:(id)sender {
     
     if (sender == _normalPoo)
@@ -94,7 +90,7 @@
         
         [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];
         [_tooLittlePoo setImage:unCheckedImage forState:UIControlStateNormal];
-        NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", pooToAddNormal, pooToAddTooMuch,pooToAddToLittle);
+      //  NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", pooToAddNormal, pooToAddTooMuch,pooToAddToLittle);
         
     } else  if (sender == _tooMuchPoo)
     {
@@ -107,7 +103,7 @@
         
         [_normalPoo setImage:unCheckedImage forState:UIControlStateNormal];
         [_tooLittlePoo setImage:unCheckedImage forState:UIControlStateNormal];
-        NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", pooToAddNormal, pooToAddTooMuch,pooToAddToLittle);
+       // NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", pooToAddNormal, pooToAddTooMuch,pooToAddToLittle);
         
     } else  if (sender == _tooLittlePoo)
     {
@@ -120,7 +116,7 @@
         
         [_normalPoo setImage:unCheckedImage forState:UIControlStateNormal];
         [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];
-        NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", pooToAddNormal, pooToAddTooMuch,pooToAddToLittle);
+       // NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", pooToAddNormal, pooToAddTooMuch,pooToAddToLittle);
     }
     
     
@@ -134,7 +130,7 @@
         
         [_tooLittlePii setImage:unCheckedImage forState:UIControlStateNormal];
         [_tooMuchPii setImage:unCheckedImage forState:UIControlStateNormal];
-        NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", piiToAddNormal, piiToAddTooMuch,piiToAddTooLittle);
+       // NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", piiToAddNormal, piiToAddTooMuch,piiToAddTooLittle);
         
     } else  if (sender == _tooMuchPii)
     {
@@ -147,7 +143,7 @@
         
         [_normalPii setImage:unCheckedImage forState:UIControlStateNormal];
         [_tooLittlePii setImage:unCheckedImage forState:UIControlStateNormal];
-      NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", piiToAddNormal, piiToAddTooMuch,piiToAddTooLittle);
+    //  NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", piiToAddNormal, piiToAddTooMuch,piiToAddTooLittle);
         
     } else  if (sender == _tooLittlePii)
     {
@@ -160,7 +156,33 @@
         
         [_normalPii setImage:unCheckedImage forState:UIControlStateNormal];
         [_tooMuchPii setImage:unCheckedImage forState:UIControlStateNormal];
-     NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", piiToAddNormal, piiToAddTooMuch,piiToAddTooLittle);
+    // NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", piiToAddNormal, piiToAddTooMuch,piiToAddTooLittle);
+    }
+}
+- (IBAction)save:(id)sender
+{
+    if (!pooToAddNormal && !pooToAddTooMuch && !pooToAddToLittle && !piiToAddNormal && !piiToAddTooMuch && !piiToAddTooLittle)
+    {
+        NSString *alertMessage = [NSString stringWithFormat:@"Please enter how much %@ did pii or poo", currentBabe.name];
+        UIAlertView *alertNoPiisOrPoos = [[UIAlertView alloc] initWithTitle:@"NOTHING TO LOG" message:alertMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alertNoPiisOrPoos show];
+    } else {
+    
+    if (pooToAddNormal || pooToAddTooMuch || pooToAddToLittle) {
+        NSLog(@"create new POO");
+        Poo *someNewPoo = [[SLKPooStorage sharedStorage] createNormalPoo:pooToAddNormal tooMuch:pooToAddTooMuch tooLittle:pooToAddToLittle];
+        [[SLKEventStorage sharedStorage] createEventwithPoo:someNewPoo date:[NSDate date] eventId:nil baby:currentBabe];
+
+    } else {
+         NSLog(@"NO New POO");
+    }
+    if (piiToAddNormal || piiToAddTooMuch || piiToAddTooLittle) {
+        NSLog(@"Create new PII");
+        Pii *someNewPii = [[SLKPiiStorage sharedStorage] createNormalPii:piiToAddNormal tooMuch:piiToAddTooMuch tooLittle:piiToAddTooLittle];
+        [[SLKEventStorage sharedStorage] createEventwithPii:someNewPii date:[NSDate date] eventId:nil baby:currentBabe];
+    } else {
+        NSLog(@"NO new Pii");
+    }
     }
 }
 @end
