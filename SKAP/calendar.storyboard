@@ -70,24 +70,26 @@
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="10:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVR-eS-0Tm">
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="31" id="5iq-hr-dL2"/>
+                                                        <constraint firstAttribute="height" constant="21" id="YWy-x5-TTO"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Event" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mez-tD-pGe">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Event" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="101" translatesAutoresizingMaskIntoConstraints="NO" id="Mez-tD-pGe">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="76" id="MXE-mQ-ndW"/>
+                                                        <constraint firstAttribute="width" constant="101" id="BXl-AV-knI"/>
+                                                        <constraint firstAttribute="height" constant="32" id="ibT-Cf-bjH"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Property" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAQ-DA-6ee">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Property" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="107" translatesAutoresizingMaskIntoConstraints="NO" id="mAQ-DA-6ee">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="137" id="2dS-c2-05P"/>
+                                                        <constraint firstAttribute="width" constant="107" id="cNn-Di-2sI"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
@@ -95,14 +97,13 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="Mez-tD-pGe" firstAttribute="top" secondItem="LVR-eS-0Tm" secondAttribute="top" type="default" id="5bl-5p-kXx"/>
-                                            <constraint firstItem="Mez-tD-pGe" firstAttribute="leading" secondItem="Cnc-5H-ZiD" secondAttribute="leading" constant="52" id="5jD-zN-LG8"/>
+                                            <constraint firstItem="LVR-eS-0Tm" firstAttribute="top" secondItem="Cnc-5H-ZiD" secondAttribute="top" constant="11" id="Bza-WR-dlv"/>
+                                            <constraint firstItem="Mez-tD-pGe" firstAttribute="baseline" secondItem="mAQ-DA-6ee" secondAttribute="baseline" type="default" id="EbS-F8-8wL"/>
                                             <constraint firstItem="mAQ-DA-6ee" firstAttribute="trailing" secondItem="Cnc-5H-ZiD" secondAttribute="trailing" type="default" id="Iyv-JJ-Rk8"/>
-                                            <constraint firstItem="LVR-eS-0Tm" firstAttribute="bottom" secondItem="Mez-tD-pGe" secondAttribute="bottom" type="default" id="L4T-ov-oPz"/>
-                                            <constraint firstItem="mAQ-DA-6ee" firstAttribute="baseline" secondItem="LVR-eS-0Tm" secondAttribute="baseline" type="default" id="NyO-A8-xPT"/>
-                                            <constraint firstItem="LVR-eS-0Tm" firstAttribute="top" secondItem="Cnc-5H-ZiD" secondAttribute="top" constant="11" id="Sd2-JJ-hHj"/>
-                                            <constraint firstItem="mAQ-DA-6ee" firstAttribute="top" secondItem="Mez-tD-pGe" secondAttribute="top" type="default" id="T5X-MX-bJE"/>
+                                            <constraint firstItem="Mez-tD-pGe" firstAttribute="leading" secondItem="Cnc-5H-ZiD" secondAttribute="leading" constant="63" id="Sio-wJ-3os"/>
+                                            <constraint firstItem="mAQ-DA-6ee" firstAttribute="centerY" secondItem="Cnc-5H-ZiD" secondAttribute="centerY" type="default" id="aV5-kF-NOI"/>
                                             <constraint firstItem="LVR-eS-0Tm" firstAttribute="leading" secondItem="Cnc-5H-ZiD" secondAttribute="leading" constant="8" id="azf-9D-Obh"/>
+                                            <constraint firstItem="Mez-tD-pGe" firstAttribute="top" secondItem="mAQ-DA-6ee" secondAttribute="top" type="default" id="hJ9-9w-uLe"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="eventLabel" destination="Mez-tD-pGe" id="Hg0-1g-0Y7"/>

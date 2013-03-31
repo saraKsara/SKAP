@@ -45,7 +45,7 @@
     [super viewWillAppear:YES];
     currentDay = [NSDate date];
     currentBaby = [[SLKBabyStorage sharedStorage] getCurrentBaby];
-    _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ at %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
+    _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
     
     //TODO: decide how to represent pee and poo
 //    _peeLabel.text = [NSString stringWithFormat:@"Peed: %@ ml/times", currentBaby.pii];
@@ -71,14 +71,14 @@
 - (IBAction)nextDay:(id)sender
 {
     currentDay = [currentDay dateByAddingDays:1];
-      _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ at %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
+      _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
     [_tableView reloadData];
 }
 
 - (IBAction)prevDay:(id)sender
 {
     currentDay = [currentDay dateBySubtractingDays:1];
-      _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ at %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
+      _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
     [_tableView reloadData];
 }
 
@@ -109,24 +109,103 @@
         Event *event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay] objectAtIndex:indexPath.row];
     
     cell.timeLabel.text = [SLKDateUtil formatTimeFromDate: event.date];
-    cell.eventLabel.text = event.type;
+    
+    // BREAST FEED
     if ([event.type isEqualToString: kEventType_TitFood]) {
-//        Tits *tit = [[SLKTittStorage sharedStorage] getTitThatBelongsToEvent:event];
-//        NSLog(@"tit thet belongs to evebt: %@", tit.milliLitres);
+        cell.eventLabel.text = @"Feeded: \nbreast milk";
         NSSet *titset = [event tities];
-        NSString *propertyString;
-        NSLog(@"antalet tittevent: %d", [titset count]);
+        NSMutableString *propertyString = [[NSMutableString alloc] init];
         for(Tits *tit in titset)
         {
             NSLog(@"tit::: %@",tit);
-
-            propertyString = [tit.minutes stringValue];
+            if (tit.minutes != nil)
+            {
+            [propertyString appendFormat: @"%@ minutes \n left breast",[tit.minutes stringValue]];
+            }
+            else if (tit.milliLitres != nil)
+            {
+            [propertyString appendFormat: @"%@ ml \n left breast",[tit.milliLitres stringValue]];
+            }
+            else if (tit.stringValue != nil)
+            {
+                [propertyString appendFormat: @"left breast \n %@ ",tit.stringValue];
+            }
         }
         cell.propertyLabel.text = propertyString;
 
     }
+    
+    //BOTTLE FOOD
+    if ([event.type isEqualToString: kEventType_BottleFood]) {
+        cell.eventLabel.text = @"Feeded: \n milk substitute";
+        NSSet *set = [event bottles];
+        NSMutableString *propertyString = [[NSMutableString alloc] init];
+        for(Bottle *bottle in set)
+        {
+            if (bottle.minutes != nil)
+            {
+                [propertyString appendFormat: @"%@ minutes \n left breast",[bottle.minutes stringValue]];
+            }
+            else if (bottle.milliLitres != nil)
+            {
+                [propertyString appendFormat: @"%@ ml \n left breast",[bottle.milliLitres stringValue]];
+            }
+            else if (bottle.stringValue != nil)
+            {
+                [propertyString appendFormat: @"left breast \n %@ ",bottle.stringValue];
+            }
+        }
+        cell.propertyLabel.text = propertyString;
+    }
 
-        return cell;
+    
+    //POO
+    if ([event.type isEqualToString: kEventType_Poo]) {
+        cell.eventLabel.text = @"Pooped:";
+        NSSet *set = [event poos];
+        NSMutableString *propertyString = [[NSMutableString alloc] init];
+        for(Poo *poo in set)
+        {
+            if (poo.normal == [NSNumber numberWithInt:1])
+            {
+                [propertyString appendFormat: @"Good poo"];
+            }
+            else if (poo.tooMuch == [NSNumber numberWithInt:1])
+            {
+                [propertyString appendFormat: @"Too much"];
+            }
+            else if (poo.toLittle == [NSNumber numberWithInt:1])
+            {
+                [propertyString appendFormat: @"Too little"];
+            }
+        }
+        cell.propertyLabel.text = propertyString;
+    }
+
+    
+    //PII
+    if ([event.type isEqualToString: kEventType_Pii]) {
+        cell.eventLabel.text = @"Piied:";
+        NSSet *set = [event piis];
+        NSMutableString *propertyString = [[NSMutableString alloc] init];
+        for(Pii *pii in set)
+        {
+            if (pii.normal == [NSNumber numberWithInt:1])
+            {
+                [propertyString appendFormat: @"Good pii"];
+            }
+            else if (pii.tooMuch == [NSNumber numberWithInt:1])
+            {
+                [propertyString appendFormat: @"Too much"];
+            }
+            else if (pii.tooLittle  == [NSNumber numberWithInt:1])
+            {
+                [propertyString appendFormat: @"Too little"];
+            }
+        }
+        cell.propertyLabel.text = propertyString;
+    }
+    return cell;
 
 }
 

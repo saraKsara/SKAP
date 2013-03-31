@@ -172,7 +172,7 @@
     if (pooToAddNormal || pooToAddTooMuch || pooToAddToLittle) {
         NSLog(@"create new POO");
         Poo *someNewPoo = [[SLKPooStorage sharedStorage] createNormalPoo:pooToAddNormal tooMuch:pooToAddTooMuch tooLittle:pooToAddToLittle];
-        [[SLKEventStorage sharedStorage] createEventwithPoo:someNewPoo date:[NSDate dateYesterday] eventId:nil baby:currentBabe];
+        [[SLKEventStorage sharedStorage] createEventwithPoo:someNewPoo date:[NSDate date] eventId:nil baby:currentBabe];
                                                                             //TODO: let user choose date and time!!!!
         
     } else {
@@ -181,7 +181,7 @@
     if (piiToAddNormal || piiToAddTooMuch || piiToAddTooLittle) {
         NSLog(@"Create new PII");
         Pii *someNewPii = [[SLKPiiStorage sharedStorage] createNormalPii:piiToAddNormal tooMuch:piiToAddTooMuch tooLittle:piiToAddTooLittle];
-        [[SLKEventStorage sharedStorage] createEventwithPii:someNewPii date:[NSDate dateYesterday] eventId:nil baby:currentBabe];
+        [[SLKEventStorage sharedStorage] createEventwithPii:someNewPii date:[NSDate date] eventId:nil baby:currentBabe];
                                                                             //TODO: let user choose date and time!!!!
 
     } else {

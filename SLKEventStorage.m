@@ -147,7 +147,6 @@
     NSArray *allEventOfBaby = [[SLKCoreDataService sharedService] fetchDataWithEntity:@"Event"
                                                               andPredicate:[NSPredicate predicateWithFormat:@"baby == %@", baby]
                                                         andSortDescriptors:nil];
-    
       
     
        NSMutableArray *returnArray = [NSMutableArray array];
@@ -171,8 +170,8 @@
     
     NSArray *sortedArray = [[NSArray alloc] init];
     sortedArray = [returnArray sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
-        NSDate *first = [(Event*)b date];
-        NSDate *second = [(Event*)a date];
+        NSDate *first = [(Event*)a date];
+        NSDate *second = [(Event*)b date];
         return [first compare:second];
     }];
     

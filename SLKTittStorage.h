@@ -12,6 +12,8 @@
 
 +(SLKTittStorage*) sharedStorage;
 
+//TODO: add left and right breast propery on tits
+
 -(Tits*)createTittWithStringValue:(NSString*)stringValue mililitres:(NSNumber*)milliLitres minutes:(NSNumber*)minutes;
 
 -(void)removeTitmilk:(Tits*)tit;
