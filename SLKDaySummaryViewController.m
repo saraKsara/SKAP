@@ -45,6 +45,7 @@
     [super viewWillAppear:YES];
     currentDay = [NSDate date];
     currentBaby = [[SLKBabyStorage sharedStorage] getCurrentBaby];
+    
     _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
     
     //TODO: decide how to represent pee and poo
