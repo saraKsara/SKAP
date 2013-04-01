@@ -16,6 +16,9 @@
 
 -(void)removeBaby:(Baby*)baby;
 
+-(void)removeAllBabies;
+
+
 -(Baby*)getBabyWithiD:(NSString*)babyId;
 
 -(NSArray*)babyArray;

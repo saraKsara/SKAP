@@ -197,6 +197,13 @@
     [context deleteObject:event];
 }
 
+-(void)removeAllEvents
+{
+    for (Event *event in [self eventArray])
+    {
+        [self removeEvent:event];
+    }
+}
 -(NSArray *)getEventByDay:(NSDate *)date
 {
     NSArray *arr = [[SLKCoreDataService sharedService] fetchDataWithEntity:@"Event"

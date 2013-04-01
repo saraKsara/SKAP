@@ -42,6 +42,8 @@
 
 -(void)removeEvent:(Event*)event;
 
+-(void)removeAllEvents;
+
 -(NSArray*)getEventByDay:(NSDate*)date;
 
 -(NSArray*)eventArray;

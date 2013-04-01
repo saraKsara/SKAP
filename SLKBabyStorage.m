@@ -78,6 +78,13 @@
     [context deleteObject:baby];
 }
 
+-(void)removeAllBabies
+{
+    for (Baby *babe in [self babyArray]) {
+        [self removeBaby:babe];
+    }
+}
+
 -(Baby *)getBabyWithiD:(NSString *)babyId
 {
     NSArray *arr = [[SLKCoreDataService sharedService] fetchDataWithEntity:@"Baby"

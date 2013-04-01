@@ -94,13 +94,29 @@
 {
     return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay]count];
 }
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    UILabel *headerLabel = [[UILabel alloc] init];
+//-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//{
+//    UILabel *headerLabel = [[UILabel alloc] init];
 //    headerLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:11];
 //    headerLabel.textColor = [UIColor blackColor];
-    headerLabel.text =  @"Time\t event\t more";
-    return headerLabel.text;
+//    headerLabel.text =  @"Time\t event\t more";
+//    return headerLabel.text;
+//}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UILabel *title = [[UILabel alloc] init];
+    title.frame = CGRectMake(5, 0, 200, 30);
+    title.textColor = [UIColor blackColor];
+    title.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:13.0f];
+    title.text =  @"Time\t\t\t\t\t\t\t event";
+    title.backgroundColor = [UIColor clearColor];
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
+    [view addSubview:title];
+    
+    return  view;
+    
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
