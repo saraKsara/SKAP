@@ -1,4 +1,4 @@
-//
+
 //  FPPopoverController.m
 //
 //  Created by Alvise Susmel on 1/5/12.
@@ -36,7 +36,7 @@
 
 #pragma mark Space management
 /* This methods help the controller to found a proper way to display the view.
- * If the "from point" will be on the left, the arrow will be on the left and the 
+ * If the "from point" will be on the left, the arrow will be on the left and the
  * view will be move on the right of the from point.
  */
 
@@ -57,13 +57,13 @@
 
 -(void)addObservers
 {
-    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];   
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
     
-    [[NSNotificationCenter defaultCenter] 
-     addObserver:self 
-     selector:@selector(deviceOrientationDidChange:) 
-     name:@"UIDeviceOrientationDidChangeNotification" 
-     object:nil]; 
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(deviceOrientationDidChange:)
+     name:@"UIDeviceOrientationDidChangeNotification"
+     object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(willPresentNewPopover:) name:@"FPNewPopoverPresented" object:nil];
@@ -84,11 +84,12 @@
 {
     [self removeObservers];
     if(_shadowColor) CGColorRelease(_shadowColor);
-
+#define FP_DEBUG
+    
 #ifdef FP_DEBUG
     NSLog(@"FPPopoverController dealloc");
 #endif
-
+    
     SAFE_ARC_RELEASE(_contentView);
     SAFE_ARC_RELEASE(_touchView);
     self.delegate = nil;
@@ -118,20 +119,27 @@
         _touchView.backgroundColor = [UIColor clearColor];
         _touchView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _touchView.clipsToBounds = NO;
+        
         [self.view addSubview:_touchView];
         
-        
+#if __has_feature(objc_arc)
+        //ARC on
+        __weak typeof (self)bself = self;
+#else
+        //ARC off
         __block typeof (self) bself = self;
+#endif
         [_touchView setTouchedOutsideBlock:^{
             [bself dismissPopoverAnimated:YES];
         }];
-
+        
         self.contentSize = CGSizeMake(200, 300); //default size
-
-        _contentView = [[FPPopoverView alloc] initWithFrame:CGRectMake(0, 0, 
-                                              self.contentSize.width, self.contentSize.height)];
+        
+        _contentView = [[FPPopoverView alloc] initWithFrame:CGRectMake(0, 0,
+                                                                       self.contentSize.width, self.contentSize.height)];
         
         _viewController = viewController;
+        
         
         [_touchView addSubview:_contentView];
         
@@ -139,7 +147,7 @@
         _viewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         self.view.clipsToBounds = NO;
-
+        
         _touchView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _touchView.clipsToBounds = NO;
         
@@ -173,7 +181,7 @@
     
     //view position, size and best arrow direction
     [self bestArrowDirectionAndFrameFromView:_fromView];
-
+    
     [_contentView setNeedsDisplay];
     [_touchView setNeedsDisplay];
 }
@@ -185,7 +193,7 @@
     //initialize and load the content view
     [_contentView setArrowDirection:FPPopoverArrowDirectionUp];
     [_contentView addContentView:_viewController.view];
-
+    
     [self setupView];
     [self addObservers];
 }
@@ -225,12 +233,12 @@
     }
     
     _contentView.relativeOrigin = [_parentView convertPoint:fromPoint toView:_contentView];
-
+    
     [self.view removeFromSuperview];
     NSArray *windows = [UIApplication sharedApplication].windows;
     if(windows.count > 0)
     {
-          _parentView=nil;
+        _parentView=nil;
         _window = [windows objectAtIndex:0];
         //keep the first subview
         if(_window.subviews.count > 0)
@@ -240,7 +248,7 @@
             [_viewController viewDidAppear:YES];
         }
         
-   }
+    }
     else
     {
         [self dismissPopoverAnimated:NO];
@@ -256,6 +264,16 @@
     }];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"FPNewPopoverPresented" object:self];
+    
+    //navigation controller bar fix
+    if([_viewController isKindOfClass:[UINavigationController class]])
+    {
+        UINavigationController *nc = (UINavigationController*)_viewController;
+        UINavigationBar *b = nc.navigationBar;
+        CGRect bar_frame = b.frame;
+        bar_frame.origin.y = 0;
+        b.frame = bar_frame;
+    }
 }
 
 
@@ -271,7 +289,7 @@
     else if([_contentView arrowDirection] == FPPopoverArrowDirectionDown)
     {
         p.x = fromView.frame.origin.x + fromView.frame.size.width/2.0;
-        p.y = fromView.frame.origin.y;        
+        p.y = fromView.frame.origin.y;
     }
     else if([_contentView arrowDirection] == FPPopoverArrowDirectionLeft)
     {
@@ -283,13 +301,13 @@
         p.x = fromView.frame.origin.x;
         p.y = fromView.frame.origin.y + fromView.frame.size.height/2.0;
     }
-
+    
     return p;
 }
 
 -(void)presentPopoverFromView:(UIView*)fromView
 {
-     _fromView = fromView;
+    _fromView = fromView;
     [self presentPopoverFromPoint:[self originFromView:_fromView]];
 }
 
@@ -300,8 +318,8 @@
     {
         [self.delegate popoverControllerDidDismissPopover:self];
     }
-     _window=nil;
-     _parentView=nil;
+    _window=nil;
+    _parentView=nil;
 }
 
 -(void)dismissPopoverAnimated:(BOOL)animated {
@@ -326,7 +344,7 @@
 		if (completionBlock)
 			completionBlock();
     }
-         
+    
 }
 
 -(void)setOrigin:(CGPoint)origin
@@ -341,9 +359,9 @@
 -(void)deviceOrientationDidChange:(NSNotification*)notification
 {
 	_deviceOrientation = [UIDevice currentDevice].orientation;
-
+    
 	BOOL shouldResetView = NO;
-
+    
     //iOS6 has a new orientation implementation.
     //we ask to reset the view if is >= 6.0
 	if ([_viewController respondsToSelector:@selector(shouldAutorotateToInterfaceOrientation:)] &&
@@ -372,10 +390,10 @@
 	{
 		shouldResetView = YES;
 	}
-
+    
 	if (shouldResetView)
 		[UIView animateWithDuration:0.2 animations:^{
-			[self setupView]; 
+			[self setupView];
 		}];
 }
 
@@ -423,20 +441,20 @@
     CGFloat hb = [self parentHeight] -  (p.y + v.frame.size.height); //on the bottom
     CGFloat wl = p.x; //on the left
     CGFloat wr = [self parentWidth] - (p.x + v.frame.size.width); //on the right
-        
+    
     CGFloat best_h = MAX(ht, hb); //much space down or up ?
     CGFloat best_w = MAX(wl, wr);
     
     CGRect r;
     r.size = self.contentSize;
-
+    
     FPPopoverArrowDirection bestDirection;
     
-    //if the user wants vertical arrow, check if the content will fit vertically 
-    if(FPPopoverArrowDirectionIsVertical(self.arrowDirection) || 
+    //if the user wants vertical arrow, check if the content will fit vertically
+    if(FPPopoverArrowDirectionIsVertical(self.arrowDirection) ||
        (self.arrowDirection == FPPopoverArrowDirectionAny && best_h >= best_w))
     {
-
+        
         //ok, will be vertical
         if(ht == best_h || self.arrowDirection == FPPopoverArrowDirectionDown)
         {
@@ -450,16 +468,16 @@
         {
             //on the bottom and arrow up
             bestDirection = FPPopoverArrowDirectionUp;
-
+            
             r.origin.x = p.x + v.frame.size.width/2.0 - r.size.width/2.0;
             r.origin.y = p.y + v.frame.size.height;
         }
         
-
+        
     }
     
     
-    else 
+    else
     {
         //ok, will be horizontal
         //the arrow must NOT be forced to left
@@ -467,26 +485,26 @@
         {
             //on the left and arrow right
             bestDirection = FPPopoverArrowDirectionRight;
-
+            
             r.origin.x = p.x - r.size.width;
             r.origin.y = p.y + v.frame.size.height/2.0 - r.size.height/2.0;
-
+            
         }
         else
         {
             //on the right then arrow left
             bestDirection = FPPopoverArrowDirectionLeft;
-
+            
             r.origin.x = p.x + v.frame.size.width;
             r.origin.y = p.y + v.frame.size.height/2.0 - r.size.height/2.0;
         }
         
-
+        
     }
     
     
     
-    //need to moved left ? 
+    //need to moved left ?
     if(r.origin.x + r.size.width > [self parentWidth])
     {
         r.origin.x = [self parentWidth] - r.size.width;
@@ -524,20 +542,20 @@
     {
         if(r.origin.y <= 20) r.origin.y += 20;
     }
-
+    
     //check if the developer wants and arrow
     if(self.arrowDirection != FPPopoverNoArrow)
         _contentView.arrowDirection = bestDirection;
     
     //no arrow
     else _contentView.arrowDirection = FPPopoverNoArrow;
-
+    
     //using the frame calculated
     _contentView.frame = r;
-
+    
     self.origin = CGPointMake(p.x + v.frame.size.width/2.0, p.y + v.frame.size.height/2.0);
     _contentView.relativeOrigin = [_parentView convertPoint:self.origin toView:_contentView];
-
+    
     return r;
 }
 
@@ -582,5 +600,4 @@
     _alpha = alpha;
     self.view.alpha = alpha;
 }
-
 @end

@@ -31,7 +31,7 @@
     BOOL pooToAddNormal;
     BOOL pooToAddTooMuch;
     BOOL pooToAddToLittle;
-    
+    float checkDirection;
     NSString *time;
     NSDate *date;
     UIImage *checkedImage;
@@ -50,7 +50,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-    
+    checkDirection = 30;
     piiToAddNormal = NO;
     piiToAddTooMuch = NO;
     piiToAddTooLittle = NO;
@@ -86,18 +86,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)sooner:(id)sender {
-    date = [date dateBySubtractingMinutes:15];
-    time = [SLKDateUtil formatTimeFromDate:date];
-    _timeLabel.text = time;
-}
 
-- (IBAction)later:(id)sender {
-    
-    date = [date dateByAddingMinutes:15];
-    time = [SLKDateUtil formatTimeFromDate:date];
-    _timeLabel.text = time;
-}
 
 - (IBAction)check:(id)sender {
     
@@ -209,9 +198,52 @@
     }
     }
 }
+- (IBAction)sooner:(id)sender {
+    date = [date dateBySubtractingHours:1];
+    time = [SLKDateUtil formatTimeFromDate:date];
+    _timeLabel.text = time;
+}
+
+- (IBAction)later:(id)sender {
+    
+    date = [date dateByAddingHours:1];
+    time = [SLKDateUtil formatTimeFromDate:date];
+    _timeLabel.text = time;
+}
+
+
+
 - (IBAction)setTimewithSlider:(id)sender
-{
-    NSLog(@"slider ONE changed::: %f ", [_timeSlider value]);
-   // _timeLabel.text = [NSString stringWithFormat:@"%.f",[_timeSlider value]];
+{ 
+    NSLog(@"setTimewithSlider");
+    if (checkDirection > [_timeSlider value])
+    {
+        float diff =  checkDirection  - [_timeSlider value];
+    
+        float timeDiff = ceil(diff/(60));
+        int setMin = (NSInteger)(timeDiff);
+        NSLog(@"if----setMin%d",setMin);
+        date = [date dateBySubtractingMinutes:setMin];
+        time = [SLKDateUtil formatTimeFromDate:date];
+        _timeLabel.text = time;
+        checkDirection = [_timeSlider value];
+                NSLog(@"slider ONE changed::: %f ", [_timeSlider value]);
+        NSLog(@"if-------%f",checkDirection);
+    }
+    else
+    {
+        NSLog(@"else-------%f",checkDirection);
+        float diff =  [_timeSlider value]  - checkDirection;
+        
+        float timeDiff = ceil(diff/(60));
+        int setMin = (NSInteger)(timeDiff);
+        NSLog(@"----------------setMin%d",setMin);
+        date = [date dateByAddingMinutes:setMin];
+        time = [SLKDateUtil formatTimeFromDate:date];
+        _timeLabel.text = time;
+        checkDirection = [_timeSlider value];
+
+
+    }
 }
 @end

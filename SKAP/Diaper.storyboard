@@ -162,7 +162,7 @@
                                     <action selector="check:" destination="lfv-mn-ycL" eventType="touchUpInside" id="XsP-h0-ZXw"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="24" translatesAutoresizingMaskIntoConstraints="NO" id="Zhs-Ry-Yjo">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minValue="1" maxValue="60" translatesAutoresizingMaskIntoConstraints="NO" id="Zhs-Ry-Yjo">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="rr6-sQ-JAL"/>
                                 </constraints>
@@ -183,7 +183,7 @@
                                     <constraint firstAttribute="width" constant="73" id="p2y-CW-Hsq"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Later">
+                                <state key="normal" title="+1 hour">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -200,7 +200,7 @@
                                     <constraint firstAttribute="height" constant="44" id="sAw-Rx-tUn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Sooner">
+                                <state key="normal" title="-1 hour">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -222,14 +222,14 @@
                             <constraint firstItem="Mn3-rQ-ava" firstAttribute="leading" secondItem="SNY-kC-qal" secondAttribute="leading" type="default" id="4H4-h3-hFm"/>
                             <constraint firstItem="cKG-mH-hgR" firstAttribute="leading" secondItem="zF1-1s-uLJ" secondAttribute="leading" type="default" id="6ih-K1-KGF"/>
                             <constraint firstItem="SZf-7R-sdV" firstAttribute="top" secondItem="SNY-kC-qal" secondAttribute="top" constant="45" id="9Yg-Jl-YWk"/>
-                            <constraint firstItem="Zhs-Ry-Yjo" firstAttribute="leading" secondItem="SZf-7R-sdV" secondAttribute="leading" type="default" id="9nU-mc-R0U"/>
                             <constraint firstItem="Mn3-rQ-ava" firstAttribute="top" secondItem="SNY-kC-qal" secondAttribute="top" constant="25" id="AW0-uT-csm"/>
                             <constraint firstItem="cKG-mH-hgR" firstAttribute="top" secondItem="zF1-1s-uLJ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="GRZ-LC-v3X"/>
-                            <constraint firstItem="wpf-Rm-Iqd" firstAttribute="leading" secondItem="SNY-kC-qal" secondAttribute="leading" constant="46" id="ILh-ud-Zco"/>
                             <constraint firstItem="Urt-No-8s6" firstAttribute="top" secondItem="nRS-zk-KLn" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="IXO-cj-Iz0"/>
                             <constraint firstItem="vlb-cM-JBg" firstAttribute="trailing" secondItem="Fx2-Z3-hnY" secondAttribute="trailing" type="default" id="Kfe-Q9-NHs"/>
                             <constraint firstItem="SZf-7R-sdV" firstAttribute="centerX" secondItem="Mn3-rQ-ava" secondAttribute="centerX" type="default" id="LCI-9r-ZlI"/>
+                            <constraint firstItem="Zhs-Ry-Yjo" firstAttribute="top" secondItem="wdM-AD-3tK" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Lwv-PP-vSn"/>
                             <constraint firstItem="Zas-4N-LYl" firstAttribute="leading" secondItem="cKG-mH-hgR" secondAttribute="leading" type="default" id="NQy-KT-NT0"/>
+                            <constraint firstItem="Zhs-Ry-Yjo" firstAttribute="top" secondItem="wpf-Rm-Iqd" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="TIV-JK-LaD"/>
                             <constraint firstAttribute="bottom" secondItem="Sji-NB-3Uj" secondAttribute="bottom" constant="109" id="ToO-x8-g00"/>
                             <constraint firstItem="m3v-ZY-JPL" firstAttribute="trailing" secondItem="nRS-zk-KLn" secondAttribute="trailing" type="default" id="Tqd-gN-1OP"/>
                             <constraint firstItem="vlb-cM-JBg" firstAttribute="leading" secondItem="Urt-No-8s6" secondAttribute="leading" type="default" id="U0d-oO-XfJ"/>
@@ -243,7 +243,6 @@
                             <constraint firstAttribute="trailing" secondItem="wdM-AD-3tK" secondAttribute="trailing" constant="56" id="cyb-ed-Fdh"/>
                             <constraint firstItem="vlb-cM-JBg" firstAttribute="trailing" secondItem="Urt-No-8s6" secondAttribute="trailing" type="default" id="d7Z-Z1-Koq"/>
                             <constraint firstAttribute="bottom" secondItem="vlb-cM-JBg" secondAttribute="bottom" constant="108" id="eZk-Db-DnQ"/>
-                            <constraint firstItem="Zhs-Ry-Yjo" firstAttribute="top" secondItem="qwu-eV-OXr" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ebZ-Rh-z6g"/>
                             <constraint firstItem="3wY-rf-KRx" firstAttribute="baseline" secondItem="nRS-zk-KLn" secondAttribute="baseline" type="default" id="fKt-qS-DvN"/>
                             <constraint firstItem="Zuo-Ol-H5P" firstAttribute="top" secondItem="3wY-rf-KRx" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="iuV-so-Jnm"/>
                             <constraint firstItem="Zuo-Ol-H5P" firstAttribute="bottom" secondItem="Urt-No-8s6" secondAttribute="bottom" type="default" id="jHg-3E-mqk"/>
@@ -256,8 +255,9 @@
                             <constraint firstItem="Zuo-Ol-H5P" firstAttribute="trailing" secondItem="3wY-rf-KRx" secondAttribute="trailing" type="default" id="rNt-nJ-kuz"/>
                             <constraint firstItem="wdM-AD-3tK" firstAttribute="top" secondItem="wpf-Rm-Iqd" secondAttribute="top" type="default" id="sjT-1J-q0w"/>
                             <constraint firstItem="wdM-AD-3tK" firstAttribute="centerX" secondItem="3wY-rf-KRx" secondAttribute="centerX" type="default" id="tfF-mF-Trh"/>
-                            <constraint firstItem="wdM-AD-3tK" firstAttribute="bottom" secondItem="wpf-Rm-Iqd" secondAttribute="bottom" type="default" id="tfH-he-7Xk"/>
                             <constraint firstItem="Mn3-rQ-ava" firstAttribute="trailing" secondItem="SNY-kC-qal" secondAttribute="trailing" type="default" id="vJc-Sc-0z6"/>
+                            <constraint firstItem="Zhs-Ry-Yjo" firstAttribute="centerX" secondItem="nRS-zk-KLn" secondAttribute="centerX" type="default" id="wpB-et-diz"/>
+                            <constraint firstItem="Zhs-Ry-Yjo" firstAttribute="leading" secondItem="SNY-kC-qal" secondAttribute="leading" constant="24" id="znh-BB-tG7"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="DIAPER" id="Aaa-y4-ndj"/>

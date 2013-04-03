@@ -58,7 +58,11 @@
     }];
 }
 
-
++(void)deleteObject:(PFObject *)object
+{
+    [object deleteInBackground];
+  
+}
 
 
 @end

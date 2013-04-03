@@ -25,6 +25,7 @@
 @implementation SLKFoodViewController
 {
     float bottledFood;
+    SLKBabyListTableViewController *settingsVC;
     
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -57,6 +58,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    settingsVC = [[SLKBabyListTableViewController alloc] init];
+   
+    
     CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI * 1.5);
     _foodSliderOne.transform = trans;
     _anotherFoodLable.text = @"This is what your baby ate!";
@@ -99,5 +103,19 @@
   Bottle *bottle = [[SLKBottleStorage sharedStorage] createBottleWithStringValue:nil mililitres:[NSNumber numberWithFloat:bottledFood] minutes:nil];
     
     [[SLKEventStorage sharedStorage] createEvenWithdBottle:bottle date:[NSDate date] eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
+}
+- (IBAction)segmentAction:(id)sender {
+
+    if ( _segmentControll.selectedSegmentIndex == 0) {
+            NSLog(@"SEGMENT PUSHED, SELEcted 0 ");
+         [self performSegueWithIdentifier:@"menueSeg" sender:self];
+//        [self presentViewController:settingsVC animated:YES completion:^{
+//            NSLog(@"visar meny");
+//        }];
+    } else if ( _segmentControll.selectedSegmentIndex == 1) {
+        NSLog(@"SEGMENT PUSHED, SELEcted 1 ");
+    } else if ( _segmentControll.selectedSegmentIndex == 2) {
+        NSLog(@"SEGMENT PUSHED, SELEcted 2 ");
+    }
 }
 @end

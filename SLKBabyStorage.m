@@ -9,7 +9,7 @@
 #import "SLKBabyStorage.h"
 #import "Baby.h"
 #import "SLKUserDefaults.h"
-
+#import "SLKPARSEService.h"
 @implementation SLKBabyStorage
 {
     NSManagedObjectContext *context;
@@ -76,12 +76,19 @@
 -(void)removeBaby:(Baby*)baby
 {
     [context deleteObject:baby];
+    PFObject *object = [PFObject objectWithoutDataWithClassName:@"Baby"
+                                                       objectId:baby.babyId];
+    [SLKPARSEService deleteObject:object];
 }
 
 -(void)removeAllBabies
 {
     for (Baby *babe in [self babyArray]) {
         [self removeBaby:babe];
+        
+        PFObject *object = [PFObject objectWithoutDataWithClassName:@"Baby"
+                                                 objectId:babe.babyId];
+        [SLKPARSEService deleteObject:object];
     }
 }
 

@@ -19,6 +19,8 @@
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer;
 @property (weak, nonatomic) IBOutlet UILabel *setTimeLabel;
 - (IBAction)save:(id)sender;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControll;
+- (IBAction)segmentAction:(id)sender;
 
 
 @end

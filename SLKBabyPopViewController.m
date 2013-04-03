@@ -41,6 +41,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+      NSLog(@"POPOVER IS UP???");
 //    button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 //    [button addTarget:self
 //               action:@selector(addBabyNotification)

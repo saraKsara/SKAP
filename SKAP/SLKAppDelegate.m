@@ -78,16 +78,29 @@
     [[[self tabBarController] tabBar] setBackgroundImage:[UIImage imageNamed:@"tabbar_bg"]];
     [[[self tabBarController] tabBar] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar_bg_sel"]];
     
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.tabBarController];
+    NSArray *statusItems = [[NSArray alloc] initWithObjects:@"one", @"two",@"three", nil];//or baby amount
+    UISegmentedControl *statusSegments = [[UISegmentedControl alloc] initWithItems:statusItems];
+  
+   // self.toolbarItems = toolbarItems;
     
-    UIBarButtonItem *menuBtn = [[UIBarButtonItem alloc] initWithTitle:@"menue"
-                                                                style:UIBarButtonItemStyleBordered
-                                                               target:[[_tabBarController viewControllers]objectAtIndex:0]
-                                                               action:@selector(showMenue)];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:statusSegments];
+     NSArray *toolbarItems = [[NSArray alloc] initWithObjects:item, nil];
+//    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 3210, 150)];
+//    [toolBar setItems:toolbarItems];
+    [self.tabBarController setToolbarItems:toolbarItems];
+    
+    
+//    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.tabBarController];
+//    
+//    UIBarButtonItem *menuBtn = [[UIBarButtonItem alloc] initWithTitle:@"menue"
+//                                                                style:UIBarButtonItemStyleBordered
+//                                                               target:[[_tabBarController viewControllers]objectAtIndex:0]
+//                                                               action:@selector(showMenue)];
  
     
-    [[[self tabBarController]navigationItem] setLeftBarButtonItem:menuBtn];
-    [self.window setRootViewController: navController];
+   // [[[self tabBarController]navigationItem] setLeftBarButtonItem:menuBtn];
+//    [self.window setRootViewController: navController];
+    [self.window setRootViewController:self.tabBarController];
     [self.window makeKeyAndVisible];
 }
 

@@ -17,4 +17,6 @@
 //+(NSDictionary*)postOrder:(NSDictionary*)order;
 +(void)postObject:(PFObject*)object onSuccess:(void (^)(PFObject *))successObject onFailure:(void (^)(PFObject*))failureObject;
 
+
++(void)deleteObject:(PFObject*)object;
 @end
