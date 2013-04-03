@@ -61,7 +61,7 @@
     
     currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
     _nameOfBabyLabel.text = [NSString stringWithFormat:@"Poo and pee of %@",currentBabe.name];
-    
+     
     date = [NSDate date];
     time = [SLKDateUtil formatTimeFromDate:date];
     _timeLabel.text = time;

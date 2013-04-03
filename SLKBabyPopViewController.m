@@ -7,10 +7,10 @@
 //
 
 #import "SLKBabyPopViewController.h"
-#import "SLKPARSEService.h"
 #import "SLKBabyStorage.h"
 #import "Baby.h"
 #import "SLKDateUtil.h"
+#import "SLKConstants.h"
 @interface SLKBabyPopViewController ()
 
 @end
@@ -52,7 +52,7 @@
     [btnLabel setBackgroundColor:[UIColor clearColor]];
    
     [btnLabel setTextAlignment:NSTextAlignmentCenter];
-    [btnLabel setTextColor:[UIColor whiteColor]];
+    [btnLabel setTextColor:[UIColor blackColor]];
    
     //[button setBackgroundColor:[UIColor grayColor]];
   
@@ -67,12 +67,13 @@
     [anewBabuLabel setBackgroundColor:[UIColor clearColor]];
     anewBabuLabel.text = @"Type in the name of you new baby";
     [anewBabuLabel sizeToFit];
-    [anewBabuLabel setTextColor:[UIColor whiteColor]];
+    [anewBabuLabel setTextColor:[UIColor blackColor]];
     
     [self.view addSubview:anewBabuLabel];
     
     babyNameTextField = [[UITextField alloc] initWithFrame:CGRectMake(25.0, 30.0, 250.0, 20.0)];
-    [babyNameTextField setBackgroundColor:[UIColor whiteColor]];
+    [babyNameTextField setBackgroundColor:[UIColor blackColor]];
+    [babyNameTextField setTextColor:[UIColor whiteColor]];
     [self.view addSubview: babyNameTextField];
     babyNameTextField.delegate = self;
     
@@ -86,7 +87,7 @@
     [birthDayPickerBtn setBackgroundColor:[UIColor clearColor]];
     [birthDayPickerBtn setTextAlignment:NSTextAlignmentCenter];
     birthDayPickerBtn.text = @"-- DONE-- ";
-    [birthDayPickerBtn setTextColor:[UIColor whiteColor]];
+    [birthDayPickerBtn setTextColor:[UIColor blackColor]];
     [birthDayPickerBtn sizeToFit];
     
     [birthDayPickerBtn setUserInteractionEnabled:YES];
@@ -100,12 +101,15 @@
     [bDayPicker setDatePickerMode:UIDatePickerModeDate];
      bDayPicker.frame = CGRectMake(0, 100 , 300, 280);
     [bDayPicker addTarget:self action:@selector(updateLabelFromPicker:) forControlEvents:UIControlEventValueChanged];
+    
+    
+    //TODO: let user choose color for baby!
 
 }
 
 - (IBAction)updateLabelFromPicker:(id)sender {
     NSLog(@"date from datepicker: %@", bDayPicker.date);
-       [birthLabel setTextColor:[UIColor whiteColor]];
+       [birthLabel setTextColor:[UIColor blackColor]];
     birthLabel.text = [NSString stringWithFormat:@"%@", [SLKDateUtil formatDate: bDayPicker.date]];
    
 }
@@ -156,7 +160,7 @@
 }
 -(void)addBabyNotification
 {
-    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys:babyName, @"babyName", nil];
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys:babyName, @"babyName", kGreenish_Color, @"color", nil];
     NSLog(@"vavava-------- %@", [userInfo valueForKey:@"babyName"]);
     
     [[NSNotificationCenter defaultCenter] postNotificationName: @"addBaby" object:nil userInfo:userInfo];

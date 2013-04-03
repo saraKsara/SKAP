@@ -20,7 +20,8 @@
 #import "SLKAlertWithBlock.h"
 #import <Parse/Parse.h>
 #import "SLKAppDelegate.h"
-
+#import "SLKColors.h"
+#import "SLKConstants.h"
 @interface SLKBabyListTableViewController ()
 
 @end
@@ -139,25 +140,25 @@
 {
     if (indexPath.section == 0 && indexPath.row == 0)
     {
-        NSLog(@"add baby");
-        SLKBabyPopViewController *controller = [[SLKBabyPopViewController alloc] init];
-        //[self presentModalViewController:controller animated:YES];
-        
-        
-        popover = [[FPPopoverController alloc] initWithViewController:controller];
-        
-        popover.tint = FPPopoverDefaultTint;
-        [popover setAlpha:1];
-        popover.arrowDirection = FPPopoverNoArrow;
-        popover.border = NO;
-        popover.contentSize = CGSizeMake(220, 215);
-       
-        [popover presentPopoverFromPoint:CGPointMake(20, 20)];
-//        [popover presentPopoverFromView:self.tableView.superview];
-        
-      
-        
-        
+//        NSLog(@"add baby");
+//        SLKBabyPopViewController *controller = [[SLKBabyPopViewController alloc] init];
+//        //[self presentModalViewController:controller animated:YES];
+//        
+//        
+//        popover = [[FPPopoverController alloc] initWithViewController:controller];
+//        
+//        popover.tint = FPPopoverDefaultTint;
+//        [popover setAlpha:1];
+//        popover.arrowDirection = FPPopoverNoArrow;
+//        popover.border = NO;
+//        popover.contentSize = CGSizeMake(220, 215);
+//       
+//        [popover presentPopoverFromPoint:CGPointMake(20, 20)];
+////        [popover presentPopoverFromView:self.tableView.superview];
+//        
+//      
+//        
+//        
         
         
         } else {
@@ -194,11 +195,13 @@
 {
        NSLog(@"namnet på nya NOTTT: %@", [notification.userInfo allKeys]);
     NSString *newBabyName = [notification.userInfo objectForKey:@"babyName"];
+    NSString *babyColor = [notification.userInfo objectForKey:@"color"];
   //  NSString *babyBirthday = [notification.userInfo objectForKey:@"date"];
     NSLog(@"namnet på nya bebben: %@", newBabyName);
     
     PFObject *babyObject = [PFObject objectWithClassName:@"Baby"];
      [babyObject setObject:newBabyName forKey:@"name"];
+    [babyObject setObject:babyColor forKey:@"color"];
 //     [babyObject setObject:newBabyName forKey:@"date"];
 
         //TODO: CHECK FOR INTERNET CONNECTION (REACHABILITY?) AND DECIDE WHAT TO DO WHEN THERE'S NO CONNECTION
@@ -208,8 +211,13 @@
            [[SLKBabyStorage sharedStorage] createBabyWithName:[object objectForKey:@"name"]
                                                        babyId:[object objectId]
                                                          date:nil
-                                                         type:nil];
+                                                         type:nil
+                                                        color:[object objectForKey:@"color"]];
+        
           NSLog(@"SUCCEED to create %@",[object objectForKey:@"name"] );
+        [self dismissViewControllerAnimated:YES completion:^{
+           [self.tableView reloadData];
+        }];
         [popover dismissPopoverAnimated:YES completion:^{
 
             [self.tableView reloadData];
@@ -231,4 +239,13 @@
 
 
 
+- (IBAction)close:(UIBarButtonItem *)sender {
+   // [[SLKBabyStorage sharedStorage] removeAllBabies];
+    [self dismissViewControllerAnimated:YES completion:^{
+        NSLog(@"dismissViewControllerAnimated");
+        
+        //TODO:
+        //set currentbaby selected, not menu, so menu can be choosen again...
+    }];
+}
 @end

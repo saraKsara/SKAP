@@ -30,7 +30,8 @@
                 [[SLKBabyStorage sharedStorage] createBabyWithName:[[objects objectAtIndex:i] objectForKey:@"name"]
                                                             babyId:[[objects objectAtIndex:i]objectId]
                                                               date:[[objects objectAtIndex:i] objectForKey:@"date"]
-                                                              type:nil];
+                                                              type:nil
+                                                             color:[[objects objectAtIndex:i]objectForKey:@"color"]];
                 
             }
 

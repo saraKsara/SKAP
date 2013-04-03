@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SLKBabyListTableViewController : UITableViewController <UIPopoverControllerDelegate>
+- (IBAction)close:(UIBarButtonItem *)sender;
 
 @end

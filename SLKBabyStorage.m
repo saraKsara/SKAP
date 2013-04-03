@@ -41,7 +41,7 @@
     return self;
 }
 
--(Baby*)createBabyWithName:(NSString*)name babyId:(NSString*)babyId date:(NSDate*)date type:(NSString*)type
+-(Baby *)createBabyWithName:(NSString *)name babyId:(NSString *)babyId date:(NSDate *)date type:(NSString *)type color:(NSString *)color
 {
     Baby *b;
     Baby *babeInStorage = [self getBabyWithiD:babyId];
@@ -58,7 +58,7 @@
     b.babyId = babyId;
     b.date = date;
     b.type = type;
-    
+    b.babysColor = color;
    // NSLog(@"There's a new (or a updated babe) baby in town! name: %@  id: %@", b.name, b.babyId);
       
     return b;

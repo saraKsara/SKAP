@@ -12,7 +12,7 @@
 
 +(SLKBabyStorage*) sharedStorage;
 
--(Baby*)createBabyWithName:(NSString*)name babyId:(NSString*)babyId date:(NSDate*)date type:(NSString*)type;
+-(Baby*)createBabyWithName:(NSString*)name babyId:(NSString*)babyId date:(NSDate*)date type:(NSString*)type color:(NSString*)color;
 
 -(void)removeBaby:(Baby*)baby;
 
