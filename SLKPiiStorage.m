@@ -8,7 +8,7 @@
 
 #import "SLKPiiStorage.h"
 #import "SLKCoreDataService.h"
-#import "Pii.h";
+#import "Pii.h"
 @implementation SLKPiiStorage
 {
     NSManagedObjectContext *context;

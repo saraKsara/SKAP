@@ -18,6 +18,7 @@
 #import "Poo.h"
 #import "Pii.h"
 #import "SLKConstants.h"
+#import "SLKPARSEService.h"
 @implementation SLKEventStorage
 {
     NSManagedObjectContext *context;
@@ -195,8 +196,18 @@
 -(void)removeEvent:(Event *)event
 {
     [context deleteObject:event];
+    PFObject *object = [PFObject objectWithoutDataWithClassName:@"Event"
+                                                       objectId:event.eventId];
+    [SLKPARSEService deleteObject:object];
 }
 
+-(void)removeAllEvents
+{
+    for (Event *event in [self eventArray])
+    {
+        [self removeEvent:event];
+    }
+}
 -(NSArray *)getEventByDay:(NSDate *)date
 {
     NSArray *arr = [[SLKCoreDataService sharedService] fetchDataWithEntity:@"Event"

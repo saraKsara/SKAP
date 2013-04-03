@@ -45,8 +45,16 @@
     [super viewWillAppear:YES];
     currentDay = [NSDate date];
     currentBaby = [[SLKBabyStorage sharedStorage] getCurrentBaby];
-    _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
     
+    _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@",
+                         currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadTable)
+                                                 name:@"reloadCalendar"
+                                               object:nil];
+
     //TODO: decide how to represent pee and poo
 //    _peeLabel.text = [NSString stringWithFormat:@"Peed: %@ ml/times", currentBaby.pii];
 //    _pooLabel.text =  [NSString stringWithFormat:@"Pooped %@ ml/times", currentBaby.poo];
@@ -55,7 +63,10 @@
 //     _foodLabel.text =  [NSString stringWithFormat:@"Ate %@ ml/times", currentBaby.feedTimespan];
     
 }
-
+-(void)reloadTable
+{
+    [_tableView reloadData];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -72,14 +83,14 @@
 {
     currentDay = [currentDay dateByAddingDays:1];
       _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
-    [_tableView reloadData];
+    [self reloadTable];
 }
 
 - (IBAction)prevDay:(id)sender
 {
     currentDay = [currentDay dateBySubtractingDays:1];
       _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
-    [_tableView reloadData];
+    [self reloadTable];
 }
 
 
@@ -94,13 +105,29 @@
 {
     return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay]count];
 }
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    UILabel *headerLabel = [[UILabel alloc] init];
+//-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//{
+//    UILabel *headerLabel = [[UILabel alloc] init];
 //    headerLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:11];
 //    headerLabel.textColor = [UIColor blackColor];
-    headerLabel.text =  @"Time\t event\t more";
-    return headerLabel.text;
+//    headerLabel.text =  @"Time\t event\t more";
+//    return headerLabel.text;
+//}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UILabel *title = [[UILabel alloc] init];
+    title.frame = CGRectMake(5, 0, 200, 30);
+    title.textColor = [UIColor blackColor];
+    title.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:13.0f];
+    title.text =  @"Time\t\t\t\t\t\t\t event";
+    title.backgroundColor = [UIColor clearColor];
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
+    [view addSubview:title];
+    
+    return  view;
+    
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

@@ -31,7 +31,7 @@
     Baby *currentBaby;
     NSArray *babyArray;
     NSIndexPath *checkedIndexPath;
-}
+  }
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -61,6 +61,10 @@
     NSLog(@"did user default work? name: %@", currentBaby.name);
     
     babyArray = [[SLKBabyStorage sharedStorage] babyArray];
+    
+    
+
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -137,16 +141,24 @@
     {
         NSLog(@"add baby");
         SLKBabyPopViewController *controller = [[SLKBabyPopViewController alloc] init];
+        //[self presentModalViewController:controller animated:YES];
+        
         
         popover = [[FPPopoverController alloc] initWithViewController:controller];
         
         popover.tint = FPPopoverDefaultTint;
-        [popover setAlpha:0.8];
+        [popover setAlpha:1];
         popover.arrowDirection = FPPopoverNoArrow;
         popover.border = NO;
-        popover.contentSize = CGSizeMake(320, 115);
+        popover.contentSize = CGSizeMake(220, 215);
        
-        [popover presentPopoverFromPoint:CGPointMake(70, 70)];
+        [popover presentPopoverFromPoint:CGPointMake(20, 20)];
+//        [popover presentPopoverFromView:self.tableView.superview];
+        
+      
+        
+        
+        
         
         } else {
         SLKAlertWithBlock *alert = [[SLKAlertWithBlock alloc] initWithTitle:@"Switch baby" message:@"Are you sure you wanna switch baby?" completion:^(BOOL cancelled, NSInteger buttonIndex) {
