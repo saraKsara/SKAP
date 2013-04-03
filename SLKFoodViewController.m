@@ -38,6 +38,7 @@
     UISegmentedControl *_segmentControll;
     int numberOfBabies;
     NSArray *babyArray;
+    float segmentWidth;
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -91,10 +92,10 @@
     _segmentControll = [[UISegmentedControl alloc] initWithItems:segmentArray];
     _segmentControll.frame = CGRectMake(0, 0, 320, 50);
     _segmentControll.segmentedControlStyle = UISegmentedControlStylePlain;
-    
     _segmentControll.selectedSegmentIndex = 1;//TODO: == current babe
-    
-    
+    segmentWidth = 320 / 3;
+    NSLog(@"seggyyy--------%f", segmentWidth);
+ 
    for (int i = 0; i <= numberOfBabies; i++) {
     {
         if (i == 0) {
@@ -131,23 +132,24 @@
 
 -(UIImage*)drawImageWithColor:(UIColor*)color
 {
-    UIGraphicsBeginImageContext(CGSizeMake(120, 50));
+    //as big as 320/(numberofbabies+1)
+    UIGraphicsBeginImageContext(CGSizeMake(segmentWidth, 50));
     [color setFill];
-    UIRectFill(CGRectMake(0, 0, 120, 50));
+    UIRectFill(CGRectMake(0, 0, segmentWidth, 50));
 
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
     return image;
 }
--(UIImage*) drawText:(NSString*) text inImage:(UIImage*)  image atPoint:(CGPoint)   point
+-(UIImage*) drawText:(NSString*) text inImage:(UIImage*) image atPoint:(CGPoint) point
 {
     
-    UIFont *font = [UIFont boldSystemFontOfSize:12];
+    UIFont *font = [UIFont fontWithName:@"HelveticaNeue" size:17];
     UIGraphicsBeginImageContext(image.size);
     [image drawInRect:CGRectMake(0,0,image.size.width,image.size.height)];
     CGRect rect = CGRectMake(point.x, point.y, image.size.width, image.size.height);
-    [[UIColor whiteColor] set];
+    [[UIColor blackColor] set];
     [text drawInRect:CGRectIntegral(rect) withFont:font];
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
