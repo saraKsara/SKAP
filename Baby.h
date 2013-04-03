@@ -2,7 +2,7 @@
 //  Baby.h
 //  SKAP
 //
-//  Created by Åsa Persson on 2013-03-29.
+//  Created by Åsa Persson on 2013-04-03.
 //  Copyright (c) 2013 Student vid Yrkeshögskola C3L. All rights reserved.
 //
 
@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * type;
+@property (nonatomic, retain) NSString * babysColor;
 @property (nonatomic, retain) NSSet *event;
 @end
 

@@ -10,6 +10,7 @@
 #import "SLKBabyStorage.h"
 #import "Baby.h"
 #import "SLKDateUtil.h"
+#import "SLKConstants.h"
 @interface SLKBabyPopViewController ()
 
 @end
@@ -100,6 +101,9 @@
     [bDayPicker setDatePickerMode:UIDatePickerModeDate];
      bDayPicker.frame = CGRectMake(0, 100 , 300, 280);
     [bDayPicker addTarget:self action:@selector(updateLabelFromPicker:) forControlEvents:UIControlEventValueChanged];
+    
+    
+    //TODO: let user choose color for baby!
 
 }
 
@@ -156,7 +160,7 @@
 }
 -(void)addBabyNotification
 {
-    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys:babyName, @"babyName", nil];
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys:babyName, @"babyName", kGreenish_Color, @"color", nil];
     NSLog(@"vavava-------- %@", [userInfo valueForKey:@"babyName"]);
     
     [[NSNotificationCenter defaultCenter] postNotificationName: @"addBaby" object:nil userInfo:userInfo];

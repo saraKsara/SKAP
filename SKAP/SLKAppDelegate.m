@@ -30,7 +30,7 @@
 
        // [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
- 
+ //[[SLKBabyStorage sharedStorage] removeAllBabies];
  [SLKPARSEService getAllObjects];
     [self setUpApp];
 

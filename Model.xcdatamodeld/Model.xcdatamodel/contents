@@ -2,6 +2,7 @@
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="11G63" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Baby" representedClassName="Baby" syncable="YES">
         <attribute name="babyId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="babysColor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
@@ -62,12 +63,12 @@
         <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="tities" inverseEntity="Event" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Baby" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="Baby" positionX="160" positionY="192" width="128" height="135"/>
         <element name="Bottle" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Event" positionX="160" positionY="192" width="128" height="315"/>
+        <element name="Medz" positionX="160" positionY="192" width="128" height="150"/>
         <element name="Pii" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Poo" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Tits" positionX="160" positionY="192" width="128" height="135"/>
-        <element name="Medz" positionX="160" positionY="192" width="128" height="135"/>
     </elements>
 </model>

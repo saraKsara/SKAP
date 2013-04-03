@@ -2,7 +2,7 @@
 //  Baby.m
 //  SKAP
 //
-//  Created by Åsa Persson on 2013-03-29.
+//  Created by Åsa Persson on 2013-04-03.
 //  Copyright (c) 2013 Student vid Yrkeshögskola C3L. All rights reserved.
 //
 
@@ -16,6 +16,7 @@
 @dynamic date;
 @dynamic name;
 @dynamic type;
+@dynamic babysColor;
 @dynamic event;
 
 @end

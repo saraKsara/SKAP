@@ -20,7 +20,8 @@
 #import "SLKAlertWithBlock.h"
 #import <Parse/Parse.h>
 #import "SLKAppDelegate.h"
-
+#import "SLKColors.h"
+#import "SLKConstants.h"
 @interface SLKBabyListTableViewController ()
 
 @end
@@ -194,11 +195,13 @@
 {
        NSLog(@"namnet på nya NOTTT: %@", [notification.userInfo allKeys]);
     NSString *newBabyName = [notification.userInfo objectForKey:@"babyName"];
+    NSString *babyColor = [notification.userInfo objectForKey:@"color"];
   //  NSString *babyBirthday = [notification.userInfo objectForKey:@"date"];
     NSLog(@"namnet på nya bebben: %@", newBabyName);
     
     PFObject *babyObject = [PFObject objectWithClassName:@"Baby"];
      [babyObject setObject:newBabyName forKey:@"name"];
+    [babyObject setObject:babyColor forKey:@"color"];
 //     [babyObject setObject:newBabyName forKey:@"date"];
 
         //TODO: CHECK FOR INTERNET CONNECTION (REACHABILITY?) AND DECIDE WHAT TO DO WHEN THERE'S NO CONNECTION
@@ -208,7 +211,9 @@
            [[SLKBabyStorage sharedStorage] createBabyWithName:[object objectForKey:@"name"]
                                                        babyId:[object objectId]
                                                          date:nil
-                                                         type:nil];
+                                                         type:nil
+                                                        color:[object objectForKey:@"color"]];
+        
           NSLog(@"SUCCEED to create %@",[object objectForKey:@"name"] );
         [self dismissViewControllerAnimated:YES completion:^{
            [self.tableView reloadData];

@@ -23,5 +23,5 @@
 - (IBAction)sooner:(id)sender;
 - (IBAction)later:(id)sender;
 
-
+-(UIImage*)drawImageWithColor:(UIColor*)color;
 @end
