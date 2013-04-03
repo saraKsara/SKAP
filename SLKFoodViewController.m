@@ -17,6 +17,8 @@
 #import "Baby.h"
 #import "Bottle.h"
 #import "SLKBottleStorage.h"
+#import "SLKDates.h"
+#import "SLKDateUtil.h"
 
 @interface SLKFoodViewController ()
 
@@ -26,7 +28,13 @@
 {
     float bottledFood;
     SLKBabyListTableViewController *settingsVC;
-    
+    float checkDirection;
+    NSString *time;
+    NSDate *date;
+    Baby *currentBabe;
+    UISegmentedControl *_segmentControll;
+    int numberOfBabies;
+    NSArray *babyArray;
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -59,17 +67,48 @@
 {
     [super viewDidLoad];
     settingsVC = [[SLKBabyListTableViewController alloc] init];
-   
+    babyArray = [[SLKBabyStorage sharedStorage] babyArray];
+    NSLog(@"babyArray %d",babyArray.count);
+    NSMutableArray *sementArray = [[NSMutableArray alloc] initWithObjects:@"menyyy", nil];
+    
+    numberOfBabies = babyArray.count;
+    
+    int i = 1;
+    for (Baby *babe in babyArray)
+    {
+        [sementArray addObject:babe.name];
+       // [_segmentControll setTitle:babe.name forSegmentAtIndex:i];
+        i++;
+    }
+    
+    _segmentControll = [[UISegmentedControl alloc] initWithItems:sementArray];
+    _segmentControll.frame = CGRectMake(0, 0, 320, 50);
+    _segmentControll.segmentedControlStyle = UISegmentedControlStylePlain;
+    _segmentControll.selectedSegmentIndex = 1;
+    [self.view addSubview:_segmentControll];
+
+    [_segmentControll addTarget:self action:@selector(segmentAction:) forControlEvents: UIControlEventValueChanged];
+
     
     CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI * 1.5);
     _foodSliderOne.transform = trans;
-    _anotherFoodLable.text = @"This is what your baby ate!";
+    currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
+    _anotherFoodLable.text = [NSString stringWithFormat: @"Log how much milk substitute %@ ate", currentBabe.name];
+    [_anotherFoodLable sizeToFit];
     bottledFood = _foodSliderOne.value;
     _foodLabel.text = [NSString stringWithFormat:@"%.f",bottledFood];
    NSLog(@"slider ONE: %f ", [_foodSliderOne value]);
 
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    checkDirection = 30;
+    date = [NSDate date];
+    time = [SLKDateUtil formatTimeFromDate:date];
+    _setTimeLabel.text = time;
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -108,17 +147,55 @@
 
 }
 - (IBAction)segmentAction:(id)sender {
+    if ( _segmentControll.selectedSegmentIndex == 0 ) {
+        [self performSegueWithIdentifier:@"menueSeg" sender:self];
+    } else {
+        for (int i = 0; i < numberOfBabies; i++) {
+             if ( _segmentControll.selectedSegmentIndex == i+1 ) {
+                 NSLog(@"change seg %d to %@",_segmentControll.selectedSegmentIndex+1, [[babyArray objectAtIndex:i] name]);
 
-    if ( _segmentControll.selectedSegmentIndex == 0) {
-            NSLog(@"SEGMENT PUSHED, SELEcted 0 ");
-         [self performSegueWithIdentifier:@"menueSeg" sender:self];
-//        [self presentViewController:settingsVC animated:YES completion:^{
-//            NSLog(@"visar meny");
-//        }];
-    } else if ( _segmentControll.selectedSegmentIndex == 1) {
-        NSLog(@"SEGMENT PUSHED, SELEcted 1 ");
-    } else if ( _segmentControll.selectedSegmentIndex == 2) {
-        NSLog(@"SEGMENT PUSHED, SELEcted 2 ");
+             }
+        }
     }
+}
+
+
+- (IBAction)setTime:(id)sender {
+    if (checkDirection > [_timeSlider value])
+    {
+        float diff =  checkDirection  - [_timeSlider value];
+        
+        float timeDiff = ceil(diff/(60));
+        int setMin = (NSInteger)(timeDiff);
+        date = [date dateBySubtractingMinutes:setMin];
+        time = [SLKDateUtil formatTimeFromDate:date];
+        _setTimeLabel.text = time;
+        checkDirection = [_timeSlider value];
+        NSLog(@"if-------%f",checkDirection);
+    }
+    else
+    {
+        float diff =  [_timeSlider value]  - checkDirection;
+        
+        float timeDiff = ceil(diff/(60));
+        int setMin = (NSInteger)(timeDiff);
+        date = [date dateByAddingMinutes:setMin];
+        time = [SLKDateUtil formatTimeFromDate:date];
+        _setTimeLabel.text = time;
+        checkDirection = [_timeSlider value];
+        
+    }
+}
+
+- (IBAction)sooner:(id)sender {
+    date = [date dateBySubtractingHours:1];
+    time = [SLKDateUtil formatTimeFromDate:date];
+    _setTimeLabel.text = time;
+}
+
+- (IBAction)later:(id)sender {
+    date = [date dateByAddingHours:1];
+    time = [SLKDateUtil formatTimeFromDate:date];
+    _setTimeLabel.text = time;
 }
 @end

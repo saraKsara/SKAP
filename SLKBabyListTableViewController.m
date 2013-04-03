@@ -139,25 +139,25 @@
 {
     if (indexPath.section == 0 && indexPath.row == 0)
     {
-        NSLog(@"add baby");
-        SLKBabyPopViewController *controller = [[SLKBabyPopViewController alloc] init];
-        //[self presentModalViewController:controller animated:YES];
-        
-        
-        popover = [[FPPopoverController alloc] initWithViewController:controller];
-        
-        popover.tint = FPPopoverDefaultTint;
-        [popover setAlpha:1];
-        popover.arrowDirection = FPPopoverNoArrow;
-        popover.border = NO;
-        popover.contentSize = CGSizeMake(220, 215);
-       
-        [popover presentPopoverFromPoint:CGPointMake(20, 20)];
-//        [popover presentPopoverFromView:self.tableView.superview];
-        
-      
-        
-        
+//        NSLog(@"add baby");
+//        SLKBabyPopViewController *controller = [[SLKBabyPopViewController alloc] init];
+//        //[self presentModalViewController:controller animated:YES];
+//        
+//        
+//        popover = [[FPPopoverController alloc] initWithViewController:controller];
+//        
+//        popover.tint = FPPopoverDefaultTint;
+//        [popover setAlpha:1];
+//        popover.arrowDirection = FPPopoverNoArrow;
+//        popover.border = NO;
+//        popover.contentSize = CGSizeMake(220, 215);
+//       
+//        [popover presentPopoverFromPoint:CGPointMake(20, 20)];
+////        [popover presentPopoverFromView:self.tableView.superview];
+//        
+//      
+//        
+//        
         
         
         } else {
@@ -210,6 +210,9 @@
                                                          date:nil
                                                          type:nil];
           NSLog(@"SUCCEED to create %@",[object objectForKey:@"name"] );
+        [self dismissViewControllerAnimated:YES completion:^{
+           [self.tableView reloadData];
+        }];
         [popover dismissPopoverAnimated:YES completion:^{
 
             [self.tableView reloadData];
@@ -231,4 +234,10 @@
 
 
 
+- (IBAction)close:(UIBarButtonItem *)sender {
+   // [[SLKBabyStorage sharedStorage] removeAllBabies];
+    [self dismissViewControllerAnimated:YES completion:^{
+        NSLog(@"dismissViewControllerAnimated");
+    }];
+}
 @end

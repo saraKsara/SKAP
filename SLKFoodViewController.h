@@ -14,13 +14,14 @@
 
 @property (weak, nonatomic) IBOutlet UISlider *foodSliderOne;
 
-@property (weak, nonatomic) IBOutlet UISlider *foodSliderTwo;
+@property (weak, nonatomic) IBOutlet UISlider *timeSlider;
 - (IBAction)sliderOneValueChanged:(id)sender;
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer;
 @property (weak, nonatomic) IBOutlet UILabel *setTimeLabel;
 - (IBAction)save:(id)sender;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControll;
-- (IBAction)segmentAction:(id)sender;
+- (IBAction)setTime:(id)sender;
+- (IBAction)sooner:(id)sender;
+- (IBAction)later:(id)sender;
 
 
 @end
