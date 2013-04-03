@@ -63,19 +63,29 @@
     }
     return self;
 }
--(void)showMenue {
-    [self performSegueWithIdentifier:@"menueSeg" sender:self];
-}
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    //TODO: move to set up class???
+     [_segmentControll setSelected:NO];
+    
+    
+    bgColor = [UIColor colorWithHexValue:currentBabe.babysColor];
+    [[self view] setBackgroundColor:bgColor];
+    
+    checkDirection = 30;
+    date = [NSDate date];
+    time = [SLKDateUtil formatTimeFromDate:date];
+    _setTimeLabel.text = time;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-       
-    
     settingsVC = [[SLKBabyListTableViewController alloc] init];
+    
     babyArray = [[SLKBabyStorage sharedStorage] babyArray];
-    NSLog(@"babyArray %d",babyArray.count);
     NSMutableArray *segmentArray = [[NSMutableArray alloc] initWithObjects:@"menu", nil];
     
     numberOfBabies = babyArray.count;
@@ -85,7 +95,6 @@
     for (Baby *babe in babyArray)
     {
         [segmentArray addObject:babe.name];
-       // [_segmentControll setTitle:babe.name forSegmentAtIndex:i];
         i++;
     }
         //TODO: move to set up class???
@@ -93,14 +102,15 @@
     _segmentControll.frame = CGRectMake(0, 0, 320, 50);
     _segmentControll.segmentedControlStyle = UISegmentedControlStylePlain;
     _segmentControll.selectedSegmentIndex = 1;//TODO: == current babe
-    segmentWidth = 320 / 3;
-    NSLog(@"seggyyy--------%f", segmentWidth);
+    segmentWidth = 320 /(numberOfBabies +1);
  
    for (int i = 0; i <= numberOfBabies; i++) {
     {
         if (i == 0) {
             UIImage *image = [self drawImageWithColor:[UIColor colorWithHexValue:kBlueish_Color]];
-            [_segmentControll setImage:image forSegmentAtIndex:i];
+            UIImage *imageText =[self drawText:@"menu" inImage:image atPoint:CGPointMake(20, 10)];
+
+            [_segmentControll setImage:imageText forSegmentAtIndex:i];
         } else {
             NSString *color = [[babyArray objectAtIndex:i-1] babysColor];
             UIImage *image = [self drawImageWithColor:[UIColor colorWithHexValue:color]];
@@ -111,12 +121,14 @@
         }
   
     }
-   
-    [self.view addSubview:_segmentControll];
 
     [_segmentControll addTarget:self action:@selector(segmentAction:) forControlEvents: UIControlEventValueChanged];
-
     
+    [self.view addSubview:_segmentControll];
+       [_segmentControll setSelected:NO];
+       [_segmentControll setHighlighted:NO];
+       [_segmentControll setTintColor:[UIColor clearColor]];
+       
     CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI * 1.5);
     _foodSliderOne.transform = trans;
     currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
@@ -156,24 +168,11 @@
     
     return newImage;
 }
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:YES];
-    //TODO: move to set up class???
 
-    bgColor = [UIColor colorWithHexValue:kBlueish_Color];
-    [[self view] setBackgroundColor:bgColor];
+-(void)showMenue {
+    [self performSegueWithIdentifier:@"menueSeg" sender:self];
+}
 
-    checkDirection = 30;
-    date = [NSDate date];
-    time = [SLKDateUtil formatTimeFromDate:date];
-    _setTimeLabel.text = time;
-}
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer
 {
     CGPoint translation = [recognizer translationInView:self.view];
@@ -207,6 +206,8 @@
 
 }
 - (IBAction)segmentAction:(id)sender {
+    
+    //TODO: set menu not selected when setting view is dissmissed
     if ( _segmentControll.selectedSegmentIndex == 0 ) {
         [self performSegueWithIdentifier:@"menueSeg" sender:self];
     } else {
@@ -223,7 +224,7 @@
     }
 }
 
-
+//TODO: move to setTime class
 - (IBAction)setTime:(id)sender {
     if (checkDirection > [_timeSlider value])
     {

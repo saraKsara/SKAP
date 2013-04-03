@@ -243,6 +243,9 @@
    // [[SLKBabyStorage sharedStorage] removeAllBabies];
     [self dismissViewControllerAnimated:YES completion:^{
         NSLog(@"dismissViewControllerAnimated");
+        
+        //TODO:
+        //set currentbaby selected, not menu, so menu can be choosen again...
     }];
 }
 @end

@@ -298,6 +298,7 @@
                 <relationship kind="action" name="handlePan:" candidateClass="UIPanGestureRecognizer"/>
                 <relationship kind="action" name="later:"/>
                 <relationship kind="action" name="save:"/>
+                <relationship kind="action" name="segmentAction:"/>
                 <relationship kind="action" name="setTime:"/>
                 <relationship kind="action" name="sliderOneValueChanged:"/>
                 <relationship kind="action" name="sooner:"/>
