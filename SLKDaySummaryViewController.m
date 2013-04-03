@@ -144,18 +144,25 @@
         NSMutableString *propertyString = [[NSMutableString alloc] init];
         for(Tits *tit in titset)
         {
+            NSString *breast;
+            if (tit.rightBoob == [NSNumber numberWithInt:1]) {
+                breast = @"right";
+            } else if (tit.leftBoob == [NSNumber numberWithInt:1])
+            {
+                breast = @"left";  
+            }
             NSLog(@"tit::: %@",tit);
             if (tit.minutes != nil)
             {
-            [propertyString appendFormat: @"%@ minutes \n left breast",[tit.minutes stringValue]];
+            [propertyString appendFormat: @"%@ minutes \n %@ breast",[tit.minutes stringValue], breast];
             }
             else if (tit.milliLitres != nil)
             {
-            [propertyString appendFormat: @"%@ ml \n left breast",[tit.milliLitres stringValue]];
+            [propertyString appendFormat: @"%@ ml \n %@ breast",[tit.milliLitres stringValue], breast];
             }
             else if (tit.stringValue != nil)
             {
-                [propertyString appendFormat: @"left breast \n %@ ",tit.stringValue];
+                [propertyString appendFormat: @"%@ breast \n %@ ",breast,tit.stringValue];
             }
         }
         cell.propertyLabel.text = propertyString;
@@ -171,15 +178,15 @@
         {
             if (bottle.minutes != nil)
             {
-                [propertyString appendFormat: @"%@ minutes \n left breast",[bottle.minutes stringValue]];
+                [propertyString appendFormat: @"%@ minutes",[bottle.minutes stringValue]];
             }
             else if (bottle.milliLitres != nil)
             {
-                [propertyString appendFormat: @"%@ ml \n left breast",[bottle.milliLitres stringValue]];
+                [propertyString appendFormat: @"%@ ml ",[bottle.milliLitres stringValue]];
             }
             else if (bottle.stringValue != nil)
             {
-                [propertyString appendFormat: @"left breast \n %@ ",bottle.stringValue];
+                [propertyString appendFormat: @" %@ ",bottle.stringValue];
             }
         }
         cell.propertyLabel.text = propertyString;
