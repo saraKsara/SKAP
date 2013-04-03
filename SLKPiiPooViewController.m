@@ -191,11 +191,11 @@
         NSLog(@"Create new PII");
         Pii *someNewPii = [[SLKPiiStorage sharedStorage] createNormalPii:piiToAddNormal tooMuch:piiToAddTooMuch tooLittle:piiToAddTooLittle];
         [[SLKEventStorage sharedStorage] createEventwithPii:someNewPii date:date eventId:nil baby:currentBabe];
-                                                                            //TODO: let user choose date and time!!!!
 
     } else {
         NSLog(@"NO new Pii");
     }
+          [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadCalendar" object:nil];
     }
 }
 - (IBAction)sooner:(id)sender {

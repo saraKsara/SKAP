@@ -35,9 +35,9 @@
     </entity>
     <entity name="Medz" representedClassName="Medz" syncable="YES">
         <attribute name="adDrop" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="alvedon" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="ipren" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="ibuprofen" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="more" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="paracetamol" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="temp" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="medz" inverseEntity="Event" syncable="YES"/>
     </entity>

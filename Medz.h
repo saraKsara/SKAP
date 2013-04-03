@@ -15,8 +15,8 @@
 
 @property (nonatomic, retain) NSNumber * temp;
 @property (nonatomic, retain) NSNumber * adDrop;
-@property (nonatomic, retain) NSNumber * alvedon;
-@property (nonatomic, retain) NSNumber * ipren;
+@property (nonatomic, retain) NSNumber * paracetamol;
+@property (nonatomic, retain) NSNumber * ibuprofen;
 @property (nonatomic, retain) NSString * more;
 @property (nonatomic, retain) Event *event;
 

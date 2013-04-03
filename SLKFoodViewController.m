@@ -103,6 +103,8 @@
   Bottle *bottle = [[SLKBottleStorage sharedStorage] createBottleWithStringValue:nil mililitres:[NSNumber numberWithFloat:bottledFood] minutes:nil];
     
     [[SLKEventStorage sharedStorage] createEvenWithdBottle:bottle date:[NSDate date] eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadCalendar" object:nil];
+
 }
 - (IBAction)segmentAction:(id)sender {
 

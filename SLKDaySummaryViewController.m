@@ -46,8 +46,15 @@
     currentDay = [NSDate date];
     currentBaby = [[SLKBabyStorage sharedStorage] getCurrentBaby];
     
-    _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
+    _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@",
+                         currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
     
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadTable)
+                                                 name:@"reloadCalendar"
+                                               object:nil];
+
     //TODO: decide how to represent pee and poo
 //    _peeLabel.text = [NSString stringWithFormat:@"Peed: %@ ml/times", currentBaby.pii];
 //    _pooLabel.text =  [NSString stringWithFormat:@"Pooped %@ ml/times", currentBaby.poo];
@@ -56,7 +63,10 @@
 //     _foodLabel.text =  [NSString stringWithFormat:@"Ate %@ ml/times", currentBaby.feedTimespan];
     
 }
-
+-(void)reloadTable
+{
+    [_tableView reloadData];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -73,14 +83,14 @@
 {
     currentDay = [currentDay dateByAddingDays:1];
       _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
-    [_tableView reloadData];
+    [self reloadTable];
 }
 
 - (IBAction)prevDay:(id)sender
 {
     currentDay = [currentDay dateBySubtractingDays:1];
       _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
-    [_tableView reloadData];
+    [self reloadTable];
 }
 
 

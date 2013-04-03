@@ -14,8 +14,8 @@
 
 @dynamic temp;
 @dynamic adDrop;
-@dynamic alvedon;
-@dynamic ipren;
+@dynamic paracetamol;
+@dynamic ibuprofen;
 @dynamic more;
 @dynamic event;
 
