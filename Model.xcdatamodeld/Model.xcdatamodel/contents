@@ -28,9 +28,18 @@
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="baby" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Baby" inverseName="event" inverseEntity="Baby" syncable="YES"/>
         <relationship name="bottles" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bottle" inverseName="event" inverseEntity="Bottle" syncable="YES"/>
+        <relationship name="medz" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Medz" inverseName="event" inverseEntity="Medz" syncable="YES"/>
         <relationship name="piis" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pii" inverseName="event" inverseEntity="Pii" syncable="YES"/>
         <relationship name="poos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Poo" inverseName="event" inverseEntity="Poo" syncable="YES"/>
         <relationship name="tities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tits" inverseName="event" inverseEntity="Tits" syncable="YES"/>
+    </entity>
+    <entity name="Medz" representedClassName="Medz" syncable="YES">
+        <attribute name="adDrop" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="alvedon" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="ipren" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="more" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="temp" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="medz" inverseEntity="Event" syncable="YES"/>
     </entity>
     <entity name="Pii" representedClassName="Pii" syncable="YES">
         <attribute name="normal" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -45,17 +54,20 @@
         <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="poos" inverseEntity="Event" syncable="YES"/>
     </entity>
     <entity name="Tits" representedClassName="Tits" syncable="YES">
+        <attribute name="leftBoob" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="milliLitres" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="minutes" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="rightBoob" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="stringValue" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="tities" inverseEntity="Event" syncable="YES"/>
     </entity>
     <elements>
         <element name="Baby" positionX="160" positionY="192" width="128" height="120"/>
-        <element name="Event" positionX="160" positionY="192" width="128" height="300"/>
+        <element name="Bottle" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="Event" positionX="160" positionY="192" width="128" height="315"/>
         <element name="Pii" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Poo" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="Tits" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="Bottle" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="Tits" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="Medz" positionX="160" positionY="192" width="128" height="135"/>
     </elements>
 </model>

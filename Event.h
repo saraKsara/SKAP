@@ -2,19 +2,20 @@
 //  Event.h
 //  SKAP
 //
-//  Created by Åsa Persson on 2013-03-29.
+//  Created by Åsa Persson on 2013-04-03.
 //  Copyright (c) 2013 Student vid Yrkeshögskola C3L. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Baby;
+@class Baby, Bottle, Medz, Pii, Poo, Tits;
 
 @interface Event : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * adDrop;
 @property (nonatomic, retain) NSNumber * bottle;
+@property (nonatomic, retain) NSString * comments;
 @property (nonatomic, retain) NSDate * date;
 @property (nonatomic, retain) NSString * eventId;
 @property (nonatomic, retain) NSString * otherMedz;
@@ -24,34 +25,39 @@
 @property (nonatomic, retain) NSNumber * timespan;
 @property (nonatomic, retain) NSString * tits;
 @property (nonatomic, retain) NSString * type;
-@property (nonatomic, retain) NSString * comments;
 @property (nonatomic, retain) Baby *baby;
 @property (nonatomic, retain) NSSet *bottles;
 @property (nonatomic, retain) NSSet *piis;
 @property (nonatomic, retain) NSSet *poos;
 @property (nonatomic, retain) NSSet *tities;
+@property (nonatomic, retain) NSSet *medz;
 @end
 
 @interface Event (CoreDataGeneratedAccessors)
 
-- (void)addBottlesObject:(NSManagedObject *)value;
-- (void)removeBottlesObject:(NSManagedObject *)value;
+- (void)addBottlesObject:(Bottle *)value;
+- (void)removeBottlesObject:(Bottle *)value;
 - (void)addBottles:(NSSet *)values;
 - (void)removeBottles:(NSSet *)values;
 
-- (void)addPiisObject:(NSManagedObject *)value;
-- (void)removePiisObject:(NSManagedObject *)value;
+- (void)addPiisObject:(Pii *)value;
+- (void)removePiisObject:(Pii *)value;
 - (void)addPiis:(NSSet *)values;
 - (void)removePiis:(NSSet *)values;
 
-- (void)addPoosObject:(NSManagedObject *)value;
-- (void)removePoosObject:(NSManagedObject *)value;
+- (void)addPoosObject:(Poo *)value;
+- (void)removePoosObject:(Poo *)value;
 - (void)addPoos:(NSSet *)values;
 - (void)removePoos:(NSSet *)values;
 
-- (void)addTitiesObject:(NSManagedObject *)value;
-- (void)removeTitiesObject:(NSManagedObject *)value;
+- (void)addTitiesObject:(Tits *)value;
+- (void)removeTitiesObject:(Tits *)value;
 - (void)addTities:(NSSet *)values;
 - (void)removeTities:(NSSet *)values;
+
+- (void)addMedzObject:(Medz *)value;
+- (void)removeMedzObject:(Medz *)value;
+- (void)addMedz:(NSSet *)values;
+- (void)removeMedz:(NSSet *)values;
 
 @end
