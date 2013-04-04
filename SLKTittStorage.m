@@ -41,7 +41,7 @@
 }
 
 
--(Tits*)createTittWithStringValue:(NSString*)stringValue mililitres:(NSNumber*)milliLitres minutes:(NSNumber*)minutes
+-(Tits *)createTittWithStringValue:(NSString *)stringValue mililitres:(NSNumber *)milliLitres minutes:(NSNumber *)minutes leftBoob:(BOOL)leftBoob rightBoob:(BOOL)rightBoob
 {
    Tits *t = [NSEntityDescription insertNewObjectForEntityForName:@"Tits"
                                           inManagedObjectContext:context];
@@ -50,6 +50,8 @@
     t.stringValue = stringValue;
     t.milliLitres = milliLitres;
     t.minutes = minutes;
+    t.leftBoob = [NSNumber numberWithBool:leftBoob];
+    t.rightBoob = [NSNumber numberWithBool:rightBoob];
     
   NSLog(@"Feeded baby with  %@", t);
     

@@ -16,7 +16,6 @@
 		1C34EC7D170720730095F0C2 /* uncheckedBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C34EC7C170720730095F0C2 /* uncheckedBox.png */; };
 		1C34EC7F170720830095F0C2 /* checkedBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C34EC7E170720830095F0C2 /* checkedBox.png */; };
 		1C49EF29170889200073B6D6 /* SLKConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C49EF28170889200073B6D6 /* SLKConstants.m */; };
-		1C4ABF501705A1AC008468F9 /* Baby.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4ABF4F1705A1AC008468F9 /* Baby.m */; };
 		1C4ABF561705A1AD008468F9 /* Poo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4ABF551705A1AD008468F9 /* Poo.m */; };
 		1C4ABF591705A1AD008468F9 /* Bottle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4ABF581705A1AD008468F9 /* Bottle.m */; };
 		1C4ABF5F1705A1AD008468F9 /* Pii.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4ABF5E1705A1AD008468F9 /* Pii.m */; };
@@ -41,6 +40,8 @@
 		1C880E8B1704BBAB0027E528 /* SLKMedzViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C880E8A1704BBAB0027E528 /* SLKMedzViewController.m */; };
 		1C91DD5916FC4EBB00921C59 /* SLKPARSEService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DD5816FC4EBB00921C59 /* SLKPARSEService.m */; };
 		1C91DDEC16FC567F00921C59 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C91DDEB16FC567F00921C59 /* CoreData.framework */; };
+		1C9DD67B170CC1B400032A1E /* SLKColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9DD67A170CC1B300032A1E /* SLKColors.m */; };
+		1C9DD681170CC93200032A1E /* Baby.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9DD680170CC93200032A1E /* Baby.m */; };
 		1CA7F8D616FC8B72008BB1BF /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA7F8D516FC8B72008BB1BF /* SenTestingKit.framework */; };
 		1CA7F8D716FC8B72008BB1BF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449216F90DC800D9D33A /* UIKit.framework */; };
 		1CA7F8D816FC8B72008BB1BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449416F90DC800D9D33A /* Foundation.framework */; };
@@ -108,8 +109,6 @@
 		1C34EC7E170720830095F0C2 /* checkedBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkedBox.png; sourceTree = "<group>"; };
 		1C49EF27170889200073B6D6 /* SLKConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKConstants.h; sourceTree = "<group>"; };
 		1C49EF28170889200073B6D6 /* SLKConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKConstants.m; sourceTree = "<group>"; };
-		1C4ABF4E1705A1AC008468F9 /* Baby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baby.h; sourceTree = "<group>"; };
-		1C4ABF4F1705A1AC008468F9 /* Baby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Baby.m; sourceTree = "<group>"; };
 		1C4ABF541705A1AD008468F9 /* Poo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Poo.h; sourceTree = "<group>"; };
 		1C4ABF551705A1AD008468F9 /* Poo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Poo.m; sourceTree = "<group>"; };
 		1C4ABF571705A1AD008468F9 /* Bottle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bottle.h; sourceTree = "<group>"; };
@@ -148,6 +147,10 @@
 		1C91DD5716FC4EBB00921C59 /* SLKPARSEService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKPARSEService.h; sourceTree = "<group>"; };
 		1C91DD5816FC4EBB00921C59 /* SLKPARSEService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPARSEService.m; sourceTree = "<group>"; };
 		1C91DDEB16FC567F00921C59 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1C9DD679170CC1B300032A1E /* SLKColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKColors.h; sourceTree = "<group>"; };
+		1C9DD67A170CC1B300032A1E /* SLKColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKColors.m; sourceTree = "<group>"; };
+		1C9DD67F170CC93200032A1E /* Baby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baby.h; sourceTree = "<group>"; };
+		1C9DD680170CC93200032A1E /* Baby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Baby.m; sourceTree = "<group>"; };
 		1CA7F8D416FC8B71008BB1BF /* SKAPUnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SKAPUnitTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CA7F8D516FC8B72008BB1BF /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		1CA7F8DB16FC8B73008BB1BF /* SKAPUnitTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SKAPUnitTest-Info.plist"; sourceTree = "<group>"; };
@@ -284,9 +287,9 @@
 				1C4ABF581705A1AD008468F9 /* Bottle.m */,
 				1C4ABF541705A1AD008468F9 /* Poo.h */,
 				1C4ABF551705A1AD008468F9 /* Poo.m */,
-				1C4ABF4E1705A1AC008468F9 /* Baby.h */,
-				1C4ABF4F1705A1AC008468F9 /* Baby.m */,
 				CE5944B516F90DDF00D9D33A /* Model.xcdatamodeld */,
+				1C9DD67F170CC93200032A1E /* Baby.h */,
+				1C9DD680170CC93200032A1E /* Baby.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -395,6 +398,8 @@
 				CE5944AA16F90DC800D9D33A /* MainStoryboard.storyboard */,
 				1CF828251701A36E00EDC904 /* SLKUserDefaults.h */,
 				1CF828261701A36E00EDC904 /* SLKUserDefaults.m */,
+				1C9DD679170CC1B300032A1E /* SLKColors.h */,
+				1C9DD67A170CC1B300032A1E /* SLKColors.m */,
 				1C49EF27170889200073B6D6 /* SLKConstants.h */,
 				1C49EF28170889200073B6D6 /* SLKConstants.m */,
 				1C36055D1704667D007FC517 /* Date utils */,
@@ -638,7 +643,6 @@
 				1CF828341701D14000EDC904 /* SLKDates.m in Sources */,
 				1C5C784F1701E49D00CB555F /* SLKEventStorage.m in Sources */,
 				1C880E8B1704BBAB0027E528 /* SLKMedzViewController.m in Sources */,
-				1C4ABF501705A1AC008468F9 /* Baby.m in Sources */,
 				1C4ABF561705A1AD008468F9 /* Poo.m in Sources */,
 				1C4ABF591705A1AD008468F9 /* Bottle.m in Sources */,
 				1C4ABF5F1705A1AD008468F9 /* Pii.m in Sources */,
@@ -652,6 +656,8 @@
 				1C611EC9170C48160088016F /* Tits.m in Sources */,
 				1C611ECC170C4D0D0088016F /* SLKMedzStorage.m in Sources */,
 				1C611ED2170C50EC0088016F /* Medz.m in Sources */,
+				1C9DD67B170CC1B400032A1E /* SLKColors.m in Sources */,
+				1C9DD681170CC93200032A1E /* Baby.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

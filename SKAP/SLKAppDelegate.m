@@ -30,8 +30,8 @@
 
        // [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
- 
- //[SLKPARSEService getAllObjects];
+ //[[SLKBabyStorage sharedStorage] removeAllBabies];
+    [SLKPARSEService getAllObjects];
     [self setUpApp];
 
   //   //TODO: add "callback block"
@@ -67,7 +67,9 @@
 }
 -(void)setUpApp
 {
-    
+    //TODO:set up nicer
+    //set segmentcontrol on tabbar here?????
+    //check if there is babies and set rootview to settings if not, so user can add baby
     
     self.tabBarController = [[UITabBarController alloc] init];
 //    NSArray *array = [NSArray arrayWithObjects:navController,[self createViewControllersForStoryboards:@[ @"Feed", @"Diaper", @"Medz",@"calendar"]], nil];

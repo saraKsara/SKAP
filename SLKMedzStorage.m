@@ -49,14 +49,14 @@
     m.adDrop =[NSNumber numberWithBool:adDrop];
     m.paracetamol = [NSNumber numberWithBool:paracetamol];
     m.ibuprofen = [NSNumber numberWithBool:ibuprofen];
-  //  m.more = more;
+    m.more = more;
     
     NSLog(@"Gave baby some meds:  %@", m);
     
     return m;
 }
--(void)removeTitmilk:(Tits*)tit
+-(void)removeMedz:(Medz *)medecine
 {
-    [context deleteObject:tit];
+    [context deleteObject:medecine];
 }
 @end
