@@ -7,6 +7,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="event" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="baby" inverseEntity="Event" syncable="YES"/>
+        <relationship name="parentFigures" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Baby" inverseName="parentFigures" inverseEntity="Baby" syncable="YES"/>
     </entity>
     <entity name="Bottle" representedClassName="Bottle" syncable="YES">
         <attribute name="milliLitres" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -42,6 +43,12 @@
         <attribute name="temp" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="medz" inverseEntity="Event" syncable="YES"/>
     </entity>
+    <entity name="ParentFigures" representedClassName="ParentFigures" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="parentColor" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="baby" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Baby" syncable="YES"/>
+    </entity>
     <entity name="Pii" representedClassName="Pii" syncable="YES">
         <attribute name="normal" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="tooLittle" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -63,12 +70,13 @@
         <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="tities" inverseEntity="Event" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Baby" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="Baby" positionX="160" positionY="192" width="128" height="150"/>
         <element name="Bottle" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Event" positionX="160" positionY="192" width="128" height="315"/>
         <element name="Medz" positionX="160" positionY="192" width="128" height="150"/>
         <element name="Pii" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Poo" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Tits" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="ParentFigures" positionX="160" positionY="192" width="128" height="105"/>
     </elements>
 </model>
