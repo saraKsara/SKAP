@@ -82,53 +82,53 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//    
+//    settingsVC = [[SLKBabyListTableViewController alloc] init];
+//    
+//    babyArray = [[SLKBabyStorage sharedStorage] babyArray];
+//    NSMutableArray *segmentArray = [[NSMutableArray alloc] initWithObjects:@"menu", nil];
+//    
+//    numberOfBabies = babyArray.count;
+//    
+//    //IF adding new baby, set up new segmentcontrol! else, ....
+//    int i = 1;
+//    for (Baby *babe in babyArray)
+//    {
+//        [segmentArray addObject:babe.name];
+//        i++;
+//    }
+//        //TODO: move to set up class???
+//    _segmentControll = [[UISegmentedControl alloc] initWithItems:segmentArray];
+//    _segmentControll.frame = CGRectMake(0, 0, 320, 50);
+//    _segmentControll.segmentedControlStyle = UISegmentedControlStylePlain;
+//    _segmentControll.selectedSegmentIndex = 1;//TODO: == current babe
+//    segmentWidth = 320 /(numberOfBabies +1);
+// 
+//   for (int i = 0; i <= numberOfBabies; i++) {
+//    {
+//        if (i == 0) {
+//            UIImage *image = [self drawImageWithColor:[UIColor colorWithHexValue:kBlueish_Color alpha:0.8]];
+//            UIImage *imageText =[self drawText:@"menu" inImage:image atPoint:CGPointMake(20, 10)];
+//
+//            [_segmentControll setImage:imageText forSegmentAtIndex:i];
+//        } else {
+//            NSString *color = [[babyArray objectAtIndex:i-1] babysColor];
+//            UIImage *image = [self drawImageWithColor:[UIColor colorWithHexValue:color]];
+//
+//             UIImage *imageText =[self drawText:[[babyArray objectAtIndex:i-1] name] inImage:image atPoint:CGPointMake(20, 10)];
+//           
+//            [_segmentControll setImage:imageText forSegmentAtIndex:i];
+//        }
+//  
+//    }
+//
+//    [_segmentControll addTarget:self action:@selector(segmentAction:) forControlEvents: UIControlEventValueChanged];
+//    
+//    [self.view addSubview:_segmentControll];
+//       [_segmentControll setSelected:NO];
+//       [_segmentControll setHighlighted:NO];
+//       [_segmentControll setTintColor:[UIColor clearColor]];
     
-    settingsVC = [[SLKBabyListTableViewController alloc] init];
-    
-    babyArray = [[SLKBabyStorage sharedStorage] babyArray];
-    NSMutableArray *segmentArray = [[NSMutableArray alloc] initWithObjects:@"menu", nil];
-    
-    numberOfBabies = babyArray.count;
-    
-    //IF adding new baby, set up new segmentcontrol! else, ....
-    int i = 1;
-    for (Baby *babe in babyArray)
-    {
-        [segmentArray addObject:babe.name];
-        i++;
-    }
-        //TODO: move to set up class???
-    _segmentControll = [[UISegmentedControl alloc] initWithItems:segmentArray];
-    _segmentControll.frame = CGRectMake(0, 0, 320, 50);
-    _segmentControll.segmentedControlStyle = UISegmentedControlStylePlain;
-    _segmentControll.selectedSegmentIndex = 1;//TODO: == current babe
-    segmentWidth = 320 /(numberOfBabies +1);
- 
-   for (int i = 0; i <= numberOfBabies; i++) {
-    {
-        if (i == 0) {
-            UIImage *image = [self drawImageWithColor:[UIColor colorWithHexValue:kBlueish_Color alpha:0.8]];
-            UIImage *imageText =[self drawText:@"menu" inImage:image atPoint:CGPointMake(20, 10)];
-
-            [_segmentControll setImage:imageText forSegmentAtIndex:i];
-        } else {
-            NSString *color = [[babyArray objectAtIndex:i-1] babysColor];
-            UIImage *image = [self drawImageWithColor:[UIColor colorWithHexValue:color]];
-
-             UIImage *imageText =[self drawText:[[babyArray objectAtIndex:i-1] name] inImage:image atPoint:CGPointMake(20, 10)];
-           
-            [_segmentControll setImage:imageText forSegmentAtIndex:i];
-        }
-  
-    }
-
-    [_segmentControll addTarget:self action:@selector(segmentAction:) forControlEvents: UIControlEventValueChanged];
-    
-    [self.view addSubview:_segmentControll];
-       [_segmentControll setSelected:NO];
-       [_segmentControll setHighlighted:NO];
-       [_segmentControll setTintColor:[UIColor clearColor]];
-       
     CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI * 1.5);
     _foodSliderOne.transform = trans;
     currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
@@ -138,46 +138,46 @@
     _foodLabel.text = [NSString stringWithFormat:@"%.f",bottledFood];
    NSLog(@"slider ONE: %f ", [_foodSliderOne value]);
 
-   }
+  // }
     
 }
 
--(UIImage*)drawImageWithColor:(UIColor*)color
-{
-    //as big as 320/(numberofbabies+1)
-    UIGraphicsBeginImageContext(CGSizeMake(segmentWidth, 50));
-    [color setFill];
-    UIRectFill(CGRectMake(0, 0, segmentWidth, 50));
+//-(UIImage*)drawImageWithColor:(UIColor*)color
+//{
+//    //as big as 320/(numberofbabies+1)
+//    UIGraphicsBeginImageContext(CGSizeMake(segmentWidth, 50));
+//    [color setFill];
+//    UIRectFill(CGRectMake(0, 0, segmentWidth, 50));
+//
+//    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    
+//    return image;
+//}
+//-(UIImage*) drawText:(NSString*) text inImage:(UIImage*) image atPoint:(CGPoint) point
+//{
+//    
+//    UIFont *font = [UIFont fontWithName:@"HelveticaNeue" size:17];
+//    UIGraphicsBeginImageContext(image.size);
+//    [image drawInRect:CGRectMake(0,0,image.size.width,image.size.height)];
+//    CGRect rect = CGRectMake(point.x, point.y, image.size.width, image.size.height);
+//    [[UIColor blackColor] set];
+//    [text drawInRect:CGRectIntegral(rect) withFont:font];
+//    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    
+//    return newImage;
+//}
 
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return image;
-}
--(UIImage*) drawText:(NSString*) text inImage:(UIImage*) image atPoint:(CGPoint) point
-{
-    
-    UIFont *font = [UIFont fontWithName:@"HelveticaNeue" size:17];
-    UIGraphicsBeginImageContext(image.size);
-    [image drawInRect:CGRectMake(0,0,image.size.width,image.size.height)];
-    CGRect rect = CGRectMake(point.x, point.y, image.size.width, image.size.height);
-    [[UIColor blackColor] set];
-    [text drawInRect:CGRectIntegral(rect) withFont:font];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return newImage;
-}
-
--(void)showMenue
-{
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
-    
-    SLKSettingsViewController *controller = [sb instantiateInitialViewController];
-    [self presentViewController:controller animated:YES completion:^{
-        
-    }];
-}
+//-(void)showMenue
+//{
+//    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
+//    
+//    SLKSettingsViewController *controller = [sb instantiateInitialViewController];
+//    [self presentViewController:controller animated:YES completion:^{
+//        
+//    }];
+//}
 
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer
 {
@@ -211,27 +211,27 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadCalendar" object:nil];
 
 }
-- (IBAction)segmentAction:(id)sender {
-    
-    //TODO: set menu not selected when setting view is dissmissed
-    if ( _segmentControll.selectedSegmentIndex == 0 ) {
-//        [self performSegueWithIdentifier:@"menueSeg" sender:self];
-        [self showMenue];
-    } else {
-        for (int i = 0; i < numberOfBabies; i++) {
-             if ( _segmentControll.selectedSegmentIndex == i+1 ) {
-                 NSLog(@"change seg %d to %@",_segmentControll.selectedSegmentIndex, [[babyArray objectAtIndex:i] name]);
-                 [[SLKBabyStorage sharedStorage] setCurrentBaby:[babyArray objectAtIndex:i]];
-                 _anotherFoodLable.text = [NSString stringWithFormat: @"Log how much milk substitute %@ ate", [[babyArray objectAtIndex:i] name]];
-                 NSString *color = [[babyArray objectAtIndex:i] babysColor];
-                 NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
-                 
-                 [[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
-
-             }
-        }
-    }
-}
+//- (IBAction)segmentAction:(id)sender {
+//    
+//    //TODO: set menu not selected when setting view is dissmissed
+//    if ( _segmentControll.selectedSegmentIndex == 0 ) {
+////        [self performSegueWithIdentifier:@"menueSeg" sender:self];
+//        [self showMenue];
+//    } else {
+//        for (int i = 0; i < numberOfBabies; i++) {
+//             if ( _segmentControll.selectedSegmentIndex == i+1 ) {
+//                 NSLog(@"change seg %d to %@",_segmentControll.selectedSegmentIndex, [[babyArray objectAtIndex:i] name]);
+//                 [[SLKBabyStorage sharedStorage] setCurrentBaby:[babyArray objectAtIndex:i]];
+//                 _anotherFoodLable.text = [NSString stringWithFormat: @"Log how much milk substitute %@ ate", [[babyArray objectAtIndex:i] name]];
+//                 NSString *color = [[babyArray objectAtIndex:i] babysColor];
+//                 NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
+//                 
+//                 [[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
+//
+//             }
+//        }
+//    }
+//}
 
 //TODO: move to setTime class
 - (IBAction)setTime:(id)sender {

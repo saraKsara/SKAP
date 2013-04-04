@@ -14,16 +14,19 @@
 #import "SLKColors.h"
 #import "SLKConstants.h"
 #import "SLKUserDefaults.h"
+#import "SLKSettingsViewController.h"
 @implementation SLKAppDelegate
-
+{
+    UISegmentedControl *_segmentControll;
+    int numberOfBabies;
+    NSArray *babyArray;
+    float segmentWidth;
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //[AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-    
-    
     [Parse setApplicationId:@"4EQbwofsLU6tVbseSlCoOVvWBmW7MdlLuM4GCuCl"
                   clientKey:@"lh5Ib7m3Jab71RhCA1dBC2UrMR68dsTBzIlsFu6h"];
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound];
@@ -34,26 +37,31 @@
                                                object:nil];
 
     
-        //Set background color
-    UIColor *bgcolor = [UIColor colorWithHexValue:kBlueish_Color alpha:1];
     NSString *color;
+     [SLKPARSEService getAllObjects];
     
-    if ([SLKUserDefaults getTheCurrentBabe] == Nil) {
+    //TODO: on complete:
+    
+    //if there are no babies in storage after getting from server:
+    if ([[[SLKBabyStorage sharedStorage]babyArray]count] == 0 ) {
+        
         //change root view to adding baby
-        NSLog(@"there are NOOOOO babies in user default");
-    } else{
-        if ([[SLKBabyStorage sharedStorage]getCurrentBaby] != Nil) {
+        //[self setUpAppWithAddingBabyView];
+        NSLog(@"\n\n\n there are NOOOOO babies in user default, add one! \n\n\n");
+        
+    } else //there are babies in storage
+    {
+        if ([[SLKBabyStorage sharedStorage]getCurrentBaby] != nil) {
             color = [[[SLKBabyStorage sharedStorage]getCurrentBaby] babysColor];
-            bgcolor = [UIColor colorWithHexValue:color];
-            NSLog(@"there IS a CURRENT baby");
-        }else {  NSLog(@"there are babies in user default, but no current");
-              //a baby SHOLD BE choosen when created
+            NSLog(@"there IS a CURRENT baby :) ");
+        } else if ( [SLKUserDefaults getTheCurrentBabe] == nil)
+        {
+            NSLog(@"\n\n\n BAD!!! there are babies in storage, but no current... BAD \n\n\n");
         }
+        
+        [self setUpApp];
     }
-   // [self setBgColors:bgcolor];
     NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
-    NSLog(@"vavava-------- %@", [userInfo valueForKey:@"color"]);
-    
     [[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
     
 
@@ -63,10 +71,7 @@
        // [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
  //[[SLKBabyStorage sharedStorage] removeAllBabies];
-    [SLKPARSEService getAllObjects];
-    [self setUpApp];
 
-  //   //TODO: add "callback block"
     return YES;
 }
 
@@ -97,19 +102,18 @@
     
     return viewControllers;
 }
+-(void) setUpSegmentController:(NSNotification *) notification
+{
+
+}
 -(void) setTheBGColor:(NSNotification *) notification
 {
     NSLog(@"nya NOTTT: %@", [notification.userInfo allKeys]);
     NSString *color = [notification.userInfo objectForKey:@"color"];
     UIColor *bgColor = [UIColor colorWithHexValue:color];
-
-    
     self.window.backgroundColor = bgColor;
 }
-//-(void)setBgColors:(UIColor *)color
-//{
-//    self.window.backgroundColor = color;
-//}
+
 
 -(void)setUpApp
 {
@@ -126,18 +130,61 @@
     [[[self tabBarController] tabBar] setBackgroundImage:[UIImage imageNamed:@"tabbar_bg"]];
     [[[self tabBarController] tabBar] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar_bg_sel"]];
     
-    NSArray *statusItems = [[NSArray alloc] initWithObjects:@"one", @"two",@"three", nil];//or baby amount
-    UISegmentedControl *statusSegments = [[UISegmentedControl alloc] initWithItems:statusItems];
+        
+    babyArray = [[SLKBabyStorage sharedStorage] babyArray];
+    NSMutableArray *segmentArray = [[NSMutableArray alloc] initWithObjects:@"menu", nil];
+    
+    numberOfBabies = babyArray.count;
+    
+    //IF adding new baby, set up new segmentcontrol! else, ....
+    int i = 1;
+    for (Baby *babe in babyArray)
+    {
+        [segmentArray addObject:babe.name];
+        i++;
+    }
+    //TODO: move to set up class???
+    _segmentControll = [[UISegmentedControl alloc] initWithItems:segmentArray];
+    _segmentControll.frame = CGRectMake(0, 0, 320, 50);
+    _segmentControll.segmentedControlStyle = UISegmentedControlStylePlain;
+    _segmentControll.selectedSegmentIndex = 1;//TODO: == current babe
+    segmentWidth = 320 /(numberOfBabies +1);
+    
+    for (int i = 0; i <= numberOfBabies; i++) {
+        {
+            if (i == 0) {
+                UIImage *image = [self drawImageWithColor:[UIColor colorWithHexValue:kBlueish_Color alpha:0.8]];
+                UIImage *imageText =[self drawText:@"menu" inImage:image atPoint:CGPointMake(20, 25)];
+                
+                [_segmentControll setImage:imageText forSegmentAtIndex:i];
+            } else {
+                NSString *color = [[babyArray objectAtIndex:i-1] babysColor];
+                UIImage *image = [self drawImageWithColor:[UIColor colorWithHexValue:color]];
+                
+                UIImage *imageText =[self drawText:[[babyArray objectAtIndex:i-1] name] inImage:image atPoint:CGPointMake(20, 25)];
+                
+                [_segmentControll setImage:imageText forSegmentAtIndex:i];
+            }
+            
+        }
+        
+        [_segmentControll addTarget:self action:@selector(segmentAction:) forControlEvents: UIControlEventValueChanged];
+        
+        [self.tabBarController.view addSubview:_segmentControll];
+        [_segmentControll setSelected:NO];
+        [_segmentControll setHighlighted:NO];
+        [_segmentControll setTintColor:[UIColor clearColor]];
+
   
    // self.toolbarItems = toolbarItems;
     
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:statusSegments];
-     NSArray *toolbarItems = [[NSArray alloc] initWithObjects:item, nil];
-//    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 3210, 150)];
+//    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:statusSegments];
+//     NSArray *toolbarItems = [[NSArray alloc] initWithObjects:item, nil];
+
+        
+        //    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 3210, 150)];
 //    [toolBar setItems:toolbarItems];
-    [self.tabBarController setToolbarItems:toolbarItems];
-    
-    
+   // [self.tabBarController setToolbarItems:toolbarItems];
 //    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.tabBarController];
 //    
 //    UIBarButtonItem *menuBtn = [[UIBarButtonItem alloc] initWithTitle:@"menue"
@@ -152,7 +199,64 @@
     [self.window makeKeyAndVisible];
 }
 
+}
 
+- (IBAction)segmentAction:(id)sender {
+    
+    //TODO: set menu not selected when setting view is dissmissed
+    if ( _segmentControll.selectedSegmentIndex == 0 ) {
+        //        [self performSegueWithIdentifier:@"menueSeg" sender:self];
+        [self showMenue];
+    } else {
+        for (int i = 0; i < numberOfBabies; i++) {
+            if ( _segmentControll.selectedSegmentIndex == i+1 ) {
+                NSLog(@"change seg %d to %@",_segmentControll.selectedSegmentIndex, [[babyArray objectAtIndex:i] name]);
+                [[SLKBabyStorage sharedStorage] setCurrentBaby:[babyArray objectAtIndex:i]];
+
+                NSString *color = [[babyArray objectAtIndex:i] babysColor];
+                NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
+            }
+        }
+    }
+}
+
+-(UIImage*)drawImageWithColor:(UIColor*)color
+{
+    //as big as 320/(numberofbabies+1)
+    UIGraphicsBeginImageContext(CGSizeMake(segmentWidth, 50));
+    [color setFill];
+    UIRectFill(CGRectMake(0, 0, segmentWidth, 50));
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+-(UIImage*) drawText:(NSString*) text inImage:(UIImage*) image atPoint:(CGPoint) point
+{
+    
+    UIFont *font = [UIFont fontWithName:@"HelveticaNeue" size:17];
+    UIGraphicsBeginImageContext(image.size);
+    [image drawInRect:CGRectMake(0,0,image.size.width,image.size.height)];
+    CGRect rect = CGRectMake(point.x, point.y, image.size.width, image.size.height);
+    [[UIColor blackColor] set];
+    [text drawInRect:CGRectIntegral(rect) withFont:font];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+-(void)showMenue
+{
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
+    
+    SLKSettingsViewController *controller = [sb instantiateInitialViewController];
+//    [self presentViewController:controller animated:YES completion:^{
+//        
+//    }];
+}
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

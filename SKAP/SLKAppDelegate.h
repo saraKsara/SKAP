@@ -13,5 +13,4 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UITabBarController *tabBarController;
 @property (nonatomic, assign) BOOL online;
--(void)setBgColors:(UIColor*)color;
 @end
