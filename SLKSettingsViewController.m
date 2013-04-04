@@ -7,7 +7,7 @@
 //
 
 #import "SLKSettingsViewController.h"
-
+#import "SLKParentListCell.h"
 @interface SLKSettingsViewController ()
 
 @end
@@ -39,12 +39,41 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    if (tableView == _parentFigsTableview){
+        return 1;
+    } 
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+        if (tableView == _parentFigsTableview){
+            return 1;
+        }
+}
+
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView == _parentFigsTableview){
+    static NSString *CellIdentifier = @"parentListCell";
+    SLKParentListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    cell.nameLabel.text = @"a Parent fig";
+    cell.numberLabel.text = @"777";
+    return cell;
+    }
+}
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+        if (tableView != _parentFigsTableview){
     if (indexPath.row == 0) {
         [self dismissViewControllerAnimated:YES completion:^{
-           //set current babys color??
+            //set current babys color??
         }];
     }
+        }
 }
 @end

@@ -18,6 +18,8 @@
 		1C423F6F170D5EFE00DCB469 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C423F6E170D5EFE00DCB469 /* Settings.storyboard */; };
 		1C423F72170D622300DCB469 /* SLKSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C423F71170D622300DCB469 /* SLKSettingsViewController.m */; };
 		1C423F75170D627700DCB469 /* SLKSettingCells.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C423F74170D627700DCB469 /* SLKSettingCells.m */; };
+		1C47E06C170D70E800720AFE /* SLKInviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C47E06B170D70E800720AFE /* SLKInviteViewController.m */; };
+		1C47E070170D72AC00720AFE /* SLKParentListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C47E06F170D72AC00720AFE /* SLKParentListCell.m */; };
 		1C49EF29170889200073B6D6 /* SLKConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C49EF28170889200073B6D6 /* SLKConstants.m */; };
 		1C4ABF561705A1AD008468F9 /* Poo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4ABF551705A1AD008468F9 /* Poo.m */; };
 		1C4ABF591705A1AD008468F9 /* Bottle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4ABF581705A1AD008468F9 /* Bottle.m */; };
@@ -115,6 +117,10 @@
 		1C423F71170D622300DCB469 /* SLKSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKSettingsViewController.m; sourceTree = "<group>"; };
 		1C423F73170D627700DCB469 /* SLKSettingCells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKSettingCells.h; sourceTree = "<group>"; };
 		1C423F74170D627700DCB469 /* SLKSettingCells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKSettingCells.m; sourceTree = "<group>"; };
+		1C47E06A170D70E800720AFE /* SLKInviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKInviteViewController.h; sourceTree = "<group>"; };
+		1C47E06B170D70E800720AFE /* SLKInviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKInviteViewController.m; sourceTree = "<group>"; };
+		1C47E06E170D72AC00720AFE /* SLKParentListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKParentListCell.h; sourceTree = "<group>"; };
+		1C47E06F170D72AC00720AFE /* SLKParentListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKParentListCell.m; sourceTree = "<group>"; };
 		1C49EF27170889200073B6D6 /* SLKConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKConstants.h; sourceTree = "<group>"; };
 		1C49EF28170889200073B6D6 /* SLKConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKConstants.m; sourceTree = "<group>"; };
 		1C4ABF541705A1AD008468F9 /* Poo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Poo.h; sourceTree = "<group>"; };
@@ -273,8 +279,9 @@
 				1C423F6E170D5EFE00DCB469 /* Settings.storyboard */,
 				1C423F70170D622300DCB469 /* SLKSettingsViewController.h */,
 				1C423F71170D622300DCB469 /* SLKSettingsViewController.m */,
-				1C423F73170D627700DCB469 /* SLKSettingCells.h */,
-				1C423F74170D627700DCB469 /* SLKSettingCells.m */,
+				1C47E06D170D729500720AFE /* cells */,
+				1C47E06A170D70E800720AFE /* SLKInviteViewController.h */,
+				1C47E06B170D70E800720AFE /* SLKInviteViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -362,6 +369,17 @@
 				1CA7F8EF16FCA2FC008BB1BF /* SLKBabyListTableViewController.m */,
 			);
 			name = "Deprecated stuff";
+			sourceTree = "<group>";
+		};
+		1C47E06D170D729500720AFE /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				1C423F73170D627700DCB469 /* SLKSettingCells.h */,
+				1C423F74170D627700DCB469 /* SLKSettingCells.m */,
+				1C47E06E170D72AC00720AFE /* SLKParentListCell.h */,
+				1C47E06F170D72AC00720AFE /* SLKParentListCell.m */,
+			);
+			name = cells;
 			sourceTree = "<group>";
 		};
 		1C5BFC8E16FCF1FB00D1B238 /* Baby Cells */ = {
@@ -746,6 +764,8 @@
 				1C9DD681170CC93200032A1E /* Baby.m in Sources */,
 				1C423F72170D622300DCB469 /* SLKSettingsViewController.m in Sources */,
 				1C423F75170D627700DCB469 /* SLKSettingCells.m in Sources */,
+				1C47E06C170D70E800720AFE /* SLKInviteViewController.m in Sources */,
+				1C47E070170D72AC00720AFE /* SLKParentListCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

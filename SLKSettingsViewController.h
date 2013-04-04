@@ -14,4 +14,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *addBAby;
 @property (weak, nonatomic) IBOutlet UILabel *inviteFigures;
 
+@property (weak, nonatomic) IBOutlet UITableView *parentFigsTableview;
 @end
