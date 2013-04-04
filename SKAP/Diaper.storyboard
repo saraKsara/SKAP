@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="lfv-mn-ycL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="lfv-mn-ycL">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -46,7 +46,7 @@
                                     <action selector="save:" destination="lfv-mn-ycL" eventType="touchUpInside" id="FYl-sd-unf"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="iphone4Diaper.png" translatesAutoresizingMaskIntoConstraints="NO" id="SZf-7R-sdV">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="iphone4Diapercopy.png" translatesAutoresizingMaskIntoConstraints="NO" id="SZf-7R-sdV">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="XBo-0l-yWB"/>
                                     <constraint firstAttribute="width" constant="194" id="pQs-31-D7d"/>
@@ -232,6 +232,7 @@
                             <constraint firstItem="vlb-cM-JBg" firstAttribute="trailing" secondItem="Fx2-Z3-hnY" secondAttribute="trailing" type="default" id="Kfe-Q9-NHs"/>
                             <constraint firstAttribute="bottom" secondItem="Zhs-Ry-Yjo" secondAttribute="bottom" constant="207" id="NHB-i3-lbm"/>
                             <constraint firstItem="Zas-4N-LYl" firstAttribute="leading" secondItem="cKG-mH-hgR" secondAttribute="leading" type="default" id="NQy-KT-NT0"/>
+                            <constraint firstItem="SZf-7R-sdV" firstAttribute="top" secondItem="SNY-kC-qal" secondAttribute="top" constant="70" id="PDh-ia-IST"/>
                             <constraint firstItem="m3v-ZY-JPL" firstAttribute="leading" secondItem="SNY-kC-qal" secondAttribute="leading" constant="122" id="Qjg-v0-ZDi"/>
                             <constraint firstAttribute="bottom" secondItem="Sji-NB-3Uj" secondAttribute="bottom" constant="109" id="ToO-x8-g00"/>
                             <constraint firstItem="vlb-cM-JBg" firstAttribute="leading" secondItem="Urt-No-8s6" secondAttribute="leading" type="default" id="U0d-oO-XfJ"/>
@@ -255,11 +256,10 @@
                             <constraint firstItem="Zuo-Ol-H5P" firstAttribute="trailing" secondItem="Sji-NB-3Uj" secondAttribute="trailing" type="default" id="rHo-bV-wNy"/>
                             <constraint firstItem="Urt-No-8s6" firstAttribute="centerY" secondItem="zF1-1s-uLJ" secondAttribute="centerY" type="default" id="rKX-Ok-y2T"/>
                             <constraint firstItem="Zuo-Ol-H5P" firstAttribute="trailing" secondItem="3wY-rf-KRx" secondAttribute="trailing" type="default" id="rNt-nJ-kuz"/>
-                            <constraint firstItem="SZf-7R-sdV" firstAttribute="top" secondItem="SNY-kC-qal" secondAttribute="top" constant="85" id="sGx-W2-k8P"/>
                             <constraint firstItem="Mn3-rQ-ava" firstAttribute="trailing" secondItem="SNY-kC-qal" secondAttribute="trailing" type="default" id="vJc-Sc-0z6"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="DIAPER" image="blojaLys copy.png" id="Aaa-y4-ndj"/>
+                    <tabBarItem key="tabBarItem" title="DIAPER" image="blojaLyscopy.png" id="Aaa-y4-ndj"/>
                     <connections>
                         <outlet property="nameOfBabyLabel" destination="Mn3-rQ-ava" id="IFS-jC-teZ"/>
                         <outlet property="normalPii" destination="Zuo-Ol-H5P" id="aFC-Fo-KzO"/>
@@ -278,8 +278,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="blojaLys copy.png" width="38" height="29"/>
-        <image name="iphone4Diaper.png" width="412" height="321"/>
+        <image name="blojaLyscopy.png" width="38" height="29"/>
+        <image name="iphone4Diapercopy.png" width="412" height="321"/>
     </resources>
     <classes>
         <class className="NSLayoutConstraint" superclassName="NSObject">
