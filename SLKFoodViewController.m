@@ -21,6 +21,8 @@
 #import "SLKDateUtil.h"
 #import "SLKConstants.h"
 #import "SLKColors.h"
+#import "SLKSettingsViewController.h"
+
 
 @interface SLKFoodViewController ()
 
@@ -169,8 +171,14 @@
     return newImage;
 }
 
--(void)showMenue {
-    [self performSegueWithIdentifier:@"menueSeg" sender:self];
+-(void)showMenue
+{
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
+    
+    SLKSettingsViewController *controller = [sb instantiateInitialViewController];
+    [self presentViewController:controller animated:YES completion:^{
+        
+    }];
 }
 
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer
@@ -209,7 +217,8 @@
     
     //TODO: set menu not selected when setting view is dissmissed
     if ( _segmentControll.selectedSegmentIndex == 0 ) {
-        [self performSegueWithIdentifier:@"menueSeg" sender:self];
+//        [self performSegueWithIdentifier:@"menueSeg" sender:self];
+        [self showMenue];
     } else {
         for (int i = 0; i < numberOfBabies; i++) {
              if ( _segmentControll.selectedSegmentIndex == i+1 ) {
