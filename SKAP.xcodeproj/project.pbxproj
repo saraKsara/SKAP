@@ -355,8 +355,8 @@
 			children = (
 				1CF8282C1701BD6A00EDC904 /* SLKDaySummaryViewController.h */,
 				1CF8282D1701BD6A00EDC904 /* SLKDaySummaryViewController.m */,
-				1C423F7D170D6BB600DCB469 /* cells */,
 				1C137BDE17049F2F00A39F3A /* calendar.storyboard */,
+				1C423F7D170D6BB600DCB469 /* cells */,
 			);
 			name = Calendar;
 			sourceTree = "<group>";

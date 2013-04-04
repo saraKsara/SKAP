@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="lfv-mn-ycL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="lfv-mn-ycL">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -12,6 +12,9 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GyU-W8-kUj">
+                                <color key="backgroundColor" red="0.91370158410000002" green="0.92651865430000002" blue="0.91158011110000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Pii" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wY-rf-KRx">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -215,6 +218,7 @@
                         <constraints>
                             <constraint firstItem="nRS-zk-KLn" firstAttribute="leading" secondItem="SNY-kC-qal" secondAttribute="leading" constant="149" id="075-EU-JWb"/>
                             <constraint firstItem="B7v-3y-5fW" firstAttribute="trailing" secondItem="Sji-NB-3Uj" secondAttribute="trailing" type="default" id="15R-WA-MOp"/>
+                            <constraint firstItem="GyU-W8-kUj" firstAttribute="top" secondItem="SNY-kC-qal" secondAttribute="top" constant="13" id="2QM-Fd-QVv"/>
                             <constraint firstItem="wpf-Rm-Iqd" firstAttribute="top" secondItem="SNY-kC-qal" secondAttribute="top" constant="273" id="2VF-C4-XmH"/>
                             <constraint firstItem="Zas-4N-LYl" firstAttribute="top" secondItem="cKG-mH-hgR" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="2je-CM-HML"/>
                             <constraint firstItem="zF1-1s-uLJ" firstAttribute="leading" secondItem="SNY-kC-qal" secondAttribute="leading" constant="37" id="2uA-GC-GP7"/>
@@ -236,6 +240,7 @@
                             <constraint firstItem="m3v-ZY-JPL" firstAttribute="leading" secondItem="SNY-kC-qal" secondAttribute="leading" constant="122" id="Qjg-v0-ZDi"/>
                             <constraint firstAttribute="bottom" secondItem="Sji-NB-3Uj" secondAttribute="bottom" constant="109" id="ToO-x8-g00"/>
                             <constraint firstItem="vlb-cM-JBg" firstAttribute="leading" secondItem="Urt-No-8s6" secondAttribute="leading" type="default" id="U0d-oO-XfJ"/>
+                            <constraint firstItem="GyU-W8-kUj" firstAttribute="centerX" secondItem="Mn3-rQ-ava" secondAttribute="centerX" type="default" id="Ufg-c0-ukv"/>
                             <constraint firstAttribute="bottom" secondItem="Zas-4N-LYl" secondAttribute="bottom" constant="78" id="UoT-cN-zMP"/>
                             <constraint firstItem="Zas-4N-LYl" firstAttribute="bottom" secondItem="Fx2-Z3-hnY" secondAttribute="bottom" type="default" id="VXV-kP-9QF"/>
                             <constraint firstItem="vlb-cM-JBg" firstAttribute="leading" secondItem="Fx2-Z3-hnY" secondAttribute="leading" type="default" id="W2d-Rp-TQ2"/>
@@ -244,6 +249,7 @@
                             <constraint firstAttribute="bottom" secondItem="qwu-eV-OXr" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="Yat-ba-iwF"/>
                             <constraint firstItem="B7v-3y-5fW" firstAttribute="leading" secondItem="Sji-NB-3Uj" secondAttribute="leading" type="default" id="abg-Hs-Ybl"/>
                             <constraint firstItem="wdM-AD-3tK" firstAttribute="bottom" secondItem="wpf-Rm-Iqd" secondAttribute="bottom" type="default" id="atE-IP-Faf"/>
+                            <constraint firstItem="GyU-W8-kUj" firstAttribute="leading" secondItem="SNY-kC-qal" secondAttribute="leading" constant="11" id="bWh-T5-XYy"/>
                             <constraint firstItem="vlb-cM-JBg" firstAttribute="trailing" secondItem="Urt-No-8s6" secondAttribute="trailing" type="default" id="d7Z-Z1-Koq"/>
                             <constraint firstAttribute="bottom" secondItem="vlb-cM-JBg" secondAttribute="bottom" constant="108" id="eZk-Db-DnQ"/>
                             <constraint firstItem="3wY-rf-KRx" firstAttribute="baseline" secondItem="nRS-zk-KLn" secondAttribute="baseline" type="default" id="fKt-qS-DvN"/>
@@ -257,6 +263,7 @@
                             <constraint firstItem="Urt-No-8s6" firstAttribute="centerY" secondItem="zF1-1s-uLJ" secondAttribute="centerY" type="default" id="rKX-Ok-y2T"/>
                             <constraint firstItem="Zuo-Ol-H5P" firstAttribute="trailing" secondItem="3wY-rf-KRx" secondAttribute="trailing" type="default" id="rNt-nJ-kuz"/>
                             <constraint firstItem="Mn3-rQ-ava" firstAttribute="trailing" secondItem="SNY-kC-qal" secondAttribute="trailing" type="default" id="vJc-Sc-0z6"/>
+                            <constraint firstAttribute="bottom" secondItem="GyU-W8-kUj" secondAttribute="bottom" constant="-1" id="yVk-2h-aGg"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="DIAPER" image="blojaLyscopy.png" id="Aaa-y4-ndj"/>
@@ -281,31 +288,6 @@
         <image name="blojaLyscopy.png" width="38" height="29"/>
         <image name="iphone4Diapercopy.png" width="412" height="321"/>
     </resources>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SLKPiiPooViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKPiiPooViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="check:"/>
-                <relationship kind="action" name="later:"/>
-                <relationship kind="action" name="save:"/>
-                <relationship kind="action" name="setTimewithSlider:"/>
-                <relationship kind="action" name="sooner:"/>
-                <relationship kind="outlet" name="nameOfBabyLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="normalPii" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="normalPoo" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="save" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeSlider" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="tooLittlePii" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tooLittlePoo" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tooMuchPii" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tooMuchPoo" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
