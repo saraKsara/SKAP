@@ -288,9 +288,6 @@
         </class>
         <class className="SLKBabyPopViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKBabyPopViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="updateLabelFromPicker:"/>
-            </relationships>
         </class>
         <class className="SLKFoodViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKFoodViewController.h"/>
@@ -298,7 +295,6 @@
                 <relationship kind="action" name="handlePan:" candidateClass="UIPanGestureRecognizer"/>
                 <relationship kind="action" name="later:"/>
                 <relationship kind="action" name="save:"/>
-                <relationship kind="action" name="segmentAction:"/>
                 <relationship kind="action" name="setTime:"/>
                 <relationship kind="action" name="sliderOneValueChanged:"/>
                 <relationship kind="action" name="sooner:"/>

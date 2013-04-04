@@ -15,6 +15,9 @@
 		1C34EC7B1706EED10095F0C2 /* SLKPiiStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C34EC7A1706EED10095F0C2 /* SLKPiiStorage.m */; };
 		1C34EC7D170720730095F0C2 /* uncheckedBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C34EC7C170720730095F0C2 /* uncheckedBox.png */; };
 		1C34EC7F170720830095F0C2 /* checkedBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C34EC7E170720830095F0C2 /* checkedBox.png */; };
+		1C423F6F170D5EFE00DCB469 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C423F6E170D5EFE00DCB469 /* Settings.storyboard */; };
+		1C423F72170D622300DCB469 /* SLKSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C423F71170D622300DCB469 /* SLKSettingsViewController.m */; };
+		1C423F75170D627700DCB469 /* SLKSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C423F74170D627700DCB469 /* SLKSettingCell.m */; };
 		1C49EF29170889200073B6D6 /* SLKConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C49EF28170889200073B6D6 /* SLKConstants.m */; };
 		1C4ABF561705A1AD008468F9 /* Poo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4ABF551705A1AD008468F9 /* Poo.m */; };
 		1C4ABF591705A1AD008468F9 /* Bottle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4ABF581705A1AD008468F9 /* Bottle.m */; };
@@ -107,6 +110,11 @@
 		1C34EC7A1706EED10095F0C2 /* SLKPiiStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPiiStorage.m; sourceTree = "<group>"; };
 		1C34EC7C170720730095F0C2 /* uncheckedBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uncheckedBox.png; sourceTree = "<group>"; };
 		1C34EC7E170720830095F0C2 /* checkedBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkedBox.png; sourceTree = "<group>"; };
+		1C423F6E170D5EFE00DCB469 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		1C423F70170D622300DCB469 /* SLKSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKSettingsViewController.h; sourceTree = "<group>"; };
+		1C423F71170D622300DCB469 /* SLKSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKSettingsViewController.m; sourceTree = "<group>"; };
+		1C423F73170D627700DCB469 /* SLKSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKSettingCell.h; sourceTree = "<group>"; };
+		1C423F74170D627700DCB469 /* SLKSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKSettingCell.m; sourceTree = "<group>"; };
 		1C49EF27170889200073B6D6 /* SLKConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKConstants.h; sourceTree = "<group>"; };
 		1C49EF28170889200073B6D6 /* SLKConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKConstants.m; sourceTree = "<group>"; };
 		1C4ABF541705A1AD008468F9 /* Poo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Poo.h; sourceTree = "<group>"; };
@@ -405,6 +413,7 @@
 				1C36055D1704667D007FC517 /* Date utils */,
 				CE59449916F90DC800D9D33A /* Supporting Files */,
 				1C137BD817049EB700A39F3A /* Feed.storyboard */,
+				1C423F6E170D5EFE00DCB469 /* Settings.storyboard */,
 				1C137BDA17049EE800A39F3A /* Diaper.storyboard */,
 				1C137BDC17049EFC00A39F3A /* Medz.storyboard */,
 				1C137BDE17049F2F00A39F3A /* calendar.storyboard */,
@@ -483,6 +492,10 @@
 				1C5BFC8716FCDBF200D1B238 /* SLKBabyPopViewController.m */,
 				1CF8282B1701A9C100EDC904 /* Custom Alert */,
 				1CA7F8FC16FCB4EF008BB1BF /* popover */,
+				1C423F70170D622300DCB469 /* SLKSettingsViewController.h */,
+				1C423F71170D622300DCB469 /* SLKSettingsViewController.m */,
+				1C423F73170D627700DCB469 /* SLKSettingCell.h */,
+				1C423F74170D627700DCB469 /* SLKSettingCell.m */,
 			);
 			name = ViewController;
 			path = ..;
@@ -581,6 +594,7 @@
 				1C137BDF17049F2F00A39F3A /* calendar.storyboard in Resources */,
 				1C34EC7D170720730095F0C2 /* uncheckedBox.png in Resources */,
 				1C34EC7F170720830095F0C2 /* checkedBox.png in Resources */,
+				1C423F6F170D5EFE00DCB469 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,6 +672,8 @@
 				1C611ED2170C50EC0088016F /* Medz.m in Sources */,
 				1C9DD67B170CC1B400032A1E /* SLKColors.m in Sources */,
 				1C9DD681170CC93200032A1E /* Baby.m in Sources */,
+				1C423F72170D622300DCB469 /* SLKSettingsViewController.m in Sources */,
+				1C423F75170D627700DCB469 /* SLKSettingCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
