@@ -253,9 +253,9 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
     
     SLKSettingsViewController *controller = [sb instantiateInitialViewController];
-//    [self presentViewController:controller animated:YES completion:^{
-//        
-//    }];
+    [[[self.tabBarController viewControllers] objectAtIndex:0] presentViewController:controller animated:YES completion:^{
+        
+    }];
 }
 - (void)applicationWillResignActive:(UIApplication *)application
 {
