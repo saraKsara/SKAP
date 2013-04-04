@@ -53,6 +53,7 @@
 {
     [super viewWillAppear:YES];
     self.view.backgroundColor = [UIColor clearColor];
+[_timeSlider setThumbImage:[UIImage imageNamed:@"checkedBox"] forState:UIControlStateNormal];
 
     
     checkDirection = 30;

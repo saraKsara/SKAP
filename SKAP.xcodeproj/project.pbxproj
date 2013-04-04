@@ -436,6 +436,20 @@
 			name = Parse;
 			sourceTree = "<group>";
 		};
+		1C955AC8170E034A00310575 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				CE3ECB7F170DB444003FE39A /* blojaLyscopy.png */,
+				1C34EC7E170720830095F0C2 /* checkedBox.png */,
+				CE3ECB85170DB4D9003FE39A /* iphone4Diapercopy.png */,
+				1C34EC7C170720730095F0C2 /* uncheckedBox.png */,
+				CEF55A1117004A24008634DB /* milk.png */,
+				CE3ECB81170DB46F003FE39A /* blojanonLys.png */,
+				CE57277E170064A0003A72BF /* bottle.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		1CA7F8D916FC8B72008BB1BF /* SKAPUnitTest */ = {
 			isa = PBXGroup;
 			children = (
@@ -543,13 +557,7 @@
 		CE59449916F90DC800D9D33A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CE3ECB7F170DB444003FE39A /* blojaLyscopy.png */,
-				1C34EC7E170720830095F0C2 /* checkedBox.png */,
-				CE3ECB85170DB4D9003FE39A /* iphone4Diapercopy.png */,
-				1C34EC7C170720730095F0C2 /* uncheckedBox.png */,
-				CEF55A1117004A24008634DB /* milk.png */,
-				CE3ECB81170DB46F003FE39A /* blojanonLys.png */,
-				CE57277E170064A0003A72BF /* bottle.png */,
+				1C955AC8170E034A00310575 /* images */,
 				CE59449A16F90DC800D9D33A /* SKAP-Info.plist */,
 				CE59449B16F90DC800D9D33A /* InfoPlist.strings */,
 				CE59449E16F90DC800D9D33A /* main.m */,
