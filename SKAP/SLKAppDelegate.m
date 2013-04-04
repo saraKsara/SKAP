@@ -21,6 +21,7 @@
     int numberOfBabies;
     NSArray *babyArray;
     float segmentWidth;
+    int selectedIndex;
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -115,7 +116,6 @@
 -(void) setTheBGColor:(NSNotification *) notification
 {
     
-    NSLog(@"nya NOTTT: %@", [notification.userInfo allKeys]);
     NSString *color = [notification.userInfo objectForKey:@"color"];
     UIColor *bgColor = [UIColor colorWithHexValue:color];
     
@@ -189,19 +189,20 @@
 }
 
 - (IBAction)segmentAction:(id)sender {
-    
+     
     //TODO: set menu not selected when setting view is dissmissed
     if ( _segmentControll.selectedSegmentIndex == 0 ) {
         //        [self performSegueWithIdentifier:@"menueSeg" sender:self];
-        
+       
         //current baby+1 - index
-        [_segmentControll setSelectedSegmentIndex:1];
+        [_segmentControll setSelectedSegmentIndex:selectedIndex];
         
         [self showMenue];
     } else {
         for (int i = 0; i < numberOfBabies; i++) {
-            if ( _segmentControll.selectedSegmentIndex == i+1 ) {
-                NSLog(@"change seg %d to %@",_segmentControll.selectedSegmentIndex, [[babyArray objectAtIndex:i] name]);
+            if ( _segmentControll.selectedSegmentIndex == i+1 )
+            {
+                selectedIndex = _segmentControll.selectedSegmentIndex;
                 [[SLKBabyStorage sharedStorage] setCurrentBaby:[babyArray objectAtIndex:i]];
 
                 NSString *color = [[babyArray objectAtIndex:i] babysColor];
@@ -212,6 +213,8 @@
         }
     }
 }
+
+//TODO: make theese "all in one"
 -(UIImage*)drawImageBackgroundWithColor:(UIColor*)color
 {
     //as big as 320/(numberofbabies+1)
