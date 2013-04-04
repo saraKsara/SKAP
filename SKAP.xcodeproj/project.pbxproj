@@ -57,6 +57,7 @@
 		1CA7F90616FCBC04008BB1BF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449616F90DC800D9D33A /* CoreGraphics.framework */; };
 		1CECF55F170D8BF4008AFA74 /* Baby.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CECF55E170D8BF4008AFA74 /* Baby.m */; };
 		1CECF562170D8BF4008AFA74 /* ParentFigures.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CECF561170D8BF4008AFA74 /* ParentFigures.m */; };
+		1CECF565170D8D59008AFA74 /* SLKAddBabyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CECF564170D8D59008AFA74 /* SLKAddBabyViewController.m */; };
 		1CF828271701A36E00EDC904 /* SLKUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF828261701A36E00EDC904 /* SLKUserDefaults.m */; };
 		1CF8282A1701A9BA00EDC904 /* SLKAlertWithBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF828291701A9BA00EDC904 /* SLKAlertWithBlock.m */; };
 		1CF8282E1701BD6A00EDC904 /* SLKDaySummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF8282D1701BD6A00EDC904 /* SLKDaySummaryViewController.m */; };
@@ -180,6 +181,8 @@
 		1CECF55E170D8BF4008AFA74 /* Baby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Baby.m; sourceTree = "<group>"; };
 		1CECF560170D8BF4008AFA74 /* ParentFigures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentFigures.h; sourceTree = "<group>"; };
 		1CECF561170D8BF4008AFA74 /* ParentFigures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentFigures.m; sourceTree = "<group>"; };
+		1CECF563170D8D59008AFA74 /* SLKAddBabyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKAddBabyViewController.h; sourceTree = "<group>"; };
+		1CECF564170D8D59008AFA74 /* SLKAddBabyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKAddBabyViewController.m; sourceTree = "<group>"; };
 		1CF828251701A36E00EDC904 /* SLKUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKUserDefaults.h; sourceTree = "<group>"; };
 		1CF828261701A36E00EDC904 /* SLKUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKUserDefaults.m; sourceTree = "<group>"; };
 		1CF828281701A9BA00EDC904 /* SLKAlertWithBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKAlertWithBlock.h; sourceTree = "<group>"; };
@@ -285,6 +288,8 @@
 				1C47E06D170D729500720AFE /* cells */,
 				1C47E06A170D70E800720AFE /* SLKInviteViewController.h */,
 				1C47E06B170D70E800720AFE /* SLKInviteViewController.m */,
+				1CECF563170D8D59008AFA74 /* SLKAddBabyViewController.h */,
+				1CECF564170D8D59008AFA74 /* SLKAddBabyViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -772,6 +777,7 @@
 				1C47E070170D72AC00720AFE /* SLKParentListCell.m in Sources */,
 				1CECF55F170D8BF4008AFA74 /* Baby.m in Sources */,
 				1CECF562170D8BF4008AFA74 /* ParentFigures.m in Sources */,
+				1CECF565170D8D59008AFA74 /* SLKAddBabyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

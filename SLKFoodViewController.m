@@ -109,7 +109,7 @@
    for (int i = 0; i <= numberOfBabies; i++) {
     {
         if (i == 0) {
-            UIImage *image = [self drawImageWithColor:[UIColor colorWithHexValue:kBlueish_Color]];
+            UIImage *image = [self drawImageWithColor:[UIColor colorWithHexValue:kBlueish_Color alpha:0.8]];
             UIImage *imageText =[self drawText:@"menu" inImage:image atPoint:CGPointMake(20, 10)];
 
             [_segmentControll setImage:imageText forSegmentAtIndex:i];

@@ -9,12 +9,19 @@
 #import "SLKSettingsViewController.h"
 #import "SLKParentListCell.h"
 #import "SLKInviteViewController.h"
+#import "FPPopoverController.h"
+#import "FPTouchView.h"
+#import "FPPopoverView.h"
+#import "ARCMacros.h"
+#import "SLKAddBabyViewController.h"
 @interface SLKSettingsViewController ()
 
 @end
 
 @implementation SLKSettingsViewController
-
+{
+    FPPopoverController *popover;
+  }
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -138,7 +145,24 @@
               [self performSegueWithIdentifier:@"inviteSeg" sender:self];//links
         }else  if (indexPath.row ==3 )
         {
-              [self performSegueWithIdentifier:@"inviteSeg" sender:self];//add baby
+             // [self performSegueWithIdentifier:@"inviteSeg" sender:self];//add baby
+            NSLog(@"add baby");
+            SLKAddBabyViewController *controller = [[SLKAddBabyViewController alloc] init];
+            //[self presentModalViewController:controller animated:YES];
+            
+            
+            popover = [[FPPopoverController alloc] initWithViewController:controller];
+            
+            popover.tint = FPPopoverDefaultTint;
+            //[popover setAlpha:1];
+            popover.arrowDirection = FPPopoverNoArrow;
+            popover.border = NO;
+            popover.contentSize = CGSizeMake(220, 215);
+            
+            [popover presentPopoverFromPoint:CGPointMake(20, 20)];
+            
+            
+            
         }else  if (indexPath.row ==4 )
         {
              [self performSegueWithIdentifier:@"inviteSeg" sender:self]; //delete

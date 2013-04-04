@@ -52,10 +52,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(addBaby:)
-                                                 name:@"addBaby"
-                                               object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(addBaby:)
+//                                                 name:@"addBaby"
+//                                               object:nil];
     
     currentBaby = [[SLKBabyStorage sharedStorage]getCurrentBaby];
     
@@ -154,8 +154,8 @@
 //        popover.contentSize = CGSizeMake(220, 215);
 //       
 //        [popover presentPopoverFromPoint:CGPointMake(20, 20)];
-////        [popover presentPopoverFromView:self.tableView.superview];
-//        
+//        [popover presentPopoverFromView:self.tableView.superview];
+//
 //      
 //        
 //        
