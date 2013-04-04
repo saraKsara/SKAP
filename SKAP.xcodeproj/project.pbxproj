@@ -73,6 +73,9 @@
 		CE11D00F17023381001A5AD2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE11D00E17023381001A5AD2 /* Security.framework */; };
 		CE11D01117023395001A5AD2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE11D01017023395001A5AD2 /* StoreKit.framework */; };
 		CE11D013170233A0001A5AD2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE11D012170233A0001A5AD2 /* SystemConfiguration.framework */; };
+		CE3ECB80170DB444003FE39A /* blojaLyscopy.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3ECB7F170DB444003FE39A /* blojaLyscopy.png */; };
+		CE3ECB82170DB46F003FE39A /* blojanonLys.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3ECB81170DB46F003FE39A /* blojanonLys.png */; };
+		CE3ECB86170DB4D9003FE39A /* iphone4Diapercopy.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3ECB85170DB4D9003FE39A /* iphone4Diapercopy.png */; };
 		CE57277F170064A0003A72BF /* bottle.png in Resources */ = {isa = PBXBuildFile; fileRef = CE57277E170064A0003A72BF /* bottle.png */; };
 		CE59449316F90DC800D9D33A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449216F90DC800D9D33A /* UIKit.framework */; };
 		CE59449516F90DC800D9D33A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449416F90DC800D9D33A /* Foundation.framework */; };
@@ -202,6 +205,9 @@
 		CE11D00E17023381001A5AD2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CE11D01017023395001A5AD2 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		CE11D012170233A0001A5AD2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CE3ECB7F170DB444003FE39A /* blojaLyscopy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blojaLyscopy.png; sourceTree = "<group>"; };
+		CE3ECB81170DB46F003FE39A /* blojanonLys.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blojanonLys.png; sourceTree = "<group>"; };
+		CE3ECB85170DB4D9003FE39A /* iphone4Diapercopy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone4Diapercopy.png; sourceTree = "<group>"; };
 		CE57277E170064A0003A72BF /* bottle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottle.png; sourceTree = "<group>"; };
 		CE59448E16F90DC800D9D33A /* SKAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE59449216F90DC800D9D33A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -537,9 +543,12 @@
 		CE59449916F90DC800D9D33A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CE3ECB7F170DB444003FE39A /* blojaLyscopy.png */,
 				1C34EC7E170720830095F0C2 /* checkedBox.png */,
+				CE3ECB85170DB4D9003FE39A /* iphone4Diapercopy.png */,
 				1C34EC7C170720730095F0C2 /* uncheckedBox.png */,
 				CEF55A1117004A24008634DB /* milk.png */,
+				CE3ECB81170DB46F003FE39A /* blojanonLys.png */,
 				CE57277E170064A0003A72BF /* bottle.png */,
 				CE59449A16F90DC800D9D33A /* SKAP-Info.plist */,
 				CE59449B16F90DC800D9D33A /* InfoPlist.strings */,
@@ -695,6 +704,9 @@
 				1C34EC7D170720730095F0C2 /* uncheckedBox.png in Resources */,
 				1C34EC7F170720830095F0C2 /* checkedBox.png in Resources */,
 				1C423F6F170D5EFE00DCB469 /* Settings.storyboard in Resources */,
+				CE3ECB80170DB444003FE39A /* blojaLyscopy.png in Resources */,
+				CE3ECB82170DB46F003FE39A /* blojanonLys.png in Resources */,
+				CE3ECB86170DB4D9003FE39A /* iphone4Diapercopy.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
