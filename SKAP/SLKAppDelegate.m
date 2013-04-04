@@ -35,6 +35,11 @@
                                              selector:@selector(setTheBGColor:)
                                                  name:@"changeBabyColor"
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(setUpApp)
+                                                 name:@"setUpSegmentControlls"
+                                               object:nil];
 
     
     NSString *color;
@@ -48,7 +53,7 @@
         //change root view to adding baby
         //[self setUpAppWithAddingBabyView];
         NSLog(@"\n\n\n there are NOOOOO babies in user default, add one! \n\n\n");
-        
+         [self setUpApp];//for now
     } else //there are babies in storage
     {
         if ([[SLKBabyStorage sharedStorage]getCurrentBaby] != nil) {
@@ -58,8 +63,9 @@
         {
             NSLog(@"\n\n\n BAD!!! there are babies in storage, but no current... BAD \n\n\n");
         }
-        
-        [self setUpApp];
+        [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpSegmentControlls" object:nil userInfo:nil];
+
+       // [self setUpApp];
     }
     NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
     [[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
@@ -121,13 +127,9 @@
 
 -(void)setUpApp
 {
-    //TODO:set up nicer
-    //set segmentcontrol on tabbar here?????
-    //check if there is babies and set rootview to settings if not, so user can add baby
-    
+   
     self.tabBarController = [[UITabBarController alloc] init];
-//    NSArray *array = [NSArray arrayWithObjects:navController,[self createViewControllersForStoryboards:@[ @"Feed", @"Diaper", @"Medz",@"calendar"]], nil];
-//    self.tabBarController.viewControllers = array;
+
     self.tabBarController.viewControllers = [self createViewControllersForStoryboards:@[ @"Feed", @"Diaper", @"Medz",@"calendar"]];
     
     // Tab styling :)
@@ -159,7 +161,7 @@
             if (i == 0) {
                 UIImage *image = [self drawImageWithColor:[UIColor colorWithHexValue:kBlueish_Color alpha:0.8]];
                 UIImage *imageText =[self drawText:@"menu" inImage:image atPoint:CGPointMake(20, 25)];
-                
+              
                 [_segmentControll setImage:imageText forSegmentAtIndex:i];
             } else {
                 NSString *color = [[babyArray objectAtIndex:i-1] babysColor];
@@ -179,26 +181,7 @@
         [_segmentControll setHighlighted:NO];
         [_segmentControll setTintColor:[UIColor clearColor]];
 
-  
-   // self.toolbarItems = toolbarItems;
-    
-//    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:statusSegments];
-//     NSArray *toolbarItems = [[NSArray alloc] initWithObjects:item, nil];
 
-        
-        //    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 3210, 150)];
-//    [toolBar setItems:toolbarItems];
-   // [self.tabBarController setToolbarItems:toolbarItems];
-//    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.tabBarController];
-//    
-//    UIBarButtonItem *menuBtn = [[UIBarButtonItem alloc] initWithTitle:@"menue"
-//                                                                style:UIBarButtonItemStyleBordered
-//                                                               target:[[_tabBarController viewControllers]objectAtIndex:0]
-//                                                               action:@selector(showMenue)];
- 
-    
-   // [[[self tabBarController]navigationItem] setLeftBarButtonItem:menuBtn];
-//    [self.window setRootViewController: navController];
     [self.window setRootViewController:self.tabBarController];
     [self.window makeKeyAndVisible];
 }
@@ -210,6 +193,10 @@
     //TODO: set menu not selected when setting view is dissmissed
     if ( _segmentControll.selectedSegmentIndex == 0 ) {
         //        [self performSegueWithIdentifier:@"menueSeg" sender:self];
+        
+        //current baby+1 - index
+        [_segmentControll setSelectedSegmentIndex:1];
+        
         [self showMenue];
     } else {
         for (int i = 0; i < numberOfBabies; i++) {
