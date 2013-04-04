@@ -18,13 +18,13 @@
                                 <color key="backgroundColor" red="0.91370158410000002" green="0.92651865430000002" blue="0.91158011110000003" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="This is what happened to today" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="el2-38-JBq">
-                                <rect key="frame" x="42" y="74" width="237" height="55"/>
+                                <rect key="frame" x="42" y="95" width="237" height="55"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LMK-x0-GT4">
-                                <rect key="frame" x="208" y="13" width="92" height="32"/>
+                                <rect key="frame" x="208" y="55" width="92" height="32"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <state key="normal" title="next day >">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -38,7 +38,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="XDt-YX-iof">
-                                <rect key="frame" x="15" y="13" width="94" height="32"/>
+                                <rect key="frame" x="15" y="55" width="94" height="32"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <state key="normal" title="&lt; previous day">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -122,6 +122,28 @@
             </objects>
         </scene>
     </scenes>
+    <classes>
+        <class className="SLKDaySummaryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKDaySummaryViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="nextDay:"/>
+                <relationship kind="action" name="prevDay:"/>
+                <relationship kind="outlet" name="foodLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="headerLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="peeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pooLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="SLKDayViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKDayViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="eventLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="propertyLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
