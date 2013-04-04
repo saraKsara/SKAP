@@ -108,10 +108,14 @@
 }
 -(void) setTheBGColor:(NSNotification *) notification
 {
+    
     NSLog(@"nya NOTTT: %@", [notification.userInfo allKeys]);
     NSString *color = [notification.userInfo objectForKey:@"color"];
     UIColor *bgColor = [UIColor colorWithHexValue:color];
-    self.window.backgroundColor = bgColor;
+    
+    UIImage *image = [self drawImageBackgroundWithColor:bgColor];
+    UIImage *imageText =[self drawBIGText:@"HEJ SARA" inImage:image atPoint:CGPointMake(20, 55)];
+    self.window.backgroundColor = [UIColor colorWithPatternImage:imageText];
 }
 
 
@@ -221,7 +225,18 @@
         }
     }
 }
-
+-(UIImage*)drawImageBackgroundWithColor:(UIColor*)color
+{
+    //as big as 320/(numberofbabies+1)
+    UIGraphicsBeginImageContext(CGSizeMake(320, 500));
+    [color setFill];
+    UIRectFill(CGRectMake(0, 0, 320, 500));
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
 -(UIImage*)drawImageWithColor:(UIColor*)color
 {
     //as big as 320/(numberofbabies+1)
@@ -233,6 +248,20 @@
     UIGraphicsEndImageContext();
     
     return image;
+}
+-(UIImage*) drawBIGText:(NSString*) text inImage:(UIImage*) image atPoint:(CGPoint) point
+{
+    
+    UIFont *font = [UIFont fontWithName:@"HelveticaNeue" size:25];
+    UIGraphicsBeginImageContext(image.size);
+    [image drawInRect:CGRectMake(0,0,image.size.width,image.size.height)];
+    CGRect rect = CGRectMake(point.x, point.y, image.size.width, image.size.height);
+    [[UIColor blackColor] set];
+    [text drawInRect:CGRectIntegral(rect) withFont:font];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
 }
 -(UIImage*) drawText:(NSString*) text inImage:(UIImage*) image atPoint:(CGPoint) point
 {
