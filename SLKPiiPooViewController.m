@@ -53,7 +53,7 @@
 {
     [super viewWillAppear:YES];
     self.view.backgroundColor = [UIColor clearColor];
-[_timeSlider setThumbImage:[UIImage imageNamed:@"checkedBox"] forState:UIControlStateNormal];
+//[_timeSlider setThumbImage:[UIImage imageNamed:@"checkedBox"] forState:UIControlStateNormal];
 
     
     checkDirection = 30;
@@ -72,8 +72,8 @@
     time = [SLKDateUtil formatTimeFromDate:date];
     _timeLabel.text = time;
     
-    checkedImage = [UIImage imageNamed:@"checkedBox"];
-    unCheckedImage = [UIImage imageNamed:@"uncheckedBox"];
+    checkedImage = [UIImage imageNamed:@"checkedYES"];
+    unCheckedImage = [UIImage imageNamed:@"checkedNO"];
     
     [_normalPoo setImage:unCheckedImage forState:UIControlStateNormal];
     [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];

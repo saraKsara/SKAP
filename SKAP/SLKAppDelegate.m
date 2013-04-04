@@ -120,7 +120,7 @@
     UIColor *bgColor = [UIColor colorWithHexValue:color];
     
     UIImage *image = [self drawImageBackgroundWithColor:bgColor];
-    UIImage *imageText =[self drawBIGText:@"HEJ SARA" inImage:image atPoint:CGPointMake(20, 55)];
+    UIImage *imageText =[self drawBIGText:@"HIRE US" inImage:image atPoint:CGPointMake(20, 55)];
     self.window.backgroundColor = [UIColor colorWithPatternImage:imageText];
 }
 

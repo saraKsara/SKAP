@@ -73,6 +73,8 @@
 		CE11D00F17023381001A5AD2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE11D00E17023381001A5AD2 /* Security.framework */; };
 		CE11D01117023395001A5AD2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE11D01017023395001A5AD2 /* StoreKit.framework */; };
 		CE11D013170233A0001A5AD2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE11D012170233A0001A5AD2 /* SystemConfiguration.framework */; };
+		CE1D76F3170E284B00028416 /* checkedNO.png in Resources */ = {isa = PBXBuildFile; fileRef = CE1D76F1170E284B00028416 /* checkedNO.png */; };
+		CE1D76F4170E284B00028416 /* checkedYES.png in Resources */ = {isa = PBXBuildFile; fileRef = CE1D76F2170E284B00028416 /* checkedYES.png */; };
 		CE3ECB80170DB444003FE39A /* blojaLyscopy.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3ECB7F170DB444003FE39A /* blojaLyscopy.png */; };
 		CE3ECB82170DB46F003FE39A /* blojanonLys.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3ECB81170DB46F003FE39A /* blojanonLys.png */; };
 		CE3ECB86170DB4D9003FE39A /* iphone4Diapercopy.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3ECB85170DB4D9003FE39A /* iphone4Diapercopy.png */; };
@@ -205,6 +207,8 @@
 		CE11D00E17023381001A5AD2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CE11D01017023395001A5AD2 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		CE11D012170233A0001A5AD2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CE1D76F1170E284B00028416 /* checkedNO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkedNO.png; sourceTree = "<group>"; };
+		CE1D76F2170E284B00028416 /* checkedYES.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkedYES.png; sourceTree = "<group>"; };
 		CE3ECB7F170DB444003FE39A /* blojaLyscopy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blojaLyscopy.png; sourceTree = "<group>"; };
 		CE3ECB81170DB46F003FE39A /* blojanonLys.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blojanonLys.png; sourceTree = "<group>"; };
 		CE3ECB85170DB4D9003FE39A /* iphone4Diapercopy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone4Diapercopy.png; sourceTree = "<group>"; };
@@ -439,6 +443,8 @@
 		1C955AC8170E034A00310575 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				CE1D76F1170E284B00028416 /* checkedNO.png */,
+				CE1D76F2170E284B00028416 /* checkedYES.png */,
 				CE3ECB7F170DB444003FE39A /* blojaLyscopy.png */,
 				1C34EC7E170720830095F0C2 /* checkedBox.png */,
 				CE3ECB85170DB4D9003FE39A /* iphone4Diapercopy.png */,
@@ -715,6 +721,8 @@
 				CE3ECB80170DB444003FE39A /* blojaLyscopy.png in Resources */,
 				CE3ECB82170DB46F003FE39A /* blojanonLys.png in Resources */,
 				CE3ECB86170DB4D9003FE39A /* iphone4Diapercopy.png in Resources */,
+				CE1D76F3170E284B00028416 /* checkedNO.png in Resources */,
+				CE1D76F4170E284B00028416 /* checkedYES.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
