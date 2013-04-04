@@ -17,6 +17,8 @@
 #import "SLKEventStorage.h"
 #import "SLKDates.h"
 #import "SLKDateUtil.h"
+#import "SLKConstants.h"
+#import "SLKColors.h"
 @interface SLKPiiPooViewController ()
 
 @end
@@ -50,6 +52,10 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
+    self.view.backgroundColor = [UIColor clearColor];
+[_timeSlider setThumbImage:[UIImage imageNamed:@"checkedBox"] forState:UIControlStateNormal];
+
+    
     checkDirection = 30;
     piiToAddNormal = NO;
     piiToAddTooMuch = NO;

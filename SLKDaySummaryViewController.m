@@ -20,6 +20,7 @@
 #import "SLKDayViewCell.h"
 #import "SLKConstants.h"
 #import "SLKTittStorage.h"
+#import "SLKColors.h"
 
 @interface SLKDaySummaryViewController ()
 
@@ -45,7 +46,8 @@
     [super viewWillAppear:YES];
     currentDay = [NSDate date];
     currentBaby = [[SLKBabyStorage sharedStorage] getCurrentBaby];
-    
+    self.view.backgroundColor = [UIColor clearColor];
+
     _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@",
                          currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
     

@@ -9,12 +9,25 @@
 #import "SLKSettingsViewController.h"
 #import "SLKParentListCell.h"
 #import "SLKInviteViewController.h"
+#import "FPPopoverController.h"
+#import "FPTouchView.h"
+#import "FPPopoverView.h"
+#import "ARCMacros.h"
+#import "SLKAddBabyViewController.h"
+#import "SLKAppDelegate.h"
+#import "SLKBabyStorage.h"
+#import "Baby.h"
 @interface SLKSettingsViewController ()
 
 @end
 
 @implementation SLKSettingsViewController
-
+{
+    FPPopoverController *popover;
+    SLKAddBabyViewController *controller;
+    
+    Baby *currentBabe;
+  }
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -34,12 +47,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    [_parentFigsTableview numberOfRowsInSection:1];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+      controller = [[SLKAddBabyViewController alloc] init];
+    currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
  
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+  
 }
 
 - (void)didReceiveMemoryWarning
@@ -129,6 +140,12 @@
         if (indexPath.row ==0 ) {
             [self dismissViewControllerAnimated:YES completion:^{
                 //set current babys color??
+                NSString *color = currentBabe.babysColor;
+                NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
+
+                
             }];
         } else  if (indexPath.row ==1 )
         {
@@ -138,7 +155,26 @@
               [self performSegueWithIdentifier:@"inviteSeg" sender:self];//links
         }else  if (indexPath.row ==3 )
         {
-              [self performSegueWithIdentifier:@"inviteSeg" sender:self];//add baby
+                
+            [self performSegueWithIdentifier:@"addBabySeg" sender:self];//links
+
+//          [self presentViewController:controller animated:YES completion:^{
+//              
+//          }];
+            
+            
+//            popover = [[FPPopoverController alloc] initWithViewController:controller];
+//            
+//            popover.tint = FPPopoverDefaultTint;
+//            [popover setAlpha:1];
+//            //popover.arrowDirection = FPPopoverNoArrow;
+//            popover.border = NO;
+//            popover.contentSize = CGSizeMake(320, 215);
+////            [popover presentPopoverFromView:self.view];
+//           [popover presentPopoverFromPoint:CGPointMake(20, 20)];
+//            
+            
+            
         }else  if (indexPath.row ==4 )
         {
              [self performSegueWithIdentifier:@"inviteSeg" sender:self]; //delete
