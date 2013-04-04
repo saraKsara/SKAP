@@ -114,7 +114,7 @@
     UIColor *bgColor = [UIColor colorWithHexValue:color];
     
     UIImage *image = [self drawImageBackgroundWithColor:bgColor];
-    UIImage *imageText =[self drawBIGText:@"HEJ SARA" inImage:image atPoint:CGPointMake(30, 55)];
+    UIImage *imageText =[self drawBIGText:@"HEJ SARA" inImage:image atPoint:CGPointMake(20, 55)];
     self.window.backgroundColor = [UIColor colorWithPatternImage:imageText];
 }
 
@@ -252,7 +252,7 @@
 -(UIImage*) drawBIGText:(NSString*) text inImage:(UIImage*) image atPoint:(CGPoint) point
 {
     
-    UIFont *font = [UIFont fontWithName:@"HelveticaNeue" size:37];
+    UIFont *font = [UIFont fontWithName:@"HelveticaNeue" size:25];
     UIGraphicsBeginImageContext(image.size);
     [image drawInRect:CGRectMake(0,0,image.size.width,image.size.height)];
     CGRect rect = CGRectMake(point.x, point.y, image.size.width, image.size.height);
