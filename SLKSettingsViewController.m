@@ -21,6 +21,7 @@
 @implementation SLKSettingsViewController
 {
     FPPopoverController *popover;
+    SLKAddBabyViewController *controller;
   }
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -41,12 +42,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    [_parentFigsTableview numberOfRowsInSection:1];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+      controller = [[SLKAddBabyViewController alloc] init];
+    
+  
 }
 
 - (void)didReceiveMemoryWarning
@@ -145,22 +143,22 @@
               [self performSegueWithIdentifier:@"inviteSeg" sender:self];//links
         }else  if (indexPath.row ==3 )
         {
-             // [self performSegueWithIdentifier:@"inviteSeg" sender:self];//add baby
-            NSLog(@"add baby");
-            SLKAddBabyViewController *controller = [[SLKAddBabyViewController alloc] init];
-            //[self presentModalViewController:controller animated:YES];
+                
+          [self presentViewController:controller animated:YES completion:^{
+              
+          }];
             
             
-            popover = [[FPPopoverController alloc] initWithViewController:controller];
-            
-            popover.tint = FPPopoverDefaultTint;
-            //[popover setAlpha:1];
-            popover.arrowDirection = FPPopoverNoArrow;
-            popover.border = NO;
-            popover.contentSize = CGSizeMake(220, 215);
-            
-            [popover presentPopoverFromPoint:CGPointMake(20, 20)];
-            
+//            popover = [[FPPopoverController alloc] initWithViewController:controller];
+//            
+//            popover.tint = FPPopoverDefaultTint;
+//            [popover setAlpha:1];
+//            //popover.arrowDirection = FPPopoverNoArrow;
+//            popover.border = NO;
+//            popover.contentSize = CGSizeMake(320, 215);
+////            [popover presentPopoverFromView:self.view];
+//           [popover presentPopoverFromPoint:CGPointMake(20, 20)];
+//            
             
             
         }else  if (indexPath.row ==4 )

@@ -12,7 +12,7 @@
 #import "SLKDateUtil.h"
 #import "SLKConstants.h"
 #import "SLKPARSEService.h"
-@interface SLKAddBabyViewController ()
+@interface SLKAddBabyViewController (FPPopoverController)
 
 @end
 
@@ -54,6 +54,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[self view] setBackgroundColor:[UIColor grayColor]];
     anewBabuLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 250, 20)];
     [anewBabuLabel setBackgroundColor:[UIColor greenColor]];
     anewBabuLabel.text = @"Type in the name of you new baby";
@@ -103,6 +104,30 @@
     [bDayPicker setDatePickerMode:UIDatePickerModeDate];
     bDayPicker.frame = CGRectMake(0, 100 , 300, 280);
     [bDayPicker addTarget:self action:@selector(updateLabelFromPicker:) forControlEvents:UIControlEventValueChanged];
+    
+    UILabel *colorLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 30, 230, 20)];
+    [colorLabel setBackgroundColor:[UIColor clearColor]];
+    [colorLabel setTextColor:[UIColor blackColor]];
+    colorLabel.text = @"choose a color for your baby:";
+    [self.view addSubview:colorLabel];
+    
+    UILabel *greenLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 130, 230, 20)];
+    [greenLabel setBackgroundColor:[UIColor clearColor]];
+    [greenLabel setTextColor:[UIColor blackColor]];
+    greenLabel.text = @"green:";
+    [self.view addSubview:greenLabel];
+    
+    UILabel *yellowLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 150, 230, 20)];
+    [yellowLabel setBackgroundColor:[UIColor clearColor]];
+    [yellowLabel setTextColor:[UIColor blackColor]];
+    yellowLabel.text = @"yellow:";
+    [self.view addSubview:yellowLabel];
+    
+    UILabel *blueLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 170, 230, 20)];
+    [blueLabel setBackgroundColor:[UIColor clearColor]];
+    [blueLabel setTextColor:[UIColor blackColor]];
+    blueLabel.text = @"blue:";
+    [self.view addSubview:blueLabel];
 
 }
 
