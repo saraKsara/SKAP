@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Baby, Event;
+@class Event, ParentFigures;
 
 @interface Baby : NSManagedObject
 
@@ -19,7 +19,7 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * type;
 @property (nonatomic, retain) NSSet *event;
-@property (nonatomic, retain) NSSet *parentFigures;
+@property (nonatomic, retain) NSSet *parents;
 @end
 
 @interface Baby (CoreDataGeneratedAccessors)
@@ -29,9 +29,9 @@
 - (void)addEvent:(NSSet *)values;
 - (void)removeEvent:(NSSet *)values;
 
-- (void)addParentFiguresObject:(Baby *)value;
-- (void)removeParentFiguresObject:(Baby *)value;
-- (void)addParentFigures:(NSSet *)values;
-- (void)removeParentFigures:(NSSet *)values;
+- (void)addParentsObject:(ParentFigures *)value;
+- (void)removeParentsObject:(ParentFigures *)value;
+- (void)addParents:(NSSet *)values;
+- (void)removeParents:(NSSet *)values;
 
 @end

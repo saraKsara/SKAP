@@ -16,14 +16,14 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * number;
 @property (nonatomic, retain) NSString * parentColor;
-@property (nonatomic, retain) NSSet *baby;
+@property (nonatomic, retain) NSSet *babies;
 @end
 
 @interface ParentFigures (CoreDataGeneratedAccessors)
 
-- (void)addBabyObject:(Baby *)value;
-- (void)removeBabyObject:(Baby *)value;
-- (void)addBaby:(NSSet *)values;
-- (void)removeBaby:(NSSet *)values;
+- (void)addBabiesObject:(Baby *)value;
+- (void)removeBabiesObject:(Baby *)value;
+- (void)addBabies:(NSSet *)values;
+- (void)removeBabies:(NSSet *)values;
 
 @end

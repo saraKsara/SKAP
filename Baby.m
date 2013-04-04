@@ -7,8 +7,8 @@
 //
 
 #import "Baby.h"
-#import "Baby.h"
 #import "Event.h"
+#import "ParentFigures.h"
 
 
 @implementation Baby
@@ -19,6 +19,6 @@
 @dynamic name;
 @dynamic type;
 @dynamic event;
-@dynamic parentFigures;
+@dynamic parents;
 
 @end

@@ -7,7 +7,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="event" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="baby" inverseEntity="Event" syncable="YES"/>
-        <relationship name="parentFigures" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Baby" inverseName="parentFigures" inverseEntity="Baby" syncable="YES"/>
+        <relationship name="parents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ParentFigures" inverseName="babies" inverseEntity="ParentFigures" syncable="YES"/>
     </entity>
     <entity name="Bottle" representedClassName="Bottle" syncable="YES">
         <attribute name="milliLitres" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -47,7 +47,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="parentColor" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="baby" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Baby" syncable="YES"/>
+        <relationship name="babies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Baby" inverseName="parents" inverseEntity="Baby" syncable="YES"/>
     </entity>
     <entity name="Pii" representedClassName="Pii" syncable="YES">
         <attribute name="normal" optional="YES" attributeType="Boolean" syncable="YES"/>

@@ -55,8 +55,8 @@
 		1CA7F8F316FCA47E008BB1BF /* SLKBabyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7F8F216FCA47E008BB1BF /* SLKBabyCell.m */; };
 		1CA7F90516FCBBF3008BB1BF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA7F90416FCBBF3008BB1BF /* QuartzCore.framework */; };
 		1CA7F90616FCBC04008BB1BF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449616F90DC800D9D33A /* CoreGraphics.framework */; };
-		1CECF559170D8B19008AFA74 /* ParentFigures.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CECF558170D8B19008AFA74 /* ParentFigures.m */; };
-		1CECF55C170D8B19008AFA74 /* Baby.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CECF55B170D8B19008AFA74 /* Baby.m */; };
+		1CECF55F170D8BF4008AFA74 /* Baby.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CECF55E170D8BF4008AFA74 /* Baby.m */; };
+		1CECF562170D8BF4008AFA74 /* ParentFigures.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CECF561170D8BF4008AFA74 /* ParentFigures.m */; };
 		1CF828271701A36E00EDC904 /* SLKUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF828261701A36E00EDC904 /* SLKUserDefaults.m */; };
 		1CF8282A1701A9BA00EDC904 /* SLKAlertWithBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF828291701A9BA00EDC904 /* SLKAlertWithBlock.m */; };
 		1CF8282E1701BD6A00EDC904 /* SLKDaySummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF8282D1701BD6A00EDC904 /* SLKDaySummaryViewController.m */; };
@@ -176,10 +176,10 @@
 		1CA7F8F116FCA47E008BB1BF /* SLKBabyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKBabyCell.h; sourceTree = "<group>"; };
 		1CA7F8F216FCA47E008BB1BF /* SLKBabyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKBabyCell.m; sourceTree = "<group>"; };
 		1CA7F90416FCBBF3008BB1BF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		1CECF557170D8B19008AFA74 /* ParentFigures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentFigures.h; sourceTree = "<group>"; };
-		1CECF558170D8B19008AFA74 /* ParentFigures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentFigures.m; sourceTree = "<group>"; };
-		1CECF55A170D8B19008AFA74 /* Baby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baby.h; sourceTree = "<group>"; };
-		1CECF55B170D8B19008AFA74 /* Baby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Baby.m; sourceTree = "<group>"; };
+		1CECF55D170D8BF4008AFA74 /* Baby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baby.h; sourceTree = "<group>"; };
+		1CECF55E170D8BF4008AFA74 /* Baby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Baby.m; sourceTree = "<group>"; };
+		1CECF560170D8BF4008AFA74 /* ParentFigures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentFigures.h; sourceTree = "<group>"; };
+		1CECF561170D8BF4008AFA74 /* ParentFigures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentFigures.m; sourceTree = "<group>"; };
 		1CF828251701A36E00EDC904 /* SLKUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKUserDefaults.h; sourceTree = "<group>"; };
 		1CF828261701A36E00EDC904 /* SLKUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKUserDefaults.m; sourceTree = "<group>"; };
 		1CF828281701A9BA00EDC904 /* SLKAlertWithBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKAlertWithBlock.h; sourceTree = "<group>"; };
@@ -471,10 +471,10 @@
 		CE59448316F90DC800D9D33A = {
 			isa = PBXGroup;
 			children = (
-				1CECF55A170D8B19008AFA74 /* Baby.h */,
-				1CECF55B170D8B19008AFA74 /* Baby.m */,
-				1CECF557170D8B19008AFA74 /* ParentFigures.h */,
-				1CECF558170D8B19008AFA74 /* ParentFigures.m */,
+				1CECF560170D8BF4008AFA74 /* ParentFigures.h */,
+				1CECF561170D8BF4008AFA74 /* ParentFigures.m */,
+				1CECF55D170D8BF4008AFA74 /* Baby.h */,
+				1CECF55E170D8BF4008AFA74 /* Baby.m */,
 				CE59449816F90DC800D9D33A /* SKAP */,
 				1CA7F8D916FC8B72008BB1BF /* SKAPUnitTest */,
 				CE59449116F90DC800D9D33A /* Frameworks */,
@@ -770,8 +770,8 @@
 				1C423F75170D627700DCB469 /* SLKSettingCells.m in Sources */,
 				1C47E06C170D70E800720AFE /* SLKInviteViewController.m in Sources */,
 				1C47E070170D72AC00720AFE /* SLKParentListCell.m in Sources */,
-				1CECF559170D8B19008AFA74 /* ParentFigures.m in Sources */,
-				1CECF55C170D8B19008AFA74 /* Baby.m in Sources */,
+				1CECF55F170D8BF4008AFA74 /* Baby.m in Sources */,
+				1CECF562170D8BF4008AFA74 /* ParentFigures.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

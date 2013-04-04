@@ -15,6 +15,6 @@
 @dynamic name;
 @dynamic number;
 @dynamic parentColor;
-@dynamic baby;
+@dynamic babies;
 
 @end
