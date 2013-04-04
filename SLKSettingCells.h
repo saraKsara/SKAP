@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SLKSettingCell : UITableViewCell
+@interface SLKSettingCells : UITableViewCell
+
+
+
 
 @end

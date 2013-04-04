@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface SLKSettingsViewController : UITableViewController
+@property (weak, nonatomic) IBOutlet UILabel *logout;
+@property (weak, nonatomic) IBOutlet UILabel *links;
+@property (weak, nonatomic) IBOutlet UILabel *addBAby;
+@property (weak, nonatomic) IBOutlet UILabel *inviteFigures;
 
 @end

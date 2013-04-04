@@ -174,7 +174,6 @@
                         <outlet property="foodSliderOne" destination="TsR-EZ-3Gc" id="hOy-Lb-MBR"/>
                         <outlet property="setTimeLabel" destination="b1o-Fe-Htg" id="gjk-9U-YEf"/>
                         <outlet property="timeSlider" destination="wHh-QR-jB8" id="ZR0-fy-fnt"/>
-                        <segue destination="fdd-Qk-ug0" kind="modal" identifier="menueSeg" id="yWs-Dx-6Kt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z6j-PW-2qg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -267,45 +266,6 @@
         <image name="bottle.png" width="640" height="1065"/>
         <image name="milk.png" width="206" height="479"/>
     </resources>
-    <classes>
-        <class className="SLKAddBabyCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKAddBabyCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="addBabuLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="SLKBabyCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKBabyCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="babyNameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="SLKBabyListTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKBabyListTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="close:" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="SLKBabyPopViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKBabyPopViewController.h"/>
-        </class>
-        <class className="SLKFoodViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKFoodViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="handlePan:" candidateClass="UIPanGestureRecognizer"/>
-                <relationship kind="action" name="later:"/>
-                <relationship kind="action" name="save:"/>
-                <relationship kind="action" name="setTime:"/>
-                <relationship kind="action" name="sliderOneValueChanged:"/>
-                <relationship kind="action" name="sooner:"/>
-                <relationship kind="outlet" name="anotherFoodLable" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="foodLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="foodSliderOne" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="setTimeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeSlider" candidateClass="UISlider"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

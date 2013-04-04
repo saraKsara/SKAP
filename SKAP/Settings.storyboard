@@ -15,7 +15,7 @@
                         <sections>
                             <tableViewSection id="8Go-if-ij6">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="21Y-Ql-bfd" customClass="SLKSettingCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="21Y-Ql-bfd" customClass="SLKSettingCells">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -38,7 +38,7 @@
                                             <constraint firstItem="wuQ-y3-I8C" firstAttribute="leading" secondItem="21Y-Ql-bfd" secondAttribute="leading" constant="20" type="default" id="XJR-yC-9G9"/>
                                         </constraints>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="di3-JI-Y0c" customClass="SLKSettingCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="di3-JI-Y0c" customClass="SLKSettingCells">
                                         <rect key="frame" x="0.0" y="44" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -58,7 +58,7 @@
                                             <constraint firstItem="lZQ-eV-Sjq" firstAttribute="leading" secondItem="di3-JI-Y0c" secondAttribute="leading" constant="20" type="default" id="uba-Mg-FfW"/>
                                         </constraints>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="dFQ-Yp-R97" customClass="SLKSettingCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="dFQ-Yp-R97" customClass="SLKSettingCells">
                                         <rect key="frame" x="0.0" y="88" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -81,7 +81,7 @@
                                             <constraint firstItem="sJc-Cb-6Mk" firstAttribute="leading" secondItem="dFQ-Yp-R97" secondAttribute="leading" constant="20" type="default" id="wEp-Tn-dKE"/>
                                         </constraints>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="BCR-K4-yUs" customClass="SLKSettingCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="BCR-K4-yUs" customClass="SLKSettingCells">
                                         <rect key="frame" x="0.0" y="132" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -104,7 +104,7 @@
                                             <constraint firstItem="lFR-bz-Ifk" firstAttribute="top" secondItem="BCR-K4-yUs" secondAttribute="top" constant="11" id="Iq9-nV-3GL"/>
                                         </constraints>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="K8t-Q6-pzk" customClass="SLKSettingCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="K8t-Q6-pzk" customClass="SLKSettingCells">
                                         <rect key="frame" x="0.0" y="176" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -132,23 +132,18 @@
                             <outlet property="delegate" destination="3Pb-sJ-mIn" id="Njf-N4-SsR"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="addBAby" destination="sJc-Cb-6Mk" id="Jlq-CP-aFT"/>
+                        <outlet property="inviteFigures" destination="lZQ-eV-Sjq" id="XgS-IA-zXg"/>
+                        <outlet property="links" destination="lFR-bz-Ifk" id="dtr-Cz-xyW"/>
+                        <outlet property="logout" destination="p4J-cj-7KA" id="11k-Do-rdW"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a5h-rt-Tfp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="218" y="651"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SLKSettingCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKSettingCell.h"/>
-        </class>
-        <class className="SLKSettingsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKSettingsViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

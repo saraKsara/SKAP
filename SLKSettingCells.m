@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Student vid Yrkeshögskola C3L. All rights reserved.
 //
 
-#import "SLKSettingCell.h"
+#import "SLKSettingCells.h"
 
-@implementation SLKSettingCell
+@implementation SLKSettingCells
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

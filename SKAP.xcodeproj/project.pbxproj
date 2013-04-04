@@ -17,7 +17,7 @@
 		1C34EC7F170720830095F0C2 /* checkedBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C34EC7E170720830095F0C2 /* checkedBox.png */; };
 		1C423F6F170D5EFE00DCB469 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C423F6E170D5EFE00DCB469 /* Settings.storyboard */; };
 		1C423F72170D622300DCB469 /* SLKSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C423F71170D622300DCB469 /* SLKSettingsViewController.m */; };
-		1C423F75170D627700DCB469 /* SLKSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C423F74170D627700DCB469 /* SLKSettingCell.m */; };
+		1C423F75170D627700DCB469 /* SLKSettingCells.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C423F74170D627700DCB469 /* SLKSettingCells.m */; };
 		1C49EF29170889200073B6D6 /* SLKConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C49EF28170889200073B6D6 /* SLKConstants.m */; };
 		1C4ABF561705A1AD008468F9 /* Poo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4ABF551705A1AD008468F9 /* Poo.m */; };
 		1C4ABF591705A1AD008468F9 /* Bottle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4ABF581705A1AD008468F9 /* Bottle.m */; };
@@ -100,21 +100,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1C137BD817049EB700A39F3A /* Feed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
-		1C137BDA17049EE800A39F3A /* Diaper.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Diaper.storyboard; sourceTree = "<group>"; };
-		1C137BDC17049EFC00A39F3A /* Medz.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Medz.storyboard; sourceTree = "<group>"; };
-		1C137BDE17049F2F00A39F3A /* calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = calendar.storyboard; sourceTree = "<group>"; };
+		1C137BD817049EB700A39F3A /* Feed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Feed.storyboard; path = SKAP/Feed.storyboard; sourceTree = "<group>"; };
+		1C137BDA17049EE800A39F3A /* Diaper.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Diaper.storyboard; path = SKAP/Diaper.storyboard; sourceTree = "<group>"; };
+		1C137BDC17049EFC00A39F3A /* Medz.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Medz.storyboard; path = SKAP/Medz.storyboard; sourceTree = "<group>"; };
+		1C137BDE17049F2F00A39F3A /* calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = calendar.storyboard; path = SKAP/calendar.storyboard; sourceTree = "<group>"; };
 		1C34EC761706EC700095F0C2 /* SLKPooStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKPooStorage.h; sourceTree = "<group>"; };
 		1C34EC771706EC700095F0C2 /* SLKPooStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPooStorage.m; sourceTree = "<group>"; };
 		1C34EC791706EED10095F0C2 /* SLKPiiStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKPiiStorage.h; sourceTree = "<group>"; };
 		1C34EC7A1706EED10095F0C2 /* SLKPiiStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPiiStorage.m; sourceTree = "<group>"; };
 		1C34EC7C170720730095F0C2 /* uncheckedBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uncheckedBox.png; sourceTree = "<group>"; };
 		1C34EC7E170720830095F0C2 /* checkedBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkedBox.png; sourceTree = "<group>"; };
-		1C423F6E170D5EFE00DCB469 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		1C423F6E170D5EFE00DCB469 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = SKAP/Settings.storyboard; sourceTree = "<group>"; };
 		1C423F70170D622300DCB469 /* SLKSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKSettingsViewController.h; sourceTree = "<group>"; };
 		1C423F71170D622300DCB469 /* SLKSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKSettingsViewController.m; sourceTree = "<group>"; };
-		1C423F73170D627700DCB469 /* SLKSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKSettingCell.h; sourceTree = "<group>"; };
-		1C423F74170D627700DCB469 /* SLKSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKSettingCell.m; sourceTree = "<group>"; };
+		1C423F73170D627700DCB469 /* SLKSettingCells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKSettingCells.h; sourceTree = "<group>"; };
+		1C423F74170D627700DCB469 /* SLKSettingCells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKSettingCells.m; sourceTree = "<group>"; };
 		1C49EF27170889200073B6D6 /* SLKConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKConstants.h; sourceTree = "<group>"; };
 		1C49EF28170889200073B6D6 /* SLKConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKConstants.m; sourceTree = "<group>"; };
 		1C4ABF541705A1AD008468F9 /* Poo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Poo.h; sourceTree = "<group>"; };
@@ -267,6 +267,103 @@
 			name = "Date utils";
 			sourceTree = "<group>";
 		};
+		1C423F76170D6AE100DCB469 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1C423F6E170D5EFE00DCB469 /* Settings.storyboard */,
+				1C423F70170D622300DCB469 /* SLKSettingsViewController.h */,
+				1C423F71170D622300DCB469 /* SLKSettingsViewController.m */,
+				1C423F73170D627700DCB469 /* SLKSettingCells.h */,
+				1C423F74170D627700DCB469 /* SLKSettingCells.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		1C423F77170D6B0000DCB469 /* Food */ = {
+			isa = PBXGroup;
+			children = (
+				CE5944D216F9A79800D9D33A /* SLKFoodViewController.h */,
+				CE5944D316F9A79800D9D33A /* SLKFoodViewController.m */,
+				1C137BD817049EB700A39F3A /* Feed.storyboard */,
+			);
+			name = Food;
+			sourceTree = "<group>";
+		};
+		1C423F78170D6B2F00DCB469 /* User Defaults and Constants */ = {
+			isa = PBXGroup;
+			children = (
+				1C49EF27170889200073B6D6 /* SLKConstants.h */,
+				1C49EF28170889200073B6D6 /* SLKConstants.m */,
+				1CF828251701A36E00EDC904 /* SLKUserDefaults.h */,
+				1CF828261701A36E00EDC904 /* SLKUserDefaults.m */,
+			);
+			name = "User Defaults and Constants";
+			sourceTree = "<group>";
+		};
+		1C423F79170D6B5000DCB469 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				1C9DD679170CC1B300032A1E /* SLKColors.h */,
+				1C9DD67A170CC1B300032A1E /* SLKColors.m */,
+			);
+			name = Color;
+			sourceTree = "<group>";
+		};
+		1C423F7A170D6B6500DCB469 /* Diaper */ = {
+			isa = PBXGroup;
+			children = (
+				CE5944D516F9A7B700D9D33A /* SLKPiiPooViewController.h */,
+				CE5944D616F9A7B700D9D33A /* SLKPiiPooViewController.m */,
+				1C137BDA17049EE800A39F3A /* Diaper.storyboard */,
+			);
+			name = Diaper;
+			sourceTree = "<group>";
+		};
+		1C423F7B170D6B7700DCB469 /* Medz */ = {
+			isa = PBXGroup;
+			children = (
+				1C880E891704BBAB0027E528 /* SLKMedzViewController.h */,
+				1C880E8A1704BBAB0027E528 /* SLKMedzViewController.m */,
+				1C137BDC17049EFC00A39F3A /* Medz.storyboard */,
+			);
+			name = Medz;
+			sourceTree = "<group>";
+		};
+		1C423F7C170D6B9100DCB469 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				1CF8282C1701BD6A00EDC904 /* SLKDaySummaryViewController.h */,
+				1CF8282D1701BD6A00EDC904 /* SLKDaySummaryViewController.m */,
+				1C423F7D170D6BB600DCB469 /* cells */,
+				1C137BDE17049F2F00A39F3A /* calendar.storyboard */,
+			);
+			name = Calendar;
+			sourceTree = "<group>";
+		};
+		1C423F7D170D6BB600DCB469 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				1C7F473F17087A2C00C258F8 /* SLKDayViewCell.h */,
+				1C7F474017087A2C00C258F8 /* SLKDayViewCell.m */,
+			);
+			name = cells;
+			sourceTree = "<group>";
+		};
+		1C423F7E170D6BCE00DCB469 /* Deprecated stuff */ = {
+			isa = PBXGroup;
+			children = (
+				1C5BFC8E16FCF1FB00D1B238 /* Baby Cells */,
+				1C5BFC8616FCDBF200D1B238 /* SLKBabyPopViewController.h */,
+				1C5BFC8716FCDBF200D1B238 /* SLKBabyPopViewController.m */,
+				CE5944AA16F90DC800D9D33A /* MainStoryboard.storyboard */,
+				CE5944CE16F9A67200D9D33A /* SLKMainViewController.h */,
+				CE5944CF16F9A67200D9D33A /* SLKMainViewController.m */,
+				1CA7F8EE16FCA2FC008BB1BF /* SLKBabyListTableViewController.h */,
+				1CA7F8EF16FCA2FC008BB1BF /* SLKBabyListTableViewController.m */,
+			);
+			name = "Deprecated stuff";
+			sourceTree = "<group>";
+		};
 		1C5BFC8E16FCF1FB00D1B238 /* Baby Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,8 +371,6 @@
 				1CA7F8F216FCA47E008BB1BF /* SLKBabyCell.m */,
 				1C5BFC8A16FCF18B00D1B238 /* SLKAddBabyCell.h */,
 				1C5BFC8B16FCF18B00D1B238 /* SLKAddBabyCell.m */,
-				1C7F473F17087A2C00C258F8 /* SLKDayViewCell.h */,
-				1C7F474017087A2C00C258F8 /* SLKDayViewCell.m */,
 			);
 			name = "Baby Cells";
 			sourceTree = "<group>";
@@ -403,20 +498,10 @@
 				1C91DDE116FC4FC700921C59 /* Parse */,
 				CE5944A116F90DC800D9D33A /* SLKAppDelegate.h */,
 				CE5944A216F90DC800D9D33A /* SLKAppDelegate.m */,
-				CE5944AA16F90DC800D9D33A /* MainStoryboard.storyboard */,
-				1CF828251701A36E00EDC904 /* SLKUserDefaults.h */,
-				1CF828261701A36E00EDC904 /* SLKUserDefaults.m */,
-				1C9DD679170CC1B300032A1E /* SLKColors.h */,
-				1C9DD67A170CC1B300032A1E /* SLKColors.m */,
-				1C49EF27170889200073B6D6 /* SLKConstants.h */,
-				1C49EF28170889200073B6D6 /* SLKConstants.m */,
+				1C423F78170D6B2F00DCB469 /* User Defaults and Constants */,
+				1C423F79170D6B5000DCB469 /* Color */,
 				1C36055D1704667D007FC517 /* Date utils */,
 				CE59449916F90DC800D9D33A /* Supporting Files */,
-				1C137BD817049EB700A39F3A /* Feed.storyboard */,
-				1C423F6E170D5EFE00DCB469 /* Settings.storyboard */,
-				1C137BDA17049EE800A39F3A /* Diaper.storyboard */,
-				1C137BDC17049EFC00A39F3A /* Medz.storyboard */,
-				1C137BDE17049F2F00A39F3A /* calendar.storyboard */,
 			);
 			path = SKAP;
 			sourceTree = "<group>";
@@ -475,27 +560,14 @@
 		CE5944D116F9A6B900D9D33A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CE5944CE16F9A67200D9D33A /* SLKMainViewController.h */,
-				CE5944CF16F9A67200D9D33A /* SLKMainViewController.m */,
-				CE5944D216F9A79800D9D33A /* SLKFoodViewController.h */,
-				CE5944D316F9A79800D9D33A /* SLKFoodViewController.m */,
-				CE5944D516F9A7B700D9D33A /* SLKPiiPooViewController.h */,
-				CE5944D616F9A7B700D9D33A /* SLKPiiPooViewController.m */,
-				1C880E891704BBAB0027E528 /* SLKMedzViewController.h */,
-				1C880E8A1704BBAB0027E528 /* SLKMedzViewController.m */,
-				1CF8282C1701BD6A00EDC904 /* SLKDaySummaryViewController.h */,
-				1CF8282D1701BD6A00EDC904 /* SLKDaySummaryViewController.m */,
-				1CA7F8EE16FCA2FC008BB1BF /* SLKBabyListTableViewController.h */,
-				1CA7F8EF16FCA2FC008BB1BF /* SLKBabyListTableViewController.m */,
-				1C5BFC8E16FCF1FB00D1B238 /* Baby Cells */,
-				1C5BFC8616FCDBF200D1B238 /* SLKBabyPopViewController.h */,
-				1C5BFC8716FCDBF200D1B238 /* SLKBabyPopViewController.m */,
+				1C423F77170D6B0000DCB469 /* Food */,
+				1C423F7A170D6B6500DCB469 /* Diaper */,
+				1C423F7B170D6B7700DCB469 /* Medz */,
+				1C423F7C170D6B9100DCB469 /* Calendar */,
+				1C423F7E170D6BCE00DCB469 /* Deprecated stuff */,
 				1CF8282B1701A9C100EDC904 /* Custom Alert */,
 				1CA7F8FC16FCB4EF008BB1BF /* popover */,
-				1C423F70170D622300DCB469 /* SLKSettingsViewController.h */,
-				1C423F71170D622300DCB469 /* SLKSettingsViewController.m */,
-				1C423F73170D627700DCB469 /* SLKSettingCell.h */,
-				1C423F74170D627700DCB469 /* SLKSettingCell.m */,
+				1C423F76170D6AE100DCB469 /* Settings */,
 			);
 			name = ViewController;
 			path = ..;
@@ -673,7 +745,7 @@
 				1C9DD67B170CC1B400032A1E /* SLKColors.m in Sources */,
 				1C9DD681170CC93200032A1E /* Baby.m in Sources */,
 				1C423F72170D622300DCB469 /* SLKSettingsViewController.m in Sources */,
-				1C423F75170D627700DCB469 /* SLKSettingCell.m in Sources */,
+				1C423F75170D627700DCB469 /* SLKSettingCells.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,6 +782,7 @@
 				CE5944AB16F90DC800D9D33A /* en */,
 			);
 			name = MainStoryboard.storyboard;
+			path = SKAP;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

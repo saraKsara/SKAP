@@ -39,5 +39,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        [self dismissViewControllerAnimated:YES completion:^{
+           //set current babys color??
+        }];
+    }
+}
 @end
