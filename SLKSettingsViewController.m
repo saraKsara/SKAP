@@ -14,6 +14,9 @@
 #import "FPPopoverView.h"
 #import "ARCMacros.h"
 #import "SLKAddBabyViewController.h"
+#import "SLKAppDelegate.h"
+#import "SLKBabyStorage.h"
+#import "Baby.h"
 @interface SLKSettingsViewController ()
 
 @end
@@ -22,6 +25,8 @@
 {
     FPPopoverController *popover;
     SLKAddBabyViewController *controller;
+    
+    Baby *currentBabe;
   }
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -43,8 +48,8 @@
 {
     [super viewDidLoad];
       controller = [[SLKAddBabyViewController alloc] init];
-
-    
+    currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
+ 
   
 }
 
@@ -135,6 +140,12 @@
         if (indexPath.row ==0 ) {
             [self dismissViewControllerAnimated:YES completion:^{
                 //set current babys color??
+                NSString *color = currentBabe.babysColor;
+                NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
+
+                
             }];
         } else  if (indexPath.row ==1 )
         {

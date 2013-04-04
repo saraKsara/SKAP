@@ -7,13 +7,18 @@
 //
 
 #import "SLKMedzViewController.h"
-
+#import "SLKConstants.h"
+#import "SLKColors.h"
+#import "Baby.h"
+#import "SLKBabyStorage.h"
 @interface SLKMedzViewController ()
 
 @end
 
 @implementation SLKMedzViewController
-
+{
+    Baby *currentBabe;
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -25,8 +30,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor clearColor];
+    
+    currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
   
-	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning

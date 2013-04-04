@@ -30,7 +30,6 @@
 
 @implementation SLKFoodViewController
 {
-    UIColor *bgColor;
     float bottledFood;
     SLKBabyListTableViewController *settingsVC;
     float checkDirection;
@@ -72,9 +71,8 @@
     //TODO: move to set up class???
      [_segmentControll setSelected:NO];
     
-    
-    bgColor = [UIColor colorWithHexValue:currentBabe.babysColor];
-    [[self view] setBackgroundColor:bgColor];
+    self.view.backgroundColor = [UIColor clearColor];
+
     
     checkDirection = 30;
     date = [NSDate date];
@@ -226,8 +224,10 @@
                  [[SLKBabyStorage sharedStorage] setCurrentBaby:[babyArray objectAtIndex:i]];
                  _anotherFoodLable.text = [NSString stringWithFormat: @"Log how much milk substitute %@ ate", [[babyArray objectAtIndex:i] name]];
                  NSString *color = [[babyArray objectAtIndex:i] babysColor];
-                  bgColor = [UIColor colorWithHexValue:color];
-                     [[self view] setBackgroundColor:bgColor];
+                 NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
+                 
+                 [[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
+
              }
         }
     }

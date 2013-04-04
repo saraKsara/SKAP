@@ -10,6 +10,10 @@
 #import "SLKPARSEService.h"
 #import "SLKBabyStorage.h"
 #import "Baby.h"
+#import "SLKMedzViewController.h"
+#import "SLKColors.h"
+#import "SLKConstants.h"
+#import "SLKUserDefaults.h"
 @implementation SLKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -24,7 +28,35 @@
                   clientKey:@"lh5Ib7m3Jab71RhCA1dBC2UrMR68dsTBzIlsFu6h"];
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound];
     
-   
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(setTheBGColor:)
+                                                 name:@"changeBabyColor"
+                                               object:nil];
+
+    
+        //Set background color
+    UIColor *bgcolor = [UIColor colorWithHexValue:kBlueish_Color alpha:1];
+    NSString *color;
+    
+    if ([SLKUserDefaults getTheCurrentBabe] == Nil) {
+        //change root view to adding baby
+        NSLog(@"there are NOOOOO babies in user default");
+    } else{
+        if ([[SLKBabyStorage sharedStorage]getCurrentBaby] != Nil) {
+            color = [[[SLKBabyStorage sharedStorage]getCurrentBaby] babysColor];
+            bgcolor = [UIColor colorWithHexValue:color];
+            NSLog(@"there IS a CURRENT baby");
+        }else {  NSLog(@"there are babies in user default, but no current");
+              //a baby SHOLD BE choosen when created
+        }
+    }
+   // [self setBgColors:bgcolor];
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
+    NSLog(@"vavava-------- %@", [userInfo valueForKey:@"color"]);
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
+    
+
     //to get statistics from users
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
@@ -65,6 +97,20 @@
     
     return viewControllers;
 }
+-(void) setTheBGColor:(NSNotification *) notification
+{
+    NSLog(@"nya NOTTT: %@", [notification.userInfo allKeys]);
+    NSString *color = [notification.userInfo objectForKey:@"color"];
+    UIColor *bgColor = [UIColor colorWithHexValue:color];
+
+    
+    self.window.backgroundColor = bgColor;
+}
+//-(void)setBgColors:(UIColor *)color
+//{
+//    self.window.backgroundColor = color;
+//}
+
 -(void)setUpApp
 {
     //TODO:set up nicer

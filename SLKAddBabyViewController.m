@@ -84,14 +84,20 @@
     
     [SLKPARSEService postObject:babyObject onSuccess:^(PFObject *object)
      {
-         [[SLKBabyStorage sharedStorage] createBabyWithName:[object objectForKey:@"name"]
+       Baby *theNewBabe =  [[SLKBabyStorage sharedStorage] createBabyWithName:[object objectForKey:@"name"]
                                                      babyId:[object objectId]
                                                        date:nil
                                                        type:nil
                                                       color:[object objectForKey:@"color"]];
          
          NSLog(@"SUCCEED to create %@",[object objectForKey:@"name"] );
+         [[SLKBabyStorage sharedStorage] setCurrentBaby:theNewBabe];
+        
+         NSString *color = theNewBabe.babysColor;
+         NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
          
+         [[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
+
          //         [popover dismissPopoverAnimated:YES completion:^{
          //            // [self.tableView reloadData];
          //         }];
