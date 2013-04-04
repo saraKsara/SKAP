@@ -8,6 +8,7 @@
 
 #import "SLKSettingsViewController.h"
 #import "SLKParentListCell.h"
+#import "SLKInviteViewController.h"
 @interface SLKSettingsViewController ()
 
 @end
@@ -22,11 +23,18 @@
     }
     return self;
 }
-
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+//    if ([segue.identifier isEqualToString:@"inviteSeg"]) {
+//        SLKInviteViewController *inviteVC = [segue destinationViewController];
+// 
+//    }
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+//    [_parentFigsTableview numberOfRowsInSection:1];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -44,36 +52,101 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if (tableView == _parentFigsTableview){
-        return 1;
-    } 
+    return 2;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-        if (tableView == _parentFigsTableview){
-            return 1;
-        }
+    if (section == 1) {
+        return 1;
+    }
+    
+    else return 6;
 }
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (tableView == _parentFigsTableview){
-    static NSString *CellIdentifier = @"parentListCell";
+    static NSString *CellIdentifier = @"settingCell";
     SLKParentListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    cell.nameLabel.text = @"a Parent fig";
-    cell.numberLabel.text = @"777";
-    return cell;
+    if (indexPath.section == 0)
+    {
+        if (indexPath.row ==0 ) {
+            cell.nameLabel.text = @"Back";
+            [cell.numberLabel setHidden:YES];
+        } else  if (indexPath.row ==1 )
+        {
+            cell.nameLabel.text = @"Invite";
+            [cell.numberLabel setHidden:YES];
+        }else  if (indexPath.row ==2 )
+        {
+            cell.nameLabel.text = @"Links";
+            [cell.numberLabel setHidden:YES];
+        }else  if (indexPath.row ==3 )
+        {
+            cell.nameLabel.text = @"Add baby";
+            [cell.numberLabel setHidden:YES];
+        }else  if (indexPath.row ==4 )
+        {
+            cell.nameLabel.text = @"Delete ...";
+            [cell.numberLabel setHidden:YES];
+        }else  if (indexPath.row ==5 )
+        {
+            cell.nameLabel.text = @"Logout";
+            [cell.numberLabel setHidden:YES];
+        }
+         return cell;
     }
+    else
+    {
+         //set color on every parent?
+        cell.nameLabel.text = @"a Parent fig";
+        cell.numberLabel.text = @"777";
+        return cell;
+    }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if (section == 1) {
+        
+    UILabel *title = [[UILabel alloc] init];
+    title.frame = CGRectMake(0, 0, 320, 30);
+    title.textColor = [UIColor whiteColor];
+    title.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:13.0f];
+    title.text =  @"All Parent figures \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t number ";
+    title.backgroundColor = [UIColor blackColor];
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+    [view addSubview:title];
+    
+    return  view;
+    }
+    else return nil;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-        if (tableView != _parentFigsTableview){
-    if (indexPath.row == 0) {
-        [self dismissViewControllerAnimated:YES completion:^{
-            //set current babys color??
-        }];
-    }
+    if (indexPath.section == 0){
+        if (indexPath.row ==0 ) {
+            [self dismissViewControllerAnimated:YES completion:^{
+                //set current babys color??
+            }];
+        } else  if (indexPath.row ==1 )
+        {
+            [self performSegueWithIdentifier:@"inviteSeg" sender:self];
+        }else  if (indexPath.row ==2 )
+        {
+              [self performSegueWithIdentifier:@"inviteSeg" sender:self];//links
+        }else  if (indexPath.row ==3 )
+        {
+              [self performSegueWithIdentifier:@"inviteSeg" sender:self];//add baby
+        }else  if (indexPath.row ==4 )
+        {
+             [self performSegueWithIdentifier:@"inviteSeg" sender:self]; //delete
+        }else  if (indexPath.row ==5 )
+        {  [self performSegueWithIdentifier:@"inviteSeg" sender:self];//lgout
         }
+    } else {
+        //make telepfone number interactive and callable.
+    }
 }
 @end

@@ -105,14 +105,6 @@
 {
     return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay]count];
 }
-//-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-//{
-//    UILabel *headerLabel = [[UILabel alloc] init];
-//    headerLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:11];
-//    headerLabel.textColor = [UIColor blackColor];
-//    headerLabel.text =  @"Time\t event\t more";
-//    return headerLabel.text;
-//}
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
