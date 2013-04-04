@@ -43,6 +43,7 @@
 {
     [super viewDidLoad];
       controller = [[SLKAddBabyViewController alloc] init];
+
     
   
 }
@@ -144,9 +145,11 @@
         }else  if (indexPath.row ==3 )
         {
                 
-          [self presentViewController:controller animated:YES completion:^{
-              
-          }];
+            [self performSegueWithIdentifier:@"addBabySeg" sender:self];//links
+
+//          [self presentViewController:controller animated:YES completion:^{
+//              
+//          }];
             
             
 //            popover = [[FPPopoverController alloc] initWithViewController:controller];

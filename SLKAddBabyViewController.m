@@ -21,14 +21,8 @@
     UITextField *babyNameTextField;
     NSDate *babyBirthday;
     UIDatePicker *bDayPicker;
-    UILabel *birthDayPickerBtn;
-    UILabel *birthLabel;
-    UILabel *btnLabel;
-    UIButton *button;
-    UIButton *doneBtn;
-    UILabel *doneBtnLabel;
     UILabel *anewBabuLabel;
-    NSString *babyName;
+    
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -54,111 +48,43 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[self view] setBackgroundColor:[UIColor grayColor]];
-    anewBabuLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 250, 20)];
-    [anewBabuLabel setBackgroundColor:[UIColor greenColor]];
-    anewBabuLabel.text = @"Type in the name of you new baby";
-    [anewBabuLabel sizeToFit];
-    [anewBabuLabel setTextColor:[UIColor blackColor]];
-    [self.view addSubview:anewBabuLabel];
-    
-    babyNameTextField = [[UITextField alloc] initWithFrame:CGRectMake(25.0, 30.0, 250.0, 20.0)];
-    [babyNameTextField setBackgroundColor:[UIColor blackColor]];
-    [babyNameTextField setTextColor:[UIColor whiteColor]];
-    [self.view addSubview: babyNameTextField];
-    babyNameTextField.delegate = self;
-
-    
-    
-    btnLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, 70, 100, 20)];
-    [btnLabel setBackgroundColor:[UIColor greenColor]];
-    [btnLabel setTextAlignment:NSTextAlignmentCenter];
-    [btnLabel setTextColor:[UIColor blackColor]];
-    [btnLabel setUserInteractionEnabled:YES];
-    UITapGestureRecognizer *addBabytapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addBabyNotification)];
-    [btnLabel addGestureRecognizer:addBabytapped];
-
-    
-    
-    birthLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 30, 230, 20)];
-    [birthLabel setBackgroundColor:[UIColor clearColor]];
-    [birthLabel setFont:[UIFont fontWithName:@"Copperplate" size:34.0]];
-    [birthLabel setTextColor:[UIColor blackColor]];
-    birthLabel.text = [NSString stringWithFormat:@"%@", [SLKDateUtil formatDate: [NSDate date]]];
-    
-    birthDayPickerBtn = [[UILabel alloc]  initWithFrame:CGRectMake(110.0, 65.0, 280.0, 20.0)];
-    [birthDayPickerBtn setBackgroundColor:[UIColor clearColor]];
-    [birthDayPickerBtn setTextAlignment:NSTextAlignmentCenter];
-    birthDayPickerBtn.text = @"-- DONE-- ";
-    [birthDayPickerBtn setTextColor:[UIColor blackColor]];
-    [birthDayPickerBtn sizeToFit];
-    
-    [birthDayPickerBtn setUserInteractionEnabled:YES];
-    
-    UITapGestureRecognizer *tapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(setBirthday:)];
-    [birthDayPickerBtn addGestureRecognizer:tapped];
-    //    [self.view addSubview:birthDayPickerBtn];
-    
-    
+    [_birthLabel setHidden:YES];
+    _babynameTexField.delegate = self;
+    [_doneBtn  setHidden:YES];
     bDayPicker= [[UIDatePicker alloc] init];
     [bDayPicker setDatePickerMode:UIDatePickerModeDate];
-    bDayPicker.frame = CGRectMake(0, 100 , 300, 280);
+    bDayPicker.frame = CGRectMake(0, 320 , 320, 280);
     [bDayPicker addTarget:self action:@selector(updateLabelFromPicker:) forControlEvents:UIControlEventValueChanged];
-    
-    UILabel *colorLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 30, 230, 20)];
-    [colorLabel setBackgroundColor:[UIColor clearColor]];
-    [colorLabel setTextColor:[UIColor blackColor]];
-    colorLabel.text = @"choose a color for your baby:";
-    [self.view addSubview:colorLabel];
-    
-    UILabel *greenLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 130, 230, 20)];
-    [greenLabel setBackgroundColor:[UIColor clearColor]];
-    [greenLabel setTextColor:[UIColor blackColor]];
-    greenLabel.text = @"green:";
-    [self.view addSubview:greenLabel];
-    
-    UILabel *yellowLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 150, 230, 20)];
-    [yellowLabel setBackgroundColor:[UIColor clearColor]];
-    [yellowLabel setTextColor:[UIColor blackColor]];
-    yellowLabel.text = @"yellow:";
-    [self.view addSubview:yellowLabel];
-    
-    UILabel *blueLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 170, 230, 20)];
-    [blueLabel setBackgroundColor:[UIColor clearColor]];
-    [blueLabel setTextColor:[UIColor blackColor]];
-    blueLabel.text = @"blue:";
-    [self.view addSubview:blueLabel];
-
+   
 }
 
 
 - (IBAction)updateLabelFromPicker:(id)sender {
     NSLog(@"date from datepicker: %@", bDayPicker.date);
-    [birthLabel setTextColor:[UIColor blackColor]];
-    birthLabel.text = [NSString stringWithFormat:@"%@", [SLKDateUtil formatDate: bDayPicker.date]];
+      [_birthLabel setHidden:NO];
+    _birthLabel.text = [NSString stringWithFormat:@"%@", [SLKDateUtil formatDate: bDayPicker.date]];
     
 }
 
 
-- (void)setBirthday:(UITapGestureRecognizer *)tapGesture
+- (IBAction)setBirthday:(id)sender
 {
+    [_birthDayPickerBtn setHidden:YES];
+    [_doneBtn setHidden:NO];
     
-    [birthDayPickerBtn setHidden:YES];
+    anewBabuLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 250, 20)];
+    
     [anewBabuLabel setFrame:CGRectMake(70.0, 0.0, 250.0, 20.0)];
     anewBabuLabel.text = [NSString stringWithFormat:@"%@ was born on: ", babyNameTextField.text];
     [babyNameTextField removeFromSuperview];
-    btnLabel.text = [NSString stringWithFormat:@"Add %@ to babyfeed", babyNameTextField.text];
-    babyName = babyNameTextField.text;
-    [btnLabel sizeToFit];
+
     [UIView animateWithDuration:.3f animations:^{
         CGRect theFrame = self.view.superview.frame;
         theFrame.size.height += 200.f;
         self.view.superview.frame = theFrame;
         
         [self.view addSubview:bDayPicker];
-        //        [self.view addSubview:doneBtn];
-        [self.view addSubview:btnLabel];
-        [self.view addSubview:birthLabel];
+
     }];
 }
 
@@ -170,7 +96,6 @@
         CGRect theFrame = self.view.superview.frame;
         theFrame.size.height += 30.f;
         self.view.superview.frame = theFrame;
-        [self.view addSubview:birthDayPickerBtn];
         //        [self.view addSubview:bDayPicker];
         //        [self.view addSubview:doneBtn];
         //[self.view addSubview:birthLabel];
@@ -178,15 +103,13 @@
 }
 
 
--(void)doneSelectingBday
-{
-    [doneBtn removeFromSuperview];
-    [bDayPicker removeFromSuperview];
-    [self.view addSubview:button];
-}
+//-(void)doneSelectingBday
+//{
+//    [bDayPicker removeFromSuperview];
+//}
 -(void)addBabyNotification
 {
-    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys:babyName, @"babyName", kGreenish_Color, @"color", nil];
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys:_babynameTexField, @"babyName", kBlueish_Color, @"color", nil];
     NSLog(@"vavava-------- %@", [userInfo valueForKey:@"babyName"]);
     
     [[NSNotificationCenter defaultCenter] postNotificationName: @"addBaby" object:nil userInfo:userInfo];
@@ -258,4 +181,18 @@
 }
 
 
+- (IBAction)setBlue:(id)sender {
+}
+
+- (IBAction)setGreen:(id)sender {
+}
+
+- (IBAction)setYellow:(id)sender {
+}
+
+- (IBAction)done:(id)sender {
+    [bDayPicker removeFromSuperview];
+    [_birthDayPickerBtn setHidden:NO];
+    [_doneBtn setHidden:YES];
+}
 @end
