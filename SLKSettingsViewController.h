@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SLKSettingsViewController : UITableViewController
+- (IBAction)welcome:(id)sender;
+@property (weak, nonatomic) IBOutlet UIView *welcome;
 @property BOOL firstTime;
 @end

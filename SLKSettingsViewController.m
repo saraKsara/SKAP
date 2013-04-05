@@ -27,6 +27,7 @@
     FPPopoverController *popover;
     SLKAddBabyViewController *controller;
     Baby *currentBabe;
+    
   }
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -41,27 +42,35 @@
     
     if ([segue.identifier isEqualToString:@"addBabyNParentSeg"]) {
         SLKAddBabyViewController *addVc = [segue destinationViewController];
-        addVc.addBabyMode = YES;
+        addVc.addBabyMode = !_firstTime;
     }
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if (_firstTime) {
-        controller = [[SLKAddBabyViewController alloc] init];
-        controller.addBabyMode = NO;
-        NSLog(@"\n\nsetting vc firsttime\n\n");
-        [self presentViewController:controller animated:NO
-                         completion:^{
-                             
-                         }];
-    }
+    [_welcome setHidden:YES];
       controller = [[SLKAddBabyViewController alloc] init];
     currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
  
   
 }
-
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if (_firstTime) {
+        
+        controller = [[SLKAddBabyViewController alloc] init];
+        [_welcome setHidden:NO];
+        //[self.tableView setHidden:YES];
+       // controller.addBabyMode = NO;
+        NSLog(@"\n\nsetting vc firsttime\n\n");
+//        [self presentViewController:controller animated:NO
+//                         completion:^{
+//                             
+//                         }];
+    }
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -193,5 +202,8 @@
     } else {
         //make telepfone number interactive and callable.
     }
+}
+- (IBAction)welcome:(id)sender {
+     [self performSegueWithIdentifier:@"addBabyNParentSeg" sender:self];
 }
 @end

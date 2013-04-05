@@ -44,20 +44,13 @@
                                              selector:@selector(addBaby:)
                                                  name:@"addBaby"
                                                object:nil];
-
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    [self.view setBackgroundColor:[UIColor redColor]];
     NSLog(@"add yourself");
     [_birthLabel setHidden:YES];
     [_blueBG setHidden:YES];
     [_yellowBG setHidden:YES];
     [_greenBG setHidden:YES];
     _babynameTexField.delegate = self;
-   // [_doneBtn  setHidden:YES];
+    // [_doneBtn  setHidden:YES];
     bDayPicker= [[UIDatePicker alloc] init];
     [bDayPicker setDatePickerMode:UIDatePickerModeDate];
     bDayPicker.frame = CGRectMake(0, 320 , 320, 280);
@@ -65,8 +58,8 @@
     
     if ( _addBabyMode)
     {
-    [_setSignatureLabel setHidden:YES];
-    [_setSignatureTextField setHidden:YES];
+        [_setSignatureLabel setHidden:YES];
+        [_setSignatureTextField setHidden:YES];
     }
     else if ( !_addBabyMode)
     {
@@ -76,8 +69,18 @@
         _chooseColorLabel.text = @"Choose a color that will symbolise you.";
         
     }
+
+
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
 
 - (IBAction)updateLabelFromPicker:(id)sender {
     NSLog(@"date from datepicker: %@", bDayPicker.date);
