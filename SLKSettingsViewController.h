@@ -12,4 +12,5 @@
 - (IBAction)welcome:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *welcome;
 @property BOOL firstTime;
+@property BOOL setBtnToAddBaby;
 @end

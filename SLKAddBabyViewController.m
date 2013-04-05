@@ -13,7 +13,9 @@
 #import "SLKConstants.h"
 #import "SLKPARSEService.h"
 #import "SLKConstants.h"
-
+#import "ParentFigures.h"
+#import "SLKParentStorage.h"
+#import "SLKSettingsViewController.h"
 @interface SLKAddBabyViewController (FPPopoverController)
 
 @end
@@ -44,7 +46,6 @@
                                              selector:@selector(addBaby:)
                                                  name:@"addBaby"
                                                object:nil];
-    NSLog(@"add yourself");
     [_birthLabel setHidden:YES];
     [_blueBG setHidden:YES];
     [_yellowBG setHidden:YES];
@@ -66,8 +67,8 @@
         [_birthDayPickerBtn  setHidden:YES];
         [_doneBtn  setHidden:YES];
         _setNameOfBabyLabel.text = @"Typ in your name";
-        _chooseColorLabel.text = @"Choose a color that will symbolise you.";
-        
+        _chooseColorLabel.text = @"Choose your color";
+        _setSignatureLabel.text = @"Type in a signature";
     }
 
 
@@ -91,6 +92,9 @@
 
 
 - (IBAction)saveBaby:(id)sender {
+    
+    if (_addBabyMode) {
+        
     NSLog(@"save:: %@----%@----",babycolor, _babynameTexField.text);
     PFObject *babyObject = [PFObject objectWithClassName:@"Baby"];
     [babyObject setObject:_babynameTexField.text forKey:@"name"];
@@ -141,6 +145,51 @@
          //         }];
          
      }];
+    } else {
+        NSLog(@"save::color: %@----name:%@----signature:%@",babycolor, _babynameTexField.text, _setSignatureTextField.text);
+        PFObject *parentObject = [PFObject objectWithClassName:@"ParentFigure"];
+        [parentObject setObject:_babynameTexField.text forKey:@"name"];
+        [parentObject setObject:babycolor forKey:@"color"];
+        [parentObject setObject:_setSignatureTextField.text forKey:@"signature"];
+        //     [babyObject setObject:newBabyName forKey:@"date"];
+        
+        //TODO: CHECK FOR INTERNET CONNECTION (REACHABILITY?) AND DECIDE WHAT TO DO WHEN THERE'S NO CONNECTION
+        
+        [SLKPARSEService postObject:parentObject onSuccess:^(PFObject *object)
+         {
+             ParentFigures *theNewParent =  [[SLKParentStorage sharedStorage]
+                                             createParentWithName: [object objectForKey:@"name"]
+                                             signature:[object objectForKey:@"name"]
+                                             parentId: [object objectId]
+                                             number: [object objectForKey:@"name"]
+                                             color: [object objectForKey:@"name"]
+                                             babies:nil];
+                                             
+             NSLog(@"SUCCEED to create %@",[object objectForKey:@"name"] );
+             [[SLKParentStorage sharedStorage] setCurrentParent:theNewParent];
+             [self dismissViewControllerAnimated:YES completion:^{
+                 NSLog(@"NNNow at vc: %@", self.class);
+             }];
+             
+             
+         } onFailure:^(PFObject *object)
+         {
+             NSLog(@"FAILED :((( ");
+             UIAlertView *failAlert = [[UIAlertView alloc]
+                                       initWithTitle:@"FAIL"
+                                       message:@"Failed to add new baby for now. Please try again later" delegate:self
+                                       cancelButtonTitle:@"OK"
+                                       otherButtonTitles:nil, nil];
+             [failAlert show];
+             [self dismissViewControllerAnimated:YES completion:^{
+                 //set text on settingsVC who are invited
+             }];
+             //         [popover dismissPopoverAnimated:YES completion:^{
+             //             [self.tableView reloadData];
+             //         }];
+             
+         }];
+    }
 
 }
 
@@ -165,14 +214,14 @@
 }
 
 
--(void)addBabyNotification
-{
-    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys:_babynameTexField, @"babyName", kBlueish_Color, @"color", nil];
-    NSLog(@"vavava-------- %@", [userInfo valueForKey:@"babyName"]);
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName: @"addBaby" object:nil userInfo:userInfo];
-    
-}
+//-(void)addBabyNotification
+//{
+//    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys:_babynameTexField, @"babyName", kBlueish_Color, @"color", nil];
+//    NSLog(@"vavava-------- %@", [userInfo valueForKey:@"babyName"]);
+//    
+//    [[NSNotificationCenter defaultCenter] postNotificationName: @"addBaby" object:nil userInfo:userInfo];
+//    
+//}
 
 
 - (void)didReceiveMemoryWarning
