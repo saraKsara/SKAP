@@ -47,6 +47,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if (_firstTime) {
+        NSLog(@"setting vc firsttime");
+        [self presentViewController:controller animated:NO
+                         completion:^{
+                             
+                         }];
+    }
       controller = [[SLKAddBabyViewController alloc] init];
     currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
  

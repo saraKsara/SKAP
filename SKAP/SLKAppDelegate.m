@@ -32,7 +32,9 @@
     [Parse setApplicationId:@"4EQbwofsLU6tVbseSlCoOVvWBmW7MdlLuM4GCuCl"
                   clientKey:@"lh5Ib7m3Jab71RhCA1dBC2UrMR68dsTBzIlsFu6h"];
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound];
-    
+    //to get statistics from users
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(setTheBGColor:)
                                                  name:@"changeBabyColor"
@@ -75,12 +77,10 @@
 
     
 
-    //to get statistics from users
-    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-
+   
        // [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
-    [[SLKBabyStorage sharedStorage] removeAllBabies];
+    //[[SLKBabyStorage sharedStorage] removeAllBabies];
 
     return YES;
 }
@@ -129,20 +129,24 @@
 
 -(void)setUpAppFirstTime
 {
-    SLKAddBabyViewController *vc = [[SLKAddBabyViewController alloc] init];
-   // vc.addBabyMode = NO;
+//    SLKAddBabyViewController *vc = [[SLKAddBabyViewController alloc] init];
+//   vc.addBabyMode = NO;
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
+    
+    SLKSettingsViewController *controller = [sb instantiateInitialViewController];
     NSLog(@"\n\n virgin app \n\n");
-    [self.window setRootViewController:vc];
+    controller.firstTime = YES;
+    [self.window setRootViewController:controller];
     [self.window makeKeyAndVisible];
 }
 -(void)setUpApp
 {
    
     self.tabBarController = [[UITabBarController alloc] init];
-
     self.tabBarController.viewControllers = [self createViewControllersForStoryboards:@[ @"Feed", @"Diaper", @"Medz",@"calendar"]];
     
-    // Tab styling :)
+    // Tab styling 
     [[[self tabBarController] tabBar] setBackgroundImage:[UIImage imageNamed:@"tabbar_bg"]];
     [[[self tabBarController] tabBar] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar_bg_sel"]];
     
@@ -152,7 +156,6 @@
     
     numberOfBabies = babyArray.count;
     
-    //IF adding new baby, set up new segmentcontrol! else, ....
     int i = 1;
     for (Baby *babe in babyArray)
     {
@@ -200,11 +203,9 @@
 
 - (IBAction)segmentAction:(id)sender {
      
-    //TODO: set menu not selected when setting view is dissmissed
     if ( _segmentControll.selectedSegmentIndex == 0 ) {
         //        [self performSegueWithIdentifier:@"menueSeg" sender:self];
        
-        //current baby+1 - index
         [_segmentControll setSelectedSegmentIndex:selectedIndex];
         
         [self showMenue];

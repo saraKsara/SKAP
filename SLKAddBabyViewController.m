@@ -50,7 +50,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    [self.view setBackgroundColor:[UIColor redColor]];
+    NSLog(@"add yourself");
     [_birthLabel setHidden:YES];
     [_blueBG setHidden:YES];
     [_yellowBG setHidden:YES];
