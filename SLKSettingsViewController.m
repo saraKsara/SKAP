@@ -48,7 +48,9 @@
 {
     [super viewDidLoad];
     if (_firstTime) {
-        NSLog(@"setting vc firsttime");
+        controller = [[SLKAddBabyViewController alloc] init];
+        controller.addBabyMode = NO;
+        NSLog(@"\n\nsetting vc firsttime\n\n");
         [self presentViewController:controller animated:NO
                          completion:^{
                              

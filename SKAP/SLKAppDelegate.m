@@ -129,10 +129,9 @@
 
 -(void)setUpAppFirstTime
 {
-//    SLKAddBabyViewController *vc = [[SLKAddBabyViewController alloc] init];
+     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
+    SLKAddBabyViewController *vc = [sb instantiateInitialViewController];
 //   vc.addBabyMode = NO;
-    
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
     
     SLKSettingsViewController *controller = [sb instantiateInitialViewController];
     NSLog(@"\n\n virgin app \n\n");
