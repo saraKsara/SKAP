@@ -77,7 +77,7 @@
 
        // [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
-    [[SLKBabyStorage sharedStorage] removeAllBabies];
+    //[[SLKBabyStorage sharedStorage] removeAllBabies];
 
     return YES;
 }
