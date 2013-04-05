@@ -17,6 +17,7 @@
 #import "SLKAppDelegate.h"
 #import "SLKBabyStorage.h"
 #import "Baby.h"
+#import "SLKAddBabyViewController.h"
 @interface SLKSettingsViewController ()
 
 @end
@@ -25,7 +26,6 @@
 {
     FPPopoverController *popover;
     SLKAddBabyViewController *controller;
-    
     Baby *currentBabe;
   }
 - (id)initWithStyle:(UITableViewStyle)style
@@ -39,10 +39,10 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     
-//    if ([segue.identifier isEqualToString:@"inviteSeg"]) {
-//        SLKInviteViewController *inviteVC = [segue destinationViewController];
-// 
-//    }
+    if ([segue.identifier isEqualToString:@"addBabyNParentSeg"]) {
+        SLKAddBabyViewController *addVc = [segue destinationViewController];
+        addVc.addBabyMode = YES;
+    }
 }
 - (void)viewDidLoad
 {
@@ -98,7 +98,7 @@
             [cell.numberLabel setHidden:YES];
         }else  if (indexPath.row ==4 )
         {
-            cell.nameLabel.text = @"Delete ...";
+            cell.nameLabel.text = @"Delete";
             [cell.numberLabel setHidden:YES];
         }else  if (indexPath.row ==5 )
         {
@@ -149,14 +149,14 @@
             }];
         } else  if (indexPath.row ==1 )
         {
-            [self performSegueWithIdentifier:@"inviteSeg" sender:self];
+            [self performSegueWithIdentifier:@"addBabyNParentSeg" sender:self];
         }else  if (indexPath.row ==2 )
         {
               [self performSegueWithIdentifier:@"inviteSeg" sender:self];//links
         }else  if (indexPath.row ==3 )
         {
-                
-            [self performSegueWithIdentifier:@"addBabySeg" sender:self];//links
+            
+            [self performSegueWithIdentifier:@"addBabyNParentSeg" sender:self];//links
 
 //          [self presentViewController:controller animated:YES completion:^{
 //              

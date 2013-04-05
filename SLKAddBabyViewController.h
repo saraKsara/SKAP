@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "FPPopoverController.h"
 @interface SLKAddBabyViewController : FPPopoverController <UITextFieldDelegate>
-
+@property BOOL addBabyMode;
 @property (weak, nonatomic) IBOutlet UILabel *setNameOfBabyLabel;
 @property (weak, nonatomic) IBOutlet UITextField *babynameTexField;
 @property (weak, nonatomic) IBOutlet UIButton *birthDayPickerBtn;
@@ -38,5 +38,10 @@
 - (IBAction)done:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIButton *doneBtn;
+@property (weak, nonatomic) IBOutlet UILabel *setSignatureLabel;
+
+@property (weak, nonatomic) IBOutlet UITextField *setSignatureTextField;
+
+
 
 @end

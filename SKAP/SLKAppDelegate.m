@@ -15,6 +15,7 @@
 #import "SLKConstants.h"
 #import "SLKUserDefaults.h"
 #import "SLKSettingsViewController.h"
+#import "SLKAddBabyViewController.h"
 @implementation SLKAppDelegate
 {
     UISegmentedControl *_segmentControll;
@@ -44,7 +45,8 @@
 
     
     NSString *color;
-     [SLKPARSEService getAllObjects];
+    
+    // [SLKPARSEService getAllObjects];
     
     //TODO: on complete:
     
@@ -54,7 +56,8 @@
         //change root view to adding baby
         //[self setUpAppWithAddingBabyView];
         NSLog(@"\n\n\n there are NOOOOO babies in user default, add one! \n\n\n");
-         [self setUpApp];//for now
+        [self setUpAppFirstTime];
+        
     } else //there are babies in storage
     {
         if ([[SLKBabyStorage sharedStorage]getCurrentBaby] != nil) {
@@ -66,10 +69,10 @@
         }
         [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpSegmentControlls" object:nil userInfo:nil];
 
-       // [self setUpApp];
+        NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
     }
-    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
+
     
 
     //to get statistics from users
@@ -124,7 +127,14 @@
     self.window.backgroundColor = [UIColor colorWithPatternImage:imageText];
 }
 
-
+-(void)setUpAppFirstTime
+{
+    SLKAddBabyViewController *vc = [[SLKAddBabyViewController alloc] init];
+   // vc.addBabyMode = NO;
+    NSLog(@"\n\n virgin app \n\n");
+    [self.window setRootViewController:vc];
+    [self.window makeKeyAndVisible];
+}
 -(void)setUpApp
 {
    

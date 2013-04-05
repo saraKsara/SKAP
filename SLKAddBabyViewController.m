@@ -50,7 +50,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     [_birthLabel setHidden:YES];
     [_blueBG setHidden:YES];
     [_yellowBG setHidden:YES];
@@ -61,7 +61,20 @@
     [bDayPicker setDatePickerMode:UIDatePickerModeDate];
     bDayPicker.frame = CGRectMake(0, 320 , 320, 280);
     [bDayPicker addTarget:self action:@selector(updateLabelFromPicker:) forControlEvents:UIControlEventValueChanged];
-   
+    
+    if ( _addBabyMode)
+    {
+    [_setSignatureLabel setHidden:YES];
+    [_setSignatureTextField setHidden:YES];
+    }
+    else if ( !_addBabyMode)
+    {
+        [_birthDayPickerBtn  setHidden:YES];
+        [_doneBtn  setHidden:YES];
+        _setNameOfBabyLabel.text = @"Typ in your name";
+        _chooseColorLabel.text = @"Choose a color that will symbolise you.";
+        
+    }
 }
 
 
@@ -129,8 +142,7 @@
 
 - (IBAction)setBirthday:(id)sender
 {
-//    [_birthDayPickerBtn setHidden:YES];
-//    [_doneBtn setHidden:NO];
+
     [_babynameTexField resignFirstResponder];
     anewBabuLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 250, 20)];
     
@@ -203,8 +215,6 @@
 
 - (IBAction)done:(id)sender {
     [bDayPicker removeFromSuperview];
-   
-//   [_birthDayPickerBtn setHidden:YES];
-//   [_doneBtn setHidden:YES];
+
 }
 @end

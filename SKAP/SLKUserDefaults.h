@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-@class Baby;
+@class Baby, ParentFigures;
 @interface SLKUserDefaults : NSObject
 
 +(NSString*)getTheCurrentBabe;
 
 +(void)setTheCurrentBabe:(NSString*)babyId;
+
++(void)setTheCurrentParent:(NSString *)parentId;
+
++(NSString*)getTheCurrentParent;
 
 @end

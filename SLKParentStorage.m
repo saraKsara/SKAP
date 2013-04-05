@@ -8,7 +8,6 @@
 
 #import "SLKParentStorage.h"
 #import "ParentFigures.h"
-
 #import "SLKCoreDataService.h"
 #import "SLKBabyStorage.h"
 #import "Baby.h"
@@ -44,11 +43,12 @@
     }
     return self;
 }
--(ParentFigures *)createParentWithName:(NSString *)name parentId:(NSString *)parentId number:(NSString *)number color:(NSString *)color babies:(NSSet *)babies
+-(ParentFigures *)createParentWithName:(NSString *)name signature:(NSString *)signature parentId:(NSString *)parentId number:(NSString *)number color:(NSString *)color babies:(NSSet *)babies
 {
     ParentFigures *p = [NSEntityDescription insertNewObjectForEntityForName:@"ParentFigures"
                                                      inManagedObjectContext:context];
     p.name = name;
+    p.signature = signature;
     p.number = number;
     p.parentColor = color;
     p.parentId = parentId;
@@ -82,7 +82,14 @@
 }
 
 
-//-(Baby*)getParentWithiD:(NSString*)babyId; //TODO: addprentid?
+-(ParentFigures *)getParentWithiD:(NSString *)parentId
+{
+    NSArray *arr = [[SLKCoreDataService sharedService] fetchDataWithEntity:@"ParentFigures"
+                                                              andPredicate:[NSPredicate predicateWithFormat:@"parentId == %@", parentId]
+                                                        andSortDescriptors:nil];
+    
+    return [arr count] > 0 ? [arr lastObject] : nil;
+}
 
 -(NSArray*)parentArray
 {
@@ -91,10 +98,12 @@
 
 -(ParentFigures*)getCurrentParent
 {
-    return nil;
+   return [self getParentWithiD:[SLKUserDefaults getTheCurrentParent]];
 }
+
 -(void)setCurrentParent:(ParentFigures*)parent
 {
-    
+    [SLKUserDefaults setTheCurrentBabe:parent.parentId];
+    NSLog(@"(baby storage) The current parent is: %@", parent.name);
 }
 @end
