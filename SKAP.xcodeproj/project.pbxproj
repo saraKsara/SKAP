@@ -41,6 +41,8 @@
 		1C611EC9170C48160088016F /* Tits.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C611EC8170C48160088016F /* Tits.m */; };
 		1C611ECC170C4D0D0088016F /* SLKMedzStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C611ECB170C4D0D0088016F /* SLKMedzStorage.m */; };
 		1C611ED2170C50EC0088016F /* Medz.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C611ED1170C50EC0088016F /* Medz.m */; };
+		1C627299170ED21200F51E00 /* SLKParentStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C627298170ED21200F51E00 /* SLKParentStorage.m */; };
+		1C62729F170EDBB800F51E00 /* ParentFigures.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C62729E170EDBB800F51E00 /* ParentFigures.m */; };
 		1C7F474117087A2C00C258F8 /* SLKDayViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F474017087A2C00C258F8 /* SLKDayViewCell.m */; };
 		1C880E8B1704BBAB0027E528 /* SLKMedzViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C880E8A1704BBAB0027E528 /* SLKMedzViewController.m */; };
 		1C91DD5916FC4EBB00921C59 /* SLKPARSEService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DD5816FC4EBB00921C59 /* SLKPARSEService.m */; };
@@ -56,7 +58,6 @@
 		1CA7F90516FCBBF3008BB1BF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA7F90416FCBBF3008BB1BF /* QuartzCore.framework */; };
 		1CA7F90616FCBC04008BB1BF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449616F90DC800D9D33A /* CoreGraphics.framework */; };
 		1CECF55F170D8BF4008AFA74 /* Baby.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CECF55E170D8BF4008AFA74 /* Baby.m */; };
-		1CECF562170D8BF4008AFA74 /* ParentFigures.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CECF561170D8BF4008AFA74 /* ParentFigures.m */; };
 		1CECF565170D8D59008AFA74 /* SLKAddBabyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CECF564170D8D59008AFA74 /* SLKAddBabyViewController.m */; };
 		1CF828271701A36E00EDC904 /* SLKUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF828261701A36E00EDC904 /* SLKUserDefaults.m */; };
 		1CF8282A1701A9BA00EDC904 /* SLKAlertWithBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF828291701A9BA00EDC904 /* SLKAlertWithBlock.m */; };
@@ -161,6 +162,10 @@
 		1C611ECB170C4D0D0088016F /* SLKMedzStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKMedzStorage.m; sourceTree = "<group>"; };
 		1C611ED0170C50EC0088016F /* Medz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Medz.h; sourceTree = "<group>"; };
 		1C611ED1170C50EC0088016F /* Medz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Medz.m; sourceTree = "<group>"; };
+		1C627297170ED21200F51E00 /* SLKParentStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKParentStorage.h; sourceTree = "<group>"; };
+		1C627298170ED21200F51E00 /* SLKParentStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKParentStorage.m; sourceTree = "<group>"; };
+		1C62729D170EDBB800F51E00 /* ParentFigures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentFigures.h; sourceTree = "<group>"; };
+		1C62729E170EDBB800F51E00 /* ParentFigures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentFigures.m; sourceTree = "<group>"; };
 		1C7F473F17087A2C00C258F8 /* SLKDayViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKDayViewCell.h; sourceTree = "<group>"; };
 		1C7F474017087A2C00C258F8 /* SLKDayViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKDayViewCell.m; sourceTree = "<group>"; };
 		1C880E891704BBAB0027E528 /* SLKMedzViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKMedzViewController.h; sourceTree = "<group>"; };
@@ -184,8 +189,6 @@
 		1CA7F90416FCBBF3008BB1BF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1CECF55D170D8BF4008AFA74 /* Baby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baby.h; sourceTree = "<group>"; };
 		1CECF55E170D8BF4008AFA74 /* Baby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Baby.m; sourceTree = "<group>"; };
-		1CECF560170D8BF4008AFA74 /* ParentFigures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentFigures.h; sourceTree = "<group>"; };
-		1CECF561170D8BF4008AFA74 /* ParentFigures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentFigures.m; sourceTree = "<group>"; };
 		1CECF563170D8D59008AFA74 /* SLKAddBabyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKAddBabyViewController.h; sourceTree = "<group>"; };
 		1CECF564170D8D59008AFA74 /* SLKAddBabyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKAddBabyViewController.m; sourceTree = "<group>"; };
 		1CF828251701A36E00EDC904 /* SLKUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKUserDefaults.h; sourceTree = "<group>"; };
@@ -414,6 +417,8 @@
 		1C5C54FD16FC6DD3009E3646 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1CECF55D170D8BF4008AFA74 /* Baby.h */,
+				1CECF55E170D8BF4008AFA74 /* Baby.m */,
 				1C611EC7170C48160088016F /* Tits.h */,
 				1C611EC8170C48160088016F /* Tits.m */,
 				1C611ED0170C50EC0088016F /* Medz.h */,
@@ -502,10 +507,8 @@
 		CE59448316F90DC800D9D33A = {
 			isa = PBXGroup;
 			children = (
-				1CECF560170D8BF4008AFA74 /* ParentFigures.h */,
-				1CECF561170D8BF4008AFA74 /* ParentFigures.m */,
-				1CECF55D170D8BF4008AFA74 /* Baby.h */,
-				1CECF55E170D8BF4008AFA74 /* Baby.m */,
+				1C62729D170EDBB800F51E00 /* ParentFigures.h */,
+				1C62729E170EDBB800F51E00 /* ParentFigures.m */,
 				CE59449816F90DC800D9D33A /* SKAP */,
 				1CA7F8D916FC8B72008BB1BF /* SKAPUnitTest */,
 				CE59449116F90DC800D9D33A /* Frameworks */,
@@ -604,6 +607,8 @@
 				1C34EC7A1706EED10095F0C2 /* SLKPiiStorage.m */,
 				1C611ECA170C4D0D0088016F /* SLKMedzStorage.h */,
 				1C611ECB170C4D0D0088016F /* SLKMedzStorage.m */,
+				1C627297170ED21200F51E00 /* SLKParentStorage.h */,
+				1C627298170ED21200F51E00 /* SLKParentStorage.m */,
 			);
 			name = Storage;
 			sourceTree = "<group>";
@@ -804,8 +809,9 @@
 				1C47E06C170D70E800720AFE /* SLKInviteViewController.m in Sources */,
 				1C47E070170D72AC00720AFE /* SLKParentListCell.m in Sources */,
 				1CECF55F170D8BF4008AFA74 /* Baby.m in Sources */,
-				1CECF562170D8BF4008AFA74 /* ParentFigures.m in Sources */,
 				1CECF565170D8D59008AFA74 /* SLKAddBabyViewController.m in Sources */,
+				1C627299170ED21200F51E00 /* SLKParentStorage.m in Sources */,
+				1C62729F170EDBB800F51E00 /* ParentFigures.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
