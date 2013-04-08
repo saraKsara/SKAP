@@ -53,6 +53,9 @@
     //TODO: on complete:
     
     //if there are no babies in storage after getting from server:
+    
+    //TODO: if you where invited...
+    
     if ([[[SLKBabyStorage sharedStorage]babyArray]count] == 0 ) {
         
         //change root view to adding baby
@@ -130,11 +133,8 @@
 -(void)setUpAppFirstTime
 {
      UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
-    SLKAddBabyViewController *vc = [sb instantiateInitialViewController];
-//   vc.addBabyMode = NO;
     
     SLKSettingsViewController *controller = [sb instantiateInitialViewController];
-    NSLog(@"\n\n virgin app \n\n");
     controller.firstTime = YES;
     [self.window setRootViewController:controller];
     [self.window makeKeyAndVisible];

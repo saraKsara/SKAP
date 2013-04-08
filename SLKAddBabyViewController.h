@@ -9,23 +9,26 @@
 #import <UIKit/UIKit.h>
 #import "FPPopoverController.h"
 @interface SLKAddBabyViewController : FPPopoverController <UITextFieldDelegate>
+
 @property BOOL addBabyMode;
+
 @property (weak, nonatomic) IBOutlet UILabel *setNameOfBabyLabel;
 @property (weak, nonatomic) IBOutlet UITextField *babynameTexField;
-@property (weak, nonatomic) IBOutlet UIButton *birthDayPickerBtn;
-@property (weak, nonatomic) IBOutlet UILabel *chooseColorLabel;
-- (IBAction)setBlue:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *birthDayPickerBtn;
+
+@property (weak, nonatomic) IBOutlet UILabel *chooseColorLabel;
+
+- (IBAction)setBlue:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *blueBG;
 
 - (IBAction)setGreen:(id)sender;
-
 @property (weak, nonatomic) IBOutlet UIView *greenBG;
+
 @property (weak, nonatomic) IBOutlet UIButton *cancel;
 - (IBAction)cancel:(id)sender;
 
 - (IBAction)setYellow:(id)sender;
-
 @property (weak, nonatomic) IBOutlet UIView *yellowBG;
 
 @property (weak, nonatomic) IBOutlet UIButton *saveBaby;
@@ -36,10 +39,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *birthLabel;
 
 - (IBAction)done:(id)sender;
-
 @property (weak, nonatomic) IBOutlet UIButton *doneBtn;
-@property (weak, nonatomic) IBOutlet UILabel *setSignatureLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *setSignatureLabel;
 @property (weak, nonatomic) IBOutlet UITextField *setSignatureTextField;
 
 

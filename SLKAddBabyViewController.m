@@ -29,29 +29,17 @@
     NSString *babycolor;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(addBaby:)
-                                                 name:@"addBaby"
-                                               object:nil];
+
     [_birthLabel setHidden:YES];
     [_blueBG setHidden:YES];
     [_yellowBG setHidden:YES];
     [_greenBG setHidden:YES];
     _babynameTexField.delegate = self;
-    // [_doneBtn  setHidden:YES];
+    _setSignatureTextField.delegate = self;
     bDayPicker= [[UIDatePicker alloc] init];
     [bDayPicker setDatePickerMode:UIDatePickerModeDate];
     bDayPicker.frame = CGRectMake(0, 320 , 320, 280);
@@ -145,7 +133,8 @@
          //         }];
          
      }];
-    } else {
+    } else //first time use, add parent, then go to normal, then set child. maybe alert???
+    {
         NSLog(@"save::color: %@----name:%@----signature:%@",babycolor, _babynameTexField.text, _setSignatureTextField.text);
         PFObject *parentObject = [PFObject objectWithClassName:@"ParentFigure"];
         [parentObject setObject:_babynameTexField.text forKey:@"name"];
@@ -169,6 +158,8 @@
              [[SLKParentStorage sharedStorage] setCurrentParent:theNewParent];
              [self dismissViewControllerAnimated:YES completion:^{
                  NSLog(@"NNNow at vc: %@", self.class);
+                 [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpSegmentControlls" object:nil userInfo:nil];
+
              }];
              
              
@@ -212,17 +203,6 @@
 
     }];
 }
-
-
-//-(void)addBabyNotification
-//{
-//    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys:_babynameTexField, @"babyName", kBlueish_Color, @"color", nil];
-//    NSLog(@"vavava-------- %@", [userInfo valueForKey:@"babyName"]);
-//    
-//    [[NSNotificationCenter defaultCenter] postNotificationName: @"addBaby" object:nil userInfo:userInfo];
-//    
-//}
-
 
 - (void)didReceiveMemoryWarning
 {

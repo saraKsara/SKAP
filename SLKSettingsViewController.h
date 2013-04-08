@@ -10,7 +10,7 @@
 
 @interface SLKSettingsViewController : UITableViewController
 - (IBAction)welcome:(id)sender;
-@property (weak, nonatomic) IBOutlet UIView *welcome;
+@property (weak, nonatomic) IBOutlet UITextView *welcomeTextView;
+@property (weak, nonatomic) IBOutlet UIButton *welcomeBtn;
 @property BOOL firstTime;
-@property BOOL setBtnToAddBaby;
 @end

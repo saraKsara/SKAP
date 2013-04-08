@@ -15,6 +15,7 @@
 		1C34EC7B1706EED10095F0C2 /* SLKPiiStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C34EC7A1706EED10095F0C2 /* SLKPiiStorage.m */; };
 		1C34EC7D170720730095F0C2 /* uncheckedBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C34EC7C170720730095F0C2 /* uncheckedBox.png */; };
 		1C34EC7F170720830095F0C2 /* checkedBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C34EC7E170720830095F0C2 /* checkedBox.png */; };
+		1C378B731712A73C006AC9EF /* SLKWelcomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C378B721712A73C006AC9EF /* SLKWelcomeCell.m */; };
 		1C423F6F170D5EFE00DCB469 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C423F6E170D5EFE00DCB469 /* Settings.storyboard */; };
 		1C423F72170D622300DCB469 /* SLKSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C423F71170D622300DCB469 /* SLKSettingsViewController.m */; };
 		1C423F75170D627700DCB469 /* SLKSettingCells.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C423F74170D627700DCB469 /* SLKSettingCells.m */; };
@@ -120,6 +121,8 @@
 		1C34EC7A1706EED10095F0C2 /* SLKPiiStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPiiStorage.m; sourceTree = "<group>"; };
 		1C34EC7C170720730095F0C2 /* uncheckedBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uncheckedBox.png; sourceTree = "<group>"; };
 		1C34EC7E170720830095F0C2 /* checkedBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkedBox.png; sourceTree = "<group>"; };
+		1C378B711712A73C006AC9EF /* SLKWelcomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKWelcomeCell.h; sourceTree = "<group>"; };
+		1C378B721712A73C006AC9EF /* SLKWelcomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKWelcomeCell.m; sourceTree = "<group>"; };
 		1C423F6E170D5EFE00DCB469 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = SKAP/Settings.storyboard; sourceTree = "<group>"; };
 		1C423F70170D622300DCB469 /* SLKSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKSettingsViewController.h; sourceTree = "<group>"; };
 		1C423F71170D622300DCB469 /* SLKSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKSettingsViewController.m; sourceTree = "<group>"; };
@@ -399,6 +402,8 @@
 				1C423F74170D627700DCB469 /* SLKSettingCells.m */,
 				1C47E06E170D72AC00720AFE /* SLKParentListCell.h */,
 				1C47E06F170D72AC00720AFE /* SLKParentListCell.m */,
+				1C378B711712A73C006AC9EF /* SLKWelcomeCell.h */,
+				1C378B721712A73C006AC9EF /* SLKWelcomeCell.m */,
 			);
 			name = cells;
 			sourceTree = "<group>";
@@ -812,6 +817,7 @@
 				1CECF565170D8D59008AFA74 /* SLKAddBabyViewController.m in Sources */,
 				1C627299170ED21200F51E00 /* SLKParentStorage.m in Sources */,
 				1C62729F170EDBB800F51E00 /* ParentFigures.m in Sources */,
+				1C378B731712A73C006AC9EF /* SLKWelcomeCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
