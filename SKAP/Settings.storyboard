@@ -4,6 +4,35 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
+        <!--Links View Controller-->
+        <scene sceneID="0fE-F0-AmI">
+            <objects>
+                <tableViewController id="nHu-fO-EBU" customClass="SLKLinksViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wBq-HI-nFF">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="E7W-Zh-7iZ">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="nHu-fO-EBU" id="AkB-hd-4S7"/>
+                            <outlet property="delegate" destination="nHu-fO-EBU" id="1EY-dB-DYA"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="way-lU-DXL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-209" y="591"/>
+        </scene>
         <!--Settings View Controller-->
         <scene sceneID="fQa-UN-wgS">
             <objects>
@@ -351,7 +380,6 @@
                 <relationship kind="action" name="setBlue:"/>
                 <relationship kind="action" name="setGreen:"/>
                 <relationship kind="action" name="setYellow:"/>
-                <relationship kind="action" name="updateLabelFromPicker:"/>
                 <relationship kind="outlet" name="babynameTexField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="birthDayPickerBtn" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="birthLabel" candidateClass="UILabel"/>
@@ -379,6 +407,9 @@
                 <relationship kind="outlet" name="phoneNumber1textField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="textFieldDescriptionLabel" candidateClass="UILabel"/>
             </relationships>
+        </class>
+        <class className="SLKLinksViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKLinksViewController.h"/>
         </class>
         <class className="SLKParentListCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKParentListCell.h"/>

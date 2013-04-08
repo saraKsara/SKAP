@@ -58,6 +58,7 @@
 		1CA7F8F316FCA47E008BB1BF /* SLKBabyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7F8F216FCA47E008BB1BF /* SLKBabyCell.m */; };
 		1CA7F90516FCBBF3008BB1BF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA7F90416FCBBF3008BB1BF /* QuartzCore.framework */; };
 		1CA7F90616FCBC04008BB1BF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449616F90DC800D9D33A /* CoreGraphics.framework */; };
+		1CB057971712EB2C00205AC0 /* SLKLinksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB057961712EB2C00205AC0 /* SLKLinksViewController.m */; };
 		1CECF55F170D8BF4008AFA74 /* Baby.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CECF55E170D8BF4008AFA74 /* Baby.m */; };
 		1CECF565170D8D59008AFA74 /* SLKAddBabyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CECF564170D8D59008AFA74 /* SLKAddBabyViewController.m */; };
 		1CF828271701A36E00EDC904 /* SLKUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF828261701A36E00EDC904 /* SLKUserDefaults.m */; };
@@ -190,6 +191,8 @@
 		1CA7F8F116FCA47E008BB1BF /* SLKBabyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKBabyCell.h; sourceTree = "<group>"; };
 		1CA7F8F216FCA47E008BB1BF /* SLKBabyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKBabyCell.m; sourceTree = "<group>"; };
 		1CA7F90416FCBBF3008BB1BF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		1CB057951712EB2C00205AC0 /* SLKLinksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKLinksViewController.h; sourceTree = "<group>"; };
+		1CB057961712EB2C00205AC0 /* SLKLinksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKLinksViewController.m; sourceTree = "<group>"; };
 		1CECF55D170D8BF4008AFA74 /* Baby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baby.h; sourceTree = "<group>"; };
 		1CECF55E170D8BF4008AFA74 /* Baby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Baby.m; sourceTree = "<group>"; };
 		1CECF563170D8D59008AFA74 /* SLKAddBabyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKAddBabyViewController.h; sourceTree = "<group>"; };
@@ -306,6 +309,8 @@
 				1C47E06B170D70E800720AFE /* SLKInviteViewController.m */,
 				1CECF563170D8D59008AFA74 /* SLKAddBabyViewController.h */,
 				1CECF564170D8D59008AFA74 /* SLKAddBabyViewController.m */,
+				1CB057951712EB2C00205AC0 /* SLKLinksViewController.h */,
+				1CB057961712EB2C00205AC0 /* SLKLinksViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -818,6 +823,7 @@
 				1C627299170ED21200F51E00 /* SLKParentStorage.m in Sources */,
 				1C62729F170EDBB800F51E00 /* ParentFigures.m in Sources */,
 				1C378B731712A73C006AC9EF /* SLKWelcomeCell.m in Sources */,
+				1CB057971712EB2C00205AC0 /* SLKLinksViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
