@@ -7,8 +7,7 @@
 //
 
 #import "SLKUserDefaults.h"
-#import "Baby.h"
-#import "SLKBabyStorage.h"
+
 
 @implementation SLKUserDefaults
 
@@ -25,5 +24,17 @@
     NSLog(@"get current baby from user default: %@", [[NSUserDefaults standardUserDefaults] stringForKey:@"currentBaby"]);
 }
 
++(void)setTheCurrentParent:(NSString *)parentId
+{
+    [[NSUserDefaults standardUserDefaults] setObject:parentId forKey:@"currentParent"];
+    NSLog(@"set userDefault current Parent id : %@", parentId);
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++(NSString*)getTheCurrentParent
+{
+    return [[NSUserDefaults standardUserDefaults] stringForKey:@"currentParent"];
+    NSLog(@"get current Parent from user default: %@", [[NSUserDefaults standardUserDefaults] stringForKey:@"currentParent"]);
+}
 
 @end

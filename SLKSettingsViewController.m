@@ -17,6 +17,10 @@
 #import "SLKAppDelegate.h"
 #import "SLKBabyStorage.h"
 #import "Baby.h"
+#import "SLKAddBabyViewController.h"
+#import "SLKWelcomeCell.h"
+#import "SLKParentStorage.h"
+#import "ParentFigures.h"
 @interface SLKSettingsViewController ()
 
 @end
@@ -25,8 +29,9 @@
 {
     FPPopoverController *popover;
     SLKAddBabyViewController *controller;
-    
     Baby *currentBabe;
+    ParentFigures *currentParent;
+    
   }
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -38,21 +43,26 @@
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
-//    if ([segue.identifier isEqualToString:@"inviteSeg"]) {
-//        SLKInviteViewController *inviteVC = [segue destinationViewController];
-// 
-//    }
+    if ([segue.identifier isEqualToString:@"addBabyNParentSeg"]) {
+        SLKAddBabyViewController *addVc = [segue destinationViewController];
+        addVc.addBabyMode = !_firstTime;
+    }
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
       controller = [[SLKAddBabyViewController alloc] init];
     currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
+    currentParent = [[SLKParentStorage sharedStorage]getCurrentParent];
+    NSLog(@"current parent: %@", currentParent.name);
  
   
 }
-
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -63,55 +73,70 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return _firstTime ? 1 : 2;
 }
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 1) {
+    if (!_firstTime) {
+        if (section == 1)   return [[[SLKParentStorage sharedStorage] parentArray] count];
+        else                return 6;
+    } else {
         return 1;
     }
-    
-    else return 6;
 }
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"settingCell";
-    SLKParentListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    if (indexPath.section == 0)
-    {
-        if (indexPath.row ==0 ) {
-            cell.nameLabel.text = @"Back";
-            [cell.numberLabel setHidden:YES];
-        } else  if (indexPath.row ==1 )
+    
+    if (!_firstTime) {
+        static NSString *CellIdentifier = @"settingCell";
+        SLKParentListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        if (indexPath.section == 0)
         {
-            cell.nameLabel.text = @"Invite";
-            [cell.numberLabel setHidden:YES];
-        }else  if (indexPath.row ==2 )
-        {
-            cell.nameLabel.text = @"Links";
-            [cell.numberLabel setHidden:YES];
-        }else  if (indexPath.row ==3 )
-        {
-            cell.nameLabel.text = @"Add baby";
-            [cell.numberLabel setHidden:YES];
-        }else  if (indexPath.row ==4 )
-        {
-            cell.nameLabel.text = @"Delete ...";
-            [cell.numberLabel setHidden:YES];
-        }else  if (indexPath.row ==5 )
-        {
-            cell.nameLabel.text = @"Logout";
-            [cell.numberLabel setHidden:YES];
+            if (indexPath.row ==0 ) {
+                cell.nameLabel.text = @"Back";
+                [cell.numberLabel setHidden:YES];
+            } else  if (indexPath.row ==1 )
+            {
+                cell.nameLabel.text = @"Invite";
+                [cell.numberLabel setHidden:YES];
+            }else  if (indexPath.row ==2 )
+            {
+                cell.nameLabel.text = @"Links";
+                [cell.numberLabel setHidden:YES];
+            }else  if (indexPath.row ==3 )
+            {
+                cell.nameLabel.text = @"Add baby";
+                [cell.numberLabel setHidden:YES];
+            }else  if (indexPath.row ==4 )
+            {
+                cell.nameLabel.text = @"Delete";
+                [cell.numberLabel setHidden:YES];
+            }else  if (indexPath.row ==5 )
+            {
+                cell.nameLabel.text = @"Logout";
+                [cell.numberLabel setHidden:YES];
+            }
+            return cell;
         }
-         return cell;
+        else
+        {
+            //set color on every parent? //TODO: set signature!
+            ParentFigures *parent = [[[SLKParentStorage sharedStorage] parentArray] objectAtIndex:indexPath.row];
+             if ([parent.parentId isEqualToString:currentParent.parentId]) {
+                 [cell setBackgroundColor:[UIColor orangeColor]];
+                  [cell.nameLabel setTextColor:[UIColor redColor]];
+             }
+            cell.nameLabel.text = parent.name;
+            cell.numberLabel.text = parent.number;
+            return cell;
+        }
     }
-    else
-    {
-         //set color on every parent?
-        cell.nameLabel.text = @"a Parent fig";
-        cell.numberLabel.text = @"777";
+    else {
+        static NSString *CellIdentifier = @"welcomeCell";
+        SLKWelcomeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
         return cell;
     }
 }
@@ -134,12 +159,16 @@
     }
     else return nil;
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (_firstTime) {
+         [self performSegueWithIdentifier:@"addBabyNParentSeg" sender:self];
+    } else {
+    
     if (indexPath.section == 0){
         if (indexPath.row ==0 ) {
             [self dismissViewControllerAnimated:YES completion:^{
-                //set current babys color??
                 NSString *color = currentBabe.babysColor;
                 NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
                 
@@ -149,14 +178,14 @@
             }];
         } else  if (indexPath.row ==1 )
         {
-            [self performSegueWithIdentifier:@"inviteSeg" sender:self];
+            [self performSegueWithIdentifier:@"addBabyNParentSeg" sender:self];
         }else  if (indexPath.row ==2 )
         {
               [self performSegueWithIdentifier:@"inviteSeg" sender:self];//links
         }else  if (indexPath.row ==3 )
         {
-                
-            [self performSegueWithIdentifier:@"addBabySeg" sender:self];//links
+            
+            [self performSegueWithIdentifier:@"addBabyNParentSeg" sender:self];//links
 
 //          [self presentViewController:controller animated:YES completion:^{
 //              
@@ -174,7 +203,6 @@
 //           [popover presentPopoverFromPoint:CGPointMake(20, 20)];
 //            
             
-            
         }else  if (indexPath.row ==4 )
         {
              [self performSegueWithIdentifier:@"inviteSeg" sender:self]; //delete
@@ -184,5 +212,13 @@
     } else {
         //make telepfone number interactive and callable.
     }
+    }
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (_firstTime)     return 455;
+     else               return 44;
+    
+}
+
 @end

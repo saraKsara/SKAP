@@ -47,6 +47,8 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="parentColor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="parentId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="signature" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="babies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Baby" inverseName="parents" inverseEntity="Baby" syncable="YES"/>
     </entity>
     <entity name="Pii" representedClassName="Pii" syncable="YES">
@@ -74,9 +76,9 @@
         <element name="Bottle" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Event" positionX="160" positionY="192" width="128" height="315"/>
         <element name="Medz" positionX="160" positionY="192" width="128" height="150"/>
+        <element name="ParentFigures" positionX="160" positionY="192" width="128" height="135"/>
         <element name="Pii" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Poo" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Tits" positionX="160" positionY="192" width="128" height="135"/>
-        <element name="ParentFigures" positionX="160" positionY="192" width="128" height="105"/>
     </elements>
 </model>
