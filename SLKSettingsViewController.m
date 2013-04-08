@@ -92,32 +92,39 @@
     
     if (!_firstTime) {
         static NSString *CellIdentifier = @"settingCell";
-        SLKParentListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        //SLKParentListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        SLKParentListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (indexPath.section == 0)
         {
             if (indexPath.row ==0 ) {
                 cell.nameLabel.text = @"Back";
-                [cell.numberLabel setHidden:YES];
+                [cell.numberTextView setHidden:YES];
+                [cell.signatureLabel setHidden:YES];
             } else  if (indexPath.row ==1 )
             {
                 cell.nameLabel.text = @"Invite";
-                [cell.numberLabel setHidden:YES];
+                [cell.numberTextView setHidden:YES];
+                  [cell.signatureLabel setHidden:YES];
             }else  if (indexPath.row ==2 )
             {
                 cell.nameLabel.text = @"Links";
-                [cell.numberLabel setHidden:YES];
+                [cell.numberTextView setHidden:YES];
+                  [cell.signatureLabel setHidden:YES];
             }else  if (indexPath.row ==3 )
             {
                 cell.nameLabel.text = @"Add baby";
-                [cell.numberLabel setHidden:YES];
+                [cell.numberTextView setHidden:YES];
+                  [cell.signatureLabel setHidden:YES];
             }else  if (indexPath.row ==4 )
             {
                 cell.nameLabel.text = @"Delete";
-                [cell.numberLabel setHidden:YES];
+                [cell.numberTextView setHidden:YES];
+                  [cell.signatureLabel setHidden:YES];
             }else  if (indexPath.row ==5 )
             {
                 cell.nameLabel.text = @"Logout";
-                [cell.numberLabel setHidden:YES];
+                [cell.numberTextView setHidden:YES];
+                  [cell.signatureLabel setHidden:YES];
             }
             return cell;
         }
@@ -126,17 +133,22 @@
             //set color on every parent? //TODO: set signature!
             ParentFigures *parent = [[[SLKParentStorage sharedStorage] parentArray] objectAtIndex:indexPath.row];
              if ([parent.parentId isEqualToString:currentParent.parentId]) {
-                 [cell setBackgroundColor:[UIColor orangeColor]];
+                 [cell setBackgroundColor:[UIColor redColor]];
                   [cell.nameLabel setTextColor:[UIColor redColor]];
              }
             cell.nameLabel.text = parent.name;
-            cell.numberLabel.text = parent.number;
+            cell.signatureLabel.text = parent.signature;
+            cell.numberTextView.text = parent.number;
             return cell;
         }
     }
     else {
-        static NSString *CellIdentifier = @"welcomeCell";
-        SLKWelcomeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+       // static NSString *CellIdentifier = @"welcomeCell";
+//        SLKWelcomeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+
+        SLKWelcomeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"welcomeCell"];
+        
+//        omepwnerItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomepwnerItemCell"];
         return cell;
     }
 }
@@ -149,7 +161,7 @@
     title.frame = CGRectMake(0, 0, 320, 30);
     title.textColor = [UIColor whiteColor];
     title.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:13.0f];
-    title.text =  @"All Parent figures \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t number ";
+    title.text =  @"All Parent figures \t\t\t\t\t\t\t\t\t\t\t\t\t\tignature\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t number ";
     title.backgroundColor = [UIColor blackColor];
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
@@ -163,29 +175,29 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (_firstTime) {
-         [self performSegueWithIdentifier:@"addBabyNParentSeg" sender:self];
+         //[self performSegueWithIdentifier:@"addBabyNParentSeg" sender:self];
     } else {
     
     if (indexPath.section == 0){
         if (indexPath.row ==0 ) {
-            [self dismissViewControllerAnimated:YES completion:^{
-                NSString *color = currentBabe.babysColor;
-                NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
-                
-                [[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
+            
+            NSString *color = currentBabe.babysColor;
+            NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
 
-                
+            [self dismissViewControllerAnimated:YES completion:^{
             }];
+            
         } else  if (indexPath.row ==1 )
         {
-            [self performSegueWithIdentifier:@"addBabyNParentSeg" sender:self];
+            [self performSegueWithIdentifier:@"inviteSeg" sender:self];
         }else  if (indexPath.row ==2 )
         {
-              [self performSegueWithIdentifier:@"inviteSeg" sender:self];//links
+              [self performSegueWithIdentifier:@"linkSeg" sender:self];//links
         }else  if (indexPath.row ==3 )
         {
             
-            [self performSegueWithIdentifier:@"addBabyNParentSeg" sender:self];//links
+            [self performSegueWithIdentifier:@"addBabyNParentSeg" sender:self];
 
 //          [self presentViewController:controller animated:YES completion:^{
 //              
@@ -207,7 +219,8 @@
         {
              [self performSegueWithIdentifier:@"inviteSeg" sender:self]; //delete
         }else  if (indexPath.row ==5 )
-        {  [self performSegueWithIdentifier:@"inviteSeg" sender:self];//lgout
+        {
+            //lgout
         }
     } else {
         //make telepfone number interactive and callable.

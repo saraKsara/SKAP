@@ -18,9 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *inviteBtn;
 
 - (IBAction)sendInvite:(id)sender;
-- (IBAction)cancel:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UIButton *cancelBtn;
 
 
 @end

@@ -10,6 +10,8 @@
 
 @interface SLKParentListCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *numberLabel;
+;
+@property (weak, nonatomic) IBOutlet UILabel *signatureLabel;
+@property (weak, nonatomic) IBOutlet UITextView *numberTextView;
 
 @end

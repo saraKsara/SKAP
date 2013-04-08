@@ -16,6 +16,8 @@
 #import "SLKUserDefaults.h"
 #import "SLKSettingsViewController.h"
 #import "SLKAddBabyViewController.h"
+#import "SLKParentStorage.h"
+#import "SLKLoginViewController.h"
 @implementation SLKAppDelegate
 {
     UISegmentedControl *_segmentControll;
@@ -84,6 +86,7 @@
        // [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
     //[[SLKBabyStorage sharedStorage] removeAllBabies];
+   // [[SLKParentStorage sharedStorage] removeAllParents];
 
     return YES;
 }
@@ -285,6 +288,8 @@
     [[[self.tabBarController viewControllers] objectAtIndex:0] presentViewController:controller animated:YES completion:^{
         
     }];
+    
+   
 }
 - (void)applicationWillResignActive:(UIApplication *)application
 {
