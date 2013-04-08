@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SLKLoginAndOutViewController : UIViewController
+@interface SLKLoginViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIButton *logOutBtn;
-- (IBAction)logOut:(id)sender;
+
 
 @property (weak, nonatomic) IBOutlet UIButton *logInBtn;
 - (IBAction)logIn:(id)sender;
@@ -24,9 +23,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *enterPasswordLabel;
 @property (weak, nonatomic) IBOutlet UITextField *enterPasswordTextField;
-
-
-@property BOOL login;
 
 
 @end

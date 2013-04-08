@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Student vid Yrkeshögskola C3L. All rights reserved.
 //
 
-#import "SLKLoginAndOutViewController.h"
+#import "SLKLoginViewController.h"
 
-@interface SLKLoginAndOutViewController ()
+@interface SLKLoginViewController ()
 
 @end
 
-@implementation SLKLoginAndOutViewController
+@implementation SLKLoginViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,14 +25,7 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    [_logOutBtn setHidden:NO];
-    [setLogInBtn seth];
-    [setSignUpBtn:nil];
-    [setEnterUsernameLabel:nil];
-    [setEnterUsernameTextField:nil];
-    [setEnterPasswordTextField:nil];
-    [setEnterPasswordLabel:nil];
+  
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,8 +35,7 @@
 }
 
 - (void)viewDidUnload {
-    [self setLogOutBtn:nil];
-    [self setLogInBtn:nil];
+   
     [self setSignUpBtn:nil];
     [self setEnterUsernameLabel:nil];
     [self setEnterUsernameTextField:nil];

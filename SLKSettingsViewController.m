@@ -219,7 +219,8 @@
         {
              [self performSegueWithIdentifier:@"inviteSeg" sender:self]; //delete
         }else  if (indexPath.row ==5 )
-        {  [self performSegueWithIdentifier:@"logoutSeg" sender:self];//lgout
+        {
+            //lgout
         }
     } else {
         //make telepfone number interactive and callable.
