@@ -16,6 +16,7 @@
 #import "SLKUserDefaults.h"
 #import "SLKSettingsViewController.h"
 #import "SLKAddBabyViewController.h"
+#import "SLKParentStorage.h"
 @implementation SLKAppDelegate
 {
     UISegmentedControl *_segmentControll;
@@ -84,6 +85,7 @@
        // [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
     //[[SLKBabyStorage sharedStorage] removeAllBabies];
+   // [[SLKParentStorage sharedStorage] removeAllParents];
 
     return YES;
 }

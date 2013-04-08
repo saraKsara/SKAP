@@ -25,23 +25,40 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFR-WS-v0P">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sLg-ld-hu6">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="48" id="7So-2R-eqB"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gec-Xw-oZD">
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="23" id="3YX-Dq-B7d"/>
+                                                <constraint firstAttribute="width" constant="121" id="jPO-iL-sFe"/>
+                                            </constraints>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
+                                        </textView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
                                     <constraint firstItem="ulZ-OB-CDI" firstAttribute="leading" secondItem="8Yu-Ub-Rpl" secondAttribute="leading" constant="29" id="BSB-Bs-LpU"/>
-                                    <constraint firstAttribute="trailing" secondItem="fFR-WS-v0P" secondAttribute="trailing" constant="20" type="default" id="CyF-hi-Zlb"/>
-                                    <constraint firstItem="ulZ-OB-CDI" firstAttribute="top" secondItem="8Yu-Ub-Rpl" secondAttribute="top" constant="11" id="Jk9-X0-j99"/>
-                                    <constraint firstItem="fFR-WS-v0P" firstAttribute="baseline" secondItem="ulZ-OB-CDI" secondAttribute="baseline" type="default" id="jIR-NN-3V2"/>
+                                    <constraint firstItem="sLg-ld-hu6" firstAttribute="leading" secondItem="8Yu-Ub-Rpl" secondAttribute="leading" constant="125" id="Cby-gh-nbg"/>
+                                    <constraint firstAttribute="trailing" secondItem="Gec-Xw-oZD" secondAttribute="trailing" constant="12" id="HAd-H2-x2g"/>
+                                    <constraint firstItem="Gec-Xw-oZD" firstAttribute="bottom" secondItem="sLg-ld-hu6" secondAttribute="bottom" type="default" id="I9Z-O1-265"/>
+                                    <constraint firstItem="Gec-Xw-oZD" firstAttribute="top" secondItem="8Yu-Ub-Rpl" secondAttribute="top" constant="9" id="py0-LH-tDV"/>
+                                    <constraint firstItem="sLg-ld-hu6" firstAttribute="baseline" secondItem="ulZ-OB-CDI" secondAttribute="baseline" type="default" id="zd3-Zc-RcU"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="nameLabel" destination="ulZ-OB-CDI" id="rIO-B7-3BL"/>
-                                    <outlet property="numberLabel" destination="fFR-WS-v0P" id="ggw-FO-gOX"/>
+                                    <outlet property="numberTextView" destination="Gec-Xw-oZD" id="em2-mG-OJp"/>
+                                    <outlet property="signatureLabel" destination="sLg-ld-hu6" id="Nm7-Xz-b4s"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="welcomeCell" rowHeight="455" id="Uch-We-ddy" customClass="SLKWelcomeCell">

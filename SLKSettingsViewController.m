@@ -97,27 +97,33 @@
         {
             if (indexPath.row ==0 ) {
                 cell.nameLabel.text = @"Back";
-                [cell.numberLabel setHidden:YES];
+                [cell.numberTextView setHidden:YES];
+                [cell.signatureLabel setHidden:YES];
             } else  if (indexPath.row ==1 )
             {
                 cell.nameLabel.text = @"Invite";
-                [cell.numberLabel setHidden:YES];
+                [cell.numberTextView setHidden:YES];
+                  [cell.signatureLabel setHidden:YES];
             }else  if (indexPath.row ==2 )
             {
                 cell.nameLabel.text = @"Links";
-                [cell.numberLabel setHidden:YES];
+                [cell.numberTextView setHidden:YES];
+                  [cell.signatureLabel setHidden:YES];
             }else  if (indexPath.row ==3 )
             {
                 cell.nameLabel.text = @"Add baby";
-                [cell.numberLabel setHidden:YES];
+                [cell.numberTextView setHidden:YES];
+                  [cell.signatureLabel setHidden:YES];
             }else  if (indexPath.row ==4 )
             {
                 cell.nameLabel.text = @"Delete";
-                [cell.numberLabel setHidden:YES];
+                [cell.numberTextView setHidden:YES];
+                  [cell.signatureLabel setHidden:YES];
             }else  if (indexPath.row ==5 )
             {
                 cell.nameLabel.text = @"Logout";
-                [cell.numberLabel setHidden:YES];
+                [cell.numberTextView setHidden:YES];
+                  [cell.signatureLabel setHidden:YES];
             }
             return cell;
         }
@@ -126,11 +132,12 @@
             //set color on every parent? //TODO: set signature!
             ParentFigures *parent = [[[SLKParentStorage sharedStorage] parentArray] objectAtIndex:indexPath.row];
              if ([parent.parentId isEqualToString:currentParent.parentId]) {
-                 [cell setBackgroundColor:[UIColor orangeColor]];
+                 [cell setBackgroundColor:[UIColor redColor]];
                   [cell.nameLabel setTextColor:[UIColor redColor]];
              }
             cell.nameLabel.text = parent.name;
-            cell.numberLabel.text = parent.number;
+            cell.signatureLabel.text = parent.signature;
+            cell.numberTextView.text = parent.number;
             return cell;
         }
     }

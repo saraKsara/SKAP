@@ -148,10 +148,11 @@
          {
              ParentFigures *theNewParent =  [[SLKParentStorage sharedStorage]
                                              createParentWithName: [object objectForKey:@"name"]
-                                             signature:[object objectForKey:@"name"]
+                                             signature:[object objectForKey:@"signature"]
                                              parentId: [object objectId]
-                                             number: [object objectForKey:@"name"]
-                                             color: [object objectForKey:@"name"]
+                                             number:@"0046707245749"
+//                                             number: [object objectForKey:@"number"]
+                                             color: [object objectForKey:@"color"]
                                              babies:nil];
                                              
              NSLog(@"SUCCEED to create %@",[object objectForKey:@"name"] );
