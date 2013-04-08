@@ -161,7 +161,7 @@
     title.frame = CGRectMake(0, 0, 320, 30);
     title.textColor = [UIColor whiteColor];
     title.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:13.0f];
-    title.text =  @"All Parent figures \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t number ";
+    title.text =  @"All Parent figures \t\t\t\t\t\t\t\t\t\t\t\t\t\tignature\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t number ";
     title.backgroundColor = [UIColor blackColor];
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
@@ -180,24 +180,24 @@
     
     if (indexPath.section == 0){
         if (indexPath.row ==0 ) {
-            [self dismissViewControllerAnimated:YES completion:^{
-                NSString *color = currentBabe.babysColor;
-                NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
-                
-                [[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
+            
+            NSString *color = currentBabe.babysColor;
+            NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
 
-                
+            [self dismissViewControllerAnimated:YES completion:^{
             }];
+            
         } else  if (indexPath.row ==1 )
         {
-            [self performSegueWithIdentifier:@"addBabyNParentSeg" sender:self];
+            [self performSegueWithIdentifier:@"inviteSeg" sender:self];
         }else  if (indexPath.row ==2 )
         {
               [self performSegueWithIdentifier:@"inviteSeg" sender:self];//links
         }else  if (indexPath.row ==3 )
         {
             
-            [self performSegueWithIdentifier:@"addBabyNParentSeg" sender:self];//links
+            [self performSegueWithIdentifier:@"addBabyNParentSeg" sender:self];
 
 //          [self presentViewController:controller animated:YES completion:^{
 //              

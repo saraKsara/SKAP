@@ -16,7 +16,7 @@
 #import "ParentFigures.h"
 #import "SLKParentStorage.h"
 #import "SLKSettingsViewController.h"
-@interface SLKAddBabyViewController (FPPopoverController)
+@interface SLKAddBabyViewController ()
 
 @end
 

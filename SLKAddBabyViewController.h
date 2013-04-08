@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FPPopoverController.h"
-@interface SLKAddBabyViewController : FPPopoverController <UITextFieldDelegate>
+@interface SLKAddBabyViewController : UIViewController <UITextFieldDelegate>
 
 @property BOOL addBabyMode;
 

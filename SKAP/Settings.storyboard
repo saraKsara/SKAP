@@ -43,6 +43,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <color key="backgroundColor" red="0.4975002717" green="0.60000002379999995" blue="0.59348432839999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="nameLabel" destination="ulZ-OB-CDI" id="rIO-B7-3BL"/>
                                     <outlet property="numberTextView" destination="Gec-Xw-oZD" id="em2-mG-OJp"/>
@@ -340,10 +341,7 @@
         </scene>
     </scenes>
     <classes>
-        <class className="FPPopoverController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FPPopoverController.h"/>
-        </class>
-        <class className="SLKAddBabyViewController" superclassName="FPPopoverController">
+        <class className="SLKAddBabyViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKAddBabyViewController.h"/>
             <relationships>
                 <relationship kind="action" name="cancel:"/>
@@ -353,6 +351,7 @@
                 <relationship kind="action" name="setBlue:"/>
                 <relationship kind="action" name="setGreen:"/>
                 <relationship kind="action" name="setYellow:"/>
+                <relationship kind="action" name="updateLabelFromPicker:"/>
                 <relationship kind="outlet" name="babynameTexField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="birthDayPickerBtn" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="birthLabel" candidateClass="UILabel"/>
