@@ -19,6 +19,8 @@
 #import "Baby.h"
 #import "SLKAddBabyViewController.h"
 #import "SLKWelcomeCell.h"
+#import "SLKParentStorage.h"
+#import "ParentFigures.h"
 @interface SLKSettingsViewController ()
 
 @end
@@ -28,6 +30,7 @@
     FPPopoverController *popover;
     SLKAddBabyViewController *controller;
     Baby *currentBabe;
+    ParentFigures *currentParent;
     
   }
 - (id)initWithStyle:(UITableViewStyle)style
@@ -50,6 +53,8 @@
     [super viewDidLoad];
       controller = [[SLKAddBabyViewController alloc] init];
     currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
+    currentParent = [[SLKParentStorage sharedStorage]getCurrentParent];
+    NSLog(@"current parent: %@", currentParent.name);
  
   
 }
@@ -74,7 +79,7 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (!_firstTime) {
-        if (section == 1)   return 1;
+        if (section == 1)   return [[[SLKParentStorage sharedStorage] parentArray] count];
         else                return 6;
     } else {
         return 1;
@@ -118,9 +123,14 @@
         }
         else
         {
-            //set color on every parent?
-            cell.nameLabel.text = @"a Parent fig";
-            cell.numberLabel.text = @"777";
+            //set color on every parent? //TODO: set signature!
+            ParentFigures *parent = [[[SLKParentStorage sharedStorage] parentArray] objectAtIndex:indexPath.row];
+             if ([parent.parentId isEqualToString:currentParent.parentId]) {
+                 [cell setBackgroundColor:[UIColor orangeColor]];
+                  [cell.nameLabel setTextColor:[UIColor redColor]];
+             }
+            cell.nameLabel.text = parent.name;
+            cell.numberLabel.text = parent.number;
             return cell;
         }
     }
@@ -149,6 +159,7 @@
     }
     else return nil;
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (_firstTime) {
@@ -191,7 +202,6 @@
 ////            [popover presentPopoverFromView:self.view];
 //           [popover presentPopoverFromPoint:CGPointMake(20, 20)];
 //            
-            
             
         }else  if (indexPath.row ==4 )
         {

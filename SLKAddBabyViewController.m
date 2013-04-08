@@ -156,8 +156,9 @@
                                              
              NSLog(@"SUCCEED to create %@",[object objectForKey:@"name"] );
              [[SLKParentStorage sharedStorage] setCurrentParent:theNewParent];
-             [self dismissViewControllerAnimated:YES completion:^{
-                 NSLog(@"NNNow at vc: %@", self.class);
+             
+             [self dismissViewControllerAnimated:NO completion:^{
+                 
                  [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpSegmentControlls" object:nil userInfo:nil];
 
              }];

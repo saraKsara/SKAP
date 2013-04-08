@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SLKWelcomeCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *welcomeLabel;
 
 @end

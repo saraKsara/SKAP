@@ -67,6 +67,9 @@
                                     <constraint firstItem="eyR-9n-foh" firstAttribute="top" secondItem="Uch-We-ddy" secondAttribute="top" constant="82" id="17p-T5-YWg"/>
                                     <constraint firstItem="eyR-9n-foh" firstAttribute="centerX" secondItem="Uch-We-ddy" secondAttribute="centerX" type="default" id="ZAC-nV-8Ll"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="welcomeLabel" destination="eyR-9n-foh" id="sy1-fA-j8P"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -430,73 +433,6 @@
             <point key="canvasLocation" x="679" y="962"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="FPPopoverController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FPPopoverController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SLKAddBabyViewController" superclassName="FPPopoverController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKAddBabyViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancel:"/>
-                <relationship kind="action" name="done:"/>
-                <relationship kind="action" name="saveBaby:"/>
-                <relationship kind="action" name="setBirthday:"/>
-                <relationship kind="action" name="setBlue:"/>
-                <relationship kind="action" name="setGreen:"/>
-                <relationship kind="action" name="setYellow:"/>
-                <relationship kind="outlet" name="babynameTexField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="birthDayPickerBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="birthLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="blueBG" candidateClass="UIView"/>
-                <relationship kind="outlet" name="cancel" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="chooseColorLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="doneBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="greenBG" candidateClass="UIView"/>
-                <relationship kind="outlet" name="saveBaby" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="setNameOfBabyLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="setSignatureLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="setSignatureTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="yellowBG" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="SLKInviteViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKInviteViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancel:"/>
-                <relationship kind="action" name="sendInvite:"/>
-                <relationship kind="outlet" name="cancelBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="headerLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="inviteBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="phoneNumber1textField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="textFieldDescriptionLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="SLKParentListCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKParentListCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="numberLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="SLKSettingsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKSettingsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="welcome:"/>
-                <relationship kind="outlet" name="welcomeBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="welcomeTextView" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="SLKWelcomeCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKWelcomeCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="welcomeBtn" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
