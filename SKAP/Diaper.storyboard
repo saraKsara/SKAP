@@ -297,31 +297,6 @@
         <image name="blojaLyscopy.png" width="38" height="29"/>
         <image name="iphone4Diapercopy.png" width="412" height="321"/>
     </resources>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SLKPiiPooViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKPiiPooViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="check:"/>
-                <relationship kind="action" name="later:"/>
-                <relationship kind="action" name="save:"/>
-                <relationship kind="action" name="setTimewithSlider:"/>
-                <relationship kind="action" name="sooner:"/>
-                <relationship kind="outlet" name="nameOfBabyLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="normalPii" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="normalPoo" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="save" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeSlider" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="tooLittlePii" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tooLittlePoo" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tooMuchPii" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tooMuchPoo" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

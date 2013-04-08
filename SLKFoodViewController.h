@@ -8,12 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SLKFoodViewController : UIViewController <UIScrollViewDelegate>
+@interface SLKFoodViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *foodLabel;
 @property (weak, nonatomic) IBOutlet UILabel *anotherFoodLable;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, strong) NSMutableArray *pageViews;
+- (IBAction)leftTit:(UITapGestureRecognizer *)sender;
+- (IBAction)rightTit:(id)sender;
 @property (weak, nonatomic) IBOutlet UISlider *foodSliderOne;
+@property (weak, nonatomic) IBOutlet UIImageView *rightTit;
+@property (weak, nonatomic) IBOutlet UIImageView *leftTit;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControll;
 @property (weak, nonatomic) IBOutlet UIView *bottleView;
 @property (weak, nonatomic) IBOutlet UIView *breastView;
@@ -32,4 +36,7 @@
 - (void)loadVisiblePages;
 - (void)loadPage:(NSInteger)page;
 - (void)purgePage:(NSInteger)page;
+-(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer;
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognize;
+
 @end
