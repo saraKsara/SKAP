@@ -92,7 +92,8 @@
     
     if (!_firstTime) {
         static NSString *CellIdentifier = @"settingCell";
-        SLKParentListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        //SLKParentListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        SLKParentListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (indexPath.section == 0)
         {
             if (indexPath.row ==0 ) {
@@ -142,8 +143,12 @@
         }
     }
     else {
-        static NSString *CellIdentifier = @"welcomeCell";
-        SLKWelcomeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+       // static NSString *CellIdentifier = @"welcomeCell";
+//        SLKWelcomeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+
+        SLKWelcomeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"welcomeCell"];
+        
+//        omepwnerItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomepwnerItemCell"];
         return cell;
     }
 }
