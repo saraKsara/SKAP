@@ -422,6 +422,10 @@
 		1C5C54FD16FC6DD3009E3646 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+
+				1CECF560170D8BF4008AFA74 /* ParentFigures.h */,
+				1CECF561170D8BF4008AFA74 /* ParentFigures.m */,
+
 				1CECF55D170D8BF4008AFA74 /* Baby.h */,
 				1CECF55E170D8BF4008AFA74 /* Baby.m */,
 				1C611EC7170C48160088016F /* Tits.h */,
@@ -512,8 +516,10 @@
 		CE59448316F90DC800D9D33A = {
 			isa = PBXGroup;
 			children = (
+
 				1C62729D170EDBB800F51E00 /* ParentFigures.h */,
 				1C62729E170EDBB800F51E00 /* ParentFigures.m */,
+
 				CE59449816F90DC800D9D33A /* SKAP */,
 				1CA7F8D916FC8B72008BB1BF /* SKAPUnitTest */,
 				CE59449116F90DC800D9D33A /* Frameworks */,
@@ -555,11 +561,11 @@
 		CE59449816F90DC800D9D33A /* SKAP */ = {
 			isa = PBXGroup;
 			children = (
+				CE5944A116F90DC800D9D33A /* SLKAppDelegate.h */,
+				CE5944A216F90DC800D9D33A /* SLKAppDelegate.m */,
 				CE5944BB16F90EB800D9D33A /* Model */,
 				CE5944D116F9A6B900D9D33A /* ViewController */,
 				1C91DDE116FC4FC700921C59 /* Parse */,
-				CE5944A116F90DC800D9D33A /* SLKAppDelegate.h */,
-				CE5944A216F90DC800D9D33A /* SLKAppDelegate.m */,
 				1C423F78170D6B2F00DCB469 /* User Defaults and Constants */,
 				1C423F79170D6B5000DCB469 /* Color */,
 				1C36055D1704667D007FC517 /* Date utils */,
