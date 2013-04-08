@@ -26,13 +26,137 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="gqO-NN-JP4">
-                                <rect key="frame" x="12" y="0.0" width="299" height="536"/>
+                            <view contentMode="scaleToFill" id="ExZ-cF-fpa">
+                                <rect key="frame" x="-54" y="29" width="385" height="500"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.91370158410000002" green="0.92651865430000002" blue="0.91158011110000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" indicatorStyle="black" id="0eI-uv-4ps">
+                                        <rect key="frame" x="54" y="85" width="375" height="313"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" id="r4O-od-KRB">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="333"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="BREASTFEEED" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0Ju-Lh-n2y">
+                                                        <rect key="frame" x="85" y="139" width="125" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.4975002717" green="0.60000002379999995" blue="0.59348432839999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" id="gqO-NN-JP4">
+                                                <rect key="frame" x="375" y="2" width="375" height="331"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QjL-2T-rAj">
+                                                        <rect key="frame" x="22" y="30" width="200" height="21"/>
+                                                        <fontDescription key="fontDescription" name="Thonburi-Bold" family="Thonburi" pointSize="14"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y5c-zV-ipT">
+                                                        <rect key="frame" x="105" y="155" width="89" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bottle.png" id="YYi-n1-jJm">
+                                                        <rect key="frame" x="48" y="-36" width="244" height="361"/>
+                                                        <color key="backgroundColor" red="0.59791349969999996" green="1" blue="0.71378551440000004" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                    </imageView>
+                                                    <slider contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="350" id="TsR-EZ-3Gc">
+                                                        <rect key="frame" x="97" y="191" width="146" height="23"/>
+                                                        <color key="backgroundColor" red="1" green="0.70624452780000002" blue="0.35067978970000002" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                        <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <action selector="sliderOneValueChanged:" destination="hKR-TG-9xj" eventType="valueChanged" id="iig-m3-0gb"/>
+                                                        </connections>
+                                                    </slider>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-200" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Toe-Tp-jIn">
+                                                        <rect key="frame" x="142" y="155" width="42" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rjc-EW-px9">
+                                                        <rect key="frame" x="142" y="203" width="42" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-300" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mfc-PM-gSm">
+                                                        <rect key="frame" x="142" y="116" width="42" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ml" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CUu-7h-K5Z">
+                                                        <rect key="frame" x="170.5" y="115.5" width="25" height="21"/>
+                                                        <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="15"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="331-NW-1sC">
+                                                        <rect key="frame" x="142" y="135.5" width="42" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aLQ-Tt-4sR">
+                                                        <rect key="frame" x="142" y="259.5" width="42" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6WI-OL-OVw">
+                                                        <rect key="frame" x="142" y="185.5" width="42" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gfh-fb-qIO">
+                                                        <rect key="frame" x="2" y="276" width="46" height="30"/>
+                                                        <fontDescription key="fontDescription" name="Thonburi-Bold" family="Thonburi" pointSize="19"/>
+                                                        <state key="normal" title="save">
+                                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <state key="highlighted">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="save:" destination="hKR-TG-9xj" eventType="touchUpInside" id="D6k-5y-hDP"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.49750027169981587" green="0.60000002379999995" blue="0.59348432838322807" alpha="1" colorSpace="calibratedRGB"/>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.78141609020000002" green="1" blue="0.89836842380000004" alpha="0.73999999999999999" colorSpace="calibratedRGB"/>
+                                        <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                    </scrollView>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" currentPage="1" id="7Nu-Q4-Zon">
+                                        <rect key="frame" x="54" y="398" width="320" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                        <color key="backgroundColor" red="0.4975002717" green="0.60000002379999995" blue="0.59348432839999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="pageIndicatorTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="currentPageIndicatorTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="touchUpInsidePageControll:" destination="hKR-TG-9xj" eventType="touchUpInside" id="2qQ-5Z-z8q"/>
+                                            <action selector="valuePageControll:" destination="hKR-TG-9xj" eventType="valueChanged" id="iwh-Q1-LCF"/>
+                                        </connections>
+                                    </pageControl>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QjL-2T-rAj">
-                                <rect key="frame" x="14" y="142" width="250" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="10:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b1o-Fe-Htg">
+                                <rect key="frame" x="134" y="54" width="48" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -46,98 +170,8 @@
                                     <action selector="setTime:" destination="hKR-TG-9xj" eventType="valueChanged" id="FP3-IO-vd9"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y5c-zV-ipT">
-                                <rect key="frame" x="-34" y="298" width="89" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView contentMode="scaleToFill" image="milk.png" id="16o-62-ire">
-                                <rect key="frame" x="123" y="305" width="77" height="211"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="F27-IK-Riw" appends="YES" id="Wqc-Cn-KT2"/>
-                                </connections>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bottle.png" id="YYi-n1-jJm">
-                                <rect key="frame" x="39" y="173" width="244" height="385"/>
-                                <color key="backgroundColor" red="0.59791349969999996" green="1" blue="0.71378551440000004" alpha="0.0" colorSpace="calibratedRGB"/>
-                            </imageView>
-                            <slider contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="350" id="TsR-EZ-3Gc">
-                                <rect key="frame" x="70" y="397" width="196" height="23"/>
-                                <color key="backgroundColor" red="1" green="0.70624452780000002" blue="0.35067978970000002" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <action selector="sliderOneValueChanged:" destination="hKR-TG-9xj" eventType="valueChanged" id="iig-m3-0gb"/>
-                                </connections>
-                            </slider>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-200" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Toe-Tp-jIn">
-                                <rect key="frame" x="147" y="390" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rjc-EW-px9">
-                                <rect key="frame" x="147" y="436" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-300" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mfc-PM-gSm">
-                                <rect key="frame" x="147" y="326" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ml" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CUu-7h-K5Z">
-                                <rect key="frame" x="72" y="299" width="25" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="331-NW-1sC">
-                                <rect key="frame" x="147" y="424" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aLQ-Tt-4sR">
-                                <rect key="frame" x="147" y="373" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6WI-OL-OVw">
-                                <rect key="frame" x="147" y="477" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gfh-fb-qIO">
-                                <rect key="frame" x="242" y="288" width="58" height="44"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="save">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="save:" destination="hKR-TG-9xj" eventType="touchUpInside" id="D6k-5y-hDP"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="10:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b1o-Fe-Htg">
-                                <rect key="frame" x="134" y="54" width="48" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vKK-at-zKD">
-                                <rect key="frame" x="190" y="51" width="73" height="24"/>
+                                <rect key="frame" x="190" y="53" width="73" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="+1 hour">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -170,8 +204,12 @@
                     <tabBarItem key="tabBarItem" title="Food" id="SW8-gA-mdn"/>
                     <connections>
                         <outlet property="anotherFoodLable" destination="QjL-2T-rAj" id="Ktz-q6-cnP"/>
+                        <outlet property="bottleView" destination="gqO-NN-JP4" id="OaM-he-f1B"/>
+                        <outlet property="breastView" destination="r4O-od-KRB" id="xxf-ky-EIt"/>
                         <outlet property="foodLabel" destination="y5c-zV-ipT" id="ki2-Rp-BOt"/>
                         <outlet property="foodSliderOne" destination="TsR-EZ-3Gc" id="hOy-Lb-MBR"/>
+                        <outlet property="pageControll" destination="7Nu-Q4-Zon" id="t6x-ga-TTJ"/>
+                        <outlet property="scrollView" destination="0eI-uv-4ps" id="AbA-lY-QJW"/>
                         <outlet property="setTimeLabel" destination="b1o-Fe-Htg" id="gjk-9U-YEf"/>
                         <outlet property="timeSlider" destination="wHh-QR-jB8" id="ZR0-fy-fnt"/>
                     </connections>
@@ -264,7 +302,6 @@
     </scenes>
     <resources>
         <image name="bottle.png" width="640" height="1065"/>
-        <image name="milk.png" width="206" height="479"/>
     </resources>
     <classes>
         <class className="SLKAddBabyCell" superclassName="UITableViewCell">
@@ -287,9 +324,6 @@
         </class>
         <class className="SLKBabyPopViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKBabyPopViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="updateLabelFromPicker:"/>
-            </relationships>
         </class>
         <class className="SLKFoodViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKFoodViewController.h"/>
@@ -300,9 +334,15 @@
                 <relationship kind="action" name="setTime:"/>
                 <relationship kind="action" name="sliderOneValueChanged:"/>
                 <relationship kind="action" name="sooner:"/>
+                <relationship kind="action" name="touchUpInsidePageControll:"/>
+                <relationship kind="action" name="valuePageControll:"/>
                 <relationship kind="outlet" name="anotherFoodLable" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="bottleView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="breastView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="foodLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="foodSliderOne" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="pageControll" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="setTimeLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="timeSlider" candidateClass="UISlider"/>
             </relationships>
