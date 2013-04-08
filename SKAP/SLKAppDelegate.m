@@ -15,6 +15,7 @@
 #import "SLKConstants.h"
 #import "SLKUserDefaults.h"
 #import "SLKSettingsViewController.h"
+#import "SLKAddBabyViewController.h"
 @implementation SLKAppDelegate
 {
     UISegmentedControl *_segmentControll;
@@ -31,7 +32,9 @@
     [Parse setApplicationId:@"4EQbwofsLU6tVbseSlCoOVvWBmW7MdlLuM4GCuCl"
                   clientKey:@"lh5Ib7m3Jab71RhCA1dBC2UrMR68dsTBzIlsFu6h"];
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound];
-    
+    //to get statistics from users
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(setTheBGColor:)
                                                  name:@"changeBabyColor"
@@ -44,17 +47,22 @@
 
     
     NSString *color;
-     [SLKPARSEService getAllObjects];
+    
+    // [SLKPARSEService getAllObjects];
     
     //TODO: on complete:
     
     //if there are no babies in storage after getting from server:
+    
+    //TODO: if you where invited...
+    
     if ([[[SLKBabyStorage sharedStorage]babyArray]count] == 0 ) {
         
         //change root view to adding baby
         //[self setUpAppWithAddingBabyView];
         NSLog(@"\n\n\n there are NOOOOO babies in user default, add one! \n\n\n");
-         [self setUpApp];//for now
+        [self setUpAppFirstTime];
+        
     } else //there are babies in storage
     {
         if ([[SLKBabyStorage sharedStorage]getCurrentBaby] != nil) {
@@ -66,15 +74,13 @@
         }
         [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpSegmentControlls" object:nil userInfo:nil];
 
-       // [self setUpApp];
+        NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
     }
-    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
+
     
 
-    //to get statistics from users
-    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-
+   
        // [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
     //[[SLKBabyStorage sharedStorage] removeAllBabies];
@@ -124,15 +130,22 @@
     self.window.backgroundColor = [UIColor colorWithPatternImage:imageText];
 }
 
-
+-(void)setUpAppFirstTime
+{
+     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
+    
+    SLKSettingsViewController *controller = [sb instantiateInitialViewController];
+    controller.firstTime = YES;
+    [self.window setRootViewController:controller];
+    [self.window makeKeyAndVisible];
+}
 -(void)setUpApp
 {
    
     self.tabBarController = [[UITabBarController alloc] init];
-
     self.tabBarController.viewControllers = [self createViewControllersForStoryboards:@[ @"Feed", @"Diaper", @"Medz",@"calendar"]];
     
-    // Tab styling :)
+    // Tab styling 
     [[[self tabBarController] tabBar] setBackgroundImage:[UIImage imageNamed:@"tabbar_bg"]];
     [[[self tabBarController] tabBar] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar_bg_sel"]];
     
@@ -142,7 +155,6 @@
     
     numberOfBabies = babyArray.count;
     
-    //IF adding new baby, set up new segmentcontrol! else, ....
     int i = 1;
     for (Baby *babe in babyArray)
     {
@@ -190,11 +202,9 @@
 
 - (IBAction)segmentAction:(id)sender {
      
-    //TODO: set menu not selected when setting view is dissmissed
     if ( _segmentControll.selectedSegmentIndex == 0 ) {
         //        [self performSegueWithIdentifier:@"menueSeg" sender:self];
        
-        //current baby+1 - index
         [_segmentControll setSelectedSegmentIndex:selectedIndex];
         
         [self showMenue];

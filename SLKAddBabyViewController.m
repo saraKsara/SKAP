@@ -13,7 +13,9 @@
 #import "SLKConstants.h"
 #import "SLKPARSEService.h"
 #import "SLKConstants.h"
-
+#import "ParentFigures.h"
+#import "SLKParentStorage.h"
+#import "SLKSettingsViewController.h"
 @interface SLKAddBabyViewController (FPPopoverController)
 
 @end
@@ -27,43 +29,47 @@
     NSString *babycolor;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(addBaby:)
-                                                 name:@"addBaby"
-                                               object:nil];
+
+    [_birthLabel setHidden:YES];
+    [_blueBG setHidden:YES];
+    [_yellowBG setHidden:YES];
+    [_greenBG setHidden:YES];
+    _babynameTexField.delegate = self;
+    _setSignatureTextField.delegate = self;
+    bDayPicker= [[UIDatePicker alloc] init];
+    [bDayPicker setDatePickerMode:UIDatePickerModeDate];
+    bDayPicker.frame = CGRectMake(0, 320 , 320, 280);
+    [bDayPicker addTarget:self action:@selector(updateLabelFromPicker:) forControlEvents:UIControlEventValueChanged];
+    
+    if ( _addBabyMode)
+    {
+        [_setSignatureLabel setHidden:YES];
+        [_setSignatureTextField setHidden:YES];
+    }
+    else if ( !_addBabyMode)
+    {
+        [_birthDayPickerBtn  setHidden:YES];
+        [_doneBtn  setHidden:YES];
+        _setNameOfBabyLabel.text = @"Typ in your name";
+        _chooseColorLabel.text = @"Choose your color";
+        _setSignatureLabel.text = @"Type in a signature";
+    }
+
 
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [_birthLabel setHidden:YES];
-    [_blueBG setHidden:YES];
-    [_yellowBG setHidden:YES];
-    [_greenBG setHidden:YES];
-    _babynameTexField.delegate = self;
-   // [_doneBtn  setHidden:YES];
-    bDayPicker= [[UIDatePicker alloc] init];
-    [bDayPicker setDatePickerMode:UIDatePickerModeDate];
-    bDayPicker.frame = CGRectMake(0, 320 , 320, 280);
-    [bDayPicker addTarget:self action:@selector(updateLabelFromPicker:) forControlEvents:UIControlEventValueChanged];
-   
 }
-
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
 
 - (IBAction)updateLabelFromPicker:(id)sender {
     NSLog(@"date from datepicker: %@", bDayPicker.date);
@@ -74,6 +80,9 @@
 
 
 - (IBAction)saveBaby:(id)sender {
+    
+    if (_addBabyMode) {
+        
     NSLog(@"save:: %@----%@----",babycolor, _babynameTexField.text);
     PFObject *babyObject = [PFObject objectWithClassName:@"Baby"];
     [babyObject setObject:_babynameTexField.text forKey:@"name"];
@@ -124,13 +133,61 @@
          //         }];
          
      }];
+    } else //first time use, add parent, then go to normal, then set child. maybe alert???
+    {
+        NSLog(@"save::color: %@----name:%@----signature:%@",babycolor, _babynameTexField.text, _setSignatureTextField.text);
+        PFObject *parentObject = [PFObject objectWithClassName:@"ParentFigure"];
+        [parentObject setObject:_babynameTexField.text forKey:@"name"];
+        [parentObject setObject:babycolor forKey:@"color"];
+        [parentObject setObject:_setSignatureTextField.text forKey:@"signature"];
+        //     [babyObject setObject:newBabyName forKey:@"date"];
+        
+        //TODO: CHECK FOR INTERNET CONNECTION (REACHABILITY?) AND DECIDE WHAT TO DO WHEN THERE'S NO CONNECTION
+        
+        [SLKPARSEService postObject:parentObject onSuccess:^(PFObject *object)
+         {
+             ParentFigures *theNewParent =  [[SLKParentStorage sharedStorage]
+                                             createParentWithName: [object objectForKey:@"name"]
+                                             signature:[object objectForKey:@"name"]
+                                             parentId: [object objectId]
+                                             number: [object objectForKey:@"name"]
+                                             color: [object objectForKey:@"name"]
+                                             babies:nil];
+                                             
+             NSLog(@"SUCCEED to create %@",[object objectForKey:@"name"] );
+             [[SLKParentStorage sharedStorage] setCurrentParent:theNewParent];
+             
+             [self dismissViewControllerAnimated:NO completion:^{
+                 
+                 [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpSegmentControlls" object:nil userInfo:nil];
+
+             }];
+             
+             
+         } onFailure:^(PFObject *object)
+         {
+             NSLog(@"FAILED :((( ");
+             UIAlertView *failAlert = [[UIAlertView alloc]
+                                       initWithTitle:@"FAIL"
+                                       message:@"Failed to add new baby for now. Please try again later" delegate:self
+                                       cancelButtonTitle:@"OK"
+                                       otherButtonTitles:nil, nil];
+             [failAlert show];
+             [self dismissViewControllerAnimated:YES completion:^{
+                 //set text on settingsVC who are invited
+             }];
+             //         [popover dismissPopoverAnimated:YES completion:^{
+             //             [self.tableView reloadData];
+             //         }];
+             
+         }];
+    }
 
 }
 
 - (IBAction)setBirthday:(id)sender
 {
-//    [_birthDayPickerBtn setHidden:YES];
-//    [_doneBtn setHidden:NO];
+
     [_babynameTexField resignFirstResponder];
     anewBabuLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 250, 20)];
     
@@ -147,17 +204,6 @@
 
     }];
 }
-
-
--(void)addBabyNotification
-{
-    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys:_babynameTexField, @"babyName", kBlueish_Color, @"color", nil];
-    NSLog(@"vavava-------- %@", [userInfo valueForKey:@"babyName"]);
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName: @"addBaby" object:nil userInfo:userInfo];
-    
-}
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -203,8 +249,6 @@
 
 - (IBAction)done:(id)sender {
     [bDayPicker removeFromSuperview];
-   
-//   [_birthDayPickerBtn setHidden:YES];
-//   [_doneBtn setHidden:YES];
+
 }
 @end

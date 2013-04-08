@@ -10,4 +10,5 @@
 
 @interface SLKSettingsViewController : UITableViewController
 
+@property BOOL firstTime;
 @end

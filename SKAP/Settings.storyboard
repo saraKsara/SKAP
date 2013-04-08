@@ -44,6 +44,33 @@
                                     <outlet property="numberLabel" destination="fFR-WS-v0P" id="ggw-FO-gOX"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="welcomeCell" rowHeight="455" id="Uch-We-ddy" customClass="SLKWelcomeCell">
+                                <rect key="frame" x="0.0" y="66" width="320" height="455"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="454"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Welcome! this is the first time you use baby feed. Tap on screen to register as a parent figure and start using the app. Enjoy!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="255" translatesAutoresizingMaskIntoConstraints="NO" id="eyR-9n-foh">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="279" id="vlj-PC-n6Z"/>
+                                                <constraint firstAttribute="width" constant="255" id="y11-Zv-zP0"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="eyR-9n-foh" firstAttribute="top" secondItem="Uch-We-ddy" secondAttribute="top" constant="82" id="17p-T5-YWg"/>
+                                    <constraint firstItem="eyR-9n-foh" firstAttribute="centerX" secondItem="Uch-We-ddy" secondAttribute="centerX" type="default" id="ZAC-nV-8Ll"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="welcomeLabel" destination="eyR-9n-foh" id="sy1-fA-j8P"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <sections/>
                         <connections>
@@ -53,7 +80,7 @@
                     </tableView>
                     <connections>
                         <segue destination="MOp-WF-5Ys" kind="modal" identifier="inviteSeg" modalTransitionStyle="flipHorizontal" id="Z6r-6X-yGv"/>
-                        <segue destination="Brm-O9-U8G" kind="modal" identifier="addBabySeg" modalTransitionStyle="crossDissolve" id="PyF-P7-OvE"/>
+                        <segue destination="Brm-O9-U8G" kind="modal" identifier="addBabyNParentSeg" modalTransitionStyle="crossDissolve" id="PyF-P7-OvE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a5h-rt-Tfp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -293,7 +320,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="fSA-ff-OCI"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                 <state key="normal" title="Done setting birth date">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -321,35 +348,51 @@
                                     <action selector="cancel:" destination="Brm-O9-U8G" eventType="touchUpInside" id="F6f-4n-n1W"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Onb-SM-71f">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Type in your signature" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgP-Gb-SJf">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="FtX-9C-Ewr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="hgP-Gb-SJf" firstAttribute="top" secondItem="qwz-gb-Gpr" secondAttribute="top" constant="148" id="0C2-Qb-w9P"/>
                             <constraint firstItem="1do-W3-0uQ" firstAttribute="trailing" secondItem="fMC-jz-iJ5" secondAttribute="trailing" type="default" id="6HG-Bb-FB3"/>
                             <constraint firstItem="4h4-2G-7bs" firstAttribute="leading" secondItem="xhv-u7-MTJ" secondAttribute="leading" type="default" id="6vi-Es-8wk"/>
                             <constraint firstItem="xhv-u7-MTJ" firstAttribute="top" secondItem="qwz-gb-Gpr" secondAttribute="top" constant="345" id="78Z-1r-Lzb"/>
                             <constraint firstItem="Yu6-TX-N7f" firstAttribute="top" secondItem="1do-W3-0uQ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="7N9-K6-5mw"/>
                             <constraint firstItem="BfY-Sd-YtO" firstAttribute="leading" secondItem="1do-W3-0uQ" secondAttribute="leading" type="default" id="876-VK-CRi"/>
                             <constraint firstItem="Yu6-TX-N7f" firstAttribute="trailing" secondItem="4h4-2G-7bs" secondAttribute="trailing" type="default" id="8KT-K2-IUY"/>
+                            <constraint firstItem="Onb-SM-71f" firstAttribute="trailing" secondItem="BvT-He-feM" secondAttribute="trailing" type="default" id="A4w-jJ-1en"/>
                             <constraint firstItem="1do-W3-0uQ" firstAttribute="leading" secondItem="fMC-jz-iJ5" secondAttribute="leading" type="default" id="Bod-bO-EFW"/>
                             <constraint firstAttribute="bottom" secondItem="4h4-2G-7bs" secondAttribute="bottom" constant="225" id="CTF-72-vkc"/>
                             <constraint firstItem="xd9-Rq-0UU" firstAttribute="trailing" secondItem="4CA-pj-blo" secondAttribute="trailing" type="default" id="GTi-HT-CqQ"/>
-                            <constraint firstItem="hIU-g0-lqw" firstAttribute="centerX" secondItem="BvT-He-feM" secondAttribute="centerX" type="default" id="IIO-hc-LcT"/>
                             <constraint firstItem="Yu6-TX-N7f" firstAttribute="centerX" secondItem="fMC-jz-iJ5" secondAttribute="centerX" type="default" id="IVC-By-UGH"/>
                             <constraint firstItem="Yu6-TX-N7f" firstAttribute="centerY" secondItem="fMC-jz-iJ5" secondAttribute="centerY" type="default" id="Jm6-No-VbX"/>
                             <constraint firstItem="Yu6-TX-N7f" firstAttribute="leading" secondItem="4h4-2G-7bs" secondAttribute="leading" type="default" id="LVh-iT-nqK"/>
                             <constraint firstItem="BfY-Sd-YtO" firstAttribute="trailing" secondItem="1do-W3-0uQ" secondAttribute="trailing" type="default" id="NhQ-O9-90G"/>
                             <constraint firstItem="4CA-pj-blo" firstAttribute="centerX" secondItem="qwz-gb-Gpr" secondAttribute="centerX" type="default" id="Ny2-Pb-SB6"/>
                             <constraint firstItem="UKM-qy-t7g" firstAttribute="trailing" secondItem="xd9-Rq-0UU" secondAttribute="trailing" type="default" id="SAo-Uu-JH3"/>
+                            <constraint firstItem="Onb-SM-71f" firstAttribute="centerX" secondItem="hIU-g0-lqw" secondAttribute="centerX" type="default" id="Uao-Nj-QVK"/>
+                            <constraint firstItem="Onb-SM-71f" firstAttribute="top" secondItem="Z5Q-vB-aT8" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="V12-7J-ndc"/>
                             <constraint firstItem="hIU-g0-lqw" firstAttribute="trailing" secondItem="Z5Q-vB-aT8" secondAttribute="trailing" type="default" id="VBO-Ur-OH0"/>
                             <constraint firstAttribute="bottom" secondItem="UKM-qy-t7g" secondAttribute="bottom" constant="99" id="WE6-rg-XaB"/>
                             <constraint firstItem="UKM-qy-t7g" firstAttribute="leading" secondItem="xd9-Rq-0UU" secondAttribute="leading" type="default" id="Xcn-zy-VKA"/>
                             <constraint firstItem="BfY-Sd-YtO" firstAttribute="leading" secondItem="hIU-g0-lqw" secondAttribute="leading" type="default" id="Yh4-8H-KQ8"/>
                             <constraint firstItem="BfY-Sd-YtO" firstAttribute="baseline" secondItem="hIU-g0-lqw" secondAttribute="baseline" type="default" id="ZwW-A0-9xt"/>
                             <constraint firstAttribute="bottom" secondItem="xhv-u7-MTJ" secondAttribute="bottom" constant="175" id="bLJ-XM-aUE"/>
-                            <constraint firstItem="hIU-g0-lqw" firstAttribute="top" secondItem="qwz-gb-Gpr" secondAttribute="top" constant="177" id="bld-J7-BMS"/>
+                            <constraint firstItem="hgP-Gb-SJf" firstAttribute="centerX" secondItem="Z5Q-vB-aT8" secondAttribute="centerX" type="default" id="dzE-yM-KlK"/>
                             <constraint firstItem="xlJ-81-uWl" firstAttribute="top" secondItem="qwz-gb-Gpr" secondAttribute="top" constant="3" id="gAy-bX-Qja"/>
                             <constraint firstItem="Z5Q-vB-aT8" firstAttribute="top" secondItem="BvT-He-feM" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="gh2-RZ-ecV"/>
                             <constraint firstItem="4h4-2G-7bs" firstAttribute="top" secondItem="qwz-gb-Gpr" secondAttribute="top" constant="295" id="gsi-FM-3NO"/>
+                            <constraint firstItem="hIU-g0-lqw" firstAttribute="top" secondItem="hgP-Gb-SJf" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="k10-NT-kXe"/>
                             <constraint firstItem="4h4-2G-7bs" firstAttribute="centerY" secondItem="4CA-pj-blo" secondAttribute="centerY" type="default" id="kep-5o-ZtR"/>
                             <constraint firstItem="BfY-Sd-YtO" firstAttribute="trailing" secondItem="hIU-g0-lqw" secondAttribute="trailing" type="default" id="lf7-NS-Rih"/>
                             <constraint firstItem="4h4-2G-7bs" firstAttribute="trailing" secondItem="xhv-u7-MTJ" secondAttribute="trailing" type="default" id="nN2-Nt-b1f"/>
@@ -361,10 +404,12 @@
                             <constraint firstItem="4CA-pj-blo" firstAttribute="leading" secondItem="fMC-jz-iJ5" secondAttribute="leading" type="default" id="sov-If-2o0"/>
                             <constraint firstItem="Yu6-TX-N7f" firstAttribute="trailing" secondItem="lb1-cH-MRy" secondAttribute="trailing" type="default" id="tY7-yD-fmQ"/>
                             <constraint firstItem="4CA-pj-blo" firstAttribute="trailing" secondItem="fMC-jz-iJ5" secondAttribute="trailing" type="default" id="uiJ-Th-TVa"/>
+                            <constraint firstItem="hgP-Gb-SJf" firstAttribute="leading" secondItem="BvT-He-feM" secondAttribute="leading" type="default" id="w6U-9L-kbZ"/>
                             <constraint firstItem="xlJ-81-uWl" firstAttribute="leading" secondItem="Yu6-TX-N7f" secondAttribute="leading" type="default" id="xVo-QA-1yH"/>
                             <constraint firstItem="fMC-jz-iJ5" firstAttribute="top" secondItem="qwz-gb-Gpr" secondAttribute="top" constant="258" id="y9e-9L-6Jv"/>
                             <constraint firstItem="hIU-g0-lqw" firstAttribute="leading" secondItem="lb1-cH-MRy" secondAttribute="leading" type="default" id="ywp-DO-mmr"/>
                             <constraint firstItem="xd9-Rq-0UU" firstAttribute="leading" secondItem="4CA-pj-blo" secondAttribute="leading" type="default" id="zVO-4B-YNw"/>
+                            <constraint firstItem="hgP-Gb-SJf" firstAttribute="leading" secondItem="Onb-SM-71f" secondAttribute="leading" type="default" id="zhc-aI-PMR"/>
                         </constraints>
                     </view>
                     <connections>
@@ -378,6 +423,8 @@
                         <outlet property="greenBG" destination="4h4-2G-7bs" id="XAQ-qz-Rey"/>
                         <outlet property="saveBaby" destination="UKM-qy-t7g" id="OCB-4q-zRW"/>
                         <outlet property="setNameOfBabyLabel" destination="lb1-cH-MRy" id="rYX-d8-Hqy"/>
+                        <outlet property="setSignatureLabel" destination="hgP-Gb-SJf" id="aMG-M3-KVO"/>
+                        <outlet property="setSignatureTextField" destination="Onb-SM-71f" id="qO1-35-jdD"/>
                         <outlet property="yellowBG" destination="xhv-u7-MTJ" id="Kc3-n8-gcs"/>
                     </connections>
                 </viewController>
