@@ -175,7 +175,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (_firstTime) {
-         [self performSegueWithIdentifier:@"addBabyNParentSeg" sender:self];
+         //[self performSegueWithIdentifier:@"addBabyNParentSeg" sender:self];
     } else {
     
     if (indexPath.section == 0){

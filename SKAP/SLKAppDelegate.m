@@ -17,6 +17,7 @@
 #import "SLKSettingsViewController.h"
 #import "SLKAddBabyViewController.h"
 #import "SLKParentStorage.h"
+#import "SLKLoginViewController.h"
 @implementation SLKAppDelegate
 {
     UISegmentedControl *_segmentControll;

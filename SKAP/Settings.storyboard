@@ -98,18 +98,63 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="454"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Welcome! this is the first time you use baby feed. Tap on screen to register as a parent figure and start using the app. Enjoy!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eyR-9n-foh">
-                                            <rect key="frame" x="33" y="82" width="255" height="279"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Enter user name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9oJ-QM-gFj">
+                                            <rect key="frame" x="31" y="113" width="258" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" red="0.90572226050000004" green="0.98979675769999997" blue="0.91228783130000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
                                         </label>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" id="qKc-lC-edB">
+                                            <rect key="frame" x="28" y="144" width="264" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="textColor" red="0.90572226050000004" green="0.98979675769999997" blue="0.91228783130000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Entre password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ah3-zk-Cfb">
+                                            <rect key="frame" x="31" y="223" width="258" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.90572226050000004" green="0.98979675769999997" blue="0.91228783130000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" id="lMW-lE-2L3">
+                                            <rect key="frame" x="28" y="252" width="264" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="textColor" red="0.90572226050000004" green="0.98979675769999997" blue="0.91228783130000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Xiy-bn-uhh">
+                                            <rect key="frame" x="42" y="290" width="250" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.4975002717" green="0.60000002379999995" blue="0.59348432839999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <state key="normal" title="Login">
+                                                <color key="titleColor" red="0.90572226047515869" green="0.98979675769805908" blue="0.91228783130645752" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zM1-LJ-rbP">
+                                            <rect key="frame" x="64" y="356" width="193" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <state key="normal" title="Sign Up">
+                                                <color key="titleColor" red="0.90572226050000004" green="0.98979675769999997" blue="0.91228783130000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <connections>
-                                    <outlet property="welcomeLabel" destination="eyR-9n-foh" id="sy1-fA-j8P"/>
-                                </connections>
+                                <color key="backgroundColor" red="0.21644243599999999" green="0.2014552355" blue="0.21040119230000001" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -189,121 +234,28 @@
             </objects>
             <point key="canvasLocation" x="1163" y="205"/>
         </scene>
-        <!--Login View Controller-->
-        <scene sceneID="WTP-zH-XW5">
-            <objects>
-                <viewController id="hgm-JD-Syg" customClass="SLKLoginViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="40n-e0-dk8">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" id="lMW-lE-2L3">
-                                <rect key="frame" x="28" y="258" width="264" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" red="0.90572226050000004" green="0.98979675769999997" blue="0.91228783130000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Entre password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ah3-zk-Cfb">
-                                <rect key="frame" x="28" y="230" width="258" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.90572226050000004" green="0.98979675769999997" blue="0.91228783130000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" id="qKc-lC-edB">
-                                <rect key="frame" x="28" y="185" width="264" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" red="0.90572226050000004" green="0.98979675769999997" blue="0.91228783130000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Enter user name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9oJ-QM-gFj">
-                                <rect key="frame" x="28" y="156" width="258" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.90572226050000004" green="0.98979675769999997" blue="0.91228783130000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Xiy-bn-uhh">
-                                <rect key="frame" x="36" y="304" width="250" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.4975002717" green="0.60000002379999995" blue="0.59348432839999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Login">
-                                    <color key="titleColor" red="0.90572226047515869" green="0.98979675769805908" blue="0.91228783130645752" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="logIn:" destination="hgm-JD-Syg" eventType="touchUpInside" id="FMj-yA-AgL"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bottle.png" id="tuM-0c-fzV">
-                                <rect key="frame" x="165" y="20" width="135" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="iphone4Diapercopy.png" id="Vun-f7-Zxf">
-                                <rect key="frame" x="20" y="20" width="135" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zM1-LJ-rbP">
-                                <rect key="frame" x="71" y="363" width="193" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Sign Up">
-                                    <color key="titleColor" red="0.90572226050000004" green="0.98979675769999997" blue="0.91228783130000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="signUp:" destination="hgm-JD-Syg" eventType="touchUpInside" id="JqE-y2-twd"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.21644243597984314" green="0.20145523548126221" blue="0.21040119230747223" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="0Q0-hn-JDz"/>
-                    <connections>
-                        <outlet property="enterPasswordLabel" destination="ah3-zk-Cfb" id="b89-MU-5Vs"/>
-                        <outlet property="enterPasswordTextField" destination="lMW-lE-2L3" id="feF-db-UbK"/>
-                        <outlet property="enterUsernameLabel" destination="9oJ-QM-gFj" id="cXX-cn-7SO"/>
-                        <outlet property="enterUsernameTextField" destination="qKc-lC-edB" id="Hpo-60-jcf"/>
-                        <outlet property="logInBtn" destination="Xiy-bn-uhh" id="GZQ-K9-GiY"/>
-                        <outlet property="signUpBtn" destination="zM1-LJ-rbP" id="ZjL-8f-ufS"/>
-                        <segue destination="Brm-O9-U8G" kind="push" identifier="loginSeg" id="eNk-LZ-3em"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nyM-cf-Y5G" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="638" y="1120"/>
-        </scene>
         <!--Add Baby View Controller-->
         <scene sceneID="dnB-Cm-hLv">
             <objects>
                 <viewController id="Brm-O9-U8G" customClass="SLKAddBabyViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qwz-gb-Gpr">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="choose a color for your baby" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1do-W3-0uQ">
-                                <rect key="frame" x="34" y="187" width="252" height="21"/>
+                                <rect key="frame" x="34" y="168" width="252" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Type in the name of your baby" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lb1-cH-MRy">
-                                <rect key="frame" x="34" y="61" width="280" height="21"/>
+                                <rect key="frame" x="34" y="55" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UKM-qy-t7g">
-                                <rect key="frame" x="34" y="386" width="252" height="20"/>
+                                <rect key="frame" x="34" y="347" width="252" height="20"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <state key="normal" title="save">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -317,24 +269,24 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="BvT-He-feM">
-                                <rect key="frame" x="25" y="85" width="271" height="30"/>
+                                <rect key="frame" x="25" y="76" width="271" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" id="xhv-u7-MTJ">
-                                <rect key="frame" x="6" y="286" width="308" height="28"/>
+                                <rect key="frame" x="6" y="256" width="308" height="28"/>
                                 <color key="backgroundColor" red="0.7628592609489051" green="1" blue="0.75111199817518248" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="4h4-2G-7bs">
-                                <rect key="frame" x="6" y="245" width="308" height="28"/>
+                                <rect key="frame" x="6" y="220" width="308" height="28"/>
                                 <color key="backgroundColor" red="0.7628592609" green="1" blue="0.75111199819999996" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="Yu6-TX-N7f">
-                                <rect key="frame" x="6" y="211" width="308" height="28"/>
+                                <rect key="frame" x="6" y="189" width="308" height="28"/>
                                 <color key="backgroundColor" red="0.7628592609" green="1" blue="0.75111199819999996" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fMC-jz-iJ5">
-                                <rect key="frame" x="34" y="215" width="252" height="20"/>
+                                <rect key="frame" x="34" y="193" width="252" height="20"/>
                                 <color key="backgroundColor" red="0.40510949492454529" green="0.72143018245697021" blue="0.79465103149414062" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="blue">
@@ -349,7 +301,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4CA-pj-blo">
-                                <rect key="frame" x="34" y="249" width="252" height="20"/>
+                                <rect key="frame" x="34" y="224" width="252" height="20"/>
                                 <color key="backgroundColor" red="0.27753051343243224" green="0.67608019770408156" blue="0.26028905906649669" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="green">
@@ -364,7 +316,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xd9-Rq-0UU">
-                                <rect key="frame" x="34" y="290" width="252" height="20"/>
+                                <rect key="frame" x="34" y="261" width="252" height="20"/>
                                 <color key="backgroundColor" red="0.67608019770408156" green="0.60540190860561449" blue="0.12287032259418661" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Yellow">
@@ -379,7 +331,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hIU-g0-lqw">
-                                <rect key="frame" x="34" y="147" width="252" height="20"/>
+                                <rect key="frame" x="34" y="132" width="252" height="20"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <state key="normal" title="Set birth date">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -393,13 +345,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Z5Q-vB-aT8">
-                                <rect key="frame" x="45" y="117" width="241" height="21"/>
+                                <rect key="frame" x="45" y="105" width="241" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BfY-Sd-YtO">
-                                <rect key="frame" x="34" y="170" width="252" height="20"/>
+                                <rect key="frame" x="34" y="153" width="252" height="20"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                 <state key="normal" title="Done setting birth date">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -413,12 +365,12 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="Onb-SM-71f">
-                                <rect key="frame" x="25" y="141" width="271" height="30"/>
+                                <rect key="frame" x="25" y="126" width="271" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Type in your signature" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hgP-Gb-SJf">
-                                <rect key="frame" x="25" y="123" width="281" height="21"/>
+                                <rect key="frame" x="25" y="110" width="281" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -465,16 +417,71 @@
             <point key="canvasLocation" x="-453" y="605"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="bottle.png" width="640" height="1065"/>
-        <image name="iphone4Diapercopy.png" width="412" height="321"/>
-    </resources>
+    <classes>
+        <class className="SLKAddBabyViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKAddBabyViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="done:"/>
+                <relationship kind="action" name="saveBaby:"/>
+                <relationship kind="action" name="setBirthday:"/>
+                <relationship kind="action" name="setBlue:"/>
+                <relationship kind="action" name="setGreen:"/>
+                <relationship kind="action" name="setYellow:"/>
+                <relationship kind="outlet" name="babynameTexField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="birthDayPickerBtn" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="birthLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="blueBG" candidateClass="UIView"/>
+                <relationship kind="outlet" name="chooseColorLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="doneBtn" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="greenBG" candidateClass="UIView"/>
+                <relationship kind="outlet" name="saveBaby" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="setNameOfBabyLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="setSignatureLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="setSignatureTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="yellowBG" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="SLKInviteViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKInviteViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="sendInvite:"/>
+                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="headerLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="inviteBtn" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="phoneNumber1textField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textFieldDescriptionLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SLKLinksCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKLinksCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="linkLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SLKLinksViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKLinksViewController.h"/>
+        </class>
+        <class className="SLKParentListCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKParentListCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="numberTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="signatureLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SLKSettingsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKSettingsViewController.h"/>
+        </class>
+        <class className="SLKWelcomeCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKWelcomeCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="welcomeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="eNk-LZ-3em"/>
-    </inferredMetricsTieBreakers>
 </document>
