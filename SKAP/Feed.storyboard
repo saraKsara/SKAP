@@ -39,15 +39,35 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="333"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="BREASTFEEED" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0Ju-Lh-n2y">
-                                                        <rect key="frame" x="85" y="139" width="125" height="21"/>
+                                                    <imageView contentMode="scaleToFill" image="tits.png" id="RCL-v7-2zT">
+                                                        <rect key="frame" x="172" y="81" width="110" height="110"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="JwQ-98-uyf" appends="YES" id="FRf-BQ-L3c"/>
+                                                        </connections>
+                                                    </imageView>
+                                                    <imageView contentMode="scaleToFill" image="titsPink.png" id="aNo-Ha-YfG">
+                                                        <rect key="frame" x="37" y="81" width="110" height="110"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="d6Y-je-b6c" appends="YES" id="RvZ-w4-gTR"/>
+                                                        </connections>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="arrow_03.png" id="VHi-hM-2Ue">
+                                                        <rect key="frame" x="21" y="228" width="47" height="50"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="left, right or both!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gT9-2p-WJM">
+                                                        <rect key="frame" x="37" y="257" width="175" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="17"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.4975002717" green="0.60000002379999995" blue="0.59348432839999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.90128746811224492" green="0.90032820840426653" blue="0.84156742413509245" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                             </view>
                                             <view contentMode="scaleToFill" id="gqO-NN-JP4">
                                                 <rect key="frame" x="375" y="2" width="375" height="331"/>
@@ -145,7 +165,7 @@
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" currentPage="1" id="7Nu-Q4-Zon">
                                         <rect key="frame" x="54" y="398" width="320" height="36"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                        <color key="backgroundColor" red="0.4975002717" green="0.60000002379999995" blue="0.59348432839999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.88946906887755106" green="0.88653728765541373" blue="0.81323093488876474" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="pageIndicatorTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="currentPageIndicatorTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
@@ -209,7 +229,9 @@
                         <outlet property="breastView" destination="r4O-od-KRB" id="xxf-ky-EIt"/>
                         <outlet property="foodLabel" destination="y5c-zV-ipT" id="ki2-Rp-BOt"/>
                         <outlet property="foodSliderOne" destination="TsR-EZ-3Gc" id="hOy-Lb-MBR"/>
+                        <outlet property="leftTit" destination="aNo-Ha-YfG" id="ZrK-LG-bc3"/>
                         <outlet property="pageControll" destination="7Nu-Q4-Zon" id="t6x-ga-TTJ"/>
+                        <outlet property="rightTit" destination="RCL-v7-2zT" id="rFj-OU-hUZ"/>
                         <outlet property="scrollView" destination="0eI-uv-4ps" id="AbA-lY-QJW"/>
                         <outlet property="setTimeLabel" destination="b1o-Fe-Htg" id="gjk-9U-YEf"/>
                         <outlet property="timeSlider" destination="wHh-QR-jB8" id="ZR0-fy-fnt"/>
@@ -221,6 +243,18 @@
                         <action selector="sliderOneValueChanged:" destination="hKR-TG-9xj" id="sd5-eo-V8d"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="JwQ-98-uyf">
+                    <connections>
+                        <action selector="leftTit:" destination="hKR-TG-9xj" id="g9H-yp-bgv"/>
+                        <outlet property="delegate" destination="aNo-Ha-YfG" id="nBz-or-mrf"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="d6Y-je-b6c">
+                    <connections>
+                        <action selector="rightTit:" destination="hKR-TG-9xj" id="yR7-kP-4B4"/>
+                        <outlet property="delegate" destination="RCL-v7-2zT" id="e4e-qg-MOx"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="303" y="712"/>
         </scene>
@@ -302,8 +336,63 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow_03.png" width="53" height="70"/>
         <image name="bottle.png" width="640" height="1065"/>
+        <image name="tits.png" width="317" height="317"/>
+        <image name="titsPink.png" width="317" height="317"/>
     </resources>
+<<<<<<< HEAD
+=======
+    <classes>
+        <class className="SLKAddBabyCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKAddBabyCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addBabuLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SLKBabyCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKBabyCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="babyNameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SLKBabyListTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKBabyListTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="close:" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="SLKBabyPopViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKBabyPopViewController.h"/>
+        </class>
+        <class className="SLKFoodViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKFoodViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="handlePan:" candidateClass="UIPanGestureRecognizer"/>
+                <relationship kind="action" name="later:"/>
+                <relationship kind="action" name="leftTit:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="rightTit:"/>
+                <relationship kind="action" name="save:"/>
+                <relationship kind="action" name="setTime:"/>
+                <relationship kind="action" name="sliderOneValueChanged:"/>
+                <relationship kind="action" name="sooner:"/>
+                <relationship kind="action" name="touchUpInsidePageControll:"/>
+                <relationship kind="action" name="valuePageControll:"/>
+                <relationship kind="outlet" name="anotherFoodLable" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="bottleView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="breastView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="foodLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="foodSliderOne" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="leftTit" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="pageControll" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="rightTit" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="setTimeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="timeSlider" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+    </classes>
+>>>>>>> titsView
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -87,7 +87,7 @@
     self.view.backgroundColor = [UIColor clearColor];
     
     
-    
+     [_leftTit setImage:[UIImage imageNamed:@"tits.png"]];
     checkDirection = 30;
     date = [NSDate date];
     time = [SLKDateUtil formatTimeFromDate:date];
@@ -383,5 +383,32 @@
     [self loadVisiblePages];
 }
 
+-(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    if([gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]])
+    {
+        [gestureRecognizer addTarget:self action:@selector(leftTit:)];
+        NSLog(@"LeftTit PRESSED");
 
+        
+    }
+    NSLog(@"LeftTit PRESSED");
+
+    return YES;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+     return YES;
+}
+
+- (IBAction)leftTit:(UITapGestureRecognizer *)sender
+{
+    [_rightTit setImage:[UIImage imageNamed:@"titsPink.png"]];
+}
+
+- (IBAction)rightTit:(id)sender
+{
+    [_leftTit setImage:[UIImage imageNamed:@"titsPink.png"]];
+}
 @end

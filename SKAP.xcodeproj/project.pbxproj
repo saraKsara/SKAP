@@ -100,6 +100,11 @@
 		CE5944D016F9A67200D9D33A /* SLKMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5944CF16F9A67200D9D33A /* SLKMainViewController.m */; };
 		CE5944D416F9A79800D9D33A /* SLKFoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5944D316F9A79800D9D33A /* SLKFoodViewController.m */; };
 		CE5944D716F9A7B700D9D33A /* SLKPiiPooViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5944D616F9A7B700D9D33A /* SLKPiiPooViewController.m */; };
+		CEDDEB5B171354590017DE60 /* tits.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDDEB5A171354590017DE60 /* tits.png */; };
+		CEDDEB5D171355F80017DE60 /* titsSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDDEB5C171355F80017DE60 /* titsSmall.png */; };
+		CEDDEB5F171358820017DE60 /* titsPink.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDDEB5E171358820017DE60 /* titsPink.png */; };
+		CEDDEB6117135C110017DE60 /* titsLabel_03.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDDEB6017135C110017DE60 /* titsLabel_03.png */; };
+		CEDDEB6317135D750017DE60 /* arrow_03.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDDEB6217135D750017DE60 /* arrow_03.png */; };
 		CEF55A1317004A24008634DB /* milk.png in Resources */ = {isa = PBXBuildFile; fileRef = CEF55A1117004A24008634DB /* milk.png */; };
 /* End PBXBuildFile section */
 
@@ -253,6 +258,11 @@
 		CE5944D316F9A79800D9D33A /* SLKFoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKFoodViewController.m; sourceTree = "<group>"; };
 		CE5944D516F9A7B700D9D33A /* SLKPiiPooViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKPiiPooViewController.h; sourceTree = "<group>"; };
 		CE5944D616F9A7B700D9D33A /* SLKPiiPooViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPiiPooViewController.m; sourceTree = "<group>"; };
+		CEDDEB5A171354590017DE60 /* tits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tits.png; sourceTree = "<group>"; };
+		CEDDEB5C171355F80017DE60 /* titsSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titsSmall.png; sourceTree = "<group>"; };
+		CEDDEB5E171358820017DE60 /* titsPink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titsPink.png; sourceTree = "<group>"; };
+		CEDDEB6017135C110017DE60 /* titsLabel_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titsLabel_03.png; sourceTree = "<group>"; };
+		CEDDEB6217135D750017DE60 /* arrow_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_03.png; sourceTree = "<group>"; };
 		CEF55A1117004A24008634DB /* milk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = milk.png; path = ../milk.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -469,8 +479,13 @@
 			isa = PBXGroup;
 			children = (
 				CE1D76F1170E284B00028416 /* checkedNO.png */,
+				CEDDEB5E171358820017DE60 /* titsPink.png */,
+				CEDDEB6217135D750017DE60 /* arrow_03.png */,
 				CE1D76F2170E284B00028416 /* checkedYES.png */,
+				CEDDEB6017135C110017DE60 /* titsLabel_03.png */,
+				CEDDEB5C171355F80017DE60 /* titsSmall.png */,
 				CE3ECB7F170DB444003FE39A /* blojaLyscopy.png */,
+				CEDDEB5A171354590017DE60 /* tits.png */,
 				1C34EC7E170720830095F0C2 /* checkedBox.png */,
 				CE3ECB85170DB4D9003FE39A /* iphone4Diapercopy.png */,
 				1C34EC7C170720730095F0C2 /* uncheckedBox.png */,
@@ -748,6 +763,11 @@
 				CE3ECB86170DB4D9003FE39A /* iphone4Diapercopy.png in Resources */,
 				CE1D76F3170E284B00028416 /* checkedNO.png in Resources */,
 				CE1D76F4170E284B00028416 /* checkedYES.png in Resources */,
+				CEDDEB5B171354590017DE60 /* tits.png in Resources */,
+				CEDDEB5D171355F80017DE60 /* titsSmall.png in Resources */,
+				CEDDEB5F171358820017DE60 /* titsPink.png in Resources */,
+				CEDDEB6117135C110017DE60 /* titsLabel_03.png in Resources */,
+				CEDDEB6317135D750017DE60 /* arrow_03.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
