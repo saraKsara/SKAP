@@ -45,7 +45,6 @@
 		1C627299170ED21200F51E00 /* SLKParentStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C627298170ED21200F51E00 /* SLKParentStorage.m */; };
 		1C62729F170EDBB800F51E00 /* ParentFigures.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C62729E170EDBB800F51E00 /* ParentFigures.m */; };
 		1C74254A1713064500207C04 /* SLKLinksCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7425491713064500207C04 /* SLKLinksCell.m */; };
-		1C74254D17131F6D00207C04 /* SLKLoginAndOutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C74254C17131F6D00207C04 /* SLKLoginAndOutCell.m */; };
 		1C74255017131F8E00207C04 /* SLKLoginAndOutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C74254F17131F8E00207C04 /* SLKLoginAndOutViewController.m */; };
 		1C7F474117087A2C00C258F8 /* SLKDayViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F474017087A2C00C258F8 /* SLKDayViewCell.m */; };
 		1C880E8B1704BBAB0027E528 /* SLKMedzViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C880E8A1704BBAB0027E528 /* SLKMedzViewController.m */; };
@@ -175,8 +174,6 @@
 		1C62729E170EDBB800F51E00 /* ParentFigures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentFigures.m; sourceTree = "<group>"; };
 		1C7425481713064500207C04 /* SLKLinksCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKLinksCell.h; sourceTree = "<group>"; };
 		1C7425491713064500207C04 /* SLKLinksCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKLinksCell.m; sourceTree = "<group>"; };
-		1C74254B17131F6C00207C04 /* SLKLoginAndOutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKLoginAndOutCell.h; sourceTree = "<group>"; };
-		1C74254C17131F6D00207C04 /* SLKLoginAndOutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKLoginAndOutCell.m; sourceTree = "<group>"; };
 		1C74254E17131F8E00207C04 /* SLKLoginAndOutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKLoginAndOutViewController.h; sourceTree = "<group>"; };
 		1C74254F17131F8E00207C04 /* SLKLoginAndOutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKLoginAndOutViewController.m; sourceTree = "<group>"; };
 		1C7F473F17087A2C00C258F8 /* SLKDayViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKDayViewCell.h; sourceTree = "<group>"; };
@@ -414,8 +411,6 @@
 		1C47E06D170D729500720AFE /* cells */ = {
 			isa = PBXGroup;
 			children = (
-				1C74254B17131F6C00207C04 /* SLKLoginAndOutCell.h */,
-				1C74254C17131F6D00207C04 /* SLKLoginAndOutCell.m */,
 				1C423F73170D627700DCB469 /* SLKSettingCells.h */,
 				1C423F74170D627700DCB469 /* SLKSettingCells.m */,
 				1C47E06E170D72AC00720AFE /* SLKParentListCell.h */,
@@ -840,7 +835,6 @@
 				1C378B731712A73C006AC9EF /* SLKWelcomeCell.m in Sources */,
 				1CB057971712EB2C00205AC0 /* SLKLinksViewController.m in Sources */,
 				1C74254A1713064500207C04 /* SLKLinksCell.m in Sources */,
-				1C74254D17131F6D00207C04 /* SLKLoginAndOutCell.m in Sources */,
 				1C74255017131F8E00207C04 /* SLKLoginAndOutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

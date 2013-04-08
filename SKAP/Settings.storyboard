@@ -9,7 +9,7 @@
             <objects>
                 <tableViewController id="nHu-fO-EBU" customClass="SLKLinksViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wBq-HI-nFF">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -50,7 +50,7 @@
             <objects>
                 <tableViewController id="3Pb-sJ-mIn" customClass="SLKSettingsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="qws-hB-Abp">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -123,6 +123,7 @@
                         <segue destination="MOp-WF-5Ys" kind="push" identifier="inviteSeg" id="Z6r-6X-yGv"/>
                         <segue destination="Brm-O9-U8G" kind="push" identifier="addBabyNParentSeg" id="PyF-P7-OvE"/>
                         <segue destination="nHu-fO-EBU" kind="push" identifier="linkSeg" id="mFV-tx-bw4"/>
+                        <segue destination="hgm-JD-Syg" kind="push" identifier="logoutSeg" id="1jZ-fg-k6Y"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a5h-rt-Tfp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -134,34 +135,34 @@
             <objects>
                 <viewController id="MOp-WF-5Ys" customClass="SLKInviteViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ocL-xd-oQc">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Type in the phone number of the person you'd like to invite" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nfr-bs-Rob">
-                                <rect key="frame" x="25" y="200" width="280" height="35"/>
+                                <rect key="frame" x="25" y="162" width="280" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Invite another parent figure to log on your baby" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GgD-oZ-5A6">
-                                <rect key="frame" x="20" y="64" width="280" height="43"/>
+                                <rect key="frame" x="20" y="51" width="280" height="43"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="phonenumber" minimumFontSize="17" id="vrN-vb-Bux">
-                                <rect key="frame" x="25" y="240" width="275" height="30"/>
+                                <rect key="frame" x="25" y="196" width="275" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="With this invite other parent figures get acces to your baby and everything that is logged on the baby. " lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rgz-mz-8bY">
-                                <rect key="frame" x="20" y="109" width="280" height="97"/>
+                                <rect key="frame" x="20" y="85" width="280" height="97"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WaY-pZ-mus">
-                                <rect key="frame" x="25" y="287" width="275" height="44"/>
+                                <rect key="frame" x="25" y="232" width="275" height="44"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Send invitation">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -189,28 +190,137 @@
             </objects>
             <point key="canvasLocation" x="1163" y="205"/>
         </scene>
+        <!--Login And Out View Controller-->
+        <scene sceneID="WTP-zH-XW5">
+            <objects>
+                <viewController id="hgm-JD-Syg" customClass="SLKLoginAndOutViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="40n-e0-dk8">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" id="lMW-lE-2L3">
+                                <rect key="frame" x="28" y="258" width="264" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.90572226050000004" green="0.98979675769999997" blue="0.91228783130000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Entre password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ah3-zk-Cfb">
+                                <rect key="frame" x="28" y="230" width="258" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.90572226050000004" green="0.98979675769999997" blue="0.91228783130000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" id="qKc-lC-edB">
+                                <rect key="frame" x="28" y="185" width="264" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.90572226050000004" green="0.98979675769999997" blue="0.91228783130000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Enter user name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9oJ-QM-gFj">
+                                <rect key="frame" x="28" y="156" width="258" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.90572226050000004" green="0.98979675769999997" blue="0.91228783130000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Xiy-bn-uhh">
+                                <rect key="frame" x="36" y="304" width="250" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.4975002717" green="0.60000002379999995" blue="0.59348432839999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="0.90572226047515869" green="0.98979675769805908" blue="0.91228783130645752" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logIn:" destination="hgm-JD-Syg" eventType="touchUpInside" id="FMj-yA-AgL"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bottle.png" id="tuM-0c-fzV">
+                                <rect key="frame" x="165" y="20" width="135" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="iphone4Diapercopy.png" id="Vun-f7-Zxf">
+                                <rect key="frame" x="20" y="20" width="135" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dbI-px-yhh">
+                                <rect key="frame" x="51" y="230" width="250" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.4975002717" green="0.60000002379999995" blue="0.59348432839999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Log out">
+                                    <color key="titleColor" red="0.90572226050000004" green="0.98979675769999997" blue="0.91228783130000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logOut:" destination="hgm-JD-Syg" eventType="touchUpInside" id="1Jd-LS-fY3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zM1-LJ-rbP">
+                                <rect key="frame" x="107" y="362" width="73" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="signUp:" destination="hgm-JD-Syg" eventType="touchUpInside" id="JqE-y2-twd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.21644243597984314" green="0.20145523548126221" blue="0.21040119230747223" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0Q0-hn-JDz"/>
+                    <connections>
+                        <outlet property="enterPasswordLabel" destination="ah3-zk-Cfb" id="b89-MU-5Vs"/>
+                        <outlet property="enterPasswordTextField" destination="lMW-lE-2L3" id="feF-db-UbK"/>
+                        <outlet property="enterUsernameLabel" destination="9oJ-QM-gFj" id="cXX-cn-7SO"/>
+                        <outlet property="enterUsernameTextField" destination="qKc-lC-edB" id="Hpo-60-jcf"/>
+                        <outlet property="logInBtn" destination="Xiy-bn-uhh" id="GZQ-K9-GiY"/>
+                        <outlet property="logOutBtn" destination="dbI-px-yhh" id="ZHI-oM-L3b"/>
+                        <outlet property="signUpBtn" destination="zM1-LJ-rbP" id="ZjL-8f-ufS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nyM-cf-Y5G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="240" y="1216"/>
+        </scene>
         <!--Add Baby View Controller-->
         <scene sceneID="dnB-Cm-hLv">
             <objects>
                 <viewController id="Brm-O9-U8G" customClass="SLKAddBabyViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qwz-gb-Gpr">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="choose a color for your baby" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1do-W3-0uQ">
-                                <rect key="frame" x="34" y="206" width="252" height="21"/>
+                                <rect key="frame" x="34" y="168" width="252" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Type in the name of your baby" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lb1-cH-MRy">
-                                <rect key="frame" x="34" y="67" width="280" height="21"/>
+                                <rect key="frame" x="34" y="55" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UKM-qy-t7g">
-                                <rect key="frame" x="34" y="425" width="252" height="20"/>
+                                <rect key="frame" x="34" y="348" width="252" height="20"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <state key="normal" title="save">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -224,24 +334,24 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="BvT-He-feM">
-                                <rect key="frame" x="25" y="94" width="271" height="30"/>
+                                <rect key="frame" x="25" y="76" width="271" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" id="xhv-u7-MTJ">
-                                <rect key="frame" x="6" y="315" width="308" height="28"/>
+                                <rect key="frame" x="6" y="257" width="308" height="28"/>
                                 <color key="backgroundColor" red="0.7628592609489051" green="1" blue="0.75111199817518248" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="4h4-2G-7bs">
-                                <rect key="frame" x="6" y="270" width="308" height="28"/>
+                                <rect key="frame" x="6" y="220" width="308" height="28"/>
                                 <color key="backgroundColor" red="0.7628592609" green="1" blue="0.75111199819999996" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="Yu6-TX-N7f">
-                                <rect key="frame" x="6" y="232" width="308" height="28"/>
+                                <rect key="frame" x="6" y="189" width="308" height="28"/>
                                 <color key="backgroundColor" red="0.7628592609" green="1" blue="0.75111199819999996" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fMC-jz-iJ5">
-                                <rect key="frame" x="34" y="236" width="252" height="20"/>
+                                <rect key="frame" x="34" y="193" width="252" height="20"/>
                                 <color key="backgroundColor" red="0.40510949492454529" green="0.72143018245697021" blue="0.79465103149414062" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="blue">
@@ -256,7 +366,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4CA-pj-blo">
-                                <rect key="frame" x="34" y="274" width="252" height="20"/>
+                                <rect key="frame" x="34" y="224" width="252" height="20"/>
                                 <color key="backgroundColor" red="0.27753051343243224" green="0.67608019770408156" blue="0.26028905906649669" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="green">
@@ -271,7 +381,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xd9-Rq-0UU">
-                                <rect key="frame" x="34" y="320" width="252" height="20"/>
+                                <rect key="frame" x="34" y="261" width="252" height="20"/>
                                 <color key="backgroundColor" red="0.67608019770408156" green="0.60540190860561449" blue="0.12287032259418661" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Yellow">
@@ -286,7 +396,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hIU-g0-lqw">
-                                <rect key="frame" x="34" y="162" width="252" height="20"/>
+                                <rect key="frame" x="34" y="132" width="252" height="20"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <state key="normal" title="Set birth date">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -300,13 +410,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Z5Q-vB-aT8">
-                                <rect key="frame" x="45" y="129" width="241" height="21"/>
+                                <rect key="frame" x="45" y="105" width="241" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BfY-Sd-YtO">
-                                <rect key="frame" x="34" y="188" width="252" height="20"/>
+                                <rect key="frame" x="34" y="153" width="252" height="20"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                 <state key="normal" title="Done setting birth date">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -320,12 +430,12 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="Onb-SM-71f">
-                                <rect key="frame" x="25" y="155" width="271" height="30"/>
+                                <rect key="frame" x="25" y="126" width="271" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Type in your signature" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hgP-Gb-SJf">
-                                <rect key="frame" x="25" y="135" width="281" height="21"/>
+                                <rect key="frame" x="25" y="111" width="281" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -371,9 +481,13 @@
             <point key="canvasLocation" x="-453" y="605"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bottle.png" width="640" height="1065"/>
+        <image name="iphone4Diapercopy.png" width="412" height="321"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
 </document>

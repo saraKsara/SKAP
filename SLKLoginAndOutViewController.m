@@ -26,7 +26,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    [_logOutBtn setHidden:NO];
+    [setLogInBtn seth];
+    [setSignUpBtn:nil];
+    [setEnterUsernameLabel:nil];
+    [setEnterUsernameTextField:nil];
+    [setEnterPasswordTextField:nil];
+    [setEnterPasswordLabel:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,4 +41,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidUnload {
+    [self setLogOutBtn:nil];
+    [self setLogInBtn:nil];
+    [self setSignUpBtn:nil];
+    [self setEnterUsernameLabel:nil];
+    [self setEnterUsernameTextField:nil];
+    [self setEnterPasswordTextField:nil];
+    [self setEnterPasswordLabel:nil];
+    [super viewDidUnload];
+}
+- (IBAction)logOut:(id)sender {
+}
+- (IBAction)logIn:(id)sender {
+}
+- (IBAction)signUp:(id)sender {
+}
 @end
