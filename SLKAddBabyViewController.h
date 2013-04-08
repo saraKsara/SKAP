@@ -25,8 +25,7 @@
 - (IBAction)setGreen:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *greenBG;
 
-@property (weak, nonatomic) IBOutlet UIButton *cancel;
-- (IBAction)cancel:(id)sender;
+
 
 - (IBAction)setYellow:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *yellowBG;

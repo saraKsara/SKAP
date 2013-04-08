@@ -44,6 +44,7 @@
 		1C611ED2170C50EC0088016F /* Medz.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C611ED1170C50EC0088016F /* Medz.m */; };
 		1C627299170ED21200F51E00 /* SLKParentStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C627298170ED21200F51E00 /* SLKParentStorage.m */; };
 		1C62729F170EDBB800F51E00 /* ParentFigures.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C62729E170EDBB800F51E00 /* ParentFigures.m */; };
+		1C74254A1713064500207C04 /* SLKLinksCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7425491713064500207C04 /* SLKLinksCell.m */; };
 		1C7F474117087A2C00C258F8 /* SLKDayViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F474017087A2C00C258F8 /* SLKDayViewCell.m */; };
 		1C880E8B1704BBAB0027E528 /* SLKMedzViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C880E8A1704BBAB0027E528 /* SLKMedzViewController.m */; };
 		1C91DD5916FC4EBB00921C59 /* SLKPARSEService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C91DD5816FC4EBB00921C59 /* SLKPARSEService.m */; };
@@ -170,6 +171,8 @@
 		1C627298170ED21200F51E00 /* SLKParentStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKParentStorage.m; sourceTree = "<group>"; };
 		1C62729D170EDBB800F51E00 /* ParentFigures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentFigures.h; sourceTree = "<group>"; };
 		1C62729E170EDBB800F51E00 /* ParentFigures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentFigures.m; sourceTree = "<group>"; };
+		1C7425481713064500207C04 /* SLKLinksCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKLinksCell.h; sourceTree = "<group>"; };
+		1C7425491713064500207C04 /* SLKLinksCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKLinksCell.m; sourceTree = "<group>"; };
 		1C7F473F17087A2C00C258F8 /* SLKDayViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKDayViewCell.h; sourceTree = "<group>"; };
 		1C7F474017087A2C00C258F8 /* SLKDayViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKDayViewCell.m; sourceTree = "<group>"; };
 		1C880E891704BBAB0027E528 /* SLKMedzViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKMedzViewController.h; sourceTree = "<group>"; };
@@ -409,6 +412,8 @@
 				1C47E06F170D72AC00720AFE /* SLKParentListCell.m */,
 				1C378B711712A73C006AC9EF /* SLKWelcomeCell.h */,
 				1C378B721712A73C006AC9EF /* SLKWelcomeCell.m */,
+				1C7425481713064500207C04 /* SLKLinksCell.h */,
+				1C7425491713064500207C04 /* SLKLinksCell.m */,
 			);
 			name = cells;
 			sourceTree = "<group>";
@@ -824,6 +829,7 @@
 				1C62729F170EDBB800F51E00 /* ParentFigures.m in Sources */,
 				1C378B731712A73C006AC9EF /* SLKWelcomeCell.m in Sources */,
 				1CB057971712EB2C00205AC0 /* SLKLinksViewController.m in Sources */,
+				1C74254A1713064500207C04 /* SLKLinksCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

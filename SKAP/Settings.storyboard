@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="3Pb-sJ-mIn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Uf6-d2-jdD">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -9,18 +9,30 @@
             <objects>
                 <tableViewController id="nHu-fO-EBU" customClass="SLKLinksViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wBq-HI-nFF">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="E7W-Zh-7iZ">
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="linkCell" selectionStyle="blue" indentationWidth="10" id="mj6-U2-rsd" customClass="SLKLinksCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="länk" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="av7-DO-O2H">
+                                            <rect key="frame" x="40" y="11" width="131" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <outlet property="linkLabel" destination="av7-DO-O2H" id="He9-ZE-vtv"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -31,14 +43,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="way-lU-DXL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-209" y="591"/>
+            <point key="canvasLocation" x="507" y="-65"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="fQa-UN-wgS">
             <objects>
                 <tableViewController id="3Pb-sJ-mIn" customClass="SLKSettingsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="qws-hB-Abp">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -106,48 +118,50 @@
                             <outlet property="delegate" destination="3Pb-sJ-mIn" id="Njf-N4-SsR"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="Dc1-Kz-VHu"/>
                     <connections>
-                        <segue destination="MOp-WF-5Ys" kind="modal" identifier="inviteSeg" modalTransitionStyle="flipHorizontal" id="Z6r-6X-yGv"/>
-                        <segue destination="Brm-O9-U8G" kind="modal" identifier="addBabyNParentSeg" modalTransitionStyle="crossDissolve" id="PyF-P7-OvE"/>
+                        <segue destination="MOp-WF-5Ys" kind="push" identifier="inviteSeg" id="Z6r-6X-yGv"/>
+                        <segue destination="Brm-O9-U8G" kind="push" identifier="addBabyNParentSeg" id="PyF-P7-OvE"/>
+                        <segue destination="nHu-fO-EBU" kind="push" identifier="linkSeg" id="mFV-tx-bw4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a5h-rt-Tfp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="218" y="651"/>
+            <point key="canvasLocation" x="73" y="605"/>
         </scene>
         <!--Invite View Controller-->
         <scene sceneID="biG-dV-N5B">
             <objects>
                 <viewController id="MOp-WF-5Ys" customClass="SLKInviteViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ocL-xd-oQc">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Type in the phone number of the person you'd like to invite" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nfr-bs-Rob">
-                                <rect key="frame" x="25" y="219" width="280" height="35"/>
+                                <rect key="frame" x="25" y="200" width="280" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Invite another parent figure to log on your baby" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GgD-oZ-5A6">
-                                <rect key="frame" x="20" y="70" width="280" height="43"/>
+                                <rect key="frame" x="20" y="64" width="280" height="43"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="phonenumber" minimumFontSize="17" id="vrN-vb-Bux">
-                                <rect key="frame" x="25" y="263" width="275" height="30"/>
+                                <rect key="frame" x="25" y="240" width="275" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="With this invite other parent figures get acces to your baby and everything that is logged on the baby. " lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rgz-mz-8bY">
-                                <rect key="frame" x="20" y="121" width="280" height="97"/>
+                                <rect key="frame" x="20" y="109" width="280" height="97"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WaY-pZ-mus">
-                                <rect key="frame" x="25" y="315" width="275" height="44"/>
+                                <rect key="frame" x="25" y="287" width="275" height="44"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Send invitation">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -160,25 +174,10 @@
                                     <action selector="sendInvite:" destination="MOp-WF-5Ys" eventType="touchUpInside" id="zh8-9C-oO6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5RM-S0-hmv">
-                                <rect key="frame" x="0.0" y="-1" width="73" height="44"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="cancel">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancel:" destination="MOp-WF-5Ys" eventType="touchUpInside" id="I4h-gq-6WM"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="cancelBtn" destination="5RM-S0-hmv" id="jaL-aI-sAx"/>
                         <outlet property="descriptionLabel" destination="Rgz-mz-8bY" id="NQt-9n-EAq"/>
                         <outlet property="headerLabel" destination="GgD-oZ-5A6" id="3ak-9r-bG7"/>
                         <outlet property="inviteBtn" destination="WaY-pZ-mus" id="AYQ-Nv-tCW"/>
@@ -188,30 +187,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ho-78-0Pi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="637" y="205"/>
+            <point key="canvasLocation" x="1163" y="205"/>
         </scene>
         <!--Add Baby View Controller-->
         <scene sceneID="dnB-Cm-hLv">
             <objects>
                 <viewController id="Brm-O9-U8G" customClass="SLKAddBabyViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qwz-gb-Gpr">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="choose a color for your baby" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1do-W3-0uQ">
-                                <rect key="frame" x="34" y="225" width="252" height="21"/>
+                                <rect key="frame" x="34" y="206" width="252" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Type in the name of your baby" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lb1-cH-MRy">
-                                <rect key="frame" x="34" y="74" width="280" height="21"/>
+                                <rect key="frame" x="34" y="67" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UKM-qy-t7g">
-                                <rect key="frame" x="34" y="464" width="252" height="20"/>
+                                <rect key="frame" x="34" y="425" width="252" height="20"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <state key="normal" title="save">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -225,24 +224,24 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="BvT-He-feM">
-                                <rect key="frame" x="25" y="103" width="271" height="30"/>
+                                <rect key="frame" x="25" y="94" width="271" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" id="xhv-u7-MTJ">
-                                <rect key="frame" x="6" y="345" width="308" height="28"/>
+                                <rect key="frame" x="6" y="315" width="308" height="28"/>
                                 <color key="backgroundColor" red="0.7628592609489051" green="1" blue="0.75111199817518248" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="4h4-2G-7bs">
-                                <rect key="frame" x="6" y="295" width="308" height="28"/>
+                                <rect key="frame" x="6" y="270" width="308" height="28"/>
                                 <color key="backgroundColor" red="0.7628592609" green="1" blue="0.75111199819999996" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="Yu6-TX-N7f">
-                                <rect key="frame" x="6" y="254" width="308" height="28"/>
+                                <rect key="frame" x="6" y="232" width="308" height="28"/>
                                 <color key="backgroundColor" red="0.7628592609" green="1" blue="0.75111199819999996" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fMC-jz-iJ5">
-                                <rect key="frame" x="34" y="258" width="252" height="20"/>
+                                <rect key="frame" x="34" y="236" width="252" height="20"/>
                                 <color key="backgroundColor" red="0.40510949492454529" green="0.72143018245697021" blue="0.79465103149414062" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="blue">
@@ -257,7 +256,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4CA-pj-blo">
-                                <rect key="frame" x="34" y="299" width="252" height="20"/>
+                                <rect key="frame" x="34" y="274" width="252" height="20"/>
                                 <color key="backgroundColor" red="0.27753051343243224" green="0.67608019770408156" blue="0.26028905906649669" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="green">
@@ -272,7 +271,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xd9-Rq-0UU">
-                                <rect key="frame" x="34" y="349" width="252" height="20"/>
+                                <rect key="frame" x="34" y="320" width="252" height="20"/>
                                 <color key="backgroundColor" red="0.67608019770408156" green="0.60540190860561449" blue="0.12287032259418661" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Yellow">
@@ -287,7 +286,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hIU-g0-lqw">
-                                <rect key="frame" x="34" y="177" width="252" height="20"/>
+                                <rect key="frame" x="34" y="162" width="252" height="20"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <state key="normal" title="Set birth date">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -301,13 +300,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Z5Q-vB-aT8">
-                                <rect key="frame" x="45" y="141" width="241" height="21"/>
+                                <rect key="frame" x="45" y="129" width="241" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BfY-Sd-YtO">
-                                <rect key="frame" x="34" y="205" width="252" height="20"/>
+                                <rect key="frame" x="34" y="188" width="252" height="20"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                 <state key="normal" title="Done setting birth date">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -320,27 +319,13 @@
                                     <action selector="done:" destination="Brm-O9-U8G" eventType="touchUpInside" id="3ae-Y4-0RQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xlJ-81-uWl">
-                                <rect key="frame" x="6" y="3" width="73" height="44"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="cancel">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancel:" destination="Brm-O9-U8G" eventType="touchUpInside" id="F6f-4n-n1W"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="Onb-SM-71f">
-                                <rect key="frame" x="25" y="170" width="271" height="30"/>
+                                <rect key="frame" x="25" y="155" width="271" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Type in your signature" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hgP-Gb-SJf">
-                                <rect key="frame" x="25" y="148" width="281" height="21"/>
+                                <rect key="frame" x="25" y="135" width="281" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -353,7 +338,6 @@
                         <outlet property="birthDayPickerBtn" destination="hIU-g0-lqw" id="aJc-y1-Gsw"/>
                         <outlet property="birthLabel" destination="Z5Q-vB-aT8" id="Jrp-kf-Stm"/>
                         <outlet property="blueBG" destination="Yu6-TX-N7f" id="SIo-0N-yM3"/>
-                        <outlet property="cancel" destination="xlJ-81-uWl" id="DoJ-9t-rN9"/>
                         <outlet property="chooseColorLabel" destination="1do-W3-0uQ" id="7qg-cC-4CO"/>
                         <outlet property="doneBtn" destination="BfY-Sd-YtO" id="VVc-Hd-hkR"/>
                         <outlet property="greenBG" destination="4h4-2G-7bs" id="XAQ-qz-Rey"/>
@@ -366,69 +350,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yVY-6y-0IO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="679" y="962"/>
+            <point key="canvasLocation" x="1205" y="962"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nKe-V8-kMN">
+            <objects>
+                <navigationController id="Uf6-d2-jdD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5IL-31-tGR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3Pb-sJ-mIn" kind="relationship" relationship="rootViewController" id="WtC-Zw-6i0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gj3-RC-Klu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-453" y="605"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="SLKAddBabyViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKAddBabyViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancel:"/>
-                <relationship kind="action" name="done:"/>
-                <relationship kind="action" name="saveBaby:"/>
-                <relationship kind="action" name="setBirthday:"/>
-                <relationship kind="action" name="setBlue:"/>
-                <relationship kind="action" name="setGreen:"/>
-                <relationship kind="action" name="setYellow:"/>
-                <relationship kind="outlet" name="babynameTexField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="birthDayPickerBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="birthLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="blueBG" candidateClass="UIView"/>
-                <relationship kind="outlet" name="cancel" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="chooseColorLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="doneBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="greenBG" candidateClass="UIView"/>
-                <relationship kind="outlet" name="saveBaby" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="setNameOfBabyLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="setSignatureLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="setSignatureTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="yellowBG" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="SLKInviteViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKInviteViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancel:"/>
-                <relationship kind="action" name="sendInvite:"/>
-                <relationship kind="outlet" name="cancelBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="headerLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="inviteBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="phoneNumber1textField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="textFieldDescriptionLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="SLKLinksViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKLinksViewController.h"/>
-        </class>
-        <class className="SLKParentListCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKParentListCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="numberTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="signatureLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="SLKSettingsViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKSettingsViewController.h"/>
-        </class>
-        <class className="SLKWelcomeCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKWelcomeCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="welcomeLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

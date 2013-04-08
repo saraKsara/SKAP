@@ -235,11 +235,7 @@
     babycolor = kGreenish_Color;
 }
 
-- (IBAction)cancel:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
-}
+
 
 - (IBAction)setYellow:(id)sender {
     [_blueBG setHidden:YES];

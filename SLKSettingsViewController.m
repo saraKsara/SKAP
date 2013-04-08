@@ -193,7 +193,7 @@
             [self performSegueWithIdentifier:@"inviteSeg" sender:self];
         }else  if (indexPath.row ==2 )
         {
-              [self performSegueWithIdentifier:@"inviteSeg" sender:self];//links
+              [self performSegueWithIdentifier:@"linkSeg" sender:self];//links
         }else  if (indexPath.row ==3 )
         {
             

@@ -287,6 +287,8 @@
     [[[self.tabBarController viewControllers] objectAtIndex:0] presentViewController:controller animated:YES completion:^{
         
     }];
+    
+   
 }
 - (void)applicationWillResignActive:(UIApplication *)application
 {
