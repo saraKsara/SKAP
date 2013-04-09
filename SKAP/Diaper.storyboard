@@ -224,7 +224,6 @@
         <image name="checkedNO.png" width="33" height="28"/>
         <image name="iphone4Diapercopy.png" width="412" height="321"/>
     </resources>
-<<<<<<< HEAD
     <classes>
         <class className="SLKPiiPooViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKPiiPooViewController.h"/>
@@ -247,8 +246,6 @@
             </relationships>
         </class>
     </classes>
-=======
->>>>>>> titsView
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
