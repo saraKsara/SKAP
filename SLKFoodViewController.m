@@ -23,7 +23,7 @@
 #import "SLKColors.h"
 #import "SLKSettingsViewController.h"
 #import "SLKDaySummaryViewController.h"
-
+#import "SLKSpecialOverviewViewController.h"
 @interface SLKFoodViewController ()
 
 @end
@@ -171,98 +171,7 @@
         [self.pageViews replaceObjectAtIndex:page withObject:nullValue];
     }
 }
-//    settingsVC = [[SLKBabyListTableViewController alloc] init];
-//    
-//    babyArray = [[SLKBabyStorage sharedStorage] babyArray];
-//    NSMutableArray *segmentArray = [[NSMutableArray alloc] initWithObjects:@"menu", nil];
-//    
-//    numberOfBabies = babyArray.count;
-//    
-//    //IF adding new baby, set up new segmentcontrol! else, ....
-//    int i = 1;
-//    for (Baby *babe in babyArray)
-//    {
-//        [segmentArray addObject:babe.name];
-//        i++;
-//    }
-//        //TODO: move to set up class???
-//    _segmentControll = [[UISegmentedControl alloc] initWithItems:segmentArray];
-//    _segmentControll.frame = CGRectMake(0, 0, 320, 50);
-//    _segmentControll.segmentedControlStyle = UISegmentedControlStylePlain;
-//    _segmentControll.selectedSegmentIndex = 1;//TODO: == current babe
-//    segmentWidth = 320 /(numberOfBabies +1);
-// 
-//   for (int i = 0; i <= numberOfBabies; i++) {
-//    {
-//        if (i == 0) {
-//            UIImage *image = [self drawImageWithColor:[UIColor colorWithHexValue:kBlueish_Color alpha:0.8]];
-//            UIImage *imageText =[self drawText:@"menu" inImage:image atPoint:CGPointMake(20, 10)];
-//
-//            [_segmentControll setImage:imageText forSegmentAtIndex:i];
-//        } else {
-//            NSString *color = [[babyArray objectAtIndex:i-1] babysColor];
-//            UIImage *image = [self drawImageWithColor:[UIColor colorWithHexValue:color]];
-//
-//             UIImage *imageText =[self drawText:[[babyArray objectAtIndex:i-1] name] inImage:image atPoint:CGPointMake(20, 10)];
-//           
-//            [_segmentControll setImage:imageText forSegmentAtIndex:i];
-//        }
-//  
-//    }
-//
-//    [_segmentControll addTarget:self action:@selector(segmentAction:) forControlEvents: UIControlEventValueChanged];
-//    
-//    [self.view addSubview:_segmentControll];
-//       [_segmentControll setSelected:NO];
-//       [_segmentControll setHighlighted:NO];
-//       [_segmentControll setTintColor:[UIColor clearColor]];
-    
-  
 
-  // }
-    
-
-
-
-
-
-
-//-(UIImage*)drawImageWithColor:(UIColor*)color
-//{
-//    //as big as 320/(numberofbabies+1)
-//    UIGraphicsBeginImageContext(CGSizeMake(segmentWidth, 50));
-//    [color setFill];
-//    UIRectFill(CGRectMake(0, 0, segmentWidth, 50));
-//
-//    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//    
-//    return image;
-//}
-//-(UIImage*) drawText:(NSString*) text inImage:(UIImage*) image atPoint:(CGPoint) point
-//{
-//    
-//    UIFont *font = [UIFont fontWithName:@"HelveticaNeue" size:17];
-//    UIGraphicsBeginImageContext(image.size);
-//    [image drawInRect:CGRectMake(0,0,image.size.width,image.size.height)];
-//    CGRect rect = CGRectMake(point.x, point.y, image.size.width, image.size.height);
-//    [[UIColor blackColor] set];
-//    [text drawInRect:CGRectIntegral(rect) withFont:font];
-//    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//    
-//    return newImage;
-//}
-
-//-(void)showMenue
-//{
-//    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
-//    
-//    SLKSettingsViewController *controller = [sb instantiateInitialViewController];
-//    [self presentViewController:controller animated:YES completion:^{
-//        
-//    }];
-//}
 
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer
 {
@@ -366,6 +275,7 @@
     self.scrollView = nil;
     self.pageControll = nil;
     self.pageViews = nil;
+    
 }
 
 - (IBAction)valuePageControll:(id)sender;
@@ -417,10 +327,14 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"calendar" bundle:nil];
     
     SLKDaySummaryViewController *controller = [sb instantiateInitialViewController];
+    controller.allEvents = YES;
     [self presentModalViewController:controller animated:YES];
 }
 
 - (IBAction)showFeedOverview:(id)sender {
-    NSLog(@"show feedoverview");
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"calendar" bundle:nil];
+    SLKDaySummaryViewController *controller = [sb instantiateInitialViewController];
+    controller.food = YES;
+    [self presentModalViewController:controller animated:YES];
 }
 @end

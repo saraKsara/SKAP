@@ -260,7 +260,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UKM-qy-t7g">
-                                <rect key="frame" x="34" y="232" width="252" height="20"/>
+                                <rect key="frame" x="34" y="247" width="252" height="20"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <state key="normal" title="save">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
