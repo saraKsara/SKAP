@@ -184,6 +184,49 @@
     return nil;
 }
 
+
+-(NSArray *)getEventBelomigTObaby:(Baby *)baby andDay:(NSDate *)day withType:(NSString*)type{
+    NSArray *allEventOfBaby = [[SLKCoreDataService sharedService] fetchDataWithEntity:@"Event"
+                                                                         andPredicate:[NSPredicate predicateWithFormat:@"baby == %@ and type == %@", baby, type]
+                                                                   andSortDescriptors:nil];
+    
+    
+    NSMutableArray *returnArray = [NSMutableArray array];
+    
+    // TODO: Use core data to query by dates instead of sorting arrays /JS
+    
+    for (Event *event in allEventOfBaby)
+    {
+        NSDate *dateOfEvent = event.date;
+        
+        [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit startDate:&dateOfEvent interval:NULL forDate:dateOfEvent];
+        [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit startDate:&day interval:NULL forDate:day];
+        
+        NSComparisonResult compareParemeterStartDateWithParameterEndDate = [dateOfEvent compare:day];
+        
+        if (compareParemeterStartDateWithParameterEndDate == NSOrderedSame)
+        {
+            [returnArray addObject:event];
+        }
+    }
+    
+    NSArray *sortedArray = [[NSArray alloc] init];
+    sortedArray = [returnArray sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+        NSDate *first = [(Event*)a date];
+        NSDate *second = [(Event*)b date];
+        return [first compare:second];
+    }];
+    
+    if ([sortedArray count] >= 1)
+    {
+        return sortedArray;
+    }
+    
+    return nil;
+}
+
+
+
 -(Event *)getEventWithiD:(NSString *)eventId
 {
     NSArray *arr = [[SLKCoreDataService sharedService] fetchDataWithEntity:@"Event"

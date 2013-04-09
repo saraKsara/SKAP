@@ -360,7 +360,7 @@
 
 
 - (void)viewDidUnload {
-    [self setSegmentControl:nil];
+
     [super viewDidUnload];
     
     self.scrollView = nil;
@@ -412,27 +412,15 @@
 {
     [_leftTit setImage:[UIImage imageNamed:@"titsPink.png"]];
 }
--(void)showTotalSummaryView
-{
+
+- (IBAction)showTotalOverview:(id)sender {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"calendar" bundle:nil];
     
     SLKDaySummaryViewController *controller = [sb instantiateInitialViewController];
     [self presentModalViewController:controller animated:YES];
-    NSLog(@"wtf");
-    
-    
 }
-- (IBAction)segmentControllChanged:(id)sender {
-    
-      if ( _segmentControl.selectedSegmentIndex == 0 ) {
-          //show food overview
-        //   NSLog(@"segmentcontrol: %d", _segmentControl.selectedSegmentIndex);
-          NSLog(@"segmentcontrol: ETT %d", _segmentControl.selectedSegmentIndex);
-          //[self showTotalSummaryView];
-      } else if ( _segmentControl.selectedSegmentIndex == 1 ){
-       
-          NSLog(@"segmentcontrol: TVÅ%d", _segmentControl.selectedSegmentIndex);
-         // [self showTotalSummaryView];
-      }
+
+- (IBAction)showFeedOverview:(id)sender {
+    NSLog(@"show feedoverview");
 }
 @end

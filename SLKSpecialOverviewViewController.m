@@ -1,12 +1,12 @@
 //
-//  SLKSubmitDayViewController.m
+//  SLKSpecialOverviewViewController.m
 //  SKAP
 //
-//  Created by Åsa Persson on 2013-03-26.
+//  Created by Åsa Persson on 2013-04-09.
 //  Copyright (c) 2013 Student vid Yrkeshögskola C3L. All rights reserved.
 //
 
-#import "SLKDaySummaryViewController.h"
+#import "SLKSpecialOverviewViewController.h"
 #import "SLKBabyStorage.h"
 #import "Baby.h"
 #import "SLKDateUtil.h"
@@ -21,17 +21,16 @@
 #import "SLKConstants.h"
 #import "SLKTittStorage.h"
 #import "SLKColors.h"
-
-@interface SLKDaySummaryViewController ()
+@interface SLKSpecialOverviewViewController ()
 
 @end
 
-@implementation SLKDaySummaryViewController
+@implementation SLKSpecialOverviewViewController
 {
     Baby *currentBaby;
     NSDate *currentDay;
+    NSString *type;
 }
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -41,13 +40,13 @@
     return self;
 }
 
--(void)viewWillAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:YES];
+    [super viewWillAppear:animated];
     currentDay = [NSDate date];
     currentBaby = [[SLKBabyStorage sharedStorage] getCurrentBaby];
     self.view.backgroundColor = [UIColor clearColor];
-
+    
     _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@",
                          currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
     
@@ -56,53 +55,59 @@
                                              selector:@selector(reloadTable)
                                                  name:@"reloadCalendar"
                                                object:nil];
+   
 
-    //TODO: decide how to represent pee and poo
-//    _peeLabel.text = [NSString stringWithFormat:@"Peed: %@ ml/times", currentBaby.pii];
-//    _pooLabel.text =  [NSString stringWithFormat:@"Pooped %@ ml/times", currentBaby.poo];
-//    
-//    //TODO: for each time span, create a string that tell what time and what and how much the baby ate
-//     _foodLabel.text =  [NSString stringWithFormat:@"Ate %@ ml/times", currentBaby.feedTimespan];
-    
+	// Do any additional setup after loading the view.
 }
 -(void)reloadTable
 {
-    [_tableView reloadData];
+    [_tableview reloadData];
 }
-- (void)viewDidLoad
+- (void)didReceiveMemoryWarning
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
+
+
+- (void)viewDidUnload {
+    [self setSegmentcontreoo:nil];
+    [self setPreviousBtn:nil];
+    [self setNextBtn:nil];
+    [self setHeaderLabel:nil];
+    [self setTableview:nil];
+    [super viewDidUnload];
+}
+
+
+- (IBAction)previous:(id)sender {
+    
+    currentDay = [currentDay dateBySubtractingDays:1];
+    _headerLabel.text = [NSString stringWithFormat:@"This is how much%@ \n ate at %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
+    [self reloadTable];
+}
+- (IBAction)next:(id)sender {
+    currentDay = [currentDay dateByAddingDays:1];
+    _headerLabel.text = [NSString stringWithFormat:@"This is how much %@ \n ate st %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
+    [self reloadTable];
+}
+
 
 - (IBAction)close:(id)sender {
     [self dismissModalViewControllerAnimated:YES];
 }
-- (IBAction)segmentcontroll:(id)sender {
-    if ( _segmentcontroll.selectedSegmentIndex == 0 )
+- (IBAction)segmentcontreoo:(id)sender {
+    if ( _segmentcontreoo.selectedSegmentIndex == 0 )
     {
-        _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@",
+        _headerLabel.text = [NSString stringWithFormat:@"This is how much%@ \n ate at %@",
                              currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
-    } else if ( _segmentcontroll.selectedSegmentIndex == 1 )
+    } else if ( _segmentcontreoo.selectedSegmentIndex == 1 )
     {
-        _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n This Week",
+        _headerLabel.text = [NSString stringWithFormat:@"This is how much%@ \n This Week",
                              currentBaby.name];
     }
 }
 
-- (IBAction)nextDay:(id)sender
-{
-    currentDay = [currentDay dateByAddingDays:1];
-      _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
-    [self reloadTable];
-}
-
-- (IBAction)prevDay:(id)sender
-{
-    currentDay = [currentDay dateBySubtractingDays:1];
-      _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
-    [self reloadTable];
-}
 
 
 #pragma mark - Table view data source
@@ -134,14 +139,16 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-     static NSString *CellIdentifier = @"dayViewCell";
+    static NSString *CellIdentifier = @"dayViewCell";
     SLKDayViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier]; //forIndexPath:indexPath];
-        Event *event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay] objectAtIndex:indexPath.row];
     
-    cell.timeLabel.text = [SLKDateUtil formatTimeFromDate: event.date];
-    
+    Event *event;
+    if (_breastFood) {
+        event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withType:kEventType_TitFood]objectAtIndex:indexPath.row];
+           cell.timeLabel.text = [SLKDateUtil formatTimeFromDate: event.date];
+
     // BREAST FEED
-    if ([event.type isEqualToString: kEventType_TitFood]) {
+   // if ([event.type isEqualToString: kEventType_TitFood]) {
         cell.eventLabel.text = @"Feeded: \nbreast milk";
         NSSet *titset = [event tities];
         NSMutableString *propertyString = [[NSMutableString alloc] init];
@@ -152,16 +159,16 @@
                 breast = @"right";
             } else if (tit.leftBoob == [NSNumber numberWithInt:1])
             {
-                breast = @"left";  
+                breast = @"left";
             }
             NSLog(@"tit::: %@",tit);
             if (tit.minutes != nil)
             {
-            [propertyString appendFormat: @"%@ minutes \n %@ breast",[tit.minutes stringValue], breast];
+                [propertyString appendFormat: @"%@ minutes \n %@ breast",[tit.minutes stringValue], breast];
             }
             else if (tit.milliLitres != nil)
             {
-            [propertyString appendFormat: @"%@ ml \n %@ breast",[tit.milliLitres stringValue], breast];
+                [propertyString appendFormat: @"%@ ml \n %@ breast",[tit.milliLitres stringValue], breast];
             }
             else if (tit.stringValue != nil)
             {
@@ -169,11 +176,15 @@
             }
         }
         cell.propertyLabel.text = propertyString;
-
+        
+    //}
     }
-    
     //BOTTLE FOOD
-    if ([event.type isEqualToString: kEventType_BottleFood]) {
+    if (_bottledFood) {
+        event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withType:kEventType_BottleFood]objectAtIndex:indexPath.row];
+        cell.timeLabel.text = [SLKDateUtil formatTimeFromDate: event.date];
+        
+        
         cell.eventLabel.text = @"Feeded: \n milk substitute";
         NSSet *set = [event bottles];
         NSMutableString *propertyString = [[NSMutableString alloc] init];
@@ -194,10 +205,13 @@
         }
         cell.propertyLabel.text = propertyString;
     }
-
+    
     
     //POO
-    if ([event.type isEqualToString: kEventType_Poo]) {
+    if (_poo) {
+        event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withType:kEventType_Poo]objectAtIndex:indexPath.row];
+        cell.timeLabel.text = [SLKDateUtil formatTimeFromDate: event.date];
+        
         cell.eventLabel.text = @"Pooped:";
         NSSet *set = [event poos];
         NSMutableString *propertyString = [[NSMutableString alloc] init];
@@ -218,10 +232,13 @@
         }
         cell.propertyLabel.text = propertyString;
     }
-
+    
     
     //PII
-    if ([event.type isEqualToString: kEventType_Pii]) {
+    if (_poo) {
+        event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withType:kEventType_Poo]objectAtIndex:indexPath.row];
+        cell.timeLabel.text = [SLKDateUtil formatTimeFromDate: event.date];
+        
         cell.eventLabel.text = @"Piied:";
         NSSet *set = [event piis];
         NSMutableString *propertyString = [[NSMutableString alloc] init];
@@ -243,20 +260,8 @@
         cell.propertyLabel.text = propertyString;
     }
     return cell;
-
+    
 }
 
 
-
-#pragma mark - Table view delegate
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"didSelectRowAtIndexPath");
-}
-
-
-- (void)viewDidUnload {
-    [self setSegmentcontroll:nil];
-    [super viewDidUnload];
- }
 @end

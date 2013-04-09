@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface SLKFoodViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate>
-@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControl;
-- (IBAction)segmentControllChanged:(id)sender;
+
+- (IBAction)showTotalOverview:(id)sender;
+- (IBAction)showFeedOverview:(id)sender;
+
+
 
 
 @property (weak, nonatomic) IBOutlet UILabel *foodLabel;
