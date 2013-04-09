@@ -51,13 +51,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+     if ([[[SLKParentStorage sharedStorage]parentArray]count] == 0 ) {
+         _firstTime = YES;
+     } else{
+         _firstTime = NO;
+     }
       controller = [[SLKAddBabyViewController alloc] init];
     currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
     currentParent = [[SLKParentStorage sharedStorage]getCurrentParent];
     NSLog(@"current parent: %@", currentParent.name);
- 
-  
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(login)
+                                                 name:@"loginNot"
+                                               object:nil];
 }
+
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -68,7 +77,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)login
+{
+    [self performSegueWithIdentifier:@"addBabyNParentSeg" sender:self];
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -234,4 +246,10 @@
     
 }
 
+- (void)viewDidUnload {
+
+    [super viewDidUnload];
+}
+- (IBAction)login:(id)sender {
+}
 @end

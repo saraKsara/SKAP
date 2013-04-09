@@ -158,12 +158,11 @@
              NSLog(@"SUCCEED to create %@",[object objectForKey:@"name"] );
              [[SLKParentStorage sharedStorage] setCurrentParent:theNewParent];
              
-             [self dismissViewControllerAnimated:NO completion:^{
+            
                  
                  [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpSegmentControlls" object:nil userInfo:nil];
 
-             }];
-             
+            [[self navigationController] popViewControllerAnimated:YES];
              
          } onFailure:^(PFObject *object)
          {
@@ -174,12 +173,7 @@
                                        cancelButtonTitle:@"OK"
                                        otherButtonTitles:nil, nil];
              [failAlert show];
-             [self dismissViewControllerAnimated:YES completion:^{
-                 //set text on settingsVC who are invited
-             }];
-             //         [popover dismissPopoverAnimated:YES completion:^{
-             //             [self.tableView reloadData];
-             //         }];
+             [self performSegueWithIdentifier:@"addBabyNParentSeg" sender:self];
              
          }];
     }

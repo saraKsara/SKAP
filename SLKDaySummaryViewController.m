@@ -43,6 +43,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    NSLog(@"DAYYYY");
     [super viewWillAppear:YES];
     currentDay = [NSDate date];
     currentBaby = [[SLKBabyStorage sharedStorage] getCurrentBaby];

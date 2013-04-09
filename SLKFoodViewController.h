@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface SLKFoodViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate>
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControl;
+- (IBAction)segmentControllChanged:(id)sender;
+
+
 @property (weak, nonatomic) IBOutlet UILabel *foodLabel;
 @property (weak, nonatomic) IBOutlet UILabel *anotherFoodLable;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;

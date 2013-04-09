@@ -22,7 +22,7 @@
 #import "SLKConstants.h"
 #import "SLKColors.h"
 #import "SLKSettingsViewController.h"
-
+#import "SLKDaySummaryViewController.h"
 
 @interface SLKFoodViewController ()
 
@@ -360,6 +360,7 @@
 
 
 - (void)viewDidUnload {
+    [self setSegmentControl:nil];
     [super viewDidUnload];
     
     self.scrollView = nil;
@@ -410,5 +411,28 @@
 - (IBAction)rightTit:(id)sender
 {
     [_leftTit setImage:[UIImage imageNamed:@"titsPink.png"]];
+}
+-(void)showTotalSummaryView
+{
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"calendar" bundle:nil];
+    
+    SLKDaySummaryViewController *controller = [sb instantiateInitialViewController];
+    [self presentModalViewController:controller animated:YES];
+    NSLog(@"wtf");
+    
+    
+}
+- (IBAction)segmentControllChanged:(id)sender {
+    
+      if ( _segmentControl.selectedSegmentIndex == 0 ) {
+          //show food overview
+        //   NSLog(@"segmentcontrol: %d", _segmentControl.selectedSegmentIndex);
+          NSLog(@"segmentcontrol: ETT %d", _segmentControl.selectedSegmentIndex);
+          //[self showTotalSummaryView];
+      } else if ( _segmentControl.selectedSegmentIndex == 1 ){
+       
+          NSLog(@"segmentcontrol: TVÅ%d", _segmentControl.selectedSegmentIndex);
+         // [self showTotalSummaryView];
+      }
 }
 @end

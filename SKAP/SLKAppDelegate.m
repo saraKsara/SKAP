@@ -58,7 +58,7 @@
     
     //TODO: if you where invited...
     
-    if ([[[SLKBabyStorage sharedStorage]babyArray]count] == 0 ) {
+    if ([[[SLKParentStorage sharedStorage]parentArray]count] == 0 ) {
         
         //change root view to adding baby
         //[self setUpAppWithAddingBabyView];
@@ -138,7 +138,6 @@
      UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
     
     SLKSettingsViewController *controller = [sb instantiateInitialViewController];
-    controller.firstTime = YES;
     [self.window setRootViewController:controller];
     [self.window makeKeyAndVisible];
 }
@@ -146,60 +145,62 @@
 {
    
     self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = [self createViewControllersForStoryboards:@[ @"Feed", @"Diaper", @"Medz",@"calendar"]];
+    self.tabBarController.viewControllers = [self createViewControllersForStoryboards:@[ @"Feed",@"sleep", @"Diaper", @"Medz",@"Settings"]];
     
     // Tab styling 
     [[[self tabBarController] tabBar] setBackgroundImage:[UIImage imageNamed:@"tabbar_bg"]];
     [[[self tabBarController] tabBar] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar_bg_sel"]];
     
         
-    babyArray = [[SLKBabyStorage sharedStorage] babyArray];
-    NSMutableArray *segmentArray = [[NSMutableArray alloc] initWithObjects:@"menu", nil];
+//    babyArray = [[SLKBabyStorage sharedStorage] babyArray];
+//    numberOfBabies = babyArray.count;
     
-    numberOfBabies = babyArray.count;
+//    NSMutableArray *segmentArray = [[NSMutableArray alloc] initWithObjects:@"menu", nil];
+//    int i = 1;
+//    for (Baby *babe in babyArray)
+//    {
+//        [segmentArray addObject:babe.name];
+//        i++;
+//    }
     
-    int i = 1;
-    for (Baby *babe in babyArray)
-    {
-        [segmentArray addObject:babe.name];
-        i++;
-    }
+  
+    
     //TODO: move to set up class???
-    _segmentControll = [[UISegmentedControl alloc] initWithItems:segmentArray];
-    _segmentControll.frame = CGRectMake(0, 0, 320, 50);
-    _segmentControll.segmentedControlStyle = UISegmentedControlStylePlain;
-    _segmentControll.selectedSegmentIndex = 1;//TODO: == current babe
-    segmentWidth = 320 /(numberOfBabies +1);
-    
-    for (int i = 0; i <= numberOfBabies; i++) {
-        {
-            if (i == 0) {
-                UIImage *image = [self drawImageWithColor:[UIColor colorWithHexValue:kBlueish_Color alpha:0.8]];
-                UIImage *imageText =[self drawText:@"menu" inImage:image atPoint:CGPointMake(20, 25)];
-              
-                [_segmentControll setImage:imageText forSegmentAtIndex:i];
-            } else {
-                NSString *color = [[babyArray objectAtIndex:i-1] babysColor];
-                UIImage *image = [self drawImageWithColor:[UIColor colorWithHexValue:color]];
-                
-                UIImage *imageText =[self drawText:[[babyArray objectAtIndex:i-1] name] inImage:image atPoint:CGPointMake(20, 25)];
-                
-                [_segmentControll setImage:imageText forSegmentAtIndex:i];
-            }
-            
-        }
-        
-        [_segmentControll addTarget:self action:@selector(segmentAction:) forControlEvents: UIControlEventValueChanged];
-        
-        [self.tabBarController.view addSubview:_segmentControll];
-        [_segmentControll setSelected:NO];
-        [_segmentControll setHighlighted:NO];
-        [_segmentControll setTintColor:[UIColor clearColor]];
+//    _segmentControll = [[UISegmentedControl alloc] initWithItems:segmentArray];
+//    _segmentControll.frame = CGRectMake(0, 0, 320, 50);
+//    _segmentControll.segmentedControlStyle = UISegmentedControlStylePlain;
+//    _segmentControll.selectedSegmentIndex = 1;//TODO: == current babe
+//    segmentWidth = 320 /(numberOfBabies +1);
+//    
+//    for (int i = 0; i <= numberOfBabies; i++) {
+//        {
+//            if (i == 0) {
+//                UIImage *image = [self drawImageWithColor:[UIColor colorWithHexValue:kBlueish_Color alpha:0.8]];
+//                UIImage *imageText =[self drawText:@"menu" inImage:image atPoint:CGPointMake(20, 25)];
+//              
+//                [_segmentControll setImage:imageText forSegmentAtIndex:i];
+//            } else {
+//                NSString *color = [[babyArray objectAtIndex:i-1] babysColor];
+//                UIImage *image = [self drawImageWithColor:[UIColor colorWithHexValue:color]];
+//                
+//                UIImage *imageText =[self drawText:[[babyArray objectAtIndex:i-1] name] inImage:image atPoint:CGPointMake(20, 25)];
+//                
+//                [_segmentControll setImage:imageText forSegmentAtIndex:i];
+//            }
+//            
+//        }
+//        
+//        [_segmentControll addTarget:self action:@selector(segmentAction:) forControlEvents: UIControlEventValueChanged];
+//        
+//        [self.tabBarController.view addSubview:_segmentControll];
+//        [_segmentControll setSelected:NO];
+//        [_segmentControll setHighlighted:NO];
+//        [_segmentControll setTintColor:[UIColor clearColor]];
 
 
     [self.window setRootViewController:self.tabBarController];
     [self.window makeKeyAndVisible];
-}
+//}
 
 }
 

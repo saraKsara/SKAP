@@ -61,6 +61,8 @@
 		1CA7F90516FCBBF3008BB1BF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA7F90416FCBBF3008BB1BF /* QuartzCore.framework */; };
 		1CA7F90616FCBC04008BB1BF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE59449616F90DC800D9D33A /* CoreGraphics.framework */; };
 		1CB057971712EB2C00205AC0 /* SLKLinksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB057961712EB2C00205AC0 /* SLKLinksViewController.m */; };
+		1CBBEE2317141D6B00305432 /* sleep.Storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CBBEE2217141D6B00305432 /* sleep.Storyboard */; };
+		1CBBEE2717141D8600305432 /* SLKSleppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CBBEE2617141D8600305432 /* SLKSleppViewController.m */; };
 		1CECF55F170D8BF4008AFA74 /* Baby.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CECF55E170D8BF4008AFA74 /* Baby.m */; };
 		1CECF565170D8D59008AFA74 /* SLKAddBabyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CECF564170D8D59008AFA74 /* SLKAddBabyViewController.m */; };
 		1CF828271701A36E00EDC904 /* SLKUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF828261701A36E00EDC904 /* SLKUserDefaults.m */; };
@@ -204,6 +206,9 @@
 		1CA7F90416FCBBF3008BB1BF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1CB057951712EB2C00205AC0 /* SLKLinksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKLinksViewController.h; sourceTree = "<group>"; };
 		1CB057961712EB2C00205AC0 /* SLKLinksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKLinksViewController.m; sourceTree = "<group>"; };
+		1CBBEE2217141D6B00305432 /* sleep.Storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = sleep.Storyboard; sourceTree = "<group>"; };
+		1CBBEE2517141D8600305432 /* SLKSleppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKSleppViewController.h; sourceTree = "<group>"; };
+		1CBBEE2617141D8600305432 /* SLKSleppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKSleppViewController.m; sourceTree = "<group>"; };
 		1CECF55D170D8BF4008AFA74 /* Baby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baby.h; sourceTree = "<group>"; };
 		1CECF55E170D8BF4008AFA74 /* Baby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Baby.m; sourceTree = "<group>"; };
 		1CECF563170D8D59008AFA74 /* SLKAddBabyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKAddBabyViewController.h; sourceTree = "<group>"; };
@@ -530,6 +535,16 @@
 			name = popover;
 			sourceTree = "<group>";
 		};
+		1CBBEE2417141D7000305432 /* Sleep */ = {
+			isa = PBXGroup;
+			children = (
+				1CBBEE2217141D6B00305432 /* sleep.Storyboard */,
+				1CBBEE2517141D8600305432 /* SLKSleppViewController.h */,
+				1CBBEE2617141D8600305432 /* SLKSleppViewController.m */,
+			);
+			name = Sleep;
+			sourceTree = "<group>";
+		};
 		1CF8282B1701A9C100EDC904 /* Custom Alert */ = {
 			isa = PBXGroup;
 			children = (
@@ -659,6 +674,7 @@
 				1CF8282B1701A9C100EDC904 /* Custom Alert */,
 				1CA7F8FC16FCB4EF008BB1BF /* popover */,
 				1C423F76170D6AE100DCB469 /* Settings */,
+				1CBBEE2417141D7000305432 /* Sleep */,
 			);
 			name = ViewController;
 			path = ..;
@@ -768,6 +784,7 @@
 				CEDDEB5F171358820017DE60 /* titsPink.png in Resources */,
 				CEDDEB6117135C110017DE60 /* titsLabel_03.png in Resources */,
 				CEDDEB6317135D750017DE60 /* arrow_03.png in Resources */,
+				1CBBEE2317141D6B00305432 /* sleep.Storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -856,6 +873,7 @@
 				1CB057971712EB2C00205AC0 /* SLKLinksViewController.m in Sources */,
 				1C74254A1713064500207C04 /* SLKLinksCell.m in Sources */,
 				1C74255017131F8E00207C04 /* SLKLoginViewController.m in Sources */,
+				1CBBEE2717141D8600305432 /* SLKSleppViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

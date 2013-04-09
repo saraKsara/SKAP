@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface SLKWelcomeCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *welcomeLabel;
+
+@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
+- (IBAction)login:(id)sender;
 
 @end
