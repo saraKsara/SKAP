@@ -195,13 +195,9 @@
      //if tit milk was messured in minutes
     Tits *titMin = [[SLKTittStorage sharedStorage]createTittWithStringValue:nil mililitres:nil minutes:[NSNumber numberWithInt:22]leftBoob:NO rightBoob:YES];
     
-//    [[SLKEventStorage sharedStorage] createEventwithTit:titMin date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
-    
     [[SLKEventStorage sharedStorage] createEvenWithHappening:titMin date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
     
   Bottle *bottle = [[SLKBottleStorage sharedStorage] createBottleWithStringValue:nil mililitres:[NSNumber numberWithFloat:bottledFood] minutes:nil];
-    
-//    [[SLKEventStorage sharedStorage] createEvenWithdBottle:bottle date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
 
     [[SLKEventStorage sharedStorage]createEvenWithHappening:bottle date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
     

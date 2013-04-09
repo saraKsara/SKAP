@@ -32,7 +32,7 @@
 - (IBAction)touchUpInsidePageControll:(id)sender;
 @property (weak, nonatomic) IBOutlet UISlider *timeSlider;
 - (IBAction)sliderOneValueChanged:(id)sender;
-//- (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer;
+- (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer;
 @property (weak, nonatomic) IBOutlet UILabel *setTimeLabel;
 - (IBAction)save:(id)sender;
 - (IBAction)setTime:(id)sender;

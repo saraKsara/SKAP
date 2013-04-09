@@ -140,11 +140,11 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UILabel *title = [[UILabel alloc] init];
-    title.frame = CGRectMake(5, 0, 200, 30);
+    title.frame = CGRectMake(5, 0, 285, 30);
     title.textColor = [UIColor blackColor];
     title.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:13.0f];
     title.text =  @"Time\t\t\t\t\t\t\t event";
-    title.backgroundColor = [UIColor clearColor];
+    title.backgroundColor = [UIColor whiteColor];
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
     [view addSubview:title];

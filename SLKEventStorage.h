@@ -24,17 +24,9 @@
                     timeSpan:(NSNumber*)timeSpan
                         baby:(Baby*)baby
                     comments:(NSString*)comments;
+
 -(Event *)createEvenWithHappening:(NSManagedObject*)happening date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby*)baby;
 
--(Event *)createEventwithTit:(Tits*)tit date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby*)baby;
-
--(Event *)createEvenWithdBottle:(Bottle*)bottle date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby*)baby;
-
--(Event *)createEventwithPoo:(Poo*)poo date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby*)baby;
-
--(Event *)createEventwithPii:(Pii*)pii date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby*)baby;
-
--(Event *)createEventwithMedz:(Medz*)medz date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby*)baby;
 
 //GETTERS
 -(NSArray *)getEventBelomigTObaby:(Baby *)baby;

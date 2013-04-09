@@ -111,6 +111,7 @@
         e.type = kEventType_Medz;
         [e addMedzObject:(Medz*)happening];
     }
+    //TODO: sleepevent
     
     e.eventId = eventId;
     e.baby = baby;
@@ -119,72 +120,6 @@
     NSLog(@"Created event with tit: %@, to baby: %@", [happening class], baby.name);
     return e;
 }
--(Event *)createEventwithTit:(Tits *)tit date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby *)baby
-{
-    Event *e = [NSEntityDescription insertNewObjectForEntityForName:@"Event"
-                                            inManagedObjectContext:context];
-    [e addTitiesObject:tit];
-    e.eventId = eventId;
-    e.baby = baby;
-    e.date = date;
-     e.type = kEventType_TitFood;
-    NSLog(@"Created event with tit: %@, to baby: %@", tit.milliLitres, baby.name);
-    return e;
-}
-
--(Event *)createEvenWithdBottle:(Bottle *)bottle date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby *)baby
-{
-    Event *e = [NSEntityDescription insertNewObjectForEntityForName:@"Event"
-                                             inManagedObjectContext:context];
-    [e addBottlesObject:bottle];
-    e.eventId = eventId;
-    e.baby = baby;
-    e.date = date;
-     e.type = kEventType_BottleFood;
-    NSLog(@"Created event with tit: %@, to baby: %@", bottle, baby.name);
-    return e;
-}
-
--(Event *)createEventwithPoo:(Poo *)poo date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby *)baby
-{
-    Event *e = [NSEntityDescription insertNewObjectForEntityForName:@"Event"
-                                             inManagedObjectContext:context];
-    [e addPoosObject:poo];
-    e.eventId = eventId;
-    e.baby = baby;
-    e.date = date;
-     e.type = kEventType_Poo;
-    NSLog(@"Created event with tit: %@, to baby: %@", poo, baby.name);
-    return e;
-}
-
--(Event *)createEventwithPii:(Pii *)pii date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby *)baby
-{
-    Event *e = [NSEntityDescription insertNewObjectForEntityForName:@"Event"
-                                             inManagedObjectContext:context];
-    [e addPiisObject:pii];
-    e.eventId = eventId;
-    e.baby = baby;
-    e.date = date;
-    e.type = kEventType_Pii;
-    NSLog(@"Created event with tit: %@, to baby: %@", pii, baby.name);
-    return e;
-}
--(Event *)createEventwithMedz:(Medz *)medz date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby *)baby
-{
-    
-    Event *e = [NSEntityDescription insertNewObjectForEntityForName:@"Event"
-                                             inManagedObjectContext:context];
-    [e addMedzObject:medz];
-    e.eventId = eventId;
-    e.baby = baby;
-    e.date = date;
-    e.type = kEventType_Pii;
-    NSLog(@"Created event with tit: %@, to baby: %@", medz, baby.name);
-    return e;
-}
-
-
 
 -(NSArray *)getEventBelomigTObaby:(Baby *)baby
 {
