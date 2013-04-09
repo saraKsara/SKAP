@@ -58,8 +58,7 @@
                                                object:nil];
 
     
-    int ii = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withType:kEventType_BottleFood] count];
-    NSLog(@"iii===== %d", ii);
+
     //TODO: decide how to represent pee and poo
 //    _peeLabel.text = [NSString stringWithFormat:@"Peed: %@ ml/times", currentBaby.pii];
 //    _pooLabel.text =  [NSString stringWithFormat:@"Pooped %@ ml/times", currentBaby.poo];
@@ -118,33 +117,34 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
   
-    
+    NSArray *typeArray;
     if (_allEvents) {
         return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay]count];
     }
     else if (_food) {
-        NSArray *typeArray = [NSArray arrayWithObjects:kEventType_BottleFood,kEventType_TitFood, nil];
+       typeArray = [NSArray arrayWithObjects:kEventType_BottleFood,kEventType_TitFood, nil];
         return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]count];
     }
     else if (_diaper) {
   
-        NSArray *typeArray =  [NSArray arrayWithObjects:kEventType_Poo,kEventType_Pii, nil];
+       typeArray =  [NSArray arrayWithObjects:kEventType_Poo,kEventType_Pii, nil];
         return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]count];
     }
-    else  { // if medz
+    else  {
         //TODO: create medzconstant!
-        return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withType:kEventType_Pii]count];
+        typeArray =  [NSArray arrayWithObjects:kEventType_Pii, nil];
+        return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]count];
     }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UILabel *title = [[UILabel alloc] init];
-    title.frame = CGRectMake(5, 0, 200, 30);
+    title.frame = CGRectMake(5, 0, 285, 30);
     title.textColor = [UIColor blackColor];
     title.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:13.0f];
     title.text =  @"Time\t\t\t\t\t\t\t event";
-    title.backgroundColor = [UIColor clearColor];
+    title.backgroundColor = [UIColor whiteColor];
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
     [view addSubview:title];
@@ -171,8 +171,14 @@
     }
  
     else if (_medz) {
-        //TODO: create medconstant!
-        event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withType:kEventType_Pii]objectAtIndex:indexPath.row];
+        //TODO: create med constant!
+        typeArray = [NSArray arrayWithObjects:kEventType_Pii, nil];
+        event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]objectAtIndex:indexPath.row];
+    }
+    else if (_sleep) {
+        //TODO: create pee constant!
+        typeArray = [NSArray arrayWithObjects:kEventType_Pii, nil];
+        event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]objectAtIndex:indexPath.row];
     }
     cell.timeLabel.text = [SLKDateUtil formatTimeFromDate: event.date];
     

@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SLKMedzViewController : UIViewController
+- (IBAction)allMedsOverview:(id)sender;
+- (IBAction)totalOverview:(id)sender;
 
 @end

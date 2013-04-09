@@ -15,6 +15,8 @@
 #define kEventType_Poo     @"Poo"
 #define kEventType_Pii    @"Pii"
 
+#define kEventType_Medz    @"Medz"
+#define kEventType_Sleep    @"Sleep"
 
 //COLORS
 #define kGreenish_Color     @"beffcd"
