@@ -19,6 +19,7 @@
 #import "SLKDateUtil.h"
 #import "SLKConstants.h"
 #import "SLKColors.h"
+#import "SLKDaySummaryViewController.h"
 @interface SLKPiiPooViewController ()
 
 @end
@@ -217,6 +218,20 @@
     _timeLabel.text = time;
 }
 
+- (IBAction)diaperOverView:(id)sender {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"calendar" bundle:nil];
+    SLKDaySummaryViewController *controller = [sb instantiateInitialViewController];
+    controller.diaper = YES;
+    [self presentModalViewController:controller animated:YES];
+}
+
+- (IBAction)totalOverview:(id)sender {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"calendar" bundle:nil];
+    
+    SLKDaySummaryViewController *controller = [sb instantiateInitialViewController];
+    controller.allEvents = YES;
+    [self presentModalViewController:controller animated:YES];
+}
 
 
 - (IBAction)setTimewithSlider:(id)sender

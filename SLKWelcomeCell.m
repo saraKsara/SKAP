@@ -28,7 +28,10 @@
 
 -(void)layoutSubviews
 {
-    _welcomeLabel.text = @"Welcome! this is the first time you use baby feed. Tap on screen to register as a parent figure and start using the app. Enjoy!";
+
 }
 
+- (IBAction)login:(id)sender {
+ [[NSNotificationCenter defaultCenter] postNotificationName: @"loginNot" object:nil userInfo:nil];
+}
 @end

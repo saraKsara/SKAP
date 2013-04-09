@@ -9,6 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface SLKFoodViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate>
+
+- (IBAction)showTotalOverview:(id)sender;
+- (IBAction)showFeedOverview:(id)sender;
+
+
+
+
 @property (weak, nonatomic) IBOutlet UILabel *foodLabel;
 @property (weak, nonatomic) IBOutlet UILabel *anotherFoodLable;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -25,7 +32,7 @@
 - (IBAction)touchUpInsidePageControll:(id)sender;
 @property (weak, nonatomic) IBOutlet UISlider *timeSlider;
 - (IBAction)sliderOneValueChanged:(id)sender;
-- (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer;
+//- (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer;
 @property (weak, nonatomic) IBOutlet UILabel *setTimeLabel;
 - (IBAction)save:(id)sender;
 - (IBAction)setTime:(id)sender;

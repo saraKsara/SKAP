@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface SLKDaySummaryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+- (IBAction)segmentcontroll:(id)sender;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentcontroll;
 
 @property (weak, nonatomic) IBOutlet UILabel *headerLabel;
 
@@ -22,5 +24,14 @@
 
 - (IBAction)prevDay:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+- (IBAction)close:(id)sender;
+
+
+@property BOOL food;
+@property BOOL diaper;
+@property BOOL sleep;
+@property BOOL medz;
+@property BOOL allEvents;
+
 
 @end

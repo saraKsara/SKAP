@@ -57,6 +57,9 @@
                                                  name:@"reloadCalendar"
                                                object:nil];
 
+    
+    int ii = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withType:kEventType_BottleFood] count];
+    NSLog(@"iii===== %d", ii);
     //TODO: decide how to represent pee and poo
 //    _peeLabel.text = [NSString stringWithFormat:@"Peed: %@ ml/times", currentBaby.pii];
 //    _pooLabel.text =  [NSString stringWithFormat:@"Pooped %@ ml/times", currentBaby.poo];
@@ -75,10 +78,19 @@
 	// Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)close:(id)sender {
+    [self dismissModalViewControllerAnimated:YES];
+}
+- (IBAction)segmentcontroll:(id)sender {
+    if ( _segmentcontroll.selectedSegmentIndex == 0 )
+    {
+        _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@",
+                             currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
+    } else if ( _segmentcontroll.selectedSegmentIndex == 1 )
+    {
+        _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n This Week",
+                             currentBaby.name];
+    }
 }
 
 - (IBAction)nextDay:(id)sender
@@ -105,7 +117,24 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay]count];
+  
+    
+    if (_allEvents) {
+        return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay]count];
+    }
+    else if (_food) {
+        NSArray *typeArray = [NSArray arrayWithObjects:kEventType_BottleFood,kEventType_TitFood, nil];
+        return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]count];
+    }
+    else if (_diaper) {
+  
+        NSArray *typeArray =  [NSArray arrayWithObjects:kEventType_Poo,kEventType_Pii, nil];
+        return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]count];
+    }
+    else  { // if medz
+        //TODO: create medzconstant!
+        return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withType:kEventType_Pii]count];
+    }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -127,8 +156,24 @@
 {
      static NSString *CellIdentifier = @"dayViewCell";
     SLKDayViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier]; //forIndexPath:indexPath];
-        Event *event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay] objectAtIndex:indexPath.row];
-    
+    NSArray *typeArray;
+    Event *event;
+    if (_allEvents) {
+         event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay]objectAtIndex:indexPath.row];
+    }
+    else if (_food) {
+        typeArray = [NSArray arrayWithObjects:kEventType_BottleFood,kEventType_TitFood, nil];
+        event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]objectAtIndex:indexPath.row];
+    }
+    else if (_diaper) {
+         typeArray = [NSArray arrayWithObjects:kEventType_Poo,kEventType_Pii, nil];
+        event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]objectAtIndex:indexPath.row];
+    }
+ 
+    else if (_medz) {
+        //TODO: create medconstant!
+        event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withType:kEventType_Pii]objectAtIndex:indexPath.row];
+    }
     cell.timeLabel.text = [SLKDateUtil formatTimeFromDate: event.date];
     
     // BREAST FEED
@@ -245,4 +290,9 @@
     NSLog(@"didSelectRowAtIndexPath");
 }
 
+
+- (void)viewDidUnload {
+    [self setSegmentcontroll:nil];
+    [super viewDidUnload];
+ }
 @end

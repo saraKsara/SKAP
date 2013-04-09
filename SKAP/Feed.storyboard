@@ -32,11 +32,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" indicatorStyle="black" id="0eI-uv-4ps">
-                                        <rect key="frame" x="54" y="85" width="375" height="313"/>
+                                        <rect key="frame" x="54" y="70" width="375" height="313"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" id="r4O-od-KRB">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="333"/>
+                                                <rect key="frame" x="0.0" y="-20" width="375" height="304"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <imageView contentMode="scaleToFill" image="tits.png" id="RCL-v7-2zT">
@@ -158,21 +158,21 @@
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.49750027169981587" green="0.60000002379999995" blue="0.59348432838322807" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
+                                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" currentPage="1" id="7Nu-Q4-Zon">
+                                                <rect key="frame" x="0.0" y="283" width="320" height="36"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                                <color key="backgroundColor" red="0.88946906887755106" green="0.88653728765541373" blue="0.81323093488876474" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="pageIndicatorTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="currentPageIndicatorTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="touchUpInsidePageControll:" destination="hKR-TG-9xj" eventType="touchUpInside" id="2qQ-5Z-z8q"/>
+                                                    <action selector="valuePageControll:" destination="hKR-TG-9xj" eventType="valueChanged" id="iwh-Q1-LCF"/>
+                                                </connections>
+                                            </pageControl>
                                         </subviews>
                                         <color key="backgroundColor" red="0.78141609020000002" green="1" blue="0.89836842380000004" alpha="0.73999999999999999" colorSpace="calibratedRGB"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                     </scrollView>
-                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" currentPage="1" id="7Nu-Q4-Zon">
-                                        <rect key="frame" x="54" y="398" width="320" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                        <color key="backgroundColor" red="0.88946906887755106" green="0.88653728765541373" blue="0.81323093488876474" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="pageIndicatorTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="currentPageIndicatorTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="touchUpInsidePageControll:" destination="hKR-TG-9xj" eventType="touchUpInside" id="2qQ-5Z-z8q"/>
-                                            <action selector="valuePageControll:" destination="hKR-TG-9xj" eventType="valueChanged" id="iwh-Q1-LCF"/>
-                                        </connections>
-                                    </pageControl>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -219,6 +219,38 @@
                                     <action selector="sooner:" destination="hKR-TG-9xj" eventType="touchUpInside" id="Ooe-Fo-tdW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7ty-Jv-KaK">
+                                <rect key="frame" x="0.0" y="-6" width="160" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.7628592609" green="1" blue="0.75111199819999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Feed overview">
+                                    <color key="titleColor" red="0.21644243599999999" green="0.2014552355" blue="0.21040119230000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showFeedOverview:" destination="hKR-TG-9xj" eventType="touchUpInside" id="exX-ak-R4d"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YUX-w4-XoH">
+                                <rect key="frame" x="160" y="-6" width="160" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.4975002717" green="0.60000002379999995" blue="0.59348432839999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Total overview">
+                                    <color key="titleColor" red="0.21644243599999999" green="0.2014552355" blue="0.21040119230000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showTotalOverview:" destination="hKR-TG-9xj" eventType="touchUpInside" id="OPO-Mq-BTb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.36078432202339172" green="0.51372551918029785" blue="0.57647061347961426" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -256,7 +288,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="303" y="712"/>
+            <point key="canvasLocation" x="118" y="576"/>
         </scene>
         <!--Baby List Table View Controller - Settings-->
         <scene sceneID="hru-HW-bnW">
