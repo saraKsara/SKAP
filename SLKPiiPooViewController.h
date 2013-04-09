@@ -14,7 +14,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *save;
 - (IBAction)sooner:(id)sender;
 - (IBAction)later:(id)sender;
+- (IBAction)diaperOverView:(id)sender;
 
+- (IBAction)totalOverview:(id)sender;
 
 - (IBAction)check:(id)sender;
 

@@ -15,7 +15,6 @@
 		1C34EC7B1706EED10095F0C2 /* SLKPiiStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C34EC7A1706EED10095F0C2 /* SLKPiiStorage.m */; };
 		1C34EC7D170720730095F0C2 /* uncheckedBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C34EC7C170720730095F0C2 /* uncheckedBox.png */; };
 		1C34EC7F170720830095F0C2 /* checkedBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C34EC7E170720830095F0C2 /* checkedBox.png */; };
-		1C35AAF21714411E0091DD4D /* SLKSpecialOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C35AAF11714411E0091DD4D /* SLKSpecialOverviewViewController.m */; };
 		1C378B731712A73C006AC9EF /* SLKWelcomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C378B721712A73C006AC9EF /* SLKWelcomeCell.m */; };
 		1C423F6F170D5EFE00DCB469 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C423F6E170D5EFE00DCB469 /* Settings.storyboard */; };
 		1C423F72170D622300DCB469 /* SLKSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C423F71170D622300DCB469 /* SLKSettingsViewController.m */; };
@@ -132,8 +131,6 @@
 		1C34EC7A1706EED10095F0C2 /* SLKPiiStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPiiStorage.m; sourceTree = "<group>"; };
 		1C34EC7C170720730095F0C2 /* uncheckedBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uncheckedBox.png; sourceTree = "<group>"; };
 		1C34EC7E170720830095F0C2 /* checkedBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkedBox.png; sourceTree = "<group>"; };
-		1C35AAF01714411E0091DD4D /* SLKSpecialOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKSpecialOverviewViewController.h; sourceTree = "<group>"; };
-		1C35AAF11714411E0091DD4D /* SLKSpecialOverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKSpecialOverviewViewController.m; sourceTree = "<group>"; };
 		1C378B711712A73C006AC9EF /* SLKWelcomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKWelcomeCell.h; sourceTree = "<group>"; };
 		1C378B721712A73C006AC9EF /* SLKWelcomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKWelcomeCell.m; sourceTree = "<group>"; };
 		1C423F6E170D5EFE00DCB469 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = SKAP/Settings.storyboard; sourceTree = "<group>"; };
@@ -398,8 +395,6 @@
 				1CF8282D1701BD6A00EDC904 /* SLKDaySummaryViewController.m */,
 				1C137BDE17049F2F00A39F3A /* calendar.storyboard */,
 				1C423F7D170D6BB600DCB469 /* cells */,
-				1C35AAF01714411E0091DD4D /* SLKSpecialOverviewViewController.h */,
-				1C35AAF11714411E0091DD4D /* SLKSpecialOverviewViewController.m */,
 			);
 			name = Calendar;
 			sourceTree = "<group>";
@@ -879,7 +874,6 @@
 				1C74254A1713064500207C04 /* SLKLinksCell.m in Sources */,
 				1C74255017131F8E00207C04 /* SLKLoginViewController.m in Sources */,
 				1CBBEE2717141D8600305432 /* SLKSleppViewController.m in Sources */,
-				1C35AAF21714411E0091DD4D /* SLKSpecialOverviewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

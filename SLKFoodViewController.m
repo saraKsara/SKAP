@@ -23,7 +23,6 @@
 #import "SLKColors.h"
 #import "SLKSettingsViewController.h"
 #import "SLKDaySummaryViewController.h"
-#import "SLKSpecialOverviewViewController.h"
 @interface SLKFoodViewController ()
 
 @end

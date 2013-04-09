@@ -126,11 +126,10 @@
         NSArray *typeArray = [NSArray arrayWithObjects:kEventType_BottleFood,kEventType_TitFood, nil];
         return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]count];
     }
-    else if (_poo) {
-        return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withType:kEventType_Poo] count];
-    }
-    else if (_pee) {
-        return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withType:kEventType_Pii] count];
+    else if (_diaper) {
+  
+        NSArray *typeArray =  [NSArray arrayWithObjects:kEventType_Poo,kEventType_Pii, nil];
+        return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]count];
     }
     else  { // if medz
         //TODO: create medzconstant!
@@ -157,21 +156,20 @@
 {
      static NSString *CellIdentifier = @"dayViewCell";
     SLKDayViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier]; //forIndexPath:indexPath];
-       
+    NSArray *typeArray;
     Event *event;
     if (_allEvents) {
          event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay]objectAtIndex:indexPath.row];
     }
     else if (_food) {
-        NSArray *typeArray = [NSArray arrayWithObjects:kEventType_BottleFood,kEventType_TitFood, nil];
+        typeArray = [NSArray arrayWithObjects:kEventType_BottleFood,kEventType_TitFood, nil];
         event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]objectAtIndex:indexPath.row];
     }
-    else if (_poo) {
-        event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withType:kEventType_Poo]objectAtIndex:indexPath.row];
+    else if (_diaper) {
+         typeArray = [NSArray arrayWithObjects:kEventType_Poo,kEventType_Pii, nil];
+        event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]objectAtIndex:indexPath.row];
     }
-    else if (_pee) {
-        event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withType:kEventType_Pii]objectAtIndex:indexPath.row];
-    }
+ 
     else if (_medz) {
         //TODO: create medconstant!
         event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withType:kEventType_Pii]objectAtIndex:indexPath.row];

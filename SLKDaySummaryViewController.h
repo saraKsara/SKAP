@@ -26,11 +26,9 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)close:(id)sender;
 
-@property BOOL breastFood;
-@property BOOL bottledFood;
+
 @property BOOL food;
-@property BOOL poo;
-@property BOOL pee;
+@property BOOL diaper;
 @property BOOL sleep;
 @property BOOL medz;
 @property BOOL allEvents;
