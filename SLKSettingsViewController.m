@@ -66,7 +66,11 @@
                                                  name:@"loginNot"
                                                object:nil];
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[[self navigationController] navigationBar] setHidden:YES];
+}
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -173,7 +177,7 @@
     title.frame = CGRectMake(0, 0, 320, 30);
     title.textColor = [UIColor whiteColor];
     title.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:13.0f];
-    title.text =  @"All Parent figures \t\t\t\t\t\t\t\t\t\t\t\t\t\tignature\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t number ";
+    title.text =  @"All Parent figures \t\t\t\t\t\t\t\t\t signature\t\t\t\t\t\t\t\t\t number ";
     title.backgroundColor = [UIColor blackColor];
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];

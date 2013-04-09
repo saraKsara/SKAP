@@ -70,27 +70,27 @@
                                                 <color key="backgroundColor" red="0.90128746811224492" green="0.90032820840426653" blue="0.84156742413509245" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                             </view>
                                             <view contentMode="scaleToFill" id="gqO-NN-JP4">
-                                                <rect key="frame" x="375" y="2" width="375" height="331"/>
+                                                <rect key="frame" x="375" y="-20" width="375" height="304"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QjL-2T-rAj">
-                                                        <rect key="frame" x="22" y="30" width="200" height="21"/>
+                                                        <rect key="frame" x="22" y="27" width="200" height="21"/>
                                                         <fontDescription key="fontDescription" name="Thonburi-Bold" family="Thonburi" pointSize="14"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y5c-zV-ipT">
-                                                        <rect key="frame" x="105" y="155" width="89" height="21"/>
+                                                        <rect key="frame" x="105" y="141" width="89" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bottle.png" id="YYi-n1-jJm">
-                                                        <rect key="frame" x="48" y="-36" width="244" height="361"/>
+                                                        <rect key="frame" x="48" y="-30" width="244" height="341"/>
                                                         <color key="backgroundColor" red="0.59791349969999996" green="1" blue="0.71378551440000004" alpha="0.0" colorSpace="calibratedRGB"/>
                                                     </imageView>
                                                     <slider contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="350" id="TsR-EZ-3Gc">
-                                                        <rect key="frame" x="97" y="191" width="146" height="23"/>
+                                                        <rect key="frame" x="97" y="174" width="146" height="23"/>
                                                         <color key="backgroundColor" red="1" green="0.70624452780000002" blue="0.35067978970000002" alpha="0.0" colorSpace="calibratedRGB"/>
                                                         <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -100,49 +100,49 @@
                                                         </connections>
                                                     </slider>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-200" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Toe-Tp-jIn">
-                                                        <rect key="frame" x="142" y="155" width="42" height="21"/>
+                                                        <rect key="frame" x="142" y="141" width="42" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rjc-EW-px9">
-                                                        <rect key="frame" x="142" y="203" width="42" height="21"/>
+                                                        <rect key="frame" x="142" y="185" width="42" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-300" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mfc-PM-gSm">
-                                                        <rect key="frame" x="142" y="116" width="42" height="21"/>
+                                                        <rect key="frame" x="142" y="106" width="42" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ml" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CUu-7h-K5Z">
-                                                        <rect key="frame" x="170.5" y="115.5" width="25" height="21"/>
+                                                        <rect key="frame" x="170" y="105" width="25" height="21"/>
                                                         <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="15"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="331-NW-1sC">
-                                                        <rect key="frame" x="142" y="135.5" width="42" height="21"/>
+                                                        <rect key="frame" x="142" y="123" width="42" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aLQ-Tt-4sR">
-                                                        <rect key="frame" x="142" y="259.5" width="42" height="21"/>
+                                                        <rect key="frame" x="142" y="237" width="42" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6WI-OL-OVw">
-                                                        <rect key="frame" x="142" y="185.5" width="42" height="21"/>
+                                                        <rect key="frame" x="142" y="169" width="42" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gfh-fb-qIO">
-                                                        <rect key="frame" x="2" y="276" width="46" height="30"/>
+                                                        <rect key="frame" x="2" y="251" width="46" height="30"/>
                                                         <fontDescription key="fontDescription" name="Thonburi-Bold" family="Thonburi" pointSize="19"/>
                                                         <state key="normal" title="save">
                                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
