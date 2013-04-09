@@ -11,6 +11,7 @@
 #import "SLKColors.h"
 #import "Baby.h"
 #import "SLKBabyStorage.h"
+#import "SLKDaySummaryViewController.h"
 @interface SLKMedzViewController ()
 
 @end
@@ -43,4 +44,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)allMedsOverview:(id)sender {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"calendar" bundle:nil];
+    SLKDaySummaryViewController *controller = [sb instantiateInitialViewController];
+    controller.medz = YES;
+    [self presentModalViewController:controller animated:YES];
+}
+
+- (IBAction)totalOverview:(id)sender {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"calendar" bundle:nil];
+    
+    SLKDaySummaryViewController *controller = [sb instantiateInitialViewController];
+    controller.allEvents = YES;
+    [self presentModalViewController:controller animated:YES];
+}
 @end

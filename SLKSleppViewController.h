@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface SLKSleppViewController : UIViewController
+- (IBAction)sleepOverview:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *totalOverview;
+- (IBAction)totalOverview:(id)sender;
 
 @end

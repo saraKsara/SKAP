@@ -17,6 +17,7 @@
 #import "Bottle.h"
 #import "Poo.h"
 #import "Pii.h"
+#import "Medz.h"
 #import "SLKConstants.h"
 #import "SLKPARSEService.h"
 @implementation SLKEventStorage
@@ -82,7 +83,42 @@
     
     return e;
 }
-
+-(Event *)createEvenWithHappening:(NSManagedObject *)happening date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby *)baby
+{
+    Event *e = [NSEntityDescription insertNewObjectForEntityForName:@"Event"
+                                             inManagedObjectContext:context];
+   
+    if ([happening isKindOfClass:[Tits class]] )
+    {
+        e.type = kEventType_TitFood;
+        [e addTitiesObject:(Tits*)happening];
+        
+    } else if ([happening isKindOfClass:[Bottle class]] )
+    {
+        e.type = kEventType_BottleFood;
+        [e addBottlesObject:(Bottle*)happening];
+        
+    }  else if ([happening isKindOfClass:[Poo class]] )
+    {
+        e.type = kEventType_Poo;
+        [e addPoosObject:(Poo*)happening];
+    } else if ([happening isKindOfClass:[Pii class]] )
+    {
+        e.type = kEventType_Pii;
+        [e addPiisObject:(Pii*)happening];
+    } else if ([happening isKindOfClass:[Medz class]] )
+    {
+        e.type = kEventType_Medz;
+        [e addMedzObject:(Medz*)happening];
+    }
+    
+    e.eventId = eventId;
+    e.baby = baby;
+    e.date = date;
+ 
+    NSLog(@"Created event with tit: %@, to baby: %@", [happening class], baby.name);
+    return e;
+}
 -(Event *)createEventwithTit:(Tits *)tit date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby *)baby
 {
     Event *e = [NSEntityDescription insertNewObjectForEntityForName:@"Event"
@@ -134,6 +170,21 @@
     NSLog(@"Created event with tit: %@, to baby: %@", pii, baby.name);
     return e;
 }
+-(Event *)createEventwithMedz:(Medz *)medz date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby *)baby
+{
+    
+    Event *e = [NSEntityDescription insertNewObjectForEntityForName:@"Event"
+                                             inManagedObjectContext:context];
+    [e addMedzObject:medz];
+    e.eventId = eventId;
+    e.baby = baby;
+    e.date = date;
+    e.type = kEventType_Pii;
+    NSLog(@"Created event with tit: %@, to baby: %@", medz, baby.name);
+    return e;
+}
+
+
 
 -(NSArray *)getEventBelomigTObaby:(Baby *)baby
 {
@@ -183,45 +234,6 @@
     return nil;
 }
 
-
--(NSArray *)getEventBelomigTObaby:(Baby *)baby andDay:(NSDate *)day withType:(NSString*)type{
-    NSArray *allEventOfBaby = [[SLKCoreDataService sharedService] fetchDataWithEntity:@"Event"
-                                                                         andPredicate:[NSPredicate predicateWithFormat:@"baby == %@ and type == %@", baby, type]
-                                                                   andSortDescriptors:nil];
-    
-    
-    NSMutableArray *returnArray = [NSMutableArray array];
-    
-    
-    for (Event *event in allEventOfBaby)
-    {
-        NSDate *dateOfEvent = event.date;
-        
-        [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit startDate:&dateOfEvent interval:NULL forDate:dateOfEvent];
-        [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit startDate:&day interval:NULL forDate:day];
-        
-        NSComparisonResult compareParemeterStartDateWithParameterEndDate = [dateOfEvent compare:day];
-        
-        if (compareParemeterStartDateWithParameterEndDate == NSOrderedSame)
-        {
-            [returnArray addObject:event];
-        }
-    }
-    
-    NSArray *sortedArray = [[NSArray alloc] init];
-    sortedArray = [returnArray sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
-        NSDate *first = [(Event*)a date];
-        NSDate *second = [(Event*)b date];
-        return [first compare:second];
-    }];
-    
-    if ([sortedArray count] >= 1)
-    {
-        return sortedArray;
-    }
-    
-    return nil;
-}
 -(NSArray *)getEventBelomigTObaby:(Baby *)baby andDay:(NSDate *)day withTypes:(NSArray*)types{
     NSArray *events;
      NSMutableArray *allEvents = [NSMutableArray array];

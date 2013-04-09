@@ -58,8 +58,7 @@
                                                object:nil];
 
     
-    int ii = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withType:kEventType_BottleFood] count];
-    NSLog(@"iii===== %d", ii);
+
     //TODO: decide how to represent pee and poo
 //    _peeLabel.text = [NSString stringWithFormat:@"Peed: %@ ml/times", currentBaby.pii];
 //    _pooLabel.text =  [NSString stringWithFormat:@"Pooped %@ ml/times", currentBaby.poo];
@@ -118,22 +117,23 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
   
-    
+    NSArray *typeArray;
     if (_allEvents) {
         return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay]count];
     }
     else if (_food) {
-        NSArray *typeArray = [NSArray arrayWithObjects:kEventType_BottleFood,kEventType_TitFood, nil];
+       typeArray = [NSArray arrayWithObjects:kEventType_BottleFood,kEventType_TitFood, nil];
         return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]count];
     }
     else if (_diaper) {
   
-        NSArray *typeArray =  [NSArray arrayWithObjects:kEventType_Poo,kEventType_Pii, nil];
+       typeArray =  [NSArray arrayWithObjects:kEventType_Poo,kEventType_Pii, nil];
         return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]count];
     }
-    else  { // if medz
+    else  {
         //TODO: create medzconstant!
-        return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withType:kEventType_Pii]count];
+        typeArray =  [NSArray arrayWithObjects:kEventType_Pii, nil];
+        return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]count];
     }
 }
 
@@ -171,8 +171,14 @@
     }
  
     else if (_medz) {
-        //TODO: create medconstant!
-        event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withType:kEventType_Pii]objectAtIndex:indexPath.row];
+        //TODO: create med constant!
+        typeArray = [NSArray arrayWithObjects:kEventType_Pii, nil];
+        event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]objectAtIndex:indexPath.row];
+    }
+    else if (_sleep) {
+        //TODO: create pee constant!
+        typeArray = [NSArray arrayWithObjects:kEventType_Pii, nil];
+        event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]objectAtIndex:indexPath.row];
     }
     cell.timeLabel.text = [SLKDateUtil formatTimeFromDate: event.date];
     
