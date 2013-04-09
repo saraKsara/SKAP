@@ -204,27 +204,7 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadCalendar" object:nil];
 
 }
-//- (IBAction)segmentAction:(id)sender {
-//    
-//    //TODO: set menu not selected when setting view is dissmissed
-//    if ( _segmentControll.selectedSegmentIndex == 0 ) {
-////        [self performSegueWithIdentifier:@"menueSeg" sender:self];
-//        [self showMenue];
-//    } else {
-//        for (int i = 0; i < numberOfBabies; i++) {
-//             if ( _segmentControll.selectedSegmentIndex == i+1 ) {
-//                 NSLog(@"change seg %d to %@",_segmentControll.selectedSegmentIndex, [[babyArray objectAtIndex:i] name]);
-//                 [[SLKBabyStorage sharedStorage] setCurrentBaby:[babyArray objectAtIndex:i]];
-//                 _anotherFoodLable.text = [NSString stringWithFormat: @"Log how much milk substitute %@ ate", [[babyArray objectAtIndex:i] name]];
-//                 NSString *color = [[babyArray objectAtIndex:i] babysColor];
-//                 NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
-//                 
-//                 [[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
-//
-//             }
-//        }
-//    }
-//}
+
 
 //TODO: move to setTime class
 - (IBAction)setTime:(id)sender {
@@ -238,7 +218,6 @@
         time = [SLKDateUtil formatTimeFromDate:date];
         _setTimeLabel.text = time;
         checkDirection = [_timeSlider value];
-        NSLog(@"if-------%f",checkDirection);
     }
     else
     {
