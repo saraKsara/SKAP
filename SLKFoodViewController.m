@@ -16,12 +16,14 @@
 #import "SLKBabyStorage.h"
 #import "Baby.h"
 #import "Bottle.h"
+#import "Sleep.h"
 #import "SLKBottleStorage.h"
 #import "SLKDates.h"
 #import "SLKDateUtil.h"
 #import "SLKConstants.h"
 #import "SLKColors.h"
 #import "SLKSettingsViewController.h"
+#import "SLKSleepStorage.h"
 #import "SLKDaySummaryViewController.h"
 @interface SLKFoodViewController ()
 
@@ -256,12 +258,17 @@
       
         
         [[SLKEventStorage sharedStorage] createEvenWithHappening:tit date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
-    }
-
-    
+    }else if (bottleView)
+    {
   Bottle *bottle = [[SLKBottleStorage sharedStorage] createBottleWithStringValue:nil mililitres:[NSNumber numberWithFloat:bottledFood] minutes:nil];
 
     [[SLKEventStorage sharedStorage]createEvenWithHappening:bottle date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
+    }else if (sleepView)
+    {
+        NSNumber *labelNumber = [NSNumber numberWithInt:[_sliderOneLabel.text intValue]];
+        Sleep *sleep = [[SLKSleepStorage sharedStorage]createSleep:labelNumber];
+        [[SLKEventStorage sharedStorage]createEvenWithHappening:sleep date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
+    }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadCalendar" object:nil];
 
