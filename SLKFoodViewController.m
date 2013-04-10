@@ -125,6 +125,7 @@
     
     self.pageViews = [NSMutableArray arrayWithObjects:_bottleView, _breastView, _sleepView, nil];
     NSInteger pageCount = self.pageViews.count;
+    NSLog(@"number of views:%i",pageCount);
     
     self.pageControll.currentPage = 0;
     self.pageControll.numberOfPages = pageCount;
@@ -187,6 +188,8 @@
     titsView = YES;
         _UniversalLabel.text = @"Breast feed";
         _sliderOne.maximumValue = 350;
+        
+        _universalSliderText.text = [NSString stringWithFormat:@"log how much %@ ate", currentBabe.name];
     bottleView = NO;
     sleepView = NO;
     diaperView = NO;
@@ -198,6 +201,7 @@
     bottleView = YES;
         _UniversalLabel.text = @"Bottled feed";
         _sliderOne.maximumValue = 350;
+        _universalSliderText.text = [NSString stringWithFormat:@"log how much %@ ate ", currentBabe.name];
 
     sleepView = NO;
     diaperView = NO;
@@ -212,6 +216,7 @@
         [_sliderTwo setHidden:NO];
         _sliderTwoLabel.hidden = NO;
         _sliderOne.maximumValue = 240;
+        _universalSliderText.text = [NSString stringWithFormat:@"log how long %@ slept ", currentBabe.name];
      
     diaperView = NO;
     medzView = NO;
@@ -355,6 +360,7 @@
     [self setSliderTwoLabel:nil];
     [self setSliderTwo:nil];
     [self setOverview:nil];
+    [self setUniversalSliderText:nil];
     [super viewDidUnload];
     
     self.scrollView = nil;
@@ -366,7 +372,7 @@
 - (IBAction)valuePageControll:(id)sender;
 {
     [self loadVisiblePages];
-
+    NSLog(@"valuepagecontroll:");
 }
 
 - (IBAction)touchUpInsidePageControll:(id)sender

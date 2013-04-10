@@ -15,6 +15,7 @@
 
 - (IBAction)showOverview:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UILabel *universalSliderText;
 
 @property (weak, nonatomic) IBOutlet UILabel *UniversalLabel;
 
