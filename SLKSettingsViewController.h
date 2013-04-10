@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SLKSettingsViewController : UITableViewController
+@interface SLKSettingsViewController : UITableViewController <UIAlertViewDelegate>
 
 @property BOOL firstTime;
 @end

@@ -96,7 +96,7 @@
 {
     if (!_firstTime) {
         if (section == 1)   return [[[SLKParentStorage sharedStorage] parentArray] count];
-        else                return 6;
+        else                return 3;
     } else {
         return 1;
     }
@@ -113,32 +113,17 @@
         if (indexPath.section == 0)
         {
             if (indexPath.row ==0 ) {
-                cell.nameLabel.text = @"Back";
+                cell.nameLabel.text = @"Add another Parent figure";
                 [cell.numberTextView setHidden:YES];
                 [cell.signatureLabel setHidden:YES];
             } else  if (indexPath.row ==1 )
             {
-                cell.nameLabel.text = @"Invite";
+                cell.nameLabel.text = @"Add another baby";
                 [cell.numberTextView setHidden:YES];
                   [cell.signatureLabel setHidden:YES];
             }else  if (indexPath.row ==2 )
             {
-                cell.nameLabel.text = @"Links";
-                [cell.numberTextView setHidden:YES];
-                  [cell.signatureLabel setHidden:YES];
-            }else  if (indexPath.row ==3 )
-            {
-                cell.nameLabel.text = @"Add baby";
-                [cell.numberTextView setHidden:YES];
-                  [cell.signatureLabel setHidden:YES];
-            }else  if (indexPath.row ==4 )
-            {
-                cell.nameLabel.text = @"Delete";
-                [cell.numberTextView setHidden:YES];
-                  [cell.signatureLabel setHidden:YES];
-            }else  if (indexPath.row ==5 )
-            {
-                cell.nameLabel.text = @"Logout";
+                cell.nameLabel.text = @"log out";
                 [cell.numberTextView setHidden:YES];
                   [cell.signatureLabel setHidden:YES];
             }
@@ -159,12 +144,8 @@
         }
     }
     else {
-       // static NSString *CellIdentifier = @"welcomeCell";
-//        SLKWelcomeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-
         SLKWelcomeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"welcomeCell"];
-        
-//        omepwnerItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomepwnerItemCell"];
+ 
         return cell;
     }
 }
@@ -196,47 +177,15 @@
     
     if (indexPath.section == 0){
         if (indexPath.row ==0 ) {
-            
-            NSString *color = currentBabe.babysColor;
-            NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
-            [[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
-
-            [self dismissViewControllerAnimated:YES completion:^{
-            }];
+          [self performSegueWithIdentifier:@"inviteSeg" sender:self];
             
         } else  if (indexPath.row ==1 )
         {
-            [self performSegueWithIdentifier:@"inviteSeg" sender:self];
-        }else  if (indexPath.row ==2 )
-        {
-              [self performSegueWithIdentifier:@"linkSeg" sender:self];//links
-        }else  if (indexPath.row ==3 )
-        {
-            
             [self performSegueWithIdentifier:@"addBabyNParentSeg" sender:self];
-
-//          [self presentViewController:controller animated:YES completion:^{
-//              
-//          }];
-            
-            
-//            popover = [[FPPopoverController alloc] initWithViewController:controller];
-//            
-//            popover.tint = FPPopoverDefaultTint;
-//            [popover setAlpha:1];
-//            //popover.arrowDirection = FPPopoverNoArrow;
-//            popover.border = NO;
-//            popover.contentSize = CGSizeMake(320, 215);
-////            [popover presentPopoverFromView:self.view];
-//           [popover presentPopoverFromPoint:CGPointMake(20, 20)];
-//            
-            
-        }else  if (indexPath.row ==4 )
+        } else  if (indexPath.row ==2 )
         {
-             [self performSegueWithIdentifier:@"inviteSeg" sender:self]; //delete
-        }else  if (indexPath.row ==5 )
-        {
-            //lgout
+            UIAlertView *logoutAlert = [[UIAlertView alloc] initWithTitle:@"Logout" message:@"Are you sure you wanna log out?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
+            [logoutAlert show];
         }
     } else {
         //make telepfone number interactive and callable.
@@ -250,6 +199,14 @@
     
 }
 
+#pragma mark Alertview Delegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        //TODO: logout
+        NSLog(@"Bye bye!");
+    }
+}
 - (void)viewDidUnload {
 
     [super viewDidUnload];
