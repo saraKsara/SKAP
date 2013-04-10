@@ -33,7 +33,6 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
-
     [_birthLabel setHidden:YES];
     [_blueBG setHidden:YES];
     [_yellowBG setHidden:YES];
@@ -158,10 +157,8 @@
                                              
              NSLog(@"SUCCEED to create %@",[object objectForKey:@"name"] );
              [[SLKParentStorage sharedStorage] setCurrentParent:theNewParent];
-             
-            
-                 
-                 [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpSegmentControlls" object:nil userInfo:nil];
+
+            [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpSegmentControlls" object:nil userInfo:nil];
 
             [[self navigationController] popViewControllerAnimated:YES];
              

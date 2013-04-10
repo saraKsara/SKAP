@@ -1,5 +1,5 @@
 //
-//  SLKLoginViewController.h
+//  SLKFirtsTimeViewController.h
 //  SKAP
 //
 //  Created by Åsa Persson on 2013-04-10.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SLKLoginViewController : UIViewController
-
+@interface SLKFirtsTimeViewController : UIViewController
 - (IBAction)signUp:(id)sender;
+
 @end

@@ -1,18 +1,18 @@
 //
-//  SLKLoginViewController.m
+//  SLKFirtsTimeViewController.m
 //  SKAP
 //
 //  Created by Åsa Persson on 2013-04-10.
 //  Copyright (c) 2013 Student vid Yrkeshögskola C3L. All rights reserved.
 //
 
-#import "SLKLoginViewController.h"
-
-@interface SLKLoginViewController ()
+#import "SLKFirtsTimeViewController.h"
+#import "SLKSettingsViewController.h"
+@interface SLKFirtsTimeViewController ()
 
 @end
 
-@implementation SLKLoginViewController
+@implementation SLKFirtsTimeViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,5 +36,8 @@
 }
 
 - (IBAction)signUp:(id)sender {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
+    SLKSettingsViewController *controller = [sb instantiateViewControllerWithIdentifier:@"addPersonViewcontroller"];
+    [self presentModalViewController:controller animated:YES];
 }
 @end

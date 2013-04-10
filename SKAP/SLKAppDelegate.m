@@ -17,7 +17,7 @@
 #import "SLKSettingsViewController.h"
 #import "SLKAddBabyViewController.h"
 #import "SLKParentStorage.h"
-#import "SLKLoginViewController.h"
+#import "SLKFirtsTimeViewController.h"
 @implementation SLKAppDelegate
 {
     UISegmentedControl *_segmentControll;
@@ -61,9 +61,11 @@
     if ([[[SLKParentStorage sharedStorage]parentArray]count] == 0 ) {
         
         //change root view to adding baby
-        //[self setUpAppWithAddingBabyView];
-        NSLog(@"\n\n\n there are NOOOOO babies in user default, add one! \n\n\n");
+       // [self setUpAppWithAddingBabyView];
+        NSLog(@"\n\n\n there are NOOOOO parents in user default, add one! \n\n\n");
         [self setUpAppFirstTime];
+    
+
         
     } else //there are babies in storage
     {
@@ -74,6 +76,7 @@
         {
             NSLog(@"\n\n\n BAD!!! there are babies in storage, but no current... BAD \n\n\n");
         }
+//           [self setUpAppFirstTime];
         [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpSegmentControlls" object:nil userInfo:nil];
 
         //NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
@@ -120,9 +123,8 @@
 
 -(void)setUpAppFirstTime
 {
-     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
-    
-    SLKSettingsViewController *controller = [sb instantiateInitialViewController];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+    SLKFirtsTimeViewController *controller = [sb instantiateInitialViewController];
     [self.window setRootViewController:controller];
     [self.window makeKeyAndVisible];
 }
@@ -133,10 +135,11 @@
     UIStoryboard *settingStoryboard = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
     UIStoryboard *mainStoryboard  = [UIStoryboard storyboardWithName:@"Feed" bundle:nil];
   
-    
-    NSMutableArray* viewControllers = [NSMutableArray new];   
+    NSMutableArray* viewControllers = [[NSMutableArray alloc] init];
     [viewControllers addObject: [mainStoryboard instantiateInitialViewController]];
     [viewControllers addObject: [settingStoryboard instantiateInitialViewController]];
+   
+    
     self.tabBarController.viewControllers = viewControllers;
         
     // Tab styling

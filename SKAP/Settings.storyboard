@@ -241,7 +241,7 @@
         <!--Add Baby View Controller-->
         <scene sceneID="dnB-Cm-hLv">
             <objects>
-                <viewController id="Brm-O9-U8G" customClass="SLKAddBabyViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addPersonViewcontroller" id="Brm-O9-U8G" customClass="SLKAddBabyViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qwz-gb-Gpr">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -421,6 +421,69 @@
             <point key="canvasLocation" x="-453" y="605"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="SLKAddBabyViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKAddBabyViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="done:"/>
+                <relationship kind="action" name="saveBaby:"/>
+                <relationship kind="action" name="setBirthday:"/>
+                <relationship kind="action" name="setBlue:"/>
+                <relationship kind="action" name="setGreen:"/>
+                <relationship kind="action" name="setYellow:"/>
+                <relationship kind="outlet" name="babynameTexField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="birthDayPickerBtn" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="birthLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="blueBG" candidateClass="UIView"/>
+                <relationship kind="outlet" name="chooseColorLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="doneBtn" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="greenBG" candidateClass="UIView"/>
+                <relationship kind="outlet" name="saveBaby" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="setNameOfBabyLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="setSignatureLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="setSignatureTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="yellowBG" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="SLKInviteViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKInviteViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="sendInvite:"/>
+                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="headerLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="inviteBtn" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="phoneNumber1textField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="textFieldDescriptionLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SLKLinksCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKLinksCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="linkLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SLKLinksViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKLinksViewController.h"/>
+        </class>
+        <class className="SLKParentListCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKParentListCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="numberTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="signatureLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SLKSettingsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKSettingsViewController.h"/>
+        </class>
+        <class className="SLKWelcomeCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKWelcomeCell.h"/>
+            <relationships>
+                <relationship kind="action" name="login:"/>
+                <relationship kind="outlet" name="loginBtn" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
