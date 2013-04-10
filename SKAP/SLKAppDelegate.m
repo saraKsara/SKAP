@@ -133,20 +133,27 @@
    
     self.tabBarController = [[UITabBarController alloc] init];
     UIStoryboard *settingStoryboard = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
+       UIStoryboard *calendarStoryboard  = [UIStoryboard storyboardWithName:@"calendar" bundle:nil];
     UIStoryboard *mainStoryboard  = [UIStoryboard storyboardWithName:@"Feed" bundle:nil];
   
     NSMutableArray* viewControllers = [[NSMutableArray alloc] init];
+    [viewControllers addObject:[calendarStoryboard instantiateInitialViewController]];
     [viewControllers addObject: [mainStoryboard instantiateInitialViewController]];
     [viewControllers addObject: [settingStoryboard instantiateInitialViewController]];
-   
+    
     
     self.tabBarController.viewControllers = viewControllers;
         
     // Tab styling
    
+    UITabBarItem *tabItemCal =  [[[[self tabBarController] tabBar] items] objectAtIndex:1];
+    [tabItemCal setTitle:@"OverView"];
+    [tabItemCal setImage:[UIImage imageNamed:@"blojaLyscopy.png"]];
+    
     UITabBarItem *tabItemMain =  [[[[self tabBarController] tabBar] items] objectAtIndex:0];
     [tabItemMain setTitle:@"Log babys activites"];
     [tabItemMain setImage:[UIImage imageNamed:@"blojaLyscopy.png"]];
+
     UITabBarItem *tabItemMenue =  [[[[self tabBarController] tabBar] items] objectAtIndex:1];
     [tabItemMenue setTitle:@"Settings"];
     [tabItemMenue setImage:[UIImage imageNamed:@"blojaLyscopy.png"]];

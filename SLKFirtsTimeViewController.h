@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SLKFirtsTimeViewController : UIViewController
+@interface SLKFirtsTimeViewController : UIViewController <UIAlertViewDelegate>
 - (IBAction)signUp:(id)sender;
 - (IBAction)login:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *usernameTF;
