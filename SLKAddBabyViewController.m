@@ -41,7 +41,7 @@
     _setSignatureTextField.delegate = self;
     bDayPicker= [[UIDatePicker alloc] init];
     [bDayPicker setDatePickerMode:UIDatePickerModeDate];
-    bDayPicker.frame = CGRectMake(0, 320 , 320, 280);
+    bDayPicker.frame = CGRectMake(0, 220 , 320, 280);
     [bDayPicker addTarget:self action:@selector(updateLabelFromPicker:) forControlEvents:UIControlEventValueChanged];
     
     if ( _addBabyMode)
@@ -102,18 +102,17 @@
          NSLog(@"SUCCEED to create %@",[object objectForKey:@"name"] );
          [[SLKBabyStorage sharedStorage] setCurrentBaby:theNewBabe];
         
-         NSString *color = theNewBabe.babysColor;
-         NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
-         [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpApp" object:nil userInfo:nil];
+        // [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpApp" object:nil userInfo:nil];
+         
+//         NSString *color = theNewBabe.babysColor;
+//         NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
 
-         [[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
+        // [[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
 
          //         [popover dismissPopoverAnimated:YES completion:^{
          //            // [self.tableView reloadData];
          //         }];
-         [self dismissViewControllerAnimated:YES completion:^{
-             //set text on settingsVC who are invited
-         }];
+         [[self navigationController] popViewControllerAnimated:YES];
          
          
      } onFailure:^(PFObject *object)
@@ -188,14 +187,16 @@
     anewBabuLabel.text = [NSString stringWithFormat:@"%@ was born on: ", babyNameTextField.text];
     [babyNameTextField removeFromSuperview];
     
-    [UIView animateWithDuration:.3f animations:^{
-        CGRect theFrame = self.view.superview.frame;
-        theFrame.size.height += 200.f;
-        self.view.superview.frame = theFrame;
-        
-        [self.view addSubview:bDayPicker];
-
-    }];
+      [self.view addSubview:bDayPicker];
+//    
+//    [UIView animateWithDuration:.3f animations:^{
+//        CGRect theFrame = self.view.superview.frame;
+//        theFrame.size.height += 200.f;
+//        self.view.superview.frame = theFrame;
+//        
+//        [self.view addSubview:bDayPicker];
+//
+//    }];
 }
 
 - (void)didReceiveMemoryWarning
