@@ -18,6 +18,7 @@
 #import "Poo.h"
 #import "Pii.h"
 #import "Medz.h"
+#import "Sleep.h"
 #import "SLKConstants.h"
 #import "SLKPARSEService.h"
 @implementation SLKEventStorage
@@ -53,7 +54,7 @@
 
 #pragma mark CREATE methods
 
--(Event *)createEventwithDate:(NSDate *)date eventId:(NSString *)eventId tits:(NSSet *)tits pii:(NSSet *)pii poo:(NSSet *)poo bottles:(NSSet *)bottle adDrop:(BOOL)adDrop otherMedz:(NSString *)medz temperature:(NSNumber *)temp type:(NSString *)type timeSpan:(NSNumber *)timeSpan baby:(Baby *)baby comments:(NSString *)comments
+-(Event *)createEventwithDate:(NSDate *)date eventId:(NSString *)eventId tits:(NSSet *)tits pii:(NSSet *)pii poo:(NSSet *)poo bottles:(NSSet *)bottle adDrop:(BOOL)adDrop otherMedz:(NSString *)medz temperature:(NSNumber *)temp type:(NSString *)type timeSpan:(NSNumber *)timeSpan baby:(Baby *)baby sleep:(NSNumber*)sleep comments:(NSString *)comments
 {
     Event *e;
     Event *eventInStorage = [self getEventWithiD:eventId];
@@ -79,6 +80,7 @@
     e.type = @"event";
     e.timespan = timeSpan;
     e.baby = baby;
+    e.sleep = sleep;
 
     
     return e;
@@ -110,8 +112,12 @@
     {
         e.type = kEventType_Medz;
         [e addMedzObject:(Medz*)happening];
+    } else if ([happening isKindOfClass:[Sleep class]])
+    {
+        e.type = kEventType_Sleep;
+        [e addSleepsObject:(Sleep*)happening];
     }
-    //TODO: sleepevent
+    
     
     e.eventId = eventId;
     e.baby = baby;

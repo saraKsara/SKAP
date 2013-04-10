@@ -38,7 +38,6 @@
 		1C5BFC8C16FCF18B00D1B238 /* SLKAddBabyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC8B16FCF18B00D1B238 /* SLKAddBabyCell.m */; };
 		1C5BFC8D16FCF18B00D1B238 /* SLKAddBabyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC8B16FCF18B00D1B238 /* SLKAddBabyCell.m */; };
 		1C5C784F1701E49D00CB555F /* SLKEventStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C784E1701E49D00CB555F /* SLKEventStorage.m */; };
-		1C611EC6170C48160088016F /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C611EC5170C48160088016F /* Event.m */; };
 		1C611EC9170C48160088016F /* Tits.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C611EC8170C48160088016F /* Tits.m */; };
 		1C611ECC170C4D0D0088016F /* SLKMedzStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C611ECB170C4D0D0088016F /* SLKMedzStorage.m */; };
 		1C611ED2170C50EC0088016F /* Medz.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C611ED1170C50EC0088016F /* Medz.m */; };
@@ -102,6 +101,9 @@
 		CE5944D016F9A67200D9D33A /* SLKMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5944CF16F9A67200D9D33A /* SLKMainViewController.m */; };
 		CE5944D416F9A79800D9D33A /* SLKFoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5944D316F9A79800D9D33A /* SLKFoodViewController.m */; };
 		CE5944D716F9A7B700D9D33A /* SLKPiiPooViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5944D616F9A7B700D9D33A /* SLKPiiPooViewController.m */; };
+		CEB7EEDD1714851500D11E2B /* Sleep.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB7EEDC1714851400D11E2B /* Sleep.m */; };
+		CEB7EEE3171485D600D11E2B /* SLKSleepStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB7EEE2171485D600D11E2B /* SLKSleepStorage.m */; };
+		CEB7EEE617148D5D00D11E2B /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB7EEE517148D5D00D11E2B /* Event.m */; };
 		CEDDEB5B171354590017DE60 /* tits.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDDEB5A171354590017DE60 /* tits.png */; };
 		CEDDEB5D171355F80017DE60 /* titsSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDDEB5C171355F80017DE60 /* titsSmall.png */; };
 		CEDDEB5F171358820017DE60 /* titsPink.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDDEB5E171358820017DE60 /* titsPink.png */; };
@@ -167,8 +169,6 @@
 		1C5BFC8B16FCF18B00D1B238 /* SLKAddBabyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKAddBabyCell.m; sourceTree = "<group>"; };
 		1C5C784D1701E49D00CB555F /* SLKEventStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKEventStorage.h; sourceTree = "<group>"; };
 		1C5C784E1701E49D00CB555F /* SLKEventStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKEventStorage.m; sourceTree = "<group>"; };
-		1C611EC4170C48160088016F /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		1C611EC5170C48160088016F /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		1C611EC7170C48160088016F /* Tits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tits.h; sourceTree = "<group>"; };
 		1C611EC8170C48160088016F /* Tits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tits.m; sourceTree = "<group>"; };
 		1C611ECA170C4D0D0088016F /* SLKMedzStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKMedzStorage.h; sourceTree = "<group>"; };
@@ -263,6 +263,12 @@
 		CE5944D316F9A79800D9D33A /* SLKFoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKFoodViewController.m; sourceTree = "<group>"; };
 		CE5944D516F9A7B700D9D33A /* SLKPiiPooViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKPiiPooViewController.h; sourceTree = "<group>"; };
 		CE5944D616F9A7B700D9D33A /* SLKPiiPooViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPiiPooViewController.m; sourceTree = "<group>"; };
+		CEB7EEDB1714851400D11E2B /* Sleep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sleep.h; sourceTree = "<group>"; };
+		CEB7EEDC1714851400D11E2B /* Sleep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sleep.m; sourceTree = "<group>"; };
+		CEB7EEE1171485D600D11E2B /* SLKSleepStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKSleepStorage.h; sourceTree = "<group>"; };
+		CEB7EEE2171485D600D11E2B /* SLKSleepStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKSleepStorage.m; sourceTree = "<group>"; };
+		CEB7EEE417148D5D00D11E2B /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		CEB7EEE517148D5D00D11E2B /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		CEDDEB5A171354590017DE60 /* tits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tits.png; sourceTree = "<group>"; };
 		CEDDEB5C171355F80017DE60 /* titsSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titsSmall.png; sourceTree = "<group>"; };
 		CEDDEB5E171358820017DE60 /* titsPink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titsPink.png; sourceTree = "<group>"; };
@@ -458,15 +464,17 @@
 				1C611EC8170C48160088016F /* Tits.m */,
 				1C611ED0170C50EC0088016F /* Medz.h */,
 				1C611ED1170C50EC0088016F /* Medz.m */,
-				1C611EC4170C48160088016F /* Event.h */,
-				1C611EC5170C48160088016F /* Event.m */,
 				1C4ABF5D1705A1AD008468F9 /* Pii.h */,
 				1C4ABF5E1705A1AD008468F9 /* Pii.m */,
 				1C4ABF571705A1AD008468F9 /* Bottle.h */,
 				1C4ABF581705A1AD008468F9 /* Bottle.m */,
 				1C4ABF541705A1AD008468F9 /* Poo.h */,
 				1C4ABF551705A1AD008468F9 /* Poo.m */,
+				CEB7EEDB1714851400D11E2B /* Sleep.h */,
+				CEB7EEDC1714851400D11E2B /* Sleep.m */,
 				CE5944B516F90DDF00D9D33A /* Model.xcdatamodeld */,
+				CEB7EEE417148D5D00D11E2B /* Event.h */,
+				CEB7EEE517148D5D00D11E2B /* Event.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -659,6 +667,8 @@
 				1C611ECB170C4D0D0088016F /* SLKMedzStorage.m */,
 				1C627297170ED21200F51E00 /* SLKParentStorage.h */,
 				1C627298170ED21200F51E00 /* SLKParentStorage.m */,
+				CEB7EEE1171485D600D11E2B /* SLKSleepStorage.h */,
+				CEB7EEE2171485D600D11E2B /* SLKSleepStorage.m */,
 			);
 			name = Storage;
 			sourceTree = "<group>";
@@ -856,7 +866,6 @@
 				1C34EC7B1706EED10095F0C2 /* SLKPiiStorage.m in Sources */,
 				1C7F474117087A2C00C258F8 /* SLKDayViewCell.m in Sources */,
 				1C49EF29170889200073B6D6 /* SLKConstants.m in Sources */,
-				1C611EC6170C48160088016F /* Event.m in Sources */,
 				1C611EC9170C48160088016F /* Tits.m in Sources */,
 				1C611ECC170C4D0D0088016F /* SLKMedzStorage.m in Sources */,
 				1C611ED2170C50EC0088016F /* Medz.m in Sources */,
@@ -874,6 +883,9 @@
 				1C74254A1713064500207C04 /* SLKLinksCell.m in Sources */,
 				1C74255017131F8E00207C04 /* SLKLoginViewController.m in Sources */,
 				1CBBEE2717141D8600305432 /* SLKSleppViewController.m in Sources */,
+				CEB7EEDD1714851500D11E2B /* Sleep.m in Sources */,
+				CEB7EEE3171485D600D11E2B /* SLKSleepStorage.m in Sources */,
+				CEB7EEE617148D5D00D11E2B /* Event.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

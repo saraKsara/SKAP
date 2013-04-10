@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="11G63" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="11G63b" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Baby" representedClassName="Baby" syncable="YES">
         <attribute name="babyId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="babysColor" optional="YES" attributeType="String" syncable="YES"/>
@@ -24,6 +24,7 @@
         <attribute name="otherMedz" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pii" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="poo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sleep" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="temperature" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="timespan" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="tits" optional="YES" attributeType="String" syncable="YES"/>
@@ -33,6 +34,7 @@
         <relationship name="medz" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Medz" inverseName="event" inverseEntity="Medz" syncable="YES"/>
         <relationship name="piis" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pii" inverseName="event" inverseEntity="Pii" syncable="YES"/>
         <relationship name="poos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Poo" inverseName="event" inverseEntity="Poo" syncable="YES"/>
+        <relationship name="sleeps" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sleep" inverseName="event" inverseEntity="Sleep" syncable="YES"/>
         <relationship name="tities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tits" inverseName="event" inverseEntity="Tits" syncable="YES"/>
     </entity>
     <entity name="Medz" representedClassName="Medz" syncable="YES">
@@ -63,6 +65,10 @@
         <attribute name="tooMuch" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="poos" inverseEntity="Event" syncable="YES"/>
     </entity>
+    <entity name="Sleep" representedClassName="Sleep" syncable="YES">
+        <attribute name="minutes" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="sleeps" inverseEntity="Event" syncable="YES"/>
+    </entity>
     <entity name="Tits" representedClassName="Tits" syncable="YES">
         <attribute name="leftBoob" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="milliLitres" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -74,11 +80,12 @@
     <elements>
         <element name="Baby" positionX="160" positionY="192" width="128" height="150"/>
         <element name="Bottle" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="Event" positionX="160" positionY="192" width="128" height="315"/>
+        <element name="Event" positionX="160" positionY="192" width="128" height="345"/>
         <element name="Medz" positionX="160" positionY="192" width="128" height="150"/>
         <element name="ParentFigures" positionX="160" positionY="192" width="128" height="135"/>
         <element name="Pii" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Poo" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Tits" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="Sleep" positionX="160" positionY="192" width="128" height="75"/>
     </elements>
 </model>

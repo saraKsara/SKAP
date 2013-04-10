@@ -10,7 +10,12 @@
 
 @interface SLKSleppViewController : UIViewController
 - (IBAction)sleepOverview:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *setTime;
+@property (weak, nonatomic) IBOutlet UISlider *timeSlider;
 @property (weak, nonatomic) IBOutlet UIButton *totalOverview;
 - (IBAction)totalOverview:(id)sender;
+- (IBAction)sooner:(id)sender;
+- (IBAction)later:(id)sender;
+- (IBAction)setTimeWithSlider:(id)sender;
 
 @end
