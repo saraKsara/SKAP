@@ -9,20 +9,34 @@
 #import <UIKit/UIKit.h>
 
 @interface SLKFoodViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate>
-
-- (IBAction)showTotalOverview:(id)sender;
-- (IBAction)showFeedOverview:(id)sender;
-
-
-
-
-@property (weak, nonatomic) IBOutlet UILabel *foodLabel;
-@property (weak, nonatomic) IBOutlet UILabel *anotherFoodLable;
+@property (weak, nonatomic) IBOutlet UILabel *overview;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, strong) NSMutableArray *pageViews;
+
+- (IBAction)showOverview:(id)sender;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *UniversalLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *sliderOneLabel;
+@property (weak, nonatomic) IBOutlet UISlider *sliderOne;
+- (IBAction)sliderOneAction:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UILabel *sliderTwoLabel;
+@property (weak, nonatomic) IBOutlet UISlider *sliderTwo;
+- (IBAction)sliderTwoAction:(id)sender;
+
+//SLEEP
+@property (weak, nonatomic) IBOutlet UIView *sleepView;
+
+
+//EAT
+
+
+
 - (IBAction)leftTit:(UITapGestureRecognizer *)sender;
-- (IBAction)rightTit:(id)sender;
-@property (weak, nonatomic) IBOutlet UISlider *foodSliderOne;
+- (IBAction)rightTit:(UITapGestureRecognizer *)sender;
+
 @property (weak, nonatomic) IBOutlet UIImageView *rightTit;
 @property (weak, nonatomic) IBOutlet UIImageView *leftTit;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControll;
@@ -31,7 +45,6 @@
 - (IBAction)valuePageControll:(id)sender;
 - (IBAction)touchUpInsidePageControll:(id)sender;
 @property (weak, nonatomic) IBOutlet UISlider *timeSlider;
-- (IBAction)sliderOneValueChanged:(id)sender;
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer;
 @property (weak, nonatomic) IBOutlet UILabel *setTimeLabel;
 - (IBAction)save:(id)sender;

@@ -56,7 +56,9 @@
 - (IBAction)later:(id)sender {
 }
 
-- (IBAction)setTimeWithSlider:(id)sender {
+- (IBAction)setTimeWithSlider:(id)sender
+{
+    
 }
 - (IBAction)sleepOverview:(id)sender {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"calendar" bundle:nil];
