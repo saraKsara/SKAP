@@ -49,6 +49,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="login:" destination="5FZ-fn-itK" eventType="touchUpInside" id="oCt-qG-DqO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WYM-nX-gRH">
                                 <rect key="frame" x="20" y="385" width="273" height="44"/>
@@ -68,20 +71,16 @@
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="passwordTF" destination="e3f-3g-3EZ" id="kjO-8y-TmJ"/>
+                        <outlet property="usernameTF" destination="10d-Qu-P2H" id="KWa-C9-etx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yaz-5j-D5H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="74" y="-93"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="SLKFirtsTimeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKFirtsTimeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="signUp:"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

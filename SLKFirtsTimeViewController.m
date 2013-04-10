@@ -40,4 +40,16 @@
     SLKSettingsViewController *controller = [sb instantiateViewControllerWithIdentifier:@"addPersonViewcontroller"];
     [self presentModalViewController:controller animated:YES];
 }
+
+- (IBAction)login:(id)sender {
+    
+    //TODO:
+    //if username and password is OK, start app. else alert!
+     [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpApp" object:nil userInfo:nil];
+}
+- (void)viewDidUnload {
+    [self setUsernameTF:nil];
+    [self setPasswordTF:nil];
+    [super viewDidUnload];
+}
 @end

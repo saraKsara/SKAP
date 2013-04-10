@@ -44,7 +44,12 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(setUpApp)
-                                                 name:@"setUpSegmentControlls"
+                                                 name:@"setUpApp"
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(setUpAppFirstTime)
+                                                 name:@"setUpAppFirstTime"
                                                object:nil];
 
     
@@ -60,11 +65,9 @@
     
     if ([[[SLKParentStorage sharedStorage]parentArray]count] == 0 ) {
         
-        //change root view to adding baby
-       // [self setUpAppWithAddingBabyView];
         NSLog(@"\n\n\n there are NOOOOO parents in user default, add one! \n\n\n");
-        [self setUpAppFirstTime];
-    
+       
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpAppFirstTime" object:nil userInfo:nil];
 
         
     } else //there are babies in storage
@@ -77,15 +80,12 @@
             NSLog(@"\n\n\n BAD!!! there are babies in storage, but no current... BAD \n\n\n");
         }
 //           [self setUpAppFirstTime];
-        [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpSegmentControlls" object:nil userInfo:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpApp" object:nil userInfo:nil];
 
         //NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
         //[[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
     }
-
-    
-
-   
+ 
        // [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
     //[[SLKBabyStorage sharedStorage] removeAllBabies];
@@ -101,7 +101,7 @@
 }
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
 {
-    NSLog(@"fail to register for remotenotification---%@", error);
+    NSLog(@"fail to register for remote notification---%@", error);
 }
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo

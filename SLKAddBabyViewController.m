@@ -104,7 +104,7 @@
         
          NSString *color = theNewBabe.babysColor;
          NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
-         [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpSegmentControlls" object:nil userInfo:nil];
+         [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpApp" object:nil userInfo:nil];
 
          [[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
 
@@ -158,7 +158,7 @@
              NSLog(@"SUCCEED to create %@",[object objectForKey:@"name"] );
              [[SLKParentStorage sharedStorage] setCurrentParent:theNewParent];
 
-            [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpSegmentControlls" object:nil userInfo:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpApp" object:nil userInfo:nil];
 
             [[self navigationController] popViewControllerAnimated:YES];
              

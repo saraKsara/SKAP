@@ -10,5 +10,8 @@
 
 @interface SLKFirtsTimeViewController : UIViewController
 - (IBAction)signUp:(id)sender;
+- (IBAction)login:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *usernameTF;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTF;
 
 @end
