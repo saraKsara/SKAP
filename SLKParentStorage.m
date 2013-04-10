@@ -104,6 +104,6 @@
 -(void)setCurrentParent:(ParentFigures*)parent
 {
     [SLKUserDefaults setTheCurrentParent:parent.parentId];
-    NSLog(@"(baby storage) The current parent is: %@", parent.name);
+    NSLog(@"The current parent is: %@", parent.name);
 }
 @end

@@ -45,7 +45,7 @@
             </objects>
             <point key="canvasLocation" x="507" y="-65"/>
         </scene>
-        <!--Settings View Controller - Menue-->
+        <!--Settings View Controller - MENUE-->
         <scene sceneID="fQa-UN-wgS">
             <objects>
                 <tableViewController id="3Pb-sJ-mIn" customClass="SLKSettingsViewController" sceneMemberID="viewController">
@@ -73,12 +73,11 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Gec-Xw-oZD">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="12345678" id="Gec-Xw-oZD">
                                             <rect key="frame" x="187" y="9" width="121" height="23"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" secureTextEntry="YES"/>
                                             <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
                                         </textView>
                                     </subviews>
@@ -166,8 +165,8 @@
                             <outlet property="delegate" destination="3Pb-sJ-mIn" id="Njf-N4-SsR"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Menue" id="Cpc-sI-mcK"/>
-                    <navigationItem key="navigationItem" id="Dc1-Kz-VHu"/>
+                    <tabBarItem key="tabBarItem" title="MENUE" id="Cpc-sI-mcK"/>
+                    <navigationItem key="navigationItem" id="SgQ-Js-OL3"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="MOp-WF-5Ys" kind="push" identifier="inviteSeg" id="Z6r-6X-yGv"/>
@@ -242,7 +241,7 @@
         <!--Add Baby View Controller-->
         <scene sceneID="dnB-Cm-hLv">
             <objects>
-                <viewController id="Brm-O9-U8G" customClass="SLKAddBabyViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addPersonViewcontroller" id="Brm-O9-U8G" customClass="SLKAddBabyViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qwz-gb-Gpr">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -476,9 +475,6 @@
         </class>
         <class className="SLKSettingsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKSettingsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="login:"/>
-            </relationships>
         </class>
         <class className="SLKWelcomeCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKWelcomeCell.h"/>
