@@ -38,6 +38,8 @@
 
 - (void)viewDidUnload {
     [self setTotalOverview:nil];
+    [self setSetTime:nil];
+    [self setTimeSlider:nil];
     [super viewDidUnload];
 }
 - (IBAction)totalOverview:(id)sender {
@@ -46,6 +48,15 @@
     SLKDaySummaryViewController *controller = [sb instantiateInitialViewController];
     controller.allEvents = YES;
     [self presentModalViewController:controller animated:YES];
+}
+
+- (IBAction)sooner:(id)sender {
+}
+
+- (IBAction)later:(id)sender {
+}
+
+- (IBAction)setTimeWithSlider:(id)sender {
 }
 - (IBAction)sleepOverview:(id)sender {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"calendar" bundle:nil];
