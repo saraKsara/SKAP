@@ -1,8 +1,8 @@
 //
-//  SLKLoginAndOutViewController.m
+//  SLKLoginViewController.m
 //  SKAP
 //
-//  Created by Åsa Persson on 2013-04-08.
+//  Created by Åsa Persson on 2013-04-10.
 //  Copyright (c) 2013 Student vid Yrkeshögskola C3L. All rights reserved.
 //
 
@@ -25,7 +25,8 @@
 
 - (void)viewDidLoad
 {
-  
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -34,19 +35,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidUnload {
-   
-    [self setSignUpBtn:nil];
-    [self setEnterUsernameLabel:nil];
-    [self setEnterUsernameTextField:nil];
-    [self setEnterPasswordTextField:nil];
-    [self setEnterPasswordLabel:nil];
-    [super viewDidUnload];
-}
-- (IBAction)logOut:(id)sender {
-}
-- (IBAction)logIn:(id)sender {
-}
 - (IBAction)signUp:(id)sender {
 }
 @end
