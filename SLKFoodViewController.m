@@ -447,9 +447,8 @@
     else if (sleepView)
     {
         NSNumber *theDouble = [NSNumber numberWithDouble:_sliderOne.value];
-        
         int inputSeconds = [theDouble intValue];
-       int hours =  inputSeconds / 3600;
+        int hours =  inputSeconds / 3600;
         int anHour = ( inputSeconds - hours * 3600 ) / 60;
         int aMinute = inputSeconds - hours * 3600 - anHour * 60;
         
