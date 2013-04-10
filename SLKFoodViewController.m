@@ -29,7 +29,15 @@
 
 @implementation SLKFoodViewController
 {
-   
+    BOOL *titsView;
+    BOOL *bottleView;
+    BOOL *sleepView;
+    BOOL *diaperView;
+    BOOL *medzView;
+    
+    BOOL *leftBoob;
+    BOOL *rightBoob;
+    
     float bottledFood;
     SLKBabyListTableViewController *settingsVC;
     float checkDirection;
@@ -71,6 +79,10 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    leftBoob = NO;
+    rightBoob = NO;
+    
     nullValue = [NSNull null];
     // Set up the content size of the scroll view
     CGSize pagesScrollViewSize = self.scrollView.frame.size;
@@ -92,25 +104,37 @@
     time = [SLKDateUtil formatTimeFromDate:date];
     _setTimeLabel.text = time;
      [self loadVisiblePages];
+    
+    [_sliderTwo setHidden:YES];
+    [_sliderTwoLabel setHidden:YES];
+    
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.pageViews = [NSMutableArray arrayWithObjects:_bottleView, _breastView, nil];
+    UITapGestureRecognizer *rightTitTapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(rightTit:)];
+    
+    [_rightTit addGestureRecognizer:rightTitTapped];
+    
+    UITapGestureRecognizer *leftTitTapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(leftTit:)];
+    
+    [_leftTit addGestureRecognizer:leftTitTapped];
+    
+    self.pageViews = [NSMutableArray arrayWithObjects:_bottleView, _breastView, _sleepView, nil];
     NSInteger pageCount = self.pageViews.count;
     
     self.pageControll.currentPage = 0;
     self.pageControll.numberOfPages = pageCount;
     
-    CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI * 1.5);
-    _foodSliderOne.transform = trans;
-    currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
-    _anotherFoodLable.text = [NSString stringWithFormat: @"%@´s bottled meal", currentBabe.name];
-    [_anotherFoodLable sizeToFit];
-    bottledFood = _foodSliderOne.value;
-    _foodLabel.text = [NSString stringWithFormat:@"%.f",bottledFood];
-    NSLog(@"slider ONE: %f ", [_foodSliderOne value]);
+//    CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI * 1.5);
+//    _foodSliderOne.transform = trans;
+//    currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
+////    _anotherFoodLable.text = [NSString stringWithFormat: @"%@´s bottled meal", currentBabe.name];
+////    [_anotherFoodLable sizeToFit];
+//    bottledFood = _foodSliderOne.value;
+//    //_foodLabel.text = [NSString stringWithFormat:@"%.f",bottledFood];
+//    NSLog(@"slider ONE: %f ", [_foodSliderOne value]);
 }
 - (void)loadVisiblePages {
     // First, determine which page is currently visible
@@ -155,6 +179,47 @@
         [self.scrollView addSubview:newPageView];
         [self.pageViews replaceObjectAtIndex:page withObject:newPageView];
     }
+    
+    if ( self.pageControll.currentPage == 0)     
+    {
+    titsView = YES;
+        _UniversalLabel.text = @"Breast feed";
+        _sliderOne.maximumValue = 350;
+    bottleView = NO;
+    sleepView = NO;
+    diaperView = NO;
+    medzView = NO;
+    }
+    else if (self.pageControll.currentPage == 1)
+    {
+    titsView = NO;
+    bottleView = YES;
+        _UniversalLabel.text = @"Bottled feed";
+        _sliderOne.maximumValue = 350;
+
+    sleepView = NO;
+    diaperView = NO;
+    medzView = NO;
+    }
+    else if (self.pageControll.currentPage == 2)
+    {
+    titsView = NO;
+    bottleView = NO;
+    sleepView = YES;
+         _UniversalLabel.text = @"sleep time";
+        [_sliderTwo setHidden:NO];
+        _sliderTwoLabel.hidden = NO;
+        _sliderOne.maximumValue = 240;
+     
+    diaperView = NO;
+    medzView = NO;
+    }
+    NSLog(@"tits: %d \n bottle: %d \n sleep %d", (int)titsView, (int)bottleView, (int)sleepView);
+
+//    else if (self.pageControll.currentPage == 3) [self setCurrentViewWithBool:titsView];
+  
+
+
 }
 
 - (void)purgePage:(NSInteger)page {
@@ -181,21 +246,18 @@
 
 }
 
-- (IBAction)sliderOneValueChanged:(id)sender {
-    
-     NSLog(@"slider ONE changed::: %.f ", [_foodSliderOne value]);
-     bottledFood = _foodSliderOne.value ;
-      _foodLabel.text = [NSString stringWithFormat:@"%.f",bottledFood];
-}
+
 - (IBAction)save:(id)sender {
     
-    //if tit milk was messured in mililites
-//    Tits *tit = [[SLKTittStorage sharedStorage]createTittWithStringValue:nil mililitres:[NSNumber numberWithFloat:bottledFood] minutes:nil leftBoob:YES rightBoob:NO];
-    
-     //if tit milk was messured in minutes
-    Tits *titMin = [[SLKTittStorage sharedStorage]createTittWithStringValue:nil mililitres:nil minutes:[NSNumber numberWithInt:22]leftBoob:NO rightBoob:YES];
-    
-    [[SLKEventStorage sharedStorage] createEvenWithHappening:titMin date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
+    if (titsView) {
+        Tits *tit = [[SLKTittStorage sharedStorage]createTittWithStringValue:_sliderOneLabel.text mililitres:[NSNumber numberWithFloat:bottledFood] minutes:nil leftBoob:YES rightBoob:NO];
+        
+        //if tit milk was messured in minutes
+      
+        
+        [[SLKEventStorage sharedStorage] createEvenWithHappening:tit date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
+    }
+
     
   Bottle *bottle = [[SLKBottleStorage sharedStorage] createBottleWithStringValue:nil mililitres:[NSNumber numberWithFloat:bottledFood] minutes:nil];
 
@@ -233,6 +295,37 @@
     }
 }
 
+-(void)calculateHoursAndMinutesOnSlider:(UISlider*)slider label:(UILabel*)label
+{
+   
+    if (checkDirection > [slider value])
+    {
+        float diff =  checkDirection  - [slider value];
+        
+        
+        float timeDiff = ceil(diff/(60));
+        int setMin = (NSInteger)(timeDiff);
+        date = [date dateBySubtractingMinutes:setMin];
+        time = [SLKDateUtil formatTimeFromDate:date];
+        label.text = time;
+        checkDirection = [slider value];
+    }
+    else
+    {
+        float diff =  [slider value]  - checkDirection;
+        
+        float timeDiff = ceil(diff/(60));
+        int setMin = (NSInteger)(timeDiff);
+        date = [date dateByAddingMinutes:setMin];
+        time = [SLKDateUtil formatTimeFromDate:date];
+        label.text = time;
+        checkDirection = [slider value];
+        
+    }
+
+
+}
+
 - (IBAction)sooner:(id)sender {
     date = [date dateBySubtractingHours:1];
     time = [SLKDateUtil formatTimeFromDate:date];
@@ -248,6 +341,13 @@
 
 - (void)viewDidUnload {
 
+    [self setSleepView:nil];
+    [self setUniversalLabel:nil];
+    [self setSliderOneLabel:nil];
+    [self setSliderOne:nil];
+    [self setSliderTwoLabel:nil];
+    [self setSliderTwo:nil];
+    [self setOverview:nil];
     [super viewDidUnload];
     
     self.scrollView = nil;
@@ -293,26 +393,71 @@
 
 - (IBAction)leftTit:(UITapGestureRecognizer *)sender
 {
-    [_rightTit setImage:[UIImage imageNamed:@"titsPink.png"]];
+    leftBoob = !leftBoob;
+    if (leftBoob)   [_leftTit setImage:[UIImage imageNamed:@"titsPink.png"]];
+    else [_leftTit setImage:[UIImage imageNamed:@"tits.png"]];
 }
 
-- (IBAction)rightTit:(id)sender
+- (IBAction)rightTit:(UITapGestureRecognizer *)sender
 {
-    [_leftTit setImage:[UIImage imageNamed:@"titsPink.png"]];
+    rightBoob = !rightBoob;
+    if (rightBoob)   [_rightTit setImage:[UIImage imageNamed:@"titsPink.png"]];
+    else [_rightTit setImage:[UIImage imageNamed:@"tits.png"]];
 }
 
-- (IBAction)showTotalOverview:(id)sender {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"calendar" bundle:nil];
-    
-    SLKDaySummaryViewController *controller = [sb instantiateInitialViewController];
-    controller.allEvents = YES;
-    [self presentModalViewController:controller animated:YES];
-}
-
-- (IBAction)showFeedOverview:(id)sender {
+- (IBAction)showOverview:(id)sender {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"calendar" bundle:nil];
     SLKDaySummaryViewController *controller = [sb instantiateInitialViewController];
     controller.food = YES;
     [self presentModalViewController:controller animated:YES];
+}
+- (IBAction)sliderOneAction:(id)sender {
+    if (titsView)
+    {
+        _sliderOneLabel.text = @"Titty";
+        if (_sliderOne.value < 58)
+        {
+            _sliderOneLabel.text = @"extra small meal";
+            NSLog(@"slidervalue: %f", _sliderOne.value);
+        } else  if (_sliderOne.value > 58 && _sliderOne.value < 116)
+        {
+            _sliderOneLabel.text = @"small meal";
+              NSLog(@"slidervalue: %f", _sliderOne.value);
+        } else  if (_sliderOne.value > 116  && _sliderOne.value < 174)
+        {
+        _sliderOneLabel.text = @"small medium meal";
+              NSLog(@"slidervalue: %f", _sliderOne.value);
+        }else  if (_sliderOne.value > 174 && _sliderOne.value < 232)
+        {
+            _sliderOneLabel.text = @"medium meal";
+            NSLog(@"slidervalue: %f", _sliderOne.value);
+        }else  if (_sliderOne.value > 232 && _sliderOne.value < 290)
+        {
+            _sliderOneLabel.text = @"big medium meal";
+            NSLog(@"slidervalue: %f", _sliderOne.value);
+        }else  if (_sliderOne.value > 290)
+        {
+            _sliderOneLabel.text = @"large meal";
+            NSLog(@"slidervalue: %f", _sliderOne.value);
+        }
+    } else if (bottleView)
+    {
+    _sliderOneLabel.text = [NSString stringWithFormat:@"%.f ml",_sliderOne.value];
+    }
+    else if (sleepView)
+    {
+        NSNumber *theDouble = [NSNumber numberWithDouble:_sliderOne.value];
+        
+        int inputSeconds = [theDouble intValue];
+       int hours =  inputSeconds / 3600;
+        int anHour = ( inputSeconds - hours * 3600 ) / 60;
+        int aMinute = inputSeconds - hours * 3600 - anHour * 60;
+        
+        NSString *theTime = [NSString stringWithFormat:@"%.1dhr %.2dmin", anHour, aMinute];
+        _sliderOneLabel.text = theTime;
+        
+    }
+}
+- (IBAction)sliderTwoAction:(id)sender {
 }
 @end

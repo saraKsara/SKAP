@@ -51,7 +51,7 @@
                                     <action selector="totalOverview:" destination="ccM-5C-6mX" eventType="touchUpInside" id="SXX-Cb-SaB"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="300" id="OeH-nP-6uu">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="12" id="OeH-nP-6uu">
                                 <rect key="frame" x="33" y="141" width="244" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
