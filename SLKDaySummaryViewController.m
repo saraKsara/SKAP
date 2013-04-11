@@ -30,6 +30,9 @@
 {
     Baby *currentBaby;
     NSDate *currentDay;
+    NSDate *fromDate;
+    NSDate *todate;
+    BOOL weekView;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -44,7 +47,12 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
+    _allEvents = YES;
+    weekView = NO;
     currentDay = [NSDate date];
+    todate = [currentDay dateByAddingDays:7];
+    fromDate = [NSDate date];
+    
     currentBaby = [[SLKBabyStorage sharedStorage] getCurrentBaby];
     self.view.backgroundColor = [UIColor clearColor];
 
@@ -83,10 +91,15 @@
 - (IBAction)segmentcontroll:(id)sender {
     if ( _segmentcontroll.selectedSegmentIndex == 0 )
     {
+        weekView = NO;
+        currentDay = [NSDate date];
+    
         _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@",
                              currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
     } else if ( _segmentcontroll.selectedSegmentIndex == 1 )
     {
+        weekView = YES;
+        currentDay = [NSDate date];
         _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n This Week",
                              currentBaby.name];
     }
@@ -94,15 +107,39 @@
 
 - (IBAction)nextDay:(id)sender
 {
+    if (!weekView) {
     currentDay = [currentDay dateByAddingDays:1];
       _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
-    [self reloadTable];
+        NSLog(@"\n\nfromdate:::::: %@\n\n", fromDate);
+        NSLog(@"\n\ntodate:::::: %@\n\n", todate);
+         [self reloadTable];
+    } else if (weekView){
+        fromDate = [fromDate dateByAddingDays:7];
+        todate = [todate dateByAddingDays:7];
+        NSLog(@"CD:::::: %@", currentDay);
+        NSLog(@"\n\nfromdate:::::: %@\n\n", fromDate);
+        NSLog(@"\n\ntodate:::::: %@\n\n", todate);
+         [self reloadTable];
+    }
+   
 }
 
 - (IBAction)prevDay:(id)sender
 {
-    currentDay = [currentDay dateBySubtractingDays:1];
-      _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
+    if (!weekView) {
+        currentDay = [currentDay dateBySubtractingDays:1];
+        _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
+        NSLog(@"\n\nfromdate:::::: %@\n\n", fromDate);
+        NSLog(@"\n\ntodate:::::: %@\n\n", todate);
+         [self reloadTable];
+    } else if (weekView) {
+        fromDate = [fromDate dateBySubtractingDays:7];
+        todate = [todate dateBySubtractingDays:7];
+        NSLog(@"\n\nfromdate:::::: %@\n\n", fromDate);
+         NSLog(@"\n\ntodate:::::: %@\n\n", todate);
+         [self reloadTable];
+    }
+
     [self reloadTable];
 }
 
@@ -119,7 +156,8 @@
   
     NSArray *typeArray;
     if (_allEvents) {
-        return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay]count];
+       if (!weekView) return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay]count];
+    else if (weekView) return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby fromDate:fromDate toDate:todate]count];
     }
     else if (_food) {
        typeArray = [NSArray arrayWithObjects:kEventType_BottleFood,kEventType_TitFood, nil];
@@ -158,8 +196,12 @@
     SLKDayViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier]; //forIndexPath:indexPath];
     NSArray *typeArray;
     Event *event;
+    
     if (_allEvents) {
-         event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay]objectAtIndex:indexPath.row];
+        
+if (!weekView) event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay]objectAtIndex:indexPath.row];
+else event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby fromDate:fromDate toDate:todate]objectAtIndex:indexPath.row];
+        
     }
     else if (_food) {
         typeArray = [NSArray arrayWithObjects:kEventType_BottleFood,kEventType_TitFood, nil];
@@ -180,7 +222,9 @@
         typeArray = [NSArray arrayWithObjects:kEventType_Pii, nil];
         event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]objectAtIndex:indexPath.row];
     }
-    cell.timeLabel.text = [SLKDateUtil formatTimeFromDate: event.date];
+    
+//    cell.timeLabel.text = [SLKDateUtil formatTimeFromDate: event.date];
+    cell.timeLabel.text = [SLKDateUtil formatDateWithoutYear: event.date];
     
     // BREAST FEED
     if ([event.type isEqualToString: kEventType_TitFood]) {
@@ -196,7 +240,7 @@
             {
                 breast = @"left";  
             }
-            NSLog(@"tit::: %@",tit);
+           // NSLog(@"tit::: %@",tit);
             if (tit.minutes != nil)
             {
             [propertyString appendFormat: @"%@ minutes \n %@ breast",[tit.minutes stringValue], breast];

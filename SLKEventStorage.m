@@ -222,6 +222,35 @@
     return nil;
 }
 
+//FOR WEEK
+-(NSArray *)getEventBelomigTObaby:(Baby *)baby fromDate:(NSDate*)fromDate toDate:(NSDate*)toDate
+{
+    NSArray *allEventOfBaby = [[SLKCoreDataService sharedService] fetchDataWithEntity:@"Event"
+                                                                         andPredicate:[NSPredicate predicateWithFormat:@"baby == %@", baby]
+                                                                   andSortDescriptors:nil];
+    
+    
+    NSMutableArray *returnArray = [NSMutableArray array];
+    
+    
+    for (Event *event in allEventOfBaby)
+    {
+        NSComparisonResult compareParameterfromDateWithDateOfEvent = [fromDate compare:event.date];
+        NSComparisonResult compareParametertoDateWithDateOfBlock = [toDate compare:event.date];
+        
+        if ((compareParameterfromDateWithDateOfEvent == NSOrderedAscending || compareParameterfromDateWithDateOfEvent== NSOrderedSame) && (compareParametertoDateWithDateOfBlock == NSOrderedDescending || compareParametertoDateWithDateOfBlock == NSOrderedSame))
+        {
+            [returnArray addObject:event];
+        }
+    }
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
+    [returnArray sortUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+    
+    if ([returnArray count] == 0)  return nil;
+    else      return returnArray;
+    
+}
 
 
 -(Event *)getEventWithiD:(NSString *)eventId
