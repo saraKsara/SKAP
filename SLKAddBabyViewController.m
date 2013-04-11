@@ -41,7 +41,7 @@
     _setSignatureTextField.delegate = self;
     bDayPicker= [[UIDatePicker alloc] init];
     [bDayPicker setDatePickerMode:UIDatePickerModeDate];
-    bDayPicker.frame = CGRectMake(0, 220 , 320, 280);
+    bDayPicker.frame = CGRectMake(0, 270 , 320, 200);
     [bDayPicker addTarget:self action:@selector(updateLabelFromPicker:) forControlEvents:UIControlEventValueChanged];
     
     if ( _addBabyMode)

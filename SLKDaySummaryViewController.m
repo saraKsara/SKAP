@@ -56,7 +56,7 @@
     currentBaby = [[SLKBabyStorage sharedStorage] getCurrentBaby];
     self.view.backgroundColor = [UIColor clearColor];
 
-    _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@",
+    _headerLabel.text = [NSString stringWithFormat:@"%@ \n  %@",
                          currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
     
     
@@ -94,13 +94,13 @@
         weekView = NO;
         currentDay = [NSDate date];
     
-        _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@",
+        _headerLabel.text = [NSString stringWithFormat:@" %@ \n%@",
                              currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
     } else if ( _segmentcontroll.selectedSegmentIndex == 1 )
     {
         weekView = YES;
         currentDay = [NSDate date];
-        _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n This Week",
+        _headerLabel.text = [NSString stringWithFormat:@" %@ \n This Week",
                              currentBaby.name];
     }
 }
@@ -109,7 +109,7 @@
 {
     if (!weekView) {
     currentDay = [currentDay dateByAddingDays:1];
-      _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
+      _headerLabel.text = [NSString stringWithFormat:@"%@ \n %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
         NSLog(@"\n\nfromdate:::::: %@\n\n", fromDate);
         NSLog(@"\n\ntodate:::::: %@\n\n", todate);
          [self reloadTable];
@@ -128,7 +128,7 @@
 {
     if (!weekView) {
         currentDay = [currentDay dateBySubtractingDays:1];
-        _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
+        _headerLabel.text = [NSString stringWithFormat:@"%@ \n  %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
         NSLog(@"\n\nfromdate:::::: %@\n\n", fromDate);
         NSLog(@"\n\ntodate:::::: %@\n\n", todate);
          [self reloadTable];
