@@ -36,6 +36,8 @@
 
 -(NSArray *)getEventBelomigTObaby:(Baby *)baby andDay:(NSDate *)day withTypes:(NSArray*)types;
 
+-(NSArray *)getEventBelomigTObaby:(Baby *)baby fromDate:(NSDate*)fromDate toDate:(NSDate*)toDate;
+
 -(Event*)getEventWithiD:(NSString*)eventId;
 
 -(void)removeEvent:(Event*)event;
