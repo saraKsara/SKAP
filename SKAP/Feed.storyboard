@@ -31,7 +31,7 @@
                                 <rect key="frame" x="-54" y="29" width="385" height="500"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="poppi_01.jpg" id="iiF-ZA-ZhS">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="poppis.jpg" id="iiF-ZA-ZhS">
                                         <rect key="frame" x="53" y="221" width="322" height="210"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -376,7 +376,7 @@
         <image name="arrow_03.png" width="53" height="70"/>
         <image name="bottle.png" width="640" height="1065"/>
         <image name="iphone4Diapercopy.png" width="412" height="321"/>
-        <image name="poppi_01.jpg" width="318" height="287"/>
+        <image name="poppis.jpg" width="318" height="287"/>
         <image name="smallViewBackground.png" width="320" height="300"/>
         <image name="tits.png" width="317" height="317"/>
     </resources>
