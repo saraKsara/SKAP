@@ -50,6 +50,9 @@
     _allEvents = YES;
     weekView = NO;
     currentDay = [NSDate date];
+    todate = [currentDay dateByAddingDays:7];
+    fromDate = [NSDate date];
+    
     currentBaby = [[SLKBabyStorage sharedStorage] getCurrentBaby];
     self.view.backgroundColor = [UIColor clearColor];
 
@@ -90,6 +93,7 @@
     {
         weekView = NO;
         currentDay = [NSDate date];
+    
         _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@",
                              currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
     } else if ( _segmentcontroll.selectedSegmentIndex == 1 )
@@ -106,10 +110,15 @@
     if (!weekView) {
     currentDay = [currentDay dateByAddingDays:1];
       _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
+        NSLog(@"\n\nfromdate:::::: %@\n\n", fromDate);
+        NSLog(@"\n\ntodate:::::: %@\n\n", todate);
          [self reloadTable];
-    } else if (!weekView){
-        fromDate = currentDay;
-        todate = [currentDay dateByAddingDays:7];
+    } else if (weekView){
+        fromDate = [fromDate dateByAddingDays:7];
+        todate = [todate dateByAddingDays:7];
+        NSLog(@"CD:::::: %@", currentDay);
+        NSLog(@"\n\nfromdate:::::: %@\n\n", fromDate);
+        NSLog(@"\n\ntodate:::::: %@\n\n", todate);
          [self reloadTable];
     }
    
@@ -120,11 +129,14 @@
     if (!weekView) {
         currentDay = [currentDay dateBySubtractingDays:1];
         _headerLabel.text = [NSString stringWithFormat:@"This is what happened %@ \n at %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
+        NSLog(@"\n\nfromdate:::::: %@\n\n", fromDate);
+        NSLog(@"\n\ntodate:::::: %@\n\n", todate);
          [self reloadTable];
     } else if (weekView) {
-        fromDate = [currentDay dateBySubtractingDays:7];
-        todate = currentDay;
-        NSLog(@"CD:::::: %@", currentDay);
+        fromDate = [fromDate dateBySubtractingDays:7];
+        todate = [todate dateBySubtractingDays:7];
+        NSLog(@"\n\nfromdate:::::: %@\n\n", fromDate);
+         NSLog(@"\n\ntodate:::::: %@\n\n", todate);
          [self reloadTable];
     }
 
@@ -228,7 +240,7 @@ else event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby
             {
                 breast = @"left";  
             }
-            NSLog(@"tit::: %@",tit);
+           // NSLog(@"tit::: %@",tit);
             if (tit.minutes != nil)
             {
             [propertyString appendFormat: @"%@ minutes \n %@ breast",[tit.minutes stringValue], breast];
