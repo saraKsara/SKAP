@@ -123,7 +123,7 @@
     
     [_leftTit addGestureRecognizer:leftTitTapped];
     
-    self.pageViews = [NSMutableArray arrayWithObjects:_bottleView, _breastView, _sleepView, nil];
+    self.pageViews = [NSMutableArray arrayWithObjects:_bottleView, _breastView, _sleepView,_diaperView, nil];
     NSInteger pageCount = self.pageViews.count;
     NSLog(@"number of views:%i",pageCount);
     
@@ -188,7 +188,8 @@
     titsView = YES;
         _UniversalLabel.text = @"Breast feed";
         _sliderOne.maximumValue = 350;
-        
+        [_sliderTwo setHidden:YES];
+        [_sliderTwoLabel setHidden:YES];
         _universalSliderText.text = [NSString stringWithFormat:@"log how much %@ ate", currentBabe.name];
     bottleView = NO;
     sleepView = NO;
@@ -200,6 +201,8 @@
     titsView = NO;
     bottleView = YES;
         _UniversalLabel.text = @"Bottled feed";
+        [_sliderTwo setHidden:YES];
+        [_sliderTwoLabel setHidden:YES];
         _sliderOne.maximumValue = 350;
         _universalSliderText.text = [NSString stringWithFormat:@"log how much %@ ate ", currentBabe.name];
 
@@ -220,7 +223,21 @@
      
     diaperView = NO;
     medzView = NO;
+    }else if (self.pageControll.currentPage == 3)
+    {
+        titsView = NO;
+        bottleView = NO;
+        sleepView = NO;
+        _UniversalLabel.text = @"diaper log";
+        [_sliderTwo setHidden:YES];
+        _sliderTwoLabel.hidden = YES;
+        _sliderOne.maximumValue = 240;
+        _universalSliderText.text = [NSString stringWithFormat:@"log how long %@ slept ", currentBabe.name];
+        
+        diaperView = YES;
+        medzView = NO;
     }
+
     NSLog(@"tits: %d \n bottle: %d \n sleep %d", (int)titsView, (int)bottleView, (int)sleepView);
 
 //    else if (self.pageControll.currentPage == 3) [self setCurrentViewWithBool:titsView];
@@ -335,7 +352,6 @@
         
     }
 
-
 }
 
 - (IBAction)sooner:(id)sender {
@@ -361,6 +377,7 @@
     [self setSliderTwo:nil];
     [self setOverview:nil];
     [self setUniversalSliderText:nil];
+    [self setDiaperView:nil];
     [super viewDidUnload];
     
     self.scrollView = nil;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="hKR-TG-9xj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="hKR-TG-9xj">
     <dependencies>
         <deployment version="1296" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
@@ -31,43 +31,39 @@
                                 <rect key="frame" x="-54" y="29" width="385" height="500"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="smvcthree.png" id="iiF-ZA-ZhS">
-                                        <rect key="frame" x="54" y="0.0" width="320" height="461"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="poppi_01.jpg" id="iiF-ZA-ZhS">
+                                        <rect key="frame" x="53" y="221" width="322" height="210"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" alpha="0.20000000000000015" contentMode="scaleToFill" image="smvcf.png" id="axT-DR-4ag">
-                                        <rect key="frame" x="54" y="0.0" width="320" height="461"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="smallViewBackground.png" id="XYG-7b-gfy">
-                                        <rect key="frame" x="54" y="1" width="320" height="170"/>
+                                        <rect key="frame" x="54" y="1" width="320" height="221"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" indicatorStyle="black" id="0eI-uv-4ps">
-                                        <rect key="frame" x="115.5" y="0.0" width="200" height="170"/>
+                                        <rect key="frame" x="115.5" y="0.0" width="200" height="222"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" id="r4O-od-KRB" userLabel="tits">
-                                                <rect key="frame" x="0.0" y="0.0" width="200" height="170"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="222"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <imageView contentMode="scaleToFill" image="tits.png" id="RCL-v7-2zT">
-                                                        <rect key="frame" x="103" y="52" width="56" height="53"/>
+                                                        <rect key="frame" x="113" y="48" width="86" height="86"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <gestureRecognizers/>
                                                     </imageView>
                                                     <imageView contentMode="scaleToFill" image="tits.png" id="aNo-Ha-YfG">
-                                                        <rect key="frame" x="32.5" y="52" width="56" height="53"/>
+                                                        <rect key="frame" x="1" y="48" width="86" height="86"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <gestureRecognizers/>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="arrow_03.png" id="VHi-hM-2Ue">
-                                                        <rect key="frame" x="8" y="101" width="33" height="40"/>
+                                                        <rect key="frame" x="8" y="148" width="33" height="40"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="press left, right or both!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gT9-2p-WJM">
-                                                        <rect key="frame" x="24" y="125" width="175" height="21"/>
+                                                        <rect key="frame" x="24.5" y="170" width="175" height="21"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="17"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -80,11 +76,11 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bottle.png" id="YYi-n1-jJm">
-                                                        <rect key="frame" x="16" y="0.0" width="114" height="170"/>
+                                                        <rect key="frame" x="25" y="-4" width="144" height="200"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="arrowDown.png" id="t2k-eS-u9t">
-                                                        <rect key="frame" x="5" y="107" width="28" height="40"/>
+                                                        <rect key="frame" x="5" y="117" width="28" height="40"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rSs-4k-aQQ">
@@ -102,7 +98,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SLEEP" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mMN-Ra-I5u">
-                                                        <rect key="frame" x="22.5" y="83" width="55" height="21"/>
+                                                        <rect key="frame" x="57.5" y="83" width="55" height="21"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -112,11 +108,22 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
+                                            <view contentMode="scaleToFill" id="844-eU-q0h" userLabel="diaper">
+                                                <rect key="frame" x="500" y="0.0" width="200" height="170"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="iphone4Diapercopy.png" id="nme-Z5-HaM">
+                                                        <rect key="frame" x="133" y="62" width="124" height="95"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
                                         </subviews>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                     </scrollView>
                                     <pageControl opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="7Nu-Q4-Zon">
-                                        <rect key="frame" x="53" y="140" width="322" height="36"/>
+                                        <rect key="frame" x="53" y="192" width="322" height="36"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                         <color key="pageIndicatorTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="currentPageIndicatorTintColor" red="0.32588649269090597" green="0.97857541454081631" blue="0.48154978515251462" alpha="1" colorSpace="calibratedRGB"/>
@@ -125,11 +132,12 @@
                                             <action selector="valuePageControll:" destination="hKR-TG-9xj" eventType="valueChanged" id="iwh-Q1-LCF"/>
                                         </connections>
                                     </pageControl>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gfh-fb-qIO">
-                                        <rect key="frame" x="301" y="354" width="46" height="30"/>
-                                        <fontDescription key="fontDescription" name="Thonburi-Bold" family="Thonburi" pointSize="19"/>
+                                    <button opaque="NO" alpha="0.70000000000000007" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gfh-fb-qIO">
+                                        <rect key="frame" x="303" y="378" width="46" height="30"/>
+                                        <color key="backgroundColor" red="0.74379827379999996" green="0.90361926020000005" blue="0.44612772540000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="22"/>
                                         <state key="normal" title="save">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.057383129674473059" green="0.096159039294239371" blue="0.11224489795918369" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -147,14 +155,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b1o-Fe-Htg">
-                                        <rect key="frame" x="178" y="297" width="64" height="25"/>
+                                        <rect key="frame" x="192" y="326" width="64" height="25"/>
                                         <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="22"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="0.0" maxValue="30" id="wHh-QR-jB8">
-                                        <rect key="frame" x="87" y="327" width="257" height="23"/>
-                                        <color key="minimumTrackTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="8" minValue="0.0" maxValue="30" id="wHh-QR-jB8">
+                                        <rect key="frame" x="89" y="351" width="257" height="23"/>
+                                        <color key="minimumTrackTintColor" red="0.32588649269999997" green="0.97857541449999996" blue="0.48154978520000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="maximumTrackTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="thumbTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
@@ -162,7 +170,7 @@
                                         </connections>
                                     </slider>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vKK-at-zKD">
-                                        <rect key="frame" x="244" y="296" width="73" height="24"/>
+                                        <rect key="frame" x="274" y="327" width="73" height="24"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="+1 hour">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -176,7 +184,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2Dh-Lq-sqL">
-                                        <rect key="frame" x="102" y="297" width="73" height="24"/>
+                                        <rect key="frame" x="101" y="327" width="73" height="24"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="-1 hour">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -189,10 +197,10 @@
                                             <action selector="sooner:" destination="hKR-TG-9xj" eventType="touchUpInside" id="Ooe-Fo-tdW"/>
                                         </connections>
                                     </button>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="200" minValue="0.0" maxValue="350" id="7Tf-uP-keF">
-                                        <rect key="frame" x="86" y="223" width="257" height="23"/>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="91" minValue="0.0" maxValue="350" id="7Tf-uP-keF">
+                                        <rect key="frame" x="89" y="290" width="257" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="minimumTrackTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <color key="minimumTrackTintColor" red="0.32588649269999997" green="0.97857541449999996" blue="0.48154978520000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="maximumTrackTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="thumbTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
@@ -200,28 +208,28 @@
                                         </connections>
                                     </slider>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cJ9-dD-wg2">
-                                        <rect key="frame" x="242" y="194" width="117" height="21"/>
+                                        <rect key="frame" x="245" y="265" width="117" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Thonburi-Bold" family="Thonburi" pointSize="15"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="24" id="bUl-2J-JrC">
-                                        <rect key="frame" x="86" y="259" width="257" height="23"/>
+                                        <rect key="frame" x="89" y="320" width="257" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="sliderTwoAction:" destination="hKR-TG-9xj" eventType="valueChanged" id="h3g-20-IbH"/>
                                         </connections>
                                     </slider>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vu0-tG-ouJ">
-                                        <rect key="frame" x="83" y="243" width="42" height="21"/>
+                                        <rect key="frame" x="83" y="266" width="42" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Thonburi-Bold" family="Thonburi" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LhS-XK-O0D">
-                                        <rect key="frame" x="80" y="194" width="162" height="21"/>
+                                        <rect key="frame" x="83" y="265" width="162" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Thonburi-Bold" family="Thonburi" pointSize="15"/>
                                         <color key="textColor" red="0.098039217293262482" green="0.098039217293262482" blue="0.098039217293262482" alpha="1" colorSpace="calibratedRGB"/>
@@ -261,6 +269,7 @@
                         <outlet property="UniversalLabel" destination="cOb-DD-dYu" id="Rz7-VQ-xoi"/>
                         <outlet property="bottleView" destination="gqO-NN-JP4" id="OaM-he-f1B"/>
                         <outlet property="breastView" destination="r4O-od-KRB" id="xxf-ky-EIt"/>
+                        <outlet property="diaperView" destination="844-eU-q0h" id="Fv9-p7-Rek"/>
                         <outlet property="leftTit" destination="aNo-Ha-YfG" id="ZrK-LG-bc3"/>
                         <outlet property="overview" destination="K0C-tQ-pOI" id="7YD-ws-Nyq"/>
                         <outlet property="pageControll" destination="7Nu-Q4-Zon" id="t6x-ga-TTJ"/>
@@ -366,11 +375,68 @@
         <image name="arrowDown.png" width="53" height="70"/>
         <image name="arrow_03.png" width="53" height="70"/>
         <image name="bottle.png" width="640" height="1065"/>
+        <image name="iphone4Diapercopy.png" width="412" height="321"/>
+        <image name="poppi_01.jpg" width="318" height="287"/>
         <image name="smallViewBackground.png" width="320" height="300"/>
-        <image name="smvcf.png" width="320" height="450"/>
-        <image name="smvcthree.png" width="320" height="450"/>
         <image name="tits.png" width="317" height="317"/>
     </resources>
+    <classes>
+        <class className="SLKAddBabyCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKAddBabyCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addBabuLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SLKBabyCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKBabyCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="babyNameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SLKBabyListTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKBabyListTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="close:" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="SLKBabyPopViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKBabyPopViewController.h"/>
+        </class>
+        <class className="SLKFoodViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKFoodViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="handlePan:" candidateClass="UIPanGestureRecognizer"/>
+                <relationship kind="action" name="later:"/>
+                <relationship kind="action" name="leftTit:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="rightTit:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="save:"/>
+                <relationship kind="action" name="setTime:"/>
+                <relationship kind="action" name="showOverview:"/>
+                <relationship kind="action" name="sliderOneAction:"/>
+                <relationship kind="action" name="sliderTwoAction:"/>
+                <relationship kind="action" name="sooner:"/>
+                <relationship kind="action" name="touchUpInsidePageControll:"/>
+                <relationship kind="action" name="valuePageControll:"/>
+                <relationship kind="outlet" name="UniversalLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="bottleView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="breastView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="diaperView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="leftTit" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="overview" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pageControll" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="rightTit" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="setTimeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="sleepView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="sliderOne" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="sliderOneLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="sliderTwo" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="sliderTwoLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="timeSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="universalSliderText" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -43,6 +43,7 @@
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControll;
 @property (weak, nonatomic) IBOutlet UIView *bottleView;
 @property (weak, nonatomic) IBOutlet UIView *breastView;
+@property (weak, nonatomic) IBOutlet UIView *diaperView;
 - (IBAction)valuePageControll:(id)sender;
 - (IBAction)touchUpInsidePageControll:(id)sender;
 @property (weak, nonatomic) IBOutlet UISlider *timeSlider;
