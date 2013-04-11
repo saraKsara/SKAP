@@ -255,7 +255,6 @@ else event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby
             }
         }
         cell.propertyLabel.text = propertyString;
-
     }
     
     //BOTTLE FOOD
@@ -328,6 +327,7 @@ else event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby
         }
         cell.propertyLabel.text = propertyString;
     }
+
     return cell;
 
 }
