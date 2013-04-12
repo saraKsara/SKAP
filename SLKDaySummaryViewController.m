@@ -112,38 +112,39 @@
     {
         weekView = YES;
         currentDay = [NSDate date];
-        if (currentDay.weekday == 1)//sunday
+        if (currentDay.weekday == 1)//------------------sunday
         {
             todate = currentDay;
-            fromDate = [currentDay dateBySubtractingDays:7];//monday?
-        } else if (currentDay.weekday == 2)//monday
-        {
-            todate = [currentDay dateByAddingDays:7];//sunday?
-            fromDate = currentDay;//monday?
+            fromDate = [currentDay dateBySubtractingDays:6];//monday?
             
-        }  else if (currentDay.weekday == 3)/////////////tuesday
+        } else if (currentDay.weekday == 2)//------------------monday
         {
             todate = [currentDay dateByAddingDays:6];//sunday?
-            fromDate = [currentDay dateBySubtractingDays:1];//monday?
+            fromDate = currentDay;//monday?
             
-        } else if (currentDay.weekday == 4)//wednesday
+        }  else if (currentDay.weekday == 3)//------------------tuesday
         {
             todate = [currentDay dateByAddingDays:5];//sunday?
-            fromDate = [currentDay dateBySubtractingDays:2];//monday?
+            fromDate = [currentDay dateBySubtractingDays:1];//monday?
             
-        }  else if (currentDay.weekday == 6)//thursday
+        } else if (currentDay.weekday == 4)//------------------wednesday
         {
             todate = [currentDay dateByAddingDays:4];//sunday?
-            fromDate = [currentDay dateBySubtractingDays:3];//monday?
+            fromDate = [currentDay dateBySubtractingDays:2];//monday?
             
-        }  else if (currentDay.weekday == 7)//thursday
+        }  else if (currentDay.weekday == 5)//------------------thursday
         {
             todate = [currentDay dateByAddingDays:3];//sunday?
-            fromDate = [currentDay dateBySubtractingDays:4];//monday?
+            fromDate = [currentDay dateBySubtractingDays:3];//monday?
             
-        } else if (currentDay.weekday == 0)//thursday
+        }  else if (currentDay.weekday == 6)//------------------friday
         {
             todate = [currentDay dateByAddingDays:2];//sunday?
+            fromDate = [currentDay dateBySubtractingDays:4];//monday?
+            
+        } else if (currentDay.weekday == 7)//------------------thursday
+        {
+            todate = [currentDay dateByAddingDays:1];//sunday?
             fromDate = [currentDay dateBySubtractingDays:5];//monday?
         }
       

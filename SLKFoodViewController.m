@@ -84,7 +84,7 @@
     
     leftBoob = NO;
     rightBoob = NO;
-    
+    currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
     nullValue = [NSNull null];
     // Set up the content size of the scroll view
     CGSize pagesScrollViewSize = self.scrollView.frame.size;
@@ -115,6 +115,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+     _universalSliderText.text = [NSString stringWithFormat:@"log how much %@ ate ", currentBabe.name];
     UITapGestureRecognizer *rightTitTapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(rightTit:)];
     
     [_rightTit addGestureRecognizer:rightTitTapped];
@@ -447,32 +448,32 @@
         _sliderOneLabel.text = @"Titty";
         if (_sliderOne.value < 58)
         {
-            _sliderOneLabel.text = @"extra small meal";
+            _sliderOneLabel.text = @" extra small meal";
             NSLog(@"slidervalue: %f", _sliderOne.value);
         } else  if (_sliderOne.value > 58 && _sliderOne.value < 116)
         {
-            _sliderOneLabel.text = @"small meal";
+            _sliderOneLabel.text = @" small meal";
               NSLog(@"slidervalue: %f", _sliderOne.value);
         } else  if (_sliderOne.value > 116  && _sliderOne.value < 174)
         {
-        _sliderOneLabel.text = @"small medium meal";
+        _sliderOneLabel.text = @" small medium meal";
               NSLog(@"slidervalue: %f", _sliderOne.value);
         }else  if (_sliderOne.value > 174 && _sliderOne.value < 232)
         {
-            _sliderOneLabel.text = @"medium meal";
+            _sliderOneLabel.text = @" medium meal";
             NSLog(@"slidervalue: %f", _sliderOne.value);
         }else  if (_sliderOne.value > 232 && _sliderOne.value < 290)
         {
-            _sliderOneLabel.text = @"big medium meal";
+            _sliderOneLabel.text = @" big medium meal";
             NSLog(@"slidervalue: %f", _sliderOne.value);
         }else  if (_sliderOne.value > 290)
         {
-            _sliderOneLabel.text = @"large meal";
+            _sliderOneLabel.text = @" large meal";
             NSLog(@"slidervalue: %f", _sliderOne.value);
         }
     } else if (bottleView)
     {
-    _sliderOneLabel.text = [NSString stringWithFormat:@"%.f ml",_sliderOne.value];
+    _sliderOneLabel.text = [NSString stringWithFormat:@" %.f ml",_sliderOne.value];
     }
     else if (sleepView)
     {
