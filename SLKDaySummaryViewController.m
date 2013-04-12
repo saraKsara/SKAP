@@ -77,7 +77,6 @@
 }
 -(void)reloadTable
 {
-    
     //[_tableView reloadData];
     [UIView transitionWithView:_tableView
                       duration:0.5f
@@ -102,6 +101,8 @@
     {
         weekView = NO;
         currentDay = [NSDate date];
+        NSLog(@"\n\n\n weekDAY:-----> %d \n\n", [currentDay weekday]);
+
         todate = [currentDay dateByAddingDays:7];
         fromDate = [NSDate date];
          [self reloadTable];
@@ -111,8 +112,45 @@
     {
         weekView = YES;
         currentDay = [NSDate date];
-        todate = [currentDay dateByAddingDays:7];
-        fromDate = [NSDate date];
+        if (currentDay.weekday == 1)//------------------sunday
+        {
+            todate = currentDay;
+            fromDate = [currentDay dateBySubtractingDays:6];//monday?
+            
+        } else if (currentDay.weekday == 2)//------------------monday
+        {
+            todate = [currentDay dateByAddingDays:6];//sunday?
+            fromDate = currentDay;//monday?
+            
+        }  else if (currentDay.weekday == 3)//------------------tuesday
+        {
+            todate = [currentDay dateByAddingDays:5];//sunday?
+            fromDate = [currentDay dateBySubtractingDays:1];//monday?
+            
+        } else if (currentDay.weekday == 4)//------------------wednesday
+        {
+            todate = [currentDay dateByAddingDays:4];//sunday?
+            fromDate = [currentDay dateBySubtractingDays:2];//monday?
+            
+        }  else if (currentDay.weekday == 5)//------------------thursday
+        {
+            todate = [currentDay dateByAddingDays:3];//sunday?
+            fromDate = [currentDay dateBySubtractingDays:3];//monday?
+            
+        }  else if (currentDay.weekday == 6)//------------------friday
+        {
+            todate = [currentDay dateByAddingDays:2];//sunday?
+            fromDate = [currentDay dateBySubtractingDays:4];//monday?
+            
+        } else if (currentDay.weekday == 7)//------------------thursday
+        {
+            todate = [currentDay dateByAddingDays:1];//sunday?
+            fromDate = [currentDay dateBySubtractingDays:5];//monday?
+        }
+      
+        
+        
+        
          [self reloadTable];
            _headerLabel.text = [NSString stringWithFormat:@"%@ \n between %@ - %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: fromDate],[SLKDateUtil formatDateWithoutYear: todate]];
     }

@@ -399,9 +399,6 @@
         </class>
         <class className="SLKBabyPopViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKBabyPopViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="updateLabelFromPicker:"/>
-            </relationships>
         </class>
         <class className="SLKFoodViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKFoodViewController.h"/>
