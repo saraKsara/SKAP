@@ -104,6 +104,7 @@
         currentDay = [NSDate date];
         todate = [currentDay dateByAddingDays:7];
         fromDate = [NSDate date];
+         [self reloadTable];
         _headerLabel.text = [NSString stringWithFormat:@" %@ \n%@",
                              currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
     } else if ( _segmentcontroll.selectedSegmentIndex == 1 )
@@ -112,8 +113,8 @@
         currentDay = [NSDate date];
         todate = [currentDay dateByAddingDays:7];
         fromDate = [NSDate date];
-        _headerLabel.text = [NSString stringWithFormat:@" %@ \n This Week",
-                             currentBaby.name];
+         [self reloadTable];
+           _headerLabel.text = [NSString stringWithFormat:@"%@ \n between %@ - %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: fromDate],[SLKDateUtil formatDateWithoutYear: todate]];
     }
 }
 
@@ -237,10 +238,13 @@ else event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby
         typeArray = [NSArray arrayWithObjects:kEventType_Pii, nil];
         event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]objectAtIndex:indexPath.row];
     }
-    
-//    cell.timeLabel.text = [SLKDateUtil formatTimeFromDate: event.date];
-    cell.timeLabel.text = [SLKDateUtil formatDateWithoutYear: event.date];
-    
+    if (weekView) {
+          cell.timeLabel.text =  [NSString stringWithFormat:@"%@ \n %@ ", [SLKDateUtil formatTimeFromDate: event.date],[SLKDateUtil formatDateWithoutYear: event.date]];
+    }else if (!weekView){
+         cell.timeLabel.text = [SLKDateUtil formatTimeFromDate: event.date];
+    }
+ 
+        
     // BREAST FEED
     if ([event.type isEqualToString: kEventType_TitFood]) {
         cell.eventLabel.text = @"Feeded: \nbreast milk";
