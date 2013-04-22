@@ -11,4 +11,5 @@
 @interface SLKSettingsViewController : UITableViewController <UIAlertViewDelegate>
 
 @property BOOL firstTime;
+@property BOOL babyList;
 @end
