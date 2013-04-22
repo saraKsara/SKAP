@@ -157,7 +157,7 @@
     // First, determine which page is currently visible
     CGFloat pageWidth = self.scrollView.frame.size.width;
     NSInteger page = (NSInteger)floor((self.scrollView.contentOffset.x * 2.0f + pageWidth) / (pageWidth * 2.0f));
-    
+  //  NSLog(@"loadVisiblePages page: -----------> %d", page);
     // Update the page control
     self.pageControll.currentPage = page;
     
@@ -273,7 +273,7 @@
         
     }
 
-    NSLog(@"tits: %d \n bottle: %d \n sleep %d", (int)titsView, (int)bottleView, (int)sleepView);
+  //  NSLog(@"tits: %d \n bottle: %d \n sleep %d", (int)titsView, (int)bottleView, (int)sleepView);
 
 //    else if (self.pageControll.currentPage == 3) [self setCurrentViewWithBool:titsView];
 }
@@ -424,7 +424,7 @@
 - (IBAction)valuePageControll:(id)sender;
 {
     [self loadVisiblePages];
-    NSLog(@"valuepagecontroll:");
+    NSLog(@"valuepagecontroll:--------");
 }
 
 - (IBAction)touchUpInsidePageControll:(id)sender
@@ -466,12 +466,76 @@
 
 - (IBAction)nextArrow:(UITapGestureRecognizer *)sender
 {
-    NSLog(@"nextArrow");
+    if (titsView)   {
+     [_scrollView scrollRectToVisible:CGRectMake(200, 0, 200, 170) animated:YES];
+        titsView = NO;
+        bottleView = YES;
+        sleepView = NO;
+        diaperView = NO;
+        medzView = NO;
+    }
+   else if (bottleView)    {
+        [_scrollView scrollRectToVisible:CGRectMake(400, 0, 200, 170) animated:YES];
+        titsView = NO;
+        bottleView = NO;
+        sleepView = YES;
+        diaperView = NO;
+        medzView = NO;
+    }
+   else if (sleepView)   {
+        [_scrollView scrollRectToVisible:CGRectMake(600, 0, 200, 170) animated:YES];
+        titsView = NO;
+        bottleView = NO;
+        sleepView = NO;
+        diaperView = YES;
+        medzView = NO;
+    }
+   else if (diaperView)  {
+        [_scrollView scrollRectToVisible:CGRectMake(800, 0, 200, 170) animated:YES];
+        titsView = NO;
+        bottleView = NO;
+        sleepView = NO;
+        diaperView = NO;
+        medzView = YES;
+    }
 }
 
 - (IBAction)prewArrow:(UITapGestureRecognizer *)sender
 {
-    NSLog(@"prewArrow");
+    if (titsView)   {
+    }
+    else if (bottleView)    {
+        [_scrollView scrollRectToVisible:CGRectMake(0, 0, 200, 170) animated:YES];
+        titsView = YES;
+        bottleView = NO;
+        sleepView = NO;
+        diaperView = NO;
+        medzView = NO;
+    }
+    else if (sleepView)   {
+        [_scrollView scrollRectToVisible:CGRectMake(200, 0, 200, 170) animated:YES];
+        titsView = NO;
+        bottleView = YES;
+        sleepView = NO;
+        diaperView = NO;
+        medzView = NO;
+    }
+    else if (diaperView)  {
+        [_scrollView scrollRectToVisible:CGRectMake(400, 0, 200, 170) animated:YES];
+        titsView = NO;
+        bottleView = NO;
+        sleepView = YES;
+        diaperView = NO;
+        medzView = NO;
+    }
+    else  {
+        [_scrollView scrollRectToVisible:CGRectMake(600, 0, 200, 170) animated:YES];
+        titsView = NO;
+        bottleView = NO;
+        sleepView = YES;
+        diaperView = YES;
+        medzView = NO;
+    }
 }
 
 - (IBAction)rightTit:(UITapGestureRecognizer *)sender
