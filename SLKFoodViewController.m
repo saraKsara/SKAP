@@ -306,16 +306,43 @@
 - (IBAction)save:(id)sender {
     
     if (titsView) {
-        Tits *tit = [[SLKTittStorage sharedStorage]createTittWithStringValue:_sliderOneLabel.text mililitres:nil minutes:nil leftBoob:leftBoob rightBoob:rightBoob];
-         NSLog(@"lefty: %d \n righty: %d \n", (int)leftBoob, (int)rightBoob);
-        [[SLKEventStorage sharedStorage] createEvenWithHappening:tit date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
+        if (!leftBoob && !rightBoob) {
+            UIAlertView *noChoiceAlert = [[UIAlertView alloc] initWithTitle:@"No breast choosen"
+                                                                    message:@"You have to choose right, left or both breasts"
+                                                                   delegate:self
+                                                          cancelButtonTitle:@"OK"
+                                                          otherButtonTitles:nil, nil];
+            [noChoiceAlert show];
+            
+        } else {
+            Tits *tit = [[SLKTittStorage sharedStorage]createTittWithStringValue:_sliderOneLabel.text mililitres:nil minutes:nil leftBoob:leftBoob rightBoob:rightBoob];
+            NSLog(@"lefty: %d \n righty: %d \n", (int)leftBoob, (int)rightBoob);
+            [[SLKEventStorage sharedStorage] createEvenWithHappening:tit date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
+            leftBoob = NO;
+            [_leftTit setImage:[UIImage imageNamed:@"tits.png"]];
+            rightBoob = NO;
+            [_rightTit setImage:[UIImage imageNamed:@"tits.png"]];
+            
+        }
+        
         
     }else if (bottleView)
     {
-  Bottle *bottle = [[SLKBottleStorage sharedStorage] createBottleWithStringValue:nil mililitres:[NSNumber numberWithFloat:bottledFood] minutes:nil];
-
-    [[SLKEventStorage sharedStorage]createEvenWithHappening:bottle date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
-        
+        if (bottledFood == 0 ) {
+            UIAlertView *noChoiceAlert = [[UIAlertView alloc] initWithTitle:@"No milk choosen"
+                                                                    message:@"You have to set how much your baby ate. Use the slider to set how much your baby ate"
+                                                                   delegate:self
+                                                          cancelButtonTitle:@"OK"
+                                                          otherButtonTitles:nil, nil];
+            [noChoiceAlert show];
+        }else {
+            Bottle *bottle = [[SLKBottleStorage sharedStorage] createBottleWithStringValue:nil mililitres:[NSNumber numberWithFloat:bottledFood] minutes:nil];
+            
+            [[SLKEventStorage sharedStorage]createEvenWithHappening:bottle date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
+            bottledFood = 0;
+            [_sliderOne setValue:0];
+               _sliderOneLabel.text = [NSString stringWithFormat:@" %.f ml",_sliderOne.value];
+        }
     }else if (sleepView)
     {
         NSNumber *labelNumber = [NSNumber numberWithInt:[_sliderOneLabel.text intValue]];
@@ -324,7 +351,7 @@
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadCalendar" object:nil];
-
+    
 }
 
 
