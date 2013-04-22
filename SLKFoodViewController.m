@@ -306,17 +306,16 @@
 - (IBAction)save:(id)sender {
     
     if (titsView) {
-        Tits *tit = [[SLKTittStorage sharedStorage]createTittWithStringValue:_sliderOneLabel.text mililitres:[NSNumber numberWithFloat:bottledFood] minutes:nil leftBoob:YES rightBoob:NO];
-        
-        //if tit milk was messured in minutes
-      
-        
+        Tits *tit = [[SLKTittStorage sharedStorage]createTittWithStringValue:_sliderOneLabel.text mililitres:nil minutes:nil leftBoob:leftBoob rightBoob:rightBoob];
+         NSLog(@"lefty: %d \n righty: %d \n", (int)leftBoob, (int)rightBoob);
         [[SLKEventStorage sharedStorage] createEvenWithHappening:tit date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
+        
     }else if (bottleView)
     {
   Bottle *bottle = [[SLKBottleStorage sharedStorage] createBottleWithStringValue:nil mililitres:[NSNumber numberWithFloat:bottledFood] minutes:nil];
 
     [[SLKEventStorage sharedStorage]createEvenWithHappening:bottle date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
+        
     }else if (sleepView)
     {
         NSNumber *labelNumber = [NSNumber numberWithInt:[_sliderOneLabel.text intValue]];
@@ -437,19 +436,19 @@
     [self loadVisiblePages];
 }
 
--(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
-{
-    if([gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]])
-    {
-        [gestureRecognizer addTarget:self action:@selector(leftTit:)];
-        NSLog(@"LeftTit PRESSED");
-
-        
-    }
-    NSLog(@"LeftTit PRESSED");
-
-    return YES;
-}
+//-(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+//{
+//    if([gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]])
+//    {
+//        [gestureRecognizer addTarget:self action:@selector(leftTit:)];
+//        NSLog(@"LeftTit PRESSED");
+//
+//        
+//    }
+//    NSLog(@"LeftTit PRESSED");
+//
+//    return YES;
+//}
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
@@ -462,7 +461,12 @@
     if (leftBoob)   [_leftTit setImage:[UIImage imageNamed:@"titsPink.png"]];
     else [_leftTit setImage:[UIImage imageNamed:@"tits.png"]];
 }
-
+- (IBAction)rightTit:(UITapGestureRecognizer *)sender
+{
+    rightBoob = !rightBoob;
+    if (rightBoob)   [_rightTit setImage:[UIImage imageNamed:@"titsPink.png"]];
+    else [_rightTit setImage:[UIImage imageNamed:@"tits.png"]];
+}
 
 - (IBAction)nextArrow:(UITapGestureRecognizer *)sender
 {
@@ -538,12 +542,7 @@
     }
 }
 
-- (IBAction)rightTit:(UITapGestureRecognizer *)sender
-{
-    rightBoob = !rightBoob;
-    if (rightBoob)   [_rightTit setImage:[UIImage imageNamed:@"titsPink.png"]];
-    else [_rightTit setImage:[UIImage imageNamed:@"tits.png"]];
-}
+
 
 - (IBAction)showOverview:(id)sender {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"calendar" bundle:nil];
@@ -583,6 +582,7 @@
     } else if (bottleView)
     {
     _sliderOneLabel.text = [NSString stringWithFormat:@" %.f ml",_sliderOne.value];
+         bottledFood = _sliderOne.value;
     }
     else if (sleepView)
     {
