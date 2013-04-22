@@ -100,7 +100,9 @@
     self.view.backgroundColor = [UIColor clearColor];
     
     
-     [_leftTit setImage:[UIImage imageNamed:@"tits.png"]];
+    // [_leftTit setImage:[UIImage imageNamed:@"tits.png"]];
+    
+    
     checkDirection = 30;
     date = [NSDate date];
     time = [SLKDateUtil formatTimeFromDate:date];
@@ -116,6 +118,16 @@
 {
     [super viewDidLoad];
      _universalSliderText.text = [NSString stringWithFormat:@"log how much %@ ate ", currentBabe.name];
+    
+    [_prevArrow setUserInteractionEnabled:YES];
+    UITapGestureRecognizer *prevArrowTapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(prewArrow:)];
+    [_prevArrow addGestureRecognizer:prevArrowTapped];
+    
+    [_nextArrow setUserInteractionEnabled:YES];
+    UITapGestureRecognizer *nexttArrowTapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(nextArrow:)];
+    [_nextArrow addGestureRecognizer:nexttArrowTapped];
+    
+    
     UITapGestureRecognizer *rightTitTapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(rightTit:)];
     
     [_rightTit addGestureRecognizer:rightTitTapped];
@@ -124,7 +136,8 @@
     
     [_leftTit addGestureRecognizer:leftTitTapped];
     
-    self.pageViews = [NSMutableArray arrayWithObjects:_bottleView, _breastView, _sleepView,_diaperView, nil];
+    self.pageViews = [NSMutableArray arrayWithObjects:_bottleView, _breastView, _sleepView,_diaperView,_medzView, nil];
+    
     NSInteger pageCount = self.pageViews.count;
     NSLog(@"number of views:%i",pageCount);
     
@@ -186,65 +199,83 @@
     
     if ( self.pageControll.currentPage == 0)     
     {
-    titsView = YES;
+        titsView = YES;
+        bottleView = NO;
+        sleepView = NO;
+        diaperView = NO;
+        medzView = NO;
+        
         _UniversalLabel.text = @"Breast feed";
         _sliderOne.maximumValue = 350;
         [_sliderTwo setHidden:YES];
         [_sliderTwoLabel setHidden:YES];
         _universalSliderText.text = [NSString stringWithFormat:@"log how much %@ ate", currentBabe.name];
-    bottleView = NO;
-    sleepView = NO;
-    diaperView = NO;
-    medzView = NO;
+
     }
     else if (self.pageControll.currentPage == 1)
     {
-    titsView = NO;
-    bottleView = YES;
+        titsView = NO;
+        bottleView = YES;
+        sleepView = NO;
+        diaperView = NO;
+        medzView = NO;
+        
         _UniversalLabel.text = @"Bottled feed";
         [_sliderTwo setHidden:YES];
         [_sliderTwoLabel setHidden:YES];
         _sliderOne.maximumValue = 350;
         _universalSliderText.text = [NSString stringWithFormat:@"log how much %@ ate ", currentBabe.name];
 
-    sleepView = NO;
-    diaperView = NO;
-    medzView = NO;
+   
     }
     else if (self.pageControll.currentPage == 2)
     {
-    titsView = NO;
-    bottleView = NO;
-    sleepView = YES;
+        titsView = NO;
+        bottleView = NO;
+        sleepView = YES;
+        diaperView = NO;
+        medzView = NO;
+        
          _UniversalLabel.text = @"sleep time";
         [_sliderTwo setHidden:NO];
         _sliderTwoLabel.hidden = NO;
         _sliderOne.maximumValue = 240;
         _universalSliderText.text = [NSString stringWithFormat:@"log how long %@ slept ", currentBabe.name];
      
-    diaperView = NO;
-    medzView = NO;
+  
     }else if (self.pageControll.currentPage == 3)
     {
         titsView = NO;
         bottleView = NO;
         sleepView = NO;
+        diaperView = YES;
+        medzView = NO;
+        
         _UniversalLabel.text = @"diaper log";
         [_sliderTwo setHidden:YES];
         _sliderTwoLabel.hidden = YES;
         _sliderOne.maximumValue = 240;
-        _universalSliderText.text = [NSString stringWithFormat:@"log how long %@ slept ", currentBabe.name];
+        _universalSliderText.text = [NSString stringWithFormat:@"log how much %@ pooped ", currentBabe.name];
         
-        diaperView = YES;
-        medzView = NO;
+    }else if (self.pageControll.currentPage == 4)
+    {
+        titsView = NO;
+        bottleView = NO;
+        sleepView = NO;
+        diaperView = NO;
+        medzView = YES;
+        
+        _UniversalLabel.text = @"medecine log";
+        [_sliderTwo setHidden:YES];
+        _sliderTwoLabel.hidden = YES;
+        _sliderOne.maximumValue = 240;
+        _universalSliderText.text = [NSString stringWithFormat:@"log how much drugs %@ did ", currentBabe.name];
+        
     }
 
     NSLog(@"tits: %d \n bottle: %d \n sleep %d", (int)titsView, (int)bottleView, (int)sleepView);
 
 //    else if (self.pageControll.currentPage == 3) [self setCurrentViewWithBool:titsView];
-  
-
-
 }
 
 - (void)purgePage:(NSInteger)page {
@@ -379,6 +410,9 @@
     [self setOverview:nil];
     [self setUniversalSliderText:nil];
     [self setDiaperView:nil];
+    [self setMedzView:nil];
+    [self setPrevArrow:nil];
+    [self setNextArrow:nil];
     [super viewDidUnload];
     
     self.scrollView = nil;
@@ -427,6 +461,17 @@
     leftBoob = !leftBoob;
     if (leftBoob)   [_leftTit setImage:[UIImage imageNamed:@"titsPink.png"]];
     else [_leftTit setImage:[UIImage imageNamed:@"tits.png"]];
+}
+
+
+- (IBAction)nextArrow:(UITapGestureRecognizer *)sender
+{
+    NSLog(@"nextArrow");
+}
+
+- (IBAction)prewArrow:(UITapGestureRecognizer *)sender
+{
+    NSLog(@"prewArrow");
 }
 
 - (IBAction)rightTit:(UITapGestureRecognizer *)sender
