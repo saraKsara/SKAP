@@ -9,11 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface SLKFoodViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate>
-@property (weak, nonatomic) IBOutlet UILabel *overview;
+
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, strong) NSMutableArray *pageViews;
 
-- (IBAction)showOverview:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UILabel *universalSliderText;
 

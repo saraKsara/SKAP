@@ -100,6 +100,15 @@
 		CE5944D016F9A67200D9D33A /* SLKMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5944CF16F9A67200D9D33A /* SLKMainViewController.m */; };
 		CE5944D416F9A79800D9D33A /* SLKFoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5944D316F9A79800D9D33A /* SLKFoodViewController.m */; };
 		CE5944D716F9A7B700D9D33A /* SLKPiiPooViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5944D616F9A7B700D9D33A /* SLKPiiPooViewController.m */; };
+		CE786ECA172546F5009F5C0C /* feathers.png in Resources */ = {isa = PBXBuildFile; fileRef = CE786EC9172546F5009F5C0C /* feathers.png */; };
+		CE786ECC17254B6E009F5C0C /* border.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE786ECB17254B6E009F5C0C /* border.jpg */; };
+		CE786ECE17254CBC009F5C0C /* border1.png in Resources */ = {isa = PBXBuildFile; fileRef = CE786ECD17254CBC009F5C0C /* border1.png */; };
+		CE786ED017255573009F5C0C /* feaderbord.png in Resources */ = {isa = PBXBuildFile; fileRef = CE786ECF17255573009F5C0C /* feaderbord.png */; };
+		CE786ED2172556E2009F5C0C /* bord.png in Resources */ = {isa = PBXBuildFile; fileRef = CE786ED1172556E2009F5C0C /* bord.png */; };
+		CE786ED417255C56009F5C0C /* skit.png in Resources */ = {isa = PBXBuildFile; fileRef = CE786ED317255C56009F5C0C /* skit.png */; };
+		CE786ED817256E9A009F5C0C /* dots.png in Resources */ = {isa = PBXBuildFile; fileRef = CE786ED717256E9A009F5C0C /* dots.png */; };
+		CE786EDC172576AF009F5C0C /* pinn.png in Resources */ = {isa = PBXBuildFile; fileRef = CE786EDB172576AF009F5C0C /* pinn.png */; };
+		CE786EDE17257FC0009F5C0C /* ram.png in Resources */ = {isa = PBXBuildFile; fileRef = CE786EDD17257FC0009F5C0C /* ram.png */; };
 		CEB5B5411716F475000D05DC /* poppis.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEB5B5401716F475000D05DC /* poppis.jpg */; };
 		CEB7EEDD1714851500D11E2B /* Sleep.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB7EEDC1714851400D11E2B /* Sleep.m */; };
 		CEB7EEE3171485D600D11E2B /* SLKSleepStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB7EEE2171485D600D11E2B /* SLKSleepStorage.m */; };
@@ -264,6 +273,15 @@
 		CE5944D316F9A79800D9D33A /* SLKFoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKFoodViewController.m; sourceTree = "<group>"; };
 		CE5944D516F9A7B700D9D33A /* SLKPiiPooViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKPiiPooViewController.h; sourceTree = "<group>"; };
 		CE5944D616F9A7B700D9D33A /* SLKPiiPooViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPiiPooViewController.m; sourceTree = "<group>"; };
+		CE786EC9172546F5009F5C0C /* feathers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feathers.png; sourceTree = "<group>"; };
+		CE786ECB17254B6E009F5C0C /* border.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = border.jpg; sourceTree = "<group>"; };
+		CE786ECD17254CBC009F5C0C /* border1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = border1.png; sourceTree = "<group>"; };
+		CE786ECF17255573009F5C0C /* feaderbord.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feaderbord.png; sourceTree = "<group>"; };
+		CE786ED1172556E2009F5C0C /* bord.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bord.png; sourceTree = "<group>"; };
+		CE786ED317255C56009F5C0C /* skit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skit.png; sourceTree = "<group>"; };
+		CE786ED717256E9A009F5C0C /* dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dots.png; sourceTree = "<group>"; };
+		CE786EDB172576AF009F5C0C /* pinn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinn.png; sourceTree = "<group>"; };
+		CE786EDD17257FC0009F5C0C /* ram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ram.png; sourceTree = "<group>"; };
 		CEB5B5401716F475000D05DC /* poppis.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = poppis.jpg; sourceTree = "<group>"; };
 		CEB7EEDB1714851400D11E2B /* Sleep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sleep.h; sourceTree = "<group>"; };
 		CEB7EEDC1714851400D11E2B /* Sleep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sleep.m; sourceTree = "<group>"; };
@@ -505,12 +523,21 @@
 			children = (
 				CE1D76F1170E284B00028416 /* checkedNO.png */,
 				CEBFE2941715F5870010B192 /* smBc.png */,
+				CE786EDD17257FC0009F5C0C /* ram.png */,
 				CEDDEB5E171358820017DE60 /* titsPink.png */,
+				CE786EC9172546F5009F5C0C /* feathers.png */,
+				CE786ECF17255573009F5C0C /* feaderbord.png */,
+				CE786ECD17254CBC009F5C0C /* border1.png */,
+				CE786ED317255C56009F5C0C /* skit.png */,
+				CE786ED1172556E2009F5C0C /* bord.png */,
 				CEBFE2921715F00F0010B192 /* smallViewBackground.png */,
 				CEB5B5401716F475000D05DC /* poppis.jpg */,
+				CE786ED717256E9A009F5C0C /* dots.png */,
 				CEDDEB6217135D750017DE60 /* arrow_03.png */,
+				CE786ECB17254B6E009F5C0C /* border.jpg */,
 				CE1D76F2170E284B00028416 /* checkedYES.png */,
 				CEDDEB6017135C110017DE60 /* titsLabel_03.png */,
+				CE786EDB172576AF009F5C0C /* pinn.png */,
 				CEDDEB5C171355F80017DE60 /* titsSmall.png */,
 				CE3ECB7F170DB444003FE39A /* blojaLyscopy.png */,
 				CEDDEB5A171354590017DE60 /* tits.png */,
@@ -811,6 +838,15 @@
 				CEBFE2951715F5870010B192 /* smBc.png in Resources */,
 				CEBFE29D17161A590010B192 /* arrowDown.png in Resources */,
 				CEB5B5411716F475000D05DC /* poppis.jpg in Resources */,
+				CE786ECA172546F5009F5C0C /* feathers.png in Resources */,
+				CE786ECC17254B6E009F5C0C /* border.jpg in Resources */,
+				CE786ECE17254CBC009F5C0C /* border1.png in Resources */,
+				CE786ED017255573009F5C0C /* feaderbord.png in Resources */,
+				CE786ED2172556E2009F5C0C /* bord.png in Resources */,
+				CE786ED417255C56009F5C0C /* skit.png in Resources */,
+				CE786ED817256E9A009F5C0C /* dots.png in Resources */,
+				CE786EDC172576AF009F5C0C /* pinn.png in Resources */,
+				CE786EDE17257FC0009F5C0C /* ram.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

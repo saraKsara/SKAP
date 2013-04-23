@@ -81,7 +81,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+  //  [self tabBarController];
     leftBoob = NO;
     rightBoob = NO;
     
@@ -190,7 +190,7 @@
         _sliderOne.maximumValue = 350;
         [_sliderTwo setHidden:YES];
         [_sliderTwoLabel setHidden:YES];
-        _universalSliderText.text = [NSString stringWithFormat:@"log how much %@ ate", currentBabe.name];
+        _universalSliderText.text = [NSString stringWithFormat:@" %@ ate", currentBabe.name];
     bottleView = NO;
     sleepView = NO;
     diaperView = NO;
@@ -204,7 +204,7 @@
         [_sliderTwo setHidden:YES];
         [_sliderTwoLabel setHidden:YES];
         _sliderOne.maximumValue = 350;
-        _universalSliderText.text = [NSString stringWithFormat:@"log how much %@ ate ", currentBabe.name];
+        _universalSliderText.text = [NSString stringWithFormat:@" %@ ate ", currentBabe.name];
 
     sleepView = NO;
     diaperView = NO;
@@ -216,10 +216,10 @@
     bottleView = NO;
     sleepView = YES;
          _UniversalLabel.text = @"sleep time";
-        [_sliderTwo setHidden:NO];
-        _sliderTwoLabel.hidden = NO;
+        [_sliderTwo setHidden:YES];
+        _sliderTwoLabel.hidden = YES;
         _sliderOne.maximumValue = 240;
-        _universalSliderText.text = [NSString stringWithFormat:@"log how long %@ slept ", currentBabe.name];
+        _universalSliderText.text = [NSString stringWithFormat:@" %@ slept ", currentBabe.name];
      
     diaperView = NO;
     medzView = NO;
@@ -232,7 +232,7 @@
         [_sliderTwo setHidden:YES];
         _sliderTwoLabel.hidden = YES;
         _sliderOne.maximumValue = 240;
-        _universalSliderText.text = [NSString stringWithFormat:@"log how long %@ slept ", currentBabe.name];
+        _universalSliderText.text = [NSString stringWithFormat:@" %@ slept ", currentBabe.name];
         
         diaperView = YES;
         medzView = NO;
@@ -435,12 +435,6 @@
     else [_rightTit setImage:[UIImage imageNamed:@"tits.png"]];
 }
 
-- (IBAction)showOverview:(id)sender {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"calendar" bundle:nil];
-    SLKDaySummaryViewController *controller = [sb instantiateInitialViewController];
-    controller.food = YES;
-    [self presentModalViewController:controller animated:YES];
-}
 - (IBAction)sliderOneAction:(id)sender {
     if (titsView)
     {
