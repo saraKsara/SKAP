@@ -77,7 +77,6 @@
 }
 -(void)reloadTable
 {
-    
     //[_tableView reloadData];
     [UIView transitionWithView:_tableView
                       duration:0.5f
@@ -102,6 +101,8 @@
     {
         weekView = NO;
         currentDay = [NSDate date];
+        NSLog(@"\n\n\n weekDAY:-----> %d \n\n", [currentDay weekday]);
+
         todate = [currentDay dateByAddingDays:7];
         fromDate = [NSDate date];
          [self reloadTable];
@@ -111,8 +112,45 @@
     {
         weekView = YES;
         currentDay = [NSDate date];
-        todate = [currentDay dateByAddingDays:7];
-        fromDate = [NSDate date];
+        if (currentDay.weekday == 1)//------------------sunday
+        {
+            todate = currentDay;
+            fromDate = [currentDay dateBySubtractingDays:6];//monday?
+            
+        } else if (currentDay.weekday == 2)//------------------monday
+        {
+            todate = [currentDay dateByAddingDays:6];//sunday?
+            fromDate = currentDay;//monday?
+            
+        }  else if (currentDay.weekday == 3)//------------------tuesday
+        {
+            todate = [currentDay dateByAddingDays:5];//sunday?
+            fromDate = [currentDay dateBySubtractingDays:1];//monday?
+            
+        } else if (currentDay.weekday == 4)//------------------wednesday
+        {
+            todate = [currentDay dateByAddingDays:4];//sunday?
+            fromDate = [currentDay dateBySubtractingDays:2];//monday?
+            
+        }  else if (currentDay.weekday == 5)//------------------thursday
+        {
+            todate = [currentDay dateByAddingDays:3];//sunday?
+            fromDate = [currentDay dateBySubtractingDays:3];//monday?
+            
+        }  else if (currentDay.weekday == 6)//------------------friday
+        {
+            todate = [currentDay dateByAddingDays:2];//sunday?
+            fromDate = [currentDay dateBySubtractingDays:4];//monday?
+            
+        } else if (currentDay.weekday == 7)//------------------thursday
+        {
+            todate = [currentDay dateByAddingDays:1];//sunday?
+            fromDate = [currentDay dateBySubtractingDays:5];//monday?
+        }
+      
+        
+        
+        
          [self reloadTable];
            _headerLabel.text = [NSString stringWithFormat:@"%@ \n between %@ - %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: fromDate],[SLKDateUtil formatDateWithoutYear: todate]];
     }
@@ -123,15 +161,12 @@
     if (!weekView) {
     currentDay = [currentDay dateByAddingDays:1];
       _headerLabel.text = [NSString stringWithFormat:@"%@ \n %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
-        NSLog(@"\n\nfromdate:::::: %@\n\n", fromDate);
-        NSLog(@"\n\ntodate:::::: %@\n\n", todate);
+    
          [self reloadTable];
     } else if (weekView){
         fromDate = [fromDate dateByAddingDays:7];
         todate = [todate dateByAddingDays:7];
-        NSLog(@"CD:::::: %@", currentDay);
-        NSLog(@"\n\nfromdate:::::: %@\n\n", fromDate);
-        NSLog(@"\n\ntodate:::::: %@\n\n", todate);
+    
         _headerLabel.text = [NSString stringWithFormat:@"%@ \n between %@ - %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: fromDate],[SLKDateUtil formatDateWithoutYear: todate]];
 
          [self reloadTable];
@@ -144,14 +179,12 @@
     if (!weekView) {
         currentDay = [currentDay dateBySubtractingDays:1];
         _headerLabel.text = [NSString stringWithFormat:@"%@ \n  %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
-        NSLog(@"\n\nfromdate:::::: %@\n\n", fromDate);
-        NSLog(@"\n\ntodate:::::: %@\n\n", todate);
+  
          [self reloadTable];
     } else if (weekView) {
         fromDate = [fromDate dateBySubtractingDays:7];
         todate = [todate dateBySubtractingDays:7];
-        NSLog(@"\n\nfromdate:::::: %@\n\n", fromDate);
-         NSLog(@"\n\ntodate:::::: %@\n\n", todate);
+   
             _headerLabel.text = [NSString stringWithFormat:@"%@ \n between %@ - %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: fromDate],[SLKDateUtil formatDateWithoutYear: todate]];
          [self reloadTable];
     }
@@ -253,25 +286,29 @@ else event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby
         for(Tits *tit in titset)
         {
             NSString *breast;
-            if (tit.rightBoob == [NSNumber numberWithInt:1]) {
+            if (tit.rightBoob == [NSNumber numberWithInt:1] && tit.leftBoob == [NSNumber numberWithInt:0]){
                 breast = @"right";
-            } else if (tit.leftBoob == [NSNumber numberWithInt:1])
+            } else if (tit.leftBoob == [NSNumber numberWithInt:1] && tit.rightBoob == [NSNumber numberWithInt:0])
             {
                 breast = @"left";  
+            } else if (tit.leftBoob == [NSNumber numberWithInt:1] && tit.rightBoob == [NSNumber numberWithInt:1])
+            {
+                breast = @"both";
             }
+             [propertyString appendFormat: @"%@ breast \n %@ ",breast,tit.stringValue];
            // NSLog(@"tit::: %@",tit);
-            if (tit.minutes != nil)
-            {
-            [propertyString appendFormat: @"%@ minutes \n %@ breast",[tit.minutes stringValue], breast];
-            }
-            else if (tit.milliLitres != nil)
-            {
-            [propertyString appendFormat: @"%@ ml \n %@ breast",[tit.milliLitres stringValue], breast];
-            }
-            else if (tit.stringValue != nil)
-            {
-                [propertyString appendFormat: @"%@ breast \n %@ ",breast,tit.stringValue];
-            }
+//            if (tit.minutes != nil)
+//            {
+//            [propertyString appendFormat: @"%@ minutes \n %@ breast",[tit.minutes stringValue], breast];
+//            }
+//            else if (tit.milliLitres != nil)
+//            {
+//            [propertyString appendFormat: @"%@ ml \n %@ breast",[tit.milliLitres stringValue], breast];
+//            }
+//            else if (tit.stringValue != nil)
+//            {
+//                [propertyString appendFormat: @"%@ breast \n %@ ",breast,tit.stringValue];
+//            }
         }
         cell.propertyLabel.text = propertyString;
     }

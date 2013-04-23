@@ -10,6 +10,33 @@
 
 @interface SLKFoodViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate>
 
+
+
+//SLEEP
+@property (weak, nonatomic) IBOutlet UIView *sleepView;
+
+//MEDECINES
+@property (weak, nonatomic) IBOutlet UIView *medzView;
+
+
+//EAT
+
+- (IBAction)leftTit:(UITapGestureRecognizer *)sender;
+- (IBAction)rightTit:(UITapGestureRecognizer *)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *prevArrow;
+@property (weak, nonatomic) IBOutlet UIImageView *nextArrow;
+
+@property (weak, nonatomic) IBOutlet UIImageView *rightTit;
+@property (weak, nonatomic) IBOutlet UIImageView *leftTit;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControll;
+@property (weak, nonatomic) IBOutlet UIView *bottleView;
+@property (weak, nonatomic) IBOutlet UIView *breastView;
+
+//DIAPER
+@property (weak, nonatomic) IBOutlet UIView *diaperView;
+
+//BASE VIEW
+
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, strong) NSMutableArray *pageViews;
 
@@ -26,38 +53,26 @@
 @property (weak, nonatomic) IBOutlet UISlider *sliderTwo;
 - (IBAction)sliderTwoAction:(id)sender;
 
-//SLEEP
-@property (weak, nonatomic) IBOutlet UIView *sleepView;
-
-
-//EAT
-
-
-
-- (IBAction)leftTit:(UITapGestureRecognizer *)sender;
-- (IBAction)rightTit:(UITapGestureRecognizer *)sender;
-
-@property (weak, nonatomic) IBOutlet UIImageView *rightTit;
-@property (weak, nonatomic) IBOutlet UIImageView *leftTit;
-@property (weak, nonatomic) IBOutlet UIPageControl *pageControll;
-@property (weak, nonatomic) IBOutlet UIView *bottleView;
-@property (weak, nonatomic) IBOutlet UIView *breastView;
-@property (weak, nonatomic) IBOutlet UIView *diaperView;
+//PAGE CONTROL
 - (IBAction)valuePageControll:(id)sender;
 - (IBAction)touchUpInsidePageControll:(id)sender;
-@property (weak, nonatomic) IBOutlet UISlider *timeSlider;
-- (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer;
-@property (weak, nonatomic) IBOutlet UILabel *setTimeLabel;
-- (IBAction)save:(id)sender;
-- (IBAction)setTime:(id)sender;
-- (IBAction)sooner:(id)sender;
-- (IBAction)later:(id)sender;
-
--(UIImage*)drawImageWithColor:(UIColor*)color;
 - (void)loadVisiblePages;
 - (void)loadPage:(NSInteger)page;
 - (void)purgePage:(NSInteger)page;
 -(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer;
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognize;
+
+
+@property (weak, nonatomic) IBOutlet UISlider *timeSlider;
+- (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer;
+@property (weak, nonatomic) IBOutlet UILabel *setTimeLabel;
+
+- (IBAction)save:(id)sender;
+- (IBAction)setTime:(id)sender;
+- (IBAction)sooner:(id)sender;
+- (IBAction)later:(id)sender;
+
+//-(UIImage*)drawImageWithColor:(UIColor*)color;
+
 
 @end

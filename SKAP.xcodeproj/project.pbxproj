@@ -11,6 +11,7 @@
 		1C137BDB17049EE800A39F3A /* Diaper.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C137BDA17049EE800A39F3A /* Diaper.storyboard */; };
 		1C137BDD17049EFC00A39F3A /* Medz.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C137BDC17049EFC00A39F3A /* Medz.storyboard */; };
 		1C137BDF17049F2F00A39F3A /* calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C137BDE17049F2F00A39F3A /* calendar.storyboard */; };
+		1C2F0D80171817CB00FBF106 /* bo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2F0D7F171817CB00FBF106 /* bo.png */; };
 		1C34EC781706EC700095F0C2 /* SLKPooStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C34EC771706EC700095F0C2 /* SLKPooStorage.m */; };
 		1C34EC7B1706EED10095F0C2 /* SLKPiiStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C34EC7A1706EED10095F0C2 /* SLKPiiStorage.m */; };
 		1C378B731712A73C006AC9EF /* SLKWelcomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C378B721712A73C006AC9EF /* SLKWelcomeCell.m */; };
@@ -138,6 +139,7 @@
 		1C137BDA17049EE800A39F3A /* Diaper.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Diaper.storyboard; path = SKAP/Diaper.storyboard; sourceTree = "<group>"; };
 		1C137BDC17049EFC00A39F3A /* Medz.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Medz.storyboard; path = SKAP/Medz.storyboard; sourceTree = "<group>"; };
 		1C137BDE17049F2F00A39F3A /* calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = calendar.storyboard; path = SKAP/calendar.storyboard; sourceTree = "<group>"; };
+		1C2F0D7F171817CB00FBF106 /* bo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bo.png; sourceTree = "<group>"; };
 		1C34EC761706EC700095F0C2 /* SLKPooStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKPooStorage.h; sourceTree = "<group>"; };
 		1C34EC771706EC700095F0C2 /* SLKPooStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPooStorage.m; sourceTree = "<group>"; };
 		1C34EC791706EED10095F0C2 /* SLKPiiStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKPiiStorage.h; sourceTree = "<group>"; };
@@ -532,7 +534,8 @@
 				CE786ED1172556E2009F5C0C /* bord.png */,
 				CEBFE2921715F00F0010B192 /* smallViewBackground.png */,
 				CEB5B5401716F475000D05DC /* poppis.jpg */,
-				CE786ED717256E9A009F5C0C /* dots.png */,
+				1C2F0D7F171817CB00FBF106 /* bo.png */,
+
 				CEDDEB6217135D750017DE60 /* arrow_03.png */,
 				CE786ECB17254B6E009F5C0C /* border.jpg */,
 				CE1D76F2170E284B00028416 /* checkedYES.png */,
@@ -838,6 +841,7 @@
 				CEBFE2951715F5870010B192 /* smBc.png in Resources */,
 				CEBFE29D17161A590010B192 /* arrowDown.png in Resources */,
 				CEB5B5411716F475000D05DC /* poppis.jpg in Resources */,
+
 				CE786ECA172546F5009F5C0C /* feathers.png in Resources */,
 				CE786ECC17254B6E009F5C0C /* border.jpg in Resources */,
 				CE786ECE17254CBC009F5C0C /* border1.png in Resources */,
@@ -847,6 +851,9 @@
 				CE786ED817256E9A009F5C0C /* dots.png in Resources */,
 				CE786EDC172576AF009F5C0C /* pinn.png in Resources */,
 				CE786EDE17257FC0009F5C0C /* ram.png in Resources */,
+
+				1C2F0D80171817CB00FBF106 /* bo.png in Resources */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
