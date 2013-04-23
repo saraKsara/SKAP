@@ -18,9 +18,10 @@
 #import "SLKBabyStorage.h"
 #import "Baby.h"
 #import "SLKAddBabyViewController.h"
-#import "SLKWelcomeCell.h"
 #import "SLKParentStorage.h"
 #import "ParentFigures.h"
+#import "SLKColors.h"
+
 @interface SLKSettingsViewController ()
 
 @end
@@ -59,7 +60,8 @@
       controller = [[SLKAddBabyViewController alloc] init];
     currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
     currentParent = [[SLKParentStorage sharedStorage]getCurrentParent];
-    NSLog(@"current parent: %@", currentParent.name);
+    NSLog(@"current baby: %@", currentBabe.name);
+    
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(login)
@@ -89,24 +91,22 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return _firstTime ? 1 : 2;
+    return 3;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (!_firstTime) {
-        if (section == 1)   return [[[SLKParentStorage sharedStorage] parentArray] count];
-        else                return 3;
-    } else {
-        return 1;
-    }
+    
+    if (section == 0)           return 3;
+    else if (section == 1)      return [[[SLKParentStorage sharedStorage] parentArray] count];
+    else                        return [[[SLKBabyStorage sharedStorage] babyArray] count];
 }
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    if (!_firstTime) {
+   // if (!_firstTime) {
         static NSString *CellIdentifier = @"settingCell";
         //SLKParentListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
         SLKParentListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -129,25 +129,32 @@
             }
             return cell;
         }
-        else
+        else  if (indexPath.section == 1) //show list of parents
         {
             //set color on every parent? //TODO: set signature!
             ParentFigures *parent = [[[SLKParentStorage sharedStorage] parentArray] objectAtIndex:indexPath.row];
              if ([parent.parentId isEqualToString:currentParent.parentId]) {
                  [cell setBackgroundColor:[UIColor redColor]];
-                  [cell.nameLabel setTextColor:[UIColor redColor]];
+//                  [cell.nameLabel setTextColor:[UIColor colorWithHexValue:parent.parentColor]];
              }
             cell.nameLabel.text = parent.name;
             cell.signatureLabel.text = parent.signature;
             cell.numberTextView.text = parent.number;
             return cell;
+        } else {  //show list of babies
+
+            Baby *babe = [[[SLKBabyStorage sharedStorage] babyArray] objectAtIndex:indexPath.row];
+            if ([babe.babyId isEqualToString:currentBabe.babyId]) {
+//                [cell.nameLabel setTextColor:[UIColor colorWithHexValue:babe.babysColor]];
+                cell.nameLabel.textColor = [UIColor redColor];
+            }
+            cell.nameLabel.text = babe.name;
+            [cell.signatureLabel setHidden:YES];
+            [cell.numberTextView setHidden:YES];
+            return cell;
         }
-    }
-    else {
-        SLKWelcomeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"welcomeCell"];
- 
-        return cell;
-    }
+   // }
+
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -165,6 +172,19 @@
     [view addSubview:title];
     
     return  view;
+    } else  if (section == 2) {
+        
+        UILabel *title = [[UILabel alloc] init];
+        title.frame = CGRectMake(0, 0, 320, 30);
+        title.textColor = [UIColor whiteColor];
+        title.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:13.0f];
+        title.text =  @"All babies";
+        title.backgroundColor = [UIColor blackColor];
+        
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+        [view addSubview:title];
+        
+        return  view;
     }
     else return nil;
 }
@@ -172,7 +192,6 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (_firstTime) {
-         //[self performSegueWithIdentifier:@"addBabyNParentSeg" sender:self];
     } else {
     
     if (indexPath.section == 0){
@@ -194,8 +213,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (_firstTime)     return 455;
-     else               return 44;
+  return 44;
     
 }
 
