@@ -33,6 +33,20 @@
 
 //DIAPER
 @property (weak, nonatomic) IBOutlet UIView *diaperView;
+@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *diaperLabels;
+- (IBAction)check:(id)sender;
+//POO
+@property (weak, nonatomic) IBOutlet UIButton *normalPoo;
+@property (weak, nonatomic) IBOutlet UIButton *tooMuchPoo;
+@property (weak, nonatomic) IBOutlet UIButton *tooLittlePoo;
+//PII
+@property (weak, nonatomic) IBOutlet UIButton *normalPii;
+@property (weak, nonatomic) IBOutlet UIButton *tooMuchPii;
+
+@property (weak, nonatomic) IBOutlet UIButton *tooLittlePii;
+
+
+
 
 //BASE VIEW
 @property (weak, nonatomic) IBOutlet UILabel *overview;

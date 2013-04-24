@@ -14,6 +14,8 @@
 
 +(void)setTheCurrentBabe:(NSString*)babyId;
 
++(void)setTheCurrentBaby:(NSString *)babyId OnCompleted: (void (^)()) completed;
+
 +(void)setTheCurrentParent:(NSString *)parentId;
 
 +(NSString*)getTheCurrentParent;

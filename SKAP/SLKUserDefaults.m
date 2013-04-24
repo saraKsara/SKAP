@@ -18,6 +18,16 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
++(void)setTheCurrentBaby:(NSString *)babyId OnCompleted: (void (^)()) completed
+{
+    [[NSUserDefaults standardUserDefaults] setObject:babyId forKey:@"currentBaby"];
+    NSLog(@"set userDefault currentbaby id : %@", babyId);
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    if(completed) {
+        completed();
+    }
+}
+
 +(NSString*)getTheCurrentBabe
 {
     return [[NSUserDefaults standardUserDefaults] stringForKey:@"currentBaby"];

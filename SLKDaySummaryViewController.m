@@ -78,6 +78,8 @@
 -(void)reloadTable
 {
     //[_tableView reloadData];
+    currentBaby = [[SLKBabyStorage sharedStorage] getCurrentBaby];
+
     [UIView transitionWithView:_tableView
                       duration:0.5f
                        options:UIViewAnimationOptionTransitionCrossDissolve

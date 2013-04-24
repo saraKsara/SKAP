@@ -58,6 +58,7 @@
 
     
     checkDirection = 30;
+    
     piiToAddNormal = NO;
     piiToAddTooMuch = NO;
     piiToAddTooLittle = NO;
