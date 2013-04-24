@@ -50,17 +50,18 @@
 {
     if ([segue.identifier isEqualToString:@"addBabyNParentSeg"]) {
         SLKAddBabyViewController *addVc = [segue destinationViewController];
-        addVc.addBabyMode = !_firstTime;
+//        addVc.addBabyMode = !_firstTime;
+        addVc.addBabyMode = NO;
     }
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-     if ([[[SLKParentStorage sharedStorage]parentArray]count] == 0 ) {
-         _firstTime = YES;
-     } else{
-         _firstTime = NO;
-     }
+//     if ([[[SLKParentStorage sharedStorage]parentArray]count] == 0 ) {
+//         _firstTime = YES; //TODO: is this really the first time???
+//     } else{
+//         _firstTime = NO;
+//     }
       controller = [[SLKAddBabyViewController alloc] init];
     currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
     currentParent = [[SLKParentStorage sharedStorage]getCurrentParent];
@@ -142,6 +143,7 @@
 //                  [cell.nameLabel setTextColor:[UIColor colorWithHexValue:parent.parentColor]];
              }
             cell.nameLabel.text = parent.name;
+            cell.nameLabel.textColor = [UIColor colorWithHexValue:parent.parentColor];
             cell.signatureLabel.text = parent.signature;
             cell.numberTextView.text = parent.number;
             return cell;
@@ -156,6 +158,7 @@
                 checkedIndexPath = indexPath;
             }
             cell.nameLabel.text = babe.name;
+            cell.nameLabel.textColor = [UIColor colorWithHexValue:babe.babysColor];
             [cell.signatureLabel setHidden:YES];
             [cell.numberTextView setHidden:YES];
             return cell;

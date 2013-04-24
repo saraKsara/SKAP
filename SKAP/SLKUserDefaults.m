@@ -8,7 +8,6 @@
 
 #import "SLKUserDefaults.h"
 
-
 @implementation SLKUserDefaults
 
 +(void)setTheCurrentBabe:(NSString *)babyId

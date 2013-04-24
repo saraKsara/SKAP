@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-@class Baby, ParentFigures;
 @interface SLKUserDefaults : NSObject
 
 +(NSString*)getTheCurrentBabe;
