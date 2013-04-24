@@ -51,7 +51,7 @@
     if ([segue.identifier isEqualToString:@"addBabyNParentSeg"]) {
         SLKAddBabyViewController *addVc = [segue destinationViewController];
 //        addVc.addBabyMode = !_firstTime;
-        addVc.addBabyMode = NO;
+        addVc.addBabyMode = YES;
     }
 }
 - (void)viewDidLoad
@@ -77,7 +77,12 @@
 {
     [super viewWillAppear:animated];
     [[[self navigationController] navigationBar] setHidden:YES];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(newBaby)
+                                                 name:@"newBaby"
+                                               object:nil];
 }
+
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -87,6 +92,14 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void)newBaby
+{
+    NSLog(@"new baby");
+     currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadCalendar" object:nil];
+    [[self tableView] reloadData];
+
 }
 -(void)login
 {
@@ -151,6 +164,7 @@
         else //show list of babies
         {  
             Baby *babe = [[[SLKBabyStorage sharedStorage] babyArray] objectAtIndex:indexPath.row];
+             [cell setAccessoryType:UITableViewCellAccessoryNone];
             if ([babe.babyId isEqualToString:currentBabe.babyId]) {
 //                [cell.nameLabel setTextColor:[UIColor colorWithHexValue:babe.babysColor]];
                 [cell setAccessoryType:UITableViewCellAccessoryCheckmark];

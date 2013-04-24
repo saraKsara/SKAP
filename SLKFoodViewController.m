@@ -29,6 +29,7 @@
 #import "SLKSettingsViewController.h"
 #import "SLKSleepStorage.h"
 #import "SLKDaySummaryViewController.h"
+#import "SLKUserDefaults.h"
 @interface SLKFoodViewController ()
 
 @end
@@ -96,11 +97,14 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+     currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
+    if (currentBabe == NULL) {
+        NSLog(@"no babies, set up one");//TODO: this!
+    }
     leftBoob = NO;
     rightBoob = NO;
     
-    currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
+   
     
     nullValue = [NSNull null];
     // Set up the content size of the scroll view
