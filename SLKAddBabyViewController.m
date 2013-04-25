@@ -165,8 +165,11 @@
              [[SLKParentStorage sharedStorage] setCurrentParent:theNewParent];
            
              //TODO: add a baby by reloading this view
+             
+//             [_setSignatureLabel setHidden:YES];
+//             [_setSignatureTextField setHidden:YES];
+             
             [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpApp" object:nil userInfo:nil];
-
             [[self navigationController] popViewControllerAnimated:YES];
 //
          } onFailure:^(PFObject *object)
