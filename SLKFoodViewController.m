@@ -277,7 +277,7 @@
 
 -(void)setTheBreastView
 {
-    [self setSliderOneLabelBreast];
+//    [self setSliderOneLabelBreast];
 
    [self hideTheDiaperSetUp];
     [_sliderOne setHidden:NO];
@@ -801,10 +801,10 @@
 }
 - (IBAction)sliderOneAction:(id)sender
 {
-    if (titsView)           [self setSliderOneLabelBreast];
-    else if (bottleView)    [self setSliderOneLabelBottle];
-    else if (sleepView)     [self setSliderOneLabelSleep];
-    else if (medzView)     [self setSliderOneLabelMedz];
+//    if (titsView)           [self setSliderOneLabelBreast];
+//    else if (bottleView)    [self setSliderOneLabelBottle];
+//    else if (sleepView)     [self setSliderOneLabelSleep];
+//    else if (medzView)     [self setSliderOneLabelMedz];
 }
 - (IBAction)sliderTwoAction:(id)sender {
 }
