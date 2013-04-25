@@ -31,7 +31,6 @@
                                 <rect key="frame" x="-54" y="0.0" width="385" height="529"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-<<<<<<< HEAD
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="smallViewBackground.png" id="wbM-O8-z7T">
                                         <rect key="frame" x="46" y="-11" width="339" height="470"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -56,7 +55,6 @@
                                     </imageView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" indicatorStyle="black" id="0eI-uv-4ps">
                                         <rect key="frame" x="115" y="29" width="200" height="222"/>
-=======
                                     <view contentMode="scaleToFill" id="FHf-fl-37n">
                                         <rect key="frame" x="54" y="0.0" width="320" height="220"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -83,7 +81,7 @@
                                     </imageView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" indicatorStyle="black" id="0eI-uv-4ps">
                                         <rect key="frame" x="116" y="0.0" width="200" height="222"/>
->>>>>>> 21e99214763526276595e7131e0f744f76597c9c
+21e99214763526276595e7131e0f744f76597c9c
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" id="r4O-od-KRB" userLabel="tits">
@@ -329,12 +327,10 @@
                         <outlet property="breastView" destination="r4O-od-KRB" id="xxf-ky-EIt"/>
                         <outlet property="diaperView" destination="844-eU-q0h" id="Fv9-p7-Rek"/>
                         <outlet property="leftTit" destination="aNo-Ha-YfG" id="ZrK-LG-bc3"/>
-<<<<<<< HEAD
-=======
                         <outlet property="medzView" destination="FVD-SB-a8K" id="iet-1B-9sS"/>
                         <outlet property="nextArrow" destination="xEF-e9-iKb" id="5ll-EE-0yw"/>
                         <outlet property="overview" destination="K0C-tQ-pOI" id="7YD-ws-Nyq"/>
->>>>>>> 21e99214763526276595e7131e0f744f76597c9c
+21e99214763526276595e7131e0f744f76597c9c
                         <outlet property="pageControll" destination="7Nu-Q4-Zon" id="t6x-ga-TTJ"/>
                         <outlet property="prevArrow" destination="hXL-8K-0wB" id="acw-dz-O8n"/>
                         <outlet property="rightTit" destination="RCL-v7-2zT" id="rFj-OU-hUZ"/>
@@ -448,8 +444,6 @@
         <image name="smallViewBackground.png" width="320" height="300"/>
         <image name="tits.png" width="317" height="317"/>
     </resources>
-<<<<<<< HEAD
-=======
     <classes>
         <class className="SLKAddBabyCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKAddBabyCell.h"/>
@@ -510,7 +504,7 @@
             </relationships>
         </class>
     </classes>
->>>>>>> 21e99214763526276595e7131e0f744f76597c9c
+21e99214763526276595e7131e0f744f76597c9c
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
