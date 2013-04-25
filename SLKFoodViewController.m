@@ -97,10 +97,14 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+
      currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
     if (currentBabe == NULL) {
         NSLog(@"no babies, set up one");//TODO: this!
     }
+
+  //  [self tabBarController];
+
     leftBoob = NO;
     rightBoob = NO;
     
@@ -242,6 +246,7 @@
         [self.pageViews replaceObjectAtIndex:page withObject:newPageView];
     }
     
+
     if ( self.pageControll.currentPage == 0)        [self setTheBreastView];
     
     else if (self.pageControll.currentPage == 1)    [self setTheBottleView];
@@ -251,7 +256,7 @@
     else if (self.pageControll.currentPage == 3)    [self setTheDiaperView];
         
     else if (self.pageControll.currentPage == 4)    [self setTheMedzView];
-    
+
 
   //  NSLog(@"tits: %d \n bottle: %d \n sleep %d", (int)titsView, (int)bottleView, (int)sleepView);
 
@@ -577,6 +582,7 @@
         
         float timeDiff = ceil(diff/(60));
         int setMin = (NSInteger)(timeDiff);
+       
         date = [date dateBySubtractingMinutes:setMin];
         time = [SLKDateUtil formatTimeFromDate:date];
         _setTimeLabel.text = time;
@@ -647,7 +653,6 @@
     [self setSliderOne:nil];
     [self setSliderTwoLabel:nil];
     [self setSliderTwo:nil];
-    [self setOverview:nil];
     [self setUniversalSliderText:nil];
     [self setDiaperView:nil];
     [self setMedzView:nil];
@@ -696,6 +701,7 @@
     if (rightBoob)   [_rightTit setImage:[UIImage imageNamed:@"titsPink.png"]];
     else [_rightTit setImage:[UIImage imageNamed:@"tits.png"]];
 }
+
 
 - (IBAction)nextArrow:(UITapGestureRecognizer *)sender
 {
@@ -772,37 +778,6 @@
 }
 
 
-
-- (IBAction)showOverview:(id)sender {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"calendar" bundle:nil];
-    SLKDaySummaryViewController *controller = [sb instantiateInitialViewController];
-    controller.food = YES;
-    [self presentModalViewController:controller animated:YES];
-}
-
--(void)setSliderOneLabelBreast
-{
-    _sliderOneLabel.text = @"Titty";
-    if (_sliderOne.value < 58)
-    {
-        _sliderOneLabel.text = @" extra small meal";
-    } else  if (_sliderOne.value > 58 && _sliderOne.value < 116)
-    {
-        _sliderOneLabel.text = @" small meal";
-    } else  if (_sliderOne.value > 116  && _sliderOne.value < 174)
-    {
-        _sliderOneLabel.text = @" small medium meal";
-    }else  if (_sliderOne.value > 174 && _sliderOne.value < 232)
-    {
-        _sliderOneLabel.text = @" medium meal";
-    }else  if (_sliderOne.value > 232 && _sliderOne.value < 290)
-    {
-        _sliderOneLabel.text = @" big medium meal";
-    }else  if (_sliderOne.value > 290)
-    {
-        _sliderOneLabel.text = @" large meal";
-    }
-}
 -(void)setSliderOneLabelBottle
 {
     _sliderOneLabel.text = [NSString stringWithFormat:@" %.f ml",_sliderOne.value];

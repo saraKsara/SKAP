@@ -11,6 +11,7 @@
 @interface SLKFoodViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate>
 
 
+
 //SLEEP
 @property (weak, nonatomic) IBOutlet UIView *sleepView;
 
@@ -49,11 +50,10 @@
 
 
 //BASE VIEW
-@property (weak, nonatomic) IBOutlet UILabel *overview;
+
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, strong) NSMutableArray *pageViews;
 
-- (IBAction)showOverview:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UILabel *universalSliderText;
 
