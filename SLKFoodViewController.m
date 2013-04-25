@@ -81,7 +81,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+  //  [self tabBarController];
     leftBoob = NO;
     rightBoob = NO;
     currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
@@ -209,6 +209,14 @@
         _sliderOne.maximumValue = 350;
         [_sliderTwo setHidden:YES];
         [_sliderTwoLabel setHidden:YES];
+        
+        
+        _universalSliderText.text = [NSString stringWithFormat:@" %@ ate", currentBabe.name];
+    bottleView = NO;
+    sleepView = NO;
+    diaperView = NO;
+    medzView = NO;
+
         _universalSliderText.text = [NSString stringWithFormat:@"log how much %@ ate", currentBabe.name];
 
     }
@@ -224,7 +232,7 @@
         [_sliderTwo setHidden:YES];
         [_sliderTwoLabel setHidden:YES];
         _sliderOne.maximumValue = 350;
-        _universalSliderText.text = [NSString stringWithFormat:@"log how much %@ ate ", currentBabe.name];
+        _universalSliderText.text = [NSString stringWithFormat:@" %@ ate ", currentBabe.name];
 
    
     }
@@ -237,10 +245,10 @@
         medzView = NO;
         
          _UniversalLabel.text = @"sleep time";
-        [_sliderTwo setHidden:NO];
-        _sliderTwoLabel.hidden = NO;
+        [_sliderTwo setHidden:YES];
+        _sliderTwoLabel.hidden = YES;
         _sliderOne.maximumValue = 240;
-        _universalSliderText.text = [NSString stringWithFormat:@"log how long %@ slept ", currentBabe.name];
+        _universalSliderText.text = [NSString stringWithFormat:@" %@ slept ", currentBabe.name];
      
   
     }else if (self.pageControll.currentPage == 3)
@@ -255,6 +263,9 @@
         [_sliderTwo setHidden:YES];
         _sliderTwoLabel.hidden = YES;
         _sliderOne.maximumValue = 240;
+
+        _universalSliderText.text = [NSString stringWithFormat:@" %@ slept ", currentBabe.name];
+
         _universalSliderText.text = [NSString stringWithFormat:@"log how much %@ pooped ", currentBabe.name];
         
     }else if (self.pageControll.currentPage == 4)
@@ -270,6 +281,7 @@
         _sliderTwoLabel.hidden = YES;
         _sliderOne.maximumValue = 240;
         _universalSliderText.text = [NSString stringWithFormat:@"log how much drugs %@ did ", currentBabe.name];
+
         
     }
 
@@ -363,6 +375,7 @@
         
         float timeDiff = ceil(diff/(60));
         int setMin = (NSInteger)(timeDiff);
+       
         date = [date dateBySubtractingMinutes:setMin];
         time = [SLKDateUtil formatTimeFromDate:date];
         _setTimeLabel.text = time;
@@ -433,7 +446,6 @@
     [self setSliderOne:nil];
     [self setSliderTwoLabel:nil];
     [self setSliderTwo:nil];
-    [self setOverview:nil];
     [self setUniversalSliderText:nil];
     [self setDiaperView:nil];
     [self setMedzView:nil];
@@ -494,6 +506,7 @@
     if (rightBoob)   [_rightTit setImage:[UIImage imageNamed:@"titsPink.png"]];
     else [_rightTit setImage:[UIImage imageNamed:@"tits.png"]];
 }
+
 
 - (IBAction)nextArrow:(UITapGestureRecognizer *)sender
 {
@@ -571,12 +584,8 @@
 
 
 
-- (IBAction)showOverview:(id)sender {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"calendar" bundle:nil];
-    SLKDaySummaryViewController *controller = [sb instantiateInitialViewController];
-    controller.food = YES;
-    [self presentModalViewController:controller animated:YES];
-}
+
+
 - (IBAction)sliderOneAction:(id)sender {
     if (titsView)
     {
