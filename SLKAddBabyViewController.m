@@ -43,7 +43,11 @@
     [bDayPicker setDatePickerMode:UIDatePickerModeDate];
     bDayPicker.frame = CGRectMake(0, 270 , 320, 200);
     [bDayPicker addTarget:self action:@selector(updateLabelFromPicker:) forControlEvents:UIControlEventValueChanged];
-    
+    if ([[[SLKParentStorage sharedStorage] parentArray] count] == 0) {
+        _addBabyMode = NO;
+    } else {
+        _addBabyMode = YES;
+    }
     if ( _addBabyMode)
     {
         [_setSignatureLabel setHidden:YES];
@@ -100,8 +104,11 @@
                                                       color:[object objectForKey:@"color"]];
          
          NSLog(@"SUCCEED to create %@",[object objectForKey:@"name"] );
+         
          [[SLKBabyStorage sharedStorage] setCurrentBaby:theNewBabe];
-        
+//         [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadCalendar" object:nil];
+         [[NSNotificationCenter defaultCenter] postNotificationName:@"newBaby" object:nil];
+
         // [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpApp" object:nil userInfo:nil];
          
 //         NSString *color = theNewBabe.babysColor;
@@ -156,11 +163,15 @@
                                              
              NSLog(@"SUCCEED to create %@",[object objectForKey:@"name"] );
              [[SLKParentStorage sharedStorage] setCurrentParent:theNewParent];
-
-            [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpApp" object:nil userInfo:nil];
-
-            [[self navigationController] popViewControllerAnimated:YES];
+           
+             //TODO: add a baby by reloading this view
              
+//             [_setSignatureLabel setHidden:YES];
+//             [_setSignatureTextField setHidden:YES];
+             
+            [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpApp" object:nil userInfo:nil];
+            [[self navigationController] popViewControllerAnimated:YES];
+//
          } onFailure:^(PFObject *object)
          {
              NSLog(@"FAILED :((( ");

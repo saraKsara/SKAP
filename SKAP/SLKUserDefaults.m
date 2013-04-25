@@ -8,7 +8,6 @@
 
 #import "SLKUserDefaults.h"
 
-
 @implementation SLKUserDefaults
 
 +(void)setTheCurrentBabe:(NSString *)babyId
@@ -16,6 +15,16 @@
     [[NSUserDefaults standardUserDefaults] setObject:babyId forKey:@"currentBaby"];
     NSLog(@"set userDefault currentbaby id : %@", babyId);
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++(void)setTheCurrentBaby:(NSString *)babyId OnCompleted: (void (^)()) completed
+{
+    [[NSUserDefaults standardUserDefaults] setObject:babyId forKey:@"currentBaby"];
+    NSLog(@"set userDefault currentbaby id : %@", babyId);
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    if(completed) {
+        completed();
+    }
 }
 
 +(NSString*)getTheCurrentBabe

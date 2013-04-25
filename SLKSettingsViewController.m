@@ -21,6 +21,8 @@
 #import "SLKParentStorage.h"
 #import "ParentFigures.h"
 #import "SLKColors.h"
+#import "SLKAlertWithBlock.h"
+#import "SLKUserDefaults.h"
 
 @interface SLKSettingsViewController ()
 
@@ -32,8 +34,10 @@
     SLKAddBabyViewController *controller;
     Baby *currentBabe;
     ParentFigures *currentParent;
+    NSIndexPath *checkedIndexPath;
     
-  }
+}
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -46,17 +50,18 @@
 {
     if ([segue.identifier isEqualToString:@"addBabyNParentSeg"]) {
         SLKAddBabyViewController *addVc = [segue destinationViewController];
-        addVc.addBabyMode = !_firstTime;
+//        addVc.addBabyMode = !_firstTime;
+        addVc.addBabyMode = YES;
     }
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-     if ([[[SLKParentStorage sharedStorage]parentArray]count] == 0 ) {
-         _firstTime = YES;
-     } else{
-         _firstTime = NO;
-     }
+//     if ([[[SLKParentStorage sharedStorage]parentArray]count] == 0 ) {
+//         _firstTime = YES; //TODO: is this really the first time???
+//     } else{
+//         _firstTime = NO;
+//     }
       controller = [[SLKAddBabyViewController alloc] init];
     currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
     currentParent = [[SLKParentStorage sharedStorage]getCurrentParent];
@@ -72,7 +77,12 @@
 {
     [super viewWillAppear:animated];
     [[[self navigationController] navigationBar] setHidden:YES];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(newBaby)
+                                                 name:@"newBaby"
+                                               object:nil];
 }
+
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -82,6 +92,14 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void)newBaby
+{
+    NSLog(@"new baby");
+     currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadCalendar" object:nil];
+    [[self tableView] reloadData];
+
 }
 -(void)login
 {
@@ -138,17 +156,23 @@
 //                  [cell.nameLabel setTextColor:[UIColor colorWithHexValue:parent.parentColor]];
              }
             cell.nameLabel.text = parent.name;
+            cell.nameLabel.textColor = [UIColor colorWithHexValue:parent.parentColor];
             cell.signatureLabel.text = parent.signature;
             cell.numberTextView.text = parent.number;
             return cell;
-        } else {  //show list of babies
-
+        }
+        else //show list of babies
+        {  
             Baby *babe = [[[SLKBabyStorage sharedStorage] babyArray] objectAtIndex:indexPath.row];
+             [cell setAccessoryType:UITableViewCellAccessoryNone];
             if ([babe.babyId isEqualToString:currentBabe.babyId]) {
 //                [cell.nameLabel setTextColor:[UIColor colorWithHexValue:babe.babysColor]];
-                cell.nameLabel.textColor = [UIColor redColor];
+                [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+                [cell setSelected:YES];
+                checkedIndexPath = indexPath;
             }
             cell.nameLabel.text = babe.name;
+            cell.nameLabel.textColor = [UIColor colorWithHexValue:babe.babysColor];
             [cell.signatureLabel setHidden:YES];
             [cell.numberTextView setHidden:YES];
             return cell;
@@ -206,9 +230,45 @@
             UIAlertView *logoutAlert = [[UIAlertView alloc] initWithTitle:@"Logout" message:@"Are you sure you wanna log out?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Yes", nil];
             [logoutAlert show];
         }
-    } else {
-        //make telepfone number interactive and callable.
     }
+    else if (indexPath.section == 1)
+    {
+        //parents. Make phonenumber callable?
+        NSLog(@"parents");
+    }
+    else if (indexPath.section == 2)
+    {
+        //babies
+        SLKAlertWithBlock *alert = [[SLKAlertWithBlock alloc] initWithTitle:@"Switch baby" message:@"Are you sure you wanna switch baby?" completion:^(BOOL cancelled, NSInteger buttonIndex) {
+            
+            if (buttonIndex == 1)
+            {
+//            [[SLKBabyStorage sharedStorage] setCurrentBaby:[[[SLKBabyStorage sharedStorage] babyArray] objectAtIndex:indexPath.row]];
+            //TODO: when finishing changing baby, reload table in calendar!? Add sompletionhandler???
+                NSString *changeToBabyID = [[[[SLKBabyStorage sharedStorage] babyArray] objectAtIndex:indexPath.row]babyId];
+                [SLKUserDefaults setTheCurrentBaby:changeToBabyID OnCompleted:^{
+                 [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadCalendar" object:nil];
+                    if(checkedIndexPath)
+                    {
+                        UITableViewCell* uncheckCell = [tableView cellForRowAtIndexPath:checkedIndexPath];
+                        uncheckCell.accessoryType = UITableViewCellAccessoryNone;
+                        
+                    }
+                    UITableViewCell *acell = [tableView cellForRowAtIndexPath:indexPath];
+                    acell.accessoryType = UITableViewCellAccessoryCheckmark;
+                    checkedIndexPath = indexPath;
+                }];
+
+                
+                
+            } else {
+                NSLog(@"button index cancel");
+            }
+            
+        } cancelButtonTitle:@"Cancel" otherButtonTitles:@"yes", nil];
+        [alert show];
+    }
+        
     }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

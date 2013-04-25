@@ -17,6 +17,10 @@
 #import "Baby.h"
 #import "Bottle.h"
 #import "Sleep.h"
+#import "Poo.h"
+#import "Pii.h"
+#import "SLKPooStorage.h"
+#import "SLKPiiStorage.h"
 #import "SLKBottleStorage.h"
 #import "SLKDates.h"
 #import "SLKDateUtil.h"
@@ -25,6 +29,7 @@
 #import "SLKSettingsViewController.h"
 #import "SLKSleepStorage.h"
 #import "SLKDaySummaryViewController.h"
+#import "SLKUserDefaults.h"
 @interface SLKFoodViewController ()
 
 @end
@@ -40,7 +45,18 @@
     BOOL *leftBoob;
     BOOL *rightBoob;
     
+    //DIAPER
+    BOOL piiToAddNormal;
+    BOOL piiToAddTooMuch;
+    BOOL piiToAddTooLittle;
+    BOOL pooToAddNormal;
+    BOOL pooToAddTooMuch;
+    BOOL pooToAddToLittle;
+    UIImage *checkedImage;
+    UIImage *unCheckedImage;
+    
     float bottledFood;
+    
     SLKBabyListTableViewController *settingsVC;
     float checkDirection;
     NSString *time;
@@ -81,10 +97,19 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+
+     currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
+    if (currentBabe == NULL) {
+        NSLog(@"no babies, set up one");//TODO: this!
+    }
+
   //  [self tabBarController];
+
     leftBoob = NO;
     rightBoob = NO;
-    currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
+    
+   
+    
     nullValue = [NSNull null];
     // Set up the content size of the scroll view
     CGSize pagesScrollViewSize = self.scrollView.frame.size;
@@ -100,7 +125,11 @@
     self.view.backgroundColor = [UIColor clearColor];
     
     
-    // [_leftTit setImage:[UIImage imageNamed:@"tits.png"]];
+    if (titsView)           [self setTheBreastView];
+    else if (bottleView)    [self setTheBottleView];
+    else if (sleepView)     [self setTheSleepView];
+    else if (diaperView)    [self setTheDiaperView];
+    else if (medzView)      [self setTheMedzView];
     
     
     checkDirection = 30;
@@ -111,6 +140,26 @@
     
     [_sliderTwo setHidden:YES];
     [_sliderTwoLabel setHidden:YES];
+    
+    //DIAPER
+    piiToAddNormal = NO;
+    piiToAddTooMuch = NO;
+    piiToAddTooLittle = NO;
+    pooToAddNormal = NO;
+    pooToAddTooMuch = NO;
+    pooToAddToLittle = NO;
+    
+    checkedImage = [UIImage imageNamed:@"checkedYES"];
+    unCheckedImage = [UIImage imageNamed:@"checkedNO"];
+    
+    [_normalPoo setImage:unCheckedImage forState:UIControlStateNormal];
+    [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];
+    [_tooLittlePoo setImage:unCheckedImage forState:UIControlStateNormal];
+    
+    [_normalPii setImage:unCheckedImage forState:UIControlStateNormal];
+    [_tooMuchPii setImage:unCheckedImage forState:UIControlStateNormal];
+    [_tooLittlePii setImage:unCheckedImage forState:UIControlStateNormal];
+
     
 }
 
@@ -197,104 +246,26 @@
         [self.pageViews replaceObjectAtIndex:page withObject:newPageView];
     }
     
-    if ( self.pageControll.currentPage == 0)     
-    {
-        titsView = YES;
-        bottleView = NO;
-        sleepView = NO;
-        diaperView = NO;
-        medzView = NO;
-        
-        _UniversalLabel.text = @"Breast feed";
-        _sliderOne.maximumValue = 350;
-        [_sliderTwo setHidden:YES];
-        [_sliderTwoLabel setHidden:YES];
-        
-        
-        _universalSliderText.text = [NSString stringWithFormat:@" %@ ate", currentBabe.name];
-    bottleView = NO;
-    sleepView = NO;
-    diaperView = NO;
-    medzView = NO;
 
-        _universalSliderText.text = [NSString stringWithFormat:@"log how much %@ ate", currentBabe.name];
-
-    }
-    else if (self.pageControll.currentPage == 1)
-    {
-        titsView = NO;
-        bottleView = YES;
-        sleepView = NO;
-        diaperView = NO;
-        medzView = NO;
-        
-        _UniversalLabel.text = @"Bottled feed";
-        [_sliderTwo setHidden:YES];
-        [_sliderTwoLabel setHidden:YES];
-        _sliderOne.maximumValue = 350;
-        _universalSliderText.text = [NSString stringWithFormat:@" %@ ate ", currentBabe.name];
-
+    if ( self.pageControll.currentPage == 0)        [self setTheBreastView];
+    
+    else if (self.pageControll.currentPage == 1)    [self setTheBottleView];
    
-    }
-    else if (self.pageControll.currentPage == 2)
-    {
-        titsView = NO;
-        bottleView = NO;
-        sleepView = YES;
-        diaperView = NO;
-        medzView = NO;
-        
-         _UniversalLabel.text = @"sleep time";
-        [_sliderTwo setHidden:YES];
-        _sliderTwoLabel.hidden = YES;
-        _sliderOne.maximumValue = 240;
-        _universalSliderText.text = [NSString stringWithFormat:@" %@ slept ", currentBabe.name];
-     
+    else if (self.pageControll.currentPage == 2)    [self setTheSleepView];
   
-    }else if (self.pageControll.currentPage == 3)
-    {
-        titsView = NO;
-        bottleView = NO;
-        sleepView = NO;
-        diaperView = YES;
-        medzView = NO;
+    else if (self.pageControll.currentPage == 3)    [self setTheDiaperView];
         
-        _UniversalLabel.text = @"diaper log";
-        [_sliderTwo setHidden:YES];
-        _sliderTwoLabel.hidden = YES;
-        _sliderOne.maximumValue = 240;
+    else if (self.pageControll.currentPage == 4)    [self setTheMedzView];
 
-        _universalSliderText.text = [NSString stringWithFormat:@" %@ slept ", currentBabe.name];
-
-        _universalSliderText.text = [NSString stringWithFormat:@"log how much %@ pooped ", currentBabe.name];
-        
-    }else if (self.pageControll.currentPage == 4)
-    {
-        titsView = NO;
-        bottleView = NO;
-        sleepView = NO;
-        diaperView = NO;
-        medzView = YES;
-        
-        _UniversalLabel.text = @"medecine log";
-        [_sliderTwo setHidden:YES];
-        _sliderTwoLabel.hidden = YES;
-        _sliderOne.maximumValue = 240;
-        _universalSliderText.text = [NSString stringWithFormat:@"log how much drugs %@ did ", currentBabe.name];
-
-        
-    }
 
   //  NSLog(@"tits: %d \n bottle: %d \n sleep %d", (int)titsView, (int)bottleView, (int)sleepView);
 
 //    else if (self.pageControll.currentPage == 3) [self setCurrentViewWithBool:titsView];
 }
 
-- (void)purgePage:(NSInteger)page {
-    if (page < 0 || page >= self.pageViews.count) {
-       
-        return;
-    }
+- (void)purgePage:(NSInteger)page
+{
+    if (page < 0 || page >= self.pageViews.count) return;
     
     // Remove a page from the scroll view and reset the pagearray
     UIView *pageView = [self.pageViews objectAtIndex:page];
@@ -304,7 +275,215 @@
     }
 }
 
+-(void)setTheBreastView
+{
+//    [self setSliderOneLabelBreast];
 
+   [self hideTheDiaperSetUp];
+    [_sliderOne setHidden:NO];
+    [_sliderTwo setHidden:YES];
+    titsView = YES;
+    bottleView = NO;
+    sleepView = NO;
+    diaperView = NO;
+    medzView = NO;
+    
+    _UniversalLabel.text = @"Breast feed";
+    _sliderOne.maximumValue = 350;
+    [_sliderTwo setHidden:YES];
+    [_sliderTwoLabel setHidden:YES];
+    _universalSliderText.text = [NSString stringWithFormat:@"log how much %@ breast feeded", currentBabe.name];
+
+}
+-(void)setTheBottleView
+{
+    [self setSliderOneLabelBottle];
+    [self hideTheDiaperSetUp];
+    [_sliderOne setHidden:NO];
+    [_sliderTwo setHidden:YES];
+    
+    titsView = NO;
+    bottleView = YES;
+    sleepView = NO;
+    diaperView = NO;
+    medzView = NO;
+    
+    _UniversalLabel.text = @"Bottled feed";
+    [_sliderTwo setHidden:YES];
+    [_sliderTwoLabel setHidden:YES];
+    _sliderOne.maximumValue = 350;
+    _universalSliderText.text = [NSString stringWithFormat:@"log how much %@ ate ", currentBabe.name];
+
+}
+
+-(void)setTheSleepView
+{
+    [self setSliderOneLabelSleep];
+    [self hideTheDiaperSetUp];
+    [_sliderOne setHidden:NO];
+    [_sliderTwo setHidden:NO];
+    
+    titsView = NO;
+    bottleView = NO;
+    sleepView = YES;
+    diaperView = NO;
+    medzView = NO;
+    
+    _UniversalLabel.text = @"sleep time";
+    [_sliderTwo setHidden:NO];
+    _sliderTwoLabel.hidden = NO;
+    _sliderOne.maximumValue = 240;
+    _universalSliderText.text = [NSString stringWithFormat:@"log how long %@ slept ", currentBabe.name];
+
+}
+-(void)setTheDiaperView
+{
+    titsView = NO;
+    bottleView = NO;
+    sleepView = NO;
+    diaperView = YES;
+    medzView = NO;
+    
+    [_sliderOne setHidden:YES];
+    [_sliderTwo setHidden:YES];
+    [_sliderOneLabel setHidden:YES];
+    _UniversalLabel.text = @"diaper log";
+    _sliderTwoLabel.hidden = YES;
+    _sliderOne.maximumValue = 240;
+    _universalSliderText.text = [NSString stringWithFormat:@"log how much %@ pooped ", currentBabe.name];
+
+    for (UILabel *label in _diaperLabels)
+    {
+        [label setHidden:NO];
+    }
+    [_tooLittlePii setHidden:NO];
+    [_tooMuchPii setHidden:NO];
+    [_normalPii setHidden:NO];
+    [_tooMuchPoo setHidden:NO];
+    [_tooLittlePoo setHidden:NO];
+    [_normalPoo setHidden:NO];
+}
+
+-(void)hideTheDiaperSetUp
+{
+    [_sliderOneLabel setHidden:NO];
+    for (UILabel *label in _diaperLabels)
+    {
+        [label setHidden:YES];
+    }
+    [_tooLittlePii setHidden:YES];
+    [_tooMuchPii setHidden:YES];
+    [_normalPii setHidden:YES];
+    [_tooMuchPoo setHidden:YES];
+    [_tooLittlePoo setHidden:YES];
+    [_normalPoo setHidden:YES];
+}
+
+-(void)setTheMedzView
+{
+    [self setSliderOneLabelMedz];
+    
+    [self hideTheDiaperSetUp];
+    [_sliderOne setHidden:NO];
+    [_sliderTwo setHidden:YES];
+    
+    titsView = NO;
+    bottleView = NO;
+    sleepView = NO;
+    diaperView = NO;
+    medzView = YES;
+    
+    _UniversalLabel.text = @"medecine log";
+    [_sliderTwo setHidden:YES];
+    _sliderTwoLabel.hidden = YES;
+    _sliderOne.maximumValue = 240;
+    _universalSliderText.text = [NSString stringWithFormat:@"log how much drugs %@ did ", currentBabe.name];
+
+}
+
+- (IBAction)check:(id)sender {
+    
+    if (sender == _normalPoo)
+    {
+        pooToAddNormal = !pooToAddNormal;
+        pooToAddTooMuch = NO;
+        pooToAddToLittle = NO;
+        if (pooToAddNormal)     [_normalPoo setImage:checkedImage forState:UIControlStateNormal];
+        else                    [_normalPoo setImage:unCheckedImage forState:UIControlStateNormal];
+        
+        [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];
+        [_tooLittlePoo setImage:unCheckedImage forState:UIControlStateNormal];
+        //  NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", pooToAddNormal, pooToAddTooMuch,pooToAddToLittle);
+        
+    } else  if (sender == _tooMuchPoo)
+    {
+        pooToAddTooMuch = !pooToAddTooMuch;
+        pooToAddNormal = NO;
+        pooToAddToLittle = NO;
+        if (pooToAddTooMuch)    [_tooMuchPoo setImage:checkedImage forState:UIControlStateNormal];
+        else                    [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];
+        
+        
+        [_normalPoo setImage:unCheckedImage forState:UIControlStateNormal];
+        [_tooLittlePoo setImage:unCheckedImage forState:UIControlStateNormal];
+        // NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", pooToAddNormal, pooToAddTooMuch,pooToAddToLittle);
+        
+    } else  if (sender == _tooLittlePoo)
+    {
+        pooToAddToLittle =!pooToAddToLittle;
+        pooToAddNormal = NO;
+        pooToAddTooMuch = NO;
+        if (pooToAddToLittle)   [_tooLittlePoo setImage:checkedImage forState:UIControlStateNormal];
+        else                    [_tooLittlePoo setImage:unCheckedImage forState:UIControlStateNormal];
+        
+        
+        [_normalPoo setImage:unCheckedImage forState:UIControlStateNormal];
+        [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];
+        // NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", pooToAddNormal, pooToAddTooMuch,pooToAddToLittle);
+    }
+    
+    
+    else if (sender == _normalPii)
+    {
+        piiToAddNormal = !piiToAddNormal;
+        piiToAddTooMuch = NO;
+        piiToAddTooLittle = NO;
+        if (piiToAddNormal)     [_normalPii setImage:checkedImage forState:UIControlStateNormal];
+        else                    [_normalPii setImage:unCheckedImage forState:UIControlStateNormal];
+        
+        [_tooLittlePii setImage:unCheckedImage forState:UIControlStateNormal];
+        [_tooMuchPii setImage:unCheckedImage forState:UIControlStateNormal];
+        // NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", piiToAddNormal, piiToAddTooMuch,piiToAddTooLittle);
+        
+    } else  if (sender == _tooMuchPii)
+    {
+        piiToAddTooMuch = !piiToAddTooMuch;
+        piiToAddNormal = NO;
+        piiToAddTooLittle = NO;
+        if (piiToAddTooMuch)    [_tooMuchPii setImage:checkedImage forState:UIControlStateNormal];
+        else                    [_tooMuchPii setImage:unCheckedImage forState:UIControlStateNormal];
+        
+        
+        [_normalPii setImage:unCheckedImage forState:UIControlStateNormal];
+        [_tooLittlePii setImage:unCheckedImage forState:UIControlStateNormal];
+        //  NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", piiToAddNormal, piiToAddTooMuch,piiToAddTooLittle);
+        
+    } else  if (sender == _tooLittlePii)
+    {
+        piiToAddTooLittle =!piiToAddTooLittle;
+        piiToAddNormal = NO;
+        piiToAddTooMuch = NO;
+        if (piiToAddTooLittle)   [_tooLittlePii setImage:checkedImage forState:UIControlStateNormal];
+        else                    [_tooLittlePii setImage:unCheckedImage forState:UIControlStateNormal];
+        
+        
+        [_normalPii setImage:unCheckedImage forState:UIControlStateNormal];
+        [_tooMuchPii setImage:unCheckedImage forState:UIControlStateNormal];
+        // NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", piiToAddNormal, piiToAddTooMuch,piiToAddTooLittle);
+    }
+}
+
+//TODO: remove?
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer
 {
     CGPoint translation = [recognizer translationInView:self.view];
@@ -317,7 +496,8 @@
 
 - (IBAction)save:(id)sender {
     
-    if (titsView) {
+    if (titsView)
+    {
         if (!leftBoob && !rightBoob) {
             UIAlertView *noChoiceAlert = [[UIAlertView alloc] initWithTitle:@"No breast choosen"
                                                                     message:@"You have to choose right, left or both breasts"
@@ -336,9 +516,8 @@
             [_rightTit setImage:[UIImage imageNamed:@"tits.png"]];
             
         }
-        
-        
-    }else if (bottleView)
+    }
+    else if (bottleView)
     {
         if (bottledFood == 0 ) {
             UIAlertView *noChoiceAlert = [[UIAlertView alloc] initWithTitle:@"No milk choosen"
@@ -355,18 +534,46 @@
             [_sliderOne setValue:0];
                _sliderOneLabel.text = [NSString stringWithFormat:@" %.f ml",_sliderOne.value];
         }
-    }else if (sleepView)
+    }
+    else if (sleepView)
     {
         NSNumber *labelNumber = [NSNumber numberWithInt:[_sliderOneLabel.text intValue]];
         Sleep *sleep = [[SLKSleepStorage sharedStorage]createSleep:labelNumber];
         [[SLKEventStorage sharedStorage]createEvenWithHappening:sleep date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
+    }
+    else if (diaperView)
+    {
+        if (!pooToAddNormal && !pooToAddTooMuch && !pooToAddToLittle && !piiToAddNormal && !piiToAddTooMuch && !piiToAddTooLittle)
+        {
+            NSString *alertMessage = [NSString stringWithFormat:@"Please enter how much %@ did pii or poo", currentBabe.name];
+            UIAlertView *alertNoPiisOrPoos = [[UIAlertView alloc] initWithTitle:@"NOTHING TO LOG" message:alertMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alertNoPiisOrPoos show];
+        } else {
+            
+            if (pooToAddNormal || pooToAddTooMuch || pooToAddToLittle) {
+                NSLog(@"create new POO");
+                Poo *someNewPoo = [[SLKPooStorage sharedStorage] createNormalPoo:pooToAddNormal tooMuch:pooToAddTooMuch tooLittle:pooToAddToLittle];
+                [[SLKEventStorage sharedStorage] createEvenWithHappening:someNewPoo date:date eventId:nil baby:currentBabe];
+            } else {
+                NSLog(@"NO New POO");
+            }
+            if (piiToAddNormal || piiToAddTooMuch || piiToAddTooLittle) {
+                NSLog(@"Create new PII");
+                Pii *someNewPii = [[SLKPiiStorage sharedStorage] createNormalPii:piiToAddNormal tooMuch:piiToAddTooMuch tooLittle:piiToAddTooLittle];
+                [[SLKEventStorage sharedStorage] createEvenWithHappening:someNewPii date:date eventId:nil baby:currentBabe];
+                
+            } else {
+                NSLog(@"NO new Pii");
+            }
+        }
+
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadCalendar" object:nil];
     
 }
 
-
+#pragma mark set time
 //TODO: move to setTime class
 - (IBAction)setTime:(id)sender {
     if (checkDirection > [_timeSlider value])
@@ -451,6 +658,7 @@
     [self setMedzView:nil];
     [self setPrevArrow:nil];
     [self setNextArrow:nil];
+    [self setDiaperLabels:nil];
     [super viewDidUnload];
     
     self.scrollView = nil;
@@ -475,19 +683,6 @@
     [self loadVisiblePages];
 }
 
-//-(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
-//{
-//    if([gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]])
-//    {
-//        [gestureRecognizer addTarget:self action:@selector(leftTit:)];
-//        NSLog(@"LeftTit PRESSED");
-//
-//        
-//    }
-//    NSLog(@"LeftTit PRESSED");
-//
-//    return YES;
-//}
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
@@ -583,55 +778,33 @@
 }
 
 
-
-
-
-- (IBAction)sliderOneAction:(id)sender {
-    if (titsView)
-    {
-        _sliderOneLabel.text = @"Titty";
-        if (_sliderOne.value < 58)
-        {
-            _sliderOneLabel.text = @" extra small meal";
-            NSLog(@"slidervalue: %f", _sliderOne.value);
-        } else  if (_sliderOne.value > 58 && _sliderOne.value < 116)
-        {
-            _sliderOneLabel.text = @" small meal";
-              NSLog(@"slidervalue: %f", _sliderOne.value);
-        } else  if (_sliderOne.value > 116  && _sliderOne.value < 174)
-        {
-        _sliderOneLabel.text = @" small medium meal";
-              NSLog(@"slidervalue: %f", _sliderOne.value);
-        }else  if (_sliderOne.value > 174 && _sliderOne.value < 232)
-        {
-            _sliderOneLabel.text = @" medium meal";
-            NSLog(@"slidervalue: %f", _sliderOne.value);
-        }else  if (_sliderOne.value > 232 && _sliderOne.value < 290)
-        {
-            _sliderOneLabel.text = @" big medium meal";
-            NSLog(@"slidervalue: %f", _sliderOne.value);
-        }else  if (_sliderOne.value > 290)
-        {
-            _sliderOneLabel.text = @" large meal";
-            NSLog(@"slidervalue: %f", _sliderOne.value);
-        }
-    } else if (bottleView)
-    {
+-(void)setSliderOneLabelBottle
+{
     _sliderOneLabel.text = [NSString stringWithFormat:@" %.f ml",_sliderOne.value];
-         bottledFood = _sliderOne.value;
-    }
-    else if (sleepView)
-    {
-        NSNumber *theDouble = [NSNumber numberWithDouble:_sliderOne.value];
-        int inputSeconds = [theDouble intValue];
-        int hours =  inputSeconds / 3600;
-        int anHour = ( inputSeconds - hours * 3600 ) / 60;
-        int aMinute = inputSeconds - hours * 3600 - anHour * 60;
-        
-        NSString *theTime = [NSString stringWithFormat:@"%.1dhr %.2dmin", anHour, aMinute];
-        _sliderOneLabel.text = theTime;
-        
-    }
+    bottledFood = _sliderOne.value;
+}
+-(void)setSliderOneLabelSleep
+{
+    NSNumber *theDouble = [NSNumber numberWithDouble:_sliderOne.value];
+    int inputSeconds = [theDouble intValue];
+    int hours =  inputSeconds / 3600;
+    int anHour = ( inputSeconds - hours * 3600 ) / 60;
+    int aMinute = inputSeconds - hours * 3600 - anHour * 60;
+    
+    NSString *theTime = [NSString stringWithFormat:@"%.1dhr %.2dmin", anHour, aMinute];
+    _sliderOneLabel.text = theTime;
+
+}
+-(void)setSliderOneLabelMedz
+{
+    
+}
+- (IBAction)sliderOneAction:(id)sender
+{
+//    if (titsView)           [self setSliderOneLabelBreast];
+//    else if (bottleView)    [self setSliderOneLabelBottle];
+//    else if (sleepView)     [self setSliderOneLabelSleep];
+//    else if (medzView)     [self setSliderOneLabelMedz];
 }
 - (IBAction)sliderTwoAction:(id)sender {
 }
