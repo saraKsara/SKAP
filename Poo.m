@@ -2,7 +2,7 @@
 //  Poo.m
 //  SKAP
 //
-//  Created by Åsa Persson on 2013-03-29.
+//  Created by Åsa Persson on 2013-04-27.
 //  Copyright (c) 2013 Student vid Yrkeshögskola C3L. All rights reserved.
 //
 
@@ -12,9 +12,8 @@
 
 @implementation Poo
 
-@dynamic normal;
-@dynamic tooMuch;
-@dynamic toLittle;
+@dynamic didPoop;
+@dynamic comment;
 @dynamic event;
 
 @end
