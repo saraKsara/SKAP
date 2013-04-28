@@ -13,7 +13,6 @@
 @implementation Pii
 
 @dynamic didPee;
-@dynamic comment;
 @dynamic event;
 
 @end

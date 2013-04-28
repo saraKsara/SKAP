@@ -14,7 +14,6 @@
 @interface Pii : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * didPee;
-@property (nonatomic, retain) NSString * comment;
 @property (nonatomic, retain) Event *event;
 
 @end

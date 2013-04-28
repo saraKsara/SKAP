@@ -2,7 +2,7 @@
 //  Event.m
 //  SKAP
 //
-//  Created by Student vid Yrkeshögskola C3L on 4/9/13.
+//  Created by Åsa Persson on 2013-04-27.
 //  Copyright (c) 2013 Student vid Yrkeshögskola C3L. All rights reserved.
 //
 
@@ -26,17 +26,18 @@
 @dynamic otherMedz;
 @dynamic pii;
 @dynamic poo;
+@dynamic sleep;
 @dynamic temperature;
 @dynamic timespan;
 @dynamic tits;
 @dynamic type;
-@dynamic sleep;
 @dynamic baby;
 @dynamic bottles;
 @dynamic medz;
 @dynamic piis;
 @dynamic poos;
-@dynamic tities;
 @dynamic sleeps;
+@dynamic tities;
+@dynamic diapers;
 
 @end
