@@ -1,5 +1,5 @@
 //
-//  Poo.h
+//  Diaper.h
 //  SKAP
 //
 //  Created by Åsa Persson on 2013-04-27.
@@ -11,9 +11,10 @@
 
 @class Event;
 
-@interface Poo : NSManagedObject
+@interface Diaper : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * didPoop;
+@property (nonatomic, retain) NSNumber * piied;
+@property (nonatomic, retain) NSNumber * pooped;
 @property (nonatomic, retain) Event *event;
 
 @end

@@ -97,7 +97,11 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    NSLog(@"selected ONE? : %d", _switchOne.selected);
 
+    
+    _commentTextView.delegate = self;
      currentBabe = [[SLKBabyStorage sharedStorage] getCurrentBaby];
     if (currentBabe == NULL) {
         NSLog(@"no babies, set up one");//TODO: this!
@@ -356,12 +360,16 @@
     {
         [label setHidden:NO];
     }
-    [_tooLittlePii setHidden:NO];
-    [_tooMuchPii setHidden:NO];
-    [_normalPii setHidden:NO];
-    [_tooMuchPoo setHidden:NO];
-    [_tooLittlePoo setHidden:NO];
-    [_normalPoo setHidden:NO];
+    [_switchOne setHidden:NO];
+    [_switchTwo setHidden:NO];
+    [_commentTextView setHidden:NO];
+
+//    [_tooLittlePii setHidden:NO];
+//    [_tooMuchPii setHidden:NO];
+//    [_normalPii setHidden:NO];
+//    [_tooMuchPoo setHidden:NO];
+//    [_tooLittlePoo setHidden:NO];
+//    [_normalPoo setHidden:NO];
 }
 
 -(void)hideTheDiaperSetUp
@@ -371,6 +379,12 @@
     {
         [label setHidden:YES];
     }
+    
+    [_switchOne setHidden:YES];
+    [_switchTwo setHidden:YES];
+    [_commentTextView setHidden:YES];
+    _commentTextView.text = nil;
+    
     [_tooLittlePii setHidden:YES];
     [_tooMuchPii setHidden:YES];
     [_normalPii setHidden:YES];
@@ -509,7 +523,7 @@
         } else {
             Tits *tit = [[SLKTittStorage sharedStorage]createTittWithStringValue:_sliderOneLabel.text mililitres:nil minutes:nil leftBoob:leftBoob rightBoob:rightBoob];
             NSLog(@"lefty: %d \n righty: %d \n", (int)leftBoob, (int)rightBoob);
-            [[SLKEventStorage sharedStorage] createEvenWithHappening:tit date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
+            [[SLKEventStorage sharedStorage] createEvenWithHappening:tit withComment:nil date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
             leftBoob = NO;
             [_leftTit setImage:[UIImage imageNamed:@"tits.png"]];
             rightBoob = NO;
@@ -529,7 +543,7 @@
         }else {
             Bottle *bottle = [[SLKBottleStorage sharedStorage] createBottleWithStringValue:nil mililitres:[NSNumber numberWithFloat:bottledFood] minutes:nil];
             
-            [[SLKEventStorage sharedStorage]createEvenWithHappening:bottle date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
+            [[SLKEventStorage sharedStorage]createEvenWithHappening:bottle withComment:nil date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
             bottledFood = 0;
             [_sliderOne setValue:0];
                _sliderOneLabel.text = [NSString stringWithFormat:@" %.f ml",_sliderOne.value];
@@ -539,28 +553,38 @@
     {
         NSNumber *labelNumber = [NSNumber numberWithInt:[_sliderOneLabel.text intValue]];
         Sleep *sleep = [[SLKSleepStorage sharedStorage]createSleep:labelNumber];
-        [[SLKEventStorage sharedStorage]createEvenWithHappening:sleep date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
+        [[SLKEventStorage sharedStorage]createEvenWithHappening:sleep withComment:nil date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
     }
     else if (diaperView)
     {
-        if (!pooToAddNormal && !pooToAddTooMuch && !pooToAddToLittle && !piiToAddNormal && !piiToAddTooMuch && !piiToAddTooLittle)
+       // if (!pooToAddNormal && !pooToAddTooMuch && !pooToAddToLittle && !piiToAddNormal && !piiToAddTooMuch && !piiToAddTooLittle)
+        if (_switchOne.selected == NO && _switchTwo.selected == NO) //did not pee or poo
         {
             NSString *alertMessage = [NSString stringWithFormat:@"Please enter how much %@ did pii or poo", currentBabe.name];
             UIAlertView *alertNoPiisOrPoos = [[UIAlertView alloc] initWithTitle:@"NOTHING TO LOG" message:alertMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alertNoPiisOrPoos show];
         } else {
             
-            if (pooToAddNormal || pooToAddTooMuch || pooToAddToLittle) {
+            if (_switchOne.selected && !_switchTwo.selected) { //create only poo
                 NSLog(@"create new POO");
-                Poo *someNewPoo = [[SLKPooStorage sharedStorage] createNormalPoo:pooToAddNormal tooMuch:pooToAddTooMuch tooLittle:pooToAddToLittle];
-                [[SLKEventStorage sharedStorage] createEvenWithHappening:someNewPoo date:date eventId:nil baby:currentBabe];
+                Poo *someNewPoo = [[SLKPooStorage sharedStorage] createPoo];
+                                   
+                [[SLKEventStorage sharedStorage] createEvenWithHappening:someNewPoo withComment:_commentTextView.text date:date eventId:nil baby:currentBabe];
             } else {
                 NSLog(@"NO New POO");
             }
-            if (piiToAddNormal || piiToAddTooMuch || piiToAddTooLittle) {
-                NSLog(@"Create new PII");
-                Pii *someNewPii = [[SLKPiiStorage sharedStorage] createNormalPii:piiToAddNormal tooMuch:piiToAddTooMuch tooLittle:piiToAddTooLittle];
-                [[SLKEventStorage sharedStorage] createEvenWithHappening:someNewPii date:date eventId:nil baby:currentBabe];
+            if (_switchTwo.selected && !_switchOne.selected) { //create only pii
+                NSLog(@"Create new PII AND POO" );
+          
+                Pii *someNewPii = [[SLKPiiStorage sharedStorage] createPii];
+                [[SLKEventStorage sharedStorage] createEvenWithHappening:someNewPii withComment:_commentTextView.text date:date eventId:nil baby:currentBabe];
+                
+            }   if (_switchTwo.selected && _switchOne.selected) { //create both pii and poo
+                NSLog(@"Create new PII AND POO" );
+                
+                Pii *someNewPii = [[SLKPiiStorage sharedStorage] createPii];
+                
+                [[SLKEventStorage sharedStorage] createEvenWithHappening:someNewPii withComment:_commentTextView.text date:date eventId:nil baby:currentBabe];
                 
             } else {
                 NSLog(@"NO new Pii");
@@ -659,6 +683,9 @@
     [self setPrevArrow:nil];
     [self setNextArrow:nil];
     [self setDiaperLabels:nil];
+    [self setSwitchOne:nil];
+    [self setSwitchTwo:nil];
+    [self setCommentTextView:nil];
     [super viewDidUnload];
     
     self.scrollView = nil;
@@ -776,7 +803,30 @@
         medzView = NO;
     }
 }
-
+#pragma mark Sliders
+-(void)setSliderOneLabelBreast
+{
+    _sliderOneLabel.text = @"Titty";
+    if (_sliderOne.value < 58)
+    {
+        _sliderOneLabel.text = @" extra small meal";
+    } else  if (_sliderOne.value > 58 && _sliderOne.value < 116)
+    {
+        _sliderOneLabel.text = @" small meal";
+    } else  if (_sliderOne.value > 116  && _sliderOne.value < 174)
+    {
+        _sliderOneLabel.text = @" small medium meal";
+    }else  if (_sliderOne.value > 174 && _sliderOne.value < 232)
+    {
+        _sliderOneLabel.text = @" medium meal";
+    }else  if (_sliderOne.value > 232 && _sliderOne.value < 290)
+    {
+        _sliderOneLabel.text = @" big medium meal";
+    }else  if (_sliderOne.value > 290)
+    {
+        _sliderOneLabel.text = @" large meal";
+    }
+}
 
 -(void)setSliderOneLabelBottle
 {
@@ -801,11 +851,47 @@
 }
 - (IBAction)sliderOneAction:(id)sender
 {
-//    if (titsView)           [self setSliderOneLabelBreast];
-//    else if (bottleView)    [self setSliderOneLabelBottle];
-//    else if (sleepView)     [self setSliderOneLabelSleep];
-//    else if (medzView)     [self setSliderOneLabelMedz];
+    if (titsView)           [self setSliderOneLabelBreast];
+    else if (bottleView)    [self setSliderOneLabelBottle];
+    else if (sleepView)     [self setSliderOneLabelSleep];
+    else if (medzView)     [self setSliderOneLabelMedz];
 }
-- (IBAction)sliderTwoAction:(id)sender {
+
+#pragma mark Switch
+
+- (IBAction)switchOne:(id)sender {
+  _switchOne.selected = !_switchOne.selected;
+    NSLog(@"selected ONE? : %d", _switchOne.selected);
+}
+- (IBAction)switchTwo:(id)sender {
+    _switchTwo.selected = !_switchTwo.selected;
+    NSLog(@"selected TWO? : %d", _switchTwo.selected);
+
+
+}
+
+# pragma mark - UITextViewDelegate
+
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if ([text isEqualToString:@"\n"])
+    {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    return YES;
+}
+
+-(void)textViewDidBeginEditing:(UITextView *)textView
+{
+    [[self view] setFrame:CGRectMake(0, -230, 320, 460)];
+    [_commentTextView becomeFirstResponder];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+  
+   [[self view] setFrame:CGRectMake(0, 0, 320, 460)];
+    [_commentTextView resignFirstResponder];
 }
 @end

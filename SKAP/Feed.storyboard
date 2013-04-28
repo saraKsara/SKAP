@@ -39,11 +39,11 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="221"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="arrow_03.png" id="hXL-8K-0wB">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="prevyArrow.png" id="hXL-8K-0wB">
                                                 <rect key="frame" x="10" y="85" width="50" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="arrow_03.png" id="xEF-e9-iKb">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="nextyArrow.png" id="xEF-e9-iKb">
                                                 <rect key="frame" x="265" y="85" width="50" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
@@ -242,23 +242,6 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="24" id="bUl-2J-JrC">
-                                        <rect key="frame" x="89" y="312" width="257" height="23"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="minimumTrackTintColor" red="0.7628592609" green="1" blue="0.75111199819999996" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="maximumTrackTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="thumbTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="sliderTwoAction:" destination="hKR-TG-9xj" eventType="valueChanged" id="h3g-20-IbH"/>
-                                        </connections>
-                                    </slider>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="sliderTwo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vu0-tG-ouJ">
-                                        <rect key="frame" x="83" y="297" width="74" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Thonburi-Bold" family="Thonburi" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="uni" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LhS-XK-O0D">
                                         <rect key="frame" x="91" y="231" width="263" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -266,11 +249,52 @@
                                         <color key="textColor" red="0.098039217293262482" green="0.098039217293262482" blue="0.098039217293262482" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="lOR-TY-p7o">
+                                        <rect key="frame" x="69" y="289" width="285" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Peed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CEy-s9-VXq">
+                                        <rect key="frame" x="213" y="257" width="114" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="3sI-2x-mwP">
+                                        <rect key="frame" x="285" y="257" width="79" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="onTintColor" red="0.7628592609" green="1" blue="0.75111199819999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="switchTwo:" destination="hKR-TG-9xj" eventType="valueChanged" id="bvT-M5-Z8G"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Pooped" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uJr-cq-i0U">
+                                        <rect key="frame" x="69" y="257" width="114" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="h34-lt-rJ6">
+                                        <rect key="frame" x="131" y="256" width="79" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="onTintColor" red="0.7628592609" green="1" blue="0.75111199819999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="switchOne:" destination="hKR-TG-9xj" eventType="valueChanged" id="fEa-Hk-I4a"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Comment" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mUr-Zv-kKm">
+                                        <rect key="frame" x="69" y="284" width="100" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="R2L-26-QnD">
-                                <rect key="frame" x="188" y="347" width="22" height="16"/>
+                                <rect key="frame" x="100" y="347" width="22" height="16"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" backgroundImage="checkedNO.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -298,7 +322,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uYF-rE-tXd">
-                                <rect key="frame" x="188" y="365" width="22" height="16"/>
+                                <rect key="frame" x="100" y="365" width="22" height="16"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" backgroundImage="checkedNO.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -325,30 +349,6 @@
                                     <action selector="check:" destination="hKR-TG-9xj" eventType="touchUpInside" id="6Xc-VW-uCo"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Pii" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IrD-5o-LWt">
-                                <rect key="frame" x="184" y="325" width="50" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Normal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uJr-cq-i0U">
-                                <rect key="frame" x="59" y="342" width="114" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Too much" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CEy-s9-VXq">
-                                <rect key="frame" x="59" y="362" width="114" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Too little" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mUr-Zv-kKm">
-                                <rect key="frame" x="59" y="380" width="100" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="XBO-ZY-wHb">
                                 <rect key="frame" x="188" y="383" width="22" height="16"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -363,12 +363,6 @@
                                     <action selector="check:" destination="hKR-TG-9xj" eventType="touchUpInside" id="aLA-Ck-i42"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Poo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nR9-e3-XeW">
-                                <rect key="frame" x="229" y="325" width="31" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Jau-Cr-XnA">
                                 <rect key="frame" x="239" y="383" width="22" height="16"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -391,6 +385,7 @@
                         <outlet property="UniversalLabel" destination="cOb-DD-dYu" id="Rz7-VQ-xoi"/>
                         <outlet property="bottleView" destination="gqO-NN-JP4" id="OaM-he-f1B"/>
                         <outlet property="breastView" destination="r4O-od-KRB" id="xxf-ky-EIt"/>
+                        <outlet property="commentTextView" destination="lOR-TY-p7o" id="5v7-NZ-PhH"/>
                         <outlet property="diaperView" destination="844-eU-q0h" id="Fv9-p7-Rek"/>
                         <outlet property="leftTit" destination="aNo-Ha-YfG" id="ZrK-LG-bc3"/>
                         <outlet property="medzView" destination="FVD-SB-a8K" id="iet-1B-9sS"/>
@@ -405,19 +400,17 @@
                         <outlet property="sleepView" destination="Scr-2I-dSb" id="2qH-ud-Xdc"/>
                         <outlet property="sliderOne" destination="7Tf-uP-keF" id="sYg-Wy-v9e"/>
                         <outlet property="sliderOneLabel" destination="cJ9-dD-wg2" id="UTw-fN-IRg"/>
-                        <outlet property="sliderTwo" destination="bUl-2J-JrC" id="MEM-bc-4tZ"/>
-                        <outlet property="sliderTwoLabel" destination="Vu0-tG-ouJ" id="l69-cP-NAy"/>
+                        <outlet property="switchOne" destination="h34-lt-rJ6" id="ccd-TJ-tD8"/>
+                        <outlet property="switchTwo" destination="3sI-2x-mwP" id="YQ5-EZ-k6c"/>
                         <outlet property="timeSlider" destination="wHh-QR-jB8" id="ZR0-fy-fnt"/>
                         <outlet property="tooLittlePii" destination="XBO-ZY-wHb" id="Dmj-TB-p4w"/>
                         <outlet property="tooLittlePoo" destination="Jau-Cr-XnA" id="M0g-u3-JNS"/>
                         <outlet property="tooMuchPii" destination="uYF-rE-tXd" id="6Op-Bz-zD1"/>
                         <outlet property="tooMuchPoo" destination="w6j-BQ-veR" id="QUS-5i-a7J"/>
                         <outlet property="universalSliderText" destination="LhS-XK-O0D" id="0C2-Ev-bP8"/>
-                        <outletCollection property="diaperLabels" destination="uJr-cq-i0U" id="g5t-b2-Ycd"/>
                         <outletCollection property="diaperLabels" destination="CEy-s9-VXq" id="bek-Mg-o4F"/>
+                        <outletCollection property="diaperLabels" destination="uJr-cq-i0U" id="g5t-b2-Ycd"/>
                         <outletCollection property="diaperLabels" destination="mUr-Zv-kKm" id="OsI-IE-ehg"/>
-                        <outletCollection property="diaperLabels" destination="IrD-5o-LWt" id="8eV-3g-BHl"/>
-                        <outletCollection property="diaperLabels" destination="nR9-e3-XeW" id="470-LA-b4W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z6j-PW-2qg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -513,78 +506,12 @@
         <image name="bottle.png" width="640" height="1065"/>
         <image name="checkedNO.png" width="33" height="28"/>
         <image name="iphone4Diapercopy.png" width="412" height="321"/>
+        <image name="nextyArrow.png" width="48" height="34"/>
         <image name="poppis.jpg" width="318" height="287"/>
+        <image name="prevyArrow.png" width="48" height="34"/>
         <image name="smallViewBackground.png" width="320" height="300"/>
         <image name="tits.png" width="317" height="317"/>
     </resources>
-    <classes>
-        <class className="SLKAddBabyCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKAddBabyCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="addBabuLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="SLKBabyCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKBabyCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="babyNameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="SLKBabyListTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKBabyListTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="close:" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="SLKBabyPopViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKBabyPopViewController.h"/>
-        </class>
-        <class className="SLKFoodViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKFoodViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="check:"/>
-                <relationship kind="action" name="handlePan:" candidateClass="UIPanGestureRecognizer"/>
-                <relationship kind="action" name="later:"/>
-                <relationship kind="action" name="leftTit:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="rightTit:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="save:"/>
-                <relationship kind="action" name="setTime:"/>
-                <relationship kind="action" name="showOverview:"/>
-                <relationship kind="action" name="sliderOneAction:"/>
-                <relationship kind="action" name="sliderTwoAction:"/>
-                <relationship kind="action" name="sooner:"/>
-                <relationship kind="action" name="touchUpInsidePageControll:"/>
-                <relationship kind="action" name="valuePageControll:"/>
-                <relationship kind="outlet" name="UniversalLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="bottleView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="breastView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="diaperView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="leftTit" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="medzView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="nextArrow" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="normalPii" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="normalPoo" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="overview" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pageControll" candidateClass="UIPageControl"/>
-                <relationship kind="outlet" name="prevArrow" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="rightTit" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="setTimeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="sleepView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="sliderOne" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="sliderOneLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="sliderTwo" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="sliderTwoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeSlider" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="tooLittlePii" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tooLittlePoo" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tooMuchPii" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tooMuchPoo" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="universalSliderText" candidateClass="UILabel"/>
-                <relationship kind="outletCollection" name="diaperLabels" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

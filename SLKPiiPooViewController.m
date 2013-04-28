@@ -179,30 +179,30 @@
 }
 - (IBAction)save:(id)sender
 {
-    if (!pooToAddNormal && !pooToAddTooMuch && !pooToAddToLittle && !piiToAddNormal && !piiToAddTooMuch && !piiToAddTooLittle)
-    {
-        NSString *alertMessage = [NSString stringWithFormat:@"Please enter how much %@ did pii or poo", currentBabe.name];
-        UIAlertView *alertNoPiisOrPoos = [[UIAlertView alloc] initWithTitle:@"NOTHING TO LOG" message:alertMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alertNoPiisOrPoos show];
-    } else {
-    
-    if (pooToAddNormal || pooToAddTooMuch || pooToAddToLittle) {
-        NSLog(@"create new POO");
-        Poo *someNewPoo = [[SLKPooStorage sharedStorage] createNormalPoo:pooToAddNormal tooMuch:pooToAddTooMuch tooLittle:pooToAddToLittle];
-        [[SLKEventStorage sharedStorage] createEvenWithHappening:someNewPoo date:date eventId:nil baby:currentBabe];
-    } else {
-         NSLog(@"NO New POO");
-    }
-    if (piiToAddNormal || piiToAddTooMuch || piiToAddTooLittle) {
-        NSLog(@"Create new PII");
-        Pii *someNewPii = [[SLKPiiStorage sharedStorage] createNormalPii:piiToAddNormal tooMuch:piiToAddTooMuch tooLittle:piiToAddTooLittle];
-        [[SLKEventStorage sharedStorage] createEvenWithHappening:someNewPii date:date eventId:nil baby:currentBabe];
-
-    } else {
-        NSLog(@"NO new Pii");
-    }
-          [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadCalendar" object:nil];
-    }
+//    if (!pooToAddNormal && !pooToAddTooMuch && !pooToAddToLittle && !piiToAddNormal && !piiToAddTooMuch && !piiToAddTooLittle)
+//    {
+//        NSString *alertMessage = [NSString stringWithFormat:@"Please enter how much %@ did pii or poo", currentBabe.name];
+//        UIAlertView *alertNoPiisOrPoos = [[UIAlertView alloc] initWithTitle:@"NOTHING TO LOG" message:alertMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        [alertNoPiisOrPoos show];
+//    } else {
+//    
+//    if (pooToAddNormal || pooToAddTooMuch || pooToAddToLittle) {
+//        NSLog(@"create new POO");
+//        Poo *someNewPoo = [[SLKPooStorage sharedStorage] createNormalPoo:pooToAddNormal tooMuch:pooToAddTooMuch tooLittle:pooToAddToLittle];
+//        [[SLKEventStorage sharedStorage] createEvenWithHappening:someNewPoo date:date eventId:nil baby:currentBabe];
+//    } else {
+//         NSLog(@"NO New POO");
+//    }
+//    if (piiToAddNormal || piiToAddTooMuch || piiToAddTooLittle) {
+//        NSLog(@"Create new PII");
+//        Pii *someNewPii = [[SLKPiiStorage sharedStorage] createNormalPii:piiToAddNormal tooMuch:piiToAddTooMuch tooLittle:piiToAddTooLittle];
+//        [[SLKEventStorage sharedStorage] createEvenWithHappening:someNewPii date:date eventId:nil baby:currentBabe];
+//
+//    } else {
+//        NSLog(@"NO new Pii");
+//    }
+//          [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadCalendar" object:nil];
+//    }
 }
 - (IBAction)sooner:(id)sender {
     date = [date dateBySubtractingHours:1];

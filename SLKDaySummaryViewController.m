@@ -21,6 +21,9 @@
 #import "SLKConstants.h"
 #import "SLKTittStorage.h"
 #import "SLKColors.h"
+#import "Sleep.h"
+#import "SLKSleepStorage.h"
+#import "Diaper.h"
 
 @interface SLKDaySummaryViewController ()
 
@@ -219,9 +222,14 @@
        typeArray =  [NSArray arrayWithObjects:kEventType_Poo,kEventType_Pii, nil];
         return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]count];
     }
-    else  {
+    else if(_medz) {
         //TODO: create medzconstant!
-        typeArray =  [NSArray arrayWithObjects:kEventType_Pii, nil];
+        typeArray =  [NSArray arrayWithObjects:kEventType_Medz, nil];
+        return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]count];
+    }
+    else if (_sleep) {
+        //TODO: create medzconstant!
+        typeArray =  [NSArray arrayWithObjects:kEventType_Sleep, nil];
         return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]count];
     }
 }
@@ -264,18 +272,17 @@ else event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby
     }
  
     else if (_medz) {
-        //TODO: create med constant!
-        typeArray = [NSArray arrayWithObjects:kEventType_Pii, nil];
+        typeArray = [NSArray arrayWithObjects:kEventType_Medz, nil];
         event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]objectAtIndex:indexPath.row];
     }
     else if (_sleep) {
-        //TODO: create pee constant!
-        typeArray = [NSArray arrayWithObjects:kEventType_Pii, nil];
+        typeArray = [NSArray arrayWithObjects:kEventType_Sleep, nil];
         event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]objectAtIndex:indexPath.row];
     }
+    
     if (weekView) {
           cell.timeLabel.text =  [NSString stringWithFormat:@"%@ \n %@ ", [SLKDateUtil formatTimeFromDate: event.date],[SLKDateUtil formatDateWithoutYear: event.date]];
-    }else if (!weekView){
+    }else if (!weekView) {
          cell.timeLabel.text = [SLKDateUtil formatTimeFromDate: event.date];
     }
  
@@ -338,7 +345,19 @@ else event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby
         cell.propertyLabel.text = propertyString;
     }
 
-    
+    //POO
+    if ([event.type isEqualToString: kEventType_Diaper]) {
+      
+        NSSet *set = [event diapers];
+        NSMutableString *propertyString = [[NSMutableString alloc] init];
+        for(Diaper *diaper in set)
+        {
+            if (diaper.piied)    cell.eventLabel.text = @"Peed:";
+             if (diaper.pooped)   cell.eventLabel.text = @"Pooped:";
+            if (event.comments != nil)  [propertyString appendFormat: @"%@ ",event.comments];
+        }
+        cell.propertyLabel.text = propertyString;
+    }
     //POO
     if ([event.type isEqualToString: kEventType_Poo]) {
         cell.eventLabel.text = @"Pooped:";
@@ -346,18 +365,8 @@ else event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby
         NSMutableString *propertyString = [[NSMutableString alloc] init];
         for(Poo *poo in set)
         {
-            if (poo.normal == [NSNumber numberWithInt:1])
-            {
-                [propertyString appendFormat: @"Good poo"];
-            }
-            else if (poo.tooMuch == [NSNumber numberWithInt:1])
-            {
-                [propertyString appendFormat: @"Too much"];
-            }
-            else if (poo.toLittle == [NSNumber numberWithInt:1])
-            {
-                [propertyString appendFormat: @"Too little"];
-            }
+            
+            if (event.comments != nil)  [propertyString appendFormat: @"%@ ",event.comments];
         }
         cell.propertyLabel.text = propertyString;
     }
@@ -366,22 +375,26 @@ else event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby
     //PII
     if ([event.type isEqualToString: kEventType_Pii]) {
         cell.eventLabel.text = @"Piied:";
+        
         NSSet *set = [event piis];
         NSMutableString *propertyString = [[NSMutableString alloc] init];
         for(Pii *pii in set)
         {
-            if (pii.normal == [NSNumber numberWithInt:1])
-            {
-                [propertyString appendFormat: @"Good pii"];
-            }
-            else if (pii.tooMuch == [NSNumber numberWithInt:1])
-            {
-                [propertyString appendFormat: @"Too much"];
-            }
-            else if (pii.tooLittle  == [NSNumber numberWithInt:1])
-            {
-                [propertyString appendFormat: @"Too little"];
-            }
+            if (event.comments != nil)  [propertyString appendFormat: @"%@ ",event.comments];
+     
+        }
+        cell.propertyLabel.text = propertyString;
+    }
+    
+    //Sleep
+    if ([event.type isEqualToString: kEventType_Sleep]) {
+        cell.eventLabel.text = @"Slept:";
+        NSSet *set = [event sleeps];
+        NSMutableString *propertyString = [[NSMutableString alloc] init];
+        for(Sleep *sleep in set)
+        {
+            [propertyString appendFormat: @" for  %@ ",sleep.minutes];
+           
         }
         cell.propertyLabel.text = propertyString;
     }

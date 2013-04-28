@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="11G63b" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="11G63" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Baby" representedClassName="Baby" syncable="YES">
         <attribute name="babyId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="babysColor" optional="YES" attributeType="String" syncable="YES"/>
@@ -14,6 +14,11 @@
         <attribute name="minutes" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="stringValue" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="bottles" inverseEntity="Event" syncable="YES"/>
+    </entity>
+    <entity name="Diaper" representedClassName="Diaper" syncable="YES">
+        <attribute name="piied" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="pooped" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="diapers" inverseEntity="Event" syncable="YES"/>
     </entity>
     <entity name="Event" representedClassName="Event" syncable="YES">
         <attribute name="adDrop" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -31,6 +36,7 @@
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="baby" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Baby" inverseName="event" inverseEntity="Baby" syncable="YES"/>
         <relationship name="bottles" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bottle" inverseName="event" inverseEntity="Bottle" syncable="YES"/>
+        <relationship name="diapers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Diaper" inverseName="event" inverseEntity="Diaper" syncable="YES"/>
         <relationship name="medz" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Medz" inverseName="event" inverseEntity="Medz" syncable="YES"/>
         <relationship name="piis" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pii" inverseName="event" inverseEntity="Pii" syncable="YES"/>
         <relationship name="poos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Poo" inverseName="event" inverseEntity="Poo" syncable="YES"/>
@@ -54,15 +60,11 @@
         <relationship name="babies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Baby" inverseName="parents" inverseEntity="Baby" syncable="YES"/>
     </entity>
     <entity name="Pii" representedClassName="Pii" syncable="YES">
-        <attribute name="normal" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="tooLittle" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="tooMuch" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="didPee" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="piis" inverseEntity="Event" syncable="YES"/>
     </entity>
     <entity name="Poo" representedClassName="Poo" syncable="YES">
-        <attribute name="normal" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="toLittle" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="tooMuch" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="didPoop" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="poos" inverseEntity="Event" syncable="YES"/>
     </entity>
     <entity name="Sleep" representedClassName="Sleep" syncable="YES">
@@ -80,12 +82,13 @@
     <elements>
         <element name="Baby" positionX="160" positionY="192" width="128" height="150"/>
         <element name="Bottle" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="Event" positionX="160" positionY="192" width="128" height="345"/>
+        <element name="Event" positionX="160" positionY="192" width="128" height="360"/>
         <element name="Medz" positionX="160" positionY="192" width="128" height="150"/>
         <element name="ParentFigures" positionX="160" positionY="192" width="128" height="135"/>
-        <element name="Pii" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="Poo" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="Tits" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="Pii" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="Poo" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Sleep" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="Tits" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="Diaper" positionX="160" positionY="192" width="128" height="90"/>
     </elements>
 </model>

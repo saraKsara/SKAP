@@ -40,16 +40,14 @@
 }
 
 
--(Pii *)createNormalPii:(BOOL *)normal tooMuch:(BOOL *)tooMuch tooLittle:(BOOL *)tooLittle
+-(Pii *)createPii
 {
-    
     Pii *p = [NSEntityDescription insertNewObjectForEntityForName:@"Pii"
                                            inManagedObjectContext:context];
     
     
-    p.normal = [NSNumber numberWithBool:normal];
-    p.tooMuch = [NSNumber numberWithBool:tooMuch];
-    p.tooLittle = [NSNumber numberWithBool:tooLittle];
+//    p.didPee = [NSNumber numberWithBool:normal];
+//    p.comment = comment;
     NSLog(@"Baby did pii:  %@", p);
     
     return p;

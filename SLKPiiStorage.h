@@ -11,7 +11,7 @@
 @interface SLKPiiStorage : NSObject
 +(SLKPiiStorage*) sharedStorage;
 
--(Pii*)createNormalPii:(BOOL*)normal tooMuch:(BOOL*)tooMuch tooLittle:(BOOL*)tooLittle;
+-(Pii*)createPii;
 
 -(void)removePii:(Pii*)pii;
 
