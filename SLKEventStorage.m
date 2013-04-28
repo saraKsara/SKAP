@@ -21,6 +21,7 @@
 #import "Sleep.h"
 #import "SLKConstants.h"
 #import "SLKPARSEService.h"
+#import "Diaper.h"
 @implementation SLKEventStorage
 {
     NSManagedObjectContext *context;
@@ -85,7 +86,10 @@
     
     return e;
 }
--(Event *)createEvenWithHappening:(NSManagedObject *)happening date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby *)baby
+
+
+
+-(Event *)createEvenWithHappening:(NSManagedObject *)happening withComment:(NSString *)comment date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby *)baby
 {
     Event *e = [NSEntityDescription insertNewObjectForEntityForName:@"Event"
                                              inManagedObjectContext:context];
@@ -103,19 +107,30 @@
     }  else if ([happening isKindOfClass:[Poo class]] )
     {
         e.type = kEventType_Poo;
+     if (comment)  e.comments = comment;
         [e addPoosObject:(Poo*)happening];
     } else if ([happening isKindOfClass:[Pii class]] )
     {
         e.type = kEventType_Pii;
         [e addPiisObject:(Pii*)happening];
+      if (comment)  e.comments = comment;
+        
     } else if ([happening isKindOfClass:[Medz class]] )
     {
         e.type = kEventType_Medz;
+       if (comment)  e.comments = comment;
         [e addMedzObject:(Medz*)happening];
+        
     } else if ([happening isKindOfClass:[Sleep class]])
     {
+        if (comment)  e.comments = comment;
         e.type = kEventType_Sleep;
         [e addSleepsObject:(Sleep*)happening];
+    } else if ([happening isKindOfClass:[Diaper class]])
+    {
+        if (comment)  e.comments = comment;
+        e.type = kEventType_Diaper;
+        [e addDiapersObject:(Diaper*)happening];
     }
     
     

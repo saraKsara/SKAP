@@ -11,7 +11,7 @@
 @interface SLKPooStorage : NSObject
 +(SLKPooStorage*) sharedStorage;
 
--(Poo*)createNormalPoo:(BOOL*)normal tooMuch:(BOOL*)tooMuch tooLittle:(BOOL*)tooLittle;
+-(Poo*)createPoo;
 
 -(void)removePoo:(Poo*)poo;
 
