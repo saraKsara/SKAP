@@ -585,6 +585,9 @@
                 Pii *someNewPii = [[SLKPiiStorage sharedStorage] createPii];
                 
                 [[SLKEventStorage sharedStorage] createEvenWithHappening:someNewPii withComment:_commentTextView.text date:date eventId:nil baby:currentBabe];
+                Poo *someNewPoo = [[SLKPooStorage sharedStorage] createPoo];
+                
+                [[SLKEventStorage sharedStorage] createEvenWithHappening:someNewPoo withComment:_commentTextView.text date:date eventId:nil baby:currentBabe];
                 
             } else {
                 NSLog(@"NO new Pii");
