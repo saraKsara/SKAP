@@ -40,16 +40,14 @@
 }
 
 
--(Poo *)createNormalPoo:(BOOL *)normal tooMuch:(BOOL *)tooMuch tooLittle:(BOOL *)tooLittle
-{
+-(Poo *)createPoo{
     
     Poo *p = [NSEntityDescription insertNewObjectForEntityForName:@"Poo"
                                             inManagedObjectContext:context];
     
     
-    p.normal = [NSNumber numberWithBool:normal];
-    p.tooMuch = [NSNumber numberWithBool:tooMuch];
-    p.toLittle = [NSNumber numberWithBool:tooLittle];
+//    p.didPoop = [NSNumber numberWithBool:normal];
+//    p.comment = comment;
     NSLog(@"Baby did poo:  %@", p);
     
     return p;

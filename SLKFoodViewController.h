@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SLKFoodViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate>
+@interface SLKFoodViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate, UITextViewDelegate>
 
 
 
@@ -36,6 +36,15 @@
 @property (weak, nonatomic) IBOutlet UIView *diaperView;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *diaperLabels;
 - (IBAction)check:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UISwitch *switchOne;
+- (IBAction)switchOne:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UISwitch *switchTwo;
+- (IBAction)switchTwo:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UITextView *commentTextView;
+
 //POO
 @property (weak, nonatomic) IBOutlet UIButton *normalPoo;
 @property (weak, nonatomic) IBOutlet UIButton *tooMuchPoo;

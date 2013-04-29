@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class Event, Baby, Tits, Bottle, Pii, Poo, Medz, Sleep;
+@class Event, Baby, Tits, Bottle, Pii, Poo, Medz, Sleep, Diaper;
 @interface SLKEventStorage : NSObject
 
 +(SLKEventStorage*) sharedStorage;
@@ -26,7 +26,7 @@
                        sleep:(NSNumber*)sleep
                     comments:(NSString*)comments;
 
--(Event *)createEvenWithHappening:(NSManagedObject*)happening date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby*)baby;
+-(Event *)createEvenWithHappening:(NSManagedObject*)happening withComment:(NSString*)comment date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby*)baby;
 
 
 //GETTERS
