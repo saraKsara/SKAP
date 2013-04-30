@@ -393,7 +393,7 @@ else event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby
         NSMutableString *propertyString = [[NSMutableString alloc] init];
         for(Sleep *sleep in set)
         {
-            [propertyString appendFormat: @" for  %@ ",sleep.minutes];
+            [propertyString appendFormat: @" for  %@ minutes",sleep.minutes];
            
         }
         cell.propertyLabel.text = propertyString;

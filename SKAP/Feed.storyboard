@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="hKR-TG-9xj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="hKR-TG-9xj">
     <dependencies>
         <deployment version="1296" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
@@ -39,18 +39,18 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="221"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="prevyArrow.png" id="hXL-8K-0wB">
-                                                <rect key="frame" x="10" y="85" width="50" height="50"/>
+                                            <imageView userInteractionEnabled="NO" alpha="0.10000000000000014" contentMode="scaleToFill" image="prevyArrow.png" id="hXL-8K-0wB">
+                                                <rect key="frame" x="13" y="62" width="38" height="28"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="nextyArrow.png" id="xEF-e9-iKb">
-                                                <rect key="frame" x="265" y="85" width="50" height="50"/>
+                                            <imageView userInteractionEnabled="NO" alpha="0.10000000000000014" contentMode="scaleToFill" image="nextyArrow.png" id="xEF-e9-iKb">
+                                                <rect key="frame" x="271" y="68" width="38" height="26"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="poppis.jpg" id="iiF-ZA-ZhS">
+                                    <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" image="smallViewBackground.png" id="iiF-ZA-ZhS">
                                         <rect key="frame" x="53" y="221" width="322" height="210"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -73,14 +73,10 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <gestureRecognizers/>
                                                     </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="arrow_03.png" id="VHi-hM-2Ue">
-                                                        <rect key="frame" x="8" y="148" width="33" height="40"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    </imageView>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="press left, right or both!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gT9-2p-WJM">
-                                                        <rect key="frame" x="24.5" y="170" width="175" height="21"/>
+                                                        <rect key="frame" x="4.5" y="159" width="196" height="31"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="20"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -93,10 +89,6 @@
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bottle.png" id="YYi-n1-jJm">
                                                         <rect key="frame" x="25" y="-4" width="144" height="200"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="arrowDown.png" id="t2k-eS-u9t">
-                                                        <rect key="frame" x="5" y="117" width="28" height="40"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rSs-4k-aQQ">
                                                         <rect key="frame" x="166" y="75" width="42" height="21"/>
@@ -154,6 +146,7 @@
                                     <pageControl opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="7Nu-Q4-Zon">
                                         <rect key="frame" x="53" y="192" width="322" height="36"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                        <color key="pageIndicatorTintColor" red="0.32322768400000002" green="0.39813652620000001" blue="0.40698740430000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="currentPageIndicatorTintColor" red="0.32588649269090597" green="0.97857541454081631" blue="0.48154978515251462" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="touchUpInsidePageControll:" destination="hKR-TG-9xj" eventType="touchUpInside" id="2qQ-5Z-z8q"/>
@@ -161,7 +154,7 @@
                                         </connections>
                                     </pageControl>
                                     <button opaque="NO" alpha="0.70000000000000007" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gfh-fb-qIO">
-                                        <rect key="frame" x="332" y="347" width="30" height="30"/>
+                                        <rect key="frame" x="335" y="381" width="30" height="30"/>
                                         <color key="backgroundColor" red="0.7628592609" green="1" blue="0.75111199819999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="15"/>
                                         <state key="normal" title="save">
@@ -189,10 +182,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="8" minValue="0.0" maxValue="30" id="wHh-QR-jB8">
-                                        <rect key="frame" x="66" y="354" width="257" height="23"/>
+                                        <rect key="frame" x="81" y="354" width="257" height="23"/>
                                         <color key="minimumTrackTintColor" red="0.32588649269999997" green="0.97857541449999996" blue="0.48154978520000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="maximumTrackTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="thumbTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="maximumTrackTintColor" red="0.1393096301" green="0.1393096301" blue="0.1393096301" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="thumbTintColor" red="0.58163265306122447" green="0.41109417944227933" blue="0.024513423360606856" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="setTime:" destination="hKR-TG-9xj" eventType="valueChanged" id="FP3-IO-vd9"/>
                                         </connections>
@@ -201,7 +194,7 @@
                                         <rect key="frame" x="251" y="330" width="73" height="24"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="+1 hour">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="0.32322768400000002" green="0.39813652620000001" blue="0.40698740430000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -215,7 +208,7 @@
                                         <rect key="frame" x="78" y="330" width="73" height="24"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="-1 hour">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="0.32322768400000002" green="0.39813652620000001" blue="0.40698740430000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -226,7 +219,7 @@
                                         </connections>
                                     </button>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="91" minValue="0.0" maxValue="350" id="7Tf-uP-keF">
-                                        <rect key="frame" x="89" y="279" width="257" height="23"/>
+                                        <rect key="frame" x="81" y="279" width="257" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="minimumTrackTintColor" red="0.32588649269999997" green="0.97857541449999996" blue="0.48154978520000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="maximumTrackTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -249,7 +242,7 @@
                                         <color key="textColor" red="0.098039217293262482" green="0.098039217293262482" blue="0.098039217293262482" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="lOR-TY-p7o">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" id="lOR-TY-p7o">
                                         <rect key="frame" x="69" y="289" width="285" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -500,18 +493,86 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowDown.png" width="53" height="70"/>
-        <image name="arrow_03.png" width="53" height="70"/>
         <image name="bo.png" width="144" height="185"/>
         <image name="bottle.png" width="640" height="1065"/>
         <image name="checkedNO.png" width="33" height="28"/>
         <image name="iphone4Diapercopy.png" width="412" height="321"/>
         <image name="nextyArrow.png" width="48" height="34"/>
-        <image name="poppis.jpg" width="318" height="287"/>
         <image name="prevyArrow.png" width="48" height="34"/>
         <image name="smallViewBackground.png" width="320" height="300"/>
         <image name="tits.png" width="317" height="317"/>
     </resources>
+    <classes>
+        <class className="SLKAddBabyCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKAddBabyCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addBabuLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SLKBabyCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKBabyCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="babyNameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SLKBabyListTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKBabyListTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="close:" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="SLKBabyPopViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKBabyPopViewController.h"/>
+        </class>
+        <class className="SLKFoodViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKFoodViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="check:"/>
+                <relationship kind="action" name="handlePan:" candidateClass="UIPanGestureRecognizer"/>
+                <relationship kind="action" name="later:"/>
+                <relationship kind="action" name="leftTit:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="rightTit:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="save:"/>
+                <relationship kind="action" name="setTime:"/>
+                <relationship kind="action" name="sliderOneAction:"/>
+                <relationship kind="action" name="sliderTwoAction:"/>
+                <relationship kind="action" name="sooner:"/>
+                <relationship kind="action" name="switchOne:"/>
+                <relationship kind="action" name="switchTwo:"/>
+                <relationship kind="action" name="touchUpInsidePageControll:"/>
+                <relationship kind="action" name="valuePageControll:"/>
+                <relationship kind="outlet" name="UniversalLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="bottleView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="breastView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="commentTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="diaperView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="leftTit" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="medzView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="nextArrow" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="normalPii" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="normalPoo" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="pageControll" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="prevArrow" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="rightTit" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="setTimeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="sleepView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="sliderOne" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="sliderOneLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="sliderTwo" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="sliderTwoLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="switchOne" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="switchTwo" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="timeSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="tooLittlePii" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tooLittlePoo" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tooMuchPii" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tooMuchPoo" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="universalSliderText" candidateClass="UILabel"/>
+                <relationship kind="outletCollection" name="diaperLabels" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
