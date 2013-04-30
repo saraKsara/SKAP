@@ -8,6 +8,8 @@
 
 #import "SLKTababrController.h"
 #import "SLKTabbar.h"
+#import "SLKColors.h"
+#import "SLKConstants.h"
 @interface SLKTababrController ()
 
 @end
@@ -28,6 +30,7 @@
     [super viewDidLoad];
 
     [[self tabBar] setTintColor:[UIColor grayColor]];
+    [[self tabBar] setSelectedImageTintColor:[UIColor colorWithHexValue:kYellowish_Color]];
     
     
 }

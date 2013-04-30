@@ -1,0 +1,11 @@
+{
+    "applications": {
+        "BabyFeed": {
+            "applicationId": "4EQbwofsLU6tVbseSlCoOVvWBmW7MdlLuM4GCuCl", 
+            "masterKey": "nf7GplW2K4SHP1jvtkJDNKKqybWlFBqOjRWOKUJy"
+        }, 
+        "_default": {
+            "link": "BabyFeed"
+        }
+    }
+}
