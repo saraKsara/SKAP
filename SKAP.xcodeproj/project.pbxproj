@@ -15,6 +15,8 @@
 		1C34EC781706EC700095F0C2 /* SLKPooStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C34EC771706EC700095F0C2 /* SLKPooStorage.m */; };
 		1C34EC7B1706EED10095F0C2 /* SLKPiiStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C34EC7A1706EED10095F0C2 /* SLKPiiStorage.m */; };
 		1C378B731712A73C006AC9EF /* SLKWelcomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C378B721712A73C006AC9EF /* SLKWelcomeCell.m */; };
+		1C3F372A172E98450084D3D8 /* SLKTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3F3729172E98450084D3D8 /* SLKTabbar.m */; };
+		1C3F372D172E98F70084D3D8 /* SLKTababrController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3F372C172E98F70084D3D8 /* SLKTababrController.m */; };
 		1C423F6F170D5EFE00DCB469 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C423F6E170D5EFE00DCB469 /* Settings.storyboard */; };
 		1C423F72170D622300DCB469 /* SLKSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C423F71170D622300DCB469 /* SLKSettingsViewController.m */; };
 		1C423F75170D627700DCB469 /* SLKSettingCells.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C423F74170D627700DCB469 /* SLKSettingCells.m */; };
@@ -140,6 +142,10 @@
 		1C34EC7A1706EED10095F0C2 /* SLKPiiStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPiiStorage.m; sourceTree = "<group>"; };
 		1C378B711712A73C006AC9EF /* SLKWelcomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKWelcomeCell.h; sourceTree = "<group>"; };
 		1C378B721712A73C006AC9EF /* SLKWelcomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKWelcomeCell.m; sourceTree = "<group>"; };
+		1C3F3728172E98450084D3D8 /* SLKTabbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKTabbar.h; sourceTree = "<group>"; };
+		1C3F3729172E98450084D3D8 /* SLKTabbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKTabbar.m; sourceTree = "<group>"; };
+		1C3F372B172E98F70084D3D8 /* SLKTababrController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKTababrController.h; sourceTree = "<group>"; };
+		1C3F372C172E98F70084D3D8 /* SLKTababrController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKTababrController.m; sourceTree = "<group>"; };
 		1C423F6E170D5EFE00DCB469 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = SKAP/Settings.storyboard; sourceTree = "<group>"; };
 		1C423F70170D622300DCB469 /* SLKSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKSettingsViewController.h; sourceTree = "<group>"; };
 		1C423F71170D622300DCB469 /* SLKSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKSettingsViewController.m; sourceTree = "<group>"; };
@@ -713,6 +719,10 @@
 				1C6F78941715B50D002E54A9 /* Log in */,
 				1C423F7E170D6BCE00DCB469 /* Deprecated stuff */,
 				1CF8282B1701A9C100EDC904 /* Custom Alert */,
+				1C3F3728172E98450084D3D8 /* SLKTabbar.h */,
+				1C3F372B172E98F70084D3D8 /* SLKTababrController.h */,
+				1C3F372C172E98F70084D3D8 /* SLKTababrController.m */,
+				1C3F3729172E98450084D3D8 /* SLKTabbar.m */,
 			);
 			name = ViewController;
 			path = ..;
@@ -920,6 +930,8 @@
 				1C98A21C172C121C00741112 /* Pii.m in Sources */,
 				1C99C345172C2AB30009959B /* Event.m in Sources */,
 				1C99C348172C2AB30009959B /* Diaper.m in Sources */,
+				1C3F372A172E98450084D3D8 /* SLKTabbar.m in Sources */,
+				1C3F372D172E98F70084D3D8 /* SLKTababrController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,6 +18,8 @@
 #import "SLKAddBabyViewController.h"
 #import "SLKParentStorage.h"
 #import "SLKFirtsTimeViewController.h"
+#import "SLKTababrController.h"
+#import "SLKTabbar.h"
 @implementation SLKAppDelegate
 {
     UISegmentedControl *_segmentControll;
@@ -132,7 +134,7 @@
 -(void)setUpApp
 {
    
-    self.tabBarController = [[UITabBarController alloc] init];
+    self.tabBarController = [[SLKTababrController alloc] init];
     UIStoryboard *settingStoryboard = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
     UIStoryboard *calendarStoryboard  = [UIStoryboard storyboardWithName:@"calendar" bundle:nil];
     UIStoryboard *mainStoryboard  = [UIStoryboard storyboardWithName:@"Feed" bundle:nil];
@@ -164,6 +166,8 @@
     [[[self tabBarController] tabBar] setBackgroundImage:[UIImage imageNamed:@"tabbar_bg"]];
     [[[self tabBarController] tabBar] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar_bg_sel"]];
     
+    
+  
         
 //    babyArray = [[SLKBabyStorage sharedStorage] babyArray];
 //    numberOfBabies = babyArray.count;
