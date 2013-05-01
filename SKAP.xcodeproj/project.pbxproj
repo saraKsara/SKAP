@@ -11,6 +11,8 @@
 		1C137BDB17049EE800A39F3A /* Diaper.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C137BDA17049EE800A39F3A /* Diaper.storyboard */; };
 		1C137BDD17049EFC00A39F3A /* Medz.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C137BDC17049EFC00A39F3A /* Medz.storyboard */; };
 		1C137BDF17049F2F00A39F3A /* calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C137BDE17049F2F00A39F3A /* calendar.storyboard */; };
+		1C236C46173138F900364D91 /* SLKDiaper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C236C45173138F900364D91 /* SLKDiaper.m */; };
+		1C236C491731460900364D91 /* SLKuser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C236C481731460900364D91 /* SLKuser.m */; };
 		1C2F0D80171817CB00FBF106 /* bo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C2F0D7F171817CB00FBF106 /* bo.png */; };
 		1C34EC781706EC700095F0C2 /* SLKPooStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C34EC771706EC700095F0C2 /* SLKPooStorage.m */; };
 		1C34EC7B1706EED10095F0C2 /* SLKPiiStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C34EC7A1706EED10095F0C2 /* SLKPiiStorage.m */; };
@@ -135,6 +137,10 @@
 		1C137BDA17049EE800A39F3A /* Diaper.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Diaper.storyboard; path = SKAP/Diaper.storyboard; sourceTree = "<group>"; };
 		1C137BDC17049EFC00A39F3A /* Medz.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Medz.storyboard; path = SKAP/Medz.storyboard; sourceTree = "<group>"; };
 		1C137BDE17049F2F00A39F3A /* calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = calendar.storyboard; path = SKAP/calendar.storyboard; sourceTree = "<group>"; };
+		1C236C44173138F900364D91 /* SLKDiaper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKDiaper.h; sourceTree = "<group>"; };
+		1C236C45173138F900364D91 /* SLKDiaper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKDiaper.m; sourceTree = "<group>"; };
+		1C236C471731460900364D91 /* SLKuser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKuser.h; sourceTree = "<group>"; };
+		1C236C481731460900364D91 /* SLKuser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKuser.m; sourceTree = "<group>"; };
 		1C2F0D7F171817CB00FBF106 /* bo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bo.png; sourceTree = "<group>"; };
 		1C34EC761706EC700095F0C2 /* SLKPooStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKPooStorage.h; sourceTree = "<group>"; };
 		1C34EC771706EC700095F0C2 /* SLKPooStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPooStorage.m; sourceTree = "<group>"; };
@@ -500,6 +506,10 @@
 				1C98A21B172C121C00741112 /* Pii.m */,
 				1C98A217172C121C00741112 /* Poo.h */,
 				1C98A218172C121C00741112 /* Poo.m */,
+				1C236C44173138F900364D91 /* SLKDiaper.h */,
+				1C236C45173138F900364D91 /* SLKDiaper.m */,
+				1C236C471731460900364D91 /* SLKuser.h */,
+				1C236C481731460900364D91 /* SLKuser.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -932,6 +942,8 @@
 				1C99C348172C2AB30009959B /* Diaper.m in Sources */,
 				1C3F372A172E98450084D3D8 /* SLKTabbar.m in Sources */,
 				1C3F372D172E98F70084D3D8 /* SLKTababrController.m in Sources */,
+				1C236C46173138F900364D91 /* SLKDiaper.m in Sources */,
+				1C236C491731460900364D91 /* SLKuser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

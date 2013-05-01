@@ -11,7 +11,7 @@
 
 @class Baby;
 
-@interface ParentFigures : NSManagedObject
+@interface ParentFigures : NSManagedObject 
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * number;
