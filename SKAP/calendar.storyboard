@@ -148,31 +148,6 @@
     <resources>
         <image name="smallViewBackground.png" width="320" height="300"/>
     </resources>
-    <classes>
-        <class className="SLKDaySummaryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKDaySummaryViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="close:"/>
-                <relationship kind="action" name="nextDay:"/>
-                <relationship kind="action" name="prevDay:"/>
-                <relationship kind="action" name="segmentcontroll:"/>
-                <relationship kind="outlet" name="foodLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="headerLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="peeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pooLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="segmentcontroll" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="SLKDayViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SLKDayViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="eventLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="propertyLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

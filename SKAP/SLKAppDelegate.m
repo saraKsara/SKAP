@@ -20,6 +20,7 @@
 #import "SLKFirtsTimeViewController.h"
 #import "SLKTababrController.h"
 #import "SLKTabbar.h"
+#import "SLKParseLoginViewController.h"
 @implementation SLKAppDelegate
 {
     UISegmentedControl *_segmentControll;
@@ -38,7 +39,7 @@
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound];
     //to get statistics from users
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-
+    [PFUser enableAutomaticUser];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(setTheBGColor:)
                                                  name:@"changeBabyColor"
@@ -126,10 +127,14 @@
 
 -(void)setUpAppFirstTime
 {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
-    SLKFirtsTimeViewController *controller = [sb instantiateInitialViewController];
-    [self.window setRootViewController:controller];
+    SLKParseLoginViewController *plv = [[SLKParseLoginViewController alloc]init];
+    [self.window setRootViewController:plv];
     [self.window makeKeyAndVisible];
+    
+//    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+//    SLKFirtsTimeViewController *controller = [sb instantiateInitialViewController];
+//    [self.window setRootViewController:controller];
+//    [self.window makeKeyAndVisible];
 }
 -(void)setUpApp
 {
