@@ -16,8 +16,8 @@ Parse.Cloud.define("getBabies", function(request, response) {
         sum += " ";
     
       }
-      response.success(sum);
-      // response.success(results);
+      //response.success(sum);
+      response.success(results);
 
     },
     error: function() {
@@ -26,15 +26,35 @@ Parse.Cloud.define("getBabies", function(request, response) {
   });
 });
 
+[{"__type":"Pointer","className":"Baby","objectId":"EShAEXIFzG"}]
+
+// curl -X POST \
+//   -H "X-Parse-Application-Id: 4EQbwofsLU6tVbseSlCoOVvWBmW7MdlLuM4GCuCl" \
+//   -H "X-Parse-REST-API-Key: 0vU2vQqcRHuj1jQPmERCfEFivtktEsatS9kPpnXu" \
+//   -H "Content-Type: application/json" \
+//   -d '{"objectId":"EShAEXIFzG"}' \
+//   https://api.parse.com/1/functions/getBabies
+
+Parse.Cloud.define("getEvents", function(request, response) {
+  var query = new Parse.Query("Event");
+  query.equalTo("Babe", request.params.Babe);
+  query.find({
+    success: function(results) {
+  
+      //response.success(sum);
+      response.success(results);
+
+    },
+    error: function() {
+      response.error("movie lookup failed");
+    }
+  });
+});
+// curl -X POST \
+//   -H "X-Parse-Application-Id: 4EQbwofsLU6tVbseSlCoOVvWBmW7MdlLuM4GCuCl" \
+//   -H "X-Parse-REST-API-Key: 0vU2vQqcRHuj1jQPmERCfEFivtktEsatS9kPpnXu" \
+//   -H "Content-Type: application/json" \
+//   -d '{"Babe":"EShAEXIFzG"}' \
+//   https://api.parse.com/1/functions/getEvents
 
 
-// curl -X POST \>   -H "X-Parse-Application-Id: 4EQbwofsLU6tVbseSlCoOVvWBmW7MdlLuM4GCuCl" \
-// >   -H "X-Parse-REST-API-Key: 0vU2vQqcRHuj1jQPmERCfEFivtktEsatS9kPpnXu" \
-// >   -H "Content-Type: application/json" \
-// >   -d '{"objectId":"EShAEXIFzG"}' \
-// >   https://api.parse.com/1/functions/getBabies
-// curl -X POST \>   -H "X-Parse-Application-Id: 4EQbwofsLU6tVbseSlCoOVvWBmW7MdlLuM4GCuCl" \
-// >   -H "X-Parse-REST-API-Key: 0vU2vQqcRHuj1jQPmERCfEFivtktEsatS9kPpnXu" \
-// >   -H "Content-Type: application/json" \
-// >   -d '{"name":"kissie"}' \
-// >   https://api.parse.com/1/functions/getBabies

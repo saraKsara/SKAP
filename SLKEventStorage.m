@@ -22,6 +22,9 @@
 #import "SLKConstants.h"
 #import "SLKPARSEService.h"
 #import "Diaper.h"
+#import "SLKPARSEService.h"
+#import <Parse/Parse.h>
+
 @implementation SLKEventStorage
 {
     NSManagedObjectContext *context;
@@ -133,10 +136,54 @@
         [e addDiapersObject:(Diaper*)happening];
     }
     
-    
     e.eventId = eventId;
     e.baby = baby;
     e.date = date;
+    
+    NSDictionary *paramDict =  @{@"objectId":@"EShAEXIFzG"};
+
+//    [PFCloud callFunction:@"getBabies" withParameters:paramDict];
+    [PFCloud callFunctionInBackground:@"getBabies" withParameters:paramDict block:^(id object, NSError *error) {
+        if (!error) {
+            NSLog(@"Men hurray! %@", object);
+           
+            
+            
+          
+            PFObject *eventObject = [PFObject objectWithClassName:@"Event"];
+            [eventObject setObject:[[object objectAtIndex:0] objectId] forKey:@"Babe"];
+            
+              ///OBS!! bara för tuttar, big meal, rightboob
+            PFObject *tits = [PFObject objectWithClassName:@"tits"];
+            [tits setObject:@"bigMeal" forKey:@"stringValue"];
+            [tits setObject:[NSNumber numberWithBool:YES]forKey:@"rightBoob"];
+            [tits setObject:[NSNumber numberWithBool:NO]forKey:@"leftBoob"];
+            [eventObject setObject:kEventType_TitFood forKey:@"type"];
+            [eventObject setObject:tits forKey:@"tit"];
+
+            
+            
+            //  [eventObject setObject:babycolor forKey:@"color"];
+            [SLKPARSEService postObject:eventObject onSuccess:^(PFObject *obj) {
+                NSLog(@"tillbaka event:::%@", obj);
+            } onFailure:^(PFObject *obj) {
+                NSLog(@"error: %@", obj);
+            }];
+            
+            
+        } else {
+            NSLog(@"Men nooo!%@ %@", object, error);
+            
+            //avgPoint = nil;
+            //[avgButton setTitle:@"Sorry, not available!" forState:UIControlStateNormal];
+        }
+    }];
+//    PFObject *babyObject = [PFObject objectWithClassName:@"Baby"];
+//    [babyObject setObject:baby.name forKey:@"name"];
+//    [babyObject setObject:baby.babyId forKey:@"objectId"];
+    
+   
+   
  
     NSLog(@"Created event with tit: %@, to baby: %@", [happening class], baby.name);
     return e;

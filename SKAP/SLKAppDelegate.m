@@ -20,7 +20,7 @@
 #import "SLKFirtsTimeViewController.h"
 #import "SLKTababrController.h"
 #import "SLKTabbar.h"
-#import "SLKParseLoginViewController.h"
+//#import "SLKParseLoginViewController.h"
 @implementation SLKAppDelegate
 {
     UISegmentedControl *_segmentControll;
@@ -59,7 +59,7 @@
 
     NSString *color;
     
-    // [SLKPARSEService getAllObjects];
+     [SLKPARSEService getAllObjects];
     
     //TODO: on complete:
     
@@ -127,10 +127,10 @@
 
 -(void)setUpAppFirstTime
 {
-    SLKParseLoginViewController *plv = [[SLKParseLoginViewController alloc]init];
-    [self.window setRootViewController:plv];
-    [self.window makeKeyAndVisible];
-    
+//    SLKParseLoginViewController *plv = [[SLKParseLoginViewController alloc]init];
+//    [self.window setRootViewController:plv];
+//    [self.window makeKeyAndVisible];
+//    
 //    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
 //    SLKFirtsTimeViewController *controller = [sb instantiateInitialViewController];
 //    [self.window setRootViewController:controller];
