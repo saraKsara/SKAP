@@ -1,5 +1,5 @@
 //
-//  SLKParseLoginViewController.h
+//  SLKPfLoginViewController.h
 //  SKAP
 //
 //  Created by Student vid Yrkeshögskola C3L on 5/1/13.
@@ -8,6 +8,6 @@
 
 #import <Parse/Parse.h>
 
-@interface SLKParseLoginViewController : PFLogInViewController
+@interface SLKPfLoginViewController : PFLogInViewController
 
 @end
