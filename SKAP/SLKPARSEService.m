@@ -10,6 +10,9 @@
 #import "SLKBabyStorage.h"
 #import "Baby.h"
 #import "SLKAppDelegate.h"
+#import "SLKPfSingupViewController.h"
+#import "SLKParentStorage.h"
+#import "ParentFigures.h"
 #import <Parse/Parse.h>
 @implementation SLKPARSEService
 
@@ -72,6 +75,38 @@
 //            NSLog(@"Error: %@", errorString);
 //        }
 //    }];
+}
++(void)getParentWithUserName:(NSString*)pName
+{
+    //SLKPfSingupViewController  *suv;
+   // NSMutableString *s = suv.usernamefromSignUp;
+
+    PFQuery *pQuery = [PFQuery queryWithClassName:@"User"];
+    [pQuery whereKey:@"username" equalTo:pName];
+    NSLog(@"----%@", pName);
+    
+    [pQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {//4
+        if (!error) {
+            NSLog(@"Successfully retrieved kanske INGET JÄVLAT ALLS: %@", objects.class);
+           // NSLog(@"----------%@",[objects objectAtIndex:0]);
+            for (int i = 0; i < [objects count]; i++)
+            {
+                NSLog(@"huhuhuhuhuh----");               
+                //                 NSLog(@"BABY : %@", [[objects objectAtIndex:i] objectId ]);
+                //                            NSLog(@"BABY : %@", [objects objectAtIndex:i]);
+                
+                [[SLKParentStorage sharedStorage]createParentWithName:[[objects objectAtIndex:i] objectForKey:@"username"] signature:nil parentId:[[objects objectAtIndex:i]objectId] number:nil color:nil babies:nil];
+                NSLog(@"namnet------%@",pName);
+                NSLog(@"currentPEAR---%@",[[[SLKParentStorage sharedStorage]getCurrentParent]name]);
+                
+                
+            }
+            
+        } else {
+            NSString *errorString = [[error userInfo] objectForKey:@"error"];
+            NSLog(@"Error: %@", errorString);
+        }
+    }];
 }
 
 +(void)postObject:(PFObject *)object onSuccess:(void (^)(PFObject *))successObject onFailure:(void (^)(PFObject *))failureObject

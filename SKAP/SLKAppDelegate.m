@@ -8,8 +8,10 @@
 #import <Parse/Parse.h>
 #import "SLKAppDelegate.h"
 #import "SLKPARSEService.h"
+#import "SLKPfLoginViewController.h"
 #import "SLKBabyStorage.h"
 #import "Baby.h"
+#import "ParentFigures.h"
 #import "SLKMedzViewController.h"
 #import "SLKColors.h"
 #import "SLKConstants.h"
@@ -20,7 +22,14 @@
 #import "SLKFirtsTimeViewController.h"
 #import "SLKTababrController.h"
 #import "SLKTabbar.h"
+<<<<<<< HEAD
 //#import "SLKParseLoginViewController.h"
+=======
+#import "SLKPfSingupViewController.h"
+#import "SLKuser.h"
+
+
+>>>>>>> master
 @implementation SLKAppDelegate
 {
     UISegmentedControl *_segmentControll;
@@ -40,6 +49,9 @@
     //to get statistics from users
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     [PFUser enableAutomaticUser];
+    PFACL *defaultACL = [PFACL ACL];
+    [defaultACL setPublicReadAccess:YES];
+    [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(setTheBGColor:)
                                                  name:@"changeBabyColor"
@@ -127,10 +139,22 @@
 
 -(void)setUpAppFirstTime
 {
+<<<<<<< HEAD
 //    SLKParseLoginViewController *plv = [[SLKParseLoginViewController alloc]init];
 //    [self.window setRootViewController:plv];
 //    [self.window makeKeyAndVisible];
 //    
+=======
+    SLKPfSingupViewController *cv = [[SLKPfSingupViewController alloc]init];
+    [self.window setRootViewController:cv];
+    [self.window makeKeyAndVisible];
+    
+
+    
+//    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[SLKConfigViewController alloc] init]];
+//    self.window.backgroundColor = [UIColor whiteColor];
+//    [self.window makeKeyAndVisible];
+>>>>>>> master
 //    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
 //    SLKFirtsTimeViewController *controller = [sb instantiateInitialViewController];
 //    [self.window setRootViewController:controller];
@@ -138,7 +162,7 @@
 }
 -(void)setUpApp
 {
-   
+    NSLog(@"currentMorsa---%@",[[[SLKParentStorage sharedStorage]getCurrentParent]name]);
     self.tabBarController = [[SLKTababrController alloc] init];
     UIStoryboard *settingStoryboard = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
     UIStoryboard *calendarStoryboard  = [UIStoryboard storyboardWithName:@"calendar" bundle:nil];
@@ -283,7 +307,8 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    
+//    = // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
 @end

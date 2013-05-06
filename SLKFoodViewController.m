@@ -30,6 +30,8 @@
 #import "SLKSleepStorage.h"
 #import "SLKDaySummaryViewController.h"
 #import "SLKUserDefaults.h"
+#import "SLKuser.h"
+#import <Parse/Parse.h>
 @interface SLKFoodViewController ()
 
 @end
@@ -99,6 +101,8 @@
     [super viewWillAppear:animated];
     
     NSLog(@"selected ONE? : %d", _switchOne.selected);
+    NSLog(@"current Pf-USER----%@", [PFUser currentUser]);
+    NSLog(@"current SLK-USER----%@", [SLKuser currentUser]);
 
     
     _commentTextView.delegate = self;

@@ -15,6 +15,7 @@
 #import "SLKConstants.h"
 #import "ParentFigures.h"
 #import "SLKParentStorage.h"
+#import <Parse/Parse.h>
 #import "SLKSettingsViewController.h"
 @interface SLKAddBabyViewController ()
 
@@ -102,6 +103,9 @@
                                                        date:nil
                                                        type:nil
                                                       color:[object objectForKey:@"color"]];
+         
+         [[PFUser currentUser]setObject:[object objectId] forKey:@"baby"];
+         
          
          NSLog(@"SUCCEED to create %@",[object objectForKey:@"name"] );
          

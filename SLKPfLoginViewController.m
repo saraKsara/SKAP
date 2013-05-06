@@ -1,24 +1,31 @@
 //
-//  SLKParseLoginViewController.m
+//  SLKPfLoginViewController.m
 //  SKAP
 //
 //  Created by Student vid Yrkeshögskola C3L on 5/1/13.
 //  Copyright (c) 2013 Student vid Yrkeshögskola C3L. All rights reserved.
 //
 
-#import "SLKParseLoginViewController.h"
+#import "SLKPfLoginViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "SLKuser.h"
 
 
-@interface SLKParseLoginViewController ()
+@interface SLKPfLoginViewController ()
 @property (nonatomic, strong) UIImageView *fieldsBackground;
 @end
 
-@implementation SLKParseLoginViewController
+@implementation SLKPfLoginViewController
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(popThisView)
+                                                 name:@"popThisView"
+                                               object:nil];
+    [self.logInView.logInButton addTarget:self action:@selector(popThisView) forControlEvents:UIControlEventTouchUpInside];
+
     
     [self.logInView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"smallViewBackground.png"]]];
     [self.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bo.png"]]];
@@ -27,19 +34,19 @@
     [self.logInView.dismissButton setImage:[UIImage imageNamed:@"prevyArrow.png"] forState:UIControlStateNormal];
     [self.logInView.dismissButton setImage:[UIImage imageNamed:@"nextyArrow.png"] forState:UIControlStateHighlighted];
     
-//    [self.logInView.facebookButton setImage:nil forState:UIControlStateNormal];
-//    [self.logInView.facebookButton setImage:nil forState:UIControlStateHighlighted];
-//    [self.logInView.facebookButton setBackgroundImage:[UIImage imageNamed:@"FacebookDown.png"] forState:UIControlStateHighlighted];
-//    [self.logInView.facebookButton setBackgroundImage:[UIImage imageNamed:@"Facebook.png"] forState:UIControlStateNormal];
-//    [self.logInView.facebookButton setTitle:@"" forState:UIControlStateNormal];
-//    [self.logInView.facebookButton setTitle:@"" forState:UIControlStateHighlighted];
-//    
-//    [self.logInView.twitterButton setImage:nil forState:UIControlStateNormal];
-//    [self.logInView.twitterButton setImage:nil forState:UIControlStateHighlighted];
-//    [self.logInView.twitterButton setBackgroundImage:[UIImage imageNamed:@"Twitter.png"] forState:UIControlStateNormal];
-//    [self.logInView.twitterButton setBackgroundImage:[UIImage imageNamed:@"TwitterDown.png"] forState:UIControlStateHighlighted];
-//    [self.logInView.twitterButton setTitle:@"" forState:UIControlStateNormal];
-//    [self.logInView.twitterButton setTitle:@"" forState:UIControlStateHighlighted];
+    //    [self.logInView.facebookButton setImage:nil forState:UIControlStateNormal];
+    //    [self.logInView.facebookButton setImage:nil forState:UIControlStateHighlighted];
+    //    [self.logInView.facebookButton setBackgroundImage:[UIImage imageNamed:@"FacebookDown.png"] forState:UIControlStateHighlighted];
+    //    [self.logInView.facebookButton setBackgroundImage:[UIImage imageNamed:@"Facebook.png"] forState:UIControlStateNormal];
+    //    [self.logInView.facebookButton setTitle:@"" forState:UIControlStateNormal];
+    //    [self.logInView.facebookButton setTitle:@"" forState:UIControlStateHighlighted];
+    //
+    //    [self.logInView.twitterButton setImage:nil forState:UIControlStateNormal];
+    //    [self.logInView.twitterButton setImage:nil forState:UIControlStateHighlighted];
+    //    [self.logInView.twitterButton setBackgroundImage:[UIImage imageNamed:@"Twitter.png"] forState:UIControlStateNormal];
+    //    [self.logInView.twitterButton setBackgroundImage:[UIImage imageNamed:@"TwitterDown.png"] forState:UIControlStateHighlighted];
+    //    [self.logInView.twitterButton setTitle:@"" forState:UIControlStateNormal];
+    //    [self.logInView.twitterButton setTitle:@"" forState:UIControlStateHighlighted];
     
     [self.logInView.signUpButton setBackgroundImage:[UIImage imageNamed:@"checkedNO.png"] forState:UIControlStateNormal];
     [self.logInView.signUpButton setBackgroundImage:[UIImage imageNamed:@"checkedYES.png"] forState:UIControlStateHighlighted];
@@ -75,6 +82,12 @@
     [self.logInView.usernameField setFrame:CGRectMake(35.0f, 145.0f, 250.0f, 50.0f)];
     [self.logInView.passwordField setFrame:CGRectMake(35.0f, 240.0f, 250.0f, 50.0f)];
     [self.fieldsBackground setFrame:CGRectMake(35.0f, 145.0f, 250.0f, 100.0f)];
+}
+-(void)popThisView
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpApp" object:nil userInfo:nil];
+    NSLog(@"current Pf-USER----%@", [PFUser currentUser]);
+      NSLog(@"current SLK-USER----%@", [SLKuser currentUser]);
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
