@@ -8,7 +8,7 @@
 #import <Parse/Parse.h>
 #import "SLKAppDelegate.h"
 #import "SLKPARSEService.h"
-//#import "SLKPfLoginViewController.h"
+#import "SLKPfLoginViewController.h"
 #import "SLKBabyStorage.h"
 #import "Baby.h"
 #import "ParentFigures.h"
@@ -38,7 +38,7 @@
 {
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
+    
     [Parse setApplicationId:@"4EQbwofsLU6tVbseSlCoOVvWBmW7MdlLuM4GCuCl"
                   clientKey:@"lh5Ib7m3Jab71RhCA1dBC2UrMR68dsTBzIlsFu6h"];
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound];
@@ -62,12 +62,12 @@
                                              selector:@selector(setUpAppFirstTime)
                                                  name:@"setUpAppFirstTime"
                                                object:nil];
-
     
-
+    
+    
     NSString *color;
     
-     [SLKPARSEService getAllObjects];
+    [SLKPARSEService getAllObjects];
     
     //TODO: on complete:
     
@@ -78,9 +78,9 @@
     if ([[[SLKParentStorage sharedStorage]parentArray]count] == 0 ) {
         
         NSLog(@"\n\n\n there are NOOOOO parents in user default, add one! \n\n\n");
-       
-    [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpAppFirstTime" object:nil userInfo:nil];
-
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpAppFirstTime" object:nil userInfo:nil];
+        
         
     } else //there are babies in storage
     {
@@ -91,18 +91,18 @@
         {
             NSLog(@"\n\n\n BAD!!! there are babies in storage, but no current... BAD \n\n\n");
         }
-//           [self setUpAppFirstTime];
+        //           [self setUpAppFirstTime];
         [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpApp" object:nil userInfo:nil];
-
+        
         //NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
         //[[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
     }
- 
-       // [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
+    // [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
     //[[SLKBabyStorage sharedStorage] removeAllBabies];
-   // [[SLKParentStorage sharedStorage] removeAllParents];
-
+    // [[SLKParentStorage sharedStorage] removeAllParents];
+    
     return YES;
 }
 
@@ -124,10 +124,10 @@
 
 //-(void) setTheBGColor:(NSNotification *) notification
 //{
-//    
+//
 //    NSString *color = [notification.userInfo objectForKey:@"color"];
 //    UIColor *bgColor = [UIColor colorWithHexValue:color];
-//    
+//
 //    UIImage *image = [self drawImageBackgroundWithColor:bgColor];
 //    UIImage *imageText =[self drawBIGText:@"HIRE US" inImage:image atPoint:CGPointMake(20, 55)];
 //    self.window.backgroundColor = [UIColor colorWithPatternImage:imageText];
@@ -135,20 +135,19 @@
 
 -(void)setUpAppFirstTime
 {
-
     SLKPfSingupViewController *cv = [[SLKPfSingupViewController alloc]init];
     [self.window setRootViewController:cv];
     [self.window makeKeyAndVisible];
     
-
     
-//    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[SLKConfigViewController alloc] init]];
-//    self.window.backgroundColor = [UIColor whiteColor];
-//    [self.window makeKeyAndVisible];
-//    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
-//    SLKFirtsTimeViewController *controller = [sb instantiateInitialViewController];
-//    [self.window setRootViewController:controller];
-//    [self.window makeKeyAndVisible];
+    
+    //    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[SLKConfigViewController alloc] init]];
+    //    self.window.backgroundColor = [UIColor whiteColor];
+    //    [self.window makeKeyAndVisible];
+    //    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+    //    SLKFirtsTimeViewController *controller = [sb instantiateInitialViewController];
+    //    [self.window setRootViewController:controller];
+    //    [self.window makeKeyAndVisible];
 }
 -(void)setUpApp
 {
@@ -157,7 +156,7 @@
     UIStoryboard *settingStoryboard = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
     UIStoryboard *calendarStoryboard  = [UIStoryboard storyboardWithName:@"calendar" bundle:nil];
     UIStoryboard *mainStoryboard  = [UIStoryboard storyboardWithName:@"Feed" bundle:nil];
-  
+    
     NSMutableArray* viewControllers = [[NSMutableArray alloc] init];
     
     [viewControllers addObject: [mainStoryboard instantiateInitialViewController]];
@@ -166,9 +165,9 @@
     
     
     self.tabBarController.viewControllers = viewControllers;
-        
+    
     // Tab styling
-   
+    
     UITabBarItem *tabItemCal =  [[[[self tabBarController] tabBar] items] objectAtIndex:1];
     [tabItemCal setTitle:@"OverView"];
     [tabItemCal setImage:[UIImage imageNamed:@"blojaLyscopy.png"]];
@@ -176,68 +175,68 @@
     UITabBarItem *tabItemMain =  [[[[self tabBarController] tabBar] items] objectAtIndex:0];
     [tabItemMain setTitle:@"Log babys activites"];
     [tabItemMain setImage:[UIImage imageNamed:@"blojaLyscopy.png"]];
-
+    
     UITabBarItem *tabItemMenue =  [[[[self tabBarController] tabBar] items] objectAtIndex:2];
     [tabItemMenue setTitle:@"Settings"];
     [tabItemMenue setImage:[UIImage imageNamed:@"blojaLyscopy.png"]];
-
+    
     
     [[[self tabBarController] tabBar] setBackgroundImage:[UIImage imageNamed:@"tabbar_bg"]];
     [[[self tabBarController] tabBar] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar_bg_sel"]];
     
     
-  
-        
-//    babyArray = [[SLKBabyStorage sharedStorage] babyArray];
-//    numberOfBabies = babyArray.count;
     
-//    NSMutableArray *segmentArray = [[NSMutableArray alloc] initWithObjects:@"menu", nil];
-//    int i = 1;
-//    for (Baby *babe in babyArray)
-//    {
-//        [segmentArray addObject:babe.name];
-//        i++;
-//    }
     
-  
+    //    babyArray = [[SLKBabyStorage sharedStorage] babyArray];
+    //    numberOfBabies = babyArray.count;
+    
+    //    NSMutableArray *segmentArray = [[NSMutableArray alloc] initWithObjects:@"menu", nil];
+    //    int i = 1;
+    //    for (Baby *babe in babyArray)
+    //    {
+    //        [segmentArray addObject:babe.name];
+    //        i++;
+    //    }
+    
+    
     
     //TODO: move to set up class???
-//    _segmentControll = [[UISegmentedControl alloc] initWithItems:segmentArray];
-//    _segmentControll.frame = CGRectMake(0, 0, 320, 50);
-//    _segmentControll.segmentedControlStyle = UISegmentedControlStylePlain;
-//    _segmentControll.selectedSegmentIndex = 1;//TODO: == current babe
-//    segmentWidth = 320 /(numberOfBabies +1);
-//    
-//    for (int i = 0; i <= numberOfBabies; i++) {
-//        {
-//            if (i == 0) {
-//                UIImage *image = [self drawImageWithColor:[UIColor colorWithHexValue:kBlueish_Color alpha:0.8]];
-//                UIImage *imageText =[self drawText:@"menu" inImage:image atPoint:CGPointMake(20, 25)];
-//              
-//                [_segmentControll setImage:imageText forSegmentAtIndex:i];
-//            } else {
-//                NSString *color = [[babyArray objectAtIndex:i-1] babysColor];
-//                UIImage *image = [self drawImageWithColor:[UIColor colorWithHexValue:color]];
-//                
-//                UIImage *imageText =[self drawText:[[babyArray objectAtIndex:i-1] name] inImage:image atPoint:CGPointMake(20, 25)];
-//                
-//                [_segmentControll setImage:imageText forSegmentAtIndex:i];
-//            }
-//            
-//        }
-//        
-//        [_segmentControll addTarget:self action:@selector(segmentAction:) forControlEvents: UIControlEventValueChanged];
-//        
-//        [self.tabBarController.view addSubview:_segmentControll];
-//        [_segmentControll setSelected:NO];
-//        [_segmentControll setHighlighted:NO];
-//        [_segmentControll setTintColor:[UIColor clearColor]];
-
-
+    //    _segmentControll = [[UISegmentedControl alloc] initWithItems:segmentArray];
+    //    _segmentControll.frame = CGRectMake(0, 0, 320, 50);
+    //    _segmentControll.segmentedControlStyle = UISegmentedControlStylePlain;
+    //    _segmentControll.selectedSegmentIndex = 1;//TODO: == current babe
+    //    segmentWidth = 320 /(numberOfBabies +1);
+    //
+    //    for (int i = 0; i <= numberOfBabies; i++) {
+    //        {
+    //            if (i == 0) {
+    //                UIImage *image = [self drawImageWithColor:[UIColor colorWithHexValue:kBlueish_Color alpha:0.8]];
+    //                UIImage *imageText =[self drawText:@"menu" inImage:image atPoint:CGPointMake(20, 25)];
+    //
+    //                [_segmentControll setImage:imageText forSegmentAtIndex:i];
+    //            } else {
+    //                NSString *color = [[babyArray objectAtIndex:i-1] babysColor];
+    //                UIImage *image = [self drawImageWithColor:[UIColor colorWithHexValue:color]];
+    //
+    //                UIImage *imageText =[self drawText:[[babyArray objectAtIndex:i-1] name] inImage:image atPoint:CGPointMake(20, 25)];
+    //
+    //                [_segmentControll setImage:imageText forSegmentAtIndex:i];
+    //            }
+    //
+    //        }
+    //
+    //        [_segmentControll addTarget:self action:@selector(segmentAction:) forControlEvents: UIControlEventValueChanged];
+    //
+    //        [self.tabBarController.view addSubview:_segmentControll];
+    //        [_segmentControll setSelected:NO];
+    //        [_segmentControll setHighlighted:NO];
+    //        [_segmentControll setTintColor:[UIColor clearColor]];
+    
+    
     [self.window setRootViewController:self.tabBarController];
     [self.window makeKeyAndVisible];
-//}
-
+    //}
+    
 }
 
 //
@@ -248,16 +247,16 @@
 //    UIGraphicsBeginImageContext(CGSizeMake(320, 500));
 //    [color setFill];
 //    UIRectFill(CGRectMake(0, 0, 320, 500));
-//    
+//
 //    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
 //    UIGraphicsEndImageContext();
-//    
+//
 //    return image;
 //}
 
 //-(UIImage*) drawBIGText:(NSString*) text inImage:(UIImage*) image atPoint:(CGPoint) point
 //{
-//    
+//
 //    UIFont *font = [UIFont fontWithName:@"HelveticaNeue" size:25];
 //    UIGraphicsBeginImageContext(image.size);
 //    [image drawInRect:CGRectMake(0,0,image.size.width,image.size.height)];
@@ -266,7 +265,7 @@
 //    [text drawInRect:CGRectIntegral(rect) withFont:font];
 //    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
 //    UIGraphicsEndImageContext();
-//    
+//
 //    return newImage;
 //}
 
@@ -281,7 +280,7 @@
 {
     //TODO: think about this:
     NSLog(@"applicationDidEnterBackground, update data on server here? and when actually updating?");
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
@@ -298,7 +297,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     
-//    = // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    //    = // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
 @end
