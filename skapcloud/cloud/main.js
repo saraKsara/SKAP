@@ -21,12 +21,12 @@ Parse.Cloud.define("getBabies", function(request, response) {
 
     },
     error: function() {
-      response.error("movie lookup failed");
+      response.error("Failed to get baby");
     }
   });
 });
 
-[{"__type":"Pointer","className":"Baby","objectId":"EShAEXIFzG"}]
+//[{"__type":"Pointer","className":"Baby","objectId":"EShAEXIFzG"}]
 
 // curl -X POST \
 //   -H "X-Parse-Application-Id: 4EQbwofsLU6tVbseSlCoOVvWBmW7MdlLuM4GCuCl" \
@@ -40,13 +40,10 @@ Parse.Cloud.define("getEvents", function(request, response) {
   query.equalTo("Babe", request.params.Babe);
   query.find({
     success: function(results) {
-  
-      //response.success(sum);
-      response.success(results);
-
+        response.success(results);
     },
     error: function() {
-      response.error("movie lookup failed");
+      response.error("Failed to get event");
     }
   });
 });
