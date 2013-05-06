@@ -18,37 +18,55 @@
 
 +(void)getAllObjects
 {
+    NSDictionary *paramDict =  @{@"objectId":@"qQnTDiem5K"};
     
-    PFQuery *babyQuery = [PFQuery queryWithClassName:@"Baby"]; //1
-    //[query whereKey:@"name" equalTo:@"Jack"];//2
-    [babyQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {//4
+    //    [PFCloud callFunction:@"getBabies" withParameters:paramDict];
+    [PFCloud callFunctionInBackground:@"getBabies" withParameters:paramDict block:^(id object, NSError *error) {
         if (!error) {
-            NSLog(@"Successfully retrieved: %@", objects.class);
+            NSLog(@"Men hurray! %@", [[object objectAtIndex:0] objectForKey:@"name"]);
             
-            for (int i = 0; i < [objects count]; i++)
-            {
-//                 NSLog(@"BABY : %@", [[objects objectAtIndex:i] objectId ]);
-//                            NSLog(@"BABY : %@", [objects objectAtIndex:i]);
-                
-                [[SLKBabyStorage sharedStorage] createBabyWithName:[[objects objectAtIndex:i] objectForKey:@"name"]
-                                                            babyId:[[objects objectAtIndex:i]objectId]
-                                                              date:[[objects objectAtIndex:i] objectForKey:@"date"]
-                                                              type:nil
-                                                             color:[[objects objectAtIndex:i]objectForKey:@"color"]];
-                
-            }
-
+            
+            
+            
+                    
+            
         } else {
-            NSString *errorString = [[error userInfo] objectForKey:@"error"];
-            NSLog(@"Error: %@", errorString);
+            NSLog(@"Men nooo!%@ %@", object, error);
+            
+            //avgPoint = nil;
+            //[avgButton setTitle:@"Sorry, not available!" forState:UIControlStateNormal];
         }
     }];
+//    PFQuery *babyQuery = [PFQuery queryWithClassName:@"Baby"]; //1
+//    //[query whereKey:@"name" equalTo:@"Jack"];//2
+//    [babyQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {//4
+//        if (!error) {
+//            NSLog(@"Successfully retrieved: %@", objects.class);
+//            
+//            for (int i = 0; i < [objects count]; i++)
+//            {
+//                //                 NSLog(@"BABY : %@", [[objects objectAtIndex:i] objectId ]);
+//                //                            NSLog(@"BABY : %@", [objects objectAtIndex:i]);
+//                
+//                [[SLKBabyStorage sharedStorage] createBabyWithName:[[objects objectAtIndex:i] objectForKey:@"name"]
+//                                                            babyId:[[objects objectAtIndex:i]objectId]
+//                                                              date:[[objects objectAtIndex:i] objectForKey:@"date"]
+//                                                              type:nil
+//                                                             color:[[objects objectAtIndex:i]objectForKey:@"color"]];
+//                
+//            }
+//            
+//        } else {
+//            NSString *errorString = [[error userInfo] objectForKey:@"error"];
+//            NSLog(@"Error: %@", errorString);
+//        }
+//    }];
 }
 +(void)getParentWithUserName:(NSString*)pName
 {
     //SLKPfSingupViewController  *suv;
-   // NSMutableString *s = suv.usernamefromSignUp;
-
+    // NSMutableString *s = suv.usernamefromSignUp;
+    
     PFQuery *pQuery = [PFQuery queryWithClassName:@"User"];
     [pQuery whereKey:@"username" equalTo:pName];
     NSLog(@"----%@", pName);
@@ -56,10 +74,10 @@
     [pQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {//4
         if (!error) {
             NSLog(@"Successfully retrieved kanske INGET JÄVLAT ALLS: %@", objects.class);
-           // NSLog(@"----------%@",[objects objectAtIndex:0]);
+            // NSLog(@"----------%@",[objects objectAtIndex:0]);
             for (int i = 0; i < [objects count]; i++)
             {
-                NSLog(@"huhuhuhuhuh----");               
+                NSLog(@"huhuhuhuhuh----");
                 //                 NSLog(@"BABY : %@", [[objects objectAtIndex:i] objectId ]);
                 //                            NSLog(@"BABY : %@", [objects objectAtIndex:i]);
                 
@@ -97,7 +115,7 @@
 +(void)deleteObject:(PFObject *)object
 {
     [object deleteInBackground];
-  
+    
 }
 
 
