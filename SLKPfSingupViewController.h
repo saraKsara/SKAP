@@ -9,5 +9,5 @@
 #import <Parse/Parse.h>
 
 @interface SLKPfSingupViewController : PFSignUpViewController
-
 @end
+

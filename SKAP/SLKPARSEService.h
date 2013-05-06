@@ -16,6 +16,7 @@
 
 //+(NSDictionary*)postOrder:(NSDictionary*)order;
 +(void)postObject:(PFObject*)object onSuccess:(void (^)(PFObject *))successObject onFailure:(void (^)(PFObject*))failureObject;
++(void)getParentWithUserName:(NSString*)pName;
 
 
 +(void)deleteObject:(PFObject*)object;
