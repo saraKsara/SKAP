@@ -41,7 +41,10 @@
     
     [Parse setApplicationId:@"4EQbwofsLU6tVbseSlCoOVvWBmW7MdlLuM4GCuCl"
                   clientKey:@"lh5Ib7m3Jab71RhCA1dBC2UrMR68dsTBzIlsFu6h"];
+    
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound];
+    
+    
     //to get statistics from users
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     [PFUser enableAutomaticUser];

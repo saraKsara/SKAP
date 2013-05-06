@@ -92,6 +92,8 @@
     PFObject *parentObject = [PFObject objectWithClassName:@"ParentFigure"];
     [parentObject setObject:name forKey:@"name"];
     [parentObject setObject:email forKey:@"signature"];
+    
+    
     //[parentObject setObject:_setSignatureTextField.text forKey:@"signature"];
     //     [babyObject setObject:newBabyName forKey:@"date"];
     

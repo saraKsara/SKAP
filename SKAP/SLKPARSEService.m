@@ -18,25 +18,20 @@
 
 +(void)getAllObjects
 {
+
     NSDictionary *paramDict =  @{@"objectId":@"qQnTDiem5K"};
     
-    //    [PFCloud callFunction:@"getBabies" withParameters:paramDict];
     [PFCloud callFunctionInBackground:@"getBabies" withParameters:paramDict block:^(id object, NSError *error) {
         if (!error) {
-            NSLog(@"Men hurray! %@", [[object objectAtIndex:0] objectForKey:@"name"]);
-            
-            
-            
-            
-                    
+            NSLog(@"Baby from response %@", [[object objectAtIndex:0] objectForKey:@"name"]);
             
         } else {
-            NSLog(@"Men nooo!%@ %@", object, error);
+            NSLog(@"Error: %@", error);
             
-            //avgPoint = nil;
-            //[avgButton setTitle:@"Sorry, not available!" forState:UIControlStateNormal];
         }
     }];
+    
+    
 //    PFQuery *babyQuery = [PFQuery queryWithClassName:@"Baby"]; //1
 //    //[query whereKey:@"name" equalTo:@"Jack"];//2
 //    [babyQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {//4
