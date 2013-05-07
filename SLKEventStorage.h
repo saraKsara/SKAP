@@ -48,5 +48,6 @@
 
 -(NSArray*)eventArray;
 
+-(NSSet *)eventIdsSet;
 
 @end

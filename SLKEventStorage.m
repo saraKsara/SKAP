@@ -343,6 +343,14 @@
     return [[SLKCoreDataService sharedService]fetchDataWithEntity:@"Event"];
 }
 
-
+-(NSSet *)eventIdsSet
+{
+    NSSet *eventset = [[NSSet alloc] init];
+    for (Event *event in [self eventArray])
+    {
+        [eventset setByAddingObject:event.eventId];
+    }
+   return eventset;
+}
 
 @end

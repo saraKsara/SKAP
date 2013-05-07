@@ -14,6 +14,8 @@
 #import "SLKUserDefaults.h"
 #import "SLKParentStorage.h"
 #import "ParentFigures.h"
+#import "Event.h"
+#import "SLKEventStorage.h"
 #import <Parse/Parse.h>
 @implementation SLKPARSEService
 
@@ -62,24 +64,60 @@
 {
     
 }
+
 +(void)getAllEvents{
+    
+    NSSet *events = [[SLKEventStorage sharedStorage] eventIdsSet];
+    NSLog(@"\n eventID from SET--- : %d\n\n", [events count]);
+    for (NSString *s in events)
+    {
+        NSLog(@"\n eventID from SET--- : %@\n\n", s);
+        
+    }
+    
     PFQuery *query = [PFQuery queryWithClassName:@"Event"]; //1
     NSString *currentBabyId = [SLKUserDefaults getTheCurrentBabe];
-    [query whereKey:@"babyId" equalTo:currentBabyId];//currentbaby
+    [query whereKey:@"babyId" equalTo:currentBabyId]; //TODO, this is only for one baby...
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {//4
         if (!error) {
             NSLog(@"Successfully retrieved: %@", objects.class);
             
             for (int i = 0; i < [objects count]; i++)
             {
-                                 NSLog(@"\n\n EVENTid : %@\n\n", [[objects objectAtIndex:i] objectId ]);
-                NSLog(@"\n\n type ------ :::: %@\n\n", [[objects objectAtIndex:i] objectForKey:@"type"]);
-                NSLog(@"\n\n local date ------ :::: %@\n\n", [[objects objectAtIndex:i] objectForKey:@"localDate"]);
+                //If there's no event with that id in eventstorage, create it!
+                if (![[[SLKEventStorage sharedStorage]eventIdsSet]containsObject: [[objects objectAtIndex:i]objectId]]){
+                    NSLog(@"No event with %@ exists, creating one",[[objects objectAtIndex:i]objectId]);
+                    [[SLKEventStorage sharedStorage]createEvenWithHappening:[[objects objectAtIndex:i]objectForKey:@"type"]
+                                                                withComment:[[objects objectAtIndex:i] objectForKey:@"comment"]
+                                                                       date:[[objects objectAtIndex:i] objectForKey:@"localDate"]
+                                                                    eventId:[[objects objectAtIndex:i]objectId]
+                                                                       baby:[[SLKBabyStorage sharedStorage] getBabyWithiD:[[objects objectAtIndex:i] objectForKey:@"babyId"]]];
+                    
 
-                NSLog(@"\n\n date ------ :::: %@\n\n", [[objects objectAtIndex:i] updatedAt]);
+                } else {
+                    NSLog(@"Event with %@ already exists, does NOT create it",[[objects objectAtIndex:i]objectId]);
 
-                NSLog(@"\n\n EVENT : %@\n\n", [objects objectAtIndex:i]);
-                            }
+                }
+                //else if ([[[SLKEventStorage sharedStorage] getEventWithiD:[[objects objectAtIndex:i]objectId]] isdirty]){
+                    //TODO:
+                    /*
+                     if the event with that id is in lcal storage, check if the event is clean or dirty!!
+                     */
+              //  }
+                
+                
+                
+                
+              NSLog(@"\n\n EVENTid ....: %@\n", [[objects objectAtIndex:i] objectId ]);
+        
+//                NSLog(@"\n\n type ------ :::: %@\n\n", [[objects objectAtIndex:i] objectForKey:@"type"]);
+//                NSLog(@"\n\n local date ------ :::: %@\n\n", [[objects objectAtIndex:i] objectForKey:@"localDate"]);
+//
+//                NSLog(@"\n\n dirt ------ :::: %d\n\n", [[objects objectAtIndex:i] isDirty]);
+
+              //  NSLog(@"\n\n EVENT : %@\n\n", [objects objectAtIndex:i]);
+            }
             
         } else {
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
@@ -98,6 +136,7 @@
     PFQuery *pQuery = [PFQuery queryWithClassName:@"User"];
     [pQuery whereKey:@"username" equalTo:pName];
     NSLog(@"----%@", pName);
+  
     
     [pQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {//4
         if (!error) {
