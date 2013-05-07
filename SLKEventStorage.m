@@ -96,11 +96,16 @@
 {
     Event *e = [NSEntityDescription insertNewObjectForEntityForName:@"Event"
                                              inManagedObjectContext:context];
-   
+    
+    
+      
     if ([happening isKindOfClass:[Tits class]] )
     {
         e.type = kEventType_TitFood;
         [e addTitiesObject:(Tits*)happening];
+        
+             
+        
         
     } else if ([happening isKindOfClass:[Bottle class]] )
     {
@@ -140,44 +145,29 @@
     e.baby = baby;
     e.date = date;
     
-    NSDictionary *paramDict =  @{@"objectId":@"qQnTDiem5K"};
+   // NSDictionary *paramDict =  @{@"objectId":@"qQnTDiem5K"};
 
 //    [PFCloud callFunction:@"getBabies" withParameters:paramDict];
-    [PFCloud callFunctionInBackground:@"getBabies" withParameters:paramDict block:^(id object, NSError *error) {
-        if (!error) {
-            NSLog(@"Men hurray! %@", object);
-           
+//    [PFCloud callFunctionInBackground:@"getBabies" withParameters:paramDict block:^(id object, NSError *error) {
+//        if (!error) {
+//            NSLog(@"Men hurray! %@", object);
+//           
+    
             
+//            PFUser *user = [PFUser currentUser];
+//            PFRelation *relation = [user relationforKey:@"posts"];
+//            [relation addObject:post];
+//            [user saveInBackground];
             
-          
-            PFObject *eventObject = [PFObject objectWithClassName:@"Event"];
-            [eventObject setObject:[[object objectAtIndex:0] objectId] forKey:@"Babe"];
+                     
             
-              ///OBS!! bara för tuttar, big meal, rightboob
-            PFObject *tits = [PFObject objectWithClassName:@"tits"];
-            [tits setObject:@"bigMeal" forKey:@"stringValue"];
-            [tits setObject:[NSNumber numberWithBool:YES]forKey:@"rightBoob"];
-            [tits setObject:[NSNumber numberWithBool:NO]forKey:@"leftBoob"];
-            [eventObject setObject:kEventType_TitFood forKey:@"type"];
-            [eventObject setObject:tits forKey:@"tit"];
-
-            
-            
-            //  [eventObject setObject:babycolor forKey:@"color"];
-            [SLKPARSEService postObject:eventObject onSuccess:^(PFObject *obj) {
-                NSLog(@"tillbaka event:::%@", obj);
-            } onFailure:^(PFObject *obj) {
-                NSLog(@"error: %@", obj);
-            }];
-            
-            
-        } else {
-            NSLog(@"Men nooo!%@ %@", object, error);
-            
-            //avgPoint = nil;
-            //[avgButton setTitle:@"Sorry, not available!" forState:UIControlStateNormal];
-        }
-    }];
+//        } else {
+//            NSLog(@"Men nooo!%@ %@", object, error);
+//            
+//            //avgPoint = nil;
+//            //[avgButton setTitle:@"Sorry, not available!" forState:UIControlStateNormal];
+//        }
+//    }];
 //    PFObject *babyObject = [PFObject objectWithClassName:@"Baby"];
 //    [babyObject setObject:baby.name forKey:@"name"];
 //    [babyObject setObject:baby.babyId forKey:@"objectId"];

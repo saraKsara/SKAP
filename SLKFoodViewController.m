@@ -32,6 +32,7 @@
 #import "SLKUserDefaults.h"
 #import "SLKuser.h"
 #import <Parse/Parse.h>
+#import "SLKPARSEService.h"
 @interface SLKFoodViewController ()
 
 @end
@@ -526,8 +527,44 @@
             
         } else {
             Tits *tit = [[SLKTittStorage sharedStorage]createTittWithStringValue:_sliderOneLabel.text mililitres:nil minutes:nil leftBoob:leftBoob rightBoob:rightBoob];
+            
+            PFObject *tits = [PFObject objectWithClassName:@"tits"];
+            [tits setObject:tit.stringValue forKey:@"stringValue"];
+           // [tits setObject:tit.minutes forKey:@"minutes"];
+            [tits setObject:tit.milliLitres forKey:@"milliLitres"];
+            [tits setObject: [NSNumber numberWithBool:tit.rightBoob] forKey:@"rightBoob"];
+            [tits setObject:[NSNumber numberWithBool:tit.leftBoob] forKey:@"leftBoob"];
+            
+            [SLKPARSEService postObject:tits onSuccess:^(PFObject *object) {
+                NSLog(@"Succeed to create %@", object);
+            } onFailure:^(PFObject *object) {
+                NSLog(@"Failed to create tit %@", object);
+            }];
+
+            
             NSLog(@"lefty: %d \n righty: %d \n", (int)leftBoob, (int)rightBoob);
             [[SLKEventStorage sharedStorage] createEvenWithHappening:tit withComment:nil date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
+            
+            PFObject *eventObject = [PFObject objectWithClassName:@"Event"];
+            [eventObject setObject:[[SLKBabyStorage sharedStorage] getCurrentBaby] forKey:@"babyId"];
+            
+            [eventObject setObject:kEventType_TitFood forKey:@"type"];
+            //[eventObject setObject:tits forKey:@"tit"];
+            
+            PFRelation *relation = [eventObject relationforKey:@"titts"];
+            [relation addObject:tits];
+            [eventObject saveInBackground];
+            
+            
+            //  [eventObject setObject:babycolor forKey:@"color"];
+            [SLKPARSEService postObject:eventObject onSuccess:^(PFObject *obj) {
+                NSLog(@"tillbaka event:::%@", obj);
+            } onFailure:^(PFObject *obj) {
+                NSLog(@"error: %@", obj);
+            }];
+            
+
+            
             leftBoob = NO;
             [_leftTit setImage:[UIImage imageNamed:@"tits.png"]];
             rightBoob = NO;

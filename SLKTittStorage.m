@@ -10,6 +10,9 @@
 #import "SLKCoreDataService.h"
 #import "Tits.h"
 #import "Event.h"
+#import "SLKPARSEService.h"
+#import <Parse/Parse.h>
+
 @implementation SLKTittStorage
 {
     NSManagedObjectContext *context;
@@ -53,6 +56,7 @@
     t.leftBoob = [NSNumber numberWithBool:leftBoob];
     t.rightBoob = [NSNumber numberWithBool:rightBoob];
     
+       
   NSLog(@"Feeded baby with  %@", t);
     
     return t;
