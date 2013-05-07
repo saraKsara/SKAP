@@ -340,6 +340,13 @@
 
 -(NSArray *)eventArray
 {
+//    for (Event *event in [self eventArray])
+//    {
+//        if (event.eventId) {
+//           NSLog(@"ebebbbebe%@", event.eventId);
+//        }
+//        
+//    }
     return [[SLKCoreDataService sharedService]fetchDataWithEntity:@"Event"];
 }
 
@@ -348,7 +355,10 @@
     NSSet *eventset = [[NSSet alloc] init];
     for (Event *event in [self eventArray])
     {
-        [eventset setByAddingObject:event.eventId];
+        if (event.eventId) {
+            [eventset setByAddingObject:event.eventId];
+        }
+    
     }
    return eventset;
 }

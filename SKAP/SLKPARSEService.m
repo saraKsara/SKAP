@@ -66,16 +66,7 @@
 }
 
 +(void)getAllEvents{
-    
-    NSSet *events = [[SLKEventStorage sharedStorage] eventIdsSet];
-    NSLog(@"\n eventID from SET--- : %d\n\n", [events count]);
-    for (NSString *s in events)
-    {
-        NSLog(@"\n eventID from SET--- : %@\n\n", s);
-        
-    }
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"Event"]; //1
+      PFQuery *query = [PFQuery queryWithClassName:@"Event"]; //1
     NSString *currentBabyId = [SLKUserDefaults getTheCurrentBabe];
     [query whereKey:@"babyId" equalTo:currentBabyId]; //TODO, this is only for one baby...
     
@@ -85,9 +76,21 @@
             
             for (int i = 0; i < [objects count]; i++)
             {
+                NSArray *arr = [[SLKEventStorage sharedStorage]eventArray];
+//                // NSSet *events = [[SLKEventStorage sharedStorage] eventIdsSet];
+//                NSLog(@"\n eventID from SET--- : %d\n\n", [arr count]);
+//                for (Event *s in arr)
+//                {
+//                    NSLog(@"\n eventID from SET--- : %@\n\n", s.eventId);
+//                    
+//                }
+                
+
                 //If there's no event with that id in eventstorage, create it!
-                if (![[[SLKEventStorage sharedStorage]eventIdsSet]containsObject: [[objects objectAtIndex:i]objectId]]){
-                    NSLog(@"No event with %@ exists, creating one",[[objects objectAtIndex:i]objectId]);
+               // if (![[[SLKEventStorage sharedStorage]eventIdsSet]containsObject: [[objects objectAtIndex:i]objectId]]){
+                if (![[[arr objectAtIndex:i]eventId] isEqualToString:[[objects objectAtIndex:i]objectId]]) {
+                    
+                    NSLog(@"No ------%@-------event with %@ exists, creating one",[[arr objectAtIndex:i]eventId] ,[[objects objectAtIndex:i]objectId]);
                     [[SLKEventStorage sharedStorage]createEvenWithHappening:[[objects objectAtIndex:i]objectForKey:@"type"]
                                                                 withComment:[[objects objectAtIndex:i] objectForKey:@"comment"]
                                                                        date:[[objects objectAtIndex:i] objectForKey:@"localDate"]
