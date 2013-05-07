@@ -77,18 +77,19 @@
         <attribute name="minutes" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="rightBoob" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="stringValue" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="titId" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="tities" inverseEntity="Event" syncable="YES"/>
     </entity>
     <elements>
         <element name="Baby" positionX="160" positionY="192" width="128" height="150"/>
         <element name="Bottle" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="Diaper" positionX="160" positionY="192" width="128" height="90"/>
         <element name="Event" positionX="160" positionY="192" width="128" height="360"/>
         <element name="Medz" positionX="160" positionY="192" width="128" height="150"/>
         <element name="ParentFigures" positionX="160" positionY="192" width="128" height="135"/>
         <element name="Pii" positionX="160" positionY="192" width="128" height="90"/>
         <element name="Poo" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Sleep" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="Tits" positionX="160" positionY="192" width="128" height="135"/>
-        <element name="Diaper" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="Tits" positionX="160" positionY="192" width="128" height="150"/>
     </elements>
 </model>

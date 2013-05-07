@@ -39,6 +39,7 @@
 
 @implementation SLKFoodViewController
 {
+    //view bools
     BOOL *titsView;
     BOOL *bottleView;
     BOOL *sleepView;
@@ -65,11 +66,15 @@
     NSString *time;
     NSDate *date;
     Baby *currentBabe;
-    UISegmentedControl *_segmentControll;
-    int numberOfBabies;
-    NSArray *babyArray;
-    float segmentWidth;
+//    UISegmentedControl *_segmentControll;
+//    int numberOfBabies;
+//    NSArray *babyArray;
+//    float segmentWidth;
     NSNull *nullValue;
+    
+    //alerts
+    UIAlertView *noBoobsAlert;
+    UIAlertView *noBottleAlert;
 }
 
 
@@ -117,7 +122,7 @@
     leftBoob = NO;
     rightBoob = NO;
     
-   
+    [self setUpAlerts];
     
     nullValue = [NSNull null];
     // Set up the content size of the scroll view
@@ -127,7 +132,7 @@
     // Load the initial set of pages that are on screen
    
     //TODO: move to set up class???
-     [_segmentControll setSelected:NO];
+   //  [_segmentControll setSelected:NO];
      
     _scrollView.delegate = self;
      [_scrollView setScrollEnabled:YES];
@@ -511,60 +516,88 @@
     [recognizer setTranslation:CGPointMake(0, 0) inView:self.view];
 
 }
+#pragma mark Alerts
+-(void)setUpAlerts
+{
+    noBoobsAlert = [[UIAlertView alloc] initWithTitle:@"No breast choosen"
+                                                        message:@"You have to choose right, left or both breasts"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil, nil];
+    
+   noBottleAlert = [[UIAlertView alloc] initWithTitle:@"No milk choosen"
+                                                            message:@"You have to set how much your baby ate. Use the slider to set how much your baby ate"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil, nil];
 
+    
+}
+
+#pragma mark save
 
 - (IBAction)save:(id)sender {
     
     if (titsView)
     {
         if (!leftBoob && !rightBoob) {
-            UIAlertView *noChoiceAlert = [[UIAlertView alloc] initWithTitle:@"No breast choosen"
-                                                                    message:@"You have to choose right, left or both breasts"
-                                                                   delegate:self
-                                                          cancelButtonTitle:@"OK"
-                                                          otherButtonTitles:nil, nil];
-            [noChoiceAlert show];
+          
+            [noBoobsAlert show];
             
         } else {
-            Tits *tit = [[SLKTittStorage sharedStorage]createTittWithStringValue:_sliderOneLabel.text mililitres:nil minutes:nil leftBoob:leftBoob rightBoob:rightBoob];
-            
-            PFObject *tits = [PFObject objectWithClassName:@"tits"];
-            [tits setObject:tit.stringValue forKey:@"stringValue"];
+
+            PFObject *pfTits = [PFObject objectWithClassName:@"tits"];
+            [pfTits setObject:_sliderOneLabel.text forKey:@"stringValue"];
            // [tits setObject:tit.minutes forKey:@"minutes"];
-            [tits setObject:tit.milliLitres forKey:@"milliLitres"];
-            [tits setObject: [NSNumber numberWithBool:tit.rightBoob] forKey:@"rightBoob"];
-            [tits setObject:[NSNumber numberWithBool:tit.leftBoob] forKey:@"leftBoob"];
+           // [tits setObject:tit.milliLitres forKey:@"milliLitres"];
+            [pfTits setObject: [NSNumber numberWithBool:rightBoob] forKey:@"rightBoob"];
+            [pfTits setObject:[NSNumber numberWithBool:leftBoob] forKey:@"leftBoob"];
             
-            [SLKPARSEService postObject:tits onSuccess:^(PFObject *object) {
-                NSLog(@"Succeed to create %@", object);
-            } onFailure:^(PFObject *object) {
-                NSLog(@"Failed to create tit %@", object);
-            }];
-
+        [SLKPARSEService postObject:pfTits onSuccess:^(PFObject *object) {
+            NSLog(@"\n\nSucceed to create %@\n\n", object);
             
-            NSLog(@"lefty: %d \n righty: %d \n", (int)leftBoob, (int)rightBoob);
-            [[SLKEventStorage sharedStorage] createEvenWithHappening:tit withComment:nil date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
+            Tits *tit = [[SLKTittStorage sharedStorage]
+                         createTittWithId:[object objectId]
+                         StringValue:[object objectForKey:@"stringValue"]
+                         mililitres:nil
+                         minutes:nil
+                         leftBoob:leftBoob
+                         rightBoob:rightBoob];
             
-            PFObject *eventObject = [PFObject objectWithClassName:@"Event"];
-            [eventObject setObject:[[SLKBabyStorage sharedStorage] getCurrentBaby] forKey:@"babyId"];
+            [pfTits setObject:[object objectId] forKey:@"objectId"];
             
-            [eventObject setObject:kEventType_TitFood forKey:@"type"];
-            //[eventObject setObject:tits forKey:@"tit"];
+             [[SLKEventStorage sharedStorage]
+              createEvenWithHappening:tit
+              withComment:nil
+              date:date
+              eventId:nil
+              baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
+                                
             
-            PFRelation *relation = [eventObject relationforKey:@"titts"];
-            [relation addObject:tits];
-            [eventObject saveInBackground];
+                            PFObject *eventObject = [PFObject objectWithClassName:@"Event"];
+                            [eventObject setObject:[SLKUserDefaults getTheCurrentBabe] forKey:@"babyId"];
+                            
+                            [eventObject setObject:kEventType_TitFood forKey:@"type"];
+                            //[eventObject setObject:tits forKey:@"tit"];
+                            //  [eventObject setObject:babycolor forKey:@"color"];
             
             
-            //  [eventObject setObject:babycolor forKey:@"color"];
-            [SLKPARSEService postObject:eventObject onSuccess:^(PFObject *obj) {
-                NSLog(@"tillbaka event:::%@", obj);
-            } onFailure:^(PFObject *obj) {
-                NSLog(@"error: %@", obj);
-            }];
-            
-
-            
+                            [SLKPARSEService postObject:eventObject onSuccess:^(PFObject *eventobj) {
+                                NSLog(@"\n\n\n Succeed to create event:::%@\n\n", eventobj);
+                                
+                                PFRelation *relation = [eventobj relationforKey:@"titts"];
+                                [relation addObject:pfTits];
+                                [eventobj saveInBackground];
+                                
+                                
+                            } onFailure:^(PFObject *obj) {
+                                NSLog(@"error: %@", obj);
+                            }];
+                
+        } onFailure:^(PFObject *object) {
+        NSLog(@"Failed to create tit %@", object);
+    }];
+        
             leftBoob = NO;
             [_leftTit setImage:[UIImage imageNamed:@"tits.png"]];
             rightBoob = NO;
@@ -575,20 +608,58 @@
     else if (bottleView)
     {
         if (bottledFood == 0 ) {
-            UIAlertView *noChoiceAlert = [[UIAlertView alloc] initWithTitle:@"No milk choosen"
-                                                                    message:@"You have to set how much your baby ate. Use the slider to set how much your baby ate"
-                                                                   delegate:self
-                                                          cancelButtonTitle:@"OK"
-                                                          otherButtonTitles:nil, nil];
-            [noChoiceAlert show];
+        [noBottleAlert show];
         }else {
-            Bottle *bottle = [[SLKBottleStorage sharedStorage] createBottleWithStringValue:nil mililitres:[NSNumber numberWithFloat:bottledFood] minutes:nil];
-            
-            [[SLKEventStorage sharedStorage]createEvenWithHappening:bottle withComment:nil date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
+        
+                PFObject *pfBottle = [PFObject objectWithClassName:@"bottle"];
+                [pfBottle setObject:[NSNumber numberWithFloat:bottledFood] forKey:@"milliLitres"];
+                
+                [SLKPARSEService postObject:pfBottle onSuccess:^(PFObject *object) {
+                    NSLog(@"\n\nSucceed to create Bottle  %@\n\n", object);
+                    
+                    Bottle *bottle = [[SLKBottleStorage sharedStorage] createBottleWithStringValue:nil
+                                                                                        mililitres:[object objectForKey:@"milliLitres"]
+                                                                                           minutes:nil];
+                    
+
+                    
+                    [pfBottle setObject:[object objectId] forKey:@"objectId"];
+                    
+                    [[SLKEventStorage sharedStorage]
+                     createEvenWithHappening:bottle
+                     withComment:nil
+                     date:date
+                     eventId:nil
+                     baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
+                    
+                    
+                    PFObject *eventObject = [PFObject objectWithClassName:@"Event"];
+                    [eventObject setObject:[SLKUserDefaults getTheCurrentBabe] forKey:@"babyId"];
+                    [eventObject setObject:date forKey:@"localDate"];
+                    [eventObject setObject:kEventType_BottleFood forKey:@"type"];
+                    
+                    
+                    [SLKPARSEService postObject:eventObject onSuccess:^(PFObject *eventobj) {
+                        NSLog(@"\n\n\n Succeed to create event:::%@\n\n", eventobj);
+                        
+                        PFRelation *relation = [eventobj relationforKey:@"bottleRelation"];
+                        [relation addObject:pfBottle];
+                        [eventobj saveInBackground];
+                        
+                        
+                    } onFailure:^(PFObject *obj) {
+                        NSLog(@"error: %@", obj);
+                    }];
+                    
+                } onFailure:^(PFObject *object) {
+                    NSLog(@"Failed to create tit %@", object);
+                }];
             bottledFood = 0;
             [_sliderOne setValue:0];
-               _sliderOneLabel.text = [NSString stringWithFormat:@" %.f ml",_sliderOne.value];
-        }
+            _sliderOneLabel.text = [NSString stringWithFormat:@" %.f ml",_sliderOne.value];
+        
+            }
+            
     }
     else if (sleepView)
     {

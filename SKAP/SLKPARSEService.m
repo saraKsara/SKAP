@@ -11,6 +11,7 @@
 #import "Baby.h"
 #import "SLKAppDelegate.h"
 #import "SLKPfSingupViewController.h"
+#import "SLKUserDefaults.h"
 #import "SLKParentStorage.h"
 #import "ParentFigures.h"
 #import <Parse/Parse.h>
@@ -19,17 +20,17 @@
 +(void)getAllObjects
 {
 
-    NSDictionary *paramDict =  @{@"objectId":@"qQnTDiem5K"};
-    
-    [PFCloud callFunctionInBackground:@"getBabies" withParameters:paramDict block:^(id object, NSError *error) {
-        if (!error) {
-            NSLog(@"Baby from response %@", [[object objectAtIndex:0] objectForKey:@"name"]);
-            
-        } else {
-            NSLog(@"Error: %@", error);
-            
-        }
-    }];
+//    NSDictionary *paramDict =  @{@"objectId":@"qQnTDiem5K"};
+//    
+//    [PFCloud callFunctionInBackground:@"getBabies" withParameters:paramDict block:^(id object, NSError *error) {
+//        if (!error) {
+//            NSLog(@"Baby from response %@", [[object objectAtIndex:0] objectForKey:@"name"]);
+//            
+//        } else {
+//            NSLog(@"Error: %@", error);
+//            
+//        }
+//    }];
     
     
 //    PFQuery *babyQuery = [PFQuery queryWithClassName:@"Baby"]; //1
@@ -57,6 +58,38 @@
 //        }
 //    }];
 }
++(void)getNewevents
+{
+    
+}
++(void)getAllEvents{
+    PFQuery *query = [PFQuery queryWithClassName:@"Event"]; //1
+    NSString *currentBabyId = [SLKUserDefaults getTheCurrentBabe];
+    [query whereKey:@"babyId" equalTo:currentBabyId];//currentbaby
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {//4
+        if (!error) {
+            NSLog(@"Successfully retrieved: %@", objects.class);
+            
+            for (int i = 0; i < [objects count]; i++)
+            {
+                                 NSLog(@"\n\n EVENTid : %@\n\n", [[objects objectAtIndex:i] objectId ]);
+                NSLog(@"\n\n type ------ :::: %@\n\n", [[objects objectAtIndex:i] objectForKey:@"type"]);
+                NSLog(@"\n\n local date ------ :::: %@\n\n", [[objects objectAtIndex:i] objectForKey:@"localDate"]);
+
+                NSLog(@"\n\n date ------ :::: %@\n\n", [[objects objectAtIndex:i] updatedAt]);
+
+                NSLog(@"\n\n EVENT : %@\n\n", [objects objectAtIndex:i]);
+                            }
+            
+        } else {
+            NSString *errorString = [[error userInfo] objectForKey:@"error"];
+            NSLog(@"Error, could not get all events: %@", errorString);
+        }
+    }];
+
+}
+
+
 +(void)getParentWithUserName:(NSString*)pName
 {
     //SLKPfSingupViewController  *suv;

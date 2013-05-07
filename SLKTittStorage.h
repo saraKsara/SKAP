@@ -14,7 +14,7 @@
 
 //TODO: add left and right breast propery on tits
 
--(Tits*)createTittWithStringValue:(NSString*)stringValue mililitres:(NSNumber*)milliLitres minutes:(NSNumber*)minutes leftBoob:(BOOL)leftBoob rightBoob:(BOOL)rightBoob;
+-(Tits*)createTittWithId:(NSString*)titId StringValue:(NSString*)stringValue mililitres:(NSNumber*)milliLitres minutes:(NSNumber*)minutes leftBoob:(BOOL)leftBoob rightBoob:(BOOL)rightBoob;
 
 -(void)removeTitmilk:(Tits*)tit;
 

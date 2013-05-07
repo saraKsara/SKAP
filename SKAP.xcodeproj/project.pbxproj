@@ -46,7 +46,6 @@
 		1C5BFC8C16FCF18B00D1B238 /* SLKAddBabyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC8B16FCF18B00D1B238 /* SLKAddBabyCell.m */; };
 		1C5BFC8D16FCF18B00D1B238 /* SLKAddBabyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BFC8B16FCF18B00D1B238 /* SLKAddBabyCell.m */; };
 		1C5C784F1701E49D00CB555F /* SLKEventStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C784E1701E49D00CB555F /* SLKEventStorage.m */; };
-		1C611EC9170C48160088016F /* Tits.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C611EC8170C48160088016F /* Tits.m */; };
 		1C611ECC170C4D0D0088016F /* SLKMedzStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C611ECB170C4D0D0088016F /* SLKMedzStorage.m */; };
 		1C611ED2170C50EC0088016F /* Medz.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C611ED1170C50EC0088016F /* Medz.m */; };
 		1C627299170ED21200F51E00 /* SLKParentStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C627298170ED21200F51E00 /* SLKParentStorage.m */; };
@@ -79,6 +78,7 @@
 		1CBBEE2717141D8600305432 /* SLKSleppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CBBEE2617141D8600305432 /* SLKSleppViewController.m */; };
 		1CECF55F170D8BF4008AFA74 /* Baby.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CECF55E170D8BF4008AFA74 /* Baby.m */; };
 		1CECF565170D8D59008AFA74 /* SLKAddBabyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CECF564170D8D59008AFA74 /* SLKAddBabyViewController.m */; };
+		1CF42685173941C100E7AD5C /* Tits.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF42684173941C100E7AD5C /* Tits.m */; };
 		1CF828271701A36E00EDC904 /* SLKUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF828261701A36E00EDC904 /* SLKUserDefaults.m */; };
 		1CF8282A1701A9BA00EDC904 /* SLKAlertWithBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF828291701A9BA00EDC904 /* SLKAlertWithBlock.m */; };
 		1CF8282E1701BD6A00EDC904 /* SLKDaySummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF8282D1701BD6A00EDC904 /* SLKDaySummaryViewController.m */; };
@@ -196,8 +196,6 @@
 		1C5BFC8B16FCF18B00D1B238 /* SLKAddBabyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKAddBabyCell.m; sourceTree = "<group>"; };
 		1C5C784D1701E49D00CB555F /* SLKEventStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKEventStorage.h; sourceTree = "<group>"; };
 		1C5C784E1701E49D00CB555F /* SLKEventStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKEventStorage.m; sourceTree = "<group>"; };
-		1C611EC7170C48160088016F /* Tits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tits.h; sourceTree = "<group>"; };
-		1C611EC8170C48160088016F /* Tits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tits.m; sourceTree = "<group>"; };
 		1C611ECA170C4D0D0088016F /* SLKMedzStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKMedzStorage.h; sourceTree = "<group>"; };
 		1C611ECB170C4D0D0088016F /* SLKMedzStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKMedzStorage.m; sourceTree = "<group>"; };
 		1C611ED0170C50EC0088016F /* Medz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Medz.h; sourceTree = "<group>"; };
@@ -251,6 +249,8 @@
 		1CECF55E170D8BF4008AFA74 /* Baby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Baby.m; sourceTree = "<group>"; };
 		1CECF563170D8D59008AFA74 /* SLKAddBabyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKAddBabyViewController.h; sourceTree = "<group>"; };
 		1CECF564170D8D59008AFA74 /* SLKAddBabyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKAddBabyViewController.m; sourceTree = "<group>"; };
+		1CF42683173941C100E7AD5C /* Tits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tits.h; sourceTree = "<group>"; };
+		1CF42684173941C100E7AD5C /* Tits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tits.m; sourceTree = "<group>"; };
 		1CF828251701A36E00EDC904 /* SLKUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKUserDefaults.h; sourceTree = "<group>"; };
 		1CF828261701A36E00EDC904 /* SLKUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKUserDefaults.m; sourceTree = "<group>"; };
 		1CF828281701A9BA00EDC904 /* SLKAlertWithBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKAlertWithBlock.h; sourceTree = "<group>"; };
@@ -503,8 +503,6 @@
 				1C62729E170EDBB800F51E00 /* ParentFigures.m */,
 				1CECF55D170D8BF4008AFA74 /* Baby.h */,
 				1CECF55E170D8BF4008AFA74 /* Baby.m */,
-				1C611EC7170C48160088016F /* Tits.h */,
-				1C611EC8170C48160088016F /* Tits.m */,
 				1C611ED0170C50EC0088016F /* Medz.h */,
 				1C611ED1170C50EC0088016F /* Medz.m */,
 				1C4ABF571705A1AD008468F9 /* Bottle.h */,
@@ -635,6 +633,8 @@
 		CE59448316F90DC800D9D33A = {
 			isa = PBXGroup;
 			children = (
+				1CF42683173941C100E7AD5C /* Tits.h */,
+				1CF42684173941C100E7AD5C /* Tits.m */,
 				CE59449816F90DC800D9D33A /* SKAP */,
 				1CA7F8D916FC8B72008BB1BF /* SKAPUnitTest */,
 				CE59449116F90DC800D9D33A /* Frameworks */,
@@ -942,7 +942,6 @@
 				1C34EC7B1706EED10095F0C2 /* SLKPiiStorage.m in Sources */,
 				1C7F474117087A2C00C258F8 /* SLKDayViewCell.m in Sources */,
 				1C49EF29170889200073B6D6 /* SLKConstants.m in Sources */,
-				1C611EC9170C48160088016F /* Tits.m in Sources */,
 				1C611ECC170C4D0D0088016F /* SLKMedzStorage.m in Sources */,
 				1C611ED2170C50EC0088016F /* Medz.m in Sources */,
 				1C9DD67B170CC1B400032A1E /* SLKColors.m in Sources */,
@@ -972,6 +971,7 @@
 				1C30A4241737B5C70010D4F1 /* SLKPFLogin.m in Sources */,
 				1C30A4271737B7BD0010D4F1 /* SLKPfSingupViewController.m in Sources */,
 				1C30A42B1737B81D0010D4F1 /* SLKPfLoginViewController.m in Sources */,
+				1CF42685173941C100E7AD5C /* Tits.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

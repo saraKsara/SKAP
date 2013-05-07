@@ -70,8 +70,8 @@
     
     NSString *color;
     
-    [SLKPARSEService getAllObjects];
-    
+   // [SLKPARSEService getAllObjects];
+    [SLKPARSEService getAllEvents];
     //TODO: on complete:
     
     //if there are no babies in storage after getting from server:
