@@ -14,7 +14,7 @@
 
 //TODO: add left and right breast propery on tits
 
--(Medz*)createMedzWithTemp:(NSNumber*)temp adDrop:(BOOL)adDrop paracetamol:(BOOL)paracetamol ibuprofen:(BOOL)ibuprofen more:(NSSet*)more;
+-(Medz*)createMedzWithId:(NSString*)medsId Temp:(NSNumber*)temp adDrop:(BOOL)adDrop paracetamol:(BOOL)paracetamol ibuprofen:(BOOL)ibuprofen more:(NSSet*)more dirty:(BOOL)dirty;
 
 
 -(void)removeMedz:(Medz*)medecine;

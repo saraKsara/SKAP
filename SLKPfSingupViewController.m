@@ -14,7 +14,7 @@
 #import "SLKuser.h"
 
 #import <QuartzCore/QuartzCore.h>
-
+#import <Parse/Parse.h>
 @interface SLKPfSingupViewController ()
 
 
@@ -31,6 +31,7 @@
                                              selector:@selector(popView)
                                                  name:@"popView"
                                                object:nil];
+    
      [self.signUpView.signUpButton addTarget:self action:@selector(popView) forControlEvents:UIControlEventTouchUpInside];
     
     [self.signUpView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"poppis.png"]]];
@@ -92,7 +93,8 @@
     PFObject *parentObject = [PFObject objectWithClassName:@"ParentFigure"];
     [parentObject setObject:name forKey:@"name"];
     [parentObject setObject:email forKey:@"signature"];
-    
+    [parentObject setObject:[[NSProcessInfo processInfo] globallyUniqueString] forKey:@"parentId"];
+
     
     //[parentObject setObject:_setSignatureTextField.text forKey:@"signature"];
     //     [babyObject setObject:newBabyName forKey:@"date"];
@@ -101,17 +103,21 @@
     
     [SLKPARSEService postObject:parentObject onSuccess:^(PFObject *object)
      {
+                  
          ParentFigures *theNewParent =  [[SLKParentStorage sharedStorage]
                                          createParentWithName: [object objectForKey:@"name"]
                                          signature:[object objectForKey:@"signature"]
-                                         parentId: [object objectId]
+                                          parentId:[object objectForKey:@"parentId"]
                                          number:@"0046707245749"
-                                         //                                             number: [object objectForKey:@"number"]
-                                         color: [object objectForKey:@"color"]
-                                         babies:nil];
+                                         color:[object objectForKey:@"color"]
+                                         babies:nil
+                                         dirty:NO];
          
-         NSLog(@"SUCCEED to create %@",[object objectForKey:@"name"] );
          [[SLKParentStorage sharedStorage] setCurrentParent:theNewParent];
+         
+         [[PFUser currentUser]setObject:theNewParent.parentId forKey:@"ParentFigure"];//????
+       
+        [[SLKParentStorage sharedStorage] setCurrentParent:theNewParent];
          
          //TODO: add a baby by reloading this view
          
@@ -121,9 +127,6 @@
         
          SLKPfLoginViewController *lvc = [[SLKPfLoginViewController alloc]init];
          //lvc.delegate = self;
-         
-         
-         
          
          [self presentViewController:lvc animated:YES completion:NULL];
          //

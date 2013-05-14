@@ -39,10 +39,12 @@
     return self;
 }
 
--(Sleep*)createSleep:(NSNumber *)minutes
+-(Sleep *)createSleepWithId:(NSString *)sleepId minutes:(NSNumber *)minutes dirty:(BOOL)dirty
 {
     Sleep *z = [NSEntityDescription insertNewObjectForEntityForName:@"Sleep" inManagedObjectContext:context];
     z.minutes = minutes;
+    z.dirty = [NSNumber numberWithBool:dirty];
+    z.sleepId = sleepId;
     
     NSLog(@"created Sleep");
     return z;

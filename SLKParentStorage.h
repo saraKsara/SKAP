@@ -12,7 +12,7 @@
 
 +(SLKParentStorage*) sharedStorage;
 
--(ParentFigures*)createParentWithName:(NSString*)name signature:(NSString*)signature parentId:(NSString*)parentId number:(NSString*)number color:(NSString*)color babies:(NSSet*)babies;
+-(ParentFigures*)createParentWithName:(NSString*)name signature:(NSString*)signature parentId:(NSString*)parentId number:(NSString*)number color:(NSString*)color babies:(NSSet*)babies dirty:(BOOL)dirty;
 
 -(void)removeBaby:(Baby*)baby fromParent:(ParentFigures*)parent;
 

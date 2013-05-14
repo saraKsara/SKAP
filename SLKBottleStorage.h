@@ -11,10 +11,11 @@
 @interface SLKBottleStorage : NSObject
 +(SLKBottleStorage*) sharedStorage;
 
--(Bottle*)createBottleWithStringValue:(NSString*)stringValue mililitres:(NSNumber*)milliLitres minutes:(NSNumber*)minutes;
+-(Bottle*)createBottleWithId:(NSString*)bottleId stringValue:(NSString*)stringValue mililitres:(NSNumber*)milliLitres minutes:(NSNumber*)minutes dirty:(BOOL)dirty;
 
 -(void)removeBottle:(Bottle*)bottle;
 
+-(Bottle *)getBottleWithiD:(NSString *)bottleId;
 //-(Bottle*)getBottleThatBelongsToEvent:(Bottle*)bottle;
 
 //-(NSArray*)titArray;

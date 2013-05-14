@@ -66,7 +66,8 @@
 }
 
 +(void)getAllEvents{
-      PFQuery *query = [PFQuery queryWithClassName:@"Event"]; //1
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Event"]; //1
     NSString *currentBabyId = [SLKUserDefaults getTheCurrentBabe];
     [query whereKey:@"babyId" equalTo:currentBabyId]; //TODO, this is only for one baby...
     
@@ -77,6 +78,7 @@
             for (int i = 0; i < [objects count]; i++)
             {
                 NSArray *arr = [[SLKEventStorage sharedStorage]eventArray];
+                
 //                // NSSet *events = [[SLKEventStorage sharedStorage] eventIdsSet];
 //                NSLog(@"\n eventID from SET--- : %d\n\n", [arr count]);
 //                for (Event *s in arr)
@@ -91,11 +93,13 @@
                 if (![[[arr objectAtIndex:i]eventId] isEqualToString:[[objects objectAtIndex:i]objectId]]) {
                     
                     NSLog(@"No ------%@-------event with %@ exists, creating one",[[arr objectAtIndex:i]eventId] ,[[objects objectAtIndex:i]objectId]);
+                    
                     [[SLKEventStorage sharedStorage]createEvenWithHappening:[[objects objectAtIndex:i]objectForKey:@"type"]
-                                                                withComment:[[objects objectAtIndex:i] objectForKey:@"comment"]
+                                                                withComment:nil//[[objects objectAtIndex:i] objectForKey:@"comment"]
                                                                        date:[[objects objectAtIndex:i] objectForKey:@"localDate"]
-                                                                    eventId:[[objects objectAtIndex:i]objectId]
-                                                                       baby:[[SLKBabyStorage sharedStorage] getBabyWithiD:[[objects objectAtIndex:i] objectForKey:@"babyId"]]];
+                                                                    eventId:[[objects objectAtIndex:i] objectForKey:@"eventId"]
+                                                                       baby:[[SLKBabyStorage sharedStorage] getBabyWithiD:[[objects objectAtIndex:i] objectForKey:@"babyId"]]
+                                                                      dirty:YES];
                     
 
                 } else {
@@ -109,11 +113,12 @@
                      */
               //  }
                 
-                
-                
+              
                 
               NSLog(@"\n\n EVENTid ....: %@\n", [[objects objectAtIndex:i] objectId ]);
-        
+
+                NSLog(@"\n\n EVENTid ....: %@\n", [[objects objectAtIndex:i] objectId ]);
+
 //                NSLog(@"\n\n type ------ :::: %@\n\n", [[objects objectAtIndex:i] objectForKey:@"type"]);
 //                NSLog(@"\n\n local date ------ :::: %@\n\n", [[objects objectAtIndex:i] objectForKey:@"localDate"]);
 //
@@ -151,10 +156,13 @@
                 //                 NSLog(@"BABY : %@", [[objects objectAtIndex:i] objectId ]);
                 //                            NSLog(@"BABY : %@", [objects objectAtIndex:i]);
                 
-                [[SLKParentStorage sharedStorage]createParentWithName:[[objects objectAtIndex:i] objectForKey:@"username"] signature:nil parentId:[[objects objectAtIndex:i]objectId] number:nil color:nil babies:nil];
-                NSLog(@"namnet------%@",pName);
-                NSLog(@"currentPEAR---%@",[[[SLKParentStorage sharedStorage]getCurrentParent]name]);
-                
+                [[SLKParentStorage sharedStorage]createParentWithName:[[objects objectAtIndex:i] objectForKey:@"username"]
+                                                            signature:nil
+                                                             parentId:[[objects objectAtIndex:i]objectId]
+                                                               number:nil
+                                                                color:nil
+                                                               babies:nil
+                                                                dirty:YES];
                 
             }
             

@@ -547,24 +547,24 @@
         } else {
             
             Tits *tit = [[SLKTittStorage sharedStorage]
-                         createTittWithId: [[NSProcessInfo processInfo] globallyUniqueString]
+                         createTittWithId:[[NSProcessInfo processInfo] globallyUniqueString]
                          StringValue:_sliderOneLabel.text
                          mililitres:nil
                          minutes:nil
                          leftBoob:leftBoob
-                         rightBoob:rightBoob];
+                         rightBoob:rightBoob
+                         dirty:YES];
             
-          
+              [[SLKEventStorage sharedStorage]
+               createEvenWithHappening:tit
+               withComment:nil
+               date:date
+               eventId:tit.titId
+               baby:[[SLKBabyStorage sharedStorage]
+                     getCurrentBaby]
+               dirty:YES];
             
-            Event *event =  [[SLKEventStorage sharedStorage]
-                             createEvenWithHappening:tit
-                             withComment:nil
-                             date:date
-                             eventId: tit.titId //[[NSProcessInfo processInfo] globallyUniqueString]
-                             baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
-            
-//            
-//        [SLKPARSEService postObject:pfTits onSuccess:^(PFObject *object)
+    //        [SLKPARSEService postObject:pfTits onSuccess:^(PFObject *object)
 //        {
 //            NSLog(@"\n\nSucceed to create  pfTit %@\n\n", [object objectId]);
 //            
@@ -596,54 +596,26 @@
         if (bottledFood == 0 ) {
         [noBottleAlert show];
         }else {
-        
-                PFObject *pfBottle = [PFObject objectWithClassName:@"bottle"];
-            
-                [pfBottle setObject:[NSNumber numberWithFloat:bottledFood]
-                             forKey:@"milliLitres"];
-                
-                [SLKPARSEService postObject:pfBottle onSuccess:^(PFObject *object)
-            {
-                    
-                    NSLog(@"\n\nSucceed to create Bottle  %@\n\n", object);
-                    
+                                            
                     Bottle *bottle = [[SLKBottleStorage sharedStorage]
-                                      createBottleWithStringValue:nil
-                                      mililitres:[object objectForKey:@"milliLitres"]
-                                      minutes:nil];
+                                      createBottleWithId:[[NSProcessInfo processInfo] globallyUniqueString]
+                                      stringValue:nil
+                                      mililitres:[NSNumber numberWithFloat:bottledFood]
+                                      minutes:nil
+                                      dirty:YES];
+            
                     
                     
-                    [pfBottle setObject:[object objectId] forKey:@"objectId"];
-                    
-                    [[SLKEventStorage sharedStorage]
-                     createEvenWithHappening:bottle
-                     withComment:nil
-                     date:date
-                     eventId:nil
-                     baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
-                    
-                    
-                    PFObject *eventObject = [PFObject objectWithClassName:@"Event"];
-                    [eventObject setObject:[SLKUserDefaults getTheCurrentBabe] forKey:@"babyId"];
-                    [eventObject setObject:date forKey:@"localDate"];
-                    [eventObject setObject:kEventType_BottleFood forKey:@"type"];
-                    
-                    
-                    [SLKPARSEService postObject:eventObject onSuccess:^(PFObject *eventobj) {
-                        NSLog(@"\n\n\n Succeed to create event:::%@\n\n", eventobj);
-                        
-                        PFRelation *relation = [eventobj relationforKey:@"bottleRelation"];
-                        [relation addObject:pfBottle];
-                        [eventobj saveInBackground];
-                        
-                        
-                    } onFailure:^(PFObject *obj) {
-                        NSLog(@"error: %@", obj);
-                    }];
-                    
-                } onFailure:^(PFObject *object) {
-                    NSLog(@"Failed to create tit %@", object);
-                }];
+            [[SLKEventStorage sharedStorage]
+             createEvenWithHappening:bottle
+             withComment:nil
+             date:date
+             eventId:bottle.bottleId
+             baby:[[SLKBabyStorage sharedStorage]
+                   getCurrentBaby]
+             dirty:YES];
+            
+            
             bottledFood = 0;
             [_sliderOne setValue:0];
             _sliderOneLabel.text = [NSString stringWithFormat:@" %.f ml",_sliderOne.value];
@@ -654,9 +626,20 @@
     else if (sleepView)
     {
         NSNumber *labelNumber = [NSNumber numberWithInt:[_sliderOneLabel.text intValue]];
-        Sleep *sleep = [[SLKSleepStorage sharedStorage]createSleep:labelNumber];
-        [[SLKEventStorage sharedStorage]createEvenWithHappening:sleep withComment:nil date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
+        Sleep *sleep =  [[SLKSleepStorage sharedStorage]
+                         createSleepWithId:[[NSProcessInfo processInfo] globallyUniqueString]
+                         minutes:labelNumber dirty:YES];
+        
+        [[SLKEventStorage sharedStorage]
+         createEvenWithHappening:sleep
+         withComment:nil
+         date:date
+         eventId:sleep.sleepId
+         baby:[[SLKBabyStorage sharedStorage]
+               getCurrentBaby]
+         dirty:YES];
     }
+    
     else if (diaperView)
     {
        // if (!pooToAddNormal && !pooToAddTooMuch && !pooToAddToLittle && !piiToAddNormal && !piiToAddTooMuch && !piiToAddTooLittle)
@@ -669,27 +652,67 @@
             
             if (_switchOne.selected && !_switchTwo.selected) { //create only poo
                 NSLog(@"create new POO");
-                Poo *someNewPoo = [[SLKPooStorage sharedStorage] createPoo];
+                
+                Poo *someNewPoo = [[SLKPooStorage sharedStorage]
+                                   createPooWithId:[[NSProcessInfo processInfo] globallyUniqueString]
+                                   dirty:YES];
                                    
-                [[SLKEventStorage sharedStorage] createEvenWithHappening:someNewPoo withComment:_commentTextView.text date:date eventId:nil baby:currentBabe];
+                [[SLKEventStorage sharedStorage]
+                 createEvenWithHappening:someNewPoo
+                 withComment:nil
+                 date:date
+                 eventId:someNewPoo.pooId
+                 baby:[[SLKBabyStorage sharedStorage]
+                       getCurrentBaby]
+                 dirty:YES];
+
             } else {
                 NSLog(@"NO New POO");
             }
             if (_switchTwo.selected && !_switchOne.selected) { //create only pii
                 NSLog(@"Create new PII AND POO" );
           
-                Pii *someNewPii = [[SLKPiiStorage sharedStorage] createPii];
-                [[SLKEventStorage sharedStorage] createEvenWithHappening:someNewPii withComment:_commentTextView.text date:date eventId:nil baby:currentBabe];
+                Pii *someNewPii = [[SLKPiiStorage sharedStorage]
+                                   createPiiWithId:[[NSProcessInfo processInfo] globallyUniqueString]
+                                   dirty:YES];
+                
+                [[SLKEventStorage sharedStorage]
+                 createEvenWithHappening:someNewPii
+                 withComment:nil
+                 date:date
+                 eventId:someNewPii.piiId
+                 baby:[[SLKBabyStorage sharedStorage]
+                       getCurrentBaby]
+                 dirty:YES];
                 
             }   if (_switchTwo.selected && _switchOne.selected) { //create both pii and poo
                 NSLog(@"Create new PII AND POO" );
                 
-                Pii *someNewPii = [[SLKPiiStorage sharedStorage] createPii];
+                Pii *someNewPii = [[SLKPiiStorage sharedStorage]
+                                   createPiiWithId:[[NSProcessInfo processInfo] globallyUniqueString]
+                                   dirty:YES];
                 
-                [[SLKEventStorage sharedStorage] createEvenWithHappening:someNewPii withComment:_commentTextView.text date:date eventId:nil baby:currentBabe];
-                Poo *someNewPoo = [[SLKPooStorage sharedStorage] createPoo];
+                [[SLKEventStorage sharedStorage]
+                 createEvenWithHappening:someNewPii
+                 withComment:nil
+                 date:date
+                 eventId:someNewPii.piiId
+                 baby:[[SLKBabyStorage sharedStorage]
+                       getCurrentBaby]
+                 dirty:YES];
                 
-                [[SLKEventStorage sharedStorage] createEvenWithHappening:someNewPoo withComment:_commentTextView.text date:date eventId:nil baby:currentBabe];
+                Poo *someNewPoo = [[SLKPooStorage sharedStorage]
+                                   createPooWithId:[[NSProcessInfo processInfo] globallyUniqueString]
+                                   dirty:YES];
+                
+                [[SLKEventStorage sharedStorage]
+                 createEvenWithHappening:someNewPoo
+                 withComment:nil
+                 date:date
+                 eventId:someNewPoo.pooId
+                 baby:[[SLKBabyStorage sharedStorage]
+                       getCurrentBaby]
+                 dirty:YES];
                 
             } else {
                 NSLog(@"NO new Pii");

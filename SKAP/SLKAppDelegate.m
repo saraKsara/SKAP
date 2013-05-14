@@ -51,6 +51,7 @@
     PFACL *defaultACL = [PFACL ACL];
     [defaultACL setPublicReadAccess:YES];
     [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(setTheBGColor:)
                                                  name:@"changeBabyColor"
@@ -71,7 +72,7 @@
     NSString *color;
     
    // [SLKPARSEService getAllObjects];
-    [SLKPARSEService getAllEvents];
+    //[SLKPARSEService getAllEvents];
     //TODO: on complete:
     
     //if there are no babies in storage after getting from server:

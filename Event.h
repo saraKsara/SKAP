@@ -2,14 +2,14 @@
 //  Event.h
 //  SKAP
 //
-//  Created by Åsa Persson on 2013-04-27.
+//  Created by Åsa Persson on 2013-05-14.
 //  Copyright (c) 2013 Student vid Yrkeshögskola C3L. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Baby, Bottle, Medz, Pii, Poo, Sleep, Tits;
+@class Baby, Bottle, Diaper, Medz, Pii, Poo, Sleep, Tits;
 
 @interface Event : NSManagedObject
 
@@ -26,14 +26,15 @@
 @property (nonatomic, retain) NSNumber * timespan;
 @property (nonatomic, retain) NSString * tits;
 @property (nonatomic, retain) NSString * type;
+@property (nonatomic, retain) NSNumber * dirty;
 @property (nonatomic, retain) Baby *baby;
 @property (nonatomic, retain) NSSet *bottles;
+@property (nonatomic, retain) NSSet *diapers;
 @property (nonatomic, retain) NSSet *medz;
 @property (nonatomic, retain) NSSet *piis;
 @property (nonatomic, retain) NSSet *poos;
 @property (nonatomic, retain) NSSet *sleeps;
 @property (nonatomic, retain) NSSet *tities;
-@property (nonatomic, retain) NSSet *diapers;
 @end
 
 @interface Event (CoreDataGeneratedAccessors)
@@ -42,6 +43,11 @@
 - (void)removeBottlesObject:(Bottle *)value;
 - (void)addBottles:(NSSet *)values;
 - (void)removeBottles:(NSSet *)values;
+
+- (void)addDiapersObject:(Diaper *)value;
+- (void)removeDiapersObject:(Diaper *)value;
+- (void)addDiapers:(NSSet *)values;
+- (void)removeDiapers:(NSSet *)values;
 
 - (void)addMedzObject:(Medz *)value;
 - (void)removeMedzObject:(Medz *)value;
@@ -67,10 +73,5 @@
 - (void)removeTitiesObject:(Tits *)value;
 - (void)addTities:(NSSet *)values;
 - (void)removeTities:(NSSet *)values;
-
-- (void)addDiapersObject:(NSManagedObject *)value;
-- (void)removeDiapersObject:(NSManagedObject *)value;
-- (void)addDiapers:(NSSet *)values;
-- (void)removeDiapers:(NSSet *)values;
 
 @end

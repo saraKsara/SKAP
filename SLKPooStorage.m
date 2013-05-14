@@ -40,12 +40,13 @@
 }
 
 
--(Poo *)createPoo{
-    
+-(Poo *)createPooWithId:(NSString *)pooId dirty:(BOOL)dirty
+{
     Poo *p = [NSEntityDescription insertNewObjectForEntityForName:@"Poo"
                                             inManagedObjectContext:context];
     
-    
+    p.dirty = [NSNumber numberWithBool:dirty];
+    p.pooId = pooId;
 //    p.didPoop = [NSNumber numberWithBool:normal];
 //    p.comment = comment;
     NSLog(@"Baby did poo:  %@", p);

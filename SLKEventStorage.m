@@ -85,14 +85,14 @@
     e.timespan = timeSpan;
     e.baby = baby;
     e.sleep = sleep;
-
+    e.dirty = [NSNumber numberWithBool:YES];
     
     return e;
 }
 
 
 
--(Event *)createEvenWithHappening:(NSManagedObject *)happening withComment:(NSString *)comment date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby *)baby
+-(Event *)createEvenWithHappening:(NSManagedObject *)happening withComment:(NSString *)comment date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby *)baby dirty:(BOOL)dirty
 {
     Event *e = [NSEntityDescription insertNewObjectForEntityForName:@"Event"
                                              inManagedObjectContext:context];
@@ -100,6 +100,7 @@
     e.eventId = eventId;
     e.baby = baby;
     e.date = date;
+    e.dirty = [NSNumber numberWithBool:dirty];
     
     PFObject *pfEventObject = [PFObject objectWithClassName:@"Event"];
     [pfEventObject setObject:baby.babyId forKey:@"babyId"];
@@ -116,11 +117,13 @@
         [pfEventObject saveEventually];
         
         
-        
     } else if ([happening isKindOfClass:[Bottle class]] )
     {
         e.type = kEventType_BottleFood;
         [e addBottlesObject:(Bottle*)happening];
+          [pfEventObject setObject:e.eventId forKey:@"bottleId"];
+        [pfEventObject setObject:kEventType_BottleFood forKey:@"type"];
+
         
     }  else if ([happening isKindOfClass:[Poo class]] )
     {

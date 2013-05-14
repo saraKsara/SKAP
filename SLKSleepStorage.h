@@ -11,6 +11,7 @@
 @interface SLKSleepStorage : NSObject
 
 +(SLKSleepStorage*) sharedStorage;
--(Sleep*)createSleep:(NSNumber*)minutes;
+
+-(Sleep*)createSleepWithId:(NSString*)sleepId minutes:(NSNumber*)minutes dirty:(BOOL)dirty;
 
 @end
