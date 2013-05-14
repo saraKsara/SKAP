@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="hKR-TG-9xj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="hKR-TG-9xj">
     <dependencies>
         <deployment version="1296" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
@@ -39,12 +39,12 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="221"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" alpha="0.10000000000000014" contentMode="scaleToFill" image="prevyArrow.png" id="hXL-8K-0wB">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="larr.png" id="hXL-8K-0wB">
                                                 <rect key="frame" x="13" y="62" width="38" height="28"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" alpha="0.10000000000000014" contentMode="scaleToFill" image="nextyArrow.png" id="xEF-e9-iKb">
-                                                <rect key="frame" x="271" y="68" width="38" height="26"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="xEF-e9-iKb">
+                                                <rect key="frame" x="284" y="83" width="25" height="17"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>
@@ -56,25 +56,25 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </imageView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" indicatorStyle="black" id="0eI-uv-4ps">
-                                        <rect key="frame" x="116" y="0.0" width="200" height="222"/>
+                                        <rect key="frame" x="76" y="0.0" width="280" height="222"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" id="r4O-od-KRB" userLabel="tits">
-                                                <rect key="frame" x="0.0" y="0.0" width="200" height="222"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="222"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <imageView contentMode="scaleToFill" image="tits.png" id="RCL-v7-2zT">
-                                                        <rect key="frame" x="113" y="48" width="86" height="86"/>
+                                                        <rect key="frame" x="156" y="48" width="88" height="86"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <gestureRecognizers/>
                                                     </imageView>
                                                     <imageView contentMode="scaleToFill" image="tits.png" id="aNo-Ha-YfG">
-                                                        <rect key="frame" x="1" y="48" width="86" height="86"/>
+                                                        <rect key="frame" x="35" y="48" width="86" height="86"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <gestureRecognizers/>
                                                     </imageView>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="press left, right or both!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gT9-2p-WJM">
-                                                        <rect key="frame" x="4.5" y="159" width="196" height="31"/>
+                                                        <rect key="frame" x="4" y="159" width="196" height="31"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="20"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -83,11 +83,11 @@
                                                 </subviews>
                                             </view>
                                             <view contentMode="scaleToFill" id="gqO-NN-JP4" userLabel="bottle">
-                                                <rect key="frame" x="200" y="0.0" width="200" height="170"/>
+                                                <rect key="frame" x="280" y="0.0" width="280" height="170"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bottle.png" id="YYi-n1-jJm">
-                                                        <rect key="frame" x="25" y="-4" width="144" height="200"/>
+                                                        <rect key="frame" x="25" y="0.0" width="144" height="200"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </imageView>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rSs-4k-aQQ">
@@ -101,30 +101,29 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" id="Scr-2I-dSb" userLabel="sleep">
-                                                <rect key="frame" x="400" y="0.0" width="200" height="170"/>
+                                                <rect key="frame" x="840" y="0.0" width="280" height="170"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bo.png" id="uJo-QL-WgO">
-                                                        <rect key="frame" x="46.5" y="44" width="106" height="132"/>
+                                                        <rect key="frame" x="46" y="44" width="106" height="132"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" id="844-eU-q0h" userLabel="diaper">
-                                                <rect key="frame" x="600" y="0.0" width="200" height="170"/>
+                                                <rect key="frame" x="1120" y="0.0" width="280" height="170"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="iphone4Diapercopy.png" id="nme-Z5-HaM">
-                                                        <rect key="frame" x="46" y="62" width="124" height="95"/>
+                                                        <rect key="frame" x="46" y="62" width="204" height="95"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" id="FVD-SB-a8K" userLabel="medz">
-                                                <rect key="frame" x="799.5" y="0.0" width="200" height="170"/>
+                                                <rect key="frame" x="1400" y="0.0" width="200" height="170"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Medicin" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="93Y-Bs-K01">
@@ -180,6 +179,10 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" alpha="0.10000000000000014" contentMode="scaleToFill" image="sliderbackgroundImage.png" id="gwd-3E-aOn">
+                                        <rect key="frame" x="72" y="262" width="280" height="62"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="8" minValue="0.0" maxValue="30" id="wHh-QR-jB8">
                                         <rect key="frame" x="81" y="354" width="257" height="23"/>
                                         <color key="minimumTrackTintColor" red="0.32588649269999997" green="0.97857541449999996" blue="0.48154978520000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -217,18 +220,19 @@
                                             <action selector="sooner:" destination="hKR-TG-9xj" eventType="touchUpInside" id="Ooe-Fo-tdW"/>
                                         </connections>
                                     </button>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="91" minValue="0.0" maxValue="350" id="7Tf-uP-keF">
-                                        <rect key="frame" x="81" y="279" width="257" height="23"/>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="350" id="7Tf-uP-keF">
+                                        <rect key="frame" x="81" y="281" width="257" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="minimumTrackTintColor" red="0.32588649269999997" green="0.97857541449999996" blue="0.48154978520000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="maximumTrackTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="thumbTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="minimumTrackTintColor" red="0.32588649269999997" green="0.97857541449999996" blue="0.48154978520000002" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <color key="maximumTrackTintColor" red="0.13930962979793549" green="0.13930962979793549" blue="0.13930962979793549" alpha="0.54000000000000004" colorSpace="calibratedRGB"/>
+                                        <color key="thumbTintColor" red="0.91370158410000002" green="0.92651865430000002" blue="0.91158011110000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="sliderOneAction:" destination="hKR-TG-9xj" eventType="valueChanged" id="AAb-Uo-Mgo"/>
                                         </connections>
                                     </slider>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="sliderOne" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cJ9-dD-wg2">
-                                        <rect key="frame" x="186" y="262" width="158" height="21"/>
+                                        <rect key="frame" x="186" y="246" width="158" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Thonburi-Bold" family="Thonburi" pointSize="15"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -496,9 +500,9 @@
         <image name="bottle.png" width="640" height="1065"/>
         <image name="checkedNO.png" width="33" height="28"/>
         <image name="iphone4Diapercopy.png" width="412" height="321"/>
-        <image name="nextyArrow.png" width="48" height="34"/>
-        <image name="prevyArrow.png" width="48" height="34"/>
+        <image name="larr.png" width="16" height="16"/>
         <image name="saveButton.png" width="101" height="35"/>
+        <image name="sliderbackgroundImage.png" width="230" height="34"/>
         <image name="smallViewBackground.png" width="320" height="300"/>
         <image name="tits.png" width="317" height="317"/>
     </resources>

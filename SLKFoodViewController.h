@@ -25,7 +25,6 @@
 - (IBAction)rightTit:(UITapGestureRecognizer *)sender;
 @property (weak, nonatomic) IBOutlet UIImageView *prevArrow;
 @property (weak, nonatomic) IBOutlet UIImageView *nextArrow;
-
 @property (weak, nonatomic) IBOutlet UIImageView *rightTit;
 @property (weak, nonatomic) IBOutlet UIImageView *leftTit;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControll;

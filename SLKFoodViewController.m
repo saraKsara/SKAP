@@ -56,6 +56,7 @@
     BOOL pooToAddToLittle;
     UIImage *checkedImage;
     UIImage *unCheckedImage;
+    UIImage *bottle;
     
     float bottledFood;
     
@@ -159,6 +160,7 @@
     
     checkedImage = [UIImage imageNamed:@"checkedYES"];
     unCheckedImage = [UIImage imageNamed:@"checkedNO"];
+    bottle = [UIImage imageNamed:@"sliderbackgroundImage.png"];
     
     [_normalPoo setImage:unCheckedImage forState:UIControlStateNormal];
     [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];
@@ -309,6 +311,7 @@
     [self hideTheDiaperSetUp];
     [_sliderOne setHidden:NO];
     [_sliderTwo setHidden:YES];
+  //  [_sliderOne setOpaque:YES];
     
     titsView = NO;
     bottleView = YES;
