@@ -545,58 +545,44 @@
             [noBoobsAlert show];
             
         } else {
-
-            PFObject *pfTits = [PFObject objectWithClassName:@"tits"];
-            [pfTits setObject:_sliderOneLabel.text forKey:@"stringValue"];
-           // [tits setObject:tit.minutes forKey:@"minutes"];
-           // [tits setObject:tit.milliLitres forKey:@"milliLitres"];
-            [pfTits setObject: [NSNumber numberWithBool:rightBoob] forKey:@"rightBoob"];
-            [pfTits setObject:[NSNumber numberWithBool:leftBoob] forKey:@"leftBoob"];
-            
-        [SLKPARSEService postObject:pfTits onSuccess:^(PFObject *object) {
-            NSLog(@"\n\nSucceed to create %@\n\n", object);
             
             Tits *tit = [[SLKTittStorage sharedStorage]
-                         createTittWithId:[object objectId]
-                         StringValue:[object objectForKey:@"stringValue"]
+                         createTittWithId: [[NSProcessInfo processInfo] globallyUniqueString]
+                         StringValue:_sliderOneLabel.text
                          mililitres:nil
                          minutes:nil
                          leftBoob:leftBoob
                          rightBoob:rightBoob];
             
-            [pfTits setObject:[object objectId] forKey:@"objectId"];
+          
             
-             [[SLKEventStorage sharedStorage]
-              createEvenWithHappening:tit
-              withComment:nil
-              date:date
-              eventId:nil
-              baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
-                                
+            Event *event =  [[SLKEventStorage sharedStorage]
+                             createEvenWithHappening:tit
+                             withComment:nil
+                             date:date
+                             eventId: tit.titId //[[NSProcessInfo processInfo] globallyUniqueString]
+                             baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
             
-                            PFObject *eventObject = [PFObject objectWithClassName:@"Event"];
-                            [eventObject setObject:[SLKUserDefaults getTheCurrentBabe] forKey:@"babyId"];
-                            
-                            [eventObject setObject:kEventType_TitFood forKey:@"type"];
-                            //[eventObject setObject:tits forKey:@"tit"];
-                            //  [eventObject setObject:babycolor forKey:@"color"];
-            
-            
-                            [SLKPARSEService postObject:eventObject onSuccess:^(PFObject *eventobj) {
-                                NSLog(@"\n\n\n Succeed to create event:::%@\n\n", eventobj);
-                                
-                                PFRelation *relation = [eventobj relationforKey:@"titts"];
-                                [relation addObject:pfTits];
-                                [eventobj saveInBackground];
-                                
-                                
-                            } onFailure:^(PFObject *obj) {
-                                NSLog(@"error: %@", obj);
-                            }];
-                
-        } onFailure:^(PFObject *object) {
-        NSLog(@"Failed to create tit %@", object);
-    }];
+//            
+//        [SLKPARSEService postObject:pfTits onSuccess:^(PFObject *object)
+//        {
+//            NSLog(@"\n\nSucceed to create  pfTit %@\n\n", [object objectId]);
+//            
+//                [SLKPARSEService postObject:pfEventObject onSuccess:^(PFObject *eventobj)
+//                {
+//                        NSLog(@"\n\n\n Succeed to create pfEvent:::%@\n\n", [eventobj objectId]);
+//                        PFRelation *relation = [pfEventObject relationforKey:@"titts"];
+//                        [relation addObject:pfTits];
+//                        [pfEventObject saveInBackground];//??????????????
+//                     
+//                } onFailure:^(PFObject *obj) {
+//                        NSLog(@"error: %@", obj);
+//                }];
+//            
+//                } onFailure:^(PFObject *object) {
+//    
+//                    NSLog(@"Failed to create tit %@", object);
+//                }];
         
             leftBoob = NO;
             [_leftTit setImage:[UIImage imageNamed:@"tits.png"]];
@@ -612,16 +598,20 @@
         }else {
         
                 PFObject *pfBottle = [PFObject objectWithClassName:@"bottle"];
-                [pfBottle setObject:[NSNumber numberWithFloat:bottledFood] forKey:@"milliLitres"];
+            
+                [pfBottle setObject:[NSNumber numberWithFloat:bottledFood]
+                             forKey:@"milliLitres"];
                 
-                [SLKPARSEService postObject:pfBottle onSuccess:^(PFObject *object) {
+                [SLKPARSEService postObject:pfBottle onSuccess:^(PFObject *object)
+            {
+                    
                     NSLog(@"\n\nSucceed to create Bottle  %@\n\n", object);
                     
-                    Bottle *bottle = [[SLKBottleStorage sharedStorage] createBottleWithStringValue:nil
-                                                                                        mililitres:[object objectForKey:@"milliLitres"]
-                                                                                           minutes:nil];
+                    Bottle *bottle = [[SLKBottleStorage sharedStorage]
+                                      createBottleWithStringValue:nil
+                                      mililitres:[object objectForKey:@"milliLitres"]
+                                      minutes:nil];
                     
-
                     
                     [pfBottle setObject:[object objectId] forKey:@"objectId"];
                     

@@ -10,7 +10,7 @@
 #import "SLKCoreDataService.h"
 #import "Tits.h"
 #import "Event.h"
-
+#import <Parse/Parse.h>
 
 @implementation SLKTittStorage
 {
@@ -55,7 +55,15 @@
     t.leftBoob = [NSNumber numberWithBool:leftBoob];
     t.rightBoob = [NSNumber numberWithBool:rightBoob];
     
-       
+    
+    PFObject *pfTits = [PFObject objectWithClassName:@"tits"];
+    [pfTits setObject: t.stringValue forKey:@"stringValue"];
+    [pfTits setObject: t.rightBoob forKey:@"rightBoob"];
+    [pfTits setObject: t.leftBoob forKey:@"leftBoob"];
+    [pfTits setObject: t.titId forKey:@"titId"];
+    
+    [pfTits saveEventually];
+    
   NSLog(@"Feeded baby with  %@", t);
     
     return t;

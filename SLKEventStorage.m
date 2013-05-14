@@ -97,14 +97,24 @@
     Event *e = [NSEntityDescription insertNewObjectForEntityForName:@"Event"
                                              inManagedObjectContext:context];
     
+    e.eventId = eventId;
+    e.baby = baby;
+    e.date = date;
     
-      
+    PFObject *pfEventObject = [PFObject objectWithClassName:@"Event"];
+    [pfEventObject setObject:baby.babyId forKey:@"babyId"];
+    [pfEventObject setObject:e.eventId forKey:@"eventId"];
+    [pfEventObject setObject:e.date forKey:@"eventDate"];
+    
     if ([happening isKindOfClass:[Tits class]] )
     {
         e.type = kEventType_TitFood;
         [e addTitiesObject:(Tits*)happening];
         
-             
+        [pfEventObject setObject:kEventType_TitFood forKey:@"type"];
+        [pfEventObject setObject:e.eventId forKey:@"titId"];
+        [pfEventObject saveEventually];
+        
         
         
     } else if ([happening isKindOfClass:[Bottle class]] )
@@ -141,9 +151,7 @@
         [e addDiapersObject:(Diaper*)happening];
     }
     
-    e.eventId = eventId;
-    e.baby = baby;
-    e.date = date;
+   
     
    // NSDictionary *paramDict =  @{@"objectId":@"qQnTDiem5K"};
 
@@ -172,10 +180,10 @@
 //    [babyObject setObject:baby.name forKey:@"name"];
 //    [babyObject setObject:baby.babyId forKey:@"objectId"];
     
-   
-   
  
     NSLog(@"Created event with tit: %@, to baby: %@", [happening class], baby.name);
+    NSLog(@"Created event with titID: %@::", eventId);
+
     return e;
 }
 
