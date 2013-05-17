@@ -11,6 +11,7 @@
 #import "Bottle.h"
 #import "SLKPARSEService.h"
 #import <Parse/Parse.h>
+#import "SLKConstants.h"
 @implementation SLKBottleStorage
 {
     NSManagedObjectContext *context;
@@ -44,7 +45,7 @@
 
 -(Bottle *)createBottleWithId:(NSString *)bottleId stringValue:(NSString *)stringValue mililitres:(NSNumber *)milliLitres minutes:(NSNumber *)minutes dirty:(BOOL)dirty
 {
-    Bottle *b = [NSEntityDescription insertNewObjectForEntityForName:@"Bottle"
+    Bottle *b = [NSEntityDescription insertNewObjectForEntityForName:kBottle
                                             inManagedObjectContext:context];
     
     
@@ -55,13 +56,14 @@
     b.dirty = [NSNumber numberWithBool:dirty];
     
     
-    PFObject *pfBottle = [PFObject objectWithClassName:@"bottle"];
-    [pfBottle setObject: b.stringValue forKey:@"stringValue"];
+    PFObject *pfBottle = [PFObject objectWithClassName:kBottle];
+    //[pfBottle setObject: b.stringValue forKey:@"stringValue"];
     [pfBottle setObject: b.milliLitres forKey:@"milliLitres"];
-//    [pfTits setObject: b.bottleId forKey:@"bottleId"];
+    [pfBottle setObject: b.bottleId forKey:@"bottleId"];
     
-    // [pfTits saveEventually];
+    // [pfBottle saveEventually];
     [SLKPARSEService postObject:pfBottle onSuccess:^(PFObject *obj) {
+        
         Bottle *bottleToClean = [self getBottleWithiD:[obj objectForKey:@"bottleId"]];
         bottleToClean.dirty = [NSNumber numberWithBool:NO];
     } onFailure:^(PFObject *obj) {

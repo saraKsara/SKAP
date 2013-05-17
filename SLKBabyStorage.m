@@ -10,6 +10,7 @@
 #import "Baby.h"
 #import "SLKUserDefaults.h"
 #import "SLKPARSEService.h"
+#import "SLKConstants.h"
 @implementation SLKBabyStorage
 {
     NSManagedObjectContext *context;
@@ -50,7 +51,7 @@
         b = babeInStorage;
         
     } else {
-    b = [NSEntityDescription insertNewObjectForEntityForName:@"Baby"
+    b = [NSEntityDescription insertNewObjectForEntityForName:kBaby
                                                       inManagedObjectContext:context];
     }
     
@@ -78,7 +79,7 @@
 -(void)removeBaby:(Baby*)baby
 {
     [context deleteObject:baby];
-    PFObject *object = [PFObject objectWithoutDataWithClassName:@"Baby"
+    PFObject *object = [PFObject objectWithoutDataWithClassName:kBaby
                                                        objectId:baby.babyId];
     [SLKPARSEService deleteObject:object];
 }
@@ -88,7 +89,7 @@
     for (Baby *babe in [self babyArray]) {
         [self removeBaby:babe];
         
-        PFObject *object = [PFObject objectWithoutDataWithClassName:@"Baby"
+        PFObject *object = [PFObject objectWithoutDataWithClassName:kBaby
                                                  objectId:babe.babyId];
         [SLKPARSEService deleteObject:object];
     }
@@ -96,7 +97,7 @@
 
 -(Baby *)getBabyWithiD:(NSString *)babyId
 {
-    NSArray *arr = [[SLKCoreDataService sharedService] fetchDataWithEntity:@"Baby"
+    NSArray *arr = [[SLKCoreDataService sharedService] fetchDataWithEntity:kBaby
                                                              andPredicate:[NSPredicate predicateWithFormat:@"babyId == %@", babyId]
                                                        andSortDescriptors:nil];
     
@@ -106,7 +107,7 @@
 
 -(NSArray*)babyArray
 {
-  return [[SLKCoreDataService sharedService]fetchDataWithEntity:@"Baby"];
+  return [[SLKCoreDataService sharedService]fetchDataWithEntity:kBaby];
 }
 
 

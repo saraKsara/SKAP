@@ -72,12 +72,15 @@
     [query whereKey:@"babyId" equalTo:currentBabyId]; //TODO, this is only for one baby...
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {//4
-        if (!error) {
+    if (!error) {
+            
+        if (objects.count > 0) {
+                
             NSLog(@"Successfully retrieved: %@", objects.class);
             
             for (int i = 0; i < [objects count]; i++)
             {
-                NSArray *arr = [[SLKEventStorage sharedStorage]eventArray];
+                NSArray *eventArray = [[SLKEventStorage sharedStorage]eventArray];
                 
 //                // NSSet *events = [[SLKEventStorage sharedStorage] eventIdsSet];
 //                NSLog(@"\n eventID from SET--- : %d\n\n", [arr count]);
@@ -90,9 +93,13 @@
 
                 //If there's no event with that id in eventstorage, create it!
                // if (![[[SLKEventStorage sharedStorage]eventIdsSet]containsObject: [[objects objectAtIndex:i]objectId]]){
-                if (![[[arr objectAtIndex:i]eventId] isEqualToString:[[objects objectAtIndex:i]objectId]]) {
+      
+                
+                if ( eventArray.count > 0 &&
+                    ![[[eventArray objectAtIndex:i]eventId] isEqualToString:[[objects objectAtIndex:i] objectForKey:@"eventId"]])
+                {
                     
-                    NSLog(@"No ------%@-------event with %@ exists, creating one",[[arr objectAtIndex:i]eventId] ,[[objects objectAtIndex:i]objectId]);
+                    NSLog(@"\n\nNo ------%@-------event with %@ exists, creating one\n\n",[[eventArray objectAtIndex:i]eventId] ,[[objects objectAtIndex:i]objectId]);
                     
                     [[SLKEventStorage sharedStorage]createEvenWithHappening:[[objects objectAtIndex:i]objectForKey:@"type"]
                                                                 withComment:nil//[[objects objectAtIndex:i] objectForKey:@"comment"]
@@ -103,7 +110,7 @@
                     
 
                 } else {
-                    NSLog(@"Event with %@ already exists, does NOT create it",[[objects objectAtIndex:i]objectId]);
+                    NSLog(@"\n\n Event with %@ already exists, does SKIPPING to create it\n\n",[[objects objectAtIndex:i] objectForKey:@"eventId"]);
 
                 }
                 //else if ([[[SLKEventStorage sharedStorage] getEventWithiD:[[objects objectAtIndex:i]objectId]] isdirty]){
@@ -115,9 +122,9 @@
                 
               
                 
-              NSLog(@"\n\n EVENTid ....: %@\n", [[objects objectAtIndex:i] objectId ]);
+              NSLog(@"\n\n PARSE EVENTid ....: %@\n", [[objects objectAtIndex:i] objectId ]);
 
-                NSLog(@"\n\n EVENTid ....: %@\n", [[objects objectAtIndex:i] objectId ]);
+                NSLog(@"\n\n  SLK EVENTid ....: %@\n", [[objects objectAtIndex:i] objectForKey:@"eventId"]);
 
 //                NSLog(@"\n\n type ------ :::: %@\n\n", [[objects objectAtIndex:i] objectForKey:@"type"]);
 //                NSLog(@"\n\n local date ------ :::: %@\n\n", [[objects objectAtIndex:i] objectForKey:@"localDate"]);
@@ -127,9 +134,10 @@
               //  NSLog(@"\n\n EVENT : %@\n\n", [objects objectAtIndex:i]);
             }
             
-        } else {
+            } else {
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
-            NSLog(@"Error, could not get all events: %@", errorString);
+                NSLog(@"Error, could not get all events: %@", errorString);
+            }
         }
     }];
 

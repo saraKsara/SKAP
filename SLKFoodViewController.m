@@ -49,16 +49,21 @@
     BOOL *leftBoob;
     BOOL *rightBoob;
     
-    //DIAPER
-    BOOL piiToAddNormal;
-    BOOL piiToAddTooMuch;
-    BOOL piiToAddTooLittle;
-    BOOL pooToAddNormal;
-    BOOL pooToAddTooMuch;
-    BOOL pooToAddToLittle;
-    UIImage *checkedImage;
-    UIImage *unCheckedImage;
+//    //DIAPER
+//    BOOL piiToAddNormal;
+//    BOOL piiToAddTooMuch;
+//    BOOL piiToAddTooLittle;
+//    BOOL pooToAddNormal;
+//    BOOL pooToAddTooMuch;
+//    BOOL pooToAddToLittle;
+//    UIImage *checkedImage;
+//    UIImage *unCheckedImage;
     
+    
+    //SLEEP
+    int sleptMinutes;
+    
+    //BOTTLE
     float bottledFood;
     
     SLKBabyListTableViewController *settingsVC;
@@ -77,22 +82,22 @@
     UIAlertView *noBottleAlert;
 }
 
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    
-    if ([segue.identifier isEqualToString:@"menueSeg"]) {
-        SLKBabyListTableViewController *settingVc = [segue destinationViewController];
-        
-        UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithTitle:@"->"
-                                                                        style:UIBarButtonItemStyleBordered
-                                        target:settingVc
-                                        action:@selector(back)];
-        
-        [[settingVc navigationItem]setRightBarButtonItem:rightBarBtn];
-       // NOT WORKING: [[settingVc navigationItem]hidesBackButton];
-    }
-}
+//
+//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    
+//    if ([segue.identifier isEqualToString:@"menueSeg"]) {
+//        SLKBabyListTableViewController *settingVc = [segue destinationViewController];
+//        
+//        UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithTitle:@"->"
+//                                                                        style:UIBarButtonItemStyleBordered
+//                                        target:settingVc
+//                                        action:@selector(back)];
+//        
+//        [[settingVc navigationItem]setRightBarButtonItem:rightBarBtn];
+//       // NOT WORKING: [[settingVc navigationItem]hidesBackButton];
+//    }
+//}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -106,7 +111,7 @@
 {
     [super viewWillAppear:animated];
     
-    NSLog(@"selected ONE? : %d", _switchOne.selected);
+  //  NSLog(@"selected ONE? : %d", _switchOne.selected);
     NSLog(@"current Pf-USER----%@", [PFUser currentUser]);
     NSLog(@"current SLK-USER----%@", [SLKuser currentUser]);
 
@@ -156,23 +161,23 @@
     [_sliderTwoLabel setHidden:YES];
     
     //DIAPER
-    piiToAddNormal = NO;
-    piiToAddTooMuch = NO;
-    piiToAddTooLittle = NO;
-    pooToAddNormal = NO;
-    pooToAddTooMuch = NO;
-    pooToAddToLittle = NO;
-    
-    checkedImage = [UIImage imageNamed:@"checkedYES"];
-    unCheckedImage = [UIImage imageNamed:@"checkedNO"];
-    
-    [_normalPoo setImage:unCheckedImage forState:UIControlStateNormal];
-    [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];
-    [_tooLittlePoo setImage:unCheckedImage forState:UIControlStateNormal];
-    
-    [_normalPii setImage:unCheckedImage forState:UIControlStateNormal];
-    [_tooMuchPii setImage:unCheckedImage forState:UIControlStateNormal];
-    [_tooLittlePii setImage:unCheckedImage forState:UIControlStateNormal];
+//    piiToAddNormal = NO;
+//    piiToAddTooMuch = NO;
+//    piiToAddTooLittle = NO;
+//    pooToAddNormal = NO;
+//    pooToAddTooMuch = NO;
+//    pooToAddToLittle = NO;
+//    
+//    checkedImage = [UIImage imageNamed:@"checkedYES"];
+//    unCheckedImage = [UIImage imageNamed:@"checkedNO"];
+//    
+//    [_normalPoo setImage:unCheckedImage forState:UIControlStateNormal];
+//    [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];
+//    [_tooLittlePoo setImage:unCheckedImage forState:UIControlStateNormal];
+//    
+//    [_normalPii setImage:unCheckedImage forState:UIControlStateNormal];
+//    [_tooMuchPii setImage:unCheckedImage forState:UIControlStateNormal];
+//    [_tooLittlePii setImage:unCheckedImage forState:UIControlStateNormal];
 
     
 }
@@ -181,6 +186,9 @@
 {
     [super viewDidLoad];
      _universalSliderText.text = [NSString stringWithFormat:@"log how much %@ ate ", currentBabe.name];
+    
+    
+    //GestureRecognizers
     
     [_prevArrow setUserInteractionEnabled:YES];
     UITapGestureRecognizer *prevArrowTapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(prewArrow:)];
@@ -202,7 +210,7 @@
     self.pageViews = [NSMutableArray arrayWithObjects:_bottleView, _breastView, _sleepView,_diaperView,_medzView, nil];
     
     NSInteger pageCount = self.pageViews.count;
-    NSLog(@"number of views:%i",pageCount);
+//    NSLog(@"number of views:%i",pageCount);
     
     self.pageControll.currentPage = 0;
     self.pageControll.numberOfPages = pageCount;
@@ -291,7 +299,7 @@
 
 -(void)setTheBreastView
 {
-//    [self setSliderOneLabelBreast];
+    [self setSliderOneLabelBreast];
 
    [self hideTheDiaperSetUp];
     [_sliderOne setHidden:NO];
@@ -425,87 +433,87 @@
 
 }
 
-- (IBAction)check:(id)sender {
-    
-    if (sender == _normalPoo)
-    {
-        pooToAddNormal = !pooToAddNormal;
-        pooToAddTooMuch = NO;
-        pooToAddToLittle = NO;
-        if (pooToAddNormal)     [_normalPoo setImage:checkedImage forState:UIControlStateNormal];
-        else                    [_normalPoo setImage:unCheckedImage forState:UIControlStateNormal];
-        
-        [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];
-        [_tooLittlePoo setImage:unCheckedImage forState:UIControlStateNormal];
-        //  NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", pooToAddNormal, pooToAddTooMuch,pooToAddToLittle);
-        
-    } else  if (sender == _tooMuchPoo)
-    {
-        pooToAddTooMuch = !pooToAddTooMuch;
-        pooToAddNormal = NO;
-        pooToAddToLittle = NO;
-        if (pooToAddTooMuch)    [_tooMuchPoo setImage:checkedImage forState:UIControlStateNormal];
-        else                    [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];
-        
-        
-        [_normalPoo setImage:unCheckedImage forState:UIControlStateNormal];
-        [_tooLittlePoo setImage:unCheckedImage forState:UIControlStateNormal];
-        // NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", pooToAddNormal, pooToAddTooMuch,pooToAddToLittle);
-        
-    } else  if (sender == _tooLittlePoo)
-    {
-        pooToAddToLittle =!pooToAddToLittle;
-        pooToAddNormal = NO;
-        pooToAddTooMuch = NO;
-        if (pooToAddToLittle)   [_tooLittlePoo setImage:checkedImage forState:UIControlStateNormal];
-        else                    [_tooLittlePoo setImage:unCheckedImage forState:UIControlStateNormal];
-        
-        
-        [_normalPoo setImage:unCheckedImage forState:UIControlStateNormal];
-        [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];
-        // NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", pooToAddNormal, pooToAddTooMuch,pooToAddToLittle);
-    }
-    
-    
-    else if (sender == _normalPii)
-    {
-        piiToAddNormal = !piiToAddNormal;
-        piiToAddTooMuch = NO;
-        piiToAddTooLittle = NO;
-        if (piiToAddNormal)     [_normalPii setImage:checkedImage forState:UIControlStateNormal];
-        else                    [_normalPii setImage:unCheckedImage forState:UIControlStateNormal];
-        
-        [_tooLittlePii setImage:unCheckedImage forState:UIControlStateNormal];
-        [_tooMuchPii setImage:unCheckedImage forState:UIControlStateNormal];
-        // NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", piiToAddNormal, piiToAddTooMuch,piiToAddTooLittle);
-        
-    } else  if (sender == _tooMuchPii)
-    {
-        piiToAddTooMuch = !piiToAddTooMuch;
-        piiToAddNormal = NO;
-        piiToAddTooLittle = NO;
-        if (piiToAddTooMuch)    [_tooMuchPii setImage:checkedImage forState:UIControlStateNormal];
-        else                    [_tooMuchPii setImage:unCheckedImage forState:UIControlStateNormal];
-        
-        
-        [_normalPii setImage:unCheckedImage forState:UIControlStateNormal];
-        [_tooLittlePii setImage:unCheckedImage forState:UIControlStateNormal];
-        //  NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", piiToAddNormal, piiToAddTooMuch,piiToAddTooLittle);
-        
-    } else  if (sender == _tooLittlePii)
-    {
-        piiToAddTooLittle =!piiToAddTooLittle;
-        piiToAddNormal = NO;
-        piiToAddTooMuch = NO;
-        if (piiToAddTooLittle)   [_tooLittlePii setImage:checkedImage forState:UIControlStateNormal];
-        else                    [_tooLittlePii setImage:unCheckedImage forState:UIControlStateNormal];
-        
-        
-        [_normalPii setImage:unCheckedImage forState:UIControlStateNormal];
-        [_tooMuchPii setImage:unCheckedImage forState:UIControlStateNormal];
-        // NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", piiToAddNormal, piiToAddTooMuch,piiToAddTooLittle);
-    }
-}
+//- (IBAction)check:(id)sender {
+//    
+//    if (sender == _normalPoo)
+//    {
+//        pooToAddNormal = !pooToAddNormal;
+//        pooToAddTooMuch = NO;
+//        pooToAddToLittle = NO;
+//        if (pooToAddNormal)     [_normalPoo setImage:checkedImage forState:UIControlStateNormal];
+//        else                    [_normalPoo setImage:unCheckedImage forState:UIControlStateNormal];
+//        
+//        [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];
+//        [_tooLittlePoo setImage:unCheckedImage forState:UIControlStateNormal];
+//        //  NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", pooToAddNormal, pooToAddTooMuch,pooToAddToLittle);
+//        
+//    } else  if (sender == _tooMuchPoo)
+//    {
+//        pooToAddTooMuch = !pooToAddTooMuch;
+//        pooToAddNormal = NO;
+//        pooToAddToLittle = NO;
+//        if (pooToAddTooMuch)    [_tooMuchPoo setImage:checkedImage forState:UIControlStateNormal];
+//        else                    [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];
+//        
+//        
+//        [_normalPoo setImage:unCheckedImage forState:UIControlStateNormal];
+//        [_tooLittlePoo setImage:unCheckedImage forState:UIControlStateNormal];
+//        // NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", pooToAddNormal, pooToAddTooMuch,pooToAddToLittle);
+//        
+//    } else  if (sender == _tooLittlePoo)
+//    {
+//        pooToAddToLittle =!pooToAddToLittle;
+//        pooToAddNormal = NO;
+//        pooToAddTooMuch = NO;
+//        if (pooToAddToLittle)   [_tooLittlePoo setImage:checkedImage forState:UIControlStateNormal];
+//        else                    [_tooLittlePoo setImage:unCheckedImage forState:UIControlStateNormal];
+//        
+//        
+//        [_normalPoo setImage:unCheckedImage forState:UIControlStateNormal];
+//        [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];
+//        // NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", pooToAddNormal, pooToAddTooMuch,pooToAddToLittle);
+//    }
+//    
+//    
+//    else if (sender == _normalPii)
+//    {
+//        piiToAddNormal = !piiToAddNormal;
+//        piiToAddTooMuch = NO;
+//        piiToAddTooLittle = NO;
+//        if (piiToAddNormal)     [_normalPii setImage:checkedImage forState:UIControlStateNormal];
+//        else                    [_normalPii setImage:unCheckedImage forState:UIControlStateNormal];
+//        
+//        [_tooLittlePii setImage:unCheckedImage forState:UIControlStateNormal];
+//        [_tooMuchPii setImage:unCheckedImage forState:UIControlStateNormal];
+//        // NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", piiToAddNormal, piiToAddTooMuch,piiToAddTooLittle);
+//        
+//    } else  if (sender == _tooMuchPii)
+//    {
+//        piiToAddTooMuch = !piiToAddTooMuch;
+//        piiToAddNormal = NO;
+//        piiToAddTooLittle = NO;
+//        if (piiToAddTooMuch)    [_tooMuchPii setImage:checkedImage forState:UIControlStateNormal];
+//        else                    [_tooMuchPii setImage:unCheckedImage forState:UIControlStateNormal];
+//        
+//        
+//        [_normalPii setImage:unCheckedImage forState:UIControlStateNormal];
+//        [_tooLittlePii setImage:unCheckedImage forState:UIControlStateNormal];
+//        //  NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", piiToAddNormal, piiToAddTooMuch,piiToAddTooLittle);
+//        
+//    } else  if (sender == _tooLittlePii)
+//    {
+//        piiToAddTooLittle =!piiToAddTooLittle;
+//        piiToAddNormal = NO;
+//        piiToAddTooMuch = NO;
+//        if (piiToAddTooLittle)   [_tooLittlePii setImage:checkedImage forState:UIControlStateNormal];
+//        else                    [_tooLittlePii setImage:unCheckedImage forState:UIControlStateNormal];
+//        
+//        
+//        [_normalPii setImage:unCheckedImage forState:UIControlStateNormal];
+//        [_tooMuchPii setImage:unCheckedImage forState:UIControlStateNormal];
+//        // NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", piiToAddNormal, piiToAddTooMuch,piiToAddTooLittle);
+//    }
+//}
 
 //TODO: remove?
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer
@@ -596,7 +604,6 @@
         if (bottledFood == 0 ) {
         [noBottleAlert show];
         }else {
-                                            
                     Bottle *bottle = [[SLKBottleStorage sharedStorage]
                                       createBottleWithId:[[NSProcessInfo processInfo] globallyUniqueString]
                                       stringValue:nil
@@ -604,8 +611,6 @@
                                       minutes:nil
                                       dirty:YES];
             
-                    
-                    
             [[SLKEventStorage sharedStorage]
              createEvenWithHappening:bottle
              withComment:nil
@@ -625,10 +630,10 @@
     }
     else if (sleepView)
     {
-        NSNumber *labelNumber = [NSNumber numberWithInt:[_sliderOneLabel.text intValue]];
+
         Sleep *sleep =  [[SLKSleepStorage sharedStorage]
                          createSleepWithId:[[NSProcessInfo processInfo] globallyUniqueString]
-                         minutes:labelNumber dirty:YES];
+                         minutes:[NSNumber numberWithInt:sleptMinutes] dirty:YES];
         
         [[SLKEventStorage sharedStorage]
          createEvenWithHappening:sleep
@@ -963,15 +968,19 @@
 }
 -(void)setSliderOneLabelSleep
 {
+    //TODO: right now its only possible to log sleep for 4 hours... Add whole night?
     NSNumber *theDouble = [NSNumber numberWithDouble:_sliderOne.value];
+    
     int inputSeconds = [theDouble intValue];
     int hours =  inputSeconds / 3600;
     int anHour = ( inputSeconds - hours * 3600 ) / 60;
     int aMinute = inputSeconds - hours * 3600 - anHour * 60;
     
     NSString *theTime = [NSString stringWithFormat:@"%.1dhr %.2dmin", anHour, aMinute];
-    _sliderOneLabel.text = theTime;
-
+   _sliderOneLabel.text = theTime;
+    
+    sleptMinutes = (anHour * 60) + aMinute;
+    
 }
 -(void)setSliderOneLabelMedz
 {

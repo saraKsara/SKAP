@@ -12,6 +12,7 @@
 #import "Event.h"
 #import <Parse/Parse.h>
 #import "SLKPARSEService.h"
+#import "SLKConstants.h"
 
 @implementation SLKTittStorage
 {
@@ -46,7 +47,7 @@
 
 -(Tits *)createTittWithId:(NSString *)titId StringValue:(NSString *)stringValue mililitres:(NSNumber *)milliLitres minutes:(NSNumber *)minutes leftBoob:(BOOL)leftBoob rightBoob:(BOOL)rightBoob dirty:(BOOL)dirty
 {
-   Tits *t = [NSEntityDescription insertNewObjectForEntityForName:@"Tits"
+   Tits *t = [NSEntityDescription insertNewObjectForEntityForName:kTits
                                           inManagedObjectContext:context];
     
     t.titId = titId;
@@ -57,7 +58,7 @@
     t.rightBoob = [NSNumber numberWithBool:rightBoob];
     t.dirty = [NSNumber numberWithBool:dirty];
     
-    PFObject *pfTits = [PFObject objectWithClassName:@"tits"];
+    PFObject *pfTits = [PFObject objectWithClassName:kTits];
     [pfTits setObject: t.stringValue forKey:@"stringValue"];
     [pfTits setObject: [NSNumber numberWithBool:rightBoob] forKey:@"rightBoob"];
     [pfTits setObject: [NSNumber numberWithBool:leftBoob] forKey:@"leftBoob"];

@@ -1,10 +1,8 @@
-//
 //  SLKAppDelegate.m
 //  SKAP
 //
 //  Created by Student vid Yrkeshögskola C3L on 3/19/13.
 //  Copyright (c) 2013 Student vid Yrkeshögskola C3L. All rights reserved.
-//
 #import <Parse/Parse.h>
 #import "SLKAppDelegate.h"
 #import "SLKPARSEService.h"
@@ -72,7 +70,7 @@
     NSString *color;
     
    // [SLKPARSEService getAllObjects];
-    //[SLKPARSEService getAllEvents];
+    [SLKPARSEService getAllEvents];
     //TODO: on complete:
     
     //if there are no babies in storage after getting from server:
@@ -139,8 +137,11 @@
 
 -(void)setUpAppFirstTime
 {
-    SLKPfSingupViewController *cv = [[SLKPfSingupViewController alloc]init];
-    [self.window setRootViewController:cv];
+    
+    SLKPfLoginViewController *lvc = [[SLKPfLoginViewController alloc]init];
+
+    SLKPfSingupViewController *svc = [[SLKPfSingupViewController alloc]init];
+    [self.window setRootViewController:lvc];
     [self.window makeKeyAndVisible];
     
     
