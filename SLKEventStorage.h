@@ -24,9 +24,10 @@
                     timeSpan:(NSNumber*)timeSpan
                         baby:(Baby*)baby
                        sleep:(NSNumber*)sleep
-                    comments:(NSString*)comments;
+                    comments:(NSString*)comments
+                       dirty:(BOOL)dirty;
 
--(Event *)createEvenWithHappening:(NSManagedObject*)happening withComment:(NSString*)comment date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby*)baby;
+-(Event *)createEvenWithHappening:(NSManagedObject*)happening withComment:(NSString*)comment date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby*)baby dirty:(BOOL)dirty;
 
 
 //GETTERS
@@ -48,5 +49,6 @@
 
 -(NSArray*)eventArray;
 
+-(NSSet *)eventIdsSet;
 
 @end

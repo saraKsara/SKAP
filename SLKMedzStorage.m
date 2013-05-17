@@ -41,7 +41,7 @@
 }
 
 
--(Medz *)createMedzWithTemp:(NSNumber *)temp adDrop:(BOOL)adDrop paracetamol:(BOOL)paracetamol ibuprofen:(BOOL)ibuprofen more:(NSSet *)more
+-(Medz *)createMedzWithId:(NSString *)medsId Temp:(NSNumber *)temp adDrop:(BOOL)adDrop paracetamol:(BOOL)paracetamol ibuprofen:(BOOL)ibuprofen more:(NSSet *)more dirty:(BOOL)dirty
 {
     Medz *m = [NSEntityDescription insertNewObjectForEntityForName:@"Medz"
                                             inManagedObjectContext:context];
@@ -50,6 +50,8 @@
     m.paracetamol = [NSNumber numberWithBool:paracetamol];
     m.ibuprofen = [NSNumber numberWithBool:ibuprofen];
     m.more = more;
+    m.dirty = [NSNumber numberWithBool:dirty];
+    m.medzId = medsId;
     
     NSLog(@"Gave baby some meds:  %@", m);
     

@@ -32,12 +32,14 @@
 #import "SLKUserDefaults.h"
 #import "SLKuser.h"
 #import <Parse/Parse.h>
+#import "SLKPARSEService.h"
 @interface SLKFoodViewController ()
 
 @end
 
 @implementation SLKFoodViewController
 {
+    //view bools
     BOOL *titsView;
     BOOL *bottleView;
     BOOL *sleepView;
@@ -46,18 +48,22 @@
     
     BOOL *leftBoob;
     BOOL *rightBoob;
+
+//    //DIAPER
+//    BOOL piiToAddNormal;
+//    BOOL piiToAddTooMuch;
+//    BOOL piiToAddTooLittle;
+//    BOOL pooToAddNormal;
+//    BOOL pooToAddTooMuch;
+//    BOOL pooToAddToLittle;
+//    UIImage *checkedImage;
+//    UIImage *unCheckedImage;
     
-    //DIAPER
-    BOOL piiToAddNormal;
-    BOOL piiToAddTooMuch;
-    BOOL piiToAddTooLittle;
-    BOOL pooToAddNormal;
-    BOOL pooToAddTooMuch;
-    BOOL pooToAddToLittle;
-    UIImage *checkedImage;
-    UIImage *unCheckedImage;
-    UIImage *bottle;
     
+    //SLEEP
+    int sleptMinutes;
+    
+    //BOTTLE
     float bottledFood;
     
     SLKBabyListTableViewController *settingsVC;
@@ -65,29 +71,33 @@
     NSString *time;
     NSDate *date;
     Baby *currentBabe;
-    UISegmentedControl *_segmentControll;
-    int numberOfBabies;
-    NSArray *babyArray;
-    float segmentWidth;
+//    UISegmentedControl *_segmentControll;
+//    int numberOfBabies;
+//    NSArray *babyArray;
+//    float segmentWidth;
     NSNull *nullValue;
-}
-
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
     
-    if ([segue.identifier isEqualToString:@"menueSeg"]) {
-        SLKBabyListTableViewController *settingVc = [segue destinationViewController];
-        
-        UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithTitle:@"->"
-                                                                        style:UIBarButtonItemStyleBordered
-                                        target:settingVc
-                                        action:@selector(back)];
-        
-        [[settingVc navigationItem]setRightBarButtonItem:rightBarBtn];
-       // NOT WORKING: [[settingVc navigationItem]hidesBackButton];
-    }
+    //alerts
+    UIAlertView *noBoobsAlert;
+    UIAlertView *noBottleAlert;
 }
+
+//
+//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    
+//    if ([segue.identifier isEqualToString:@"menueSeg"]) {
+//        SLKBabyListTableViewController *settingVc = [segue destinationViewController];
+//        
+//        UIBarButtonItem *rightBarBtn = [[UIBarButtonItem alloc] initWithTitle:@"->"
+//                                                                        style:UIBarButtonItemStyleBordered
+//                                        target:settingVc
+//                                        action:@selector(back)];
+//        
+//        [[settingVc navigationItem]setRightBarButtonItem:rightBarBtn];
+//       // NOT WORKING: [[settingVc navigationItem]hidesBackButton];
+//    }
+//}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -101,7 +111,7 @@
 {
     [super viewWillAppear:animated];
     
-    NSLog(@"selected ONE? : %d", _switchOne.selected);
+  //  NSLog(@"selected ONE? : %d", _switchOne.selected);
     NSLog(@"current Pf-USER----%@", [PFUser currentUser]);
     NSLog(@"current SLK-USER----%@", [SLKuser currentUser]);
 
@@ -117,7 +127,7 @@
     leftBoob = NO;
     rightBoob = NO;
     
-   
+    [self setUpAlerts];
     
     nullValue = [NSNull null];
     // Set up the content size of the scroll view
@@ -127,7 +137,7 @@
     // Load the initial set of pages that are on screen
    
     //TODO: move to set up class???
-     [_segmentControll setSelected:NO];
+   //  [_segmentControll setSelected:NO];
      
     _scrollView.delegate = self;
      [_scrollView setScrollEnabled:YES];
@@ -151,24 +161,23 @@
     [_sliderTwoLabel setHidden:YES];
     
     //DIAPER
-    piiToAddNormal = NO;
-    piiToAddTooMuch = NO;
-    piiToAddTooLittle = NO;
-    pooToAddNormal = NO;
-    pooToAddTooMuch = NO;
-    pooToAddToLittle = NO;
-    
-    checkedImage = [UIImage imageNamed:@"checkedYES"];
-    unCheckedImage = [UIImage imageNamed:@"checkedNO"];
-    bottle = [UIImage imageNamed:@"sliderbackgroundImage.png"];
-    
-    [_normalPoo setImage:unCheckedImage forState:UIControlStateNormal];
-    [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];
-    [_tooLittlePoo setImage:unCheckedImage forState:UIControlStateNormal];
-    
-    [_normalPii setImage:unCheckedImage forState:UIControlStateNormal];
-    [_tooMuchPii setImage:unCheckedImage forState:UIControlStateNormal];
-    [_tooLittlePii setImage:unCheckedImage forState:UIControlStateNormal];
+//    piiToAddNormal = NO;
+//    piiToAddTooMuch = NO;
+//    piiToAddTooLittle = NO;
+//    pooToAddNormal = NO;
+//    pooToAddTooMuch = NO;
+//    pooToAddToLittle = NO;
+//    
+//    checkedImage = [UIImage imageNamed:@"checkedYES"];
+//    unCheckedImage = [UIImage imageNamed:@"checkedNO"];
+//    
+//    [_normalPoo setImage:unCheckedImage forState:UIControlStateNormal];
+//    [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];
+//    [_tooLittlePoo setImage:unCheckedImage forState:UIControlStateNormal];
+//    
+//    [_normalPii setImage:unCheckedImage forState:UIControlStateNormal];
+//    [_tooMuchPii setImage:unCheckedImage forState:UIControlStateNormal];
+//    [_tooLittlePii setImage:unCheckedImage forState:UIControlStateNormal];
 
     
 }
@@ -177,6 +186,9 @@
 {
     [super viewDidLoad];
      _universalSliderText.text = [NSString stringWithFormat:@"log how much %@ ate ", currentBabe.name];
+    
+    
+    //GestureRecognizers
     
     [_prevArrow setUserInteractionEnabled:YES];
     UITapGestureRecognizer *prevArrowTapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(prewArrow:)];
@@ -198,7 +210,7 @@
     self.pageViews = [NSMutableArray arrayWithObjects:_bottleView, _breastView, _sleepView,_diaperView,_medzView, nil];
     
     NSInteger pageCount = self.pageViews.count;
-    NSLog(@"number of views:%i",pageCount);
+//    NSLog(@"number of views:%i",pageCount);
     
     self.pageControll.currentPage = 0;
     self.pageControll.numberOfPages = pageCount;
@@ -287,7 +299,7 @@
 
 -(void)setTheBreastView
 {
-//    [self setSliderOneLabelBreast];
+    [self setSliderOneLabelBreast];
 
    [self hideTheDiaperSetUp];
     [_sliderOne setHidden:NO];
@@ -422,87 +434,87 @@
 
 }
 
-- (IBAction)check:(id)sender {
-    
-    if (sender == _normalPoo)
-    {
-        pooToAddNormal = !pooToAddNormal;
-        pooToAddTooMuch = NO;
-        pooToAddToLittle = NO;
-        if (pooToAddNormal)     [_normalPoo setImage:checkedImage forState:UIControlStateNormal];
-        else                    [_normalPoo setImage:unCheckedImage forState:UIControlStateNormal];
-        
-        [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];
-        [_tooLittlePoo setImage:unCheckedImage forState:UIControlStateNormal];
-        //  NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", pooToAddNormal, pooToAddTooMuch,pooToAddToLittle);
-        
-    } else  if (sender == _tooMuchPoo)
-    {
-        pooToAddTooMuch = !pooToAddTooMuch;
-        pooToAddNormal = NO;
-        pooToAddToLittle = NO;
-        if (pooToAddTooMuch)    [_tooMuchPoo setImage:checkedImage forState:UIControlStateNormal];
-        else                    [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];
-        
-        
-        [_normalPoo setImage:unCheckedImage forState:UIControlStateNormal];
-        [_tooLittlePoo setImage:unCheckedImage forState:UIControlStateNormal];
-        // NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", pooToAddNormal, pooToAddTooMuch,pooToAddToLittle);
-        
-    } else  if (sender == _tooLittlePoo)
-    {
-        pooToAddToLittle =!pooToAddToLittle;
-        pooToAddNormal = NO;
-        pooToAddTooMuch = NO;
-        if (pooToAddToLittle)   [_tooLittlePoo setImage:checkedImage forState:UIControlStateNormal];
-        else                    [_tooLittlePoo setImage:unCheckedImage forState:UIControlStateNormal];
-        
-        
-        [_normalPoo setImage:unCheckedImage forState:UIControlStateNormal];
-        [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];
-        // NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", pooToAddNormal, pooToAddTooMuch,pooToAddToLittle);
-    }
-    
-    
-    else if (sender == _normalPii)
-    {
-        piiToAddNormal = !piiToAddNormal;
-        piiToAddTooMuch = NO;
-        piiToAddTooLittle = NO;
-        if (piiToAddNormal)     [_normalPii setImage:checkedImage forState:UIControlStateNormal];
-        else                    [_normalPii setImage:unCheckedImage forState:UIControlStateNormal];
-        
-        [_tooLittlePii setImage:unCheckedImage forState:UIControlStateNormal];
-        [_tooMuchPii setImage:unCheckedImage forState:UIControlStateNormal];
-        // NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", piiToAddNormal, piiToAddTooMuch,piiToAddTooLittle);
-        
-    } else  if (sender == _tooMuchPii)
-    {
-        piiToAddTooMuch = !piiToAddTooMuch;
-        piiToAddNormal = NO;
-        piiToAddTooLittle = NO;
-        if (piiToAddTooMuch)    [_tooMuchPii setImage:checkedImage forState:UIControlStateNormal];
-        else                    [_tooMuchPii setImage:unCheckedImage forState:UIControlStateNormal];
-        
-        
-        [_normalPii setImage:unCheckedImage forState:UIControlStateNormal];
-        [_tooLittlePii setImage:unCheckedImage forState:UIControlStateNormal];
-        //  NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", piiToAddNormal, piiToAddTooMuch,piiToAddTooLittle);
-        
-    } else  if (sender == _tooLittlePii)
-    {
-        piiToAddTooLittle =!piiToAddTooLittle;
-        piiToAddNormal = NO;
-        piiToAddTooMuch = NO;
-        if (piiToAddTooLittle)   [_tooLittlePii setImage:checkedImage forState:UIControlStateNormal];
-        else                    [_tooLittlePii setImage:unCheckedImage forState:UIControlStateNormal];
-        
-        
-        [_normalPii setImage:unCheckedImage forState:UIControlStateNormal];
-        [_tooMuchPii setImage:unCheckedImage forState:UIControlStateNormal];
-        // NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", piiToAddNormal, piiToAddTooMuch,piiToAddTooLittle);
-    }
-}
+//- (IBAction)check:(id)sender {
+//    
+//    if (sender == _normalPoo)
+//    {
+//        pooToAddNormal = !pooToAddNormal;
+//        pooToAddTooMuch = NO;
+//        pooToAddToLittle = NO;
+//        if (pooToAddNormal)     [_normalPoo setImage:checkedImage forState:UIControlStateNormal];
+//        else                    [_normalPoo setImage:unCheckedImage forState:UIControlStateNormal];
+//        
+//        [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];
+//        [_tooLittlePoo setImage:unCheckedImage forState:UIControlStateNormal];
+//        //  NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", pooToAddNormal, pooToAddTooMuch,pooToAddToLittle);
+//        
+//    } else  if (sender == _tooMuchPoo)
+//    {
+//        pooToAddTooMuch = !pooToAddTooMuch;
+//        pooToAddNormal = NO;
+//        pooToAddToLittle = NO;
+//        if (pooToAddTooMuch)    [_tooMuchPoo setImage:checkedImage forState:UIControlStateNormal];
+//        else                    [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];
+//        
+//        
+//        [_normalPoo setImage:unCheckedImage forState:UIControlStateNormal];
+//        [_tooLittlePoo setImage:unCheckedImage forState:UIControlStateNormal];
+//        // NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", pooToAddNormal, pooToAddTooMuch,pooToAddToLittle);
+//        
+//    } else  if (sender == _tooLittlePoo)
+//    {
+//        pooToAddToLittle =!pooToAddToLittle;
+//        pooToAddNormal = NO;
+//        pooToAddTooMuch = NO;
+//        if (pooToAddToLittle)   [_tooLittlePoo setImage:checkedImage forState:UIControlStateNormal];
+//        else                    [_tooLittlePoo setImage:unCheckedImage forState:UIControlStateNormal];
+//        
+//        
+//        [_normalPoo setImage:unCheckedImage forState:UIControlStateNormal];
+//        [_tooMuchPoo setImage:unCheckedImage forState:UIControlStateNormal];
+//        // NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", pooToAddNormal, pooToAddTooMuch,pooToAddToLittle);
+//    }
+//    
+//    
+//    else if (sender == _normalPii)
+//    {
+//        piiToAddNormal = !piiToAddNormal;
+//        piiToAddTooMuch = NO;
+//        piiToAddTooLittle = NO;
+//        if (piiToAddNormal)     [_normalPii setImage:checkedImage forState:UIControlStateNormal];
+//        else                    [_normalPii setImage:unCheckedImage forState:UIControlStateNormal];
+//        
+//        [_tooLittlePii setImage:unCheckedImage forState:UIControlStateNormal];
+//        [_tooMuchPii setImage:unCheckedImage forState:UIControlStateNormal];
+//        // NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", piiToAddNormal, piiToAddTooMuch,piiToAddTooLittle);
+//        
+//    } else  if (sender == _tooMuchPii)
+//    {
+//        piiToAddTooMuch = !piiToAddTooMuch;
+//        piiToAddNormal = NO;
+//        piiToAddTooLittle = NO;
+//        if (piiToAddTooMuch)    [_tooMuchPii setImage:checkedImage forState:UIControlStateNormal];
+//        else                    [_tooMuchPii setImage:unCheckedImage forState:UIControlStateNormal];
+//        
+//        
+//        [_normalPii setImage:unCheckedImage forState:UIControlStateNormal];
+//        [_tooLittlePii setImage:unCheckedImage forState:UIControlStateNormal];
+//        //  NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", piiToAddNormal, piiToAddTooMuch,piiToAddTooLittle);
+//        
+//    } else  if (sender == _tooLittlePii)
+//    {
+//        piiToAddTooLittle =!piiToAddTooLittle;
+//        piiToAddNormal = NO;
+//        piiToAddTooMuch = NO;
+//        if (piiToAddTooLittle)   [_tooLittlePii setImage:checkedImage forState:UIControlStateNormal];
+//        else                    [_tooLittlePii setImage:unCheckedImage forState:UIControlStateNormal];
+//        
+//        
+//        [_normalPii setImage:unCheckedImage forState:UIControlStateNormal];
+//        [_tooMuchPii setImage:unCheckedImage forState:UIControlStateNormal];
+//        // NSLog(@"\nnormal: %d\n TooMuch:%d\n TooLittle:%d", piiToAddNormal, piiToAddTooMuch,piiToAddTooLittle);
+//    }
+//}
 
 //TODO: remove?
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer
@@ -513,24 +525,74 @@
     [recognizer setTranslation:CGPointMake(0, 0) inView:self.view];
 
 }
+#pragma mark Alerts
+-(void)setUpAlerts
+{
+    noBoobsAlert = [[UIAlertView alloc] initWithTitle:@"No breast choosen"
+                                                        message:@"You have to choose right, left or both breasts"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil, nil];
+    
+   noBottleAlert = [[UIAlertView alloc] initWithTitle:@"No milk choosen"
+                                                            message:@"You have to set how much your baby ate. Use the slider to set how much your baby ate"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil, nil];
 
+    
+}
+
+#pragma mark save
 
 - (IBAction)save:(id)sender {
     
     if (titsView)
     {
         if (!leftBoob && !rightBoob) {
-            UIAlertView *noChoiceAlert = [[UIAlertView alloc] initWithTitle:@"No breast choosen"
-                                                                    message:@"You have to choose right, left or both breasts"
-                                                                   delegate:self
-                                                          cancelButtonTitle:@"OK"
-                                                          otherButtonTitles:nil, nil];
-            [noChoiceAlert show];
+          
+            [noBoobsAlert show];
             
         } else {
-            Tits *tit = [[SLKTittStorage sharedStorage]createTittWithStringValue:_sliderOneLabel.text mililitres:nil minutes:nil leftBoob:leftBoob rightBoob:rightBoob];
-            NSLog(@"lefty: %d \n righty: %d \n", (int)leftBoob, (int)rightBoob);
-            [[SLKEventStorage sharedStorage] createEvenWithHappening:tit withComment:nil date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
+            
+            Tits *tit = [[SLKTittStorage sharedStorage]
+                         createTittWithId:[[NSProcessInfo processInfo] globallyUniqueString]
+                         StringValue:_sliderOneLabel.text
+                         mililitres:nil
+                         minutes:nil
+                         leftBoob:leftBoob
+                         rightBoob:rightBoob
+                         dirty:YES];
+            
+              [[SLKEventStorage sharedStorage]
+               createEvenWithHappening:tit
+               withComment:nil
+               date:date
+               eventId:tit.titId
+               baby:[[SLKBabyStorage sharedStorage]
+                     getCurrentBaby]
+               dirty:YES];
+            
+    //        [SLKPARSEService postObject:pfTits onSuccess:^(PFObject *object)
+//        {
+//            NSLog(@"\n\nSucceed to create  pfTit %@\n\n", [object objectId]);
+//            
+//                [SLKPARSEService postObject:pfEventObject onSuccess:^(PFObject *eventobj)
+//                {
+//                        NSLog(@"\n\n\n Succeed to create pfEvent:::%@\n\n", [eventobj objectId]);
+//                        PFRelation *relation = [pfEventObject relationforKey:@"titts"];
+//                        [relation addObject:pfTits];
+//                        [pfEventObject saveInBackground];//??????????????
+//                     
+//                } onFailure:^(PFObject *obj) {
+//                        NSLog(@"error: %@", obj);
+//                }];
+//            
+//                } onFailure:^(PFObject *object) {
+//    
+//                    NSLog(@"Failed to create tit %@", object);
+//                }];
+        
             leftBoob = NO;
             [_leftTit setImage:[UIImage imageNamed:@"tits.png"]];
             rightBoob = NO;
@@ -541,27 +603,49 @@
     else if (bottleView)
     {
         if (bottledFood == 0 ) {
-            UIAlertView *noChoiceAlert = [[UIAlertView alloc] initWithTitle:@"No milk choosen"
-                                                                    message:@"You have to set how much your baby ate. Use the slider to set how much your baby ate"
-                                                                   delegate:self
-                                                          cancelButtonTitle:@"OK"
-                                                          otherButtonTitles:nil, nil];
-            [noChoiceAlert show];
+        [noBottleAlert show];
         }else {
-            Bottle *bottle = [[SLKBottleStorage sharedStorage] createBottleWithStringValue:nil mililitres:[NSNumber numberWithFloat:bottledFood] minutes:nil];
+                    Bottle *bottle = [[SLKBottleStorage sharedStorage]
+                                      createBottleWithId:[[NSProcessInfo processInfo] globallyUniqueString]
+                                      stringValue:nil
+                                      mililitres:[NSNumber numberWithFloat:bottledFood]
+                                      minutes:nil
+                                      dirty:YES];
             
-            [[SLKEventStorage sharedStorage]createEvenWithHappening:bottle withComment:nil date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
+            [[SLKEventStorage sharedStorage]
+             createEvenWithHappening:bottle
+             withComment:nil
+             date:date
+             eventId:bottle.bottleId
+             baby:[[SLKBabyStorage sharedStorage]
+                   getCurrentBaby]
+             dirty:YES];
+            
+            
             bottledFood = 0;
             [_sliderOne setValue:0];
-               _sliderOneLabel.text = [NSString stringWithFormat:@" %.f ml",_sliderOne.value];
-        }
+            _sliderOneLabel.text = [NSString stringWithFormat:@" %.f ml",_sliderOne.value];
+        
+            }
+            
     }
     else if (sleepView)
     {
-        NSNumber *labelNumber = [NSNumber numberWithInt:[_sliderOneLabel.text intValue]];
-        Sleep *sleep = [[SLKSleepStorage sharedStorage]createSleep:labelNumber];
-        [[SLKEventStorage sharedStorage]createEvenWithHappening:sleep withComment:nil date:date eventId:nil baby:[[SLKBabyStorage sharedStorage] getCurrentBaby]];
+
+        Sleep *sleep =  [[SLKSleepStorage sharedStorage]
+                         createSleepWithId:[[NSProcessInfo processInfo] globallyUniqueString]
+                         minutes:[NSNumber numberWithInt:sleptMinutes] dirty:YES];
+        
+        [[SLKEventStorage sharedStorage]
+         createEvenWithHappening:sleep
+         withComment:nil
+         date:date
+         eventId:sleep.sleepId
+         baby:[[SLKBabyStorage sharedStorage]
+               getCurrentBaby]
+         dirty:YES];
     }
+    
     else if (diaperView)
     {
        // if (!pooToAddNormal && !pooToAddTooMuch && !pooToAddToLittle && !piiToAddNormal && !piiToAddTooMuch && !piiToAddTooLittle)
@@ -574,27 +658,67 @@
             
             if (_switchOne.selected && !_switchTwo.selected) { //create only poo
                 NSLog(@"create new POO");
-                Poo *someNewPoo = [[SLKPooStorage sharedStorage] createPoo];
+                
+                Poo *someNewPoo = [[SLKPooStorage sharedStorage]
+                                   createPooWithId:[[NSProcessInfo processInfo] globallyUniqueString]
+                                   dirty:YES];
                                    
-                [[SLKEventStorage sharedStorage] createEvenWithHappening:someNewPoo withComment:_commentTextView.text date:date eventId:nil baby:currentBabe];
+                [[SLKEventStorage sharedStorage]
+                 createEvenWithHappening:someNewPoo
+                 withComment:nil
+                 date:date
+                 eventId:someNewPoo.pooId
+                 baby:[[SLKBabyStorage sharedStorage]
+                       getCurrentBaby]
+                 dirty:YES];
+
             } else {
                 NSLog(@"NO New POO");
             }
             if (_switchTwo.selected && !_switchOne.selected) { //create only pii
                 NSLog(@"Create new PII AND POO" );
           
-                Pii *someNewPii = [[SLKPiiStorage sharedStorage] createPii];
-                [[SLKEventStorage sharedStorage] createEvenWithHappening:someNewPii withComment:_commentTextView.text date:date eventId:nil baby:currentBabe];
+                Pii *someNewPii = [[SLKPiiStorage sharedStorage]
+                                   createPiiWithId:[[NSProcessInfo processInfo] globallyUniqueString]
+                                   dirty:YES];
+                
+                [[SLKEventStorage sharedStorage]
+                 createEvenWithHappening:someNewPii
+                 withComment:nil
+                 date:date
+                 eventId:someNewPii.piiId
+                 baby:[[SLKBabyStorage sharedStorage]
+                       getCurrentBaby]
+                 dirty:YES];
                 
             }   if (_switchTwo.selected && _switchOne.selected) { //create both pii and poo
                 NSLog(@"Create new PII AND POO" );
                 
-                Pii *someNewPii = [[SLKPiiStorage sharedStorage] createPii];
+                Pii *someNewPii = [[SLKPiiStorage sharedStorage]
+                                   createPiiWithId:[[NSProcessInfo processInfo] globallyUniqueString]
+                                   dirty:YES];
                 
-                [[SLKEventStorage sharedStorage] createEvenWithHappening:someNewPii withComment:_commentTextView.text date:date eventId:nil baby:currentBabe];
-                Poo *someNewPoo = [[SLKPooStorage sharedStorage] createPoo];
+                [[SLKEventStorage sharedStorage]
+                 createEvenWithHappening:someNewPii
+                 withComment:nil
+                 date:date
+                 eventId:someNewPii.piiId
+                 baby:[[SLKBabyStorage sharedStorage]
+                       getCurrentBaby]
+                 dirty:YES];
                 
-                [[SLKEventStorage sharedStorage] createEvenWithHappening:someNewPoo withComment:_commentTextView.text date:date eventId:nil baby:currentBabe];
+                Poo *someNewPoo = [[SLKPooStorage sharedStorage]
+                                   createPooWithId:[[NSProcessInfo processInfo] globallyUniqueString]
+                                   dirty:YES];
+                
+                [[SLKEventStorage sharedStorage]
+                 createEvenWithHappening:someNewPoo
+                 withComment:nil
+                 date:date
+                 eventId:someNewPoo.pooId
+                 baby:[[SLKBabyStorage sharedStorage]
+                       getCurrentBaby]
+                 dirty:YES];
                 
             } else {
                 NSLog(@"NO new Pii");
@@ -845,15 +969,19 @@
 }
 -(void)setSliderOneLabelSleep
 {
+    //TODO: right now its only possible to log sleep for 4 hours... Add whole night?
     NSNumber *theDouble = [NSNumber numberWithDouble:_sliderOne.value];
+    
     int inputSeconds = [theDouble intValue];
     int hours =  inputSeconds / 3600;
     int anHour = ( inputSeconds - hours * 3600 ) / 60;
     int aMinute = inputSeconds - hours * 3600 - anHour * 60;
     
     NSString *theTime = [NSString stringWithFormat:@"%.1dhr %.2dmin", anHour, aMinute];
-    _sliderOneLabel.text = theTime;
-
+   _sliderOneLabel.text = theTime;
+    
+    sleptMinutes = (anHour * 60) + aMinute;
+    
 }
 -(void)setSliderOneLabelMedz
 {

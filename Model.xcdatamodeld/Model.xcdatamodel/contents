@@ -4,18 +4,23 @@
         <attribute name="babyId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="babysColor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dirty" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="event" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="baby" inverseEntity="Event" syncable="YES"/>
         <relationship name="parents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ParentFigures" inverseName="babies" inverseEntity="ParentFigures" syncable="YES"/>
     </entity>
     <entity name="Bottle" representedClassName="Bottle" syncable="YES">
+        <attribute name="bottleId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dirty" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="milliLitres" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="minutes" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="stringValue" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="bottles" inverseEntity="Event" syncable="YES"/>
     </entity>
     <entity name="Diaper" representedClassName="Diaper" syncable="YES">
+        <attribute name="diaperId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dirty" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="piied" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="pooped" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="diapers" inverseEntity="Event" syncable="YES"/>
@@ -25,6 +30,7 @@
         <attribute name="bottle" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="comments" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dirty" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="eventId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="otherMedz" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pii" optional="YES" attributeType="String" syncable="YES"/>
@@ -45,13 +51,16 @@
     </entity>
     <entity name="Medz" representedClassName="Medz" syncable="YES">
         <attribute name="adDrop" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="dirty" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="ibuprofen" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="medzId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="more" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="paracetamol" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="temp" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="medz" inverseEntity="Event" syncable="YES"/>
     </entity>
     <entity name="ParentFigures" representedClassName="ParentFigures" syncable="YES">
+        <attribute name="dirty" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="parentColor" optional="YES" attributeType="String" syncable="YES"/>
@@ -61,34 +70,42 @@
     </entity>
     <entity name="Pii" representedClassName="Pii" syncable="YES">
         <attribute name="didPee" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="dirty" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="piiId" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="piis" inverseEntity="Event" syncable="YES"/>
     </entity>
     <entity name="Poo" representedClassName="Poo" syncable="YES">
         <attribute name="didPoop" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="dirty" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="pooId" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="poos" inverseEntity="Event" syncable="YES"/>
     </entity>
     <entity name="Sleep" representedClassName="Sleep" syncable="YES">
+        <attribute name="dirty" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="minutes" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="sleepId" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="sleeps" inverseEntity="Event" syncable="YES"/>
     </entity>
     <entity name="Tits" representedClassName="Tits" syncable="YES">
+        <attribute name="dirty" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="leftBoob" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="milliLitres" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="minutes" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="rightBoob" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="stringValue" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="titId" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="event" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="tities" inverseEntity="Event" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Baby" positionX="160" positionY="192" width="128" height="150"/>
-        <element name="Bottle" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="Event" positionX="160" positionY="192" width="128" height="360"/>
-        <element name="Medz" positionX="160" positionY="192" width="128" height="150"/>
-        <element name="ParentFigures" positionX="160" positionY="192" width="128" height="135"/>
-        <element name="Pii" positionX="160" positionY="192" width="128" height="90"/>
-        <element name="Poo" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="Sleep" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="Tits" positionX="160" positionY="192" width="128" height="135"/>
-        <element name="Diaper" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="Baby" positionX="160" positionY="192" width="128" height="165"/>
+        <element name="Bottle" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="Diaper" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="Event" positionX="160" positionY="192" width="128" height="375"/>
+        <element name="Medz" positionX="160" positionY="192" width="128" height="165"/>
+        <element name="ParentFigures" positionX="160" positionY="192" width="128" height="150"/>
+        <element name="Pii" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="Poo" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="Sleep" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="Tits" positionX="160" positionY="192" width="128" height="165"/>
     </elements>
 </model>

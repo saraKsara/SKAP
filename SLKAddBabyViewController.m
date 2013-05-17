@@ -88,86 +88,78 @@
     
     if (_addBabyMode) {
         
-    NSLog(@"save:: %@----%@----",babycolor, _babynameTexField.text);
-    PFObject *babyObject = [PFObject objectWithClassName:@"Baby"];
-    [babyObject setObject:_babynameTexField.text forKey:@"name"];
-    [babyObject setObject:babycolor forKey:@"color"];
-    //     [babyObject setObject:newBabyName forKey:@"date"];
-    
-    //TODO: CHECK FOR INTERNET CONNECTION (REACHABILITY?) AND DECIDE WHAT TO DO WHEN THERE'S NO CONNECTION
-    
-    [SLKPARSEService postObject:babyObject onSuccess:^(PFObject *object)
-     {
-       Baby *theNewBabe =  [[SLKBabyStorage sharedStorage] createBabyWithName:[object objectForKey:@"name"]
-                                                     babyId:[object objectId]
-                                                       date:nil
-                                                       type:nil
-                                                      color:[object objectForKey:@"color"]];
-         
-         [[PFUser currentUser]setObject:[object objectId] forKey:@"baby"];
-         
-         
-         NSLog(@"SUCCEED to create %@",[object objectForKey:@"name"] );
-         
-         [[SLKBabyStorage sharedStorage] setCurrentBaby:theNewBabe];
-//         [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadCalendar" object:nil];
-         [[NSNotificationCenter defaultCenter] postNotificationName:@"newBaby" object:nil];
+                Baby *theNewBabe =  [[SLKBabyStorage sharedStorage]
+                                     createBabyWithName:_babynameTexField.text
+                                     babyId:_babynameTexField.text
+                                     date:nil//_babynameTexField.text
+                                     type:nil
+                                     color:babycolor
+                                     dirty:YES];
+                
+                //[[PFUser currentUser]setObject:[object objectId] forKey:@"baby"];
+                
+                [[SLKBabyStorage sharedStorage] setCurrentBaby:theNewBabe];
+                //         [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadCalendar" object:nil];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"newBaby" object:nil];
+                
+                
+            PFObject *babyObject = [PFObject objectWithClassName:@"Baby"];
+            [babyObject setObject:theNewBabe.name forKey:@"name"];
+            [babyObject setObject:theNewBabe.babysColor forKey:@"color"];
+            [[self navigationController] popViewControllerAnimated:YES];
+                
+            //     [babyObject setObject:newBabyName forKey:@"date"];
+            
+            //TODO: CHECK FOR INTERNET CONNECTION (REACHABILITY?) AND DECIDE WHAT TO DO WHEN THERE'S NO CONNECTION
+            
+            [SLKPARSEService postObject:babyObject onSuccess:^(PFObject *object)
+             {
+              
 
-        // [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpApp" object:nil userInfo:nil];
-         
-//         NSString *color = theNewBabe.babysColor;
-//         NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
-
-        // [[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
-
-         //         [popover dismissPopoverAnimated:YES completion:^{
-         //            // [self.tableView reloadData];
-         //         }];
-         [[self navigationController] popViewControllerAnimated:YES];
-         
-         
-     } onFailure:^(PFObject *object)
-     {
-         NSLog(@"FAILED :((( ");
-         UIAlertView *failAlert = [[UIAlertView alloc]
-                                   initWithTitle:@"FAIL"
-                                   message:@"Failed to add new baby for now. Please try again later" delegate:self
-                                   cancelButtonTitle:@"OK"
-                                   otherButtonTitles:nil, nil];
-         [failAlert show];
-         [self dismissViewControllerAnimated:YES completion:^{
-             //set text on settingsVC who are invited
-         }];
-         //         [popover dismissPopoverAnimated:YES completion:^{
-         //             [self.tableView reloadData];
-         //         }];
-         
-     }];
-    } else //first time use, add parent, then go to normal, then set child. maybe alert???
+                  //TODO: undirty
+                 
+                 
+             } onFailure:^(PFObject *object)
+             {
+                 NSLog(@"FAILED :((( ");
+                 UIAlertView *failAlert = [[UIAlertView alloc]
+                                           initWithTitle:@"FAIL"
+                                           message:@"Failed to add new baby for now. Please try again later" delegate:self
+                                           cancelButtonTitle:@"OK"
+                                           otherButtonTitles:nil, nil];
+                 [failAlert show];
+                 [self dismissViewControllerAnimated:YES completion:^{
+                     //set text on settingsVC who are invited
+                 }];
+             }];
+    }
+    else //first time use, add parent, then go to normal, then set child. maybe alert???
     {
-        NSLog(@"save::color: %@----name:%@----signature:%@",babycolor, _babynameTexField.text, _setSignatureTextField.text);
-        PFObject *parentObject = [PFObject objectWithClassName:@"ParentFigure"];
-        [parentObject setObject:_babynameTexField.text forKey:@"name"];
-        [parentObject setObject:babycolor forKey:@"color"];
-        [parentObject setObject:_setSignatureTextField.text forKey:@"signature"];
-        //     [babyObject setObject:newBabyName forKey:@"date"];
         
-        //TODO: CHECK FOR INTERNET CONNECTION (REACHABILITY?) AND DECIDE WHAT TO DO WHEN THERE'S NO CONNECTION
+             ParentFigures *theNewParent =  [[SLKParentStorage sharedStorage]
+                                             createParentWithName:_babynameTexField.text
+                                             signature:_setSignatureTextField.text
+                                             parentId:[[NSProcessInfo processInfo] globallyUniqueString]
+                                             number:nil
+                                             color:babycolor
+                                             babies:nil
+                                             dirty:YES];
+        [[SLKParentStorage sharedStorage] setCurrentParent:theNewParent];
+        
+        
+        [[PFUser currentUser]setObject:theNewParent.parentId forKey:@"ParentFigure"];
+
+        PFObject *parentObject = [PFObject objectWithClassName:@"ParentFigure"];
+        [parentObject setObject:theNewParent.name forKey:@"name"];
+        [parentObject setObject:theNewParent.parentColor forKey:@"color"];
+        [parentObject setObject:theNewParent.signature forKey:@"signature"];
+        [parentObject setObject:theNewParent.parentId forKey:@"parentId"];
         
         [SLKPARSEService postObject:parentObject onSuccess:^(PFObject *object)
          {
-             ParentFigures *theNewParent =  [[SLKParentStorage sharedStorage]
-                                             createParentWithName: [object objectForKey:@"name"]
-                                             signature:[object objectForKey:@"signature"]
-                                             parentId: [object objectId]
-                                             number:@"0046707245749"
-//                                             number: [object objectForKey:@"number"]
-                                             color: [object objectForKey:@"color"]
-                                             babies:nil];
-                                             
+      
              NSLog(@"SUCCEED to create %@",[object objectForKey:@"name"] );
-             [[SLKParentStorage sharedStorage] setCurrentParent:theNewParent];
-           
+           //TODO: undirty
              //TODO: add a baby by reloading this view
              
 //             [_setSignatureLabel setHidden:YES];

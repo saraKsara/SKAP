@@ -43,7 +43,7 @@
     }
     return self;
 }
--(ParentFigures *)createParentWithName:(NSString *)name signature:(NSString *)signature parentId:(NSString *)parentId number:(NSString *)number color:(NSString *)color babies:(NSSet *)babies
+-(ParentFigures *)createParentWithName:(NSString *)name signature:(NSString *)signature parentId:(NSString *)parentId number:(NSString *)number color:(NSString *)color babies:(NSSet *)babies dirty:(BOOL)dirty
 {
     ParentFigures *p = [NSEntityDescription insertNewObjectForEntityForName:@"ParentFigures"
                                                      inManagedObjectContext:context];
@@ -52,6 +52,7 @@
     p.number = number;
     p.parentColor = color;
     p.parentId = parentId;
+    p.dirty = [NSNumber numberWithBool:dirty];
     [p setBabies:babies];
     return p;
 }

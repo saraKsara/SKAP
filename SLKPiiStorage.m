@@ -40,11 +40,13 @@
 }
 
 
--(Pii *)createPii
+-(Pii *)createPiiWithId:(NSString *)piiId dirty:(BOOL)dirty
 {
     Pii *p = [NSEntityDescription insertNewObjectForEntityForName:@"Pii"
                                            inManagedObjectContext:context];
     
+    p.dirty = [NSNumber numberWithBool:dirty];
+    p.piiId = piiId;
     
 //    p.didPee = [NSNumber numberWithBool:normal];
 //    p.comment = comment;

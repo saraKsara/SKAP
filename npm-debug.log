@@ -1,0 +1,133 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '-g', 'less' ]
+2 info using npm@1.2.11
+3 info using node@v0.8.20
+4 verbose read json /usr/local/lib/package.json
+5 verbose read json /usr/local/lib/package.json
+6 verbose cache add [ 'less', null ]
+7 verbose cache add name=undefined spec="less" args=["less",null]
+8 verbose parsed url { pathname: 'less', path: 'less', href: 'less' }
+9 silly lockFile 0b439cf4-less less
+10 verbose lock less /Users/asapersson/.npm/0b439cf4-less.lock
+11 silly lockFile 0b439cf4-less less
+12 silly lockFile 0b439cf4-less less
+13 verbose addNamed [ 'less', '' ]
+14 verbose addNamed [ null, '' ]
+15 silly lockFile e13833ab-less less@
+16 verbose lock less@ /Users/asapersson/.npm/e13833ab-less.lock
+17 silly addNameRange { name: 'less', range: '', hasData: false }
+18 verbose url raw less
+19 verbose url resolving [ 'https://registry.npmjs.org/', './less' ]
+20 verbose url resolved https://registry.npmjs.org/less
+21 info trying registry request attempt 1 at 12:31:18
+22 verbose etag "7S0OL2Q2XVR94UTXN6281R20H"
+23 http GET https://registry.npmjs.org/less
+24 http 200 https://registry.npmjs.org/less
+25 silly registry.get cb [ 200,
+25 silly registry.get   { vary: 'Accept',
+25 silly registry.get     server: 'CouchDB/1.3.0 (Erlang OTP/R15B03)',
+25 silly registry.get     etag: '"AEACCHYPX7N416CE358ZKQL72"',
+25 silly registry.get     date: 'Thu, 09 May 2013 10:30:05 GMT',
+25 silly registry.get     'content-type': 'application/json',
+25 silly registry.get     'content-length': '36446' } ]
+26 silly addNameRange number 2 { name: 'less', range: '', hasData: true }
+27 silly addNameRange versions [ 'less',
+27 silly addNameRange   [ '1.0.10',
+27 silly addNameRange     '1.0.11',
+27 silly addNameRange     '1.0.14',
+27 silly addNameRange     '1.0.18',
+27 silly addNameRange     '1.0.19',
+27 silly addNameRange     '1.0.21',
+27 silly addNameRange     '1.0.32',
+27 silly addNameRange     '1.0.36',
+27 silly addNameRange     '1.0.5',
+27 silly addNameRange     '1.0.40',
+27 silly addNameRange     '1.0.41',
+27 silly addNameRange     '1.0.44',
+27 silly addNameRange     '1.1.0',
+27 silly addNameRange     '1.1.1',
+27 silly addNameRange     '1.1.2',
+27 silly addNameRange     '1.1.4',
+27 silly addNameRange     '1.1.5',
+27 silly addNameRange     '1.1.6',
+27 silly addNameRange     '1.2.0',
+27 silly addNameRange     '1.2.1',
+27 silly addNameRange     '1.2.2',
+27 silly addNameRange     '1.3.0',
+27 silly addNameRange     '1.3.1',
+27 silly addNameRange     '1.3.2',
+27 silly addNameRange     '1.3.3',
+27 silly addNameRange     '1.4.0-b1',
+27 silly addNameRange     '1.4.0-b2',
+27 silly addNameRange     '1.4.0-b3',
+27 silly addNameRange     '1.4.0-b4' ] ]
+28 verbose addNamed [ 'less', '1.3.3' ]
+29 verbose addNamed [ '1.3.3', '1.3.3' ]
+30 silly lockFile fcd40bce-less-1-3-3 less@1.3.3
+31 verbose lock less@1.3.3 /Users/asapersson/.npm/fcd40bce-less-1-3-3.lock
+32 verbose read json /Users/asapersson/.npm/less/1.3.3/package/package.json
+33 silly lockFile fcd40bce-less-1-3-3 less@1.3.3
+34 silly lockFile fcd40bce-less-1-3-3 less@1.3.3
+35 silly lockFile e13833ab-less less@
+36 silly lockFile e13833ab-less less@
+37 silly resolved [ { name: 'less',
+37 silly resolved     description: 'Leaner CSS',
+37 silly resolved     homepage: 'http://lesscss.org',
+37 silly resolved     keywords: [ 'css', 'parser', 'lesscss', 'browser' ],
+37 silly resolved     author: { name: 'Alexis Sellier', email: 'self@cloudhead.net' },
+37 silly resolved     contributors: [],
+37 silly resolved     version: '1.3.3',
+37 silly resolved     bin: { lessc: './bin/lessc' },
+37 silly resolved     main: './lib/less/index',
+37 silly resolved     directories: { test: './test' },
+37 silly resolved     engines: { node: '>=0.4.2' },
+37 silly resolved     optionalDependencies: { ycssmin: '>=1.0.1' },
+37 silly resolved     devDependencies: { diff: '~1.0' },
+37 silly resolved     scripts: { test: 'make test' },
+37 silly resolved     bugs: { url: 'https://github.com/cloudhead/less.js/issues' },
+37 silly resolved     repository: { type: 'git', url: 'https://github.com/cloudhead/less.js.git' },
+37 silly resolved     readme: 'less.js\n=======\n\nThe **dynamic** stylesheet language.\n\n<http://lesscss.org>\n\nabout\n-----\n\nThis is the JavaScript, and now official, stable version of LESS.\n\nFor more information, visit <http://lesscss.org>.\n\nlicense\n-------\n\nSee `LICENSE` file.\n\n> Copyright (c) 2009-2011 Alexis Sellier\n',
+37 silly resolved     readmeFilename: 'README.md',
+37 silly resolved     _id: 'less@1.3.3',
+37 silly resolved     dependencies: { ycssmin: '>=1.0.1' },
+37 silly resolved     _from: 'less@' } ]
+38 info install less@1.3.3 into /usr/local/lib
+39 info installOne less@1.3.3
+40 verbose from cache /Users/asapersson/.npm/less/1.3.3/package/package.json
+41 info /usr/local/lib/node_modules/less unbuild
+42 verbose read json /usr/local/lib/node_modules/less/package.json
+43 verbose tar unpack /Users/asapersson/.npm/less/1.3.3/package.tgz
+44 silly lockFile c2213c90-usr-local-lib-node-modules-less /usr/local/lib/node_modules/less
+45 verbose lock /usr/local/lib/node_modules/less /Users/asapersson/.npm/c2213c90-usr-local-lib-node-modules-less.lock
+46 silly lockFile 60974b05-rsson-npm-less-1-3-3-package-tgz /Users/asapersson/.npm/less/1.3.3/package.tgz
+47 verbose lock /Users/asapersson/.npm/less/1.3.3/package.tgz /Users/asapersson/.npm/60974b05-rsson-npm-less-1-3-3-package-tgz.lock
+48 silly gunzTarPerm modes [ '755', '644' ]
+49 error Error: EACCES, mkdir '/usr/local/lib/node_modules/less'
+49 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/less']
+49 error   errno: 3,
+49 error   code: 'EACCES',
+49 error   path: '/usr/local/lib/node_modules/less',
+49 error   fstream_type: 'Directory',
+49 error   fstream_path: '/usr/local/lib/node_modules/less',
+49 error   fstream_class: 'DirWriter',
+49 error   fstream_stack:
+49 error    [ 'DirWriter._create (/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23)',
+49 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:37:53',
+49 error      'Object.oncomplete (fs.js:297:15)' ] }
+50 error Please try running this command again as root/Administrator.
+51 error System Darwin 11.4.2
+52 error command "node" "/usr/local/bin/npm" "install" "-g" "less"
+53 error cwd /Users/asapersson/Desktop/SKAP
+54 error node -v v0.8.20
+55 error npm -v 1.2.11
+56 error path /usr/local/lib/node_modules/less
+57 error fstream_path /usr/local/lib/node_modules/less
+58 error fstream_type Directory
+59 error fstream_class DirWriter
+60 error code EACCES
+61 error errno 3
+62 error stack Error: EACCES, mkdir '/usr/local/lib/node_modules/less'
+63 error fstream_stack DirWriter._create (/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23)
+63 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:37:53
+63 error fstream_stack Object.oncomplete (fs.js:297:15)
+64 verbose exit [ 3, true ]

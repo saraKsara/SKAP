@@ -10,6 +10,7 @@
 #import "Baby.h"
 #import "SLKUserDefaults.h"
 #import "SLKPARSEService.h"
+#import "SLKConstants.h"
 @implementation SLKBabyStorage
 {
     NSManagedObjectContext *context;
@@ -41,7 +42,7 @@
     return self;
 }
 
--(Baby *)createBabyWithName:(NSString *)name babyId:(NSString *)babyId date:(NSDate *)date type:(NSString *)type color:(NSString *)color
+-(Baby *)createBabyWithName:(NSString *)name babyId:(NSString *)babyId date:(NSDate *)date type:(NSString *)type color:(NSString *)color dirty:(BOOL)dirty
 {
     Baby *b;
     Baby *babeInStorage = [self getBabyWithiD:babyId];
@@ -50,7 +51,7 @@
         b = babeInStorage;
         
     } else {
-    b = [NSEntityDescription insertNewObjectForEntityForName:@"Baby"
+    b = [NSEntityDescription insertNewObjectForEntityForName:kBaby
                                                       inManagedObjectContext:context];
     }
     
@@ -59,10 +60,12 @@
     b.date = date;
     b.type = type;
     b.babysColor = color;
+    b.dirty = [NSNumber numberWithBool:dirty];
+    
    // NSLog(@"There's a new (or a updated babe) baby in town! name: %@  id: %@", b.name, b.babyId);
-      
     return b;
 }
+
 -(void)setCurrentBaby:(Baby *)baby
 {
     [SLKUserDefaults setTheCurrentBabe:baby.babyId];
@@ -76,7 +79,7 @@
 -(void)removeBaby:(Baby*)baby
 {
     [context deleteObject:baby];
-    PFObject *object = [PFObject objectWithoutDataWithClassName:@"Baby"
+    PFObject *object = [PFObject objectWithoutDataWithClassName:kBaby
                                                        objectId:baby.babyId];
     [SLKPARSEService deleteObject:object];
 }
@@ -86,7 +89,7 @@
     for (Baby *babe in [self babyArray]) {
         [self removeBaby:babe];
         
-        PFObject *object = [PFObject objectWithoutDataWithClassName:@"Baby"
+        PFObject *object = [PFObject objectWithoutDataWithClassName:kBaby
                                                  objectId:babe.babyId];
         [SLKPARSEService deleteObject:object];
     }
@@ -94,7 +97,7 @@
 
 -(Baby *)getBabyWithiD:(NSString *)babyId
 {
-    NSArray *arr = [[SLKCoreDataService sharedService] fetchDataWithEntity:@"Baby"
+    NSArray *arr = [[SLKCoreDataService sharedService] fetchDataWithEntity:kBaby
                                                              andPredicate:[NSPredicate predicateWithFormat:@"babyId == %@", babyId]
                                                        andSortDescriptors:nil];
     
@@ -104,7 +107,7 @@
 
 -(NSArray*)babyArray
 {
-  return [[SLKCoreDataService sharedService]fetchDataWithEntity:@"Baby"];
+  return [[SLKCoreDataService sharedService]fetchDataWithEntity:kBaby];
 }
 
 

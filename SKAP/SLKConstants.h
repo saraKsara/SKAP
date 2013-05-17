@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface SLKConstants : NSObject
+//Enteties
+#define kBottle @"Bottle"
+#define kTits @"Tits"
+#define kBaby   @"Baby"
+#define kEvent @"Event"
+//TYPES
 #define kEventType_TitFood     @"breast milk"
 #define kEventType_BottleFood     @"bottleFood"
 

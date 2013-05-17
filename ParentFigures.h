@@ -2,7 +2,7 @@
 //  ParentFigures.h
 //  SKAP
 //
-//  Created by Åsa Persson on 2013-04-05.
+//  Created by Åsa Persson on 2013-05-14.
 //  Copyright (c) 2013 Student vid Yrkeshögskola C3L. All rights reserved.
 //
 
@@ -11,13 +11,14 @@
 
 @class Baby;
 
-@interface ParentFigures : NSManagedObject 
+@interface ParentFigures : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * number;
 @property (nonatomic, retain) NSString * parentColor;
 @property (nonatomic, retain) NSString * parentId;
 @property (nonatomic, retain) NSString * signature;
+@property (nonatomic, retain) NSNumber * dirty;
 @property (nonatomic, retain) NSSet *babies;
 @end
 
