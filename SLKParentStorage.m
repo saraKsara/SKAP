@@ -13,7 +13,8 @@
 #import "Baby.h"
 #import "SLKUserDefaults.h"
 #import "SLKPARSEService.h"
-
+#import "SLKConstants.h"
+#import <Parse/Parse.h>
 @implementation SLKParentStorage
 {
     NSManagedObjectContext *context;
@@ -54,6 +55,42 @@
     p.parentId = parentId;
     p.dirty = [NSNumber numberWithBool:dirty];
     [p setBabies:babies];
+    
+    [self setCurrentParent:p];
+    
+    
+    [self setCurrentParent:p];
+    
+    
+    PFObject *parentObject = [PFObject objectWithClassName:@"ParentFigure"];
+    [parentObject setObject:p.name forKey:@"name"];
+    [parentObject setObject:p.signature forKey:@"signature"];
+    [parentObject setObject:p.parentId forKey:@"parentId"];
+    
+    [[PFUser currentUser]setObject:p.parentId forKey:@"currentParent"];//????
+
+    
+    //[parentObject setObject:_setSignatureTextField.text forKey:@"signature"];
+    //     [babyObject setObject:newBabyName forKey:@"date"];
+    
+    
+    [SLKPARSEService postObject:parentObject onSuccess:^(PFObject *object)
+     {
+         ParentFigures *parentToClean = [self getParentWithiD:[object objectForKey:@"parentId"]];
+         parentToClean.dirty = [NSNumber numberWithBool:NO];
+         
+     } onFailure:^(PFObject *object)
+     {
+//         NSLog(@"FAILED :((( ");
+//         UIAlertView *failAlert = [[UIAlertView alloc]
+//                                   initWithTitle:@"FAIL"
+//                                   message:@"Failed to add new baby for now. Please try again later" delegate:self
+//                                   cancelButtonTitle:@"OK"
+//                                   otherButtonTitles:nil, nil];
+//         [failAlert show];
+         
+     }];
+    
     return p;
 }
 

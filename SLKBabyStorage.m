@@ -11,6 +11,8 @@
 #import "SLKUserDefaults.h"
 #import "SLKPARSEService.h"
 #import "SLKConstants.h"
+#import <Parse/Parse.h>
+
 @implementation SLKBabyStorage
 {
     NSManagedObjectContext *context;
@@ -63,6 +65,36 @@
     b.dirty = [NSNumber numberWithBool:dirty];
     
    // NSLog(@"There's a new (or a updated babe) baby in town! name: %@  id: %@", b.name, b.babyId);
+
+    
+    PFObject *babyObject = [PFObject objectWithClassName:kBaby];
+    [babyObject setObject:b.name forKey:@"name"];
+//    [babyObject setObject:b.date forKey:@"birthday"];
+    [babyObject setObject:b.babyId forKey:kBabyId];
+    
+    [[PFUser currentUser] setObject:b.babyId forKey:kBabyId];
+    NSString* bId = [[PFUser currentUser] objectForKey:kBabyId];
+    NSLog(@"%@", bId);
+    
+    
+    [[PFUser currentUser] saveEventually];
+    
+    [SLKPARSEService postObject:babyObject onSuccess:^(PFObject *object)
+     {
+         Baby *babyToClean = [self getBabyWithiD:[object objectForKey:kBabyId]];
+         babyToClean.dirty = [NSNumber numberWithBool:NO];
+         
+     } onFailure:^(PFObject *object)
+     {
+         //         NSLog(@"FAILED :((( ");
+         //         UIAlertView *failAlert = [[UIAlertView alloc]
+         //                                   initWithTitle:@"FAIL"
+         //                                   message:@"Failed to add new baby for now. Please try again later" delegate:self
+         //                                   cancelButtonTitle:@"OK"
+         //                                   otherButtonTitles:nil, nil];
+         //         [failAlert show];
+     }];
+    
     return b;
 }
 

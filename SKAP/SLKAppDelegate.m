@@ -22,6 +22,7 @@
 #import "SLKTabbar.h"
 #import "SLKPfSingupViewController.h"
 #import "SLKuser.h"
+#import "SLKCreateBabyViewController.h"
 
 
 @implementation SLKAppDelegate
@@ -135,15 +136,45 @@
 //    self.window.backgroundColor = [UIColor colorWithPatternImage:imageText];
 //}
 
+
 -(void)setUpAppFirstTime
 {
+    ///FROM PARSE TUTORIAL
     
-    SLKPfLoginViewController *lvc = [[SLKPfLoginViewController alloc]init];
-
-    SLKPfSingupViewController *svc = [[SLKPfSingupViewController alloc]init];
-    [self.window setRootViewController:lvc];
+    
+//    if (![PFUser currentUser]) { // No user logged in
+        // Create the log in view controller
+//        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+//        SLKPfLoginViewController *logInViewController = [[SLKPfLoginViewController alloc]init];
+//        [logInViewController setDelegate:self]; // Set ourselves as the delegate
+//        
+        // Create the sign up view controller
+//        PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
+         SLKPfSingupViewController *signUpViewController = [[SLKPfSingupViewController alloc]init];
+        [signUpViewController setDelegate:self]; // Set ourselves as the delegate
+        
+        // Assign our sign up controller to be displayed from the login controller
+       // [logInViewController setSignUpController:signUpViewController];
+        
+        // Present the log in view controller
+//        [self presentViewController:logInViewController animated:YES completion:NULL];
+        
+        
+//        [self.window setRootViewController:logInViewController];
+    [self.window setRootViewController:signUpViewController];
     [self.window makeKeyAndVisible];
     
+//    }
+    
+    
+    //OLD
+//    SLKPfLoginViewController *lvc = [[SLKPfLoginViewController alloc]init];
+//    SLKPfSingupViewController *svc = [[SLKPfSingupViewController alloc]init];
+//    lvc.delegate = self;
+//    
+//   [self.window setRootViewController:svc];
+//    [self.window makeKeyAndVisible];
+//
     
     
     //    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[SLKConfigViewController alloc] init]];
@@ -154,9 +185,82 @@
     //    [self.window setRootViewController:controller];
     //    [self.window makeKeyAndVisible];
 }
+#pragma mark PFSignUpViewControllerDelegate
+// Sent to the delegate to determine whether the sign up request should be submitted to the server.
+- (BOOL)signUpViewController:(PFSignUpViewController *)signUpController shouldBeginSignUp:(NSDictionary *)info {
+    BOOL informationComplete = YES;
+    
+    // loop through all of the submitted data
+    for (id key in info) {
+        NSString *field = [info objectForKey:key];
+        if (!field || field.length == 0) { // check completion
+            informationComplete = NO;
+            break;
+        }
+    }
+    
+    // Display an alert if a field wasn't completed
+    if (!informationComplete) {
+        [[[UIAlertView alloc] initWithTitle:@"Missing Information"
+                                    message:@"Make sure you fill out all of the information!"
+                                   delegate:nil
+                          cancelButtonTitle:@"ok"
+                          otherButtonTitles:nil] show];
+    }
+    
+    return informationComplete;
+}
+
+
+- (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
+    //    [self dismissModalViewControllerAnimated:YES]; // Dismiss the PFSignUpViewController
+    
+    //    SLKuser *parentUser= [[SLKuser alloc] init];
+    //    parentUser.parentId = user.objectId;
+    //    parentUser.name = user.username;
+    //    parentUser.email = user.email;
+    
+    //TODO: if user got invited with one babyId
+//    [[PFUser currentUser] setObject:@"theBabbyIdFromInvitation" forKey:kBabyId];
+//    NSString* babyId = [[PFUser currentUser] objectForKey:kBabyId];
+//    NSLog(@"%@", babyId);
+    [self createBaby];
+    NSLog(@"didSignUpUser APPDELEGATE %@", user.username);
+}
+-(void)createBaby
+{
+    NSLog(@"create baby APPDELEGATE");
+
+    SLKCreateBabyViewController *createBabyVC = [[SLKCreateBabyViewController alloc] init];
+    [self.window setRootViewController:createBabyVC];
+    [self.window makeKeyAndVisible];
+}
+
+// Sent to the delegate when the sign up attempt fails.
+- (void)signUpViewController:(PFSignUpViewController *)signUpController didFailToSignUpWithError:(NSError *)error {
+    NSLog(@"Failed to sign up...");
+}
+
+// Sent to the delegate when the sign up screen is dismissed.
+- (void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController {
+    NSLog(@"User dismissed the signUpViewController");
+}
+
+- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user
+{
+    NSLog(@"\n\n LOGON-----> APPDELEGATE ----------> setupApp\n\n");
+    
+    [self setUpApp];
+}
+
+#pragma mark setupapp
 -(void)setUpApp
 {
+    NSLog(@"\n\n --------current PFUSR: %@----------\n\n", [[PFUser currentUser] username]);
+    
     NSLog(@"currentMorsa---%@",[[[SLKParentStorage sharedStorage]getCurrentParent]name]);
+    //Get baby that belongs to parentFig!!
+    
     self.tabBarController = [[SLKTababrController alloc] init];
     UIStoryboard *settingStoryboard = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
     UIStoryboard *calendarStoryboard  = [UIStoryboard storyboardWithName:@"calendar" bundle:nil];
@@ -170,7 +274,6 @@
     
     
     self.tabBarController.viewControllers = viewControllers;
-    
     // Tab styling
     
     UITabBarItem *tabItemCal =  [[[[self tabBarController] tabBar] items] objectAtIndex:1];
