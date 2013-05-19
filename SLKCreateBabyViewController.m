@@ -34,7 +34,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	_nameTextField.delegate = self;
+    _birthDayTextField.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,17 +50,24 @@
     [super viewDidUnload];
 }
 - (IBAction)save:(id)sender {
-   Baby *createBaby = [[SLKBabyStorage sharedStorage] createBabyWithName:_nameTextField.text
+  [[SLKBabyStorage sharedStorage] createBabyWithName:_nameTextField.text
                                                 babyId:[[NSProcessInfo processInfo] globallyUniqueString]
                                                   date:nil
                                                   type:kBaby
                                                  color:nil
                                                  dirty:YES];
     
-
-
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpApp" object:nil userInfo:nil];
 }
 
 - (IBAction)cancel:(id)sender {
+}
+
+#pragma mark Textfield
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    return YES;
 }
 @end

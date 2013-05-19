@@ -65,7 +65,7 @@
     b.dirty = [NSNumber numberWithBool:dirty];
     
    // NSLog(@"There's a new (or a updated babe) baby in town! name: %@  id: %@", b.name, b.babyId);
-
+    [self setCurrentBaby:b];
     
     PFObject *babyObject = [PFObject objectWithClassName:kBaby];
     [babyObject setObject:b.name forKey:@"name"];

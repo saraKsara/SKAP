@@ -27,12 +27,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(popView)
-                                                 name:@"popView"
-                                               object:nil];
+
     
-     [self.signUpView.signUpButton addTarget:self action:@selector(popView) forControlEvents:UIControlEventTouchUpInside];
+//     [self.signUpView.signUpButton addTarget:self action:@selector(popView) forControlEvents:UIControlEventTouchUpInside];
     
     [self.signUpView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"poppis.png"]]];
     [self.signUpView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bo.png"]]];
@@ -113,25 +110,25 @@
 -(void)popView
 {
      
-    NSString *name = self.signUpView.usernameField.text;
-    NSString *email = self.signUpView.emailField.text;
-    
-    //Creating new parent from scratch, eg, without an invitation and babyId...
-    ParentFigures *theNewParent =  [[SLKParentStorage sharedStorage]
-                                    createParentWithName: name
-                                    signature:email
-                                    parentId:[[NSProcessInfo processInfo] globallyUniqueString]
-                                    number:@"0046707245749"
-                                    color:nil
-                                    babies:nil//set this if parent has invitation
-                                    dirty:YES];
-    
-    
-    SLKPfLoginViewController *lvc = [[SLKPfLoginViewController alloc]init];
-    //lvc.delegate = self;
-    
-    [self presentViewController:lvc animated:YES completion:NULL];
-    //
+//    NSString *name = self.signUpView.usernameField.text;
+//    NSString *email = self.signUpView.emailField.text;
+//    
+//    //Creating new parent from scratch, eg, without an invitation and babyId...
+//    ParentFigures *theNewParent =  [[SLKParentStorage sharedStorage]
+//                                    createParentWithName: name
+//                                    signature:email
+//                                    parentId:[[NSProcessInfo processInfo] globallyUniqueString]
+//                                    number:@"0046707245749"
+//                                    color:nil
+//                                    babies:nil//set this if parent has invitation
+//                                    dirty:YES];
+//    
+//    
+//    SLKPfLoginViewController *lvc = [[SLKPfLoginViewController alloc]init];
+//    //lvc.delegate = self;
+//    
+//    [self presentViewController:lvc animated:YES completion:NULL];
+//    //
 //TODO: use signupdelegate to check if signup was sucessful!
 }
 

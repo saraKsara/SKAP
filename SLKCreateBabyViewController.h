@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SLKCreateBabyViewController : UIViewController
+@interface SLKCreateBabyViewController : UIViewController <UITextFieldDelegate>
 
 @end

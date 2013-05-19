@@ -71,15 +71,15 @@
     NSString *color;
     
    // [SLKPARSEService getAllObjects];
-    [SLKPARSEService getAllEvents];
+  
     //TODO: on complete:
     
     //if there are no babies in storage after getting from server:
     
     //TODO: if you where invited...
     
-    if ([[[SLKParentStorage sharedStorage]parentArray]count] == 0 ) {
-        
+//    if ([[[SLKParentStorage sharedStorage]parentArray]count] == 0 ) {
+ if (![PFUser currentUser]) { // No user logged in
         NSLog(@"\n\n\n there are NOOOOO parents in user default, add one! \n\n\n");
         
         [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpAppFirstTime" object:nil userInfo:nil];
@@ -88,7 +88,7 @@
     } else //there are babies in storage
     {
         if ([[SLKBabyStorage sharedStorage]getCurrentBaby] != nil) {
-            color = [[[SLKBabyStorage sharedStorage]getCurrentBaby] babysColor];
+           // color = [[[SLKBabyStorage sharedStorage]getCurrentBaby] babysColor];
             NSLog(@"there IS a CURRENT baby :) ");
         } else if ( [SLKUserDefaults getTheCurrentBabe] == nil)
         {
@@ -96,7 +96,7 @@
         }
         //           [self setUpAppFirstTime];
         [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpApp" object:nil userInfo:nil];
-        
+        NSLog(@"setUpApp");
         //NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
         //[[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
     }
@@ -141,27 +141,25 @@
 {
     ///FROM PARSE TUTORIAL
     
-    
-//    if (![PFUser currentUser]) { // No user logged in
         // Create the log in view controller
-//        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
-//        SLKPfLoginViewController *logInViewController = [[SLKPfLoginViewController alloc]init];
-//        [logInViewController setDelegate:self]; // Set ourselves as the delegate
-//        
+  //      PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+        SLKPfLoginViewController *logInViewController = [[SLKPfLoginViewController alloc]init];
+        [logInViewController setDelegate:self]; // Set ourselves as the delegate
+    
         // Create the sign up view controller
 //        PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
          SLKPfSingupViewController *signUpViewController = [[SLKPfSingupViewController alloc]init];
         [signUpViewController setDelegate:self]; // Set ourselves as the delegate
         
         // Assign our sign up controller to be displayed from the login controller
-       // [logInViewController setSignUpController:signUpViewController];
+        [logInViewController setSignUpController:signUpViewController];
         
         // Present the log in view controller
 //        [self presentViewController:logInViewController animated:YES completion:NULL];
         
         
-//        [self.window setRootViewController:logInViewController];
-    [self.window setRootViewController:signUpViewController];
+        [self.window setRootViewController:logInViewController];
+//    [self.window setRootViewController:signUpViewController];
     [self.window makeKeyAndVisible];
     
 //    }
@@ -230,8 +228,12 @@
 -(void)createBaby
 {
     NSLog(@"create baby APPDELEGATE");
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"CreateBaby" bundle:nil];
+    //    SLKFirtsTimeViewController *controller = [sb instantiateInitialViewController];
+    //    [self.window setRootViewController:controller];
+    //    [self.window makeKeyAndVisible];
 
-    SLKCreateBabyViewController *createBabyVC = [[SLKCreateBabyViewController alloc] init];
+    SLKCreateBabyViewController *createBabyVC =  [sb instantiateInitialViewController];
     [self.window setRootViewController:createBabyVC];
     [self.window makeKeyAndVisible];
 }
@@ -248,7 +250,7 @@
 
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user
 {
-    NSLog(@"\n\n LOGON-----> APPDELEGATE ----------> setupApp\n\n");
+    NSLog(@"\n\n LOGIN-----> APPDELEGATE ----------> \n\n");
     
     [self setUpApp];
 }
@@ -259,7 +261,10 @@
     NSLog(@"\n\n --------current PFUSR: %@----------\n\n", [[PFUser currentUser] username]);
     
     NSLog(@"currentMorsa---%@",[[[SLKParentStorage sharedStorage]getCurrentParent]name]);
-    //Get baby that belongs to parentFig!!
+    NSLog(@"\n\n --------current BABY id:: %@----------\n\n", [SLKUserDefaults getTheCurrentBabe]);
+    NSLog(@"\n\n --------current BABY name: %@----------\n\n", [[[SLKBabyStorage sharedStorage]getCurrentBaby]name]);
+//TODO: get events for baby that belongs to parent!
+      [SLKPARSEService getAllEvents];
     
     self.tabBarController = [[SLKTababrController alloc] init];
     UIStoryboard *settingStoryboard = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];

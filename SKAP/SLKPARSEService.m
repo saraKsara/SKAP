@@ -17,6 +17,7 @@
 #import "Event.h"
 #import "SLKEventStorage.h"
 #import <Parse/Parse.h>
+#import "SLKConstants.h"
 @implementation SLKPARSEService
 
 +(void)getAllObjects
@@ -68,8 +69,10 @@
 +(void)getAllEvents{
     
     PFQuery *query = [PFQuery queryWithClassName:@"Event"]; //1
-    NSString *currentBabyId = [SLKUserDefaults getTheCurrentBabe];
-    [query whereKey:@"babyId" equalTo:currentBabyId]; //TODO, this is only for one baby...
+    
+    NSString *currentUsersBabyId = [[PFUser currentUser] objectForKey:kBabyId];
+    NSLog(@"babbyID i parseservice: %@", [[PFUser currentUser] objectForKey:kBabyId]);
+    [query whereKey:@"babyId" equalTo:currentUsersBabyId]; //TODO, this is only for one baby...
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {//4
     if (!error) {
