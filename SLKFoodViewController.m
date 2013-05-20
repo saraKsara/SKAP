@@ -185,7 +185,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-     _universalSliderText.text = [NSString stringWithFormat:@"log how much %@ ate ", currentBabe.name];
+     //_universalSliderText.text = [NSString stringWithFormat:@"log how much %@ ate ", currentBabe.name];
     
     
     //GestureRecognizers
@@ -314,7 +314,7 @@
     _sliderOne.maximumValue = 350;
     [_sliderTwo setHidden:YES];
     [_sliderTwoLabel setHidden:YES];
-    _universalSliderText.text = [NSString stringWithFormat:@"log how much %@ breast feeded", currentBabe.name];
+   // _universalSliderText.text = [NSString stringWithFormat:@"log how much %@ breast feeded", currentBabe.name];
 
 }
 -(void)setTheBottleView
@@ -335,7 +335,7 @@
     [_sliderTwo setHidden:YES];
     [_sliderTwoLabel setHidden:YES];
     _sliderOne.maximumValue = 350;
-    _universalSliderText.text = [NSString stringWithFormat:@"log how much %@ ate ", currentBabe.name];
+   // _universalSliderText.text = [NSString stringWithFormat:@"log how much %@ ate ", currentBabe.name];
 
 }
 
@@ -356,7 +356,7 @@
     [_sliderTwo setHidden:NO];
     _sliderTwoLabel.hidden = NO;
     _sliderOne.maximumValue = 240;
-    _universalSliderText.text = [NSString stringWithFormat:@"log how long %@ slept ", currentBabe.name];
+   // _universalSliderText.text = [NSString stringWithFormat:@" ", currentBabe.name];
 
 }
 -(void)setTheDiaperView
@@ -373,7 +373,7 @@
     _UniversalLabel.text = @"diaper log";
     _sliderTwoLabel.hidden = YES;
     _sliderOne.maximumValue = 240;
-    _universalSliderText.text = [NSString stringWithFormat:@"log how much %@ pooped ", currentBabe.name];
+   // _universalSliderText.text = [NSString stringWithFormat:@"", currentBabe.name];
 
     for (UILabel *label in _diaperLabels)
     {
@@ -430,7 +430,7 @@
     [_sliderTwo setHidden:YES];
     _sliderTwoLabel.hidden = YES;
     _sliderOne.maximumValue = 240;
-    _universalSliderText.text = [NSString stringWithFormat:@"log how much drugs %@ did ", currentBabe.name];
+   // _universalSliderText.text = [NSString stringWithFormat:@"log how much drugs %@ did ", currentBabe.name];
 
 }
 
