@@ -143,6 +143,7 @@
     
         // Create the log in view controller
   //      PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+    
         SLKPfLoginViewController *logInViewController = [[SLKPfLoginViewController alloc]init];
         [logInViewController setDelegate:self]; // Set ourselves as the delegate
     
