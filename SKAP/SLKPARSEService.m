@@ -68,14 +68,21 @@
 
 +(void)getAllEvents{
     
-    PFQuery *query = [PFQuery queryWithClassName:@"Event"]; //1
+    PFQuery *query = [PFQuery queryWithClassName:kEvent]; //1
+    NSString* bId = [[PFUser currentUser] objectForKey:kBabyId];
+
+   // NSString *currentUsersBabyId = [[PFUser currentUser] objectForKey:kBabyId];
+  //  NSString *currentUsersBabyId = [[PFUser currentUser] babyId];
+
+    NSLog(@"babbyID belonging to parent in parseservice: %@", bId);
+    //(1FB0E7D2-5AC9-4125-A9AC-80D89FB4E4BC-637-000002B34486D391)
     
-    NSString *currentUsersBabyId = [[PFUser currentUser] objectForKey:kBabyId];
-    NSLog(@"babbyID i parseservice: %@", [[PFUser currentUser] objectForKey:kBabyId]);
-    [query whereKey:@"babyId" equalTo:currentUsersBabyId]; //TODO, this is only for one baby...
-    
+    [query whereKey:kBabyId equalTo:bId]; //TODO, this is only for one baby...
+    //[query includeKey:kBabyId];
+
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {//4
     if (!error) {
+           NSLog(@"findObjectsInBackgroundWithBlock: %@", objects.class);
             
         if (objects.count > 0) {
                 
@@ -83,9 +90,14 @@
             
             for (int i = 0; i < [objects count]; i++)
             {
-                NSArray *eventArray = [[SLKEventStorage sharedStorage]eventArray];
+              //  NSArray *eventArray = [[SLKEventStorage sharedStorage]eventArray];
                 
-//                // NSSet *events = [[SLKEventStorage sharedStorage] eventIdsSet];
+                NSMutableSet *events = [[SLKEventStorage sharedStorage] eventIdsSet];
+                
+              //  NSLog(@"\n SET:--- %@\n\n",events);
+                
+                 
+                    
 //                NSLog(@"\n eventID from SET--- : %d\n\n", [arr count]);
 //                for (Event *s in arr)
 //                {
@@ -98,21 +110,32 @@
                // if (![[[SLKEventStorage sharedStorage]eventIdsSet]containsObject: [[objects objectAtIndex:i]objectId]]){
       
                 
-                if ( eventArray.count > 0 &&
-                    ![[[eventArray objectAtIndex:i]eventId] isEqualToString:[[objects objectAtIndex:i] objectForKey:@"eventId"]])
+                //MAGIC (titevent:  575E8DB2-0C69-4F8A-8E63-F5EF9E16F912-2711-00000B70B9F7DF26 )
+              //  19A1CCAA
+               // 57E98793
+                if (![events containsObject:[[objects objectAtIndex:i] objectForKey:@"eventId"]])
                 {
+
                     
-                    NSLog(@"\n\nNo ------%@-------event with %@ exists, creating one\n\n",[[eventArray objectAtIndex:i]eventId] ,[[objects objectAtIndex:i]objectId]);
-                    
-                    [[SLKEventStorage sharedStorage]createEvenWithHappening:[[objects objectAtIndex:i]objectForKey:@"type"]
-                                                                withComment:nil//[[objects objectAtIndex:i] objectForKey:@"comment"]
-                                                                       date:[[objects objectAtIndex:i] objectForKey:@"localDate"]
-                                                                    eventId:[[objects objectAtIndex:i] objectForKey:@"eventId"]
-                                                                       baby:[[SLKBabyStorage sharedStorage] getBabyWithiD:[[objects objectAtIndex:i] objectForKey:@"babyId"]]
-                                                                      dirty:YES];
+                    NSLog(@"\n\nNo event with id %@ exists, creating one\n\n",[[objects objectAtIndex:i]objectForKey:@"eventId"]);
+                    NSLog(@"Event does not exist. allkeys: %@", [objects objectAtIndex:i]);
+//                    [[SLKEventStorage sharedStorage]createEvenWithHappening:[[objects objectAtIndex:i]objectForKey:@"type"]
+//                                                                withComment:@"a fake comment"//[[objects objectAtIndex:i] objectForKey:@"comment"]
+//                                                                       date:[NSDate date]//[[objects objectAtIndex:i] objectForKey:@"localDate"]
+//                                                                    eventId:@"a fake comment"//[[objects objectAtIndex:i] objectForKey:@"eventId"]
+//                                                                       baby:nullll//[[objects objectAtIndex:i] objectForKey:kBabyId]
+//                                                                      dirty:YES];
+//                    
+                    [[SLKEventStorage sharedStorage] createNEEEWEvenWithType:[[objects objectAtIndex:i]objectForKey:@"type"]
+                                                                      withComment:@"fake comment"
+                                                                             date:[[objects objectAtIndex:i] objectForKey:@"eventDate"]
+                                                                          eventId:[[objects objectAtIndex:i]objectForKey:@"eventId"]
+                                                                             baby:[[objects objectAtIndex:i]objectForKey:kBabyId]
+                                                                            dirty:YES];
                     
 
                 } else {
+                    
                     NSLog(@"\n\n Event with %@ already exists, does SKIPPING to create it\n\n",[[objects objectAtIndex:i] objectForKey:@"eventId"]);
 
                 }
@@ -122,14 +145,8 @@
                      if the event with that id is in lcal storage, check if the event is clean or dirty!!
                      */
               //  }
-                
-              
-                
-              NSLog(@"\n\n PARSE EVENTid ....: %@\n", [[objects objectAtIndex:i] objectId ]);
-
-                NSLog(@"\n\n  SLK EVENTid ....: %@\n", [[objects objectAtIndex:i] objectForKey:@"eventId"]);
-
-//                NSLog(@"\n\n type ------ :::: %@\n\n", [[objects objectAtIndex:i] objectForKey:@"type"]);
+                                
+           //                NSLog(@"\n\n type ------ :::: %@\n\n", [[objects objectAtIndex:i] objectForKey:@"type"]);
 //                NSLog(@"\n\n local date ------ :::: %@\n\n", [[objects objectAtIndex:i] objectForKey:@"localDate"]);
 //
 //                NSLog(@"\n\n dirt ------ :::: %d\n\n", [[objects objectAtIndex:i] isDirty]);
@@ -137,14 +154,46 @@
               //  NSLog(@"\n\n EVENT : %@\n\n", [objects objectAtIndex:i]);
             }
             
-            } else {
-            NSString *errorString = [[error userInfo] objectForKey:@"error"];
-                NSLog(@"Error, could not get all events: %@", errorString);
             }
+    } else {
+        NSString *errorString = [[error userInfo] objectForKey:@"error"];
+        NSLog(@"Error, could not get all events: %@", errorString);
+
         }
     }];
 
 }
+
++(void)getBabyWithId:(NSString*)babiId
+{
+    PFQuery *pQuery = [PFQuery queryWithClassName:kBaby];
+    [pQuery whereKey:kBabyId equalTo:babiId];
+    
+    
+    [pQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {//4
+        if (!error) {
+            NSLog(@"Successfully retrieved kanske INGET JÄVLAT ALLS: %@", objects.class);
+            // NSLog(@"----------%@",[objects objectAtIndex:0]);
+            for (int i = 0; i < [objects count]; i++)
+            {
+        NSLog(@"BABYname : %@", [[objects objectAtIndex:i] objectForKey:@"name"]);
+                                 NSLog(@"BABY : %@", [[objects objectAtIndex:i] allKeys]);
+                [[SLKBabyStorage sharedStorage] createBabyWithName:[[objects objectAtIndex:i] objectForKey:@"name"]
+                                                            babyId:[[objects objectAtIndex:i] objectForKey:kBabyId]
+                                                              date:[NSDate date]
+                                                              type:[[objects objectAtIndex:i] objectForKey:@"type"]
+                                                             color:[[objects objectAtIndex:i] objectForKey:@"color"]
+                                                             dirty:NO];
+                
+            }
+            
+        } else {
+            NSString *errorString = [[error userInfo] objectForKey:@"error"];
+            NSLog(@"Error: %@", errorString);
+        }
+    }];
+}
+
 
 
 +(void)getParentWithUserName:(NSString*)pName
@@ -152,7 +201,7 @@
     //SLKPfSingupViewController  *suv;
     // NSMutableString *s = suv.usernamefromSignUp;
     
-    PFQuery *pQuery = [PFQuery queryWithClassName:@"User"];
+    PFQuery *pQuery = [PFQuery queryWithClassName:@"PFUser"];
     [pQuery whereKey:@"username" equalTo:pName];
     NSLog(@"----%@", pName);
   

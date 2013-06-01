@@ -566,7 +566,7 @@
             
               [[SLKEventStorage sharedStorage]
                createEvenWithHappening:tit
-               withComment:nil
+               withComment:@"fake"
                date:date
                eventId:tit.titId
                baby:[[SLKBabyStorage sharedStorage]

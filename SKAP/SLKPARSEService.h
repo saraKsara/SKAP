@@ -15,6 +15,7 @@
 +(void)getAllObjects;
 +(void)getAllEvents;
 +(void)getNewevents;
++(void)getBabyWithId:(NSString*)babiId;
 //+(NSDictionary*)postOrder:(NSDictionary*)order;
 +(void)postObject:(PFObject*)object onSuccess:(void (^)(PFObject *))successObject onFailure:(void (^)(PFObject*))failureObject;
 +(void)getParentWithUserName:(NSString*)pName;

@@ -19,7 +19,11 @@
 @property (nonatomic, retain) NSString * number;
 @property (nonatomic, retain) NSString * parentId;
 @property (nonatomic, retain) NSString * signature;
+//@property (nonatomic, retain) NSString * email;
+
 @property (nonatomic, retain) NSSet *babies;
+
+@property (nonatomic, strong) NSString *babyId;
 
 
 

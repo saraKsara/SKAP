@@ -29,6 +29,7 @@
 
 -(Event *)createEvenWithHappening:(NSManagedObject*)happening withComment:(NSString*)comment date:(NSDate *)date eventId:(NSString *)eventId baby:(Baby*)baby dirty:(BOOL)dirty;
 
+-(Event *)createNEEEWEvenWithType:(NSString *)type withComment:(NSString *)comment date:(NSDate *)date eventId:(NSString *)eventId baby:(NSString *)baby dirty:(BOOL)dirty;
 
 //GETTERS
 -(NSArray *)getEventBelomigTObaby:(Baby *)baby;
@@ -49,6 +50,6 @@
 
 -(NSArray*)eventArray;
 
--(NSSet *)eventIdsSet;
+-(NSMutableSet *)eventIdsSet;
 
 @end

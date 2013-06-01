@@ -82,7 +82,6 @@
 {
     //[_tableView reloadData];
     currentBaby = [[SLKBabyStorage sharedStorage] getCurrentBaby];
-
     [UIView transitionWithView:_tableView
                       duration:0.5f
                        options:UIViewAnimationOptionTransitionCrossDissolve
@@ -95,6 +94,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self reloadTable];
+    NSLog(@"current baby in daysummary: %@", currentBaby);
+    if ( _food == NO) {
+        NSLog(@"daysummary   _allEvents = YES;");
+
+    }
+   
 	// Do any additional setup after loading the view.
 }
 

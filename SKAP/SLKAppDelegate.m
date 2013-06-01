@@ -68,7 +68,7 @@
     
     
     
-    NSString *color;
+   // NSString *color;
     
    // [SLKPARSEService getAllObjects];
       //[SLKPARSEService getAllEvents];
@@ -79,27 +79,60 @@
     //TODO: if you where invited...
     
 //    if ([[[SLKParentStorage sharedStorage]parentArray]count] == 0 ) {
- if (![PFUser currentUser]) { // No user logged in
-        NSLog(@"\n\n\n there are NOOOOO parents in user default, add one! \n\n\n");
+    if (![PFUser currentUser]) { // No user logged in TODO: visar fel... det finns en current PFuser... eller???
+        NSLog(@"\n\n\n appdelegate there are NOOOOO parents in user default, add one! \n\n\n");
         
         [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpAppFirstTime" object:nil userInfo:nil];
         
         
-    } else //there are babies in storage
+    }
+    else //there are somethong in storage??
     {
-        if ([[SLKBabyStorage sharedStorage]getCurrentBaby] != nil) {
-           // color = [[[SLKBabyStorage sharedStorage]getCurrentBaby] babysColor];
-            NSLog(@"there IS a CURRENT baby :) ");
-        } else if ( [SLKUserDefaults getTheCurrentBabe] == nil)
+        NSLog(@"\n\n\n appdelegate,  else //there is a user in storage");
+        if ([SLKUserDefaults getTheCurrentBabe] != nil)
         {
+            NSLog(@"there IS a CURRENT baby in userDefault :)) %@",[SLKUserDefaults getTheCurrentBabe]);
+            if ([[SLKBabyStorage sharedStorage] getCurrentBaby]) {
+                NSLog(@"the current babe is also in babystorage!");
+            } else  if (![[SLKBabyStorage sharedStorage] getCurrentBaby]) {
+                  NSLog(@"the current babe is NOT in babystorage! Create it!");
+                [SLKPARSEService getBabyWithId:[SLKUserDefaults getTheCurrentBabe]];
+            }
+            
+            
+            
+            
+            
+            [self setUpApp];
+            
+            
+            
+            
+           //  [self setUpAppFirstTime];
+        }
+        else if ( [SLKUserDefaults getTheCurrentBabe] == nil)
+        {
+            [self setUpAppFirstTime];
             NSLog(@"\n\n\n BAD!!! there are babies in storage, but no current... BAD \n\n\n");
         }
-        //           [self setUpAppFirstTime];
-        [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpApp" object:nil userInfo:nil];
-        NSLog(@"setUpApp");
+        
+//        if ([SLKuser currentUser]) {
+//            [self setUpApp];
+//            NSLog(@"\n\n\n APPDEL setUpApp with %@ \n\n\n", [SLKuser currentUser]);
+//
+//        } else{
+//         [self setUpAppFirstTime];
+//            NSLog(@"\n\n\n APPDEL setUpAppFirstTime \n\n\n");
+//
+//        }
+//        
+//        
+      //  [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpApp" object:nil userInfo:nil];
+        //TODO: på riktigt ska det bli setupapp här, när current PFUSER funkar som det ska.... 
+   
         //NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
         //[[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
-    }
+}
     
     // [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     

@@ -61,6 +61,7 @@
 
 -(Event *)createEventwithDate:(NSDate *)date eventId:(NSString *)eventId tits:(NSSet *)tits pii:(NSSet *)pii poo:(NSSet *)poo bottles:(NSSet *)bottle adDrop:(BOOL)adDrop otherMedz:(NSString *)medz temperature:(NSNumber *)temp type:(NSString *)type timeSpan:(NSNumber *)timeSpan baby:(Baby *)baby sleep:(NSNumber*)sleep comments:(NSString *)comments
 {
+    NSLog(@"\n\n ÅSA TESTAR ATT HÄMTA DETTA EVENT::: %@ \n\n", eventId);
     Event *e;
     Event *eventInStorage = [self getEventWithiD:eventId];
     if (eventInStorage) {
@@ -97,6 +98,8 @@
 {
     Event *e = [NSEntityDescription insertNewObjectForEntityForName:kEvent
                                              inManagedObjectContext:context];
+    NSLog(@"\n\n ÅSA TESTAR ATT HÄMTA DETTA EVENT::: %@ \n\n", eventId);
+    NSLog(@"Trying to createt:\n happening: %@ \n comment: %@\n date: %@ \n eventID: %@ \n baby: %@", happening, comment, date, eventId,baby.babyId);
     
     e.eventId = eventId;
     e.baby = baby;
@@ -104,7 +107,8 @@
     e.dirty = [NSNumber numberWithBool:dirty];
     
     PFObject *pfEventObject = [PFObject objectWithClassName:kEvent];
-    [pfEventObject setObject:baby.babyId forKey:@"babyId"];
+    [pfEventObject setObject:baby.babyId forKey:kBabyId];
+    
     [pfEventObject setObject:e.eventId forKey:@"eventId"];
     [pfEventObject setObject:e.date forKey:@"eventDate"];
     
@@ -188,6 +192,76 @@
     NSLog(@"Created event with tit: %@, to baby: %@", [happening class], baby.name);
     NSLog(@"Created event with titID: %@::", eventId);
 
+    return e;
+}
+
+
+-(Event *)createNEEEWEvenWithType:(NSString *)type withComment:(NSString *)comment date:(NSDate *)date eventId:(NSString *)eventId baby:(NSString *)baby dirty:(BOOL)dirty
+{
+    
+    
+    Event *e = [NSEntityDescription insertNewObjectForEntityForName:kEvent
+                                             inManagedObjectContext:context];
+    
+    e.eventId = eventId;
+    e.baby.babyId = baby;
+    e.date = date;
+    e.dirty = [NSNumber numberWithBool:dirty];
+    
+    e.type = type;
+    
+    PFObject *pfEventObject = [PFObject objectWithClassName:kEvent];
+    [pfEventObject setObject:baby forKey:kBabyId];
+    
+    [pfEventObject setObject:e.eventId forKey:@"eventId"];
+    [pfEventObject setObject:e.date forKey:@"eventDate"];
+    
+    if ([type isEqualToString:kEventType_TitFood])
+    {
+        
+       // [e addTitiesObject:(Tits*)happening];
+        
+        [pfEventObject setObject:kEventType_TitFood forKey:@"type"];
+        [pfEventObject setObject:e.eventId forKey:@"titId"];
+        [pfEventObject saveEventually];
+        
+        
+    } else   if ([type isEqualToString:kEventType_BottleFood])
+    {
+      //  [e addBottlesObject:(Bottle*)happening];
+        [pfEventObject setObject:e.eventId forKey:@"bottleId"];
+        [pfEventObject setObject:kEventType_BottleFood forKey:@"type"];
+        
+        
+    }  else   if ([type isEqualToString:kEventType_Poo])
+    {
+        if (comment)  e.comments = comment;
+        //[e addPoosObject:(Poo*)happening];
+    } else    if ([type isEqualToString:kEventType_Pii])
+    {
+      //  [e addPiisObject:(Pii*)happening];
+        if (comment)  e.comments = comment;
+        
+    } else    if ([type isEqualToString:kEventType_Medz])
+    {
+        if (comment)  e.comments = comment;
+       // [e addMedzObject:(Medz*)happening];
+        
+    } else    if ([type isEqualToString:kEventType_Sleep])
+    {
+        if (comment)  e.comments = comment;
+        //[e addSleepsObject:(Sleep*)happening];
+    } else    if ([type isEqualToString:kEventType_Diaper])
+    {
+        if (comment)  e.comments = comment;
+        //[e addDiapersObject:(Diaper*)happening];
+    }
+    
+    
+    
+//    NSLog(@"Created NEEEW event with tit: %@, to baby: %@", [happening class], baby);
+    NSLog(@"Created NEEEW %@ event with titID: %@::",type , eventId);
+    
     return e;
 }
 
@@ -362,16 +436,18 @@
     return [[SLKCoreDataService sharedService]fetchDataWithEntity:kEvent];
 }
 
--(NSSet *)eventIdsSet
+-(NSMutableSet *)eventIdsSet
 {
-    NSSet *eventset = [[NSSet alloc] init];
+    NSMutableArray *arr = [[NSMutableArray alloc] init];
     for (Event *event in [self eventArray])
     {
         if (event.eventId) {
-            [eventset setByAddingObject:event.eventId];
+            [arr addObject:event.eventId];
         }
-    
     }
+    NSMutableSet *eventset = [NSMutableSet setWithArray:arr];
+   // NSLog(@"eventIdsSet--- %@", eventset);
+
    return eventset;
 }
 

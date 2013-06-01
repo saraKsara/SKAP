@@ -12,6 +12,7 @@
 #import "SLKPARSEService.h"
 #import "SLKConstants.h"
 #import <Parse/Parse.h>
+#import "SLKuser.h"
 
 @implementation SLKBabyStorage
 {
@@ -72,9 +73,13 @@
 //    [babyObject setObject:b.date forKey:@"birthday"];
     [babyObject setObject:b.babyId forKey:kBabyId];
     
+  //  PFFile *profilePic = [PFFile fileWithData:data];
     [[PFUser currentUser] setObject:b.babyId forKey:kBabyId];
+    [[PFUser currentUser] saveInBackground];
+   // [[SLKuser currentUser] setBabyId:b.babyId];
+    
     NSString* bId = [[PFUser currentUser] objectForKey:kBabyId];
-    NSLog(@"%@", bId);
+    NSLog(@"babystorage: babyid::::::--->%@ pfuser:::%@", bId, [[PFUser currentUser] username]);
     
     
     [[PFUser currentUser] saveEventually];
@@ -83,6 +88,7 @@
      {
          Baby *babyToClean = [self getBabyWithiD:[object objectForKey:kBabyId]];
          babyToClean.dirty = [NSNumber numberWithBool:NO];
+         NSLog(@"cleaned BABY! %@", [object objectForKey:@"name"]);
          
      } onFailure:^(PFObject *object)
      {
@@ -98,11 +104,15 @@
     return b;
 }
 
+
+
+
 -(void)setCurrentBaby:(Baby *)baby
 {
     [SLKUserDefaults setTheCurrentBabe:baby.babyId];
     NSLog(@"(baby storage) The current babe is: %@", baby.name);
 }
+
 -(Baby *)getCurrentBaby;
 {
     return [self getBabyWithiD:[SLKUserDefaults getTheCurrentBabe]];
