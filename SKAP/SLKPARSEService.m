@@ -114,11 +114,6 @@
 //                }
 
                 //If there's no event with that id in eventstorage, create it!
-               // if (![[[SLKEventStorage sharedStorage]eventIdsSet]containsObject: [[objects objectAtIndex:i]objectId]]){
-      
-                //MAGIC (titevent:  575E8DB2-0C69-4F8A-8E63-F5EF9E16F912-2711-00000B70B9F7DF26 )
-              //  DC5B2458
-               // B56D13BE
                 if (![events containsObject:[[objects objectAtIndex:i] objectForKey:@"eventId"]])
                 {
                     NSLog(@"\n\nNo event with id %@ exists, creating one\n\n",[[objects objectAtIndex:i]objectForKey:@"eventId"]);
@@ -171,6 +166,78 @@
                          {
                          }];
                     }
+                    else if ([[[objects objectAtIndex:i]objectForKey:@"type"] isEqualToString: kEventType_Poo])
+                    {
+                        [self getPooWithId:[[objects objectAtIndex:i]objectForKey:@"eventId"] onSuccess:^(NSManagedObject *obj)
+                         {
+                             Poo *p = (Poo*)obj;
+                             NSLog(@"\n\n ON SUCCESS: %@ \n\n", p.pooId);
+                             
+                             [[SLKEventStorage sharedStorage]createEvenWithHappening:p
+                                                                         withComment:@"a fake comment"//[[objects objectAtIndex:i] objectForKey:@"comment"]
+                                                                                date:[[objects objectAtIndex:i] objectForKey:@"eventDate"]
+                                                                             eventId:[[objects objectAtIndex:i]objectForKey:@"eventId"]
+                                                                                baby:currentBaby
+                                                                               dirty:NO];
+                             
+                         } onFailure:^(NSManagedObject *obj)
+                         {
+                         }];
+                    }
+                    else if ([[[objects objectAtIndex:i]objectForKey:@"type"] isEqualToString: kEventType_Pii])
+                    {
+                        [self getPiiWithId:[[objects objectAtIndex:i]objectForKey:@"eventId"] onSuccess:^(NSManagedObject *obj)
+                         {
+                             Pii *p = (Pii*)obj;
+                             NSLog(@"\n\n ON SUCCESS: %@ \n\n", p.piiId);
+                             
+                             [[SLKEventStorage sharedStorage]createEvenWithHappening:p
+                                                                         withComment:@"a fake comment"//[[objects objectAtIndex:i] objectForKey:@"comment"]
+                                                                                date:[[objects objectAtIndex:i] objectForKey:@"eventDate"]
+                                                                             eventId:[[objects objectAtIndex:i]objectForKey:@"eventId"]
+                                                                                baby:currentBaby
+                                                                               dirty:NO];
+                             
+                         } onFailure:^(NSManagedObject *obj)
+                         {
+                         }];
+                    }
+                    else if ([[[objects objectAtIndex:i]objectForKey:@"type"] isEqualToString: kEventType_Medz])
+                    {
+                        [self getMedzWithId:[[objects objectAtIndex:i]objectForKey:@"eventId"] onSuccess:^(NSManagedObject *obj)
+                         {
+                             Medz *med = (Medz*)obj;
+                             NSLog(@"\n\n ON SUCCESS: %@ \n\n", med.medzId);
+                             
+                             [[SLKEventStorage sharedStorage]createEvenWithHappening:med
+                                                                         withComment:@"a fake comment"//[[objects objectAtIndex:i] objectForKey:@"comment"]
+                                                                                date:[[objects objectAtIndex:i] objectForKey:@"eventDate"]
+                                                                             eventId:[[objects objectAtIndex:i]objectForKey:@"eventId"]
+                                                                                baby:currentBaby
+                                                                               dirty:NO];
+                             
+                         } onFailure:^(NSManagedObject *obj)
+                         {
+                         }];
+                    }
+                    else if ([[[objects objectAtIndex:i]objectForKey:@"type"] isEqualToString: kEventType_Sleep])
+                    {
+                        [self getSleepWithId:[[objects objectAtIndex:i]objectForKey:@"eventId"] onSuccess:^(NSManagedObject *obj)
+                         {
+                             Sleep *sleep = (Sleep*)obj;
+                             NSLog(@"\n\n ON SUCCESS: %@ \n\n", sleep.sleepId);
+                             
+                             [[SLKEventStorage sharedStorage]createEvenWithHappening:sleep
+                                                                         withComment:@"a fake comment"//[[objects objectAtIndex:i] objectForKey:@"comment"]
+                                                                                date:[[objects objectAtIndex:i] objectForKey:@"eventDate"]
+                                                                             eventId:[[objects objectAtIndex:i]objectForKey:@"eventId"]
+                                                                                baby:currentBaby
+                                                                               dirty:NO];
+                             
+                         } onFailure:^(NSManagedObject *obj)
+                         {
+                         }];
+                    }
                     
                 } else {
                     NSLog(@"\n\n Event with %@ already exists, does SKIPPING to create it\n\n",[[objects objectAtIndex:i] objectForKey:@"eventId"]);
@@ -203,7 +270,7 @@
     PFQuery *pQuery = [PFQuery queryWithClassName:kPoo];
     [pQuery whereKey:kPooId equalTo:pooId];
     
-    [pQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {//4
+    [pQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             NSLog(@"Successfully retrieved getPoosWithId: %d", objects.count);
             Poo *p;
@@ -211,8 +278,7 @@
             {
                 NSLog(@"got this poo : %@", [objects objectAtIndex:i]);
                 
-                p = [[SLKPooStorage sharedStorage]
-                     createPooWithId:[[objects objectAtIndex:i] objectForKey:kPooId] dirty:NO];
+            p = [[SLKPooStorage sharedStorage] createPooWithId:[[objects objectAtIndex:i] objectForKey:kPooId] dirty:NO];
                 
             }
             successObject(p);
@@ -224,24 +290,81 @@
         }
     }];
 }
-+(void)getPiiWithId:(NSString *)pooId onSuccess:(void (^)(NSManagedObject *))successObject onFailure:(void (^)(NSManagedObject *))failureObject
++(void)getPiiWithId:(NSString *)piiId onSuccess:(void (^)(NSManagedObject *))successObject onFailure:(void (^)(NSManagedObject *))failureObject
 {
-    PFQuery *pQuery = [PFQuery queryWithClassName:kPoo];
-    [pQuery whereKey:kPooId equalTo:pooId];
+    PFQuery *pQuery = [PFQuery queryWithClassName:kPii];
+    [pQuery whereKey:kPiiId equalTo:piiId];
     
-    [pQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {//4
+    [pQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            NSLog(@"Successfully retrieved getPoosWithId: %d", objects.count);
-            Poo *p;
+            NSLog(@"Successfully retrieved getPiisWithId: %d", objects.count);
+            Pii *p;
             for (int i = 0; i < [objects count]; i++)
             {
-                NSLog(@"got this poo : %@", [objects objectAtIndex:i]);
+                NSLog(@"got this pii : %@", [objects objectAtIndex:i]);
                 
-                p = [[SLKPooStorage sharedStorage]
-                     createPooWithId:[[objects objectAtIndex:i] objectForKey:kPooId] dirty:NO];
+                p = [[SLKPiiStorage sharedStorage] createPiiWithId:[[objects objectAtIndex:i] objectForKey:kPiiId] dirty:NO];
                 
             }
             successObject(p);
+            
+            
+        } else {
+            NSString *errorString = [[error userInfo] objectForKey:@"error"];
+            NSLog(@"Error: %@", errorString);
+        }
+    }];
+}
++(void)getMedzWithId:(NSString *)medzId onSuccess:(void (^)(NSManagedObject *))successObject onFailure:(void (^)(NSManagedObject *))failureObject
+{
+    PFQuery *pQuery = [PFQuery queryWithClassName:kMedz];
+    [pQuery whereKey:kMedzId equalTo:medzId];
+    
+    [pQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            NSLog(@"Successfully retrieved getMedsWithId: %d", objects.count);
+            Medz *med;
+            for (int i = 0; i < [objects count]; i++)
+            {
+                NSLog(@"got this med : %@", [objects objectAtIndex:i]);
+                
+                med = [[SLKMedzStorage sharedStorage] createMedzWithId:[[objects objectAtIndex:i] objectForKey:kMedzId]
+                                                                  Temp:[[objects objectAtIndex:i] objectForKey:@"temp"]
+                                                                adDrop:[[objects objectAtIndex:i] objectForKey:@"adDrop"]
+                                                           paracetamol:[[objects objectAtIndex:i] objectForKey:@"paracetamol"]
+                                                             ibuprofen:[[objects objectAtIndex:i] objectForKey:@"ibuprofen"]
+                                                                  more:[[objects objectAtIndex:i] objectForKey:@"more"]
+                                                                 dirty:NO];
+                
+            }
+            successObject(med);
+            
+            
+        } else {
+            NSString *errorString = [[error userInfo] objectForKey:@"error"];
+            NSLog(@"Error: %@", errorString);
+        }
+    }];
+}
++(void)getSleepWithId:(NSString *)sleepId onSuccess:(void (^)(NSManagedObject *))successObject onFailure:(void (^)(NSManagedObject *))failureObject
+{
+    PFQuery *pQuery = [PFQuery queryWithClassName:kSleep];
+    [pQuery whereKey:kSleepId equalTo:sleepId];
+    
+    [pQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            NSLog(@"Successfully retrieved getsleepWithId: %d", objects.count);
+            Sleep *sleep;
+            for (int i = 0; i < [objects count]; i++)
+            {
+                NSLog(@"got this sleep : %@", [objects objectAtIndex:i]);
+                
+                sleep =  [[SLKSleepStorage sharedStorage] createSleepWithId:[[objects objectAtIndex:i] objectForKey:kSleepId]
+                                                                    minutes:[[objects objectAtIndex:i] objectForKey:@"minutes"]
+                                                                      dirty:NO];
+                
+            }
+            successObject(sleep);
             
             
         } else {
@@ -255,7 +378,7 @@
     PFQuery *pQuery = [PFQuery queryWithClassName:kTits];
     [pQuery whereKey:kTitId equalTo:titId];
     
-    [pQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {//4
+    [pQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             NSLog(@"Successfully retrieved getTitsWithId: %d", objects.count);
             Tits *tit;
@@ -288,7 +411,7 @@
     PFQuery *pQuery = [PFQuery queryWithClassName:kBottle];
     [pQuery whereKey:kBottleId equalTo:bottleId];
     
-    [pQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {//4
+    [pQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             NSLog(@"Successfully retrieved getBOTTLEWithId: %d", objects.count);
             Bottle *bottle;
@@ -317,7 +440,7 @@
     [pQuery whereKey:kBabyId equalTo:babiId];
     
     
-    [pQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {//4
+    [pQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             NSLog(@"Successfully retrieved babies %d", objects.count);
             // NSLog(@"----------%@",[objects objectAtIndex:0]);
@@ -354,7 +477,7 @@
     NSLog(@"----%@", pName);
   
     
-    [pQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {//4
+    [pQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             NSLog(@"Successfully retrieved kanske INGET JÄVLAT ALLS: %@", objects.class);
             // NSLog(@"----------%@",[objects objectAtIndex:0]);
