@@ -107,51 +107,88 @@
     e.dirty = [NSNumber numberWithBool:dirty];
     
     PFObject *pfEventObject = [PFObject objectWithClassName:kEvent];
-    [pfEventObject setObject:baby.babyId forKey:kBabyId];
-    
-    [pfEventObject setObject:e.eventId forKey:@"eventId"];
-    [pfEventObject setObject:e.date forKey:@"eventDate"];
+
+    if (dirty == YES)
+    {
+        [pfEventObject setObject:baby.babyId forKey:kBabyId];
+        [pfEventObject setObject:e.eventId forKey:@"eventId"];
+        [pfEventObject setObject:e.date forKey:@"eventDate"];
+    }
     
     if ([happening isKindOfClass:[Tits class]] )
     {
         e.type = kEventType_TitFood;
         [e addTitiesObject:(Tits*)happening];
         
+    if (dirty == YES)
+    {
         [pfEventObject setObject:kEventType_TitFood forKey:@"type"];
-        [pfEventObject setObject:e.eventId forKey:@"titId"];
+        [pfEventObject setObject:e.eventId forKey:kTitId];
         [pfEventObject saveEventually];
+    }
         
         
     } else if ([happening isKindOfClass:[Bottle class]] )
     {
         e.type = kEventType_BottleFood;
         [e addBottlesObject:(Bottle*)happening];
-          [pfEventObject setObject:e.eventId forKey:@"bottleId"];
-        [pfEventObject setObject:kEventType_BottleFood forKey:@"type"];
-
+        if (dirty == YES)
+        {
+            [pfEventObject setObject:e.eventId forKey:kBottleId];
+            [pfEventObject setObject:kEventType_BottleFood forKey:@"type"];
+              [pfEventObject saveEventually];
+        }
+          
         
     }  else if ([happening isKindOfClass:[Poo class]] )
     {
         e.type = kEventType_Poo;
      if (comment)  e.comments = comment;
         [e addPoosObject:(Poo*)happening];
+        
+        if (dirty == YES)
+        {
+            [pfEventObject setObject:kEventType_Poo forKey:@"type"];
+            [pfEventObject setObject:e.eventId forKey:kPooId];
+            [pfEventObject saveEventually];
+        }
+        
+        
     } else if ([happening isKindOfClass:[Pii class]] )
     {
         e.type = kEventType_Pii;
         [e addPiisObject:(Pii*)happening];
       if (comment)  e.comments = comment;
+        if (dirty == YES)
+        {
+            [pfEventObject setObject:kEventType_Pii forKey:@"type"];
+            [pfEventObject setObject:e.eventId forKey:kPiiId];
+            [pfEventObject saveEventually];
+        }
         
     } else if ([happening isKindOfClass:[Medz class]] )
     {
         e.type = kEventType_Medz;
        if (comment)  e.comments = comment;
         [e addMedzObject:(Medz*)happening];
+        if (dirty == YES)
+        {
+            [pfEventObject setObject:kEventType_Medz forKey:@"type"];
+            [pfEventObject setObject:e.eventId forKey:kMedzId];
+            [pfEventObject saveEventually];
+        }
         
     } else if ([happening isKindOfClass:[Sleep class]])
     {
         if (comment)  e.comments = comment;
         e.type = kEventType_Sleep;
         [e addSleepsObject:(Sleep*)happening];
+        if (dirty == YES)
+        {
+            [pfEventObject setObject:kEventType_Sleep forKey:@"type"];
+            [pfEventObject setObject:e.eventId forKey:kSleep];
+            [pfEventObject saveEventually];
+        }
     } else if ([happening isKindOfClass:[Diaper class]])
     {
         if (comment)  e.comments = comment;

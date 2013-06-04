@@ -92,20 +92,34 @@
         if ([SLKUserDefaults getTheCurrentBabe] != nil)
         {
             NSLog(@"there IS a CURRENT baby in userDefault :)) %@",[SLKUserDefaults getTheCurrentBabe]);
-            if ([[SLKBabyStorage sharedStorage] getCurrentBaby]) {
-                NSLog(@"the current babe is also in babystorage!");
-            } else  if (![[SLKBabyStorage sharedStorage] getCurrentBaby]) {
-                  NSLog(@"the current babe is NOT in babystorage! Create it!");
-                [SLKPARSEService getBabyWithId:[SLKUserDefaults getTheCurrentBabe]];
+            
+            if ([[SLKBabyStorage sharedStorage] getCurrentBaby])
+            {
+                NSLog(@"the current babe is also in babystorage, setUpApp!");
+                 [self setUpApp];
             }
-            
-            
-            
-            
-            
-            [self setUpApp];
-            
-            
+            else if (![[SLKBabyStorage sharedStorage] getCurrentBaby]) {
+                  NSLog(@"the current babe is NOT in babystorage! Create it and start app when baby exists");
+                //[SLKPARSEService getBabyWithId:[SLKUserDefaults getTheCurrentBabe]];
+                
+                
+              // [self setUpAppFirstTime];
+                [SLKPARSEService getBabyWithId:[SLKUserDefaults getTheCurrentBabe] onSuccess:^(PFObject *object)
+                {
+                    NSLog(@"BABY with name: %@ is now in storage (id %@)", [object objectForKey:@"name"], [object objectForKey:kBabyId]);
+//                    [[SLKBabyStorage sharedStorage] createBabyWithName:[object objectForKey:@"name"]
+//                                                                babyId:[object objectForKey:kBabyId]
+//                                                                  date:[NSDate date]
+//                                                                  type:[object objectForKey:@"type"]
+//                                                                 color:[object objectForKey:@"color"]
+//                                                                 dirty:NO];
+
+                     [self setUpApp];
+                } onFailure:^(PFObject *object) {
+                    
+                }];
+                
+            }
             
             
            //  [self setUpAppFirstTime];
@@ -293,10 +307,10 @@
 -(void)setUpApp
 {
     NSLog(@"\n\n --------current PFUSR: %@----------\n\n", [[PFUser currentUser] username]);
-    
-    NSLog(@"currentMorsa---%@",[[[SLKParentStorage sharedStorage]getCurrentParent]name]);
-    NSLog(@"\n\n --------current BABY id:: %@----------\n\n", [SLKUserDefaults getTheCurrentBabe]);
-    NSLog(@"\n\n --------current BABY name: %@----------\n\n", [[[SLKBabyStorage sharedStorage]getCurrentBaby]name]);
+//    
+//    NSLog(@"currentMorsa---%@",[[[SLKParentStorage sharedStorage]getCurrentParent]name]);
+//    NSLog(@"\n\n --------current BABY id:: %@----------\n\n", [SLKUserDefaults getTheCurrentBabe]);
+//    NSLog(@"\n\n --------current BABY name: %@----------\n\n", [[[SLKBabyStorage sharedStorage]getCurrentBaby]name]);
 //TODO: get events for baby that belongs to parent!
       [SLKPARSEService getAllEvents];
     

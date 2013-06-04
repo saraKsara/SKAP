@@ -47,6 +47,7 @@
 
 -(Tits *)createTittWithId:(NSString *)titId StringValue:(NSString *)stringValue mililitres:(NSNumber *)milliLitres minutes:(NSNumber *)minutes leftBoob:(BOOL)leftBoob rightBoob:(BOOL)rightBoob dirty:(BOOL)dirty
 {
+     NSLog(@"\n\n CREATING TIT  %@\n\n", titId);
    Tits *t = [NSEntityDescription insertNewObjectForEntityForName:kTits
                                           inManagedObjectContext:context];
     
@@ -58,24 +59,30 @@
     t.rightBoob = [NSNumber numberWithBool:rightBoob];
     t.dirty = [NSNumber numberWithBool:dirty];
     
-    PFObject *pfTits = [PFObject objectWithClassName:kTits];
-    [pfTits setObject: t.stringValue forKey:@"stringValue"];
-    [pfTits setObject: [NSNumber numberWithBool:rightBoob] forKey:@"rightBoob"];
-    [pfTits setObject: [NSNumber numberWithBool:leftBoob] forKey:@"leftBoob"];
-    [pfTits setObject: t.titId forKey:@"titId"];
-    
-   // [pfTits saveEventually];
-    [SLKPARSEService postObject:pfTits onSuccess:^(PFObject *obj) {
+    if (dirty == YES)
+    {
+        NSLog(@"\n\n Post and clean the tit  %@\n\n", t.titId);
+
+        PFObject *pfTits = [PFObject objectWithClassName:kTits];
+        [pfTits setObject: t.stringValue forKey:@"stringValue"];
+        [pfTits setObject: [NSNumber numberWithBool:rightBoob] forKey:@"rightBoob"];
+        [pfTits setObject: [NSNumber numberWithBool:leftBoob] forKey:@"leftBoob"];
+        [pfTits setObject: t.titId forKey:@"titId"];
         
-   Tits *titToClean = [self getTitWithiD:[obj objectForKey:@"titId"]];
+        [SLKPARSEService postObject:pfTits onSuccess:^(PFObject *obj) {
+            NSLog(@"\n\n IS IT POSTED??? \n\n");
         
-       titToClean.dirty = [NSNumber numberWithBool:NO];
-        
-    } onFailure:^(PFObject *obj) {
-     NSLog(@"Failed to save object in Parse");
-    }];
-    
-  NSLog(@"Feeded baby with  %@", t);
+        NSLog(@"Suceccfully posted tit with stringValue %@",[obj objectForKey:@"stringValue"]);
+
+       Tits *titToClean = [self getTitWithiD:[obj objectForKey:kTitId]];
+            
+           titToClean.dirty = [NSNumber numberWithBool:NO];
+            
+        } onFailure:^(PFObject *obj) {
+         NSLog(@"\n\n Failed to save object in Parse\n\n");
+        }];
+    }
+    NSLog(@"\n\nFeeded baby with  %@\n\n", t);
     
     return t;
 }

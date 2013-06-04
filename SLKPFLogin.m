@@ -84,8 +84,8 @@
 -(void)popThisView
 {
     [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpApp" object:nil userInfo:nil];
-    NSLog(@"current Pf-USER----%@", [PFUser currentUser]);
-    NSLog(@"current SLK-USER----%@", [SLKuser currentUser]);
+   // NSLog(@"current Pf-USER----%@", [PFUser currentUser]);
+    //NSLog(@"current SLK-USER----%@", [SLKuser currentUser]);
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

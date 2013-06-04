@@ -94,9 +94,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _allEvents = YES;
     [self reloadTable];
     NSLog(@"current baby in daysummary: %@", currentBaby);
-    if ( _food == NO) {
+    if ( _allEvents == YES) {
         NSLog(@"daysummary   _allEvents = YES;");
 
     }
