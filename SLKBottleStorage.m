@@ -55,21 +55,22 @@
     b.bottleId = bottleId;
     b.dirty = [NSNumber numberWithBool:dirty];
     
-    
+    if (dirty == YES) {
+
     PFObject *pfBottle = [PFObject objectWithClassName:kBottle];
     //[pfBottle setObject: b.stringValue forKey:@"stringValue"];
     [pfBottle setObject: b.milliLitres forKey:@"milliLitres"];
-    [pfBottle setObject: b.bottleId forKey:@"bottleId"];
+    [pfBottle setObject: b.bottleId forKey:kBottleId];
     
     // [pfBottle saveEventually];
     [SLKPARSEService postObject:pfBottle onSuccess:^(PFObject *obj) {
         
-        Bottle *bottleToClean = [self getBottleWithiD:[obj objectForKey:@"bottleId"]];
+        Bottle *bottleToClean = [self getBottleWithiD:[obj objectForKey:kBottleId]];
         bottleToClean.dirty = [NSNumber numberWithBool:NO];
     } onFailure:^(PFObject *obj) {
         
     }];
-
+    }
     NSLog(@"Feeded baby with  %@", b);
     
     return b;

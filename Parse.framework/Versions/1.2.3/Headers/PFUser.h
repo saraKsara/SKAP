@@ -19,6 +19,7 @@ A Parse Framework User Object that is a local representation of a user persisted
 
 @interface PFUser : PFObject<PFSubclassing>
 
+
 /*! The name of the PFUser class in the REST API. This is a required
  *  PFSubclassing method */
 + (NSString *)parseClassName;

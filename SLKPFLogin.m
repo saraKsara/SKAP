@@ -9,6 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "SLKuser.h"
 #import "SLKPFLogin.h"
+#import "SLKConstants.h"
 @interface SLKPFLogin ()
 @property (nonatomic, strong) UIImageView *fieldsBackground;
 @end
@@ -16,10 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(popThisView)
-                                                 name:@"popThisView"
-                                               object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(popThisView)
+//                                                 name:@"popThisView"
+//                                               object:nil];
+
     [self.logInView.logInButton addTarget:self action:@selector(popThisView) forControlEvents:UIControlEventTouchUpInside];
     
     
@@ -82,12 +84,49 @@
 -(void)popThisView
 {
     [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpApp" object:nil userInfo:nil];
-    NSLog(@"current Pf-USER----%@", [PFUser currentUser]);
-    NSLog(@"current SLK-USER----%@", [SLKuser currentUser]);
+   // NSLog(@"current Pf-USER----%@", [PFUser currentUser]);
+    //NSLog(@"current SLK-USER----%@", [SLKuser currentUser]);
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+
+#pragma mark PFLogInViewControllerDelegate
+// Sent to the delegate to determine whether the log in request should be submitted to the server.
+- (BOOL)logInViewController:(PFLogInViewController *)logInController shouldBeginLogInWithUsername:(NSString *)username password:(NSString *)password {
+    // Check if both fields are completed
+    if (username && password && username.length != 0 && password.length != 0) {
+        return YES; // Begin login process
+    }
+    
+    [[[UIAlertView alloc] initWithTitle:@"Missing Information"
+                                message:@"Make sure you fill out all of the information!"
+                               delegate:nil
+                      cancelButtonTitle:@"ok"
+                      otherButtonTitles:nil] show];
+    return NO; // Interrupt login process
+}
+
+// Sent to the delegate when a PFUser is logged in.
+- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+//    [self dismissViewControllerAnimated:YES completion:NULL];
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpApp" object:nil userInfo:nil];
+
+}
+
+// Sent to the delegate when the log in attempt fails.
+- (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
+    NSLog(@"Failed to log in...");
+}
+
+// Sent to the delegate when the log in screen is dismissed.
+- (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
+//    [self.navigationController popViewControllerAnimated:YES];
+      NSLog(@"logInViewControllerDidCancelLogIn");
+}
+
+
 
 @end

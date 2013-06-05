@@ -11,6 +11,9 @@
 #import "SLKUserDefaults.h"
 #import "SLKPARSEService.h"
 #import "SLKConstants.h"
+#import <Parse/Parse.h>
+#import "SLKuser.h"
+
 @implementation SLKBabyStorage
 {
     NSManagedObjectContext *context;
@@ -63,14 +66,59 @@
     b.dirty = [NSNumber numberWithBool:dirty];
     
    // NSLog(@"There's a new (or a updated babe) baby in town! name: %@  id: %@", b.name, b.babyId);
+    [self setCurrentBaby:b];
+    
+    
+    if (dirty == YES)
+    {
+        PFObject *babyObject = [PFObject objectWithClassName:kBaby];
+        [babyObject setObject:b.name forKey:@"name"];
+        //    [babyObject setObject:b.date forKey:@"birthday"];
+        [babyObject setObject:b.babyId forKey:kBabyId];
+        
+        //  PFFile *profilePic = [PFFile fileWithData:data];
+        [[PFUser currentUser] setObject:b.babyId forKey:kBabyId];
+        
+        
+        //TODO: is this the right way to update a pfuser? not create a new....
+        [[PFUser currentUser] saveInBackground];
+        // [[SLKuser currentUser] setBabyId:b.babyId];
+        
+        NSString* bId = [[PFUser currentUser] objectForKey:kBabyId];
+        NSLog(@"babystorage: babyid::::::--->%@ pfuser:::%@", bId, [[PFUser currentUser] username]);
+        
+        
+        [[PFUser currentUser] saveEventually];
+        
+        [SLKPARSEService postObject:babyObject onSuccess:^(PFObject *object)
+         {
+             Baby *babyToClean = [self getBabyWithiD:[object objectForKey:kBabyId]];
+             babyToClean.dirty = [NSNumber numberWithBool:NO];
+             NSLog(@"cleaned BABY! %@", [object objectForKey:@"name"]);
+             
+         } onFailure:^(PFObject *object)
+         {
+             //         NSLog(@"FAILED :((( ");
+             //         UIAlertView *failAlert = [[UIAlertView alloc]
+             //                                   initWithTitle:@"FAIL"
+             //                                   message:@"Failed to add new baby for now. Please try again later" delegate:self
+             //                                   cancelButtonTitle:@"OK"
+             //                                   otherButtonTitles:nil, nil];
+             //         [failAlert show];
+         }];
+    }
     return b;
 }
+
+
+
 
 -(void)setCurrentBaby:(Baby *)baby
 {
     [SLKUserDefaults setTheCurrentBabe:baby.babyId];
     NSLog(@"(baby storage) The current babe is: %@", baby.name);
 }
+
 -(Baby *)getCurrentBaby;
 {
     return [self getBabyWithiD:[SLKUserDefaults getTheCurrentBabe]];

@@ -23,6 +23,7 @@
 		1C378B731712A73C006AC9EF /* SLKWelcomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C378B721712A73C006AC9EF /* SLKWelcomeCell.m */; };
 		1C3F372A172E98450084D3D8 /* SLKTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3F3729172E98450084D3D8 /* SLKTabbar.m */; };
 		1C3F372D172E98F70084D3D8 /* SLKTababrController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3F372C172E98F70084D3D8 /* SLKTababrController.m */; };
+		1C4078EF1748D5FE0038C9F9 /* SLKCreateBabyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4078EE1748D5FE0038C9F9 /* SLKCreateBabyViewController.m */; };
 		1C423F6F170D5EFE00DCB469 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C423F6E170D5EFE00DCB469 /* Settings.storyboard */; };
 		1C423F72170D622300DCB469 /* SLKSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C423F71170D622300DCB469 /* SLKSettingsViewController.m */; };
 		1C423F75170D627700DCB469 /* SLKSettingCells.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C423F74170D627700DCB469 /* SLKSettingCells.m */; };
@@ -54,7 +55,7 @@
 		1C61D9F01742D7BB0048C123 /* Medz.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C61D9EF1742D7B90048C123 /* Medz.m */; };
 		1C61D9F31742D7BF0048C123 /* Pii.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C61D9F21742D7BD0048C123 /* Pii.m */; };
 		1C627299170ED21200F51E00 /* SLKParentStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C627298170ED21200F51E00 /* SLKParentStorage.m */; };
-		1C6F78931715B4FB002E54A9 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C6F78921715B4FB002E54A9 /* Login.storyboard */; };
+		1C6F78931715B4FB002E54A9 /* CreateBaby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C6F78921715B4FB002E54A9 /* CreateBaby.storyboard */; };
 		1C6F789A1715B913002E54A9 /* SLKFirtsTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6F78991715B913002E54A9 /* SLKFirtsTimeViewController.m */; };
 		1C74254A1713064500207C04 /* SLKLinksCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7425491713064500207C04 /* SLKLinksCell.m */; };
 		1C7F474117087A2C00C258F8 /* SLKDayViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F474017087A2C00C258F8 /* SLKDayViewCell.m */; };
@@ -165,6 +166,8 @@
 		1C3F3729172E98450084D3D8 /* SLKTabbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKTabbar.m; sourceTree = "<group>"; };
 		1C3F372B172E98F70084D3D8 /* SLKTababrController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKTababrController.h; sourceTree = "<group>"; };
 		1C3F372C172E98F70084D3D8 /* SLKTababrController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKTababrController.m; sourceTree = "<group>"; };
+		1C4078ED1748D5FE0038C9F9 /* SLKCreateBabyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKCreateBabyViewController.h; sourceTree = "<group>"; };
+		1C4078EE1748D5FE0038C9F9 /* SLKCreateBabyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKCreateBabyViewController.m; sourceTree = "<group>"; };
 		1C423F6E170D5EFE00DCB469 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = SKAP/Settings.storyboard; sourceTree = "<group>"; };
 		1C423F70170D622300DCB469 /* SLKSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKSettingsViewController.h; sourceTree = "<group>"; };
 		1C423F71170D622300DCB469 /* SLKSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKSettingsViewController.m; sourceTree = "<group>"; };
@@ -217,7 +220,7 @@
 		1C61D9F21742D7BD0048C123 /* Pii.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pii.m; sourceTree = "<group>"; };
 		1C627297170ED21200F51E00 /* SLKParentStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKParentStorage.h; sourceTree = "<group>"; };
 		1C627298170ED21200F51E00 /* SLKParentStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKParentStorage.m; sourceTree = "<group>"; };
-		1C6F78921715B4FB002E54A9 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		1C6F78921715B4FB002E54A9 /* CreateBaby.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateBaby.storyboard; sourceTree = "<group>"; };
 		1C6F78981715B913002E54A9 /* SLKFirtsTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKFirtsTimeViewController.h; sourceTree = "<group>"; };
 		1C6F78991715B913002E54A9 /* SLKFirtsTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKFirtsTimeViewController.m; sourceTree = "<group>"; };
 		1C7425481713064500207C04 /* SLKLinksCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKLinksCell.h; sourceTree = "<group>"; };
@@ -537,11 +540,13 @@
 				1C30A42A1737B81D0010D4F1 /* SLKPfLoginViewController.m */,
 				1C30A4251737B7BD0010D4F1 /* SLKPfSingupViewController.h */,
 				1C30A4261737B7BD0010D4F1 /* SLKPfSingupViewController.m */,
-				1C6F78921715B4FB002E54A9 /* Login.storyboard */,
+				1C6F78921715B4FB002E54A9 /* CreateBaby.storyboard */,
 				1C6F78981715B913002E54A9 /* SLKFirtsTimeViewController.h */,
 				1C6F78991715B913002E54A9 /* SLKFirtsTimeViewController.m */,
 				1C30A4221737B5C70010D4F1 /* SLKPFLogin.h */,
 				1C30A4231737B5C70010D4F1 /* SLKPFLogin.m */,
+				1C4078ED1748D5FE0038C9F9 /* SLKCreateBabyViewController.h */,
+				1C4078EE1748D5FE0038C9F9 /* SLKCreateBabyViewController.m */,
 			);
 			name = "Log in";
 			sourceTree = "<group>";
@@ -867,7 +872,7 @@
 				CEDDEB6117135C110017DE60 /* titsLabel_03.png in Resources */,
 				CEDDEB6317135D750017DE60 /* arrow_03.png in Resources */,
 				1CBBEE2317141D6B00305432 /* sleep.Storyboard in Resources */,
-				1C6F78931715B4FB002E54A9 /* Login.storyboard in Resources */,
+				1C6F78931715B4FB002E54A9 /* CreateBaby.storyboard in Resources */,
 				CEBFE2931715F00F0010B192 /* smallViewBackground.png in Resources */,
 				CEBFE2951715F5870010B192 /* smBc.png in Resources */,
 				CEBFE29D17161A590010B192 /* arrowDown.png in Resources */,
@@ -980,6 +985,7 @@
 				1C61D9ED1742D7B70048C123 /* Event.m in Sources */,
 				1C61D9F01742D7BB0048C123 /* Medz.m in Sources */,
 				1C61D9F31742D7BF0048C123 /* Pii.m in Sources */,
+				1C4078EF1748D5FE0038C9F9 /* SLKCreateBabyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,10 +10,26 @@
 
 @interface SLKConstants : NSObject
 //Enteties
+#define kParent @"ParentFigure"
+#define kBaby   @"Baby"
 #define kBottle @"Bottle"
 #define kTits @"Tits"
-#define kBaby   @"Baby"
 #define kEvent @"Event"
+#define kSleep  @"Sleep"
+#define kMedz @"Medz"
+#define kPoo @"Poo"
+#define kPii @"Pii"
+
+//keys
+#define kBabyId @"babyId"
+#define kParentId @"parentId"
+#define kBottleId @"bottleId"
+#define kTitId @"titId"
+#define kEventId @"eventId"
+#define kSleepId @"sleepId"
+#define kMedzId @"medzId"
+#define kPooId @"pooId"
+#define kPiiId @"piiId"
 //TYPES
 #define kEventType_TitFood     @"breast milk"
 #define kEventType_BottleFood     @"bottleFood"
@@ -26,6 +42,7 @@
 #define kEventType_Medz    @"Medz"
 
 #define kEventType_Sleep    @"Sleep"
+
 
 
 //COLORS

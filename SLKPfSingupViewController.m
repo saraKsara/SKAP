@@ -12,7 +12,7 @@
 #import "SLKParentStorage.h"
 #import "ParentFigures.h"
 #import "SLKuser.h"
-
+#import "SLKConstants.h"
 #import <QuartzCore/QuartzCore.h>
 #import <Parse/Parse.h>
 @interface SLKPfSingupViewController ()
@@ -27,12 +27,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(popView)
-                                                 name:@"popView"
-                                               object:nil];
+
     
-     [self.signUpView.signUpButton addTarget:self action:@selector(popView) forControlEvents:UIControlEventTouchUpInside];
+//     [self.signUpView.signUpButton addTarget:self action:@selector(popView) forControlEvents:UIControlEventTouchUpInside];
     
     [self.signUpView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"poppis.png"]]];
     [self.signUpView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bo.png"]]];
@@ -73,89 +70,6 @@
     
 }
 
-
-- (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user
-{
-    SLKuser *parentUser= [[SLKuser alloc] init];
-    parentUser.parentId = user.objectId;
-    parentUser.name = user.username;
-    parentUser.email = user.email;
-
-}
-
-
--(void)popView
-{
-     
-    NSString *name = self.signUpView.usernameField.text;
-    NSString *email = self.signUpView.emailField.text;
-    
-    PFObject *parentObject = [PFObject objectWithClassName:@"ParentFigure"];
-    [parentObject setObject:name forKey:@"name"];
-    [parentObject setObject:email forKey:@"signature"];
-    [parentObject setObject:[[NSProcessInfo processInfo] globallyUniqueString] forKey:@"parentId"];
-
-    
-    //[parentObject setObject:_setSignatureTextField.text forKey:@"signature"];
-    //     [babyObject setObject:newBabyName forKey:@"date"];
-    
-    //TODO: CHECK FOR INTERNET CONNECTION (REACHABILITY?) AND DECIDE WHAT TO DO WHEN THERE'S NO CONNECTION
-    
-    [SLKPARSEService postObject:parentObject onSuccess:^(PFObject *object)
-     {
-                  
-         ParentFigures *theNewParent =  [[SLKParentStorage sharedStorage]
-                                         createParentWithName: [object objectForKey:@"name"]
-                                         signature:[object objectForKey:@"signature"]
-                                          parentId:[object objectForKey:@"parentId"]
-                                         number:@"0046707245749"
-                                         color:[object objectForKey:@"color"]
-                                         babies:nil
-                                         dirty:NO];
-         
-         [[SLKParentStorage sharedStorage] setCurrentParent:theNewParent];
-         
-         [[PFUser currentUser]setObject:theNewParent.parentId forKey:@"ParentFigure"];//????
-       
-        [[SLKParentStorage sharedStorage] setCurrentParent:theNewParent];
-         
-         //TODO: add a baby by reloading this view
-         
-         //             [_setSignatureLabel setHidden:YES];
-         //             [_setSignatureTextField setHidden:YES];
-         
-        
-         SLKPfLoginViewController *lvc = [[SLKPfLoginViewController alloc]init];
-         //lvc.delegate = self;
-         
-         [self presentViewController:lvc animated:YES completion:NULL];
-         //
-     } onFailure:^(PFObject *object)
-     {
-         NSLog(@"FAILED :((( ");
-         UIAlertView *failAlert = [[UIAlertView alloc]
-                                   initWithTitle:@"FAIL"
-                                   message:@"Failed to add new baby for now. Please try again later" delegate:self
-                                   cancelButtonTitle:@"OK"
-                                   otherButtonTitles:nil, nil];
-         [failAlert show];
-         [self performSegueWithIdentifier:@"addBabyNParentSeg" sender:self];
-         
-     }];
-}
-
-
-
-
-
-
-
-   //  NSLog(@"objectID from parse----%@",uname);
-     //[SLKPARSEService getParentWithUserName:u];
-   
-    
-
-
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
@@ -193,9 +107,42 @@
 }
 
 
+-(void)popView
+{
+     
+//    NSString *name = self.signUpView.usernameField.text;
+//    NSString *email = self.signUpView.emailField.text;
+//    
+//    //Creating new parent from scratch, eg, without an invitation and babyId...
+//    ParentFigures *theNewParent =  [[SLKParentStorage sharedStorage]
+//                                    createParentWithName: name
+//                                    signature:email
+//                                    parentId:[[NSProcessInfo processInfo] globallyUniqueString]
+//                                    number:@"0046707245749"
+//                                    color:nil
+//                                    babies:nil//set this if parent has invitation
+//                                    dirty:YES];
+//    
+//    
+//    SLKPfLoginViewController *lvc = [[SLKPfLoginViewController alloc]init];
+//    //lvc.delegate = self;
+//    
+//    [self presentViewController:lvc animated:YES completion:NULL];
+//    //
+//TODO: use signupdelegate to check if signup was sucessful!
+}
+
+   //  NSLog(@"objectID from parse----%@",uname);
+     //[SLKPARSEService getParentWithUserName:u];
+   
+
+
+
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
 
 @end

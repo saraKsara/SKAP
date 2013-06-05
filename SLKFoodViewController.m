@@ -112,8 +112,8 @@
     [super viewWillAppear:animated];
     
   //  NSLog(@"selected ONE? : %d", _switchOne.selected);
-    NSLog(@"current Pf-USER----%@", [PFUser currentUser]);
-    NSLog(@"current SLK-USER----%@", [SLKuser currentUser]);
+   // NSLog(@"current Pf-USER----%@", [PFUser currentUser]);
+   // NSLog(@"current SLK-USER----%@", [SLKuser currentUser]);
 
     
     _commentTextView.delegate = self;
@@ -566,7 +566,7 @@
             
               [[SLKEventStorage sharedStorage]
                createEvenWithHappening:tit
-               withComment:nil
+               withComment:@"fake"
                date:date
                eventId:tit.titId
                baby:[[SLKBabyStorage sharedStorage]
