@@ -36,6 +36,7 @@
     NSDate *fromDate;
     NSDate *todate;
     BOOL weekView;
+     WSAdSpace *splashAdView;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -44,6 +45,10 @@
     if (self) {
         // Custom initialization
     }
+    return self;
+}
+- (UIViewController *)rootViewController {
+    // You don't need to do more than this here. The widespace SDK simply needs to know about your viewController (i.e self)
     return self;
 }
 
@@ -94,14 +99,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _allEvents = YES;
-    [self reloadTable];
-    NSLog(@"current baby in daysummary: %@", currentBaby);
-    if ( _allEvents == YES) {
-        NSLog(@"daysummary   _allEvents = YES;");
+    splashAdView = [[WSAdSpace alloc] initWithFrame:CGRectMake(0, 0,320 ,88)  sid:@"f48a4efe-0567-4bc5-b426-8e385f386a87" autoUpdate:YES autoStart:YES delegate:self];
+    // Add WSAdSpace as a subview of MyViewController
+    // splashAdView.backgroundColor = [UIColor redColor];
+    [self.view addSubview:splashAdView];
+    [self.view bringSubviewToFront:splashAdView];
+    
 
-    }
-   
 	// Do any additional setup after loading the view.
 }
 

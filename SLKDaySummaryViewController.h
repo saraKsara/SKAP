@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "widespace-4.lib/WSAdSpace.h"
 
-@interface SLKDaySummaryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SLKDaySummaryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, WSAdSpaceDelegate>
 - (IBAction)segmentcontroll:(id)sender;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentcontroll;
 

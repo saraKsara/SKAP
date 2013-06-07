@@ -48,6 +48,7 @@
     
     BOOL *leftBoob;
     BOOL *rightBoob;
+    WSAdSpace *splashAdView;
 
 //    //DIAPER
 //    BOOL piiToAddNormal;
@@ -105,6 +106,20 @@
         // Custom initialization
     }
     return self;
+}
+
+- (UIViewController *)rootViewController {
+    // You don't need to do more than this here. The widespace SDK simply needs to know about your viewController (i.e self)
+    return self;
+}
+-(void)didFailWithError:(WSAdSpace *)adSpace type:(NSString *)type message:(NSString *)message error:(NSError *)error
+{
+    NSLog(@"Adspace did fail with message: %@", message);
+}
+
+-(void)didLoadAd:(WSAdSpace *)adSpace adType:(NSString *)adType
+{
+    NSLog(@"Adspace did load ad with type: %@", adType);
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -186,7 +201,13 @@
 {
     [super viewDidLoad];
      //_universalSliderText.text = [NSString stringWithFormat:@"log how much %@ ate ", currentBabe.name];
-    
+   
+    // Declare and Initiate the WSAdSpace object
+   // splashAdView = [[WSAdSpace alloc] initWithFrame:CGRectMake(0, 0,320 ,88)  sid:@"f48a4efe-0567-4bc5-b426-8e385f386a87" autoUpdate:YES autoStart:YES delegate:self];
+     // Add WSAdSpace as a subview of MyViewController
+   // splashAdView.backgroundColor = [UIColor redColor];
+   // [self.view addSubview:splashAdView];
+    //[self.view bringSubviewToFront:splashAdView];
     
     //GestureRecognizers
     

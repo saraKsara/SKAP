@@ -17,16 +17,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(popThisView)
-//                                                 name:@"popThisView"
-//                                               object:nil];
-
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(popThisView)
+                                                 name:@"popThisView"
+                                               object:nil];
     [self.logInView.logInButton addTarget:self action:@selector(popThisView) forControlEvents:UIControlEventTouchUpInside];
     
     
     [self.logInView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"smallViewBackground.png"]]];
-    [self.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bo.png"]]];
+    [self.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"smallViewBackground.png"]]];
     
     // Set buttons appearance
     [self.logInView.dismissButton setImage:[UIImage imageNamed:@"prevyArrow.png"] forState:UIControlStateNormal];
@@ -52,7 +52,7 @@
     [self.logInView.signUpButton setTitle:@"sign up" forState:UIControlStateHighlighted];
     
     // Add login field background
-    _fieldsBackground = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"titsSmall.png"]];
+    _fieldsBackground = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"smallViewBackground.png"]];
     [self.logInView addSubview:self.fieldsBackground];
     [self.logInView sendSubviewToBack:self.fieldsBackground];
     

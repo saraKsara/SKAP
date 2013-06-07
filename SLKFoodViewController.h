@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "widespace-4.lib/WSAdSpace.h"
 
-@interface SLKFoodViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate, UITextViewDelegate>
 
+@interface SLKFoodViewController : UIViewController <UIScrollViewDelegate, UIGestureRecognizerDelegate, UITextViewDelegate, WSAdSpaceDelegate>
 
+//WS_AdSpace
 
 //SLEEP
 @property (weak, nonatomic) IBOutlet UIView *sleepView;

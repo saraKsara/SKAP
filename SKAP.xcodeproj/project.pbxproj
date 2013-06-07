@@ -83,6 +83,11 @@
 		1CF8282E1701BD6A00EDC904 /* SLKDaySummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF8282D1701BD6A00EDC904 /* SLKDaySummaryViewController.m */; };
 		1CF828311701CB4B00EDC904 /* SLKDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF828301701CB4B00EDC904 /* SLKDateUtil.m */; };
 		1CF828341701D14000EDC904 /* SLKDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF828331701D14000EDC904 /* SLKDates.m */; };
+		8C1185A31761370A00859BFE /* pooButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1185A11761370A00859BFE /* pooButton.png */; };
+		8C1185A41761370A00859BFE /* peeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1185A21761370A00859BFE /* peeButton.png */; };
+		8C1185A717613D4700859BFE /* buttonPe.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1185A517613D4700859BFE /* buttonPe.png */; };
+		8C1185A817613D4700859BFE /* buttonPo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1185A617613D4700859BFE /* buttonPo.png */; };
+		8C1185AA17613E7F00859BFE /* peeButt.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1185A917613E7F00859BFE /* peeButt.png */; };
 		CE11D00217023283001A5AD2 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE11D00117023283001A5AD2 /* Parse.framework */; };
 		CE11D004170232ED001A5AD2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE11D003170232ED001A5AD2 /* AudioToolbox.framework */; };
 		CE11D00617023304001A5AD2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE11D00517023304001A5AD2 /* CFNetwork.framework */; };
@@ -115,10 +120,19 @@
 		CE5944D016F9A67200D9D33A /* SLKMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5944CF16F9A67200D9D33A /* SLKMainViewController.m */; };
 		CE5944D416F9A79800D9D33A /* SLKFoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5944D316F9A79800D9D33A /* SLKFoodViewController.m */; };
 		CE5944D716F9A7B700D9D33A /* SLKPiiPooViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5944D616F9A7B700D9D33A /* SLKPiiPooViewController.m */; };
+		CEA124321754947500B4BF70 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA124311754947500B4BF70 /* AVFoundation.framework */; };
+		CEA12434175494C500B4BF70 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA12433175494C500B4BF70 /* CoreTelephony.framework */; };
+		CEA12437175494D700B4BF70 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA12435175494D700B4BF70 /* EventKit.framework */; };
+		CEA12438175494D700B4BF70 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA12436175494D700B4BF70 /* EventKitUI.framework */; };
+		CEA1243A175494E800B4BF70 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA12439175494E800B4BF70 /* MediaPlayer.framework */; };
+		CEA1243E1754988300B4BF70 /* widespace-4.lib in Resources */ = {isa = PBXBuildFile; fileRef = CEA1243D1754988300B4BF70 /* widespace-4.lib */; };
+		CEA1244217549A1400B4BF70 /* libWSLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA1244117549A1400B4BF70 /* libWSLibrary.a */; };
 		CEB7EEE3171485D600D11E2B /* SLKSleepStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB7EEE2171485D600D11E2B /* SLKSleepStorage.m */; };
 		CEBFE2931715F00F0010B192 /* smallViewBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBFE2921715F00F0010B192 /* smallViewBackground.png */; };
 		CEBFE2951715F5870010B192 /* smBc.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBFE2941715F5870010B192 /* smBc.png */; };
 		CEBFE29D17161A590010B192 /* arrowDown.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBFE29C17161A590010B192 /* arrowDown.png */; };
+		CEDA16741754E06500F110CF /* splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDA16731754E06500F110CF /* splash.storyboard */; };
+		CEDA16771754E09900F110CF /* SLKSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDA16761754E09900F110CF /* SLKSplashViewController.m */; };
 		CEDDEB5B171354590017DE60 /* tits.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDDEB5A171354590017DE60 /* tits.png */; };
 		CEDDEB5D171355F80017DE60 /* titsSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDDEB5C171355F80017DE60 /* titsSmall.png */; };
 		CEDDEB5F171358820017DE60 /* titsPink.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDDEB5E171358820017DE60 /* titsPink.png */; };
@@ -265,6 +279,11 @@
 		1CF828301701CB4B00EDC904 /* SLKDateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKDateUtil.m; sourceTree = "<group>"; };
 		1CF828321701D13F00EDC904 /* SLKDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKDates.h; sourceTree = "<group>"; };
 		1CF828331701D14000EDC904 /* SLKDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKDates.m; sourceTree = "<group>"; };
+		8C1185A11761370A00859BFE /* pooButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pooButton.png; sourceTree = "<group>"; };
+		8C1185A21761370A00859BFE /* peeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = peeButton.png; sourceTree = "<group>"; };
+		8C1185A517613D4700859BFE /* buttonPe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonPe.png; sourceTree = "<group>"; };
+		8C1185A617613D4700859BFE /* buttonPo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonPo.png; sourceTree = "<group>"; };
+		8C1185A917613E7F00859BFE /* peeButt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = peeButt.png; sourceTree = "<group>"; };
 		CE11D00117023283001A5AD2 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		CE11D003170232ED001A5AD2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		CE11D00517023304001A5AD2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -305,11 +324,21 @@
 		CE5944D316F9A79800D9D33A /* SLKFoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKFoodViewController.m; sourceTree = "<group>"; };
 		CE5944D516F9A7B700D9D33A /* SLKPiiPooViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKPiiPooViewController.h; sourceTree = "<group>"; };
 		CE5944D616F9A7B700D9D33A /* SLKPiiPooViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPiiPooViewController.m; sourceTree = "<group>"; };
+		CEA124311754947500B4BF70 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CEA12433175494C500B4BF70 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		CEA12435175494D700B4BF70 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		CEA12436175494D700B4BF70 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		CEA12439175494E800B4BF70 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		CEA1243D1754988300B4BF70 /* widespace-4.lib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "widespace-4.lib"; sourceTree = "<group>"; };
+		CEA1244117549A1400B4BF70 /* libWSLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWSLibrary.a; path = "widespace-4.lib/libWSLibrary.a"; sourceTree = "<group>"; };
 		CEB7EEE1171485D600D11E2B /* SLKSleepStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKSleepStorage.h; sourceTree = "<group>"; };
 		CEB7EEE2171485D600D11E2B /* SLKSleepStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKSleepStorage.m; sourceTree = "<group>"; };
 		CEBFE2921715F00F0010B192 /* smallViewBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smallViewBackground.png; sourceTree = "<group>"; };
 		CEBFE2941715F5870010B192 /* smBc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smBc.png; sourceTree = "<group>"; };
 		CEBFE29C17161A590010B192 /* arrowDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowDown.png; sourceTree = "<group>"; };
+		CEDA16731754E06500F110CF /* splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = splash.storyboard; sourceTree = "<group>"; };
+		CEDA16751754E09900F110CF /* SLKSplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKSplashViewController.h; sourceTree = "<group>"; };
+		CEDA16761754E09900F110CF /* SLKSplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKSplashViewController.m; sourceTree = "<group>"; };
 		CEDDEB5A171354590017DE60 /* tits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tits.png; sourceTree = "<group>"; };
 		CEDDEB5C171355F80017DE60 /* titsSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titsSmall.png; sourceTree = "<group>"; };
 		CEDDEB5E171358820017DE60 /* titsPink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titsPink.png; sourceTree = "<group>"; };
@@ -340,19 +369,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE11D00D1702336F001A5AD2 /* QuartzCore.framework in Frameworks */,
 				CE11D013170233A0001A5AD2 /* SystemConfiguration.framework in Frameworks */,
+				CEA1243A175494E800B4BF70 /* MediaPlayer.framework in Frameworks */,
+				CEA12437175494D700B4BF70 /* EventKit.framework in Frameworks */,
+				CEA12438175494D700B4BF70 /* EventKitUI.framework in Frameworks */,
+				CEA12434175494C500B4BF70 /* CoreTelephony.framework in Frameworks */,
+				CE11D00817023329001A5AD2 /* CoreLocation.framework in Frameworks */,
+				CEA124321754947500B4BF70 /* AVFoundation.framework in Frameworks */,
 				CE11D01117023395001A5AD2 /* StoreKit.framework in Frameworks */,
 				CE11D00F17023381001A5AD2 /* Security.framework in Frameworks */,
-				CE11D00D1702336F001A5AD2 /* QuartzCore.framework in Frameworks */,
 				CE11D00C1702335D001A5AD2 /* MobileCoreServices.framework in Frameworks */,
 				CE11D00A17023344001A5AD2 /* libz.1.1.3.dylib in Frameworks */,
-				CE11D00817023329001A5AD2 /* CoreLocation.framework in Frameworks */,
 				CE59449716F90DC800D9D33A /* CoreGraphics.framework in Frameworks */,
 				CE11D00617023304001A5AD2 /* CFNetwork.framework in Frameworks */,
 				CE11D004170232ED001A5AD2 /* AudioToolbox.framework in Frameworks */,
 				1C91DDEC16FC567F00921C59 /* CoreData.framework in Frameworks */,
 				CE59449316F90DC800D9D33A /* UIKit.framework in Frameworks */,
 				CE59449516F90DC800D9D33A /* Foundation.framework in Frameworks */,
+				CEA1244217549A1400B4BF70 /* libWSLibrary.a in Frameworks */,
 				CE11D00217023283001A5AD2 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -563,7 +598,12 @@
 		1C955AC8170E034A00310575 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8C1185A517613D4700859BFE /* buttonPe.png */,
+				8C1185A917613E7F00859BFE /* peeButt.png */,
+				8C1185A617613D4700859BFE /* buttonPo.png */,
 				CEE0DB41174D6381002EE5F1 /* bottle2.png */,
+				8C1185A11761370A00859BFE /* pooButton.png */,
+				8C1185A21761370A00859BFE /* peeButton.png */,
 				CEE0DB3F174D56A2002EE5F1 /* v.png */,
 				CEE0DB37174BFD2C002EE5F1 /* cross.png */,
 				CEEFACB21742E26D005BA351 /* Diaper.jpg */,
@@ -646,6 +686,7 @@
 		CE59448316F90DC800D9D33A = {
 			isa = PBXGroup;
 			children = (
+				CEA1244117549A1400B4BF70 /* libWSLibrary.a */,
 				CE59449816F90DC800D9D33A /* SKAP */,
 				1CA7F8D916FC8B72008BB1BF /* SKAPUnitTest */,
 				CE59449116F90DC800D9D33A /* Frameworks */,
@@ -665,6 +706,12 @@
 		CE59449116F90DC800D9D33A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CEA1243D1754988300B4BF70 /* widespace-4.lib */,
+				CEA12439175494E800B4BF70 /* MediaPlayer.framework */,
+				CEA12435175494D700B4BF70 /* EventKit.framework */,
+				CEA12436175494D700B4BF70 /* EventKitUI.framework */,
+				CEA12433175494C500B4BF70 /* CoreTelephony.framework */,
+				CEA124311754947500B4BF70 /* AVFoundation.framework */,
 				CE11D012170233A0001A5AD2 /* SystemConfiguration.framework */,
 				CE11D01017023395001A5AD2 /* StoreKit.framework */,
 				CE11D00E17023381001A5AD2 /* Security.framework */,
@@ -755,6 +802,7 @@
 		CE5944D116F9A6B900D9D33A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CEDA16781754E0A800F110CF /* Splash */,
 				1C423F77170D6B0000DCB469 /* Food */,
 				1C423F7C170D6B9100DCB469 /* Calendar */,
 				1C423F76170D6AE100DCB469 /* Settings */,
@@ -768,6 +816,16 @@
 			);
 			name = ViewController;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		CEDA16781754E0A800F110CF /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				CEDA16731754E06500F110CF /* splash.storyboard */,
+				CEDA16751754E09900F110CF /* SLKSplashViewController.h */,
+				CEDA16761754E09900F110CF /* SLKSplashViewController.m */,
+			);
+			name = Splash;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -885,6 +943,13 @@
 				CEE0DB38174BFD2C002EE5F1 /* cross.png in Resources */,
 				CEE0DB40174D56A2002EE5F1 /* v.png in Resources */,
 				CEE0DB42174D6381002EE5F1 /* bottle2.png in Resources */,
+				CEA1243E1754988300B4BF70 /* widespace-4.lib in Resources */,
+				CEDA16741754E06500F110CF /* splash.storyboard in Resources */,
+				8C1185A31761370A00859BFE /* pooButton.png in Resources */,
+				8C1185A41761370A00859BFE /* peeButton.png in Resources */,
+				8C1185A717613D4700859BFE /* buttonPe.png in Resources */,
+				8C1185A817613D4700859BFE /* buttonPo.png in Resources */,
+				8C1185AA17613E7F00859BFE /* peeButt.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1090,7 +1155,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PROVISIONING_PROFILE = "70586875-F7BA-46D8-B7CB-32489CC711CB";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "70586875-F7BA-46D8-B7CB-32489CC711CB";
 				SDKROOT = iphoneos;
@@ -1113,7 +1178,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "70586875-F7BA-46D8-B7CB-32489CC711CB";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "70586875-F7BA-46D8-B7CB-32489CC711CB";
@@ -1132,7 +1197,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SKAP/SKAP-Prefix.pch";
 				INFOPLIST_FILE = "SKAP/SKAP-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/widespace.lib\"",
+					"\"$(SRCROOT)/widespace-4.lib\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1148,7 +1218,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SKAP/SKAP-Prefix.pch";
 				INFOPLIST_FILE = "SKAP/SKAP-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/widespace.lib\"",
+					"\"$(SRCROOT)/widespace-4.lib\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

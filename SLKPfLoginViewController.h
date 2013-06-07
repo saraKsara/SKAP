@@ -7,7 +7,15 @@
 //
 
 #import <Parse/Parse.h>
+#import "widespace-4.lib/WSAdSpace.h"
 
-@interface SLKPfLoginViewController : PFLogInViewController
+
+@interface SLKPfLoginViewController : PFLogInViewController<WSAdSpaceDelegate>
+{
+    WSAdSpace *splashAdView;
+}
+
+- (void)loadSplashAd;
+
 
 @end

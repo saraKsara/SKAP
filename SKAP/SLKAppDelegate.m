@@ -21,6 +21,7 @@
 #import "SLKTababrController.h"
 #import "SLKTabbar.h"
 #import "SLKPfSingupViewController.h"
+#import "SLKSplashViewController.h"
 #import "SLKuser.h"
 #import "SLKCreateBabyViewController.h"
 
@@ -306,14 +307,8 @@
 #pragma mark setupapp
 -(void)setUpApp
 {
-    NSLog(@"\n\n --------current PFUSR: %@----------\n\n", [[PFUser currentUser] username]);
-//    
-//    NSLog(@"currentMorsa---%@",[[[SLKParentStorage sharedStorage]getCurrentParent]name]);
-//    NSLog(@"\n\n --------current BABY id:: %@----------\n\n", [SLKUserDefaults getTheCurrentBabe]);
-//    NSLog(@"\n\n --------current BABY name: %@----------\n\n", [[[SLKBabyStorage sharedStorage]getCurrentBaby]name]);
-//TODO: get events for baby that belongs to parent!
-      [SLKPARSEService getAllEvents];
     
+    NSLog(@"currentMorsa---%@",[[[SLKParentStorage sharedStorage]getCurrentParent]name]);
     self.tabBarController = [[SLKTababrController alloc] init];
     UIStoryboard *settingStoryboard = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
     UIStoryboard *calendarStoryboard  = [UIStoryboard storyboardWithName:@"calendar" bundle:nil];
