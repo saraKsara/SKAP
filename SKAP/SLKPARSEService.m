@@ -32,238 +32,203 @@
 #import "SLKMedzStorage.h"
 @implementation SLKPARSEService
 
-+(void)getAllObjects
-{
 
-//    NSDictionary *paramDict =  @{@"objectId":@"qQnTDiem5K"};
-//    
-//    [PFCloud callFunctionInBackground:@"getBabies" withParameters:paramDict block:^(id object, NSError *error) {
-//        if (!error) {
-//            NSLog(@"Baby from response %@", [[object objectAtIndex:0] objectForKey:@"name"]);
-//            
-//        } else {
-//            NSLog(@"Error: %@", error);
-//            
-//        }
-//    }];
-    
-    
-//    PFQuery *babyQuery = [PFQuery queryWithClassName:@"Baby"]; //1
-//    //[query whereKey:@"name" equalTo:@"Jack"];//2
-//    [babyQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {//4
-//        if (!error) {
-//            NSLog(@"Successfully retrieved: %@", objects.class);
-//            
-//            for (int i = 0; i < [objects count]; i++)
-//            {
-//                //                 NSLog(@"BABY : %@", [[objects objectAtIndex:i] objectId ]);
-//                //                            NSLog(@"BABY : %@", [objects objectAtIndex:i]);
-//                
-//                [[SLKBabyStorage sharedStorage] createBabyWithName:[[objects objectAtIndex:i] objectForKey:@"name"]
-//                                                            babyId:[[objects objectAtIndex:i]objectId]
-//                                                              date:[[objects objectAtIndex:i] objectForKey:@"date"]
-//                                                              type:nil
-//                                                             color:[[objects objectAtIndex:i]objectForKey:@"color"]];
-//                
-//            }
-//            
-//        } else {
-//            NSString *errorString = [[error userInfo] objectForKey:@"error"];
-//            NSLog(@"Error: %@", errorString);
-//        }
-//    }];
-}
-+(void)getNewevents
++(void)getNewEvents
 {
-    
-}
-
-+(void)getAllEvents{
-    
-    PFQuery *query = [PFQuery queryWithClassName:kEvent]; //1
     NSString* bId = [[PFUser currentUser] objectForKey:kBabyId];
-
-   // NSString *currentUsersBabyId = [[PFUser currentUser] objectForKey:kBabyId];
-  //  NSString *currentUsersBabyId = [[PFUser currentUser] babyId];
-
-    NSLog(@"babbyID belonging to parent in parseservice: %@", bId);
-    //(1FB0E7D2-5AC9-4125-A9AC-80D89FB4E4BC-637-000002B34486D391)
+    NSDate *latestEventUpdate = [SLKUserDefaults getLatestEvent];
+    NSLog(@"getNewEvents, latestEvent: %@", latestEventUpdate);
     
-    [query whereKey:kBabyId equalTo:bId]; //TODO, this is only for one baby...
-    //[query includeKey:kBabyId];
-
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {//4
-    if (!error) {
-           NSLog(@"\nfindObjectsInBackgroundWithBlock: %@, %dst\n", objects.class, objects.count);
-            
-        if (objects.count > 0) {
-                
-            NSLog(@"Successfully retrieved: %@", objects.class);
-            
-            for (int i = 0; i < [objects count]; i++)
+    NSPredicate *predicate1 = [NSPredicate predicateWithFormat:@"babyId = %@", bId];
+    NSPredicate *predicate2 = [NSPredicate predicateWithFormat:@"updatedAt > %@", latestEventUpdate];
+    NSArray *subpredicates = [NSArray arrayWithObjects:predicate1, predicate2, nil];
+    
+    NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:subpredicates];
+    PFQuery *q = [PFQuery queryWithClassName:kEvent predicate:predicate];
+    
+    [q findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            NSMutableArray *eventIds = [[NSMutableArray alloc] init];
+            if (objects.count > 0)
             {
-              //  NSArray *eventArray = [[SLKEventStorage sharedStorage]eventArray];
                 
-                NSMutableSet *events = [[SLKEventStorage sharedStorage] eventIdsSet];
-                
-              //  NSLog(@"\n SET:--- %@\n\n",events);                 
-//                NSLog(@"\n eventID from SET--- : %d\n\n", [arr count]);
-//                for (Event *s in arr)
-//                {
-//                    NSLog(@"\n eventID from SET--- : %@\n\n", s.eventId);
-//                }
-
-                //If there's no event with that id in eventstorage, create it!
-                if (![events containsObject:[[objects objectAtIndex:i] objectForKey:@"eventId"]])
+                for (int i = 0; i < [objects count]; i++)
                 {
-                    NSLog(@"\n\nNo event with id %@ exists, creating one\n\n",[[objects objectAtIndex:i]objectForKey:@"eventId"]);
-                    NSLog(@"Event does not exist: %@", [objects objectAtIndex:i]);
-                    
-                    Baby *currentBaby = [[SLKBabyStorage sharedStorage] getCurrentBaby];
-                    
-                    if ([[[objects objectAtIndex:i]objectForKey:@"type"] isEqualToString: kEventType_TitFood]) {
-                        
-            NSLog(@"\n\n ITS A TITTIE! %@\n with id: %@\n", [[objects objectAtIndex:i]objectForKey:@"type"], [[objects objectAtIndex:i]objectForKey:@"eventId"]);
-                        
-                        
-                        [self getTitsWithId:[[objects objectAtIndex:i]objectForKey:@"eventId"] onSuccess:^(NSManagedObject *obj)
-                         {
-                             Tits *tittie = (Tits*)obj;
-                             NSLog(@"\n\n ON SUCCESS: %@ \n\n", tittie.titId);
-                             
-                             NSLog(@"\n\n can I still reach objects??? %@ \n\n",[[objects objectAtIndex:i]objectForKey:@"StringValue"]);
-
-                             
-                             [[SLKEventStorage sharedStorage]createEvenWithHappening:tittie
-                                                                         withComment:@"a fake comment"//[[objects objectAtIndex:i] objectForKey:@"comment"]
-                                                                                date:[[objects objectAtIndex:i] objectForKey:@"eventDate"]
-                                                                             eventId:[[objects objectAtIndex:i]objectForKey:@"eventId"]
-                                                                                baby:currentBaby
-                                                                               dirty:NO];
-                             
-                         } onFailure:^(NSManagedObject *obj)
-                         {
-                         }];
-                    }
-                    else if ([[[objects objectAtIndex:i]objectForKey:@"type"] isEqualToString: kEventType_BottleFood])
-                    {
-                        [self getBottleWithId:[[objects objectAtIndex:i]objectForKey:@"eventId"] onSuccess:^(NSManagedObject *obj)
-                         {
-                             Bottle *bottle = (Bottle*)obj;
-                             NSLog(@"\n\n ON SUCCESS: %@ \n\n", bottle.bottleId);
-                             
-                             NSLog(@"\n\n can I still reach objects??? %@ \n\n",[[objects objectAtIndex:i]objectForKey:@"milliLitres"]);
-                             
-                             
-                             [[SLKEventStorage sharedStorage]createEvenWithHappening:bottle
-                                                                         withComment:@"a fake comment"//[[objects objectAtIndex:i] objectForKey:@"comment"]
-                                                                                date:[[objects objectAtIndex:i] objectForKey:@"eventDate"]
-                                                                             eventId:[[objects objectAtIndex:i]objectForKey:@"eventId"]
-                                                                                baby:currentBaby
-                                                                               dirty:NO];
-                             
-                         } onFailure:^(NSManagedObject *obj)
-                         {
-                         }];
-                    }
-                    else if ([[[objects objectAtIndex:i]objectForKey:@"type"] isEqualToString: kEventType_Poo])
-                    {
-                        [self getPooWithId:[[objects objectAtIndex:i]objectForKey:@"eventId"] onSuccess:^(NSManagedObject *obj)
-                         {
-                             Poo *p = (Poo*)obj;
-                             NSLog(@"\n\n ON SUCCESS: %@ \n\n", p.pooId);
-                             
-                             [[SLKEventStorage sharedStorage]createEvenWithHappening:p
-                                                                         withComment:@"a fake comment"//[[objects objectAtIndex:i] objectForKey:@"comment"]
-                                                                                date:[[objects objectAtIndex:i] objectForKey:@"eventDate"]
-                                                                             eventId:[[objects objectAtIndex:i]objectForKey:@"eventId"]
-                                                                                baby:currentBaby
-                                                                               dirty:NO];
-                             
-                         } onFailure:^(NSManagedObject *obj)
-                         {
-                         }];
-                    }
-                    else if ([[[objects objectAtIndex:i]objectForKey:@"type"] isEqualToString: kEventType_Pii])
-                    {
-                        [self getPiiWithId:[[objects objectAtIndex:i]objectForKey:@"eventId"] onSuccess:^(NSManagedObject *obj)
-                         {
-                             Pii *p = (Pii*)obj;
-                             NSLog(@"\n\n ON SUCCESS: %@ \n\n", p.piiId);
-                             
-                             [[SLKEventStorage sharedStorage]createEvenWithHappening:p
-                                                                         withComment:@"a fake comment"//[[objects objectAtIndex:i] objectForKey:@"comment"]
-                                                                                date:[[objects objectAtIndex:i] objectForKey:@"eventDate"]
-                                                                             eventId:[[objects objectAtIndex:i]objectForKey:@"eventId"]
-                                                                                baby:currentBaby
-                                                                               dirty:NO];
-                             
-                         } onFailure:^(NSManagedObject *obj)
-                         {
-                         }];
-                    }
-                    else if ([[[objects objectAtIndex:i]objectForKey:@"type"] isEqualToString: kEventType_Medz])
-                    {
-                        [self getMedzWithId:[[objects objectAtIndex:i]objectForKey:@"eventId"] onSuccess:^(NSManagedObject *obj)
-                         {
-                             Medz *med = (Medz*)obj;
-                             NSLog(@"\n\n ON SUCCESS: %@ \n\n", med.medzId);
-                             
-                             [[SLKEventStorage sharedStorage]createEvenWithHappening:med
-                                                                         withComment:@"a fake comment"//[[objects objectAtIndex:i] objectForKey:@"comment"]
-                                                                                date:[[objects objectAtIndex:i] objectForKey:@"eventDate"]
-                                                                             eventId:[[objects objectAtIndex:i]objectForKey:@"eventId"]
-                                                                                baby:currentBaby
-                                                                               dirty:NO];
-                             
-                         } onFailure:^(NSManagedObject *obj)
-                         {
-                         }];
-                    }
-                    else if ([[[objects objectAtIndex:i]objectForKey:@"type"] isEqualToString: kEventType_Sleep])
-                    {
-                        [self getSleepWithId:[[objects objectAtIndex:i]objectForKey:@"eventId"] onSuccess:^(NSManagedObject *obj)
-                         {
-                             Sleep *sleep = (Sleep*)obj;
-                             NSLog(@"\n\n ON SUCCESS: %@ \n\n", sleep.sleepId);
-                             
-                             [[SLKEventStorage sharedStorage]createEvenWithHappening:sleep
-                                                                         withComment:@"a fake comment"//[[objects objectAtIndex:i] objectForKey:@"comment"]
-                                                                                date:[[objects objectAtIndex:i] objectForKey:@"eventDate"]
-                                                                             eventId:[[objects objectAtIndex:i]objectForKey:@"eventId"]
-                                                                                baby:currentBaby
-                                                                               dirty:NO];
-                             
-                         } onFailure:^(NSManagedObject *obj)
-                         {
-                         }];
-                    }
-                    
-                } else {
-                    NSLog(@"\n\n Event with %@ already exists, does SKIPPING to create it\n\n",[[objects objectAtIndex:i] objectForKey:@"eventId"]);
+                    [eventIds addObject:[[objects objectAtIndex:i] objectForKey:kEventId]];
                 }
-                //else if ([[[SLKEventStorage sharedStorage] getEventWithiD:[[objects objectAtIndex:i]objectId]] isdirty]){
-                //TODO:
-                /*
-                 if the event with that id is in lcal storage, check if the event is clean or dirty!!
-                 */
-                //  }
-                //                NSLog(@"\n\n type ------ :::: %@\n\n", [[objects objectAtIndex:i] objectForKey:@"type"]);
-                //                NSLog(@"\n\n local date ------ :::: %@\n\n", [[objects objectAtIndex:i] objectForKey:@"localDate"]);
-                //
-                //                NSLog(@"\n\n dirt ------ :::: %d\n\n", [[objects objectAtIndex:i] isDirty]);
+                [self getAllEventswithId:eventIds];
                 
-                //  NSLog(@"\n\n EVENT : %@\n\n", [objects objectAtIndex:i]);
             }
+            else{
+                //   [self getAllEventswithId:nil];
+                NSLog(@"User aldready up tp date");
+            }
+        }
+    }];
+}
+
++(void)getAllEventswithId:(NSMutableArray *)eventIds
+{
+    PFQuery *query = [PFQuery queryWithClassName:kEvent];
+    if (eventIds)
+    {
+        [query whereKey:kEventId containedIn:eventIds]; //only new events
+        NSLog(@"getAllEventswithId, only new events");
+    }
+    else //first time user, get all events belonging to the baby... Or??
+    {
+        NSString* bId = [[PFUser currentUser] objectForKey:kBabyId];
+        NSLog(@"getAllEventswithId");
+        
+        [query whereKey:kBabyId equalTo:bId]; //TODO, this is only for one baby...
+    }
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            NSLog(@"\nfindObjectsInBackgroundWithBlock: %@, %dst\n", objects.class, objects.count);
+            
+            /*
+             Set timestamp!
+             How often should we check for new events?? Or only listen to push??
+             */
+            if (objects.count > 0) {
+                
+                NSLog(@"Successfully retrieved: %@", objects.class);
+                
+                for (int i = 0; i < [objects count]; i++)
+                {
+                    NSMutableSet *events = [[SLKEventStorage sharedStorage] eventIdsSet];
+                    
+                    //If there's no event with that id in eventstorage, create it!
+                    if (![events containsObject:[[objects objectAtIndex:i] objectForKey:@"eventId"]])
+                    {
+                        Baby *currentBaby = [[SLKBabyStorage sharedStorage] getCurrentBaby];
+                        
+                        if ([[[objects objectAtIndex:i]objectForKey:@"type"] isEqualToString: kEventType_TitFood]) {
+                            
+                            [self getObjectId:[[objects objectAtIndex:i]objectForKey:@"eventId"] forKey:kTitId withClassName:kTits onSuccess:^(NSManagedObject *obj) {
+                                //                        [self getTitsWithId:[[objects objectAtIndex:i]objectForKey:@"eventId"] onSuccess:^(NSManagedObject *obj)
+                                //                         {
+                                Tits *tittie = (Tits*)obj;
+                                [[SLKEventStorage sharedStorage]createEvenWithHappening:tittie
+                                                                            withComment:@"a fake comment"//[[objects objectAtIndex:i] objectForKey:@"comment"]
+                                                                                   date:[[objects objectAtIndex:i] objectForKey:@"eventDate"]
+                                                                                eventId:[[objects objectAtIndex:i]objectForKey:@"eventId"]
+                                                                                   baby:currentBaby
+                                                                                  dirty:NO];
+                            } onFailure:^(NSManagedObject *obj)
+                             {
+                             }];
+                        }
+                        else if ([[[objects objectAtIndex:i]objectForKey:@"type"] isEqualToString: kEventType_BottleFood])
+                        {
+                            [self getBottleWithId:[[objects objectAtIndex:i]objectForKey:@"eventId"] onSuccess:^(NSManagedObject *obj)
+                             {
+                                 Bottle *bottle = (Bottle*)obj;
+                                 NSLog(@"\n\n ON SUCCESS: %@ \n\n", bottle.bottleId);
+                                 
+                                 NSLog(@"\n\n can I still reach objects??? %@ \n\n",[[objects objectAtIndex:i]objectForKey:@"milliLitres"]);
+                                 
+                                 
+                                 [[SLKEventStorage sharedStorage]createEvenWithHappening:bottle
+                                                                             withComment:@"a fake comment"//[[objects objectAtIndex:i] objectForKey:@"comment"]
+                                                                                    date:[[objects objectAtIndex:i] objectForKey:@"eventDate"]
+                                                                                 eventId:[[objects objectAtIndex:i]objectForKey:@"eventId"]
+                                                                                    baby:currentBaby
+                                                                                   dirty:NO];
+                                 
+                             } onFailure:^(NSManagedObject *obj)
+                             {
+                             }];
+                        }
+                        else if ([[[objects objectAtIndex:i]objectForKey:@"type"] isEqualToString: kEventType_Poo])
+                        {
+                            [self getPooWithId:[[objects objectAtIndex:i]objectForKey:@"eventId"] onSuccess:^(NSManagedObject *obj)
+                             {
+                                 Poo *p = (Poo*)obj;
+                                 NSLog(@"\n\n ON SUCCESS: %@ \n\n", p.pooId);
+                                 
+                                 [[SLKEventStorage sharedStorage]createEvenWithHappening:p
+                                                                             withComment:@"a fake comment"//[[objects objectAtIndex:i] objectForKey:@"comment"]
+                                                                                    date:[[objects objectAtIndex:i] objectForKey:@"eventDate"]
+                                                                                 eventId:[[objects objectAtIndex:i]objectForKey:@"eventId"]
+                                                                                    baby:currentBaby
+                                                                                   dirty:NO];
+                                 
+                             } onFailure:^(NSManagedObject *obj)
+                             {
+                             }];
+                        }
+                        else if ([[[objects objectAtIndex:i]objectForKey:@"type"] isEqualToString: kEventType_Pii])
+                        {
+                            [self getPiiWithId:[[objects objectAtIndex:i]objectForKey:@"eventId"] onSuccess:^(NSManagedObject *obj)
+                             {
+                                 Pii *p = (Pii*)obj;
+                                 NSLog(@"\n\n ON SUCCESS: %@ \n\n", p.piiId);
+                                 
+                                 [[SLKEventStorage sharedStorage]createEvenWithHappening:p
+                                                                             withComment:@"a fake comment"//[[objects objectAtIndex:i] objectForKey:@"comment"]
+                                                                                    date:[[objects objectAtIndex:i] objectForKey:@"eventDate"]
+                                                                                 eventId:[[objects objectAtIndex:i]objectForKey:@"eventId"]
+                                                                                    baby:currentBaby
+                                                                                   dirty:NO];
+                                 
+                             } onFailure:^(NSManagedObject *obj)
+                             {
+                             }];
+                        }
+                        else if ([[[objects objectAtIndex:i]objectForKey:@"type"] isEqualToString: kEventType_Medz])
+                        {
+                            [self getMedzWithId:[[objects objectAtIndex:i]objectForKey:@"eventId"] onSuccess:^(NSManagedObject *obj)
+                             {
+                                 Medz *med = (Medz*)obj;
+                                 NSLog(@"\n\n ON SUCCESS: %@ \n\n", med.medzId);
+                                 
+                                 [[SLKEventStorage sharedStorage]createEvenWithHappening:med
+                                                                             withComment:@"a fake comment"//[[objects objectAtIndex:i] objectForKey:@"comment"]
+                                                                                    date:[[objects objectAtIndex:i] objectForKey:@"eventDate"]
+                                                                                 eventId:[[objects objectAtIndex:i]objectForKey:@"eventId"]
+                                                                                    baby:currentBaby
+                                                                                   dirty:NO];
+                                 
+                             } onFailure:^(NSManagedObject *obj)
+                             {
+                             }];
+                        }
+                        else if ([[[objects objectAtIndex:i]objectForKey:@"type"] isEqualToString: kEventType_Sleep])
+                        {
+                            [self getSleepWithId:[[objects objectAtIndex:i]objectForKey:@"eventId"] onSuccess:^(NSManagedObject *obj)
+                             {
+                                 Sleep *sleep = (Sleep*)obj;
+                                 NSLog(@"\n\n ON SUCCESS: %@ \n\n", sleep.sleepId);
+                                 
+                                 [[SLKEventStorage sharedStorage]createEvenWithHappening:sleep
+                                                                             withComment:@"a fake comment"//[[objects objectAtIndex:i] objectForKey:@"comment"]
+                                                                                    date:[[objects objectAtIndex:i] objectForKey:@"eventDate"]
+                                                                                 eventId:[[objects objectAtIndex:i]objectForKey:@"eventId"]
+                                                                                    baby:currentBaby
+                                                                                   dirty:NO];
+                                 
+                             } onFailure:^(NSManagedObject *obj)
+                             {
+                             }];
+                        }
+                        [SLKUserDefaults setLatestEvent:[NSDate date]]; //TODO: move this to blockcallbaack???
+                        
+                        
+                    } else {
+                        NSLog(@"\n\n Event with %@ already exists, does SKIPPING to create it\n\n",[[objects objectAtIndex:i] objectForKey:@"eventId"]);
+                    }
+                }
+                
+            }
+        } else {
+            NSString *errorString = [[error userInfo] objectForKey:@"error"];
+            NSLog(@"Error, could not get all events: %@", errorString);
             
         }
-    } else {
-        NSString *errorString = [[error userInfo] objectForKey:@"error"];
-        NSLog(@"Error, could not get all events: %@", errorString);
-        
-    }
     }];
-
+    
 }
 +(void)getPooWithId:(NSString *)pooId onSuccess:(void (^)(NSManagedObject *))successObject onFailure:(void (^)(NSManagedObject *))failureObject
 {
@@ -278,7 +243,7 @@
             {
                 NSLog(@"got this poo : %@", [objects objectAtIndex:i]);
                 
-            p = [[SLKPooStorage sharedStorage] createPooWithId:[[objects objectAtIndex:i] objectForKey:kPooId] dirty:NO];
+                p = [[SLKPooStorage sharedStorage] createPooWithId:[[objects objectAtIndex:i] objectForKey:kPooId] dirty:NO];
                 
             }
             successObject(p);
@@ -373,6 +338,42 @@
         }
     }];
 }
++(void)getObjectId:(NSString *)objId forKey:(NSString*)key withClassName:(NSString*)className onSuccess:(void (^)(NSManagedObject *))successObject onFailure:(void (^)(NSManagedObject *))failureObject
+{
+    PFQuery *pQuery = [PFQuery queryWithClassName:className];
+    [pQuery whereKey:key equalTo:objId];
+    
+    [pQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            NSLog(@"Successfully retrieved object %d", objects.count);
+            NSManagedObject *object;
+            for (int i = 0; i < [objects count]; i++)
+            {
+                
+                if ([className isEqualToString:kTits]) {
+                }
+                
+                NSLog(@"got this object : %@", [objects objectAtIndex:i]);
+                
+                object = (Tits*)[[SLKTittStorage sharedStorage]
+                                 createTittWithId:[[objects objectAtIndex:i] objectForKey:kTitId]
+                                 StringValue:[[objects objectAtIndex:i] objectForKey:@"stringValue"]
+                                 mililitres:nil
+                                 minutes:nil
+                                 leftBoob:(BOOL)[[objects objectAtIndex:i] valueForKey:@"rightBoob"]
+                                 rightBoob:(BOOL)[[objects objectAtIndex:i] valueForKey:@"leftBoob"]
+                                 dirty:NO];
+                
+            }
+            successObject(object);
+            
+            
+        } else {
+            NSString *errorString = [[error userInfo] objectForKey:@"error"];
+            NSLog(@"Error: %@", errorString);
+        }
+    }];
+}
 +(void)getTitsWithId:(NSString *)titId onSuccess:(void (^)(NSManagedObject *))successObject onFailure:(void (^)(NSManagedObject *))failureObject
 {
     PFQuery *pQuery = [PFQuery queryWithClassName:kTits];
@@ -384,17 +385,17 @@
             Tits *tit;
             for (int i = 0; i < [objects count]; i++)
             {
-               NSLog(@"got this tit : %@", [objects objectAtIndex:i]);
+                NSLog(@"got this tit : %@", [objects objectAtIndex:i]);
                 
-            tit =  [[SLKTittStorage sharedStorage]
-                             createTittWithId:[[objects objectAtIndex:i] objectForKey:kTitId]
-                             StringValue:[[objects objectAtIndex:i] objectForKey:@"stringValue"]
-                             mililitres:nil
-                             minutes:nil
-                             leftBoob:(BOOL)[[objects objectAtIndex:i] valueForKey:@"rightBoob"]
-                             rightBoob:(BOOL)[[objects objectAtIndex:i] valueForKey:@"leftBoob"]
-                             dirty:NO];
-
+                tit =  [[SLKTittStorage sharedStorage]
+                        createTittWithId:[[objects objectAtIndex:i] objectForKey:kTitId]
+                        StringValue:[[objects objectAtIndex:i] objectForKey:@"stringValue"]
+                        mililitres:nil
+                        minutes:nil
+                        leftBoob:(BOOL)[[objects objectAtIndex:i] valueForKey:@"rightBoob"]
+                        rightBoob:(BOOL)[[objects objectAtIndex:i] valueForKey:@"leftBoob"]
+                        dirty:NO];
+                
             }
             successObject(tit);
             
@@ -434,35 +435,38 @@
         }
     }];
 }
-+(void)getBabyWithId:(NSString*)babiId onSuccess:(void (^)(PFObject *))successObject onFailure:(void (^)(PFObject *))failureObject
++(void)getBabyWithId:(NSString*)babyId onSuccess:(void (^)(PFObject *))successObject onFailure:(void (^)(PFObject *))failureObject
 {
     PFQuery *pQuery = [PFQuery queryWithClassName:kBaby];
-    [pQuery whereKey:kBabyId equalTo:babiId];
+    [pQuery whereKey:kBabyId equalTo:babyId];
     
+    NSString* bId = [[PFUser currentUser] objectForKey:kBabyId];
+    NSLog(@"babbyID belonging to parent in parseservice: %@", bId);
     
     [pQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             NSLog(@"Successfully retrieved babies %d", objects.count);
             // NSLog(@"----------%@",[objects objectAtIndex:0]);
-            for (int i = 0; i < [objects count]; i++)
-            {
-        NSLog(@"Getting BABYname : %@", [[objects objectAtIndex:i] objectForKey:@"name"]);
-                                 NSLog(@" getting BABY : %@", [[objects objectAtIndex:i] allKeys]);
-                [[SLKBabyStorage sharedStorage] createBabyWithName:[[objects objectAtIndex:i] objectForKey:@"name"]
-                                                            babyId:[[objects objectAtIndex:i] objectForKey:kBabyId]
-                                                              date:[NSDate date]
-                                                              type:[[objects objectAtIndex:i] objectForKey:@"type"]
-                                                             color:[[objects objectAtIndex:i] objectForKey:@"color"]
-                                                             dirty:NO];
-
-            }
-            successObject([objects lastObject]);
-            
+            if (objects.count > 0){
+                for (int i = 0; i < [objects count]; i++)
+                {
+                    NSLog(@"Getting BABYname : %@", [[objects objectAtIndex:i] objectForKey:@"name"]);
+                    NSLog(@" getting BABY : %@", [[objects objectAtIndex:i] allKeys]);
+                    [[SLKBabyStorage sharedStorage] createBabyWithName:[[objects objectAtIndex:i] objectForKey:@"name"]
+                                                                babyId:[[objects objectAtIndex:i] objectForKey:kBabyId]
+                                                                  date:[NSDate date]
+                                                                  type:[[objects objectAtIndex:i] objectForKey:@"type"]
+                                                                 color:[[objects objectAtIndex:i] objectForKey:@"color"]
+                                                                 dirty:NO];
+                }
+                successObject([objects lastObject]);
+            } else NSLog(@"There is no baby with id %@", babyId);
         } else {
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
             NSLog(@"Error: %@", errorString);
         }
     }];
+    
 }
 
 
@@ -475,17 +479,13 @@
     PFQuery *pQuery = [PFQuery queryWithClassName:@"PFUser"];
     [pQuery whereKey:@"username" equalTo:pName];
     NSLog(@"----%@", pName);
-  
+    
     
     [pQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            NSLog(@"Successfully retrieved kanske INGET JÄVLAT ALLS: %@", objects.class);
-            // NSLog(@"----------%@",[objects objectAtIndex:0]);
+            NSLog(@"Successfully retrieved: %@", objects.class);
             for (int i = 0; i < [objects count]; i++)
             {
-                NSLog(@"huhuhuhuhuh----");
-                //                 NSLog(@"BABY : %@", [[objects objectAtIndex:i] objectId ]);
-                //                            NSLog(@"BABY : %@", [objects objectAtIndex:i]);
                 
                 [[SLKParentStorage sharedStorage]createParentWithName:[[objects objectAtIndex:i] objectForKey:@"username"]
                                                             signature:nil

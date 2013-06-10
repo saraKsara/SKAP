@@ -47,8 +47,8 @@
 
 //COLORS
 #define kGreenish_Color     @"beffcd"
-#define kYellowish_Color     @"fee787"  
-#define kBlueish_Color     @"5a86a1"  
+#define kYellowish_Color     @"fee787"
+#define kBlueish_Color     @"5a86a1"
 
 
 #define kBG_Color @"ECE8E9"

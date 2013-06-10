@@ -77,6 +77,7 @@
 		1CB057971712EB2C00205AC0 /* SLKLinksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB057961712EB2C00205AC0 /* SLKLinksViewController.m */; };
 		1CBBEE2317141D6B00305432 /* sleep.Storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CBBEE2217141D6B00305432 /* sleep.Storyboard */; };
 		1CBBEE2717141D8600305432 /* SLKSleppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CBBEE2617141D8600305432 /* SLKSleppViewController.m */; };
+		1CDF9808176629A200F20065 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CDF9807176629A200F20065 /* Parse.framework */; };
 		1CECF565170D8D59008AFA74 /* SLKAddBabyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CECF564170D8D59008AFA74 /* SLKAddBabyViewController.m */; };
 		1CF828271701A36E00EDC904 /* SLKUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF828261701A36E00EDC904 /* SLKUserDefaults.m */; };
 		1CF8282A1701A9BA00EDC904 /* SLKAlertWithBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF828291701A9BA00EDC904 /* SLKAlertWithBlock.m */; };
@@ -88,7 +89,6 @@
 		8C1185A717613D4700859BFE /* buttonPe.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1185A517613D4700859BFE /* buttonPe.png */; };
 		8C1185A817613D4700859BFE /* buttonPo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1185A617613D4700859BFE /* buttonPo.png */; };
 		8C1185AA17613E7F00859BFE /* peeButt.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1185A917613E7F00859BFE /* peeButt.png */; };
-		CE11D00217023283001A5AD2 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE11D00117023283001A5AD2 /* Parse.framework */; };
 		CE11D004170232ED001A5AD2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE11D003170232ED001A5AD2 /* AudioToolbox.framework */; };
 		CE11D00617023304001A5AD2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE11D00517023304001A5AD2 /* CFNetwork.framework */; };
 		CE11D00817023329001A5AD2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE11D00717023329001A5AD2 /* CoreLocation.framework */; };
@@ -131,8 +131,6 @@
 		CEBFE2931715F00F0010B192 /* smallViewBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBFE2921715F00F0010B192 /* smallViewBackground.png */; };
 		CEBFE2951715F5870010B192 /* smBc.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBFE2941715F5870010B192 /* smBc.png */; };
 		CEBFE29D17161A590010B192 /* arrowDown.png in Resources */ = {isa = PBXBuildFile; fileRef = CEBFE29C17161A590010B192 /* arrowDown.png */; };
-		CEDA16741754E06500F110CF /* splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDA16731754E06500F110CF /* splash.storyboard */; };
-		CEDA16771754E09900F110CF /* SLKSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDA16761754E09900F110CF /* SLKSplashViewController.m */; };
 		CEDDEB5B171354590017DE60 /* tits.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDDEB5A171354590017DE60 /* tits.png */; };
 		CEDDEB5D171355F80017DE60 /* titsSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDDEB5C171355F80017DE60 /* titsSmall.png */; };
 		CEDDEB5F171358820017DE60 /* titsPink.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDDEB5E171358820017DE60 /* titsPink.png */; };
@@ -267,6 +265,7 @@
 		1CBBEE2217141D6B00305432 /* sleep.Storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = sleep.Storyboard; sourceTree = "<group>"; };
 		1CBBEE2517141D8600305432 /* SLKSleppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKSleppViewController.h; sourceTree = "<group>"; };
 		1CBBEE2617141D8600305432 /* SLKSleppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKSleppViewController.m; sourceTree = "<group>"; };
+		1CDF9807176629A200F20065 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		1CECF563170D8D59008AFA74 /* SLKAddBabyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKAddBabyViewController.h; sourceTree = "<group>"; };
 		1CECF564170D8D59008AFA74 /* SLKAddBabyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKAddBabyViewController.m; sourceTree = "<group>"; };
 		1CF828251701A36E00EDC904 /* SLKUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKUserDefaults.h; sourceTree = "<group>"; };
@@ -284,7 +283,6 @@
 		8C1185A517613D4700859BFE /* buttonPe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonPe.png; sourceTree = "<group>"; };
 		8C1185A617613D4700859BFE /* buttonPo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonPo.png; sourceTree = "<group>"; };
 		8C1185A917613E7F00859BFE /* peeButt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = peeButt.png; sourceTree = "<group>"; };
-		CE11D00117023283001A5AD2 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		CE11D003170232ED001A5AD2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		CE11D00517023304001A5AD2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		CE11D00717023329001A5AD2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -336,9 +334,6 @@
 		CEBFE2921715F00F0010B192 /* smallViewBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smallViewBackground.png; sourceTree = "<group>"; };
 		CEBFE2941715F5870010B192 /* smBc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smBc.png; sourceTree = "<group>"; };
 		CEBFE29C17161A590010B192 /* arrowDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowDown.png; sourceTree = "<group>"; };
-		CEDA16731754E06500F110CF /* splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = splash.storyboard; sourceTree = "<group>"; };
-		CEDA16751754E09900F110CF /* SLKSplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKSplashViewController.h; sourceTree = "<group>"; };
-		CEDA16761754E09900F110CF /* SLKSplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKSplashViewController.m; sourceTree = "<group>"; };
 		CEDDEB5A171354590017DE60 /* tits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tits.png; sourceTree = "<group>"; };
 		CEDDEB5C171355F80017DE60 /* titsSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titsSmall.png; sourceTree = "<group>"; };
 		CEDDEB5E171358820017DE60 /* titsPink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = titsPink.png; sourceTree = "<group>"; };
@@ -388,7 +383,7 @@
 				CE59449316F90DC800D9D33A /* UIKit.framework in Frameworks */,
 				CE59449516F90DC800D9D33A /* Foundation.framework in Frameworks */,
 				CEA1244217549A1400B4BF70 /* libWSLibrary.a in Frameworks */,
-				CE11D00217023283001A5AD2 /* Parse.framework in Frameworks */,
+				1CDF9808176629A200F20065 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,6 +701,7 @@
 		CE59449116F90DC800D9D33A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1CDF9807176629A200F20065 /* Parse.framework */,
 				CEA1243D1754988300B4BF70 /* widespace-4.lib */,
 				CEA12439175494E800B4BF70 /* MediaPlayer.framework */,
 				CEA12435175494D700B4BF70 /* EventKit.framework */,
@@ -722,7 +718,6 @@
 				CE11D003170232ED001A5AD2 /* AudioToolbox.framework */,
 				1CA7F90416FCBBF3008BB1BF /* QuartzCore.framework */,
 				1C91DDEB16FC567F00921C59 /* CoreData.framework */,
-				CE11D00117023283001A5AD2 /* Parse.framework */,
 				CE59449216F90DC800D9D33A /* UIKit.framework */,
 				CE59449416F90DC800D9D33A /* Foundation.framework */,
 				CE59449616F90DC800D9D33A /* CoreGraphics.framework */,
@@ -802,7 +797,6 @@
 		CE5944D116F9A6B900D9D33A /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CEDA16781754E0A800F110CF /* Splash */,
 				1C423F77170D6B0000DCB469 /* Food */,
 				1C423F7C170D6B9100DCB469 /* Calendar */,
 				1C423F76170D6AE100DCB469 /* Settings */,
@@ -816,16 +810,6 @@
 			);
 			name = ViewController;
 			path = ..;
-			sourceTree = "<group>";
-		};
-		CEDA16781754E0A800F110CF /* Splash */ = {
-			isa = PBXGroup;
-			children = (
-				CEDA16731754E06500F110CF /* splash.storyboard */,
-				CEDA16751754E09900F110CF /* SLKSplashViewController.h */,
-				CEDA16761754E09900F110CF /* SLKSplashViewController.m */,
-			);
-			name = Splash;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -944,7 +928,6 @@
 				CEE0DB40174D56A2002EE5F1 /* v.png in Resources */,
 				CEE0DB42174D6381002EE5F1 /* bottle2.png in Resources */,
 				CEA1243E1754988300B4BF70 /* widespace-4.lib in Resources */,
-				CEDA16741754E06500F110CF /* splash.storyboard in Resources */,
 				8C1185A31761370A00859BFE /* pooButton.png in Resources */,
 				8C1185A41761370A00859BFE /* peeButton.png in Resources */,
 				8C1185A717613D4700859BFE /* buttonPe.png in Resources */,

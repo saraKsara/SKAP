@@ -14,11 +14,9 @@
 
 @interface SLKPARSEService : NSObject
 
-+(void)getAllObjects;
-+(void)getAllEvents;
-+(void)getNewevents;
-+(void)getBabyWithId:(NSString*)babiId;
-//+(NSDictionary*)postOrder:(NSDictionary*)order;
++(void)getAllEventswithId:(NSMutableArray*)eventIds;
++(void)getNewEvents;
++(void)getBabyWithId:(NSString*)babyId;
 +(void)postObject:(PFObject*)object onSuccess:(void (^)(PFObject *))successObject onFailure:(void (^)(PFObject*))failureObject;
 +(void)getParentWithUserName:(NSString*)pName;
 +(void)getTitsWithId:(NSString*)titId  onSuccess:(void (^)(NSManagedObject *))successObject onFailure:(void (^)(NSManagedObject*))failureObject;

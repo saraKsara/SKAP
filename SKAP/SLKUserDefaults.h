@@ -19,4 +19,11 @@
 
 +(NSString*)getTheCurrentParent;
 
++(void)setLatestEvent:(NSDate *)date;
+
++(NSDate *)getLatestEvent;
+
++(NSDate*)getResetDate;
+
++(void)resetDate;
 @end

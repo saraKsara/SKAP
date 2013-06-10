@@ -21,7 +21,6 @@
 #import "SLKTababrController.h"
 #import "SLKTabbar.h"
 #import "SLKPfSingupViewController.h"
-#import "SLKSplashViewController.h"
 #import "SLKuser.h"
 #import "SLKCreateBabyViewController.h"
 
@@ -45,6 +44,9 @@
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound];
     
     
+       //  [SLKUserDefaults resetDate];
+    
+    
     //to get statistics from users
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     [PFUser enableAutomaticUser];
@@ -52,6 +54,7 @@
     [defaultACL setPublicReadAccess:YES];
     [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
     
+    //TODO: use delegate methods instead?
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(setTheBGColor:)
                                                  name:@"changeBabyColor"
@@ -68,86 +71,34 @@
                                                object:nil];
     
     
+    //TODO: if user was invited...
     
-   // NSString *color;
-    
-   // [SLKPARSEService getAllObjects];
-      //[SLKPARSEService getAllEvents];
-    //TODO: on complete:
-    
-    //if there are no babies in storage after getting from server:
-    
-    //TODO: if you where invited...
-    
-//    if ([[[SLKParentStorage sharedStorage]parentArray]count] == 0 ) {
-    if (![PFUser currentUser]) { // No user logged in TODO: visar fel... det finns en current PFuser... eller???
-        NSLog(@"\n\n\n appdelegate there are NOOOOO parents in user default, add one! \n\n\n");
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpAppFirstTime" object:nil userInfo:nil];
-        
-        
+    if ([PFUser currentUser] != nil) { // No user logged in
+        [self setUpAppFirstTime];
+        NSLog(@"no current user");
     }
-    else //there are somethong in storage??
+    else //there are something in storage??
     {
-        NSLog(@"\n\n\n appdelegate,  else //there is a user in storage");
-        if ([SLKUserDefaults getTheCurrentBabe] != nil)
+        NSString* babyId = [[PFUser currentUser] objectForKey:kBabyId];
+        NSLog(@"babiID: %@", babyId);
+        if ([[SLKBabyStorage sharedStorage] getBabyWithiD:babyId])//[[SLKBabyStorage sharedStorage] getCurrentBaby]
         {
-            NSLog(@"there IS a CURRENT baby in userDefault :)) %@",[SLKUserDefaults getTheCurrentBabe]);
-            
-            if ([[SLKBabyStorage sharedStorage] getCurrentBaby])
-            {
-                NSLog(@"the current babe is also in babystorage, setUpApp!");
+            NSLog(@"the current users baby (%@) is also in babystorage, setUpApp!", [[[SLKBabyStorage sharedStorage] getCurrentBaby] babyId]);
+            [self setUpApp];
+        }
+        else if (![[SLKBabyStorage sharedStorage] getBabyWithiD:babyId]) {
+            NSLog(@"the current babe is NOT in babystorage! Create it and start app when baby exists");
+            //     [self setUpAppFirstTime];
+            [SLKPARSEService getBabyWithId:babyId onSuccess:^(PFObject *object)
+             {
+                 NSLog(@"BABY with name: %@ is now in storage (id %@)", [object objectForKey:@"name"], [object objectForKey:kBabyId]);
                  [self setUpApp];
-            }
-            else if (![[SLKBabyStorage sharedStorage] getCurrentBaby]) {
-                  NSLog(@"the current babe is NOT in babystorage! Create it and start app when baby exists");
-                //[SLKPARSEService getBabyWithId:[SLKUserDefaults getTheCurrentBabe]];
-                
-                
-              // [self setUpAppFirstTime];
-                [SLKPARSEService getBabyWithId:[SLKUserDefaults getTheCurrentBabe] onSuccess:^(PFObject *object)
-                {
-                    NSLog(@"BABY with name: %@ is now in storage (id %@)", [object objectForKey:@"name"], [object objectForKey:kBabyId]);
-//                    [[SLKBabyStorage sharedStorage] createBabyWithName:[object objectForKey:@"name"]
-//                                                                babyId:[object objectForKey:kBabyId]
-//                                                                  date:[NSDate date]
-//                                                                  type:[object objectForKey:@"type"]
-//                                                                 color:[object objectForKey:@"color"]
-//                                                                 dirty:NO];
-
-                     [self setUpApp];
-                } onFailure:^(PFObject *object) {
-                    
-                }];
-                
-            }
+             } onFailure:^(PFObject *object) {}];
             
             
-           //  [self setUpAppFirstTime];
+            //  [self setUpAppFirstTime];
         }
-        else if ( [SLKUserDefaults getTheCurrentBabe] == nil)
-        {
-            [self setUpAppFirstTime];
-            NSLog(@"\n\n\n BAD!!! there are babies in storage, but no current... BAD \n\n\n");
-        }
-        
-//        if ([SLKuser currentUser]) {
-//            [self setUpApp];
-//            NSLog(@"\n\n\n APPDEL setUpApp with %@ \n\n\n", [SLKuser currentUser]);
-//
-//        } else{
-//         [self setUpAppFirstTime];
-//            NSLog(@"\n\n\n APPDEL setUpAppFirstTime \n\n\n");
-//
-//        }
-//        
-//        
-      //  [[NSNotificationCenter defaultCenter] postNotificationName: @"setUpApp" object:nil userInfo:nil];
-        //TODO: på riktigt ska det bli setupapp här, när current PFUSER funkar som det ska.... 
-   
-        //NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: color, @"color", nil];
-        //[[NSNotificationCenter defaultCenter] postNotificationName: @"changeBabyColor" object:nil userInfo:userInfo];
-}
+    }
     
     // [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
@@ -189,39 +140,39 @@
 {
     ///FROM PARSE TUTORIAL
     
-        // Create the log in view controller
-  //      PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+    // Create the log in view controller
+    //      PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
     
-        SLKPfLoginViewController *logInViewController = [[SLKPfLoginViewController alloc]init];
-        [logInViewController setDelegate:self]; // Set ourselves as the delegate
+    SLKPfLoginViewController *logInViewController = [[SLKPfLoginViewController alloc]init];
+    [logInViewController setDelegate:self]; // Set ourselves as the delegate
     
-        // Create the sign up view controller
-//        PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
-         SLKPfSingupViewController *signUpViewController = [[SLKPfSingupViewController alloc]init];
-        [signUpViewController setDelegate:self]; // Set ourselves as the delegate
-        
-        // Assign our sign up controller to be displayed from the login controller
-        [logInViewController setSignUpController:signUpViewController];
-        
-        // Present the log in view controller
-//        [self presentViewController:logInViewController animated:YES completion:NULL];
-        
-        
-        [self.window setRootViewController:logInViewController];
-//    [self.window setRootViewController:signUpViewController];
+    // Create the sign up view controller
+    //        PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc] init];
+    SLKPfSingupViewController *signUpViewController = [[SLKPfSingupViewController alloc]init];
+    [signUpViewController setDelegate:self]; // Set ourselves as the delegate
+    
+    // Assign our sign up controller to be displayed from the login controller
+    [logInViewController setSignUpController:signUpViewController];
+    
+    // Present the log in view controller
+    //        [self presentViewController:logInViewController animated:YES completion:NULL];
+    
+    
+    [self.window setRootViewController:logInViewController];
+    //    [self.window setRootViewController:signUpViewController];
     [self.window makeKeyAndVisible];
     
-//    }
+    //    }
     
     
     //OLD
-//    SLKPfLoginViewController *lvc = [[SLKPfLoginViewController alloc]init];
-//    SLKPfSingupViewController *svc = [[SLKPfSingupViewController alloc]init];
-//    lvc.delegate = self;
-//    
-//   [self.window setRootViewController:svc];
-//    [self.window makeKeyAndVisible];
-//
+    //    SLKPfLoginViewController *lvc = [[SLKPfLoginViewController alloc]init];
+    //    SLKPfSingupViewController *svc = [[SLKPfSingupViewController alloc]init];
+    //    lvc.delegate = self;
+    //
+    //   [self.window setRootViewController:svc];
+    //    [self.window makeKeyAndVisible];
+    //
     
     
     //    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[SLKConfigViewController alloc] init]];
@@ -268,10 +219,11 @@
     //    parentUser.email = user.email;
     
     //TODO: if user got invited with one babyId
-//    [[PFUser currentUser] setObject:@"theBabbyIdFromInvitation" forKey:kBabyId];
-//    NSString* babyId = [[PFUser currentUser] objectForKey:kBabyId];
-//    NSLog(@"%@", babyId);
+    //    [[PFUser currentUser] setObject:@"theBabbyIdFromInvitation" forKey:kBabyId];
+    //    NSString* babyId = [[PFUser currentUser] objectForKey:kBabyId];
+    //    NSLog(@"%@", babyId);
     [self createBaby];
+    [SLKUserDefaults setTheCurrentParent: [[PFUser currentUser] objectId]];
     NSLog(@"didSignUpUser APPDELEGATE %@", user.username);
 }
 -(void)createBaby
@@ -281,7 +233,7 @@
     //    SLKFirtsTimeViewController *controller = [sb instantiateInitialViewController];
     //    [self.window setRootViewController:controller];
     //    [self.window makeKeyAndVisible];
-
+    
     SLKCreateBabyViewController *createBabyVC =  [sb instantiateInitialViewController];
     [self.window setRootViewController:createBabyVC];
     [self.window makeKeyAndVisible];
@@ -300,15 +252,28 @@
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user
 {
     NSLog(@"\n\n LOGIN-----> APPDELEGATE ----------> \n\n");
+    NSString* babyId = [[PFUser currentUser] objectForKey:kBabyId];
+    [SLKUserDefaults setTheCurrentBabe:[[PFUser currentUser] objectForKey:kBabyId]];
     
-    [self setUpApp];
+    if (![[SLKBabyStorage sharedStorage] getBabyWithiD:babyId]) {
+        NSLog(@"the current babe is NOT in babystorage! Create it and start app when baby exists");
+        //     [self setUpAppFirstTime];
+        [SLKPARSEService getBabyWithId:babyId onSuccess:^(PFObject *object)
+         {
+             NSLog(@"BABY with name: %@ is now in storage (id %@)", [object objectForKey:@"name"], [object objectForKey:kBabyId]);
+             [self setUpApp];
+         } onFailure:^(PFObject *object) {}];
+        
+        
+        //  [self setUpAppFirstTime];
+    } else {
+        [self setUpApp];
+    }
 }
 
 #pragma mark setupapp
 -(void)setUpApp
 {
-    
-    NSLog(@"currentMorsa---%@",[[[SLKParentStorage sharedStorage]getCurrentParent]name]);
     self.tabBarController = [[SLKTababrController alloc] init];
     UIStoryboard *settingStoryboard = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
     UIStoryboard *calendarStoryboard  = [UIStoryboard storyboardWithName:@"calendar" bundle:nil];
@@ -340,7 +305,12 @@
     [[[self tabBarController] tabBar] setBackgroundImage:[UIImage imageNamed:@"tabbar_bg"]];
     [[[self tabBarController] tabBar] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar_bg_sel"]];
     
-    
+    NSDate *latestDate = [SLKUserDefaults getLatestEvent];
+    if ([latestDate isEqualToDate:[SLKUserDefaults getResetDate]])
+    {
+        [SLKPARSEService getAllEventswithId:nil];
+        NSLog(@"date has been reseted");
+    } else [SLKPARSEService getNewEvents];
     
     
     //    babyArray = [[SLKBabyStorage sharedStorage] babyArray];

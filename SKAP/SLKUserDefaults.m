@@ -27,6 +27,30 @@
     }
 }
 
++(void)setLatestEvent:(NSDate *)date
+{
+    NSDate *latestEvent = date;
+    [[NSUserDefaults standardUserDefaults] setObject:date forKey:@"latestEvent"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    NSLog(@"latestevent == %@", latestEvent);
+}
++(NSDate*)getResetDate
+{
+    NSString *dateStr = @"19190524";
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyyMMdd"];
+    return  [dateFormat dateFromString:dateStr];
+}
++(void)resetDate
+{
+    [self setLatestEvent:[self getResetDate]];
+}
++(NSDate *)getLatestEvent
+{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"latestEvent"];
+}
+
 +(NSString*)getTheCurrentBabe
 {
     return [[NSUserDefaults standardUserDefaults] stringForKey:@"currentBaby"];

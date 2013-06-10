@@ -30,6 +30,7 @@
 {
     NSManagedObjectContext *context;
     NSManagedObjectModel *model;
+    NSDate *latestEvent;
     
 }
 
@@ -52,6 +53,7 @@
     {
         model = [[SLKCoreDataService  sharedService] getModel];
         context = [[SLKCoreDataService sharedService] getContext];
+        //  latestEvent = [[NSDate alloc] init];
         
     }
     return self;
@@ -61,11 +63,13 @@
 
 -(Event *)createEventwithDate:(NSDate *)date eventId:(NSString *)eventId tits:(NSSet *)tits pii:(NSSet *)pii poo:(NSSet *)poo bottles:(NSSet *)bottle adDrop:(BOOL)adDrop otherMedz:(NSString *)medz temperature:(NSNumber *)temp type:(NSString *)type timeSpan:(NSNumber *)timeSpan baby:(Baby *)baby sleep:(NSNumber*)sleep comments:(NSString *)comments
 {
-    NSLog(@"\n\n ÅSA TESTAR ATT HÄMTA DETTA EVENT::: %@ \n\n", eventId);
     Event *e;
     Event *eventInStorage = [self getEventWithiD:eventId];
+    
+    [self setLatestEvent:date];
+    
     if (eventInStorage) {
-        NSLog(@"the event already exists in core data, skipping creating a new, and updates existing baby instead.");
+        NSLog(@"the event already exists in core data, skipping creating a new, and updates existing object instead.");
         e = eventInStorage;
         
     } else {
@@ -98,16 +102,17 @@
 {
     Event *e = [NSEntityDescription insertNewObjectForEntityForName:kEvent
                                              inManagedObjectContext:context];
-    NSLog(@"\n\n ÅSA TESTAR ATT HÄMTA DETTA EVENT::: %@ \n\n", eventId);
-    NSLog(@"Trying to createt:\n happening: %@ \n comment: %@\n date: %@ \n eventID: %@ \n baby: %@", happening, comment, date, eventId,baby.babyId);
+    NSLog(@"Createt:\n happening: %@ \n comment: %@\n date: %@ \n eventID: %@ \n baby: %@", happening, comment, date, eventId,baby.babyId);
     
     e.eventId = eventId;
     e.baby = baby;
     e.date = date;
     e.dirty = [NSNumber numberWithBool:dirty];
     
+    // [self setLatestEvent:[NSDate date]];
+    
     PFObject *pfEventObject = [PFObject objectWithClassName:kEvent];
-
+    
     if (dirty == YES)
     {
         [pfEventObject setObject:baby.babyId forKey:kBabyId];
@@ -120,12 +125,12 @@
         e.type = kEventType_TitFood;
         [e addTitiesObject:(Tits*)happening];
         
-    if (dirty == YES)
-    {
-        [pfEventObject setObject:kEventType_TitFood forKey:@"type"];
-        [pfEventObject setObject:e.eventId forKey:kTitId];
-        [pfEventObject saveEventually];
-    }
+        if (dirty == YES)
+        {
+            [pfEventObject setObject:kEventType_TitFood forKey:@"type"];
+            [pfEventObject setObject:e.eventId forKey:kTitId];
+            [pfEventObject saveEventually];
+        }
         
         
     } else if ([happening isKindOfClass:[Bottle class]] )
@@ -136,14 +141,14 @@
         {
             [pfEventObject setObject:e.eventId forKey:kBottleId];
             [pfEventObject setObject:kEventType_BottleFood forKey:@"type"];
-              [pfEventObject saveEventually];
+            [pfEventObject saveEventually];
         }
-          
+        
         
     }  else if ([happening isKindOfClass:[Poo class]] )
     {
         e.type = kEventType_Poo;
-     if (comment)  e.comments = comment;
+        if (comment)  e.comments = comment;
         [e addPoosObject:(Poo*)happening];
         
         if (dirty == YES)
@@ -158,7 +163,7 @@
     {
         e.type = kEventType_Pii;
         [e addPiisObject:(Pii*)happening];
-      if (comment)  e.comments = comment;
+        if (comment)  e.comments = comment;
         if (dirty == YES)
         {
             [pfEventObject setObject:kEventType_Pii forKey:@"type"];
@@ -169,7 +174,7 @@
     } else if ([happening isKindOfClass:[Medz class]] )
     {
         e.type = kEventType_Medz;
-       if (comment)  e.comments = comment;
+        if (comment)  e.comments = comment;
         [e addMedzObject:(Medz*)happening];
         if (dirty == YES)
         {
@@ -195,109 +200,8 @@
         e.type = kEventType_Diaper;
         [e addDiapersObject:(Diaper*)happening];
     }
-    
-   
-    
-   // NSDictionary *paramDict =  @{@"objectId":@"qQnTDiem5K"};
-
-//    [PFCloud callFunction:@"getBabies" withParameters:paramDict];
-//    [PFCloud callFunctionInBackground:@"getBabies" withParameters:paramDict block:^(id object, NSError *error) {
-//        if (!error) {
-//            NSLog(@"Men hurray! %@", object);
-//           
-    
-            
-//            PFUser *user = [PFUser currentUser];
-//            PFRelation *relation = [user relationforKey:@"posts"];
-//            [relation addObject:post];
-//            [user saveInBackground];
-            
-                     
-            
-//        } else {
-//            NSLog(@"Men nooo!%@ %@", object, error);
-//            
-//            //avgPoint = nil;
-//            //[avgButton setTitle:@"Sorry, not available!" forState:UIControlStateNormal];
-//        }
-//    }];
-//    PFObject *babyObject = [PFObject objectWithClassName:@"Baby"];
-//    [babyObject setObject:baby.name forKey:@"name"];
-//    [babyObject setObject:baby.babyId forKey:@"objectId"];
-    
- 
     NSLog(@"Created event with tit: %@, to baby: %@", [happening class], baby.name);
     NSLog(@"Created event with titID: %@::", eventId);
-
-    return e;
-}
-
-
--(Event *)createNEEEWEvenWithType:(NSString *)type withComment:(NSString *)comment date:(NSDate *)date eventId:(NSString *)eventId baby:(NSString *)baby dirty:(BOOL)dirty
-{
-    
-    
-    Event *e = [NSEntityDescription insertNewObjectForEntityForName:kEvent
-                                             inManagedObjectContext:context];
-    
-    e.eventId = eventId;
-    e.baby.babyId = baby;
-    e.date = date;
-    e.dirty = [NSNumber numberWithBool:dirty];
-    
-    e.type = type;
-    
-    PFObject *pfEventObject = [PFObject objectWithClassName:kEvent];
-    [pfEventObject setObject:baby forKey:kBabyId];
-    
-    [pfEventObject setObject:e.eventId forKey:@"eventId"];
-    [pfEventObject setObject:e.date forKey:@"eventDate"];
-    
-    if ([type isEqualToString:kEventType_TitFood])
-    {
-        
-       // [e addTitiesObject:(Tits*)happening];
-        
-        [pfEventObject setObject:kEventType_TitFood forKey:@"type"];
-        [pfEventObject setObject:e.eventId forKey:@"titId"];
-        [pfEventObject saveEventually];
-        
-        
-    } else   if ([type isEqualToString:kEventType_BottleFood])
-    {
-      //  [e addBottlesObject:(Bottle*)happening];
-        [pfEventObject setObject:e.eventId forKey:@"bottleId"];
-        [pfEventObject setObject:kEventType_BottleFood forKey:@"type"];
-        
-        
-    }  else   if ([type isEqualToString:kEventType_Poo])
-    {
-        if (comment)  e.comments = comment;
-        //[e addPoosObject:(Poo*)happening];
-    } else    if ([type isEqualToString:kEventType_Pii])
-    {
-      //  [e addPiisObject:(Pii*)happening];
-        if (comment)  e.comments = comment;
-        
-    } else    if ([type isEqualToString:kEventType_Medz])
-    {
-        if (comment)  e.comments = comment;
-       // [e addMedzObject:(Medz*)happening];
-        
-    } else    if ([type isEqualToString:kEventType_Sleep])
-    {
-        if (comment)  e.comments = comment;
-        //[e addSleepsObject:(Sleep*)happening];
-    } else    if ([type isEqualToString:kEventType_Diaper])
-    {
-        if (comment)  e.comments = comment;
-        //[e addDiapersObject:(Diaper*)happening];
-    }
-    
-    
-    
-//    NSLog(@"Created NEEEW event with tit: %@, to baby: %@", [happening class], baby);
-    NSLog(@"Created NEEEW %@ event with titID: %@::",type , eventId);
     
     return e;
 }
@@ -305,19 +209,19 @@
 -(NSArray *)getEventBelomigTObaby:(Baby *)baby
 {
     NSArray *arr = [[SLKCoreDataService sharedService] fetchDataWithEntity:kEvent
-                                                                         andPredicate:[NSPredicate predicateWithFormat:@"baby == %@", baby]
-                                                                   andSortDescriptors:nil];
+                                                              andPredicate:[NSPredicate predicateWithFormat:@"baby == %@", baby]
+                                                        andSortDescriptors:nil];
     
     return [arr count] > 0 ? arr : nil;
 }
 
 -(NSArray *)getEventBelomigTObaby:(Baby *)baby andDay:(NSDate *)day{
     NSArray *allEventOfBaby = [[SLKCoreDataService sharedService] fetchDataWithEntity:kEvent
-                                                              andPredicate:[NSPredicate predicateWithFormat:@"baby == %@", baby]
-                                                        andSortDescriptors:nil];
-      
+                                                                         andPredicate:[NSPredicate predicateWithFormat:@"baby == %@", baby]
+                                                                   andSortDescriptors:nil];
     
-       NSMutableArray *returnArray = [NSMutableArray array];
+    
+    NSMutableArray *returnArray = [NSMutableArray array];
     
     
     for (Event *event in allEventOfBaby)
@@ -352,15 +256,15 @@
 
 -(NSArray *)getEventBelomigTObaby:(Baby *)baby andDay:(NSDate *)day withTypes:(NSArray*)types{
     NSArray *events;
-     NSMutableArray *allEvents = [NSMutableArray array];
+    NSMutableArray *allEvents = [NSMutableArray array];
     for (NSString *type in types)
     {
-   events = [[SLKCoreDataService sharedService] fetchDataWithEntity:kEvent
-                                                                         andPredicate:[NSPredicate predicateWithFormat:@"baby == %@ and type == %@", baby, type]
-                                                                   andSortDescriptors:nil];
+        events = [[SLKCoreDataService sharedService] fetchDataWithEntity:kEvent
+                                                            andPredicate:[NSPredicate predicateWithFormat:@"baby == %@ and type == %@", baby, type]
+                                                      andSortDescriptors:nil];
         
         for (Event *event in events){
-        [allEvents addObject:event];
+            [allEvents addObject:event];
         }
     }
     
@@ -435,7 +339,7 @@
                                                         andSortDescriptors:nil];
     
     return [arr count] > 0 ? [arr lastObject] : nil;
-   
+    
 }
 -(void)removeEvent:(Event *)event
 {
@@ -461,31 +365,46 @@
     return [arr count] > 0 ? [arr lastObject] : nil;
 }
 
--(NSArray *)eventArray
+-(NSArray *)getEventBelomigTObabyWithID:(NSString *)babyId
 {
-//    for (Event *event in [self eventArray])
-//    {
-//        if (event.eventId) {
-//           NSLog(@"ebebbbebe%@", event.eventId);
-//        }
-//        
-//    }
-    return [[SLKCoreDataService sharedService]fetchDataWithEntity:kEvent];
+    Baby *currentBaby = [[SLKBabyStorage sharedStorage] getCurrentBaby];
+    
+    return [self getEventBelomigTObaby:currentBaby];
+    
 }
 
+-(void)setLatestEvent:(NSDate *)date
+{
+    latestEvent = date;
+    [SLKUserDefaults setLatestEvent:date];
+    NSLog(@"latestevent == %@", latestEvent);
+}
+
+-(NSDate *)getLatestEvent
+{
+    return [SLKUserDefaults getLatestEvent];
+    //return latestEvent;
+}
+
+-(NSArray *)eventArray
+{
+    return [[SLKCoreDataService sharedService] fetchDataWithEntity:kEvent
+                                                      andPredicate:nil
+                                                andSortDescriptors:nil];
+}
 -(NSMutableSet *)eventIdsSet
 {
     NSMutableArray *arr = [[NSMutableArray alloc] init];
-    for (Event *event in [self eventArray])
+    for (Event *event in [self getEventBelomigTObabyWithID:[SLKUserDefaults getTheCurrentBabe]])
     {
         if (event.eventId) {
             [arr addObject:event.eventId];
         }
     }
     NSMutableSet *eventset = [NSMutableSet setWithArray:arr];
-   // NSLog(@"eventIdsSet--- %@", eventset);
-
-   return eventset;
+    NSLog(@"eventIdsSet--- %@", eventset);
+    
+    return eventset;
 }
 
 @end
