@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIView *medzView;
 
 
+
 //EAT
 
 - (IBAction)leftTit:(UITapGestureRecognizer *)sender;
@@ -43,7 +44,8 @@
 
 @property (weak, nonatomic) IBOutlet UISwitch *switchTwo;
 - (IBAction)switchTwo:(id)sender;
-
+@property (weak, nonatomic) IBOutlet UIButton *pee;
+@property (weak, nonatomic) IBOutlet UIButton *poo;
 @property (weak, nonatomic) IBOutlet UITextView *commentTextView;
 
 //POO

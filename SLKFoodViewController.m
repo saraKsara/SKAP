@@ -400,6 +400,16 @@
     {
         [label setHidden:NO];
     }
+    [_pee setHidden:NO];
+    [_poo setHidden:NO];
+   // [_switchTwo setTintColor:[UIColor colorWithHexValue:@"FFFF66"]];
+    [_switchTwo setThumbTintColor:[UIColor whiteColor]];
+    
+    //[_switchTwo setOffImage:[UIImage imageNamed:@"2"]];
+    //[_switchTwo setTintColor:[UIColor colorWithHexValue:@"663300"]];
+    
+    
+
     [_switchOne setHidden:NO];
     [_switchTwo setHidden:NO];
     [_commentTextView setHidden:NO];
@@ -422,6 +432,8 @@
     
     [_switchOne setHidden:YES];
     [_switchTwo setHidden:YES];
+    [_pee setHidden:YES];
+    [_poo setHidden:YES];
     [_commentTextView setHidden:YES];
     _commentTextView.text = nil;
     
@@ -841,6 +853,8 @@
     [self setSwitchOne:nil];
     [self setSwitchTwo:nil];
     [self setCommentTextView:nil];
+    [self setPee:nil];
+    [self setPoo:nil];
     [super viewDidUnload];
     
     self.scrollView = nil;
@@ -1024,9 +1038,7 @@
 }
 - (IBAction)switchTwo:(id)sender {
     _switchTwo.selected = !_switchTwo.selected;
-    NSLog(@"selected TWO? : %d", _switchTwo.selected);
-
-
+       NSLog(@"selected TWO? : %d", _switchTwo.selected);
 }
 
 # pragma mark - UITextViewDelegate

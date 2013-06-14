@@ -44,7 +44,7 @@
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound];
     
     
-       //  [SLKUserDefaults resetDate];
+         [SLKUserDefaults resetDate];
     
     
     //to get statistics from users
@@ -253,14 +253,16 @@
 {
     NSLog(@"\n\n LOGIN-----> APPDELEGATE ----------> \n\n");
     NSString* babyId = [[PFUser currentUser] objectForKey:kBabyId];
-    [SLKUserDefaults setTheCurrentBabe:[[PFUser currentUser] objectForKey:kBabyId]];
     
     if (![[SLKBabyStorage sharedStorage] getBabyWithiD:babyId]) {
         NSLog(@"the current babe is NOT in babystorage! Create it and start app when baby exists");
-        //     [self setUpAppFirstTime];
         [SLKPARSEService getBabyWithId:babyId onSuccess:^(PFObject *object)
          {
              NSLog(@"BABY with name: %@ is now in storage (id %@)", [object objectForKey:@"name"], [object objectForKey:kBabyId]);
+             
+             
+             [SLKUserDefaults setTheCurrentBabe:[[PFUser currentUser] objectForKey:kBabyId]];
+
              [self setUpApp];
          } onFailure:^(PFObject *object) {}];
         
