@@ -35,8 +35,10 @@
     NSDate *currentDay;
     NSDate *fromDate;
     NSDate *todate;
-    BOOL weekView;
-     WSAdSpace *splashAdView;
+    WSAdSpace *splashAdView;
+    NSArray *weeks;
+    NSArray *days;
+    NSMutableSet *eventSet;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -56,12 +58,14 @@
 {
     [super viewWillAppear:YES];
     _allEvents = YES;
-    weekView = NO;
+    _dateUnit = day;
     currentDay = [NSDate date];
     todate = [currentDay dateByAddingDays:7];
     fromDate = [NSDate date];
     
     currentBaby = [[SLKBabyStorage sharedStorage] getCurrentBaby];
+   eventSet = [[SLKEventStorage sharedStorage] getAllDaysWithEventforBaby:currentBaby];
+
     self.view.backgroundColor = [UIColor clearColor];
 
     _headerLabel.text = [NSString stringWithFormat:@"%@ \n  %@",
@@ -72,8 +76,6 @@
                                              selector:@selector(reloadTable)
                                                  name:@"reloadCalendar"
                                                object:nil];
-
-    
 
     //TODO: decide how to represent pee and poo
 //    _peeLabel.text = [NSString stringWithFormat:@"Peed: %@ ml/times", currentBaby.pii];
@@ -105,8 +107,9 @@
     [self.view addSubview:splashAdView];
     [self.view bringSubviewToFront:splashAdView];
     
-
-	// Do any additional setup after loading the view.
+   // days = [[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay];
+    //get all days
+   // weeks = [[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay];
 }
 
 - (IBAction)close:(id)sender {
@@ -115,7 +118,7 @@
 - (IBAction)segmentcontroll:(id)sender {
     if ( _segmentcontroll.selectedSegmentIndex == 0 )
     {
-        weekView = NO;
+        _dateUnit = day;
         currentDay = [NSDate date];
         NSLog(@"\n\n\n weekDAY:-----> %d \n\n", [currentDay weekday]);
 
@@ -126,7 +129,7 @@
                              currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
     } else if ( _segmentcontroll.selectedSegmentIndex == 1 )
     {
-        weekView = YES;
+        _dateUnit = week;
         currentDay = [NSDate date];
         if (currentDay.weekday == 1)//------------------sunday
         {
@@ -164,9 +167,6 @@
             fromDate = [currentDay dateBySubtractingDays:5];//monday?
         }
       
-        
-        
-        
          [self reloadTable];
            _headerLabel.text = [NSString stringWithFormat:@"%@ \n between %@ - %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: fromDate],[SLKDateUtil formatDateWithoutYear: todate]];
     }
@@ -174,12 +174,12 @@
 
 - (IBAction)nextDay:(id)sender
 {
-    if (!weekView) {
+    if (_dateUnit == day) {
     currentDay = [currentDay dateByAddingDays:1];
       _headerLabel.text = [NSString stringWithFormat:@"%@ \n %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
     
          [self reloadTable];
-    } else if (weekView){
+    } else if (_dateUnit == week){
         fromDate = [fromDate dateByAddingDays:7];
         todate = [todate dateByAddingDays:7];
     
@@ -192,12 +192,12 @@
 
 - (IBAction)prevDay:(id)sender
 {
-    if (!weekView) {
+    if (_dateUnit == day) {
         currentDay = [currentDay dateBySubtractingDays:1];
         _headerLabel.text = [NSString stringWithFormat:@"%@ \n  %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
   
          [self reloadTable];
-    } else if (weekView) {
+    } else if (_dateUnit == week) {
         fromDate = [fromDate dateBySubtractingDays:7];
         todate = [todate dateBySubtractingDays:7];
    
@@ -213,36 +213,53 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return eventSet.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  
-    NSArray *typeArray;
     if (_allEvents) {
-       if (!weekView) return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay]count];
-    else if (weekView) return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby fromDate:fromDate toDate:todate]count];
+        if (_dateUnit == day) return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay]count];
+        else  return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby fromDate:fromDate toDate:todate]count];
     }
-    else if (_food) {
-       typeArray = [NSArray arrayWithObjects:kEventType_BottleFood,kEventType_TitFood, nil];
-        return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]count];
+    
+    NSArray *eventArray = [[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby];
+    
+    for (NSDate *date in eventSet) {
+        for (Event *event in eventArray)
+        {
+          //  NSDate *eventDate = [SLKDateUtil formatDateWithDay: event.date];
+
+            //(()NSComparisonResult compareParemeterStartDateWithParameterEndDate = [dateOfEvent compare:date];
+            //
+            //        if (compareParemeterStartDateWithParameterEndDate == NSOrderedSame)
+           // if ( ise] ) {
+               // NSLog([setOfDays addObject:[SLKDateUtil formatDateWithDay: event.date]])
+           // }
+        }
     }
-    else if (_diaper) {
-  
-       typeArray =  [NSArray arrayWithObjects:kEventType_Poo,kEventType_Pii, nil];
-        return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]count];
-    }
-    else if(_medz) {
-        //TODO: create medzconstant!
-        typeArray =  [NSArray arrayWithObjects:kEventType_Medz, nil];
-        return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]count];
-    }
-    else if (_sleep) {
-        //TODO: create medzconstant!
-        typeArray =  [NSArray arrayWithObjects:kEventType_Sleep, nil];
-        return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]count];
-    }
+    
+    //  NSArray *typeArray;
+
+//    else if (_food) {
+//       typeArray = [NSArray arrayWithObjects:kEventType_BottleFood,kEventType_TitFood, nil];
+//        return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]count];
+//    }
+//    else if (_diaper) {
+//  
+//       typeArray =  [NSArray arrayWithObjects:kEventType_Poo,kEventType_Pii, nil];
+//        return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]count];
+//    }
+//    else if(_medz) {
+//        //TODO: create medzconstant!
+//        typeArray =  [NSArray arrayWithObjects:kEventType_Medz, nil];
+//        return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]count];
+//    }
+//    else if (_sleep) {
+//        //TODO: create medzconstant!
+//        typeArray =  [NSArray arrayWithObjects:kEventType_Sleep, nil];
+//        return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]count];
+//    }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -269,7 +286,7 @@
     
     if (_allEvents) {
         
-if (!weekView) event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay]objectAtIndex:indexPath.row];
+if (_dateUnit == day) event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay]objectAtIndex:indexPath.row];
 else event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby fromDate:fromDate toDate:todate]objectAtIndex:indexPath.row];
         
     }
@@ -291,9 +308,9 @@ else event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby
         event = [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay withTypes:typeArray]objectAtIndex:indexPath.row];
     }
     
-    if (weekView) {
+    if (_dateUnit == week) {
           cell.timeLabel.text =  [NSString stringWithFormat:@"%@ \n %@ ", [SLKDateUtil formatTimeFromDate: event.date],[SLKDateUtil formatDateWithoutYear: event.date]];
-    }else if (!weekView) {
+    }else if (_dateUnit == day) {
          cell.timeLabel.text = [SLKDateUtil formatTimeFromDate: event.date];
     }
  

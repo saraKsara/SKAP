@@ -48,6 +48,8 @@
 
 -(NSArray*)getEventByDay:(NSDate*)date;
 
+-(NSMutableDictionary*)getAllDaysWithEventforBaby:(Baby*)baby;
+
 -(NSArray *)getEventBelomigTObabyWithID:(NSString *)babyId;
 
 -(NSMutableSet *)eventIdsSet;

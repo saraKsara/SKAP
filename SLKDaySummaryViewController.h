@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "widespace-4.lib/WSAdSpace.h"
+typedef enum {
+    day,
+    week
+} DateUnit;
 
 @interface SLKDaySummaryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, WSAdSpaceDelegate>
 - (IBAction)segmentcontroll:(id)sender;
@@ -26,6 +30,8 @@
 - (IBAction)prevDay:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)close:(id)sender;
+
+@property (nonatomic, assign) DateUnit dateUnit;
 
 
 @property BOOL food;
