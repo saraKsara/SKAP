@@ -150,7 +150,7 @@
                                         <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="74"/>
                                         <color key="textColor" red="0.090891065698227719" green="0.25061565896739135" blue="0.22688344092981222" alpha="0.41999999999999998" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
-                                        <color key="shadowColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                        <color key="shadowColor" red="0.34183673469999998" green="0.34183673469999998" blue="0.34183673469999998" alpha="1" colorSpace="calibratedRGB"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="0.0" maxValue="30" id="wHh-QR-jB8">
                                         <rect key="frame" x="83" y="269" width="257" height="23"/>
@@ -217,8 +217,8 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="poo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CEy-s9-VXq">
-                                        <rect key="frame" x="281" y="363" width="50" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.50000000000000011" contentMode="left" text="poo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CEy-s9-VXq">
+                                        <rect key="frame" x="224" y="371" width="50" height="21"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -235,8 +235,8 @@
                                             <action selector="switchTwo:" destination="hKR-TG-9xj" eventType="valueChanged" id="bvT-M5-Z8G"/>
                                         </connections>
                                     </switch>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="pee" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uJr-cq-i0U">
-                                        <rect key="frame" x="119" y="363" width="114" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000000000013" contentMode="left" text="pee" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uJr-cq-i0U">
+                                        <rect key="frame" x="298" y="371" width="35" height="21"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.34183673469387754" green="0.34183673469387754" blue="0.34183673469387754" alpha="1" colorSpace="calibratedRGB"/>
@@ -256,10 +256,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gfh-fb-qIO">
-                                        <rect key="frame" x="137" y="385" width="154" height="51"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <rect key="frame" x="52" y="367" width="121" height="85"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="15"/>
-                                        <state key="normal" backgroundImage="saveit.png">
+                                        <state key="normal" backgroundImage="cleanSave.png">
                                             <color key="titleColor" red="0.057383129674473059" green="0.096159039294239371" blue="0.11224489795918369" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -271,7 +271,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="save" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xJf-t6-rWq">
-                                        <rect key="frame" x="91" y="419" width="42" height="21"/>
+                                        <rect key="frame" x="109" y="440" width="42" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -279,10 +279,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="anX-IP-dJP">
-                                        <rect key="frame" x="102" y="313" width="56" height="51"/>
+                                        <rect key="frame" x="289" y="311" width="40" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Button" image="buttonPe2.png">
+                                        <state key="normal" title="Button" image="lonelyDrop.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -291,10 +291,10 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2zU-KR-nct">
-                                        <rect key="frame" x="266" y="313" width="56" height="51"/>
+                                        <rect key="frame" x="210" y="314" width="48" height="55"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Button" image="sistaprutt.png">
+                                        <state key="normal" title="Button" image="ensambajsbomb.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -523,11 +523,11 @@
         <image name="Dcopy.png" width="567" height="454"/>
         <image name="bo.png" width="144" height="185"/>
         <image name="bottle2.png" width="640" height="1065"/>
-        <image name="buttonPe2.png" width="81" height="75"/>
         <image name="checkedNO.png" width="33" height="28"/>
+        <image name="cleanSave.png" width="189" height="129"/>
+        <image name="ensambajsbomb.png" width="64" height="73"/>
         <image name="gr.png" width="16" height="16"/>
-        <image name="saveit.png" width="250" height="75"/>
-        <image name="sistaprutt.png" width="81" height="75"/>
+        <image name="lonelyDrop.png" width="64" height="93"/>
         <image name="smallViewBackground.png" width="320" height="300"/>
         <image name="tits.png" width="317" height="317"/>
     </resources>

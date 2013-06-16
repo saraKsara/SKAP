@@ -103,6 +103,13 @@
 		8CCB9B7C176BA06200A2CC88 /* lillaprutt.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCB9B7B176BA06100A2CC88 /* lillaprutt.png */; };
 		8CCB9B7E176BA39A00A2CC88 /* sistaprutt.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCB9B7D176BA39A00A2CC88 /* sistaprutt.png */; };
 		8CCB9B80176BAAA500A2CC88 /* saveit.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCB9B7F176BAAA400A2CC88 /* saveit.png */; };
+		8CCB9B82176BDB4000A2CC88 /* allt.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCB9B81176BDB4000A2CC88 /* allt.png */; };
+		8CCB9B84176D0C2400A2CC88 /* saveeitall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCB9B83176D0C2400A2CC88 /* saveeitall.png */; };
+		8CCB9B86176DE1F800A2CC88 /* cleanSave.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCB9B85176DE1F700A2CC88 /* cleanSave.png */; };
+		8CCB9B88176DE4CA00A2CC88 /* onlyPE.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCB9B87176DE4CA00A2CC88 /* onlyPE.png */; };
+		8CCB9B8A176DE90900A2CC88 /* lonelyDrop.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCB9B89176DE90900A2CC88 /* lonelyDrop.png */; };
+		8CCB9B8C176DEAE200A2CC88 /* lonelypoop.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCB9B8B176DEAE200A2CC88 /* lonelypoop.png */; };
+		8CCB9B8E176DED1F00A2CC88 /* ensambajsbomb.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCB9B8D176DED1F00A2CC88 /* ensambajsbomb.png */; };
 		CE11D004170232ED001A5AD2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE11D003170232ED001A5AD2 /* AudioToolbox.framework */; };
 		CE11D00617023304001A5AD2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE11D00517023304001A5AD2 /* CFNetwork.framework */; };
 		CE11D00817023329001A5AD2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE11D00717023329001A5AD2 /* CoreLocation.framework */; };
@@ -311,6 +318,13 @@
 		8CCB9B7B176BA06100A2CC88 /* lillaprutt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lillaprutt.png; sourceTree = "<group>"; };
 		8CCB9B7D176BA39A00A2CC88 /* sistaprutt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sistaprutt.png; sourceTree = "<group>"; };
 		8CCB9B7F176BAAA400A2CC88 /* saveit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = saveit.png; sourceTree = "<group>"; };
+		8CCB9B81176BDB4000A2CC88 /* allt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = allt.png; sourceTree = "<group>"; };
+		8CCB9B83176D0C2400A2CC88 /* saveeitall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = saveeitall.png; sourceTree = "<group>"; };
+		8CCB9B85176DE1F700A2CC88 /* cleanSave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cleanSave.png; sourceTree = "<group>"; };
+		8CCB9B87176DE4CA00A2CC88 /* onlyPE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = onlyPE.png; sourceTree = "<group>"; };
+		8CCB9B89176DE90900A2CC88 /* lonelyDrop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lonelyDrop.png; sourceTree = "<group>"; };
+		8CCB9B8B176DEAE200A2CC88 /* lonelypoop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lonelypoop.png; sourceTree = "<group>"; };
+		8CCB9B8D176DED1F00A2CC88 /* ensambajsbomb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ensambajsbomb.png; sourceTree = "<group>"; };
 		CE11D003170232ED001A5AD2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		CE11D00517023304001A5AD2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		CE11D00717023329001A5AD2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -621,8 +635,15 @@
 		1C955AC8170E034A00310575 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8CCB9B8D176DED1F00A2CC88 /* ensambajsbomb.png */,
+				8CCB9B8B176DEAE200A2CC88 /* lonelypoop.png */,
+				8CCB9B89176DE90900A2CC88 /* lonelyDrop.png */,
+				8CCB9B87176DE4CA00A2CC88 /* onlyPE.png */,
+				8CCB9B85176DE1F700A2CC88 /* cleanSave.png */,
+				8CCB9B83176D0C2400A2CC88 /* saveeitall.png */,
 				8CCB9B7F176BAAA400A2CC88 /* saveit.png */,
 				8CCB9B7D176BA39A00A2CC88 /* sistaprutt.png */,
+				8CCB9B81176BDB4000A2CC88 /* allt.png */,
 				8CCB9B7B176BA06100A2CC88 /* lillaprutt.png */,
 				8CCB9B731769F79300A2CC88 /* buttonPeH.png */,
 				8CCB9B751769F9A800A2CC88 /* buttonPe2.png */,
@@ -989,6 +1010,13 @@
 				8CCB9B7C176BA06200A2CC88 /* lillaprutt.png in Resources */,
 				8CCB9B7E176BA39A00A2CC88 /* sistaprutt.png in Resources */,
 				8CCB9B80176BAAA500A2CC88 /* saveit.png in Resources */,
+				8CCB9B82176BDB4000A2CC88 /* allt.png in Resources */,
+				8CCB9B84176D0C2400A2CC88 /* saveeitall.png in Resources */,
+				8CCB9B86176DE1F800A2CC88 /* cleanSave.png in Resources */,
+				8CCB9B88176DE4CA00A2CC88 /* onlyPE.png in Resources */,
+				8CCB9B8A176DE90900A2CC88 /* lonelyDrop.png in Resources */,
+				8CCB9B8C176DEAE200A2CC88 /* lonelypoop.png in Resources */,
+				8CCB9B8E176DED1F00A2CC88 /* ensambajsbomb.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
