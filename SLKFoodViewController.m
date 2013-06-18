@@ -116,10 +116,15 @@
 {
     NSLog(@"Adspace did fail with message: %@", message);
 }
+-(void)didAnimateIn:(WSAdSpace *)adSpace
+{
+    NSLog(@"Adspace.frame ----> %@", NSStringFromCGRect(adSpace.frame));
+}
 
 -(void)didLoadAd:(WSAdSpace *)adSpace adType:(NSString *)adType
 {
     NSLog(@"Adspace did load ad with type: %@", adType);
+    NSLog(@"Adspace.frame ========= %@", NSStringFromCGRect(adSpace.frame));
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -203,7 +208,8 @@
      //_universalSliderText.text = [NSString stringWithFormat:@"log how much %@ ate ", currentBabe.name];
    
     // Declare and Initiate the WSAdSpace object
-   // splashAdView = [[WSAdSpace alloc] initWithFrame:CGRectMake(0, 0,320 ,88)  sid:@"f48a4efe-0567-4bc5-b426-8e385f386a87" autoUpdate:YES autoStart:YES delegate:self];
+    splashAdView = [[WSAdSpace alloc] initWithFrame:CGRectMake(0, 0,320 ,88)  sid:@"f48a4efe-0567-4bc5-b426-8e385f386a87" autoUpdate:NO autoStart:NO delegate:self];
+    [splashAdView prefetchAd];
      // Add WSAdSpace as a subview of MyViewController
    // splashAdView.backgroundColor = [UIColor redColor];
    // [self.view addSubview:splashAdView];
@@ -267,6 +273,14 @@
     for (NSInteger i=lastPage+1; i<self.pageViews.count; i++) {
         [self purgePage:i];
     }
+}
+-(void)didPrefetchAd:(WSAdSpace *)adSpace mediaStatus:(NSString *)mediaStatus
+{
+     [self.view addSubview:splashAdView];
+    [self.view bringSubviewToFront:splashAdView];
+    NSLog(@"size:--------%@", NSStringFromCGRect(adSpace.frame));
+    [splashAdView runAd];
+
 }
 - (void)loadPage:(NSInteger)page {
     if (page < 0 || page >= self.pageViews.count) {
@@ -366,7 +380,10 @@
     [self hideTheDiaperSetUp];
     [_sliderOne setHidden:NO];
     [_sliderTwo setHidden:NO];
-    
+    [_timeSlider setThumbImage:[UIImage imageNamed:@"oneStar.png"] forState:UIControlStateNormal];
+    [_sliderOne setThumbImage:[UIImage imageNamed:@"oneStar.png"]forState:UIControlStateNormal];
+    [_sliderOne setThumbImage:[UIImage imageNamed:@"mooon.png"]forState:UIControlStateHighlighted];
+   
     titsView = NO;
     bottleView = NO;
     sleepView = YES;
@@ -374,7 +391,6 @@
     medzView = NO;
     
     _UniversalLabel.text = @"sleep time";
-    [_sliderTwo setHidden:NO];
     _sliderTwoLabel.hidden = NO;
     _sliderOne.maximumValue = 240;
    // _universalSliderText.text = [NSString stringWithFormat:@" ", currentBabe.name];
