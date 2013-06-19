@@ -110,6 +110,8 @@
 		8CCB9B8A176DE90900A2CC88 /* lonelyDrop.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCB9B89176DE90900A2CC88 /* lonelyDrop.png */; };
 		8CCB9B8C176DEAE200A2CC88 /* lonelypoop.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCB9B8B176DEAE200A2CC88 /* lonelypoop.png */; };
 		8CCB9B8E176DED1F00A2CC88 /* ensambajsbomb.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCB9B8D176DED1F00A2CC88 /* ensambajsbomb.png */; };
+		8CCB9B941770E3B700A2CC88 /* mooon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCB9B931770E3B700A2CC88 /* mooon.png */; };
+		8CCB9B961770E71800A2CC88 /* oneStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCB9B951770E71800A2CC88 /* oneStar.png */; };
 		CE11D004170232ED001A5AD2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE11D003170232ED001A5AD2 /* AudioToolbox.framework */; };
 		CE11D00617023304001A5AD2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE11D00517023304001A5AD2 /* CFNetwork.framework */; };
 		CE11D00817023329001A5AD2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE11D00717023329001A5AD2 /* CoreLocation.framework */; };
@@ -325,6 +327,8 @@
 		8CCB9B89176DE90900A2CC88 /* lonelyDrop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lonelyDrop.png; sourceTree = "<group>"; };
 		8CCB9B8B176DEAE200A2CC88 /* lonelypoop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lonelypoop.png; sourceTree = "<group>"; };
 		8CCB9B8D176DED1F00A2CC88 /* ensambajsbomb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ensambajsbomb.png; sourceTree = "<group>"; };
+		8CCB9B931770E3B700A2CC88 /* mooon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mooon.png; sourceTree = "<group>"; };
+		8CCB9B951770E71800A2CC88 /* oneStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oneStar.png; sourceTree = "<group>"; };
 		CE11D003170232ED001A5AD2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		CE11D00517023304001A5AD2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		CE11D00717023329001A5AD2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -635,6 +639,8 @@
 		1C955AC8170E034A00310575 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8CCB9B951770E71800A2CC88 /* oneStar.png */,
+				8CCB9B931770E3B700A2CC88 /* mooon.png */,
 				8CCB9B8D176DED1F00A2CC88 /* ensambajsbomb.png */,
 				8CCB9B8B176DEAE200A2CC88 /* lonelypoop.png */,
 				8CCB9B89176DE90900A2CC88 /* lonelyDrop.png */,
@@ -1017,6 +1023,8 @@
 				8CCB9B8A176DE90900A2CC88 /* lonelyDrop.png in Resources */,
 				8CCB9B8C176DEAE200A2CC88 /* lonelypoop.png in Resources */,
 				8CCB9B8E176DED1F00A2CC88 /* ensambajsbomb.png in Resources */,
+				8CCB9B941770E3B700A2CC88 /* mooon.png in Resources */,
+				8CCB9B961770E71800A2CC88 /* oneStar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

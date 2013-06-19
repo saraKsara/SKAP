@@ -101,7 +101,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    splashAdView = [[WSAdSpace alloc] initWithFrame:CGRectMake(0, 0,320 ,88)  sid:@"f48a4efe-0567-4bc5-b426-8e385f386a87" autoUpdate:YES autoStart:YES delegate:self];
+    splashAdView = [[WSAdSpace alloc] initWithFrame:CGRectMake(0, 0,320 ,88)  sid:@"f48a4efe-0567-4bc5-b426-8e385f386a87" autoUpdate:NO autoStart:NO delegate:self];
     // Add WSAdSpace as a subview of MyViewController
     // splashAdView.backgroundColor = [UIColor redColor];
     [self.view addSubview:splashAdView];
@@ -110,6 +110,18 @@
    // days = [[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay];
     //get all days
    // weeks = [[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay];
+        [splashAdView prefetchAd];
+
+	// Do any additional setup after loading the view.
+}
+- (void)didPrefetchAd:(WSAdSpace *)adSpace mediaStatus:(NSString *)mediaStatus
+{
+    NSLog(@"did finish prefetch----%@-----%@",adSpace, mediaStatus);
+    
+    NSLog(@"Frame on prefetched ad-------%@", NSStringFromCGRect(adSpace.frame));
+    [splashAdView runAd];
+
+    
 }
 
 - (IBAction)close:(id)sender {
@@ -186,6 +198,7 @@
         _headerLabel.text = [NSString stringWithFormat:@"%@ \n between %@ - %@", currentBaby.name, [SLKDateUtil formatDateWithoutYear: fromDate],[SLKDateUtil formatDateWithoutYear: todate]];
 
          [self reloadTable];
+               
     }
    
 }
