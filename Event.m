@@ -2,7 +2,7 @@
 //  Event.m
 //  SKAP
 //
-//  Created by Åsa Persson on 2013-05-14.
+//  Created by Åsa Persson on 2013-06-19.
 //  Copyright (c) 2013 Student vid Yrkeshögskola C3L. All rights reserved.
 //
 
@@ -23,6 +23,7 @@
 @dynamic bottle;
 @dynamic comments;
 @dynamic date;
+@dynamic dirty;
 @dynamic eventId;
 @dynamic otherMedz;
 @dynamic pii;
@@ -32,7 +33,7 @@
 @dynamic timespan;
 @dynamic tits;
 @dynamic type;
-@dynamic dirty;
+@dynamic day;
 @dynamic baby;
 @dynamic bottles;
 @dynamic diapers;

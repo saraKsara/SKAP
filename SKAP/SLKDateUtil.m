@@ -47,10 +47,10 @@ NSDateFormatter* dateTitleFormatterOtherYear = nil;
 }
 +(NSString*) formatDateWithDay:(NSDate*) date
 {
-    NSDateFormatter *monthandDayFormatter = [[NSDateFormatter alloc] init];
-    [monthandDayFormatter setLocale:[NSLocale currentLocale]];
-    [monthandDayFormatter setDateFormat:@"dd"];
-    return [monthandDayFormatter stringFromDate:date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setLocale:[NSLocale currentLocale]];
+    [dateFormatter setDateFormat:@"dd"];
+    return [dateFormatter stringFromDate:date];
 }
 +(NSString*) formatDateWithoutYear:(NSDate*) date
 {
@@ -59,7 +59,13 @@ NSDateFormatter* dateTitleFormatterOtherYear = nil;
     [monthandDayFormatter setDateFormat:@"dd MMMM"];
     return [monthandDayFormatter stringFromDate:date];
 }
-
++(NSString*) formatDateWithDayMonthAndYear:(NSDate*) date
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setLocale:[NSLocale currentLocale]];
+    [dateFormatter setDateFormat:@"dd MMM yyyy"];
+    return [dateFormatter stringFromDate:date];
+}
 +(NSString*) formatYearFromDate:(NSDate*) date
 {
     NSDateFormatter *yearFormatter = [[NSDateFormatter alloc] init];

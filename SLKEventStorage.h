@@ -46,7 +46,9 @@
 
 -(void)removeAllEvents;
 
--(NSArray*)getEventByDay:(NSDate*)date;
+-(NSArray*)getEventByDay:(NSString*)day;
+
+-(NSArray*)getEventByDate:(NSDate*)date;
 
 -(NSMutableDictionary*)getAllDaysWithEventforBaby:(Baby*)baby;
 

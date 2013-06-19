@@ -27,6 +27,7 @@
 #import "SLKConstants.h"
 #import "SLKDates.h"
 #import "SLKDateUtil.h"
+#import "SLKStringUtil.h"
 
 @implementation SLKEventStorage
 {
@@ -94,6 +95,8 @@
     e.baby = baby;
     e.sleep = sleep;
     e.dirty = [NSNumber numberWithBool:YES];
+    e.day = [SLKStringUtil removeAllBlanksAndMakeLowerCase:[SLKDateUtil formatDateWithDayMonthAndYear:date]];
+
     
     return e;
 }
@@ -110,7 +113,8 @@
     e.baby = baby;
     e.date = date;
     e.dirty = [NSNumber numberWithBool:dirty];
-    
+    e.day = [SLKStringUtil removeAllBlanksAndMakeLowerCase:[SLKDateUtil formatDateWithDayMonthAndYear:date]];
+    NSLog(@"daydayday: %@", e.day);
     // [self setLatestEvent:[NSDate date]];
     
     PFObject *pfEventObject = [PFObject objectWithClassName:kEvent];
@@ -213,7 +217,7 @@
     NSArray *arr = [[SLKCoreDataService sharedService] fetchDataWithEntity:kEvent
                                                               andPredicate:[NSPredicate predicateWithFormat:@"baby == %@", baby]
                                                         andSortDescriptors:nil];
-   // NSLog(@"\n\n\getEventBelomigTObaby %d\n\n", arr.count);
+   // NSLog(@"\n\n\n getEventBelomigTObabyarr.count %d, BABYNAME: %@ \n\n", arr.count, baby.name);
 
     
     return [arr count] > 0 ? arr : nil;
@@ -307,9 +311,12 @@
     
     return nil;
 }
+
+
 -(NSMutableDictionary *)getAllDaysWithEventforBaby:(Baby *)baby
 {
     NSArray *allEventOfBaby = [self getEventBelomigTObaby:baby];
+    NSLog(@"babyname = %@", baby.name);
    // NSMutableArray *returnArray = [NSMutableArray array];
     NSLog(@"\n\n\n getAllDaysWithEventforBaby %d\n\n", allEventOfBaby.count);
     
@@ -327,7 +334,16 @@
     {
        // NSDate *dateOfEvent = event.date;
         [setOfDays addObject:[SLKDateUtil formatDateWithDay: event.date]];
-        NSLog(@"\n\n\n ****  DAY: %@ \n Count:%d \n\n", [SLKDateUtil formatDateWithDay: event.date], setOfDays.count);
+        NSString *dateKey = [SLKStringUtil removeAllBlanksAndMakeLowerCase:[SLKDateUtil formatDateWithDayMonthAndYear: event.date]];
+        
+        NSLog(@"\n\n\n ****  dateKey: %@ \n Count:%d \n\n", dateKey, setOfDays.count);
+        
+        [eventDict setObject:event forKey:dateKey];
+        //ex event with key 16 Jun 2013 
+       // NSLog(@"eventDicteventDict1: %@", [eventDict allKeys]);
+
+        
+        
 //        [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit startDate:&dateOfEvent interval:NULL forDate:dateOfEvent];
 //        [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit startDate:&day interval:NULL forDate:day];
 //        
@@ -350,7 +366,7 @@
 //    {
 //        return sortedArray;
   }
-    return setOfDays;
+    return eventDict;
     
 //    if (currentDay.weekday == 1)//------------------sunday
 //    {
@@ -443,13 +459,37 @@
         [self removeEvent:event];
     }
 }
--(NSArray *)getEventByDay:(NSDate *)date
+-(NSArray *)getEventByDate:(NSDate *)date
 {
     NSArray *arr = [[SLKCoreDataService sharedService] fetchDataWithEntity:kEvent
                                                               andPredicate:[NSPredicate predicateWithFormat:@"date == %@", date]
                                                         andSortDescriptors:nil];
     
     return [arr count] > 0 ? [arr lastObject] : nil;
+}
+
+-(NSArray *)getEventByDay:(NSString *)day
+{
+    
+    NSArray *arr = [[SLKCoreDataService sharedService] fetchDataWithEntity:kEvent
+                                                              andPredicate:[NSPredicate predicateWithFormat:@"day == %@", day]
+                                                        andSortDescriptors:nil];
+    
+  //  NSMutableArray *returnArr = [[NSMutableArray alloc] init];
+//    for (Event *event in arr)
+//    {
+//        NSString *dateKey = [SLKStringUtil removeAllBlanksAndMakeLowerCase:[SLKDateUtil formatDateWithDayMonthAndYear: event.date]];
+//
+//        if ([day isEqualToString:dateKey])
+//        {
+//            [returnArr addObject:event];
+//        }
+//        
+//    }
+
+   // NSLog(@"assååarr: %d", [arr count]);
+    
+    return [arr count] > 0 ? arr : nil;
 }
 
 -(NSArray *)getEventBelomigTObabyWithID:(NSString *)babyId

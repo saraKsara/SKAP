@@ -2,7 +2,7 @@
 //  Event.h
 //  SKAP
 //
-//  Created by Åsa Persson on 2013-05-14.
+//  Created by Åsa Persson on 2013-06-19.
 //  Copyright (c) 2013 Student vid Yrkeshögskola C3L. All rights reserved.
 //
 
@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSNumber * bottle;
 @property (nonatomic, retain) NSString * comments;
 @property (nonatomic, retain) NSDate * date;
+@property (nonatomic, retain) NSNumber * dirty;
 @property (nonatomic, retain) NSString * eventId;
 @property (nonatomic, retain) NSString * otherMedz;
 @property (nonatomic, retain) NSString * pii;
@@ -26,7 +27,7 @@
 @property (nonatomic, retain) NSNumber * timespan;
 @property (nonatomic, retain) NSString * tits;
 @property (nonatomic, retain) NSString * type;
-@property (nonatomic, retain) NSNumber * dirty;
+@property (nonatomic, retain) NSString * day;
 @property (nonatomic, retain) Baby *baby;
 @property (nonatomic, retain) NSSet *bottles;
 @property (nonatomic, retain) NSSet *diapers;
