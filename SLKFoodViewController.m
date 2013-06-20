@@ -135,8 +135,8 @@
 {
     [super viewWillAppear:animated];
     milkY = 123;
-    milkView = [[UIImageView alloc] initWithFrame:CGRectMake(130, milkY, 35, 0)];
-    UIImage *diap = [UIImage imageNamed:@"milk2px.png"];
+    milkView = [[UIImageView alloc] initWithFrame:CGRectMake(122, milkY, 33, 0)];
+    UIImage *diap = [UIImage imageNamed:@"blueMilk.png"];
     [self.bottleView addSubview:milkView];
     // milkView.frame = CGRectMake(10, 20, 35,_sliderOne.value);
     [milkView setImage:diap];
@@ -1060,51 +1060,13 @@
     UIGraphicsEndImageContext();
     return middleImage;
 }
--(void)drawMilkwithHeight:(float)height
-{
-   int h = height/5;
-    int y = height/5;
- [UIView animateWithDuration:0.4 animations:^{ [milkView setFrame:CGRectMake(122, milkY-y, 33, h)]; }];
 
-}
 -(void)setSliderOneLabelBottle
 {
     _sliderOneLabel.text = [NSString stringWithFormat:@" %.f ml",_sliderOne.value];
     bottledFood = _sliderOne.value;
-
- 
-
-    [self drawMilkwithHeight:_sliderOne.value];
-
-  
-
-    if (_sliderOne.value < 58)
-    {
-//        milkView.frame = CGRectMake(10, 20, 35,10);
-//        [milkView setImage:diap];
-        //  [self drawMilkwithHeight:_sliderOne.value];
-    }
-//    else  if (_sliderOne.value > 58 && _sliderOne.value < 116)
-//    {
-//        milkView.frame = CGRectMake(10, 20, 35,_sliderOne.value);
-//        [milkView setImage:diap];
-//    }
-//    else  if (_sliderOne.value > 116  && _sliderOne.value < 174)
-//    {
-//        
-//    }
-//    else  if (_sliderOne.value > 174 && _sliderOne.value < 232)
-//    {
-//        
-//    }
-//    else  if (_sliderOne.value > 232 && _sliderOne.value < 290)
-//    {
-//        
-//    }
-//    else  if (_sliderOne.value > 290)
-//    {
-//       
-//    }
+    int height = _sliderOne.value/5;
+    [UIView animateWithDuration:0.4 animations:^{ [milkView setFrame:CGRectMake(122, milkY- height, 33, height)]; }];
 
 }
 -(void)setSliderOneLabelSleep

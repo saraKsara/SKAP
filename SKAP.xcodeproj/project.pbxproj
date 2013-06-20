@@ -18,6 +18,7 @@
 		1C30A4281737B7BD0010D4F1 /* SLKPfSingupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C30A4261737B7BD0010D4F1 /* SLKPfSingupViewController.m */; };
 		1C30A42B1737B81D0010D4F1 /* SLKPfLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C30A42A1737B81D0010D4F1 /* SLKPfLoginViewController.m */; };
 		1C30A42C1737B81D0010D4F1 /* SLKPfLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C30A42A1737B81D0010D4F1 /* SLKPfLoginViewController.m */; };
+		1C31AD3D177383EC00412ED0 /* blueMilk.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C31AD3C177383EC00412ED0 /* blueMilk.png */; };
 		1C34EC781706EC700095F0C2 /* SLKPooStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C34EC771706EC700095F0C2 /* SLKPooStorage.m */; };
 		1C34EC7B1706EED10095F0C2 /* SLKPiiStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C34EC7A1706EED10095F0C2 /* SLKPiiStorage.m */; };
 		1C354AF817722C5E00DE49C8 /* SLKStringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C354AF717722C5E00DE49C8 /* SLKStringUtil.m */; };
@@ -193,6 +194,7 @@
 		1C30A4261737B7BD0010D4F1 /* SLKPfSingupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPfSingupViewController.m; sourceTree = "<group>"; };
 		1C30A4291737B81D0010D4F1 /* SLKPfLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKPfLoginViewController.h; sourceTree = "<group>"; };
 		1C30A42A1737B81D0010D4F1 /* SLKPfLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPfLoginViewController.m; sourceTree = "<group>"; };
+		1C31AD3C177383EC00412ED0 /* blueMilk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueMilk.png; sourceTree = "<group>"; };
 		1C34EC761706EC700095F0C2 /* SLKPooStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKPooStorage.h; sourceTree = "<group>"; };
 		1C34EC771706EC700095F0C2 /* SLKPooStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPooStorage.m; sourceTree = "<group>"; };
 		1C34EC791706EED10095F0C2 /* SLKPiiStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKPiiStorage.h; sourceTree = "<group>"; };
@@ -663,6 +665,7 @@
 				8CCB9B711769F14200A2CC88 /* buttonPeDrop.png */,
 				8CCB9B6D1768B31D00A2CC88 /* 2.png */,
 				8CCB9B6B1768B21A00A2CC88 /* images.png */,
+				1C31AD3C177383EC00412ED0 /* blueMilk.png */,
 				8CCB9B691768B12B00A2CC88 /* nopee.png */,
 				8CCB9B671768A8EC00A2CC88 /* d_.png */,
 				8CCB9B6F1769EECF00A2CC88 /* dropp.png */,
@@ -1034,6 +1037,7 @@
 				8CCB9B941770E3B700A2CC88 /* mooon.png in Resources */,
 				8CCB9B961770E71800A2CC88 /* oneStar.png in Resources */,
 				1C3A8AC0177367FF00AA8E69 /* milk2px.png in Resources */,
+				1C31AD3D177383EC00412ED0 /* blueMilk.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
