@@ -71,9 +71,19 @@
                                                object:nil];
     
     
-    //TODO: if user was invited...
     
-    if ([PFUser currentUser] != nil) { // No user logged in
+    
+     
+  /* ***********************  Just for testing, uncomment to use real login and fetch data *********************** */
+        [self setUpApp];
+     
+    
+    
+  /*  
+   *********************** Just for testing, uncomment to use real login and fetch data ***********************
+
+   //TODO: if user was invited...
+   if ([PFUser currentUser] != nil) { // No user logged in
         [self setUpAppFirstTime];
         NSLog(@"no current user");
     }
@@ -104,7 +114,9 @@
     
     //[[SLKBabyStorage sharedStorage] removeAllBabies];
     // [[SLKParentStorage sharedStorage] removeAllParents];
-    
+    */
+   
+   
     return YES;
 }
 

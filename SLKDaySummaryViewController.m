@@ -71,9 +71,7 @@
     
     NSLog(@"viewWillAppearcurrentBabyNAMEE : %@", currentBaby.name);
 
-
   //  NSArray *eventOfDayArray = [[SLKEventStorage sharedStorage] getEventByDay:dayKey];
-
     
    eventDict =  [[NSMutableDictionary alloc] init];
    // eventArray = [[NSArray alloc] init];
@@ -119,26 +117,18 @@
     // splashAdView.backgroundColor = [UIColor redColor];
     [self.view addSubview:splashAdView];
     [self.view bringSubviewToFront:splashAdView];
-    currentBaby = [[SLKBabyStorage sharedStorage] getCurrentBaby];
+    
+    currentBaby = [[SLKBabyStorage sharedStorage] getCurrentBaby];//TODO: where to get this??? now its getted two times
     dayOfEventsDict = [[NSMutableDictionary alloc] init];
 
     eventDict = [[SLKEventStorage sharedStorage] getAllDaysWithEventforBaby:currentBaby];
-    NSLog(@"currentBabyNAMEE : %@", currentBaby.name);
-    NSLog(@"eventDicteventDict33: %@", [eventDict allKeys]);
-     eventArray = [eventDict allKeys];
+    eventArray = [eventDict allKeys];
 
     for (NSString *str in [eventDict allKeys])
     {
-
         NSArray *eventOfDayArray = [[SLKEventStorage sharedStorage] getEventByDay:str];
-        NSLog(@"eventOfDayArray: %d", [eventOfDayArray count]);
-        
         [dayOfEventsDict setObject:eventOfDayArray forKey:str];
-
-        NSLog(@"dayOfEventsDictyyyy: %@", [dayOfEventsDict allKeys]);
-        NSLog(@"dayOfEventsDict counttt: %d", [dayOfEventsDict count]);
     }
-  
    // weeks = [[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay];
     
         [splashAdView prefetchAd];
@@ -255,7 +245,6 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     NSLog(@"numberOfSectionsInTableView: %d", [eventArray count]);
-
     return eventArray.count;
 }
 
@@ -265,7 +254,6 @@
 //        if (_dateUnit == day) return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay]count];
 //        else  return [[[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby fromDate:fromDate toDate:todate]count];
 //    }
-//    
    // NSArray *eventArray = [[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby];
     for (int i = 0; i < eventArray.count; i++)
     {

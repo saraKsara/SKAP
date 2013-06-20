@@ -312,6 +312,11 @@
     return nil;
 }
 
+//Returns day (i.e 16june2013) event belonging to current baby
+-(NSArray*)getAllBabysEventSortedByDayAndDate
+{
+    
+}
 
 -(NSMutableDictionary *)getAllDaysWithEventforBaby:(Baby *)baby
 {

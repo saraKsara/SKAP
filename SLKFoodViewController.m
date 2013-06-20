@@ -59,13 +59,16 @@
 //    BOOL pooToAddToLittle;
 //    UIImage *checkedImage;
 //    UIImage *unCheckedImage;
-    
+   
     
     //SLEEP
     int sleptMinutes;
     
     //BOTTLE
     float bottledFood;
+     UIImageView *milkView;
+    int milkY;
+    
     
     SLKBabyListTableViewController *settingsVC;
     float checkDirection;
@@ -123,6 +126,7 @@
 
 -(void)didLoadAd:(WSAdSpace *)adSpace adType:(NSString *)adType
 {
+
     NSLog(@"Adspace did load ad with type: %@", adType);
     NSLog(@"Adspace.frame ========= %@", NSStringFromCGRect(adSpace.frame));
 }
@@ -130,7 +134,12 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    milkY = 123;
+    milkView = [[UIImageView alloc] initWithFrame:CGRectMake(130, milkY, 35, 0)];
+    UIImage *diap = [UIImage imageNamed:@"milk2px.png"];
+    [self.bottleView addSubview:milkView];
+    // milkView.frame = CGRectMake(10, 20, 35,_sliderOne.value);
+    [milkView setImage:diap];
   //  NSLog(@"selected ONE? : %d", _switchOne.selected);
    // NSLog(@"current Pf-USER----%@", [PFUser currentUser]);
    // NSLog(@"current SLK-USER----%@", [SLKuser currentUser]);
@@ -994,7 +1003,8 @@
     _sliderOneLabel.text = @"Titty";
     if (_sliderOne.value < 58)
     {
-        _sliderOneLabel.text = @" extra small meal";
+       _sliderOneLabel.text = @" extra small meal";
+    
     } else  if (_sliderOne.value > 58 && _sliderOne.value < 116)
     {
         _sliderOneLabel.text = @" small meal";
@@ -1012,11 +1022,90 @@
         _sliderOneLabel.text = @" large meal";
     }
 }
+-(UIImage*)drawImagewithFrame:(CGRect)frame
+{
+    NSMutableArray *imageArray = [[NSMutableArray alloc] init];
+    for (int i = 0; i <= frame.size.width; i++) {
+        UIImage *img = [UIImage imageNamed:@"milk2px.png"];
+        [imageArray addObject:img];
+    }
+    
+    UIImage *middleImage = [self mergeImages:imageArray];
+    return middleImage;
+//    UIImage *leftImage = [UIImage imageNamed:@"milk2px.png"];
+//    UIImage *rightImage = [UIImage imageNamed:@"milk2px.png"];
+//    
+//    CGFloat widthOfAllImages = leftImage.size.width + middleImage.size.width + rightImage.size.width;
+//    
+//    UIGraphicsBeginImageContextWithOptions(CGSizeMake(widthOfAllImages, middleImage.size.height), NO, 0);
+//    [leftImage drawAtPoint:CGPointMake(0, 0)];
+//    [middleImage drawAtPoint:CGPointMake(leftImage.size.width, 0)];
+//    [rightImage drawAtPoint:CGPointMake(leftImage.size.width + middleImage.size.width, 0)];
+//    
+//    UIImage* im = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    
+//    UIImageView *imageView = [[UIImageView alloc] initWithImage:im];
+//    imageView.frame = frame;
+   // [self addSubview:imageView];
+}
+-(UIImage*)mergeImages:(NSMutableArray*)images
+{
+    //UIGraphicsBeginImageContextWithOptions(CGSizeMake(images.count, self.frame.size.height), YES, 0.0);
+    for (int i = 0; i < images.count; i++) {
+        [[images objectAtIndex:i] drawAtPoint: CGPointMake(i,0)];
+    }
+    
+    UIImage *middleImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return middleImage;
+}
+-(void)drawMilkwithHeight:(float)height
+{
+   int h = height/5;
+    int y = height/5;
+ [UIView animateWithDuration:0.4 animations:^{ [milkView setFrame:CGRectMake(122, milkY-y, 33, h)]; }];
 
+}
 -(void)setSliderOneLabelBottle
 {
     _sliderOneLabel.text = [NSString stringWithFormat:@" %.f ml",_sliderOne.value];
     bottledFood = _sliderOne.value;
+
+ 
+
+    [self drawMilkwithHeight:_sliderOne.value];
+
+  
+
+    if (_sliderOne.value < 58)
+    {
+//        milkView.frame = CGRectMake(10, 20, 35,10);
+//        [milkView setImage:diap];
+        //  [self drawMilkwithHeight:_sliderOne.value];
+    }
+//    else  if (_sliderOne.value > 58 && _sliderOne.value < 116)
+//    {
+//        milkView.frame = CGRectMake(10, 20, 35,_sliderOne.value);
+//        [milkView setImage:diap];
+//    }
+//    else  if (_sliderOne.value > 116  && _sliderOne.value < 174)
+//    {
+//        
+//    }
+//    else  if (_sliderOne.value > 174 && _sliderOne.value < 232)
+//    {
+//        
+//    }
+//    else  if (_sliderOne.value > 232 && _sliderOne.value < 290)
+//    {
+//        
+//    }
+//    else  if (_sliderOne.value > 290)
+//    {
+//       
+//    }
+
 }
 -(void)setSliderOneLabelSleep
 {

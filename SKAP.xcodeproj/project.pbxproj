@@ -23,6 +23,7 @@
 		1C354AF817722C5E00DE49C8 /* SLKStringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C354AF717722C5E00DE49C8 /* SLKStringUtil.m */; };
 		1C354AFB1772301800DE49C8 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C354AFA1772301800DE49C8 /* Event.m */; };
 		1C378B731712A73C006AC9EF /* SLKWelcomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C378B721712A73C006AC9EF /* SLKWelcomeCell.m */; };
+		1C3A8AC0177367FF00AA8E69 /* milk2px.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C3A8ABF177367FF00AA8E69 /* milk2px.png */; };
 		1C3F372A172E98450084D3D8 /* SLKTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3F3729172E98450084D3D8 /* SLKTabbar.m */; };
 		1C3F372D172E98F70084D3D8 /* SLKTababrController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3F372C172E98F70084D3D8 /* SLKTababrController.m */; };
 		1C4078EF1748D5FE0038C9F9 /* SLKCreateBabyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4078EE1748D5FE0038C9F9 /* SLKCreateBabyViewController.m */; };
@@ -202,6 +203,7 @@
 		1C354AFA1772301800DE49C8 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		1C378B711712A73C006AC9EF /* SLKWelcomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKWelcomeCell.h; sourceTree = "<group>"; };
 		1C378B721712A73C006AC9EF /* SLKWelcomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKWelcomeCell.m; sourceTree = "<group>"; };
+		1C3A8ABF177367FF00AA8E69 /* milk2px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = milk2px.png; sourceTree = "<group>"; };
 		1C3F3728172E98450084D3D8 /* SLKTabbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKTabbar.h; sourceTree = "<group>"; };
 		1C3F3729172E98450084D3D8 /* SLKTabbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKTabbar.m; sourceTree = "<group>"; };
 		1C3F372B172E98F70084D3D8 /* SLKTababrController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKTababrController.h; sourceTree = "<group>"; };
@@ -680,6 +682,7 @@
 				CE1D76F1170E284B00028416 /* checkedNO.png */,
 				1C98A20D172BF1D100741112 /* prevyArrow.png */,
 				CEEFACB41742E376005BA351 /* dia.png */,
+				1C3A8ABF177367FF00AA8E69 /* milk2px.png */,
 				1C98A20F172BF1DF00741112 /* nextyArrow.png */,
 				CEBFE2941715F5870010B192 /* smBc.png */,
 				CEDDEB5E171358820017DE60 /* titsPink.png */,
@@ -1030,6 +1033,7 @@
 				8CCB9B8E176DED1F00A2CC88 /* ensambajsbomb.png in Resources */,
 				8CCB9B941770E3B700A2CC88 /* mooon.png in Resources */,
 				8CCB9B961770E71800A2CC88 /* oneStar.png in Resources */,
+				1C3A8AC0177367FF00AA8E69 /* milk2px.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
