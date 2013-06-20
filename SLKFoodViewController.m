@@ -131,6 +131,15 @@
     NSLog(@"Adspace.frame ========= %@", NSStringFromCGRect(adSpace.frame));
 }
 
+
+
+
+
+
+
+
+
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -215,6 +224,9 @@
     UIImage *diap = [UIImage imageNamed:@"blueMilk.png"];
     [self.bottleView addSubview:milkView];
     [milkView setImage:diap];
+   [_timeSlider setThumbImage:[UIImage imageNamed:@"phClock2"]forState:UIControlStateNormal];
+    [_timeSlider setThumbImage:[UIImage imageNamed:@"phClock3"]forState:UIControlStateHighlighted];
+
     // Declare and Initiate the WSAdSpace object
     splashAdView = [[WSAdSpace alloc] initWithFrame:CGRectMake(0, 0,320 ,88)  sid:@"f48a4efe-0567-4bc5-b426-8e385f386a87" autoUpdate:NO autoStart:NO delegate:self];
     [splashAdView prefetchAd];
@@ -388,9 +400,8 @@
     [self hideTheDiaperSetUp];
     [_sliderOne setHidden:NO];
     [_sliderTwo setHidden:NO];
-    [_timeSlider setThumbImage:[UIImage imageNamed:@"oneStar.png"] forState:UIControlStateNormal];
-    [_sliderOne setThumbImage:[UIImage imageNamed:@"oneStar.png"]forState:UIControlStateNormal];
-    [_sliderOne setThumbImage:[UIImage imageNamed:@"mooon.png"]forState:UIControlStateHighlighted];
+    [_sliderOne setThumbImage:[UIImage imageNamed:@"litenLort.png"]forState:UIControlStateNormal];
+    [_sliderOne setThumbImage:[UIImage imageNamed:@"bajs2.png"]forState:UIControlStateHighlighted];
    
     titsView = NO;
     bottleView = NO;
@@ -406,6 +417,16 @@
 }
 -(void)setTheDiaperView
 {
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    
+    [animation setFromValue:[NSNumber numberWithFloat:0.0]];
+    [animation setToValue:[NSNumber numberWithFloat:1.0]];
+    [animation setDuration:0.3f];
+    [animation setTimingFunction:[CAMediaTimingFunction
+                                  functionWithName:kCAMediaTimingFunctionLinear]];
+    //[_poo setHidden:NO];
+    [_pee setHidden:NO];
+    [[_pee layer] addAnimation:animation forKey:@"opacity"];
     titsView = NO;
     bottleView = NO;
     sleepView = NO;
@@ -424,15 +445,18 @@
     {
         [label setHidden:NO];
     }
-    [_pee setHidden:NO];
-    [_poo setHidden:NO];
+    
+   
    // [_switchTwo setTintColor:[UIColor colorWithHexValue:@"FFFF66"]];
    // [_switchTwo setThumbTintColor:[UIColor whiteColor]];
     
     //[_switchTwo setOffImage:[UIImage imageNamed:@"2"]];
     //[_switchTwo setTintColor:[UIColor colorWithHexValue:@"663300"]];
     
-    
+        
+            //[[_poo layer] addAnimation:animation forKey:@"opacity"];
+        
+            
 
     [_switchOne setHidden:NO];
     [_switchTwo setHidden:NO];
