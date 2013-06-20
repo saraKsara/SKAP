@@ -11,6 +11,8 @@
 @interface SLKDateUtil : NSObject
 +(NSString*) formatDate:(NSDate*) date;
 +(NSString*) formatDateWithoutYear:(NSDate*) date;
++(NSString*) formatDateWithDay:(NSDate*) date;
++(NSString*) formatDateWithDayMonthAndYear:(NSDate*) date;
 +(NSString*) formatYearFromDate:(NSDate*) date;
 +(NSString*) formatTimeFromDate:(NSDate*) date;
 @end

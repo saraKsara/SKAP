@@ -439,7 +439,7 @@
     
    
    // [_switchTwo setTintColor:[UIColor colorWithHexValue:@"FFFF66"]];
-    [_switchTwo setThumbTintColor:[UIColor whiteColor]];
+   // [_switchTwo setThumbTintColor:[UIColor whiteColor]];
     
     //[_switchTwo setOffImage:[UIImage imageNamed:@"2"]];
     //[_switchTwo setTintColor:[UIColor colorWithHexValue:@"663300"]];

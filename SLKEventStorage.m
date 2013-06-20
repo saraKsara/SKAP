@@ -25,6 +25,9 @@
 #import "SLKPARSEService.h"
 #import <Parse/Parse.h>
 #import "SLKConstants.h"
+#import "SLKDates.h"
+#import "SLKDateUtil.h"
+#import "SLKStringUtil.h"
 
 @implementation SLKEventStorage
 {
@@ -92,6 +95,8 @@
     e.baby = baby;
     e.sleep = sleep;
     e.dirty = [NSNumber numberWithBool:YES];
+    e.day = [SLKStringUtil removeAllBlanksAndMakeLowerCase:[SLKDateUtil formatDateWithDayMonthAndYear:date]];
+
     
     return e;
 }
@@ -108,7 +113,8 @@
     e.baby = baby;
     e.date = date;
     e.dirty = [NSNumber numberWithBool:dirty];
-    
+    e.day = [SLKStringUtil removeAllBlanksAndMakeLowerCase:[SLKDateUtil formatDateWithDayMonthAndYear:date]];
+    NSLog(@"daydayday: %@", e.day);
     // [self setLatestEvent:[NSDate date]];
     
     PFObject *pfEventObject = [PFObject objectWithClassName:kEvent];
@@ -211,15 +217,20 @@
     NSArray *arr = [[SLKCoreDataService sharedService] fetchDataWithEntity:kEvent
                                                               andPredicate:[NSPredicate predicateWithFormat:@"baby == %@", baby]
                                                         andSortDescriptors:nil];
+   // NSLog(@"\n\n\n getEventBelomigTObabyarr.count %d, BABYNAME: %@ \n\n", arr.count, baby.name);
+
     
     return [arr count] > 0 ? arr : nil;
 }
 
--(NSArray *)getEventBelomigTObaby:(Baby *)baby andDay:(NSDate *)day{
-    NSArray *allEventOfBaby = [[SLKCoreDataService sharedService] fetchDataWithEntity:kEvent
-                                                                         andPredicate:[NSPredicate predicateWithFormat:@"baby == %@", baby]
-                                                                   andSortDescriptors:nil];
-    
+-(NSArray *)getEventBelomigTObaby:(Baby *)baby andDay:(NSDate *)day
+{
+    NSArray *allEventOfBaby = [self getEventBelomigTObaby:baby];
+    NSLog(@"allEventOfBabyallEventOfBaby: %d", allEventOfBaby.count);
+    //[[SLKCoreDataService sharedService] fetchDataWithEntity:kEvent
+//                                                                         andPredicate:[NSPredicate predicateWithFormat:@"baby == %@", baby]
+//                                                                   andSortDescriptors:nil];
+//    
     
     NSMutableArray *returnArray = [NSMutableArray array];
     
@@ -301,13 +312,105 @@
     return nil;
 }
 
+
+-(NSMutableDictionary *)getAllDaysWithEventforBaby:(Baby *)baby
+{
+    NSArray *allEventOfBaby = [self getEventBelomigTObaby:baby];
+    NSLog(@"babyname = %@", baby.name);
+   // NSMutableArray *returnArray = [NSMutableArray array];
+    NSLog(@"\n\n\n getAllDaysWithEventforBaby %d\n\n", allEventOfBaby.count);
+    
+    
+    NSMutableDictionary *eventDict = [[NSMutableDictionary alloc] init];
+    
+    NSDate *currentDay = [NSDate date];
+    NSLog(@"\n\n\n weekDAY:-----> %d \n\n", [currentDay weekday]);
+    
+   // NSDate *todate = [currentDay dateByAddingDays:7];
+    //NSDate *fromDate = [NSDate date];
+    
+    NSMutableSet *setOfDays = [[NSMutableSet alloc] init];
+    for (Event *event in allEventOfBaby)
+    {
+       // NSDate *dateOfEvent = event.date;
+        [setOfDays addObject:[SLKDateUtil formatDateWithDay: event.date]];
+        NSString *dateKey = [SLKStringUtil removeAllBlanksAndMakeLowerCase:[SLKDateUtil formatDateWithDayMonthAndYear: event.date]];
+        
+        NSLog(@"\n\n\n ****  dateKey: %@ \n Count:%d \n\n", dateKey, setOfDays.count);
+        
+        [eventDict setObject:event forKey:dateKey];
+        //ex event with key 16 Jun 2013 
+       // NSLog(@"eventDicteventDict1: %@", [eventDict allKeys]);
+
+        
+        
+//        [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit startDate:&dateOfEvent interval:NULL forDate:dateOfEvent];
+//        [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit startDate:&day interval:NULL forDate:day];
+//        
+//        NSComparisonResult compareParemeterStartDateWithParameterEndDate = [dateOfEvent compare:day];
+//        
+//        if (compareParemeterStartDateWithParameterEndDate == NSOrderedSame)
+//        {
+//            [returnArray addObject:event];
+//        }
+//    }
+//    
+//    NSArray *sortedArray = [[NSArray alloc] init];
+//    sortedArray = [returnArray sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+//        NSDate *first = [(Event*)a date];
+//        NSDate *second = [(Event*)b date];
+//        return [first compare:second];
+//    }];
+//    
+//    if ([sortedArray count] >= 1)
+//    {
+//        return sortedArray;
+  }
+    return eventDict;
+    
+//    if (currentDay.weekday == 1)//------------------sunday
+//    {
+//        todate = currentDay;
+//        fromDate = [currentDay dateBySubtractingDays:6];//monday?
+//        
+//    } else if (currentDay.weekday == 2)//------------------monday
+//    {
+//        todate = [currentDay dateByAddingDays:6];//sunday?
+//        fromDate = currentDay;//monday?
+//        
+//    }  else if (currentDay.weekday == 3)//------------------tuesday
+//    {
+//        todate = [currentDay dateByAddingDays:5];//sunday?
+//        fromDate = [currentDay dateBySubtractingDays:1];//monday?
+//        
+//    } else if (currentDay.weekday == 4)//------------------wednesday
+//    {
+//        todate = [currentDay dateByAddingDays:4];//sunday?
+//        fromDate = [currentDay dateBySubtractingDays:2];//monday?
+//        
+//    }  else if (currentDay.weekday == 5)//------------------thursday
+//    {
+//        todate = [currentDay dateByAddingDays:3];//sunday?
+//        fromDate = [currentDay dateBySubtractingDays:3];//monday?
+//        
+//    }  else if (currentDay.weekday == 6)//------------------friday
+//    {
+//        todate = [currentDay dateByAddingDays:2];//sunday?
+//        fromDate = [currentDay dateBySubtractingDays:4];//monday?
+//        
+//    } else if (currentDay.weekday == 7)//------------------thursday
+//    {
+//        todate = [currentDay dateByAddingDays:1];//sunday?
+//        fromDate = [currentDay dateBySubtractingDays:5];//monday?
+//    }
+  
+}
 //FOR WEEK
 -(NSArray *)getEventBelomigTObaby:(Baby *)baby fromDate:(NSDate*)fromDate toDate:(NSDate*)toDate
 {
     NSArray *allEventOfBaby = [[SLKCoreDataService sharedService] fetchDataWithEntity:kEvent
                                                                          andPredicate:[NSPredicate predicateWithFormat:@"baby == %@", baby]
                                                                    andSortDescriptors:nil];
-    
     
     NSMutableArray *returnArray = [NSMutableArray array];
     
@@ -356,13 +459,37 @@
         [self removeEvent:event];
     }
 }
--(NSArray *)getEventByDay:(NSDate *)date
+-(NSArray *)getEventByDate:(NSDate *)date
 {
     NSArray *arr = [[SLKCoreDataService sharedService] fetchDataWithEntity:kEvent
                                                               andPredicate:[NSPredicate predicateWithFormat:@"date == %@", date]
                                                         andSortDescriptors:nil];
     
     return [arr count] > 0 ? [arr lastObject] : nil;
+}
+
+-(NSArray *)getEventByDay:(NSString *)day
+{
+    
+    NSArray *arr = [[SLKCoreDataService sharedService] fetchDataWithEntity:kEvent
+                                                              andPredicate:[NSPredicate predicateWithFormat:@"day == %@", day]
+                                                        andSortDescriptors:nil];
+    
+  //  NSMutableArray *returnArr = [[NSMutableArray alloc] init];
+//    for (Event *event in arr)
+//    {
+//        NSString *dateKey = [SLKStringUtil removeAllBlanksAndMakeLowerCase:[SLKDateUtil formatDateWithDayMonthAndYear: event.date]];
+//
+//        if ([day isEqualToString:dateKey])
+//        {
+//            [returnArr addObject:event];
+//        }
+//        
+//    }
+
+   // NSLog(@"assååarr: %d", [arr count]);
+    
+    return [arr count] > 0 ? arr : nil;
 }
 
 -(NSArray *)getEventBelomigTObabyWithID:(NSString *)babyId

@@ -20,6 +20,8 @@
 		1C30A42C1737B81D0010D4F1 /* SLKPfLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C30A42A1737B81D0010D4F1 /* SLKPfLoginViewController.m */; };
 		1C34EC781706EC700095F0C2 /* SLKPooStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C34EC771706EC700095F0C2 /* SLKPooStorage.m */; };
 		1C34EC7B1706EED10095F0C2 /* SLKPiiStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C34EC7A1706EED10095F0C2 /* SLKPiiStorage.m */; };
+		1C354AF817722C5E00DE49C8 /* SLKStringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C354AF717722C5E00DE49C8 /* SLKStringUtil.m */; };
+		1C354AFB1772301800DE49C8 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C354AFA1772301800DE49C8 /* Event.m */; };
 		1C378B731712A73C006AC9EF /* SLKWelcomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C378B721712A73C006AC9EF /* SLKWelcomeCell.m */; };
 		1C3F372A172E98450084D3D8 /* SLKTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3F3729172E98450084D3D8 /* SLKTabbar.m */; };
 		1C3F372D172E98F70084D3D8 /* SLKTababrController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3F372C172E98F70084D3D8 /* SLKTababrController.m */; };
@@ -51,7 +53,6 @@
 		1C61D9E41742D7B00048C123 /* Diaper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C61D9E31742D7AF0048C123 /* Diaper.m */; };
 		1C61D9E71742D7B10048C123 /* Tits.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C61D9E61742D7B10048C123 /* Tits.m */; };
 		1C61D9EA1742D7B40048C123 /* Bottle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C61D9E91742D7B30048C123 /* Bottle.m */; };
-		1C61D9ED1742D7B70048C123 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C61D9EC1742D7B60048C123 /* Event.m */; };
 		1C61D9F01742D7BB0048C123 /* Medz.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C61D9EF1742D7B90048C123 /* Medz.m */; };
 		1C61D9F31742D7BF0048C123 /* Pii.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C61D9F21742D7BD0048C123 /* Pii.m */; };
 		1C627299170ED21200F51E00 /* SLKParentStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C627298170ED21200F51E00 /* SLKParentStorage.m */; };
@@ -215,6 +216,10 @@
 		1C34EC771706EC700095F0C2 /* SLKPooStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPooStorage.m; sourceTree = "<group>"; };
 		1C34EC791706EED10095F0C2 /* SLKPiiStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKPiiStorage.h; sourceTree = "<group>"; };
 		1C34EC7A1706EED10095F0C2 /* SLKPiiStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPiiStorage.m; sourceTree = "<group>"; };
+		1C354AF617722C5E00DE49C8 /* SLKStringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKStringUtil.h; sourceTree = "<group>"; };
+		1C354AF717722C5E00DE49C8 /* SLKStringUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKStringUtil.m; sourceTree = "<group>"; };
+		1C354AF91772301800DE49C8 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		1C354AFA1772301800DE49C8 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		1C378B711712A73C006AC9EF /* SLKWelcomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKWelcomeCell.h; sourceTree = "<group>"; };
 		1C378B721712A73C006AC9EF /* SLKWelcomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKWelcomeCell.m; sourceTree = "<group>"; };
 		1C3F3728172E98450084D3D8 /* SLKTabbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKTabbar.h; sourceTree = "<group>"; };
@@ -267,8 +272,6 @@
 		1C61D9E61742D7B10048C123 /* Tits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tits.m; sourceTree = "<group>"; };
 		1C61D9E81742D7B10048C123 /* Bottle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bottle.h; sourceTree = "<group>"; };
 		1C61D9E91742D7B30048C123 /* Bottle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bottle.m; sourceTree = "<group>"; };
-		1C61D9EB1742D7B40048C123 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		1C61D9EC1742D7B60048C123 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		1C61D9EE1742D7B80048C123 /* Medz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Medz.h; sourceTree = "<group>"; };
 		1C61D9EF1742D7B90048C123 /* Medz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Medz.m; sourceTree = "<group>"; };
 		1C61D9F11742D7BB0048C123 /* Pii.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pii.h; sourceTree = "<group>"; };
@@ -483,6 +486,8 @@
 				1CF828301701CB4B00EDC904 /* SLKDateUtil.m */,
 				1CF828321701D13F00EDC904 /* SLKDates.h */,
 				1CF828331701D14000EDC904 /* SLKDates.m */,
+				1C354AF617722C5E00DE49C8 /* SLKStringUtil.h */,
+				1C354AF717722C5E00DE49C8 /* SLKStringUtil.m */,
 			);
 			name = "Date utils";
 			sourceTree = "<group>";
@@ -623,12 +628,12 @@
 			isa = PBXGroup;
 			children = (
 				CE5944B516F90DDF00D9D33A /* Model.xcdatamodeld */,
+				1C354AF91772301800DE49C8 /* Event.h */,
+				1C354AFA1772301800DE49C8 /* Event.m */,
 				1C61D9F11742D7BB0048C123 /* Pii.h */,
 				1C61D9F21742D7BD0048C123 /* Pii.m */,
 				1C61D9EE1742D7B80048C123 /* Medz.h */,
 				1C61D9EF1742D7B90048C123 /* Medz.m */,
-				1C61D9EB1742D7B40048C123 /* Event.h */,
-				1C61D9EC1742D7B60048C123 /* Event.m */,
 				1C61D9E81742D7B10048C123 /* Bottle.h */,
 				1C61D9E91742D7B30048C123 /* Bottle.m */,
 				1C61D9E51742D7B00048C123 /* Tits.h */,
@@ -1202,10 +1207,11 @@
 				1C61D9E41742D7B00048C123 /* Diaper.m in Sources */,
 				1C61D9E71742D7B10048C123 /* Tits.m in Sources */,
 				1C61D9EA1742D7B40048C123 /* Bottle.m in Sources */,
-				1C61D9ED1742D7B70048C123 /* Event.m in Sources */,
 				1C61D9F01742D7BB0048C123 /* Medz.m in Sources */,
 				1C61D9F31742D7BF0048C123 /* Pii.m in Sources */,
 				1C4078EF1748D5FE0038C9F9 /* SLKCreateBabyViewController.m in Sources */,
+				1C354AF817722C5E00DE49C8 /* SLKStringUtil.m in Sources */,
+				1C354AFB1772301800DE49C8 /* Event.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
