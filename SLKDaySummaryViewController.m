@@ -39,8 +39,7 @@
     WSAdSpace *splashAdView;
     NSArray *weeks;
     NSArray *days;
-    NSMutableDictionary *eventDict;
-    NSArray *eventArray;
+    NSMutableArray *eventArray;
     NSMutableDictionary *dayOfEventsDict;
 
 }
@@ -69,17 +68,13 @@
     
     currentBaby = [[SLKBabyStorage sharedStorage] getCurrentBaby];
     
-    NSLog(@"viewWillAppearcurrentBabyNAMEE : %@", currentBaby.name);
-
-  //  NSArray *eventOfDayArray = [[SLKEventStorage sharedStorage] getEventByDay:dayKey];
-    
-   eventDict =  [[NSMutableDictionary alloc] init];
-   // eventArray = [[NSArray alloc] init];
-    
     self.view.backgroundColor = [UIColor clearColor];
-
-    _headerLabel.text = [NSString stringWithFormat:@"%@ \n  %@",
-                         currentBaby.name, [SLKDateUtil formatDateWithoutYear: currentDay]];
+    //[_headerLabel setHidden:YES];
+    [_segmentcontroll setHidden:YES];
+    [_next setHidden:YES];
+    [_previous setHidden:YES];
+    
+    _headerLabel.text = [NSString stringWithFormat:@"Overview of \n %@ ",currentBaby.name];//, [SLKDateUtil formatDateWithoutYear: currentDay]];
     
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -97,13 +92,16 @@
 }
 -(void)reloadTable
 {
-    //[_tableView reloadData];
+    //TODO: is it ok to handle _table like this???
+    __block UITableView *table = _tableView;
     currentBaby = [[SLKBabyStorage sharedStorage] getCurrentBaby];
     [UIView transitionWithView:_tableView
-                      duration:0.5f
+                      duration:0
                        options:UIViewAnimationOptionTransitionCrossDissolve
                     animations:^(void) {
-                        [_tableView reloadData];
+                        [self setUpArraysForTableViewOnCompletion:^{
+                            [table reloadData];
+                        }];
                     } completion:NULL];
 }
 
@@ -111,29 +109,36 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    splashAdView = [[WSAdSpace alloc] initWithFrame:CGRectMake(0, 0,320 ,88)  sid:@"f48a4efe-0567-4bc5-b426-8e385f386a87" autoUpdate:NO autoStart:NO delegate:self];
+    [self setUpArraysForTableViewOnCompletion:nil];
     
+    /*     WIDESPACE   */
+    splashAdView = [[WSAdSpace alloc] initWithFrame:CGRectMake(0, 0,320 ,88)  sid:@"f48a4efe-0567-4bc5-b426-8e385f386a87" autoUpdate:NO autoStart:NO delegate:self];
     // Add WSAdSpace as a subview of MyViewController
     // splashAdView.backgroundColor = [UIColor redColor];
     [self.view addSubview:splashAdView];
     [self.view bringSubviewToFront:splashAdView];
     
+    [splashAdView prefetchAd];
+}
+
+-(void)setUpArraysForTableViewOnCompletion:(void (^)()) completed
+{
+    
     currentBaby = [[SLKBabyStorage sharedStorage] getCurrentBaby];//TODO: where to get this??? now its getted two times
     dayOfEventsDict = [[NSMutableDictionary alloc] init];
-
-    eventDict = [[SLKEventStorage sharedStorage] getAllDaysWithEventforBaby:currentBaby];
-    eventArray = [eventDict allKeys];
-
-    for (NSString *str in [eventDict allKeys])
+    eventArray = [[SLKEventStorage sharedStorage] getAllBabysEventSortedByDayAndDateBaby:currentBaby];
+    
+    for (NSString *str in eventArray)
     {
         NSArray *eventOfDayArray = [[SLKEventStorage sharedStorage] getEventByDay:str];
         [dayOfEventsDict setObject:eventOfDayArray forKey:str];
     }
-   // weeks = [[SLKEventStorage sharedStorage] getEventBelomigTObaby:currentBaby andDay:currentDay];
     
-        [splashAdView prefetchAd];
+    if (completed) completed();
 
 }
+
+ /*     WIDESPACE   */
 - (void)didPrefetchAd:(WSAdSpace *)adSpace mediaStatus:(NSString *)mediaStatus
 {
     NSLog(@"did finish prefetch----%@-----%@",adSpace, mediaStatus);
@@ -239,9 +244,7 @@
     [self reloadTable];
 }
 
-
 #pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     NSLog(@"numberOfSectionsInTableView: %d", [eventArray count]);
@@ -307,7 +310,12 @@
 }
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return [eventArray objectAtIndex:section];
+    NSString *dayy = [eventArray objectAtIndex:section];
+    NSArray *array = [dayOfEventsDict objectForKey:dayy];
+    NSDate *date = [[array lastObject] date];
+    
+    NSString *dateString = [NSString stringWithFormat:@"%@    week %d", [SLKDateUtil formatDateWithoutYear: date],[date week]];
+    return dateString;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -317,9 +325,9 @@
     Event *event;
     
     NSString *dayy = [eventArray objectAtIndex:indexPath.section];
-    NSArray *a = [dayOfEventsDict objectForKey:dayy];
+    NSArray *array = [dayOfEventsDict objectForKey:dayy];
     
-    event = [a objectAtIndex:indexPath.row];
+    event = [array objectAtIndex:indexPath.row];
     
     
 //    if (_allEvents) {
@@ -480,6 +488,8 @@
 
 - (void)viewDidUnload {
     [self setSegmentcontroll:nil];
+    [self setNext:nil];
+    [self setPrevious:nil];
     [super viewDidUnload];
  }
 @end

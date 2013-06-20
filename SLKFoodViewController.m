@@ -134,12 +134,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    milkY = 123;
-    milkView = [[UIImageView alloc] initWithFrame:CGRectMake(122, milkY, 33, 0)];
-    UIImage *diap = [UIImage imageNamed:@"blueMilk.png"];
-    [self.bottleView addSubview:milkView];
-    // milkView.frame = CGRectMake(10, 20, 35,_sliderOne.value);
-    [milkView setImage:diap];
+  
   //  NSLog(@"selected ONE? : %d", _switchOne.selected);
    // NSLog(@"current Pf-USER----%@", [PFUser currentUser]);
    // NSLog(@"current SLK-USER----%@", [SLKuser currentUser]);
@@ -215,7 +210,11 @@
 {
     [super viewDidLoad];
      //_universalSliderText.text = [NSString stringWithFormat:@"log how much %@ ate ", currentBabe.name];
-   
+    milkY = 124.5;
+    milkView = [[UIImageView alloc] initWithFrame:CGRectMake(122, milkY, 32, 0)];
+    UIImage *diap = [UIImage imageNamed:@"blueMilk.png"];
+    [self.bottleView addSubview:milkView];
+    [milkView setImage:diap];
     // Declare and Initiate the WSAdSpace object
     splashAdView = [[WSAdSpace alloc] initWithFrame:CGRectMake(0, 0,320 ,88)  sid:@"f48a4efe-0567-4bc5-b426-8e385f386a87" autoUpdate:NO autoStart:NO delegate:self];
     [splashAdView prefetchAd];
@@ -1066,7 +1065,7 @@
     _sliderOneLabel.text = [NSString stringWithFormat:@" %.f ml",_sliderOne.value];
     bottledFood = _sliderOne.value;
     int height = _sliderOne.value/5;
-    [UIView animateWithDuration:0.4 animations:^{ [milkView setFrame:CGRectMake(122, milkY- height, 33, height)]; }];
+    [UIView animateWithDuration:0.4 animations:^{ [milkView setFrame:CGRectMake(122, milkY- height, 32.5, height)]; }];
 
 }
 -(void)setSliderOneLabelSleep

@@ -22,7 +22,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="el2-38-JBq">
-                                        <rect key="frame" x="12" y="58" width="274" height="63"/>
+                                        <rect key="frame" x="12" y="34" width="274" height="63"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -56,7 +56,7 @@
                                         </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="6SJ-2L-7ei">
-                                        <rect key="frame" x="7" y="139" width="285" height="290"/>
+                                        <rect key="frame" x="7" y="105" width="285" height="324"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <prototypes>
@@ -123,6 +123,8 @@
                     <tabBarItem key="tabBarItem" title="CALENDAR" id="WZD-Pm-Cmy"/>
                     <connections>
                         <outlet property="headerLabel" destination="el2-38-JBq" id="Yl0-aQ-tHm"/>
+                        <outlet property="next" destination="LMK-x0-GT4" id="I6o-1G-n71"/>
+                        <outlet property="previous" destination="XDt-YX-iof" id="fp2-sa-cle"/>
                         <outlet property="segmentcontroll" destination="wbJ-7U-RV7" id="UBi-C7-kZx"/>
                         <outlet property="tableView" destination="6SJ-2L-7ei" id="Dtg-VQ-lS0"/>
                     </connections>
