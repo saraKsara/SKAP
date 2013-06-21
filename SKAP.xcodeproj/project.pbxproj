@@ -18,11 +18,13 @@
 		1C30A4281737B7BD0010D4F1 /* SLKPfSingupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C30A4261737B7BD0010D4F1 /* SLKPfSingupViewController.m */; };
 		1C30A42B1737B81D0010D4F1 /* SLKPfLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C30A42A1737B81D0010D4F1 /* SLKPfLoginViewController.m */; };
 		1C30A42C1737B81D0010D4F1 /* SLKPfLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C30A42A1737B81D0010D4F1 /* SLKPfLoginViewController.m */; };
+		1C31AD3D177383EC00412ED0 /* blueMilk.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C31AD3C177383EC00412ED0 /* blueMilk.png */; };
 		1C34EC781706EC700095F0C2 /* SLKPooStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C34EC771706EC700095F0C2 /* SLKPooStorage.m */; };
 		1C34EC7B1706EED10095F0C2 /* SLKPiiStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C34EC7A1706EED10095F0C2 /* SLKPiiStorage.m */; };
 		1C354AF817722C5E00DE49C8 /* SLKStringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C354AF717722C5E00DE49C8 /* SLKStringUtil.m */; };
 		1C354AFB1772301800DE49C8 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C354AFA1772301800DE49C8 /* Event.m */; };
 		1C378B731712A73C006AC9EF /* SLKWelcomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C378B721712A73C006AC9EF /* SLKWelcomeCell.m */; };
+		1C3A8AC0177367FF00AA8E69 /* milk2px.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C3A8ABF177367FF00AA8E69 /* milk2px.png */; };
 		1C3F372A172E98450084D3D8 /* SLKTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3F3729172E98450084D3D8 /* SLKTabbar.m */; };
 		1C3F372D172E98F70084D3D8 /* SLKTababrController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3F372C172E98F70084D3D8 /* SLKTababrController.m */; };
 		1C4078EF1748D5FE0038C9F9 /* SLKCreateBabyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4078EE1748D5FE0038C9F9 /* SLKCreateBabyViewController.m */; };
@@ -212,6 +214,7 @@
 		1C30A4261737B7BD0010D4F1 /* SLKPfSingupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPfSingupViewController.m; sourceTree = "<group>"; };
 		1C30A4291737B81D0010D4F1 /* SLKPfLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKPfLoginViewController.h; sourceTree = "<group>"; };
 		1C30A42A1737B81D0010D4F1 /* SLKPfLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPfLoginViewController.m; sourceTree = "<group>"; };
+		1C31AD3C177383EC00412ED0 /* blueMilk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueMilk.png; sourceTree = "<group>"; };
 		1C34EC761706EC700095F0C2 /* SLKPooStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKPooStorage.h; sourceTree = "<group>"; };
 		1C34EC771706EC700095F0C2 /* SLKPooStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKPooStorage.m; sourceTree = "<group>"; };
 		1C34EC791706EED10095F0C2 /* SLKPiiStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKPiiStorage.h; sourceTree = "<group>"; };
@@ -222,6 +225,7 @@
 		1C354AFA1772301800DE49C8 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		1C378B711712A73C006AC9EF /* SLKWelcomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKWelcomeCell.h; sourceTree = "<group>"; };
 		1C378B721712A73C006AC9EF /* SLKWelcomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKWelcomeCell.m; sourceTree = "<group>"; };
+		1C3A8ABF177367FF00AA8E69 /* milk2px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = milk2px.png; sourceTree = "<group>"; };
 		1C3F3728172E98450084D3D8 /* SLKTabbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKTabbar.h; sourceTree = "<group>"; };
 		1C3F3729172E98450084D3D8 /* SLKTabbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLKTabbar.m; sourceTree = "<group>"; };
 		1C3F372B172E98F70084D3D8 /* SLKTababrController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLKTababrController.h; sourceTree = "<group>"; };
@@ -721,6 +725,7 @@
 				8CCB9B711769F14200A2CC88 /* buttonPeDrop.png */,
 				8CCB9B6D1768B31D00A2CC88 /* 2.png */,
 				8CCB9B6B1768B21A00A2CC88 /* images.png */,
+				1C31AD3C177383EC00412ED0 /* blueMilk.png */,
 				8CCB9B691768B12B00A2CC88 /* nopee.png */,
 				8CCB9B671768A8EC00A2CC88 /* d_.png */,
 				8CCB9B6F1769EECF00A2CC88 /* dropp.png */,
@@ -740,6 +745,7 @@
 				CE1D76F1170E284B00028416 /* checkedNO.png */,
 				1C98A20D172BF1D100741112 /* prevyArrow.png */,
 				CEEFACB41742E376005BA351 /* dia.png */,
+				1C3A8ABF177367FF00AA8E69 /* milk2px.png */,
 				1C98A20F172BF1DF00741112 /* nextyArrow.png */,
 				CEBFE2941715F5870010B192 /* smBc.png */,
 				CEDDEB5E171358820017DE60 /* titsPink.png */,
@@ -1090,6 +1096,8 @@
 				8CCB9B8E176DED1F00A2CC88 /* ensambajsbomb.png in Resources */,
 				8CCB9B941770E3B700A2CC88 /* mooon.png in Resources */,
 				8CCB9B961770E71800A2CC88 /* oneStar.png in Resources */,
+				1C3A8AC0177367FF00AA8E69 /* milk2px.png in Resources */,
+				1C31AD3D177383EC00412ED0 /* blueMilk.png in Resources */,
 				8CCB9B981770F7A800A2CC88 /* clock.png in Resources */,
 				8CCB9B9C1770FE9300A2CC88 /* glock.png in Resources */,
 				8CCB9B9E1770FFEF00A2CC88 /* blueklock.png in Resources */,

@@ -312,98 +312,46 @@
     return nil;
 }
 
+//Returns day (i.e 16june2013) event belonging to current baby
+-(NSMutableArray*)getAllBabysEventSortedByDayAndDateBaby:(Baby *)baby
+{
+    NSArray *arry = [[self getAllDaysWithEventforBaby:baby] allValues];
+    //  NSArray *arr = [[self getAllDaysWithEventforBaby:baby] allKeys];
+    NSMutableArray *returnArray = [[NSMutableArray alloc] init];
+   
+    
+    NSArray *sortedArray = [[NSArray alloc] init];
+    
+    sortedArray = [arry sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+        NSDate *first = [(Event*)b date];
+        NSDate *second = [(Event*)a date];
+        return [first compare:second];
+    }];
+    
+    for (Event *event in sortedArray)
+    {
+        [returnArray addObject:event.day];
+    }
+    return returnArray;
+}
 
 -(NSMutableDictionary *)getAllDaysWithEventforBaby:(Baby *)baby
 {
     NSArray *allEventOfBaby = [self getEventBelomigTObaby:baby];
-    NSLog(@"babyname = %@", baby.name);
-   // NSMutableArray *returnArray = [NSMutableArray array];
-    NSLog(@"\n\n\n getAllDaysWithEventforBaby %d\n\n", allEventOfBaby.count);
-    
-    
+
     NSMutableDictionary *eventDict = [[NSMutableDictionary alloc] init];
-    
-    NSDate *currentDay = [NSDate date];
-    NSLog(@"\n\n\n weekDAY:-----> %d \n\n", [currentDay weekday]);
-    
-   // NSDate *todate = [currentDay dateByAddingDays:7];
-    //NSDate *fromDate = [NSDate date];
     
     NSMutableSet *setOfDays = [[NSMutableSet alloc] init];
     for (Event *event in allEventOfBaby)
     {
-       // NSDate *dateOfEvent = event.date;
         [setOfDays addObject:[SLKDateUtil formatDateWithDay: event.date]];
         NSString *dateKey = [SLKStringUtil removeAllBlanksAndMakeLowerCase:[SLKDateUtil formatDateWithDayMonthAndYear: event.date]];
         
-        NSLog(@"\n\n\n ****  dateKey: %@ \n Count:%d \n\n", dateKey, setOfDays.count);
-        
         [eventDict setObject:event forKey:dateKey];
         //ex event with key 16 Jun 2013 
-       // NSLog(@"eventDicteventDict1: %@", [eventDict allKeys]);
 
-        
-        
-//        [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit startDate:&dateOfEvent interval:NULL forDate:dateOfEvent];
-//        [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit startDate:&day interval:NULL forDate:day];
-//        
-//        NSComparisonResult compareParemeterStartDateWithParameterEndDate = [dateOfEvent compare:day];
-//        
-//        if (compareParemeterStartDateWithParameterEndDate == NSOrderedSame)
-//        {
-//            [returnArray addObject:event];
-//        }
-//    }
-//    
-//    NSArray *sortedArray = [[NSArray alloc] init];
-//    sortedArray = [returnArray sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
-//        NSDate *first = [(Event*)a date];
-//        NSDate *second = [(Event*)b date];
-//        return [first compare:second];
-//    }];
-//    
-//    if ([sortedArray count] >= 1)
-//    {
-//        return sortedArray;
   }
     return eventDict;
-    
-//    if (currentDay.weekday == 1)//------------------sunday
-//    {
-//        todate = currentDay;
-//        fromDate = [currentDay dateBySubtractingDays:6];//monday?
-//        
-//    } else if (currentDay.weekday == 2)//------------------monday
-//    {
-//        todate = [currentDay dateByAddingDays:6];//sunday?
-//        fromDate = currentDay;//monday?
-//        
-//    }  else if (currentDay.weekday == 3)//------------------tuesday
-//    {
-//        todate = [currentDay dateByAddingDays:5];//sunday?
-//        fromDate = [currentDay dateBySubtractingDays:1];//monday?
-//        
-//    } else if (currentDay.weekday == 4)//------------------wednesday
-//    {
-//        todate = [currentDay dateByAddingDays:4];//sunday?
-//        fromDate = [currentDay dateBySubtractingDays:2];//monday?
-//        
-//    }  else if (currentDay.weekday == 5)//------------------thursday
-//    {
-//        todate = [currentDay dateByAddingDays:3];//sunday?
-//        fromDate = [currentDay dateBySubtractingDays:3];//monday?
-//        
-//    }  else if (currentDay.weekday == 6)//------------------friday
-//    {
-//        todate = [currentDay dateByAddingDays:2];//sunday?
-//        fromDate = [currentDay dateBySubtractingDays:4];//monday?
-//        
-//    } else if (currentDay.weekday == 7)//------------------thursday
-//    {
-//        todate = [currentDay dateByAddingDays:1];//sunday?
-//        fromDate = [currentDay dateBySubtractingDays:5];//monday?
-//    }
-  
 }
 //FOR WEEK
 -(NSArray *)getEventBelomigTObaby:(Baby *)baby fromDate:(NSDate*)fromDate toDate:(NSDate*)toDate
@@ -411,9 +359,7 @@
     NSArray *allEventOfBaby = [[SLKCoreDataService sharedService] fetchDataWithEntity:kEvent
                                                                          andPredicate:[NSPredicate predicateWithFormat:@"baby == %@", baby]
                                                                    andSortDescriptors:nil];
-    
     NSMutableArray *returnArray = [NSMutableArray array];
-    
     
     for (Event *event in allEventOfBaby)
     {
@@ -475,20 +421,6 @@
                                                               andPredicate:[NSPredicate predicateWithFormat:@"day == %@", day]
                                                         andSortDescriptors:nil];
     
-  //  NSMutableArray *returnArr = [[NSMutableArray alloc] init];
-//    for (Event *event in arr)
-//    {
-//        NSString *dateKey = [SLKStringUtil removeAllBlanksAndMakeLowerCase:[SLKDateUtil formatDateWithDayMonthAndYear: event.date]];
-//
-//        if ([day isEqualToString:dateKey])
-//        {
-//            [returnArr addObject:event];
-//        }
-//        
-//    }
-
-   // NSLog(@"assååarr: %d", [arr count]);
-    
     return [arr count] > 0 ? arr : nil;
 }
 
@@ -529,7 +461,6 @@
         }
     }
     NSMutableSet *eventset = [NSMutableSet setWithArray:arr];
-    NSLog(@"eventIdsSet--- %@", eventset);
     
     return eventset;
 }

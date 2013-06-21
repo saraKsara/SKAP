@@ -59,13 +59,16 @@
 //    BOOL pooToAddToLittle;
 //    UIImage *checkedImage;
 //    UIImage *unCheckedImage;
-    
+   
     
     //SLEEP
     int sleptMinutes;
     
     //BOTTLE
     float bottledFood;
+     UIImageView *milkView;
+    int milkY;
+    
     
     SLKBabyListTableViewController *settingsVC;
     float checkDirection;
@@ -123,6 +126,7 @@
 
 -(void)didLoadAd:(WSAdSpace *)adSpace adType:(NSString *)adType
 {
+
     NSLog(@"Adspace did load ad with type: %@", adType);
     NSLog(@"Adspace.frame ========= %@", NSStringFromCGRect(adSpace.frame));
 }
@@ -139,7 +143,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+  
   //  NSLog(@"selected ONE? : %d", _switchOne.selected);
    // NSLog(@"current Pf-USER----%@", [PFUser currentUser]);
    // NSLog(@"current SLK-USER----%@", [SLKuser currentUser]);
@@ -215,6 +219,11 @@
 {
     [super viewDidLoad];
      //_universalSliderText.text = [NSString stringWithFormat:@"log how much %@ ate ", currentBabe.name];
+    milkY = 124.5;
+    milkView = [[UIImageView alloc] initWithFrame:CGRectMake(122, milkY, 32, 0)];
+    UIImage *diap = [UIImage imageNamed:@"blueMilk.png"];
+    [self.bottleView addSubview:milkView];
+    [milkView setImage:diap];
    [_timeSlider setThumbImage:[UIImage imageNamed:@"phClock2"]forState:UIControlStateNormal];
     [_timeSlider setThumbImage:[UIImage imageNamed:@"phClock3"]forState:UIControlStateHighlighted];
 
@@ -314,7 +323,6 @@
         [self.pageViews replaceObjectAtIndex:page withObject:newPageView];
     }
     
-
     if ( self.pageControll.currentPage == 0)        [self setTheBreastView];
     
     else if (self.pageControll.currentPage == 1)    [self setTheBottleView];
@@ -331,10 +339,30 @@
 //    else if (self.pageControll.currentPage == 3) [self setCurrentViewWithBool:titsView];
 }
 
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+   if (self.pageControll.currentPage == 3)
+   {
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    
+    [animation setFromValue:[NSNumber numberWithFloat:0.0]];
+    [animation setToValue:[NSNumber numberWithFloat:1.0]];
+    [animation setDuration:0.9f];
+    [animation setAutoreverses:NO];
+    [animation setTimingFunction:[CAMediaTimingFunction
+                                  functionWithName:kCAMediaTimingFunctionLinear]];
+    //[_poo setHidden:NO];
+    [_pee setHidden:NO];
+    [[_pee layer] addAnimation:animation forKey:@"opacity"];
+   }
+
+}
 - (void)purgePage:(NSInteger)page
 {
     if (page < 0 || page >= self.pageViews.count) return;
-    
+  
+
     // Remove a page from the scroll view and reset the pagearray
     UIView *pageView = [self.pageViews objectAtIndex:page];
     if (pageView == nil) {
@@ -408,16 +436,7 @@
 }
 -(void)setTheDiaperView
 {
-    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
     
-    [animation setFromValue:[NSNumber numberWithFloat:0.0]];
-    [animation setToValue:[NSNumber numberWithFloat:1.0]];
-    [animation setDuration:0.3f];
-    [animation setTimingFunction:[CAMediaTimingFunction
-                                  functionWithName:kCAMediaTimingFunctionLinear]];
-    //[_poo setHidden:NO];
-    [_pee setHidden:NO];
-    [[_pee layer] addAnimation:animation forKey:@"opacity"];
     titsView = NO;
     bottleView = NO;
     sleepView = NO;
@@ -1017,7 +1036,8 @@
     _sliderOneLabel.text = @"Titty";
     if (_sliderOne.value < 58)
     {
-        _sliderOneLabel.text = @" extra small meal";
+       _sliderOneLabel.text = @" extra small meal";
+    
     } else  if (_sliderOne.value > 58 && _sliderOne.value < 116)
     {
         _sliderOneLabel.text = @" small meal";
@@ -1035,11 +1055,52 @@
         _sliderOneLabel.text = @" large meal";
     }
 }
+-(UIImage*)drawImagewithFrame:(CGRect)frame
+{
+    NSMutableArray *imageArray = [[NSMutableArray alloc] init];
+    for (int i = 0; i <= frame.size.width; i++) {
+        UIImage *img = [UIImage imageNamed:@"milk2px.png"];
+        [imageArray addObject:img];
+    }
+    
+    UIImage *middleImage = [self mergeImages:imageArray];
+    return middleImage;
+//    UIImage *leftImage = [UIImage imageNamed:@"milk2px.png"];
+//    UIImage *rightImage = [UIImage imageNamed:@"milk2px.png"];
+//    
+//    CGFloat widthOfAllImages = leftImage.size.width + middleImage.size.width + rightImage.size.width;
+//    
+//    UIGraphicsBeginImageContextWithOptions(CGSizeMake(widthOfAllImages, middleImage.size.height), NO, 0);
+//    [leftImage drawAtPoint:CGPointMake(0, 0)];
+//    [middleImage drawAtPoint:CGPointMake(leftImage.size.width, 0)];
+//    [rightImage drawAtPoint:CGPointMake(leftImage.size.width + middleImage.size.width, 0)];
+//    
+//    UIImage* im = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    
+//    UIImageView *imageView = [[UIImageView alloc] initWithImage:im];
+//    imageView.frame = frame;
+   // [self addSubview:imageView];
+}
+-(UIImage*)mergeImages:(NSMutableArray*)images
+{
+    //UIGraphicsBeginImageContextWithOptions(CGSizeMake(images.count, self.frame.size.height), YES, 0.0);
+    for (int i = 0; i < images.count; i++) {
+        [[images objectAtIndex:i] drawAtPoint: CGPointMake(i,0)];
+    }
+    
+    UIImage *middleImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return middleImage;
+}
 
 -(void)setSliderOneLabelBottle
 {
     _sliderOneLabel.text = [NSString stringWithFormat:@" %.f ml",_sliderOne.value];
     bottledFood = _sliderOne.value;
+    int height = _sliderOne.value/5;
+    [UIView animateWithDuration:0.4 animations:^{ [milkView setFrame:CGRectMake(122, milkY- height, 32.5, height)]; }];
+
 }
 -(void)setSliderOneLabelSleep
 {

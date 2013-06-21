@@ -48,6 +48,8 @@
 
 -(NSArray*)getEventByDay:(NSString*)day;
 
+-(NSMutableArray*)getAllBabysEventSortedByDayAndDateBaby:(Baby *)baby;
+
 -(NSArray*)getEventByDate:(NSDate*)date;
 
 -(NSMutableDictionary*)getAllDaysWithEventforBaby:(Baby*)baby;

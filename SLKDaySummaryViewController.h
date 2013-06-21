@@ -24,8 +24,10 @@ typedef enum {
 @property (weak, nonatomic) IBOutlet UILabel *peeLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *foodLabel;
+@property (strong, nonatomic) IBOutlet UIButton *next;
 
 - (IBAction)nextDay:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *previous;
 
 - (IBAction)prevDay:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
