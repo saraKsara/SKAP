@@ -75,13 +75,13 @@
     
      
   /* ***********************  Just for testing, uncomment to use real login and fetch data *********************** */
-       // [self setUpApp];
-     
+        [self setUpApp];
+    
     
     
   
  //  *********************** Just for testing, uncomment to use real login and fetch data ***********************
-
+/*
    //TODO: if user was invited...
    if ([PFUser currentUser] != nil) { // No user logged in
         [self setUpAppFirstTime];
@@ -115,8 +115,10 @@
     //[[SLKBabyStorage sharedStorage] removeAllBabies];
     // [[SLKParentStorage sharedStorage] removeAllParents];
     //
-   
-   
+ 
+ */  
+ 
+ 
     return YES;
 }
 

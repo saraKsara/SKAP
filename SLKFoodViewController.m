@@ -323,7 +323,6 @@
         [self.pageViews replaceObjectAtIndex:page withObject:newPageView];
     }
     
-
     if ( self.pageControll.currentPage == 0)        [self setTheBreastView];
     
     else if (self.pageControll.currentPage == 1)    [self setTheBottleView];
@@ -340,10 +339,30 @@
 //    else if (self.pageControll.currentPage == 3) [self setCurrentViewWithBool:titsView];
 }
 
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+   if (self.pageControll.currentPage == 3)
+   {
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    
+    [animation setFromValue:[NSNumber numberWithFloat:0.0]];
+    [animation setToValue:[NSNumber numberWithFloat:1.0]];
+    [animation setDuration:0.9f];
+    [animation setAutoreverses:NO];
+    [animation setTimingFunction:[CAMediaTimingFunction
+                                  functionWithName:kCAMediaTimingFunctionLinear]];
+    //[_poo setHidden:NO];
+    [_pee setHidden:NO];
+    [[_pee layer] addAnimation:animation forKey:@"opacity"];
+   }
+
+}
 - (void)purgePage:(NSInteger)page
 {
     if (page < 0 || page >= self.pageViews.count) return;
-    
+  
+
     // Remove a page from the scroll view and reset the pagearray
     UIView *pageView = [self.pageViews objectAtIndex:page];
     if (pageView == nil) {
@@ -417,16 +436,7 @@
 }
 -(void)setTheDiaperView
 {
-    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"opacity"];
     
-    [animation setFromValue:[NSNumber numberWithFloat:0.0]];
-    [animation setToValue:[NSNumber numberWithFloat:1.0]];
-    [animation setDuration:0.3f];
-    [animation setTimingFunction:[CAMediaTimingFunction
-                                  functionWithName:kCAMediaTimingFunctionLinear]];
-    //[_poo setHidden:NO];
-    [_pee setHidden:NO];
-    [[_pee layer] addAnimation:animation forKey:@"opacity"];
     titsView = NO;
     bottleView = NO;
     sleepView = NO;
