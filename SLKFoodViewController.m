@@ -322,7 +322,8 @@
         [self.scrollView addSubview:newPageView];
         [self.pageViews replaceObjectAtIndex:page withObject:newPageView];
     }
-    
+    _sliderOne.value = 0;
+    _sliderTwo.value = 0;
     if ( self.pageControll.currentPage == 0)        [self setTheBreastView];
     
     else if (self.pageControll.currentPage == 1)    [self setTheBottleView];
@@ -415,6 +416,7 @@
 
 -(void)setTheSleepView
 {
+    
     [self setSliderOneLabelSleep];
     [self hideTheDiaperSetUp];
     [_sliderOne setHidden:NO];
@@ -502,6 +504,8 @@
     [_tooLittlePoo setHidden:YES];
     [_normalPoo setHidden:YES];
 }
+
+
 
 -(void)setTheMedzView
 {
